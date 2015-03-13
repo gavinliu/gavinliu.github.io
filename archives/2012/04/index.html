@@ -44,6 +44,8 @@
         
           <a class="main-nav-link" href="/">Home</a>
         
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
           <a class="main-nav-link" href="/project">Project</a>
         
           <a class="main-nav-link" href="/about">About</a>
@@ -70,280 +72,93 @@
         
         <section id="main">
   
-    <article id="post-JavaWeb---JSP文件上传，Servlet接收文件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/" class="article-date">
-  <time datetime="2012-04-22T02:43:16.000Z" itemprop="datePublished">2012-04-22</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2012" class="archive-year">2012</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/" class="archive-article-date">
+  <time datetime="2012-04-22T02:43:16.000Z" itemprop="datePublished">4月 22</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java-Web/">Java.Web</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/">Java.Web - JSP文件上传，Servlet接收文件</a>
+      <a class="archive-article-title" href="/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/">Java.Web - JSP文件上传，Servlet接收文件</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>期末项目 网上书店 需要用到 图片上传功能，研究了下，发现很多知识点和细节，下面一一列举</p>
-<p>Jsp 代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"&lt;%=basePath%&gt;admin/book/add"</span> <span class="attribute">method</span>=<span class="value">"post"</span> <span class="attribute">ENCTYPE</span>=<span class="value">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"book_auth"</span> <span class="attribute">placeholder</span>=<span class="value">"作者"</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"book_publish"</span> <span class="attribute">placeholder</span>=<span class="value">"出版社"</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"book_ISBN"</span> <span class="attribute">placeholder</span>=<span class="value">"ISBN"</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"book_price"</span> <span class="attribute">placeholder</span>=<span class="value">"价格"</span>&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"file"</span> <span class="attribute">name</span>=<span class="value">"uploadify"</span> /&gt;</span> <span class="tag">&lt;<span class="title">br</span> /&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">value</span>=<span class="value">"添加书籍"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>注：这里 ENCTYPE=”multipart/form-data” 是设置数据以2进制的编码传输，这样任何文件都可以传了，不过这样存在个问题。(看后文)</p>
-<p>Serlet 核心代码：<br>
-        
-          <p class="article-more-link">
-            <a href="/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/" data-id="ci77kvhae004gjez28wttvrm5" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Web/">Java.Web</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-
-  
-
-  
-
-  
 </article>
-
   
-    <article id="post-JavaWeb---ServletContext-随笔" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/04/15/JavaWeb---ServletContext-随笔/" class="article-date">
-  <time datetime="2012-04-15T02:26:44.000Z" itemprop="datePublished">2012-04-15</time>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2012/04/15/JavaWeb---ServletContext-随笔/" class="archive-article-date">
+  <time datetime="2012-04-15T02:26:44.000Z" itemprop="datePublished">4月 15</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java-Web/">Java.Web</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2012/04/15/JavaWeb---ServletContext-随笔/">Java.Web - ServletContext 随笔</a>
+      <a class="archive-article-title" href="/2012/04/15/JavaWeb---ServletContext-随笔/">Java.Web - ServletContext 随笔</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Servlet容器在启动时会加载Web应用，并为 每个Web应用创建 唯一的 ServletContext 对象。<br>可以把ServletContext看成是一个Web应用的服务器端组件的共享内存。<br>ServletContext对象只在Web应用被关闭时才被销毁；不同的Web应用 ServletContext各自独立存在。</p>
-<h2 id="在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法:">在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法:</h2><ul>
-<li>1）setAttribute(String name,Object object);//把一个对象和一个属性名绑定，将这个对象存储在ServletContext中；</li>
-<li>2）getAttribute(String name);//根据指定的属 性名返回所绑定的对象；</li>
-<li>3）removeAttribute(String name);//根据给定的属性名从ServletContext中删除相应的操作；</li>
-<li>4）getAttributeNames();//返回Enumeration对象，它包含了存储在ServletContext对象中的所有属性名</li>
-</ul>
-<h3 id="ServletContext_VS_Session">ServletContext VS Session</h3><ul>
-<li>ServletContext和Session相同，都是存在服务器端的东西</li>
-<li>ServletContext和Session不同，ServletVontext是所有浏览器共享的， Session是一个浏览器对应一个session</li>
-</ul>
-<p>ServletContext 案例：1.公共聊天室缓存 2.聊天室的在线人数</p>
-<h2 id="ServletContext_实现转发：//和派发器是一样的">ServletContext 实现转发：//和派发器是一样的</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.getServletContext().getRequestDispatcher(<span class="string">"/servlet2"</span>).forward(request,response);</span><br><span class="line"><span class="keyword">this</span>.getServletContext().getRequestDispatcher(<span class="string">"/servlet2"</span>).include(request, response);</span><br></pre></td></tr></table></figure>
-<p>注意：forward与include的区别 </p>
-<ul>
-<li>forward方法是把请求的内容转发到另外的一个servlet.include是把另一个servlet处理过后的内容拿过来.</li>
-<li>forward方法调用后在响应中的没有提交的内容被自动消除。将请求转发给其他的Servlet后，由被调用的Servlet负责对请求做出响应，而原先Servlet的执行则终止</li>
-<li>include方法使原先的Servlet和转发到的Servlet都可以输出响应信息，即原先的Servlet还可以继续输出响应信息
-        
-          <p class="article-more-link">
-            <a href="/2012/04/15/JavaWeb---ServletContext-随笔/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2012/04/15/JavaWeb---ServletContext-随笔/" data-id="ci77kvhag004jjez25ox1alcp" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2012/04/15/JavaWeb---ServletContext-随笔/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Web/">Java.Web</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-
-  
-
-  
-
-  
 </article>
-
   
-    <article id="post-JavaWeb---转向-转发-随笔" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/04/08/JavaWeb---转向-转发-随笔/" class="article-date">
-  <time datetime="2012-04-08T02:22:08.000Z" itemprop="datePublished">2012-04-08</time>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2012/04/08/JavaWeb---转向-转发-随笔/" class="archive-article-date">
+  <time datetime="2012-04-08T02:22:08.000Z" itemprop="datePublished">4月 8</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java-Web/">Java.Web</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2012/04/08/JavaWeb---转向-转发-随笔/">Java.Web - 转向 转发 随笔</a>
+      <a class="archive-article-title" href="/2012/04/08/JavaWeb---转向-转发-随笔/">Java.Web - 转向 转发 随笔</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、页面转向">一、页面转向</h2><p>页面转向可以调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>页面转向时request和response的信息都丢失了，它是重新发起一个定向请求，和原先的没有关系了.</li>
-<li>由于它是新的定向请求，所以效率不高。页面转向可以用在同一个应用中，也可以用在不同应用中。也就是说redirect可以转到外部系统。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);  </span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">response.setStatus(<span class="number">302</span>);</span><br><span class="line">response.setHeader(<span class="string">"Location"</span>,<span class="string">"xx.jsp"</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="二、页面转发">二、页面转发</h2><p>页面转发调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestDispatcher(<span class="string">"xx.jsp"</span>).forward(request,response);</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>页面转发效率高，同时request中的对象还可以在下一页面使用</li>
-<li><p>注：转发不能转发到本web服务器以外的地址</p>
-</li>
-<li><p>转发：指一个web资源收到客户端请求，通知服务器去调用另外一个web资源进行处理。</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取username 的值</span></span><br><span class="line">String u = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line"><span class="comment">// 设置request的属性</span></span><br><span class="line">request.setAttribute(<span class="string">"username"</span>,u);</span><br><span class="line"><span class="comment">// 使用转发的方法，把 request,response对象转发个下一个页面</span></span><br><span class="line"><span class="comment">// 所以下一个页面和上一个页面用的是同一个  request,response对象 ，可以获取相应的值</span></span><br><span class="line">request.getRequestDispatcher(<span class="string">"/servlet2"</span>).forward(request,response);</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2012/04/08/JavaWeb---转向-转发-随笔/" data-id="ci77kvhah004mjez2eal0v1bf" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2012/04/08/JavaWeb---转向-转发-随笔/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Web/">Java.Web</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-
-  
-
-  
-
-  
 </article>
-
   
-    <article id="post-JavaWeb---Servlet-随笔" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/04/01/JavaWeb---Servlet-随笔/" class="article-date">
-  <time datetime="2012-04-01T02:18:41.000Z" itemprop="datePublished">2012-04-01</time>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2012/04/01/JavaWeb---Servlet-随笔/" class="archive-article-date">
+  <time datetime="2012-04-01T02:18:41.000Z" itemprop="datePublished">4月 1</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java-Web/">Java.Web</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2012/04/01/JavaWeb---Servlet-随笔/">Java.Web - Servlet 随笔</a>
+      <a class="archive-article-title" href="/2012/04/01/JavaWeb---Servlet-随笔/">Java.Web - Servlet 随笔</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>注册Servlet</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">servlet</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">servlet-class</span>&gt;</span>com.sco.servlet.MyServlet<span class="tag">&lt;/<span class="title">servlet-class</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="title">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>映射servlet（不是一 一映射）</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">servlet-mapping</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/servlet/MyServlet<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>URL 还能配置成 .html 等等</li>
-<li>URL 也能用通配符配置：<br>⑴”<em>.扩展名”（</em>.do，…）<br>⑵以 / 开头，并以 /<em> 结尾（/</em>，/news/<em>，…）<br>⑶优先级 </em>.do 最低</li>
-<li>Servlet 是单例的，会出先线程安全问题，比如售票系统，需要使用线程同步</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2012/04/01/JavaWeb---Servlet-随笔/" data-id="ci77kvhaj004pjez2ep3eymhj" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2012/04/01/JavaWeb---Servlet-随笔/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Web/">Java.Web</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-
-  
-
-  
-
-  
 </article>
-
   
+  
+    </div></section>
   
 </section>
         
@@ -363,20 +178,43 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 15px;">Animation</a><a href="/tags/Apple/" style="font-size: 17.5px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a><a href="/tags/Java/" style="font-size: 12.5px;">Java</a><a href="/tags/Java-Web/" style="font-size: 20px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 15px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 17.5px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 15px;">Material Design</a><a href="/tags/OS-X/" style="font-size: 17.5px;">OS X</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12.5px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 15px;">Animation</a><a href="/tags/Apple/" style="font-size: 17.5px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a><a href="/tags/Java/" style="font-size: 12.5px;">Java</a><a href="/tags/Java-Web/" style="font-size: 20px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 15px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 17.5px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 15px;">Material Design</a><a href="/tags/OSX/" style="font-size: 17.5px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12.5px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
+    <h3 class="widget-title">近期文章</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">八月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">六月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">五月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">四月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">十一月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">七月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">六月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">四月 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">三月 2012</a><span class="archive-list-count">5</span></li></ul>
+      <ul>
+        
+          <li>
+            <a href="/2015/03/13/Android-Animation-原理/">Android - Animation 原理</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/07/Android-Animation-LayoutTransition/">Android - Animation LayoutTransition</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/01/Android-Animation-基础扫盲/">Android - Animation 基础扫盲</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/02/Gradle-学习笔记-2-编译Java工程/">Gradle - 学习笔记(2) - 编译Java工程</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/22/Gradle---学习笔记(1)---Task/">Gradle - 学习笔记(1) - Task</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
 
-<div class="widget-wrap">
+  
+    <div class="widget-wrap">
     <h3 class="widget-title">最新评论</h3>
     <div class="widget">
     <!-- 多说最新评论 start -->
@@ -397,8 +235,6 @@
     <!-- 多说公共JS代码 end -->
     </div>
 </div>
-
-
   
 </aside>
         
@@ -418,6 +254,8 @@
     <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
     <a href="/project" class="mobile-nav-link">Project</a>
   

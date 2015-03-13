@@ -44,6 +44,8 @@
         
           <a class="main-nav-link" href="/">Home</a>
         
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
           <a class="main-nav-link" href="/project">Project</a>
         
           <a class="main-nav-link" href="/about">About</a>
@@ -70,313 +72,112 @@
         
         <section id="main">
   
-    <article id="post-Android--安卓开发中最佳单例模式实现" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/04/25/Android--安卓开发中最佳单例模式实现/" class="article-date">
-  <time datetime="2014-04-25T03:18:43.000Z" itemprop="datePublished">2014-04-25</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2014" class="archive-year">2014</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2014/04/25/Android--安卓开发中最佳单例模式实现/" class="archive-article-date">
+  <time datetime="2014-04-25T03:18:43.000Z" itemprop="datePublished">4月 25</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/25/Android--安卓开发中最佳单例模式实现/">Android -安卓开发中最佳单例模式实现</a>
+      <a class="archive-article-title" href="/2014/04/25/Android--安卓开发中最佳单例模式实现/">Android -安卓开发中最佳单例模式实现</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="做开发的朋友肯定对单例模式不陌生，大概有下面两种实现方式。">做开发的朋友肯定对单例模式不陌生，大概有下面两种实现方式。</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance=<span class="keyword">new</span> Singleton();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singletonget <span class="title">Instance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">```&lt;!-- more --&gt;</span><br><span class="line">###但是在我们Android中，经常会使用到Context的引用，于是你写下下面这种单例</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">(Context ctx)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Context 参数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">getInstance</span><span class="params">(Context ctx)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Singleton(ctx);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>每次获取单例的时候都要传入一个Context对象，如果我们要在纯Java类下使用，岂不是就歇菜了？</li>
-<li>所以正确的单例模式应该是这样的，以PreferenceUtils为例</li>
-<li>我们只需要在Application里面调用createInstance(Context ctx)，在其他地方使用的时候只需要getInstance()即可</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.gavinliu.formater.util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map.Entry;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.ContentValues;</span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.content.SharedPreferences;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PreferenceUtils</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> PreferenceUtils util;</span><br><span class="line">    <span class="keyword">private</span> SharedPreferences mPreference;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">createInstance</span><span class="params">(Context ctx)</span> </span>&#123;</span><br><span class="line">        util = <span class="keyword">new</span> PreferenceUtils(ctx);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PreferenceUtils <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> util;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">PreferenceUtils</span><span class="params">(Context ctx)</span> </span>&#123;</span><br><span class="line">        mPreference = ctx.getApplicationContext().getSharedPreferences(ctx.getPackageName() + <span class="string">"_preferences"</span>, Context.MODE_PRIVATE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">putString</span><span class="params">(String key, String value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mPreference.edit().putString(key, value).commit();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">putInt</span><span class="params">(String key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mPreference.edit().putInt(key, value).commit();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">putBoolean</span><span class="params">(String key, <span class="keyword">boolean</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mPreference.edit().putBoolean(key, value).commit();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">putValues</span><span class="params">(ContentValues values)</span> </span>&#123;</span><br><span class="line">        SharedPreferences.Editor editor = mPreference.edit();</span><br><span class="line">        <span class="keyword">for</span> (Entry&lt;String, Object&gt; value : values.valueSet()) &#123;</span><br><span class="line">            editor.putString(value.getKey(), value.getValue().toString());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> editor.commit();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getString</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getString(key, <span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getString</span><span class="params">(String key, String defValue)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mPreference.getString(key, defValue);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getInt</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getInt(key, -<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getInt</span><span class="params">(String key, <span class="keyword">int</span> defValue)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mPreference.getInt(key, defValue);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">getBoolean</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getBoolean(key, <span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">getBoolean</span><span class="params">(String key, <span class="keyword">boolean</span> defValue)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mPreference.getBoolean(key, defValue);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2014/04/25/Android--安卓开发中最佳单例模式实现/" data-id="ci77kvh8y0023jez285jxm5i2" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2014/04/25/Android--安卓开发中最佳单例模式实现/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-
-  
-
-  
-
-  
 </article>
-
   
-    <article id="post-Android---让控件变得可拖拽" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/03/25/Android---让控件变得可拖拽/" class="article-date">
-  <time datetime="2014-03-25T10:48:00.000Z" itemprop="datePublished">2014-03-25</time>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2014/03/25/Android---让控件变得可拖拽/" class="archive-article-date">
+  <time datetime="2014-03-25T10:48:00.000Z" itemprop="datePublished">3月 25</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/03/25/Android---让控件变得可拖拽/">Android - 让控件变得可拖拽</a>
+      <a class="archive-article-title" href="/2014/03/25/Android---让控件变得可拖拽/">Android - 让控件变得可拖拽</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>其实要实现拖拽的控件是非常简单的事情，和让控件支持点击一样简单！我们只需要实现<code>onDragEvent()</code> <code>dispatchDragEvent()</code> <code>setOnDragListener()</code>即可，是不是和触摸事件的回调差不多呢？(<code>onTouchEvent()</code> <code>dispatchTouchEvent()</code> <code>setOnTouchListener()</code>)</p>
-<p>我们可以通过<code>View.startDarg(ClipData data, DragShadowBuilder shadowBuilder, Object myLocalState, int flags)</code>来开始拖拽。<br>这里需要我们传入一个DragShadowBuilder对象，DragShadow就是拖拽阴影，会在你拖动的时候显示出来，<br>所以DragShadowBuilder有一个传View的构造函数-new DragShadowBuilder(View)。</p>
-<p><img src="/images/2014.03.25 - Android---让控件变得可拖拽.gif" alt="Drag"><br>
-        
-          <p class="article-more-link">
-            <a href="/2014/03/25/Android---让控件变得可拖拽/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2014/03/25/Android---让控件变得可拖拽/" data-id="ci77kvh8z0026jez2fs59lapu" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2014/03/25/Android---让控件变得可拖拽/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-
-  
-
-  
-
-  
 </article>
-
   
-    <article id="post-Android---使用Loader进行数据加载" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/03/18/Android---使用Loader进行数据加载/" class="article-date">
-  <time datetime="2014-03-18T11:05:33.000Z" itemprop="datePublished">2014-03-18</time>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2014/03/18/Android---使用Loader进行数据加载/" class="archive-article-date">
+  <time datetime="2014-03-18T11:05:33.000Z" itemprop="datePublished">3月 18</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/03/18/Android---使用Loader进行数据加载/">Android - 使用Loader进行数据加载</a>
+      <a class="archive-article-title" href="/2014/03/18/Android---使用Loader进行数据加载/">Android - 使用Loader进行数据加载</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Android3.0 开始提出Loader和LoaderManager的概念，通过LoaderManager类可以很轻松的从Fragment或Activity 中进行异步加载数据。<br>这和AsyncTask很类似，但是AsyncTask没有LoaderManager的统一管理，并且不方便实现MVC的开发模式，对于和UI相关的数据加载就不要使用AsyncTask使用Loader最佳！<br>官方示例：<br><a href="http://developer.android.com/reference/android/app/LoaderManager.html" target="_blank" rel="external">http://developer.android.com/reference/android/app/LoaderManager.html</a><br><a href="http://developer.android.com/reference/android/content/AsyncTaskLoader.html" target="_blank" rel="external">http://developer.android.com/reference/android/content/AsyncTaskLoader.html</a><br>当然我们实际开发中，需要自己去实现一个更加酷的Loader，来满足我们的开发需要。</p>
-<p>BaseDataLoader.java  — 一个基础Loader，提取于AsyncTaskLoader.html的示例代码，并做了自己的处理。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.gavinliu.loader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.AsyncTaskLoader;</span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"></span><br><span class="line"><span class="javadoc">/**</span><br><span class="line"> * 这是一个基础的数据加载Loader</span><br><span class="line"> * </span><br><span class="line"> *<span class="javadoctag"> @author</span> Gavinliu</span><br><span class="line"> *<span class="javadoctag"> @param</span> &lt;T&gt;</span><br><span class="line"> * </span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseDataLoader</span>&lt;<span class="title">T</span>&gt; <span class="keyword">extends</span> <span class="title">AsyncTaskLoader</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> T mData;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BaseDataLoader</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="javadoc">/**</span><br><span class="line">     * Handles a request to start the Loader.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStartLoading</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mData != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// If we currently have a result available, deliver it</span></span><br><span class="line">            <span class="comment">// immediately.</span></span><br><span class="line">            deliverResult(mData);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        registerObserver();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (takeContentChanged() || mData == <span class="keyword">null</span> || isConfigChanged()) &#123;</span><br><span class="line">            <span class="comment">// If the data has changed since the last time it was loaded</span></span><br><span class="line">            <span class="comment">// or is not currently available, start a load.</span></span><br><span class="line">            forceLoad();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="javadoc">/**</span><br><span class="line">     * Called when there is new data to deliver to the client. The super class</span><br><span class="line">     * will take care of delivering it; the implementation here just adds a</span><br><span class="line">     * little more logic.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deliverResult</span><span class="params">(T data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isReset()) &#123;</span><br><span class="line">            <span class="comment">// An async query came in while the loader is stopped. We</span></span><br><span class="line">            <span class="comment">// don't need the result.</span></span><br><span class="line">            <span class="keyword">if</span> (mData != <span class="keyword">null</span>) &#123;</span><br><span class="line">                onReleaseResources(mData);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        T oldApps = mData;</span><br><span class="line">        mData = data;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isStarted()) &#123;</span><br><span class="line">            <span class="comment">// If the Loader is currently started, we can immediately</span></span><br><span class="line">            <span class="comment">// deliver its results.</span></span><br><span class="line">            <span class="keyword">super</span>.deliverResult(data);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// At this point we can release the resources associated with</span></span><br><span class="line">        <span class="comment">// 'oldApps' if needed; now that the new result is delivered we</span></span><br><span class="line">        <span class="comment">// know that it is no longer in use.</span></span><br><span class="line">        <span class="keyword">if</span> (oldApps != <span class="keyword">null</span>) &#123;</span><br><span class="line">            onReleaseResources(oldApps);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="javadoc">/**</span><br><span class="line">     * Handles a request to stop the Loader.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStopLoading</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Attempt to cancel the current load task if possible.</span></span><br><span class="line">        cancelLoad();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="javadoc">/**</span><br><span class="line">     * Handles a request to cancel a load.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCanceled</span><span class="params">(T data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCanceled(data);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// At this point we can release the resources associated with 'apps'</span></span><br><span class="line">        <span class="comment">// if needed.</span></span><br><span class="line">        onReleaseResources(data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="javadoc">/**</span><br><span class="line">     * Handles a request to completely reset the Loader.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onReset</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onReset();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Ensure the loader is stopped</span></span><br><span class="line">        onStopLoading();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// At this point we can release the resources associated with 'apps'</span></span><br><span class="line">        <span class="comment">// if needed.</span></span><br><span class="line">        <span class="keyword">if</span> (mData != <span class="keyword">null</span>) &#123;</span><br><span class="line">            onReleaseResources(mData);</span><br><span class="line">            mData = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        unregisterObserver();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">isConfigChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">unregisterObserver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onReleaseResources</span><span class="params">(T mData)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>MainActivity.java — 使用示例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.gavinliu.loader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.app.LoaderManager.LoaderCallbacks;</span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.content.Loader;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">LoaderCallbacks</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        getLoaderManager().initLoader(<span class="number">0</span>, <span class="keyword">null</span>, <span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Loader&lt;String&gt; <span class="title">onCreateLoader</span><span class="params">(<span class="keyword">int</span> id, Bundle args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"onCreateLoader"</span>);</span><br><span class="line">        mLoader = <span class="keyword">new</span> MyLoader(getApplicationContext());</span><br><span class="line">        <span class="keyword">return</span> mLoader;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoadFinished</span><span class="params">(Loader&lt;String&gt; loader, String data)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"onLoadFinished"</span>);</span><br><span class="line">        System.out.println(<span class="string">"-----&gt;"</span> + data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoaderReset</span><span class="params">(Loader&lt;String&gt; loader)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"onLoaderReset"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> MyLoader mLoader;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyLoader</span> <span class="keyword">extends</span> <span class="title">BaseDataLoader</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">        String mData;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyLoader</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(context);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">loadInBackground</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"LoadInBackground"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Load Success"</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2014/03/18/Android---使用Loader进行数据加载/" data-id="ci77kvh910029jez2p9y4krfk" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2014/03/18/Android---使用Loader进行数据加载/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-
-  
-
-  
-
-  
 </article>
-
   
-    <article id="post-总结这段时间的面试经验" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/03/08/总结这段时间的面试经验/" class="article-date">
-  <time datetime="2014-03-08T15:06:56.000Z" itemprop="datePublished">2014-03-08</time>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2014/03/08/总结这段时间的面试经验/" class="archive-article-date">
+  <time datetime="2014-03-08T15:06:56.000Z" itemprop="datePublished">3月 8</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/刘说八道/">刘说八道</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/03/08/总结这段时间的面试经验/">总结这段时间的面试经验</a>
+      <a class="archive-article-title" href="/2014/03/08/总结这段时间的面试经验/">总结这段时间的面试经验</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>2014.02.17-2014.02.28 这两周一直在面试，找工作，前前后后面试了十多家公司。<br>当然绝大多数都是成都的小型创业公司，一般创业公司多为直接面试，好一点的公司或者对技术比较看中的公司会有笔试。<br>大牛看到勿喷，本文仅仅作为我的一点点经验，应该能代表百分之五十的软件专业毕业生吧。       </p>
-<h2 id="一、准备工作">一、准备工作</h2><h3 id="简历">简历</h3><p>1.网投平台一般有简历模板，这个要尽量填满，填完之后预览，看哪里要修改的，修改需要突出显示的。(比如说我就把我的博客信息，直接填在专业描述里面，因为这样可以显示在最前面)<br>2.邮件投简历，需要你自己做一个简历文档，找模板，注意最后最好导出成PDF格式，不要用Doc。<br>3.通知面试最好备一份纸质简历，有些公司可能不会把你发给他的简历打印出来。  </p>
-<h3 id="笔试">笔试</h3><p>1.临时抱佛脚吧，直接上网找笔试题，然后做，一般找个两三套就够了。<br>2.Java主要知识点:线程同步，异常处理，集合(Collection的那些子类，Arraylist和LinkedList的不同)，多态性，final, finally, finalize的不同。      </p>
-<h3 id="面试">面试</h3><p>1.有笔试，可能会对你笔试内容做个询问。<br>2.会让你介绍你做过的项目。<br>3.基本上所有公司都有问Android Listview的优化，Bitmap的处理，网络异步通讯。        </p>
-<h2 id="二、面试经历">二、面试经历</h2>
-        
-          <p class="article-more-link">
-            <a href="/2014/03/08/总结这段时间的面试经验/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2014/03/08/总结这段时间的面试经验/" data-id="ci77kvh94002cjez25nj8fc1a" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2014/03/08/总结这段时间的面试经验/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/面试经验/">面试经验</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-
-  
-
-  
-
-  
 </article>
-
   
-    <article id="post-比特币里面的技术知识" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/01/06/比特币里面的技术知识/" class="article-date">
-  <time datetime="2014-01-06T11:27:48.000Z" itemprop="datePublished">2014-01-06</time>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2014/01/06/比特币里面的技术知识/" class="archive-article-date">
+  <time datetime="2014-01-06T11:27:48.000Z" itemprop="datePublished">1月 6</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/刘说八道/">刘说八道</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/06/比特币里面的技术知识/">比特币里面的技术知识</a>
+      <a class="archive-article-title" href="/2014/01/06/比特币里面的技术知识/">比特币里面的技术知识</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是比特币？">什么是比特币？</h2><p>比特币（英语：Bitcoin，简写：BTC，货币符号：฿）是一种用户自治的、全球通用的加密电子货币。<br>它是产生和流通是基于非对称加密算法，P2P对等网络和分布式数据库的平台上，开发的交易和账户管理的操作系统。</p>
-<h2 id="什么是对称加密算法？">什么是对称加密算法？</h2><p>1.A要向B发送信息，A和B要事先商量一个密钥，各保存一份。<br>2.A要给B发送信息时，A用密钥加密，发个B。<br>3.B拿到密文，用密钥解密。<br>4.反之亦然。<br>这就是对称加密算法，只有一份密钥，安全性依赖于密钥，泄漏密钥就意味着任何人都可以对他们发送或接收的消息解密，所以密钥的保密性对通信性至关重要。
-        
-          <p class="article-more-link">
-            <a href="/2014/01/06/比特币里面的技术知识/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2014/01/06/比特币里面的技术知识/" data-id="ci77kvh95002gjez2ox4xt59r" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2014/01/06/比特币里面的技术知识/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/比特币-Bitcoin/">比特币(Bitcoin)</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-
-  
-
-  
-
-  
 </article>
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2014/">&laquo; Prev</a><a class="page-number" href="/archives/2014/">1</a><span class="page-number current">2</span>
-    </nav>
+    </div></section>
   
 </section>
         
@@ -396,20 +197,43 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 15px;">Animation</a><a href="/tags/Apple/" style="font-size: 17.5px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a><a href="/tags/Java/" style="font-size: 12.5px;">Java</a><a href="/tags/Java-Web/" style="font-size: 20px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 15px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 17.5px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 15px;">Material Design</a><a href="/tags/OS-X/" style="font-size: 17.5px;">OS X</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12.5px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 15px;">Animation</a><a href="/tags/Apple/" style="font-size: 17.5px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a><a href="/tags/Java/" style="font-size: 12.5px;">Java</a><a href="/tags/Java-Web/" style="font-size: 20px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 15px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 17.5px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 15px;">Material Design</a><a href="/tags/OSX/" style="font-size: 17.5px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12.5px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
+    <h3 class="widget-title">近期文章</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">八月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">六月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">五月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">四月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">十一月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">七月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">六月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">四月 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">三月 2012</a><span class="archive-list-count">5</span></li></ul>
+      <ul>
+        
+          <li>
+            <a href="/2015/03/13/Android-Animation-原理/">Android - Animation 原理</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/07/Android-Animation-LayoutTransition/">Android - Animation LayoutTransition</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/01/Android-Animation-基础扫盲/">Android - Animation 基础扫盲</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/02/Gradle-学习笔记-2-编译Java工程/">Gradle - 学习笔记(2) - 编译Java工程</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/22/Gradle---学习笔记(1)---Task/">Gradle - 学习笔记(1) - Task</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
 
-<div class="widget-wrap">
+  
+    <div class="widget-wrap">
     <h3 class="widget-title">最新评论</h3>
     <div class="widget">
     <!-- 多说最新评论 start -->
@@ -430,8 +254,6 @@
     <!-- 多说公共JS代码 end -->
     </div>
 </div>
-
-
   
 </aside>
         
@@ -451,6 +273,8 @@
     <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
     <a href="/project" class="mobile-nav-link">Project</a>
   

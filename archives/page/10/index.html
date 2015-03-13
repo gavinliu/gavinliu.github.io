@@ -44,6 +44,8 @@
         
           <a class="main-nav-link" href="/">Home</a>
         
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
           <a class="main-nav-link" href="/project">Project</a>
         
           <a class="main-nav-link" href="/about">About</a>
@@ -70,128 +72,55 @@
         
         <section id="main">
   
-    <article id="post-JavaWeb---Response、Request-随笔" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/03/14/JavaWeb---Response、Request-随笔/" class="article-date">
-  <time datetime="2012-03-14T09:08:54.000Z" itemprop="datePublished">2012-03-14</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2012" class="archive-year">2012</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2012/03/14/JavaWeb---Response、Request-随笔/" class="archive-article-date">
+  <time datetime="2012-03-14T09:08:54.000Z" itemprop="datePublished">3月 14</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java-Web/">Java.Web</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2012/03/14/JavaWeb---Response、Request-随笔/">Java.Web - Response、Request 随笔</a>
+      <a class="archive-article-title" href="/2012/03/14/JavaWeb---Response、Request-随笔/">Java.Web - Response、Request 随笔</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>getWriter();和getOutputStream();的使用<br>区别：</p>
-<ol>
-<li>getWriter(); 用于向客户机回送字符数据</li>
-<li>getOutputStream(); 返回对象，可以回送字符数据，也可以回送字节数据(二进制数据)<br> OutputStream os = response.getOutputSteam();<br> os.writ(“hello”.getBytes());<br>如何选择：<br>如果你传送的是字符数据，则使用 getWriter(); 或者说 使用PrintWriter 对象，这样效率高；<br>如果是回送字节数据(birary date) 只能使用 OutputStream();<br>这两个流不能同时使用！</li>
-</ol>
-<p>请求相关API<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestURL().toString(); <span class="comment">//获得URL  http://lyl.com:8080/UsersManger/download.do</span></span><br><span class="line">request.getRequestURL(); <span class="comment">//获得URI  /UsersManger/download.do</span></span><br><span class="line">request.getQueryString(); <span class="comment">//获得所传参数‘?’后面的内容  username=lyl&amp;password=123</span></span><br><span class="line">request.getRemoteAddr(); <span class="comment">//获得客户机的IP</span></span><br><span class="line">request.getRemoteHost(); <span class="comment">//获得客户机的完整主机名</span></span><br><span class="line">request.getRemotePort(); <span class="comment">//获得客户机所使用的网络端口</span></span><br><span class="line">request.getLocalPort(); <span class="comment">//获得WEB服务器所使用的网络端口</span></span><br><span class="line">request.getLocalAddr(); <span class="comment">//获得WEB服务器的IP</span></span><br><span class="line">request.getLocalName(); <span class="comment">//获得WEB服务器主机名</span></span><br><span class="line">request.getParameter(<span class="string">""</span>); <span class="comment">// 获得用户提交的数据,根据name 属性获取</span></span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2012/03/14/JavaWeb---Response、Request-随笔/" data-id="ci77kvhap0051jez2k50ozv21" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2012/03/14/JavaWeb---Response、Request-随笔/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Web/">Java.Web</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-
-  
-
-  
-
-  
 </article>
-
   
-    <article id="post-Android-【手把手教你打太极】" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/03/01/Android-【手把手教你打太极】/" class="article-date">
-  <time datetime="2012-03-01T13:04:30.000Z" itemprop="datePublished">2012-03-01</time>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2012/03/01/Android-【手把手教你打太极】/" class="archive-article-date">
+  <time datetime="2012-03-01T13:04:30.000Z" itemprop="datePublished">3月 1</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/个人作品/">个人作品</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2012/03/01/Android-【手把手教你打太极】/">Android:【手把手教你打太极】</a>
+      <a class="archive-article-title" href="/2012/03/01/Android-【手把手教你打太极】/">Android:【手把手教你打太极】</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>太极拳，是一种武术项目，也是体育运动和健身项目，在中国有着悠久的历史。<br>但事实上太极拳的推广并不是特别广泛，我想在坐的各位老师评委，可能都没接触过太极拳。<br>其平民化。<br>手把手教你打太极是一款教你学习太极拳电子书类应用，软件收录了24式太极拳的招式，图解。让你随时随地都能体验太极拳的魅力。<br>本软件界面优美，适合阅读，是你学习太极拳必备的软件。<br>下载地址：<a href="http://mm.10086.cn/1007/300002692964.html">http://mm.10086.cn/1007/300002692964.html</a> </p>
-<p><img src="/images/2012.02.30 - -软件-Android-【手把手教你打太极】1.jpg" alt="images">
-        
-          <p class="article-more-link">
-            <a href="/2012/03/01/Android-【手把手教你打太极】/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2012/03/01/Android-【手把手教你打太极】/" data-id="ci77kvh6b0000jez2mpt6uzwc" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2012/03/01/Android-【手把手教你打太极】/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-    </footer>
+    </header>
   </div>
-
-  
-
-  
-
-  
 </article>
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/9/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/8/">8</a><a class="page-number" href="/archives/page/9/">9</a><span class="page-number current">10</span>
-    </nav>
+    </div></section>
   
 </section>
         
@@ -211,20 +140,43 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 15px;">Animation</a><a href="/tags/Apple/" style="font-size: 17.5px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a><a href="/tags/Java/" style="font-size: 12.5px;">Java</a><a href="/tags/Java-Web/" style="font-size: 20px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 15px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 17.5px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 15px;">Material Design</a><a href="/tags/OS-X/" style="font-size: 17.5px;">OS X</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12.5px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 15px;">Animation</a><a href="/tags/Apple/" style="font-size: 17.5px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a><a href="/tags/Java/" style="font-size: 12.5px;">Java</a><a href="/tags/Java-Web/" style="font-size: 20px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 15px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 17.5px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 15px;">Material Design</a><a href="/tags/OSX/" style="font-size: 17.5px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12.5px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
+    <h3 class="widget-title">近期文章</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">八月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">六月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">五月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">四月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">十一月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">七月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">六月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">四月 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">三月 2012</a><span class="archive-list-count">5</span></li></ul>
+      <ul>
+        
+          <li>
+            <a href="/2015/03/13/Android-Animation-原理/">Android - Animation 原理</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/07/Android-Animation-LayoutTransition/">Android - Animation LayoutTransition</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/01/Android-Animation-基础扫盲/">Android - Animation 基础扫盲</a>
+          </li>
+        
+          <li>
+            <a href="/2015/02/02/Gradle-学习笔记-2-编译Java工程/">Gradle - 学习笔记(2) - 编译Java工程</a>
+          </li>
+        
+          <li>
+            <a href="/2015/01/22/Gradle---学习笔记(1)---Task/">Gradle - 学习笔记(1) - Task</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
 
-<div class="widget-wrap">
+  
+    <div class="widget-wrap">
     <h3 class="widget-title">最新评论</h3>
     <div class="widget">
     <!-- 多说最新评论 start -->
@@ -245,8 +197,6 @@
     <!-- 多说公共JS代码 end -->
     </div>
 </div>
-
-
   
 </aside>
         
@@ -266,6 +216,8 @@
     <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
   
     <a href="/project" class="mobile-nav-link">Project</a>
   
