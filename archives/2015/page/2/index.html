@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Gavin.Liu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gavin.Liu">
+<meta property="og:url" content="http://gavinliu.cn/archives/2015/page/2/index.html">
+<meta property="og:site_name" content="Gavin.Liu">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gavin.Liu">
+<meta name="twitter:description">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Gavin.Liu</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Focus on Mobile Develop</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/project">Project</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="gavinliu.cn">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        
+        <section id="main">
+  
+    <article id="post-Android---Lollipop自定义Activity转换" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/20/Android---Lollipop自定义Activity转换/" class="article-date">
+  <time datetime="2015-01-20T09:25:42.000Z" itemprop="datePublished">2015-01-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/20/Android---Lollipop自定义Activity转换/">Android - Lollipop自定义Activity过渡动画</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Lollipop 中提供了Activitiy Transition可很方便的在两个Activity实现流畅的过渡效果, 可用来替代Activity Animation.</p>
+<ul>
+<li><h2 id="界面进入退出的过渡动画">界面进入退出的过渡动画</h2>Explode - 爆炸效果, 从界面中心向四周分散<br>Slide - 滑动效果, 从界面边缘滑动 通过Gravity配置上下左右<br>Fade - 渐变效果, 通过Visibility配置淡入淡出</li>
+</ul>
+<p>上面三个类都在<code>android.transition</code>中, 你可以使用<code>Java</code> <code>XML</code> 两种方式来使用它</p>
+<ul>
+<li>Java</li>
+</ul>
+<figure class="highlight java"><figcaption><span>Activity</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);</span><br><span class="line">getWindow().setExitTransition(<span class="keyword">new</span> Explode());</span><br><span class="line">getWindow().setEnterTransition(<span class="keyword">new</span> Explode());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>XML</li>
+</ul>
+<figure class="highlight xml"><figcaption><span>res/values/style.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"AppBase"</span> <span class="attribute">parent</span>=<span class="value">"android:Theme.Material"</span>&gt;</span><span class="css"></span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:windowContentTransitions"</span>&gt;<span class="tag">true</span>&lt;/<span class="tag">item</span>&gt;</span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:windowExitTransition"</span>&gt;<span class="at_rule">@<span class="keyword">transition/explode&lt;/item&gt;</span></span><br><span class="line">    &lt;item name=<span class="string">"android:windowEnterTransition"</span>&gt;@transition/explode&lt;/item&gt;</span><br><span class="line"></span></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><figcaption><span>res/transition/explode.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">explode</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>同时也是支持动画合集</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">transitionSet</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">explode</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">transitionSet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TransitionSet set = <span class="keyword">new</span> TransitionSet();</span><br><span class="line">set.addTransition(<span class="keyword">new</span> Explode());</span><br><span class="line">getWindow().setEnterTransition(set);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用Transition跳转Activity</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">intent.setClass(<span class="keyword">this</span>, TransitionDetilActivity.class);</span><br><span class="line">startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(<span class="keyword">this</span>).toBundle());</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h2 id="共享元素的过渡动画">共享元素的过渡动画</h2>changeBounds - 视图布局边界变化<br>changeClipBounds - 视图剪切边界变化<br>changeTransform - 视图缩放和旋转变化<br>changeImageTransform - 图片尺寸和缩放变化</li>
+</ul>
+<p>上面四个类也是在<code>android.transition</code>中, 使用方法和上面大同小异<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/01/20/Android---Lollipop自定义Activity转换/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2015/01/20/Android---Lollipop自定义Activity转换/" data-id="ci77jbiso000sfjz274osoy7j" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2015/01/20/Android---Lollipop自定义Activity转换/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material Design</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+
+  
+  
+</article>
+
+  
+    <article id="post-Android---VectorDrawable&amp;AnimatedVectorDrawable" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/" class="article-date">
+  <time datetime="2015-01-19T07:30:37.000Z" itemprop="datePublished">2015-01-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/">Android - VectorDrawable&amp;AnimatedVectorDrawable</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、概述">一、概述</h2><p>Android 5.0支持了矢量图，采用SVG的方式</p>
+<h2 id="二、使用总概">二、使用总概</h2><p><img src="/images/2015.01.19 - Android---VectorDrawable&amp;AnimatedVectorDrawable1.png" alt="VectorDrawable"></p>
+<p><img src="/images/2015.01.19 - Android---VectorDrawable&amp;AnimatedVectorDrawable2.png" alt="AnimatedVectorDrawable"></p>
+<h3 id="1-VectorDrawable">1.VectorDrawable</h3><figure class="highlight xml"><figcaption><span>res/drawable/heart.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">vector</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:height</span>=<span class="value">"256dp"</span></span><br><span class="line">    <span class="attribute">android:width</span>=<span class="value">"256dp"</span></span><br><span class="line">    <span class="attribute">android:viewportWidth</span>=<span class="value">"32"</span></span><br><span class="line">    <span class="attribute">android:viewportHeight</span>=<span class="value">"32"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">path</span> <span class="attribute">android:fillColor</span>=<span class="value">"#8fff"</span></span><br><span class="line">      <span class="attribute">android:pathData</span>=<span class="value">"M20.5,9.5 c-1.955,0,-3.83,1.268,-4.5,3 c-0.67,-1.732,-2.547,-3,-4.5,-3 C8.957,9.5,7,11.432,7,14 c0,3.53,3.793,6.257,9,11.5 c5.207,-5.242,9,-7.97,9,-11.5 C25,11.432,23.043,9.5,20.5,9.5z"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">vector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/" data-id="ci77jbiss000zfjz2t1xo971d" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material Design</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+
+  
+  
+</article>
+
+  
+    <article id="post-Chrome-几项必要的配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/16/Chrome-几项必要的配置/" class="article-date">
+  <time datetime="2015-01-16T07:00:08.000Z" itemprop="datePublished">2015-01-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/环境搭建/">环境搭建</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/16/Chrome-几项必要的配置/">Chrome 几项必要的配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="自定义Css">自定义Css</h2><ol>
+<li>新建一个文件夹，比如Custom CSS，包含Custom.css和manifest.json两个文件</li>
+<li><p>manifest.json的内容如下</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   "<span class="attribute">content_scripts</span>": <span class="value">[ &#123;</span><br><span class="line">      "<span class="attribute">css</span>": <span class="value">[<span class="string">"Custom.css"</span>]</span>,</span><br><span class="line">      "<span class="attribute">all_frames</span>": <span class="value"><span class="literal">true</span></span>,</span><br><span class="line">      "<span class="attribute">matches</span>": <span class="value">[ <span class="string">"http://*/*"</span>, <span class="string">"https://*/*"</span> ]</span><br><span class="line">   </span>&#125; ]</span>,</span><br><span class="line">   "<span class="attribute">description</span>": <span class="value"><span class="string">"Custom.css"</span></span>,</span><br><span class="line">   "<span class="attribute">name</span>": <span class="value"><span class="string">"Custom CSS"</span></span>,</span><br><span class="line">   "<span class="attribute">version</span>": <span class="value"><span class="string">"1.0"</span></span>,</span><br><span class="line">   "<span class="attribute">manifest_version</span>": <span class="value"><span class="number">2</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开Chrome的扩展管理，选择打包扩展程序，扩展程序根目录选择Custom CSS文件夹，私有密匙文件不用管，然后选择打包扩展程序，生成Custom CSS.crx和Custom CSS.pem。</p>
+</li>
+<li>将Custom CSS.crx拖入扩展管理安装即可。</li>
+</ol>
+<h2 id="chrome://flags/">chrome://flags/</h2><ul>
+<li>overlay-scrollbars : 使用自动收起的滚动条，不占用额外空间(全平台)</li>
+<li>enable-smooth-scrolling : 像Mac和手机一样平滑滚动(仅Linux可用)</li>
+<li>enable-download-resumption : 恢复下载</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2015/01/16/Chrome-几项必要的配置/" data-id="ci77jbisv0014fjz2vbykx5c3" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2015/01/16/Chrome-几项必要的配置/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chrome/">Chrome</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+
+  
+  
+</article>
+
+  
+    <article id="post-Android---ToolBar初体验" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/16/Android---ToolBar初体验/" class="article-date">
+  <time datetime="2015-01-16T06:57:01.000Z" itemprop="datePublished">2015-01-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/16/Android---ToolBar初体验/">Android - Toolbar初体验</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、概述">一、概述</h2><p>配合Android L的发布，Google还更新了Appcombat V7库，新加入了代替现有ActionBar机制的控件——Toolbar，不像以前ActionBar是frameworks封装好提供接口调用的一套应用界面组成部分，它牵涉的东西很多，而Toolbar只是一个控件，和LinearLayout一样可以装载view的容器控件，所以它定制性非常强灵活度非常高，但它又加入了实现现有ActionBar功能的逻辑，感觉非重强大。接下来，我们一起来看看这个新生代Toolbar的使用方法。</p>
+<h2 id="二、使用总概">二、使用总概</h2><p>Toolbar在Appcombat V7库是一个公开的控件，位于android.support.v7.widget包中，继承自ViewGroup，所以我们可以像使用普通的容器控件一样使用Toolbar，并主动调用相关方法实现ActionBar的功能。但是，Google是希望在Appcombat V7库中使用Toolbar来代替现有ActionBar的实现，所以肯定不会仅仅提供个控件就好了，Appcombat V7还把Toolbar封装进默认的Activity中。在新建工程时，创建向导会默认导入Appcombat V7库，自动创建的Activity也会继承自对Toolbar封装过的ActionBarActivity，创建工程后立刻运行应用，此时已是Toolbar实现了ActionBar的功能。</p>
+<figure class="highlight"><figcaption><span>导入Appcombat V7库:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile 'com.android.support:appcompat-v7:21.0.3'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="android-support-v7-widget-ActionBarActivity">android.support.v7.widget.ActionBarActivity</h3><ul>
+<li>Actionbar</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ActionBar actionBar = getSupportActionBar();</span><br><span class="line">actionBar.setTitle(<span class="string">"Title"</span>);</span><br><span class="line">actionBar.setSubtitle(<span class="string">"subtitle"</span>);</span><br><span class="line">actionBar.setLogo(R.drawable.ic_launcher);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Toolbar</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Toolbar toolbar = (Toolbar) findViewById(R.id.action_bar);</span><br><span class="line">toolbar.setTitle(<span class="string">"Title"</span>);</span><br><span class="line">toolbar.setSubtitle(<span class="string">"subtitle"</span>);</span><br><span class="line">toolbar.setLogo(R.drawable.ic_launcher);</span><br></pre></td></tr></table></figure>
+<p>SupportActionBar是由Toolbar实现，而Toolbar又是公开的，所以上面两种方式的等价的。</p>
+<h3 id="自行指定Toolbar">自行指定Toolbar</h3>
+        
+          <p class="article-more-link">
+            <a href="/2015/01/16/Android---ToolBar初体验/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2015/01/16/Android---ToolBar初体验/" data-id="ci77jbit00019fjz2z0xfuqkf" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2015/01/16/Android---ToolBar初体验/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material Design</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+
+  
+  
+</article>
+
+  
+    <article id="post-Flyme互联网产品的错误示范" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/07/Flyme互联网产品的错误示范/" class="article-date">
+  <time datetime="2015-01-07T03:24:49.000Z" itemprop="datePublished">2015-01-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/刘说八道/">刘说八道</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/07/Flyme互联网产品的错误示范/">Flyme互联网产品的错误示范</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="账户系统">账户系统</h3><ul>
+<li><p>Flyme账户 <strong>缺少用户属性</strong><br>Flyme账户只在云服务中作为登录验证使用，在Flyme4之前连昵称和头像都没有，除了这两点之外也没有其他个性化的设置。</p>
+</li>
+<li><p>Flyme账户 <strong>缺失用户关系</strong><br>Flyme账户至Flyme系统出世就一直存在，到现在发展到Flyme4了，用户与用户之间的联系还是没有，要知道互联网产品最需要的就是通过用户关系强化用户对软件的黏性。</p>
+</li>
+</ul>
+<h3 id="互联网进程操之过急">互联网进程操之过急</h3><ul>
+<li><p>Flyme应用中心 <strong>过度拆分化</strong><br>Flyme3的<code>应用中心</code>，在Flyme4中拆分成三个<code>应用中心</code> <code>游戏中心</code> <code>个性化</code>，把原本不多的流量活生生的分发到三个地方。</p>
+</li>
+<li><p>Flyme基础应用 <strong>过渡互联网化</strong><br>引以为傲的<code>音乐播放器</code> <code>视频播放器</code> 沦为 <strong>音乐商店附带播放功能</strong>和<strong>在线视频附带本地播放</strong></p>
+</li>
+</ul>
+<h3 id="产品思路">产品思路</h3><ul>
+<li><p>应用中心(APP)，游戏中心(游戏)，个性化(主题)<br>原应用中心中的三大元素拆分成三个APP这个做法是正确，但是不应该是当前这样拆，目前主题拆分出来是没有问题的，问题存在于应用中心和游戏中心上。<br>当前的应用中心和游戏中心的功能几乎是一模一样的，就是为用户提供下载服务，然而游戏其实也是应用，现在硬生生的才分成两个App，有必要吗？！那你可能会说我意思不应该有游戏中心这个App呢？当然不是！游戏中心要做的是<strong>玩家和玩家</strong>的互动，<strong>玩家和游戏商</strong>的互动，玩家需要个漂亮的个人页面展示游戏成就等等，这才是游戏中心应该做的事情。</p>
+</li>
+<li><p>音乐<br>音乐播放器作为Flyme最有亮点的App之一，软件的信息架构却一昧的像应用中心这种以推荐为导向的软件构靠拢，<strong>用户打开音乐听歌的需求远远大于寻找歌曲的需求</strong>，那么对于音乐来说个人歌单，歌曲列表对于用户才是重要的，在线推荐这些在软件的信息架构上可以稍微靠后一点，应该有不少用户会抱怨每次打开音乐听歌步骤是如此繁琐吧。</p>
+</li>
+<li><p>视频<br>以前视频播放器也是Flyme里很有特色的软件，Flyme3的本地视频 深色的背景 着实有点影院的感觉，在Flyme 4上本地被弱化得只有一个Pager了。<br>对于Flyme的视频发展上，在线视频可以提出来单独做一个产品线类似于(Youtube)，而视频则专注本地 界面做得精致点 有点iMovie的样子就差不多，同时也可以加入视频编辑功能，也是很有买点的。</p>
+</li>
+</ul>
+<h3 id="Apple_和_Google">Apple 和 Google</h3><blockquote>
+<p>Apple<br><code>App Store</code>提供软件购买下载, <code>iTunes Store</code>提供内容购买下载。<br>通过 <code>音乐</code> <code>视频</code> <code>iBooks</code> 这些软件专注消费内容，使用内容。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Google<br><code>Play 商店</code>集合了软件和内容所有购买下载。<br>通过 <code>Play音乐</code> <code>Play电影</code> 一大堆这样的 <strong><code>Play X</code></strong> 这些软件专注消费内容，使用内容。</p>
+</blockquote>
+<p>可以看出国外对于内容消费比较成熟，会把内容当成商品买，回到国内，还没有消费内容的习惯来说，把各个内容的获取分配到各个应用中的做法是比较符合国情的，但是不对的地方是，对于音乐来说要找准用户的痛点，市面上好的播放器真的很少。</p>
+<h3 id="后记：战略发展">后记：战略发展</h3><p>Flyme账户系统以及其他互联网产品应该独立化，应该完全使用原生SDK开发，使之可以装在其他Android手机上，这样对于Flyme适配不过来的手机，可以提供Flyme服务的刷机包，而Flyme的设计也尽量追随谷歌的设计规范，这样有利于应用软件的开发和推广。</p>
+<p>迄今为止，Flyme只适配了有限的几款机型，并且PatchRom也没有完成的情况下，如果推出一个Flyme服务的刷机包，让其他Android用户能体验到Flyme的云服务，体验到Flyme优秀的基础应用，这样也能达到发展潜在用户的目的，这应该也是Google不管你怎么改Android，只要内置Google服务就行的原因吧。</p>
+<p>当年小米通过MIUI占领市场，而如今采用Flyme服务的方式来占领其他Android手机也不乏是个好点子，突然觉得这也是个不错的创业的项目。</p>
+<hr>
+<p>最后更新：2015.01.21 00:40</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2015/01/07/Flyme互联网产品的错误示范/" data-id="ci77jbit3001efjz2i10vjnta" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2015/01/07/Flyme互联网产品的错误示范/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flyme/">Flyme</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人人都是产品经理/">人人都是产品经理</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+
+  
+  
+</article>
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/2015/">&laquo; Prev</a><a class="page-number" href="/archives/2015/">1</a><span class="page-number current">2</span>
+    </nav>
+  
+</section>
+        
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java.Web</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 15px;">Animation</a><a href="/tags/Apple/" style="font-size: 17.5px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a><a href="/tags/Java/" style="font-size: 12.5px;">Java</a><a href="/tags/Java-Web/" style="font-size: 20px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 15px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 17.5px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 15px;">Material Design</a><a href="/tags/OS-X/" style="font-size: 17.5px;">OS X</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12.5px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">八月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">六月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">五月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">四月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">十一月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">七月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">六月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">四月 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">三月 2012</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+<div class="widget-wrap">
+    <h3 class="widget-title">最新评论</h3>
+    <div class="widget">
+    <!-- 多说最新评论 start -->
+    <div class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
+    <!-- 多说最新评论 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+        var duoshuoQuery = {short_name:"gavinliu"};
+            (function() {
+              var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+               ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+              (document.getElementsByTagName('head')[0] 
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+           })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+    </div>
+</div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Gavin Liu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/project" class="mobile-nav-link">Project</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinliu"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"nocss.css"}};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+                processEscapes: true
+                    
+}
+  
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+                  
+}
+    
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                            all[i].SourceElement().parentNode.className += ' has-jax';
+                                    
+            }
+                
+        });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+
+
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000412348'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000412348%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>

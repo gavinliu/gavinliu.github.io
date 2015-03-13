@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>比特币里面的技术知识 | Gavin.Liu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="什么是比特币？比特币（英语：Bitcoin，简写：BTC，货币符号：฿）是一种用户自治的、全球通用的加密电子货币。它是产生和流通是基于非对称加密算法，P2P对等网络和分布式数据库的平台上，开发的交易和账户管理的操作系统。
+什么是对称加密算法？1.A要向B发送信息，A和B要事先商量一个密钥，各保存一份。2.A要给B发送信息时，A用密钥加密，发个B。3.B拿到密文，用密钥解密。4.反之亦然。这就是对称">
+<meta property="og:type" content="article">
+<meta property="og:title" content="比特币里面的技术知识">
+<meta property="og:url" content="http://gavinliu.cn/2014/01/06/比特币里面的技术知识/index.html">
+<meta property="og:site_name" content="Gavin.Liu">
+<meta property="og:description" content="什么是比特币？比特币（英语：Bitcoin，简写：BTC，货币符号：฿）是一种用户自治的、全球通用的加密电子货币。它是产生和流通是基于非对称加密算法，P2P对等网络和分布式数据库的平台上，开发的交易和账户管理的操作系统。
+什么是对称加密算法？1.A要向B发送信息，A和B要事先商量一个密钥，各保存一份。2.A要给B发送信息时，A用密钥加密，发个B。3.B拿到密文，用密钥解密。4.反之亦然。这就是对称">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="比特币里面的技术知识">
+<meta name="twitter:description" content="什么是比特币？比特币（英语：Bitcoin，简写：BTC，货币符号：฿）是一种用户自治的、全球通用的加密电子货币。它是产生和流通是基于非对称加密算法，P2P对等网络和分布式数据库的平台上，开发的交易和账户管理的操作系统。
+什么是对称加密算法？1.A要向B发送信息，A和B要事先商量一个密钥，各保存一份。2.A要给B发送信息时，A用密钥加密，发个B。3.B拿到密文，用密钥解密。4.反之亦然。这就是对称">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Gavin.Liu</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Focus on Mobile Develop</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/project">Project</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="gavinliu.cn">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        
+        <section id="main"><article id="post-比特币里面的技术知识" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/01/06/比特币里面的技术知识/" class="article-date">
+  <time datetime="2014-01-06T11:27:48.000Z" itemprop="datePublished">2014-01-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/刘说八道/">刘说八道</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      比特币里面的技术知识
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="什么是比特币？">什么是比特币？</h2><p>比特币（英语：Bitcoin，简写：BTC，货币符号：฿）是一种用户自治的、全球通用的加密电子货币。<br>它是产生和流通是基于非对称加密算法，P2P对等网络和分布式数据库的平台上，开发的交易和账户管理的操作系统。</p>
+<h2 id="什么是对称加密算法？">什么是对称加密算法？</h2><p>1.A要向B发送信息，A和B要事先商量一个密钥，各保存一份。<br>2.A要给B发送信息时，A用密钥加密，发个B。<br>3.B拿到密文，用密钥解密。<br>4.反之亦然。<br>这就是对称加密算法，只有一份密钥，安全性依赖于密钥，泄漏密钥就意味着任何人都可以对他们发送或接收的消息解密，所以密钥的保密性对通信性至关重要。     <a id="more"></a></p>
+<h2 id="什么是非对称加密算法？">什么是非对称加密算法？</h2><p>1.A要向B发送信息，A和B都要产生一对用于加密的公钥和解密的私钥。<br>2.A的私钥保密，A的公钥告诉B；B的私钥保密，B的公钥告诉A。<br>3.A要给B发送信息时，A用B的公钥加密信息，因为A知道B的公钥。<br>4.A将这个消息发给B（已经用B的公钥加密消息）。<br>5.B收到这个消息后，B用自己的私钥解密A的消息。其他所有收到这个报文的人都无法解密，因为只有B才有B的私钥。</p>
+<p>这就是非对称加密算法，由于公钥是可以公开的，用户只要保管好自己的私钥即可，因此加密密钥的分发将变得十分简单。同时，由于每个用户的私钥是唯一的，其他用户除了可以通过信息发送者的公钥来验证信息的来源是否真实，还可以确保发送者无法否认曾发送过该信息。     </p>
+<h2 id="什么是P2P对等网络？">什么是P2P对等网络？</h2><p>对等网络（peer-to-peer， 简称P2P），又称点对点技术，是无中心服务器、依靠用户群（peers）交换信息的互联网体系。与有中心服务器的中央网络系统不同，对等网络的每个用户端既是一个节点，也有服务器的功能，任何一个节点无法直接找到其他节点，必须依靠其户群进行信息交流。</p>
+<h2 id="通俗的说说我理解的比特币">通俗的说说我理解的比特币</h2><!-- more-->
+<p>其实比特币是一个没有假账的账簿，而怎么维护这个没有假账的账簿。就用到了P2P网络，非对称加密，数据签名等方法。<br>整个P2P网络的每一个节点，都再干一件事，维护这个没有假账的大账簿！      </p>
+<p>如何维护？比特币网络规定了一个特定的块区，作为记录比特币的账簿。    </p>
+<p>如何找到这个块区(账簿)？<br>通过计算机的计算，算法很简单但是一个字符挨个尝试，如果你找到了这个块区(账簿)，就会奖励你50฿，也就是俗称的挖矿。<br>所有的比特币也都是记录在块区(账簿)，块区含有你的地址，通过非对称加密，没人知道这个钱具体是属于谁的，非常安全。</p>
+<p>如何交易？<br>这里就用到了P2P网络和加密算法，通过对块区(账簿)加密，块区还包含下一个拥有者的地址，交易在P2P网络中传播，并在<br>接下来几分钟内，通过一个叫作挖矿的过程被比特币网络所确认，交易就完成了。</p>
+<p>Bitcoin是一个一种点对点的电子现金系统，而非电子货币！<br>这个系统通过一个块区来记录交易记录，块区的产生是需要通过计算机计算得出，算出新的块区有50฿的奖励，奖励你对系统的贡献。</p>
+<h2 id="这东西安全么？">这东西安全么？</h2><p>请不要怀疑全世界程序员+数学家+密码学家的智商！<br><a href="https://github.com/bitcoin/bitcoin/archive/master.zip" target="_blank" rel="external">点我即可拿到源码</a>感兴趣自己去研究吧</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2014/01/06/比特币里面的技术知识/" data-id="ci77jbitp002gfjz2gbnogfwd" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2014/01/06/比特币里面的技术知识/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/比特币-Bitcoin/">比特币(Bitcoin)</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2014/01/06/比特币里面的技术知识/" data-title="比特币里面的技术知识" data-url="http://gavinliu.cn/2014/01/06/比特币里面的技术知识/"></div>
+  </section>
+  
+
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/03/08/总结这段时间的面试经验/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          总结这段时间的面试经验
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/12/31/2013-The-End/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2013 The End</div>
+    </a>
+  
+</nav>
+
+  
+  
+</article>
+</section>
+        
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java.Web</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 15px;">Animation</a><a href="/tags/Apple/" style="font-size: 17.5px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a><a href="/tags/Java/" style="font-size: 12.5px;">Java</a><a href="/tags/Java-Web/" style="font-size: 20px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 15px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 17.5px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 15px;">Material Design</a><a href="/tags/OS-X/" style="font-size: 17.5px;">OS X</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12.5px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">二月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">一月 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">十一月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">八月 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">六月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">五月 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">四月 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">十一月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">七月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">六月 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">五月 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">四月 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">三月 2012</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+<div class="widget-wrap">
+    <h3 class="widget-title">最新评论</h3>
+    <div class="widget">
+    <!-- 多说最新评论 start -->
+    <div class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
+    <!-- 多说最新评论 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+        var duoshuoQuery = {short_name:"gavinliu"};
+            (function() {
+              var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+               ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+              (document.getElementsByTagName('head')[0] 
+                 || document.getElementsByTagName('body')[0]).appendChild(ds);
+           })();
+    </script>
+    <!-- 多说公共JS代码 end -->
+    </div>
+</div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Gavin Liu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/project" class="mobile-nav-link">Project</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"gavinliu"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>window._bd_share_config={"common":{},"share":{"bdCustomStyle":"nocss.css"}};with(document)0[(getElementsByTagName("head")[0]||body).appendChild(createElement("script")).src="http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion="+~(-new Date()/36e5)];</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+                processEscapes: true
+                    
+}
+  
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+tex2jax: {
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+                  
+}
+    
+        });
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Queue(function() {
+            var all = MathJax.Hub.getAllJax(), i;
+            for(i=0; i < all.length; i += 1) {
+                            all[i].SourceElement().parentNode.className += ' has-jax';
+                                    
+            }
+                
+        });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+
+
+  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1000412348'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "v1.cnzz.com/z_stat.php%3Fid%3D1000412348%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+  
+</body>
+</html>
