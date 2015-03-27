@@ -99,6 +99,9 @@ Jsp 代码：12345678&amp;lt;form action=&quot;&amp;lt;%=basePath%&amp;gt;admin/
     
     <div class="article-entry" itemprop="articleBody">
       
+
+        
+        
         <p>期末项目 网上书店 需要用到 图片上传功能，研究了下，发现很多知识点和细节，下面一一列举</p>
 <p>Jsp 代码：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"&lt;%=basePath%&gt;admin/book/add"</span> <span class="attribute">method</span>=<span class="value">"post"</span> <span class="attribute">ENCTYPE</span>=<span class="value">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"book_auth"</span> <span class="attribute">placeholder</span>=<span class="value">"作者"</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"book_publish"</span> <span class="attribute">placeholder</span>=<span class="value">"出版社"</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"book_ISBN"</span> <span class="attribute">placeholder</span>=<span class="value">"ISBN"</span>&gt;</span> <span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"book_price"</span> <span class="attribute">placeholder</span>=<span class="value">"价格"</span>&gt;</span><span class="tag">&lt;<span class="title">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"file"</span> <span class="attribute">name</span>=<span class="value">"uploadify"</span> /&gt;</span> <span class="tag">&lt;<span class="title">br</span> /&gt;</span> </span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">value</span>=<span class="value">"添加书籍"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>注：这里 ENCTYPE=”multipart/form-data” 是设置数据以2进制的编码传输，这样任何文件都可以传了，不过这样存在个问题。(看后文)</p>
@@ -113,7 +116,7 @@ Jsp 代码：12345678&amp;lt;form action=&quot;&amp;lt;%=basePath%&amp;gt;admin/
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/" data-id="ci77sh1qg004g4oz2l1l29iqb" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/" data-id="ci7rv8pxd004mv7z2b9tonrhr" class="article-share-link" data-share="baidu">分享到</a>
       
 
       <!-- 
@@ -168,7 +171,7 @@ Jsp 代码：12345678&amp;lt;form action=&quot;&amp;lt;%=basePath%&amp;gt;admin/
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java.Web</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java.Web</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -177,7 +180,7 @@ Jsp 代码：12345678&amp;lt;form action=&quot;&amp;lt;%=basePath%&amp;gt;admin/
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 15px;">Animation</a><a href="/tags/Apple/" style="font-size: 17.5px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a><a href="/tags/Java/" style="font-size: 12.5px;">Java</a><a href="/tags/Java-Web/" style="font-size: 20px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 15px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 17.5px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 15px;">Material Design</a><a href="/tags/OSX/" style="font-size: 17.5px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12.5px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 16px;">Animation</a><a href="/tags/Apple/" style="font-size: 16px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12px;">Gradle</a><a href="/tags/Java/" style="font-size: 12px;">Java</a><a href="/tags/Java-Web/" style="font-size: 18px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 14px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 16px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 14px;">Material Design</a><a href="/tags/OSX/" style="font-size: 16px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/三角函数/" style="font-size: 10px;">三角函数</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
     </div>
   </div>
 
@@ -189,7 +192,11 @@ Jsp 代码：12345678&amp;lt;form action=&quot;&amp;lt;%=basePath%&amp;gt;admin/
       <ul>
         
           <li>
-            <a href="/2015/03/13/Android-Animation-原理/">Android - Animation 原理</a>
+            <a href="/2015/03/28/Android-Animation-Facebook开源动画框架/">Android - Animation Facebook开源动画框架</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/26/Android-Animation-三角函数之美/">Android - Animation 三角函数之美</a>
           </li>
         
           <li>
@@ -202,10 +209,6 @@ Jsp 代码：12345678&amp;lt;form action=&quot;&amp;lt;%=basePath%&amp;gt;admin/
         
           <li>
             <a href="/2015/02/02/Gradle-学习笔记-2-编译Java工程/">Gradle - 学习笔记(2) - 编译Java工程</a>
-          </li>
-        
-          <li>
-            <a href="/2015/01/22/Gradle---学习笔记(1)---Task/">Gradle - 学习笔记(1) - Task</a>
           </li>
         
       </ul>

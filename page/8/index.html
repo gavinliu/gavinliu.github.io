@@ -72,6 +72,73 @@
         
         <section id="main">
   
+    <article id="post-Java-Web-Session-随笔" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/05/30/Java-Web-Session-随笔/" class="article-date">
+  <time datetime="2012-05-30T12:41:50.000Z" itemprop="datePublished">2012-05-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java-Web/">Java.Web</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/05/30/Java-Web-Session-随笔/">Java.Web - Session 随笔</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><h2 id="什么Session?">什么Session?</h2>指用户用一个浏览器，访问某个网站只要不关闭浏览器，不管用户点击多少个超链接，直到用户关闭浏览器，整个这个过程我们称为一次会话。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建session</span></span><br><span class="line">HttpSession session = request.getSession();</span><br><span class="line"><span class="comment">// 设置session属性，属性重名，value会被替换</span></span><br><span class="line">session.setAttribute(<span class="string">"name"</span>, <span class="string">"gavin"</span>);</span><br><span class="line">session.setAttribute(<span class="string">"pwd"</span>, <span class="string">"123456"</span>);</span><br><span class="line"><span class="comment">// 获取session属性的值，返回的是一个object对象</span></span><br><span class="line">session.getAttribute(<span class="string">"name"</span>);</span><br><span class="line"><span class="comment">// 删除session属性</span></span><br><span class="line">session.removeAttribute(<span class="string">"name"</span>);</span><br></pre></td></tr></table></figure>
+<p>Session的生命周期，可以去conf/web.xml配置，也可在项目下的web.xml配置，代码里面也可以设置。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置一个秒数，这个秒数表示客户端在不发出请求时，session被Servlet引擎维持的最长时间。</span></span><br><span class="line">session.setMaxInactiveInterval(<span class="number">100</span>);</span><br><span class="line"><span class="comment">// 让session中的所有属性解除绑定</span></span><br><span class="line">session.invalidate()</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><h2 id="服务器为每个浏览器提供单个Session服务的原理：">服务器为每个浏览器提供单个Session服务的原理：</h2><p>1.第一次访问web应用时，会创建一个Session服务，然后给浏览器返回一个cookie里面包含了Session的ID<br>2.第二次访问web应用时，cookie里的id会随请求行发给服务器，服务器就能找到ID 对于的Session</p>
+</li>
+<li><h2 id="Session_案例：1-_验证用户合法性；2-_输入验证码的验证；3-_简单的购物车">Session 案例：1. 验证用户合法性；2. 输入验证码的验证；3. 简单的购物车</h2>
+        
+          <p class="article-more-link">
+            <a href="/2012/05/30/Java-Web-Session-随笔/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2012/05/30/Java-Web-Session-随笔/" data-id="ci7rv8px60048v7z27192w6u3" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2012/05/30/Java-Web-Session-随笔/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Web/">Java.Web</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+
+  
+
+  
+</article>
+
+  
     <article id="post-Java-WebService-Webservice初体验之调用学院客户端开放接口" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/" class="article-date">
@@ -109,7 +176,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/" data-id="ci77sh1qa00454oz2fll0uc84" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/" data-id="ci7rv8px7004bv7z2brt5s0uv" class="article-share-link" data-share="baidu">分享到</a>
       
 
       <!-- 
@@ -169,7 +236,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2012/05/15/Java-Web-Http协议初步接触/" data-id="ci77sh1qc004a4oz23qgysqrr" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2012/05/15/Java-Web-Http协议初步接触/" data-id="ci7rv8px9004gv7z2eknnt8g0" class="article-share-link" data-share="baidu">分享到</a>
       
 
       <!-- 
@@ -232,7 +299,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2012/05/01/Andoid---上传文件实现方法/" data-id="ci77sh1qe004d4oz21ld565vx" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2012/05/01/Andoid---上传文件实现方法/" data-id="ci7rv8pxb004jv7z25iveppol" class="article-share-link" data-share="baidu">分享到</a>
       
 
       <!-- 
@@ -294,88 +361,12 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/" data-id="ci77sh1qg004g4oz2l1l29iqb" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/" data-id="ci7rv8pxd004mv7z2b9tonrhr" class="article-share-link" data-share="baidu">分享到</a>
       
 
       <!-- 
       
         <a href="http://gavinliu.cn/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Web/">Java.Web</a></li></ul>
-
-    </footer>
-  </div>
-
-  
-
-  
-
-  
-</article>
-
-  
-    <article id="post-JavaWeb---ServletContext-随笔" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/04/15/JavaWeb---ServletContext-随笔/" class="article-date">
-  <time datetime="2012-04-15T02:26:44.000Z" itemprop="datePublished">2012-04-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java-Web/">Java.Web</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/04/15/JavaWeb---ServletContext-随笔/">Java.Web - ServletContext 随笔</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Servlet容器在启动时会加载Web应用，并为 每个Web应用创建 唯一的 ServletContext 对象。<br>可以把ServletContext看成是一个Web应用的服务器端组件的共享内存。<br>ServletContext对象只在Web应用被关闭时才被销毁；不同的Web应用 ServletContext各自独立存在。</p>
-<h2 id="在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法:">在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法:</h2><ul>
-<li>1）setAttribute(String name,Object object);//把一个对象和一个属性名绑定，将这个对象存储在ServletContext中；</li>
-<li>2）getAttribute(String name);//根据指定的属 性名返回所绑定的对象；</li>
-<li>3）removeAttribute(String name);//根据给定的属性名从ServletContext中删除相应的操作；</li>
-<li>4）getAttributeNames();//返回Enumeration对象，它包含了存储在ServletContext对象中的所有属性名</li>
-</ul>
-<h3 id="ServletContext_VS_Session">ServletContext VS Session</h3><ul>
-<li>ServletContext和Session相同，都是存在服务器端的东西</li>
-<li>ServletContext和Session不同，ServletVontext是所有浏览器共享的， Session是一个浏览器对应一个session</li>
-</ul>
-<p>ServletContext 案例：1.公共聊天室缓存 2.聊天室的在线人数</p>
-<h2 id="ServletContext_实现转发：//和派发器是一样的">ServletContext 实现转发：//和派发器是一样的</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.getServletContext().getRequestDispatcher(<span class="string">"/servlet2"</span>).forward(request,response);</span><br><span class="line"><span class="keyword">this</span>.getServletContext().getRequestDispatcher(<span class="string">"/servlet2"</span>).include(request, response);</span><br></pre></td></tr></table></figure>
-<p>注意：forward与include的区别 </p>
-<ul>
-<li>forward方法是把请求的内容转发到另外的一个servlet.include是把另一个servlet处理过后的内容拿过来.</li>
-<li>forward方法调用后在响应中的没有提交的内容被自动消除。将请求转发给其他的Servlet后，由被调用的Servlet负责对请求做出响应，而原先Servlet的执行则终止</li>
-<li>include方法使原先的Servlet和转发到的Servlet都可以输出响应信息，即原先的Servlet还可以继续输出响应信息
-        
-          <p class="article-more-link">
-            <a href="/2012/04/15/JavaWeb---ServletContext-随笔/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2012/04/15/JavaWeb---ServletContext-随笔/" data-id="ci77sh1qi004j4oz2t2wyx36c" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2012/04/15/JavaWeb---ServletContext-随笔/#ds-thread" class="article-comment-link">Comments</a>
       
       -->
 
@@ -407,7 +398,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java.Web</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java.Web</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -416,7 +407,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 15px;">Animation</a><a href="/tags/Apple/" style="font-size: 17.5px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a><a href="/tags/Java/" style="font-size: 12.5px;">Java</a><a href="/tags/Java-Web/" style="font-size: 20px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 15px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 17.5px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 15px;">Material Design</a><a href="/tags/OSX/" style="font-size: 17.5px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12.5px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 16px;">Animation</a><a href="/tags/Apple/" style="font-size: 16px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12px;">Gradle</a><a href="/tags/Java/" style="font-size: 12px;">Java</a><a href="/tags/Java-Web/" style="font-size: 18px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 14px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 16px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 14px;">Material Design</a><a href="/tags/OSX/" style="font-size: 16px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/三角函数/" style="font-size: 10px;">三角函数</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
     </div>
   </div>
 
@@ -428,7 +419,11 @@
       <ul>
         
           <li>
-            <a href="/2015/03/13/Android-Animation-原理/">Android - Animation 原理</a>
+            <a href="/2015/03/28/Android-Animation-Facebook开源动画框架/">Android - Animation Facebook开源动画框架</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/26/Android-Animation-三角函数之美/">Android - Animation 三角函数之美</a>
           </li>
         
           <li>
@@ -441,10 +436,6 @@
         
           <li>
             <a href="/2015/02/02/Gradle-学习笔记-2-编译Java工程/">Gradle - 学习笔记(2) - 编译Java工程</a>
-          </li>
-        
-          <li>
-            <a href="/2015/01/22/Gradle---学习笔记(1)---Task/">Gradle - 学习笔记(1) - Task</a>
           </li>
         
       </ul>

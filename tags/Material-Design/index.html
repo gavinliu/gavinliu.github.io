@@ -72,224 +72,74 @@
         
         <section id="main">
   
-    <article id="post-Android---Lollipop自定义Activity转换" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/20/Android---Lollipop自定义Activity转换/" class="article-date">
-  <time datetime="2015-01-20T09:25:42.000Z" itemprop="datePublished">2015-01-20</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2015" class="archive-year">2015</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2015/01/20/Android---Lollipop自定义Activity转换/" class="archive-article-date">
+  <time datetime="2015-01-20T09:25:42.000Z" itemprop="datePublished">1月 20</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/20/Android---Lollipop自定义Activity转换/">Android - Lollipop自定义Activity过渡动画</a>
+      <a class="archive-article-title" href="/2015/01/20/Android---Lollipop自定义Activity转换/">Android - Lollipop自定义Activity过渡动画</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Lollipop 中提供了Activitiy Transition可很方便的在两个Activity实现流畅的过渡效果, 可用来替代Activity Animation.</p>
-<ul>
-<li><h2 id="界面进入退出的过渡动画">界面进入退出的过渡动画</h2>Explode - 爆炸效果, 从界面中心向四周分散<br>Slide - 滑动效果, 从界面边缘滑动 通过Gravity配置上下左右<br>Fade - 渐变效果, 通过Visibility配置淡入淡出</li>
-</ul>
-<p>上面三个类都在<code>android.transition</code>中, 你可以使用<code>Java</code> <code>XML</code> 两种方式来使用它</p>
-<ul>
-<li>Java</li>
-</ul>
-<figure class="highlight java"><figcaption><span>Activity</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);</span><br><span class="line">getWindow().setExitTransition(<span class="keyword">new</span> Explode());</span><br><span class="line">getWindow().setEnterTransition(<span class="keyword">new</span> Explode());</span><br></pre></td></tr></table></figure>
-<ul>
-<li>XML</li>
-</ul>
-<figure class="highlight xml"><figcaption><span>res/values/style.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"AppBase"</span> <span class="attribute">parent</span>=<span class="value">"android:Theme.Material"</span>&gt;</span><span class="css"></span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:windowContentTransitions"</span>&gt;<span class="tag">true</span>&lt;/<span class="tag">item</span>&gt;</span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:windowExitTransition"</span>&gt;<span class="at_rule">@<span class="keyword">transition/explode&lt;/item&gt;</span></span><br><span class="line">    &lt;item name=<span class="string">"android:windowEnterTransition"</span>&gt;@transition/explode&lt;/item&gt;</span><br><span class="line"></span></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><figcaption><span>res/transition/explode.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">explode</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>同时也是支持动画合集</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">transitionSet</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">explode</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">transitionSet</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TransitionSet set = <span class="keyword">new</span> TransitionSet();</span><br><span class="line">set.addTransition(<span class="keyword">new</span> Explode());</span><br><span class="line">getWindow().setEnterTransition(set);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>使用Transition跳转Activity</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">intent.setClass(<span class="keyword">this</span>, TransitionDetilActivity.class);</span><br><span class="line">startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(<span class="keyword">this</span>).toBundle());</span><br></pre></td></tr></table></figure>
-<ul>
-<li><h2 id="共享元素的过渡动画">共享元素的过渡动画</h2>changeBounds - 视图布局边界变化<br>changeClipBounds - 视图剪切边界变化<br>changeTransform - 视图缩放和旋转变化<br>changeImageTransform - 图片尺寸和缩放变化</li>
-</ul>
-<p>上面四个类也是在<code>android.transition</code>中, 使用方法和上面大同小异<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/20/Android---Lollipop自定义Activity转换/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2015/01/20/Android---Lollipop自定义Activity转换/" data-id="ci77sh1o8000s4oz2iwpcj5kw" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2015/01/20/Android---Lollipop自定义Activity转换/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material Design</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-
-  
-
-  
-
-  
 </article>
-
   
-    <article id="post-Android---VectorDrawable&amp;AnimatedVectorDrawable" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/" class="article-date">
-  <time datetime="2015-01-19T07:30:37.000Z" itemprop="datePublished">2015-01-19</time>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/" class="archive-article-date">
+  <time datetime="2015-01-19T07:30:37.000Z" itemprop="datePublished">1月 19</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/">Android - VectorDrawable&amp;AnimatedVectorDrawable</a>
+      <a class="archive-article-title" href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/">Android - VectorDrawable&amp;AnimatedVectorDrawable</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、概述">一、概述</h2><p>Android 5.0支持了矢量图，采用SVG的方式</p>
-<h2 id="二、使用总概">二、使用总概</h2><p><img src="/images/2015.01.19 - Android---VectorDrawable&amp;AnimatedVectorDrawable1.png" alt="VectorDrawable"></p>
-<p><img src="/images/2015.01.19 - Android---VectorDrawable&amp;AnimatedVectorDrawable2.png" alt="AnimatedVectorDrawable"></p>
-<h3 id="1-VectorDrawable">1.VectorDrawable</h3><figure class="highlight xml"><figcaption><span>res/drawable/heart.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">vector</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:height</span>=<span class="value">"256dp"</span></span><br><span class="line">    <span class="attribute">android:width</span>=<span class="value">"256dp"</span></span><br><span class="line">    <span class="attribute">android:viewportWidth</span>=<span class="value">"32"</span></span><br><span class="line">    <span class="attribute">android:viewportHeight</span>=<span class="value">"32"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">path</span> <span class="attribute">android:fillColor</span>=<span class="value">"#8fff"</span></span><br><span class="line">      <span class="attribute">android:pathData</span>=<span class="value">"M20.5,9.5 c-1.955,0,-3.83,1.268,-4.5,3 c-0.67,-1.732,-2.547,-3,-4.5,-3 C8.957,9.5,7,11.432,7,14 c0,3.53,3.793,6.257,9,11.5 c5.207,-5.242,9,-7.97,9,-11.5 C25,11.432,23.043,9.5,20.5,9.5z"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">vector</span>&gt;</span></span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/" data-id="ci77sh1ob000z4oz2tdfgmxmm" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material Design</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-
-  
-
-  
-
-  
 </article>
-
   
-    <article id="post-Android---ToolBar初体验" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/16/Android---ToolBar初体验/" class="article-date">
-  <time datetime="2015-01-16T06:57:01.000Z" itemprop="datePublished">2015-01-16</time>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2015/01/16/Android---ToolBar初体验/" class="archive-article-date">
+  <time datetime="2015-01-16T06:57:01.000Z" itemprop="datePublished">1月 16</time>
 </a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+      
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/16/Android---ToolBar初体验/">Android - Toolbar初体验</a>
+      <a class="archive-article-title" href="/2015/01/16/Android---ToolBar初体验/">Android - Toolbar初体验</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、概述">一、概述</h2><p>配合Android L的发布，Google还更新了Appcombat V7库，新加入了代替现有ActionBar机制的控件——Toolbar，不像以前ActionBar是frameworks封装好提供接口调用的一套应用界面组成部分，它牵涉的东西很多，而Toolbar只是一个控件，和LinearLayout一样可以装载view的容器控件，所以它定制性非常强灵活度非常高，但它又加入了实现现有ActionBar功能的逻辑，感觉非重强大。接下来，我们一起来看看这个新生代Toolbar的使用方法。</p>
-<h2 id="二、使用总概">二、使用总概</h2><p>Toolbar在Appcombat V7库是一个公开的控件，位于android.support.v7.widget包中，继承自ViewGroup，所以我们可以像使用普通的容器控件一样使用Toolbar，并主动调用相关方法实现ActionBar的功能。但是，Google是希望在Appcombat V7库中使用Toolbar来代替现有ActionBar的实现，所以肯定不会仅仅提供个控件就好了，Appcombat V7还把Toolbar封装进默认的Activity中。在新建工程时，创建向导会默认导入Appcombat V7库，自动创建的Activity也会继承自对Toolbar封装过的ActionBarActivity，创建工程后立刻运行应用，此时已是Toolbar实现了ActionBar的功能。</p>
-<figure class="highlight"><figcaption><span>导入Appcombat V7库:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile 'com.android.support:appcompat-v7:21.0.3'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="android-support-v7-widget-ActionBarActivity">android.support.v7.widget.ActionBarActivity</h3><ul>
-<li>Actionbar</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ActionBar actionBar = getSupportActionBar();</span><br><span class="line">actionBar.setTitle(<span class="string">"Title"</span>);</span><br><span class="line">actionBar.setSubtitle(<span class="string">"subtitle"</span>);</span><br><span class="line">actionBar.setLogo(R.drawable.ic_launcher);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Toolbar</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Toolbar toolbar = (Toolbar) findViewById(R.id.action_bar);</span><br><span class="line">toolbar.setTitle(<span class="string">"Title"</span>);</span><br><span class="line">toolbar.setSubtitle(<span class="string">"subtitle"</span>);</span><br><span class="line">toolbar.setLogo(R.drawable.ic_launcher);</span><br></pre></td></tr></table></figure>
-<p>SupportActionBar是由Toolbar实现，而Toolbar又是公开的，所以上面两种方式的等价的。</p>
-<h3 id="自行指定Toolbar">自行指定Toolbar</h3>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/16/Android---ToolBar初体验/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2015/01/16/Android---ToolBar初体验/" data-id="ci77sh1oj00194oz2pvdkpy3d" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2015/01/16/Android---ToolBar初体验/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material Design</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-
-  
-
-  
-
-  
 </article>
-
   
+  
+    </div></section>
   
 </section>
         
@@ -300,7 +150,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java.Web</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java.Web</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -309,7 +159,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 15px;">Animation</a><a href="/tags/Apple/" style="font-size: 17.5px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a><a href="/tags/Java/" style="font-size: 12.5px;">Java</a><a href="/tags/Java-Web/" style="font-size: 20px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 15px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 17.5px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 15px;">Material Design</a><a href="/tags/OSX/" style="font-size: 17.5px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12.5px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 16px;">Animation</a><a href="/tags/Apple/" style="font-size: 16px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12px;">Gradle</a><a href="/tags/Java/" style="font-size: 12px;">Java</a><a href="/tags/Java-Web/" style="font-size: 18px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 14px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 16px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 14px;">Material Design</a><a href="/tags/OSX/" style="font-size: 16px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/三角函数/" style="font-size: 10px;">三角函数</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
     </div>
   </div>
 
@@ -321,7 +171,11 @@
       <ul>
         
           <li>
-            <a href="/2015/03/13/Android-Animation-原理/">Android - Animation 原理</a>
+            <a href="/2015/03/28/Android-Animation-Facebook开源动画框架/">Android - Animation Facebook开源动画框架</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/26/Android-Animation-三角函数之美/">Android - Animation 三角函数之美</a>
           </li>
         
           <li>
@@ -334,10 +188,6 @@
         
           <li>
             <a href="/2015/02/02/Gradle-学习笔记-2-编译Java工程/">Gradle - 学习笔记(2) - 编译Java工程</a>
-          </li>
-        
-          <li>
-            <a href="/2015/01/22/Gradle---学习笔记(1)---Task/">Gradle - 学习笔记(1) - Task</a>
           </li>
         
       </ul>

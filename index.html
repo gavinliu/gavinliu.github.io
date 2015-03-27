@@ -72,10 +72,10 @@
         
         <section id="main">
   
-    <article id="post-Android-Animation-原理" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Android-Animation-Facebook开源动画框架" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/03/13/Android-Animation-原理/" class="article-date">
-  <time datetime="2015-03-13T06:19:58.000Z" itemprop="datePublished">2015-03-13</time>
+    <a href="/2015/03/28/Android-Animation-Facebook开源动画框架/" class="article-date">
+  <time datetime="2015-03-28T12:09:58.000Z" itemprop="datePublished">2015-03-28</time>
 </a>
     
   <div class="article-category">
@@ -90,7 +90,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/13/Android-Animation-原理/">Android - Animation 原理</a>
+      <a class="article-title" href="/2015/03/28/Android-Animation-Facebook开源动画框架/">Android - Animation Facebook开源动画框架</a>
     </h1>
   
 
@@ -98,22 +98,84 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+
+        
+        
         
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2015/03/13/Android-Animation-原理/" data-id="ci77sh1mw00054oz20xd26ilz" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2015/03/28/Android-Animation-Facebook开源动画框架/" data-id="ci7rv8ptl0005v7z2e45a255y" class="article-share-link" data-share="baidu">分享到</a>
       
 
       <!-- 
       
-        <a href="http://gavinliu.cn/2015/03/13/Android-Animation-原理/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://gavinliu.cn/2015/03/28/Android-Animation-Facebook开源动画框架/#ds-thread" class="article-comment-link">Comments</a>
       
       -->
 
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Animation/">Animation</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+
+  
+
+  
+</article>
+
+  
+    <article id="post-Android-Animation-三角函数之美" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/26/Android-Animation-三角函数之美/" class="article-date">
+  <time datetime="2015-03-26T02:25:49.000Z" itemprop="datePublished">2015-03-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/26/Android-Animation-三角函数之美/">Android - Animation 三角函数之美</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="概述">概述</h2><p>初中数学中的三角函数sin，cos…是超越函数一类函数，属于初等函数，通常用平面直角坐标系来定义三角函数，如下图。<br><img src="/images/2015.03.26 - Android-Animation-三角函数之美3.png" alt="sin(x)"><br>在中学中我们通常把sin(x)的x赋值为角度，比如sin(30°)=1/2，而在计算机语言中x通常是弧度，sin(π/6)=1/2。<br>完整的正弦函数是这样的 <code>y = a * sin(wx + b) + h</code> : a影响振幅，w影响周期，h影响y位置，b为初相。<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/03/26/Android-Animation-三角函数之美/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2015/03/26/Android-Animation-三角函数之美/" data-id="ci7rv8pto000cv7z2rrusdwaw" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2015/03/26/Android-Animation-三角函数之美/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Animation/">Animation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/三角函数/">三角函数</a></li></ul>
 
     </footer>
   </div>
@@ -152,12 +214,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <p>LayoutTransition：当Layout内的View 发生 Visibility变化后，可以对Layout内的其他View产生对应的变化。<br>使用 <code>android:animateLayoutChanges=&quot;true&quot;</code> 开启LayoutTransition功能。</p>
+<hr>
+<p>LayoutTransition.APPEARING 当一个View变为Visible时，对<strong>这个</strong>元素应用动画<br>LayoutTransition.CHANGE_APPEARING 当一个View变为Visible时，因系统要重新布局有一些元素需要移动，<strong>这些</strong>要移动的元素应用动画<br>LayoutTransition.DISAPPEARING 当一个View变为Gone时，对<strong>这个</strong>元素应用动画<br>LayoutTransition.CHANGE_DISAPPEARING 当一个View变为Gone时，因系统要重新布局有一些元素需要移动，<strong>这些</strong>要移动的元素应用动画.</p>
+        
+          <p class="article-more-link">
+            <a href="/2015/03/07/Android-Animation-LayoutTransition/#more">Read More</a>
+          </p>
         
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2015/03/07/Android-Animation-LayoutTransition/" data-id="ci77sh1nw000c4oz2281nxm52" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2015/03/07/Android-Animation-LayoutTransition/" data-id="ci7rv8ptr000iv7z2yv7l84jh" class="article-share-link" data-share="baidu">分享到</a>
       
 
       <!-- 
@@ -217,7 +286,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2015/03/01/Android-Animation-基础扫盲/" data-id="ci77sh1nz000g4oz2eo73si3s" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2015/03/01/Android-Animation-基础扫盲/" data-id="ci7rv8ptt000mv7z2jjlbamb0" class="article-share-link" data-share="baidu">分享到</a>
       
 
       <!-- 
@@ -266,6 +335,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+
+        
+        
         <p>上一篇了解了下基本的Gradle脚本, 现在来编译一个Java工程<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line">apply plugin: <span class="string">'eclipse'</span></span><br><span class="line">jar &#123;</span><br><span class="line">    manifest &#123;</span><br><span class="line">        attributes <span class="string">'Main-Class'</span>: <span class="string">'Your MainClass'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">sourceSets</span> &#123;</span><br><span class="line">    main &#123;</span><br><span class="line">        java &#123;</span><br><span class="line">            srcDir <span class="string">'src'</span></span><br><span class="line">        &#125;</span><br><span class="line">        resources &#123;</span><br><span class="line">            srcDir <span class="string">'res'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><code>apply plugin</code> 增加插件, 由于我是用的eclipse工程就使用的eclipse插件,你也可以选择idea插件来编译idea的工程.<br><code>jar</code> 可以指定 生成的jar里面的参数<br><code>dependencies</code> 声明依赖<br><code>sourceSet</code> 可以指定源码的路径</p>
 
@@ -273,75 +345,12 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2015/02/02/Gradle-学习笔记-2-编译Java工程/" data-id="ci77sh1o2000k4oz2n6y9s4y8" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2015/02/02/Gradle-学习笔记-2-编译Java工程/" data-id="ci7rv8ptv000qv7z2agz68bdy" class="article-share-link" data-share="baidu">分享到</a>
       
 
       <!-- 
       
         <a href="http://gavinliu.cn/2015/02/02/Gradle-学习笔记-2-编译Java工程/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gradle/">Gradle</a></li></ul>
-
-    </footer>
-  </div>
-
-  
-
-  
-
-  
-</article>
-
-  
-    <article id="post-Gradle---学习笔记(1)---Task" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/22/Gradle---学习笔记(1)---Task/" class="article-date">
-  <time datetime="2015-01-22T06:43:11.000Z" itemprop="datePublished">2015-01-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Gradle/">Gradle</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/22/Gradle---学习笔记(1)---Task/">Gradle - 学习笔记(1) - Task</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>新建一个文件夹, 在里面编辑 build.gradle<br><figure class="highlight gradle"><figcaption><span>doLast</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">task</span> hello &#123;</span><br><span class="line">    <span class="keyword">doLast</span> &#123;</span><br><span class="line">        <span class="keyword">println</span> <span class="string">'Hello world!'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight gradle"><figcaption><span>doLast的简化写法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">task</span> hello &lt;&lt; &#123;</span><br><span class="line">    <span class="keyword">println</span> <span class="string">'Hello world!'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
-<hr>
-<figure class="highlight"><figcaption><span>Use String Lower&Upper</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">task string &#60;&#60; &#123;&#10;    String someString = &#34;mY_nAme&#34;&#10;    println &#34;Original: &#34; + someString&#10;    println &#34;Lower case: &#34; + someString.toLowerCase()&#10;    println &#34;Upper case: &#34; + someString.toUpperCase()&#10;&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
-<hr>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2015/01/22/Gradle---学习笔记(1)---Task/" data-id="ci77sh1o5000p4oz2xohgivc3" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2015/01/22/Gradle---学习笔记(1)---Task/#ds-thread" class="article-comment-link">Comments</a>
       
       -->
 
@@ -373,7 +382,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java.Web</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java.Web</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -382,7 +391,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 15px;">Animation</a><a href="/tags/Apple/" style="font-size: 17.5px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a><a href="/tags/Java/" style="font-size: 12.5px;">Java</a><a href="/tags/Java-Web/" style="font-size: 20px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 15px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 17.5px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 15px;">Material Design</a><a href="/tags/OSX/" style="font-size: 17.5px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12.5px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 16px;">Animation</a><a href="/tags/Apple/" style="font-size: 16px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12px;">Gradle</a><a href="/tags/Java/" style="font-size: 12px;">Java</a><a href="/tags/Java-Web/" style="font-size: 18px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 14px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 16px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 14px;">Material Design</a><a href="/tags/OSX/" style="font-size: 16px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/三角函数/" style="font-size: 10px;">三角函数</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
     </div>
   </div>
 
@@ -394,7 +403,11 @@
       <ul>
         
           <li>
-            <a href="/2015/03/13/Android-Animation-原理/">Android - Animation 原理</a>
+            <a href="/2015/03/28/Android-Animation-Facebook开源动画框架/">Android - Animation Facebook开源动画框架</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/26/Android-Animation-三角函数之美/">Android - Animation 三角函数之美</a>
           </li>
         
           <li>
@@ -407,10 +420,6 @@
         
           <li>
             <a href="/2015/02/02/Gradle-学习笔记-2-编译Java工程/">Gradle - 学习笔记(2) - 编译Java工程</a>
-          </li>
-        
-          <li>
-            <a href="/2015/01/22/Gradle---学习笔记(1)---Task/">Gradle - 学习笔记(1) - Task</a>
           </li>
         
       </ul>

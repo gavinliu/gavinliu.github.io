@@ -72,6 +72,73 @@
         
         <section id="main">
   
+    <article id="post-JavaWeb---网页中文乱码处理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/03/21/JavaWeb---网页中文乱码处理/" class="article-date">
+  <time datetime="2012-03-21T09:16:43.000Z" itemprop="datePublished">2012-03-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java-Web/">Java.Web</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/03/21/JavaWeb---网页中文乱码处理/">Java.Web - 网页中文乱码处理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        
+        
+        <h2 id="表单">表单</h2><ul>
+<li>get<br>⑴ 获取数据前 分解成字节，然后封装成UTF-8<br>String user = new String(request.getParameter(“user”).getBytes(“iso-8859-1”), “UTF-8”);<br>⑵ 配置服务器，也可解决：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"8080"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span>     </span><br><span class="line">   <span class="attribute">connectionTimeout</span>=<span class="value">"20000"</span> </span><br><span class="line">   <span class="attribute">redirectPort</span>=<span class="value">"8443"</span> <span class="attribute">URIEncoding</span>=<span class="value">"UTF-8"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>post<br>直接在接收 servlet 中设置  request.setCharacterEncoding(“UTF-8”);</li>
+</ul>
+<h2 id="超链接">超链接</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.qq.com?user=你好"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>处理办法和get 是一样的</p>
+<h2 id="sendRedirect(),_下载文件名中文乱码的处理：">sendRedirect(), 下载文件名中文乱码的处理：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"主机?username="</span> + <span class="string">"你好"</span>);</span><br><span class="line">String temp = java.net.URLEncoder.encode(<span class="string">"你好.mp3"</span>,<span class="string">"UTF-8"</span>);</span><br><span class="line">response.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment; filename="</span> + temp);</span><br><span class="line">response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);<span class="comment">//设置相应字符编码，告诉浏览器采用utf-8</span></span><br><span class="line">request.setCharacterEncoding(<span class="string">"UTF-8"</span>);<span class="comment">//设置请求体的字符编码</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2012/03/21/JavaWeb---网页中文乱码处理/" data-id="ci7rv8pxm0054v7z205lhrobx" class="article-share-link" data-share="baidu">分享到</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2012/03/21/JavaWeb---网页中文乱码处理/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Web/">Java.Web</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+
+  
+
+  
+</article>
+
+  
     <article id="post-JavaWeb---Response、Request-随笔" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2012/03/14/JavaWeb---Response、Request-随笔/" class="article-date">
@@ -98,6 +165,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+
+        
+        
         <p>getWriter();和getOutputStream();的使用<br>区别：</p>
 <ol>
 <li>getWriter(); 用于向客户机回送字符数据</li>
@@ -109,7 +179,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2012/03/14/JavaWeb---Response、Request-随笔/" data-id="ci77sh1qs00514oz2um9p8ywj" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2012/03/14/JavaWeb---Response、Request-随笔/" data-id="ci7rv8pxo0057v7z2iaa7roax" class="article-share-link" data-share="baidu">分享到</a>
       
 
       <!-- 
@@ -169,7 +239,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2012/03/01/Android-【手把手教你打太极】/" data-id="ci77sh1md00004oz2f128b2bu" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2012/03/01/Android-【手把手教你打太极】/" data-id="ci7rv8pt70000v7z2gu7drcoq" class="article-share-link" data-share="baidu">分享到</a>
       
 
       <!-- 
@@ -204,7 +274,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java.Web</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java.Web</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -213,7 +283,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 15px;">Animation</a><a href="/tags/Apple/" style="font-size: 17.5px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12.5px;">Gradle</a><a href="/tags/Java/" style="font-size: 12.5px;">Java</a><a href="/tags/Java-Web/" style="font-size: 20px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 15px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 17.5px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 15px;">Material Design</a><a href="/tags/OSX/" style="font-size: 17.5px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12.5px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 16px;">Animation</a><a href="/tags/Apple/" style="font-size: 16px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 12px;">Gradle</a><a href="/tags/Java/" style="font-size: 12px;">Java</a><a href="/tags/Java-Web/" style="font-size: 18px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 14px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 16px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 14px;">Material Design</a><a href="/tags/OSX/" style="font-size: 16px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/三角函数/" style="font-size: 10px;">三角函数</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 12px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
     </div>
   </div>
 
@@ -225,7 +295,11 @@
       <ul>
         
           <li>
-            <a href="/2015/03/13/Android-Animation-原理/">Android - Animation 原理</a>
+            <a href="/2015/03/28/Android-Animation-Facebook开源动画框架/">Android - Animation Facebook开源动画框架</a>
+          </li>
+        
+          <li>
+            <a href="/2015/03/26/Android-Animation-三角函数之美/">Android - Animation 三角函数之美</a>
           </li>
         
           <li>
@@ -238,10 +312,6 @@
         
           <li>
             <a href="/2015/02/02/Gradle-学习笔记-2-编译Java工程/">Gradle - 学习笔记(2) - 编译Java工程</a>
-          </li>
-        
-          <li>
-            <a href="/2015/01/22/Gradle---学习笔记(1)---Task/">Gradle - 学习笔记(1) - Task</a>
           </li>
         
       </ul>
