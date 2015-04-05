@@ -72,6 +72,141 @@
         
         <section id="main">
   
+    <article id="post-Android---VectorDrawable&amp;AnimatedVectorDrawable" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/" class="article-date">
+  <time datetime="2015-01-19T07:30:37.000Z" itemprop="datePublished">2015-01-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android-Notes/">Android Notes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/">Android - VectorDrawable &amp; AnimatedVectorDrawable</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、概述">一、概述</h2><p>Android 5.0支持了矢量图，采用SVG的方式</p>
+<h2 id="二、使用总概">二、使用总概</h2><p><img src="/images/2015.01.19 - Android---VectorDrawable&amp;AnimatedVectorDrawable1.png" alt="VectorDrawable"></p>
+<p><img src="/images/2015.01.19 - Android---VectorDrawable&amp;AnimatedVectorDrawable2.png" alt="AnimatedVectorDrawable"></p>
+<h3 id="1-VectorDrawable">1.VectorDrawable</h3><figure class="highlight xml"><figcaption><span>res/drawable/heart.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">vector</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:height</span>=<span class="value">"256dp"</span></span><br><span class="line">    <span class="attribute">android:width</span>=<span class="value">"256dp"</span></span><br><span class="line">    <span class="attribute">android:viewportWidth</span>=<span class="value">"32"</span></span><br><span class="line">    <span class="attribute">android:viewportHeight</span>=<span class="value">"32"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">path</span> <span class="attribute">android:fillColor</span>=<span class="value">"#8fff"</span></span><br><span class="line">      <span class="attribute">android:pathData</span>=<span class="value">"M20.5,9.5 c-1.955,0,-3.83,1.268,-4.5,3 c-0.67,-1.732,-2.547,-3,-4.5,-3 C8.957,9.5,7,11.432,7,14 c0,3.53,3.793,6.257,9,11.5 c5.207,-5.242,9,-7.97,9,-11.5 C25,11.432,23.043,9.5,20.5,9.5z"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">vector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            
+              <a href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/">Read More</a>
+            
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/" data-id="ci84lujv6001s6tz2dey49dop" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material.Design</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+
+  
+
+  
+</article>
+
+  
+    <article id="post-Chrome-几项必要的配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/16/Chrome-几项必要的配置/" class="article-date">
+  <time datetime="2015-01-16T07:00:08.000Z" itemprop="datePublished">2015-01-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/环境搭建/">环境搭建</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/16/Chrome-几项必要的配置/">Chrome 几项必要的配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        
+        
+        <h2 id="自定义Css">自定义Css</h2><ol>
+<li>新建一个文件夹，比如Custom CSS，包含Custom.css和manifest.json两个文件</li>
+<li><p>manifest.json的内容如下</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   "<span class="attribute">content_scripts</span>": <span class="value">[ &#123;</span><br><span class="line">      "<span class="attribute">css</span>": <span class="value">[<span class="string">"Custom.css"</span>]</span>,</span><br><span class="line">      "<span class="attribute">all_frames</span>": <span class="value"><span class="literal">true</span></span>,</span><br><span class="line">      "<span class="attribute">matches</span>": <span class="value">[ <span class="string">"http://*/*"</span>, <span class="string">"https://*/*"</span> ]</span><br><span class="line">   </span>&#125; ]</span>,</span><br><span class="line">   "<span class="attribute">description</span>": <span class="value"><span class="string">"Custom.css"</span></span>,</span><br><span class="line">   "<span class="attribute">name</span>": <span class="value"><span class="string">"Custom CSS"</span></span>,</span><br><span class="line">   "<span class="attribute">version</span>": <span class="value"><span class="string">"1.0"</span></span>,</span><br><span class="line">   "<span class="attribute">manifest_version</span>": <span class="value"><span class="number">2</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开Chrome的扩展管理，选择打包扩展程序，扩展程序根目录选择Custom CSS文件夹，私有密匙文件不用管，然后选择打包扩展程序，生成Custom CSS.crx和Custom CSS.pem。</p>
+</li>
+<li>将Custom CSS.crx拖入扩展管理安装即可。</li>
+</ol>
+<h2 id="chrome://flags/">chrome://flags/</h2><ul>
+<li>overlay-scrollbars : 使用自动收起的滚动条，不占用额外空间(全平台)</li>
+<li>enable-smooth-scrolling : 像Mac和手机一样平滑滚动(仅Linux可用)</li>
+<li>enable-download-resumption : 恢复下载</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2015/01/16/Chrome-几项必要的配置/" data-id="ci84lujv9001x6tz2c2div7rt" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2015/01/16/Chrome-几项必要的配置/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chrome/">Chrome</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+
+  
+
+  
+</article>
+
+  
     <article id="post-Android---ToolBar初体验" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/01/16/Android---ToolBar初体验/" class="article-date">
@@ -79,7 +214,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
+    <a class="article-category-link" href="/categories/Android-Notes/">Android Notes</a>
   </div>
 
   </div>
@@ -122,7 +257,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2015/01/16/Android---ToolBar初体验/" data-id="ci82lfwyj001lke4w7nghi3jh" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2015/01/16/Android---ToolBar初体验/" data-id="ci84lujvb00226tz26l1lr1o0" class="article-share-link" data-share="baidu">Share</a>
       
 
       <!-- 
@@ -132,7 +267,7 @@
       -->
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material Design</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material.Design</a></li></ul>
 
     </footer>
   </div>
@@ -212,7 +347,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2015/01/07/Flyme互联网产品的错误示范/" data-id="ci82lfwyl001qke4w58y90v3e" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2015/01/07/Flyme互联网产品的错误示范/" data-id="ci84lujve00276tz21kjwyq3k" class="article-share-link" data-share="baidu">Share</a>
       
 
       <!-- 
@@ -284,7 +419,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2014/12/31/2014-The-End/" data-id="ci82lfwyn001xke4wan217zr5" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2014/12/31/2014-The-End/" data-id="ci84lujvh002e6tz2kgoldwam" class="article-share-link" data-share="baidu">Share</a>
       
 
       <!-- 
@@ -307,137 +442,9 @@
 </article>
 
   
-    <article id="post-Android---实用代码片段(1)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/26/Android---实用代码片段(1)/" class="article-date">
-  <time datetime="2014-11-26T08:25:09.000Z" itemprop="datePublished">2014-11-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/26/Android---实用代码片段(1)/">Android - 实用代码片段(1)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.ColorFilter 修改图片颜色，滤镜<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Drawable <span class="title">filtDrawable</span><span class="params">(Drawable drawable, <span class="keyword">int</span> color)</span> </span>&#123;</span><br><span class="line">    ColorFilter filter = <span class="keyword">new</span> LightingColorFilter(<span class="number">0</span>, color);</span><br><span class="line">    drawable.setColorFilter(filter);</span><br><span class="line">    <span class="keyword">return</span> drawable;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>相关文章 <a href="http://www.cnblogs.com/fuxiuyuan/archive/2012/04/14/2447545.html">http://www.cnblogs.com/fuxiuyuan/archive/2012/04/14/2447545.html</a> </p>
-<p>2.获取StatusBar高度<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">getStatusBarHeight</span><span class="params">(Activity activity)</span> </span>&#123;</span><br><span class="line">    Resources resources = activity.getResources();</span><br><span class="line">    <span class="keyword">int</span> status_bar_height_id = resources.getIdentifier(<span class="string">"status_bar_height"</span>, <span class="string">"dimen"</span>, <span class="string">"android"</span>);</span><br><span class="line">    <span class="keyword">return</span> resources.getDimension(status_bar_height_id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>3.获取ActionBar的视图<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">findActionBarContainer</span><span class="params">(Activity activity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = activity.getResources().getIdentifier(<span class="string">"action_bar_container"</span>, <span class="string">"id"</span>, <span class="string">"android"</span>);</span><br><span class="line">    <span class="keyword">return</span> activity.findViewById(id);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">findSplitActionBar</span><span class="params">(Activity activity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = activity.getResources().getIdentifier(<span class="string">"split_action_bar"</span>, <span class="string">"id"</span>, <span class="string">"android"</span>);</span><br><span class="line">    <span class="keyword">return</span> activity.findViewById(id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>4.计算文字大小绘制需要的宽高<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Rect rect = <span class="keyword">new</span> Rect();</span><br><span class="line">mPaint.getTextBounds(text, <span class="number">0</span>, text.length(), rect);</span><br><span class="line">rect.width();</span><br><span class="line">rect.height()；</span><br></pre></td></tr></table></figure></p>
-        
-          <p class="article-more-link">
-            
-              <a href="/2014/11/26/Android---实用代码片段(1)/">Read More</a>
-            
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2014/11/26/Android---实用代码片段(1)/" data-id="ci82lfwyq0021ke4wy04invxu" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2014/11/26/Android---实用代码片段(1)/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/实用主义/">实用主义</a></li></ul>
-
-    </footer>
-  </div>
-
-  
-
-  
-
-  
-</article>
-
-  
-    <article id="post-Android---换种思路代替ViewHolder" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/07/22/Android---换种思路代替ViewHolder/" class="article-date">
-  <time datetime="2014-07-22T11:13:10.000Z" itemprop="datePublished">2014-07-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android/">Android</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/22/Android---换种思路代替ViewHolder/">Android - 换种思路代替ViewHolder</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Android开发中绝大多少界面都是使用ListView来构建的，其中对Adapter的使用，从最开始没有任何优化，到后来的<code>ViewHolder</code> <code>getItemViewType</code>等等都在不断优化ListView的性能，使用ViewHolder是为了减少findView的次数，但是总觉得使用ViewHolder的方式不够优雅，于是我换了一种实现方式。</p>
-<p>1.把ListView的item封装成一个View，也就是说每个Item其实只有一个View，不过这个View里面由很多View组成<br>2.这个View向外暴露一些set方法，用来设置内部View的属性，然后在Adapter中使用封装好的View即可。</p>
-<p>代码如下：<br><figure class="highlight java"><figcaption><span>ListItemView.java </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.gavinliu.ex.tna;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.graphics.drawable.Drawable;</span><br><span class="line"><span class="keyword">import</span> android.util.AttributeSet;</span><br><span class="line"><span class="keyword">import</span> android.view.LayoutInflater;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.FrameLayout;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageView;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListItemView</span> <span class="keyword">extends</span> <span class="title">FrameLayout</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ImageView mImageView;</span><br><span class="line">    <span class="keyword">private</span> TextView mTextView;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ListItemView</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">        init(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ListItemView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">        init(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ListItemView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs, defStyle);</span><br><span class="line">        init(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        View v = LayoutInflater.from(context).inflate(R.layout.item, <span class="keyword">this</span>);</span><br><span class="line">        mImageView = (ImageView) v.findViewById(R.id.image);</span><br><span class="line">        mTextView = (TextView) v.findViewById(R.id.text);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTitle</span><span class="params">(String title)</span> </span>&#123;</span><br><span class="line">        mTextView.setText(title);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setImage</span><span class="params">(Drawable drawable)</span> </span>&#123;</span><br><span class="line">        mImageView.setImageDrawable(drawable);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-        
-          <p class="article-more-link">
-            
-              <a href="/2014/07/22/Android---换种思路代替ViewHolder/">Read More</a>
-            
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2014/07/22/Android---换种思路代替ViewHolder/" data-id="ci82lfwyt0026ke4wyhqt7mbx" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2014/07/22/Android---换种思路代替ViewHolder/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </footer>
-  </div>
-
-  
-
-  
-
-  
-</article>
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -447,55 +454,33 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java.Web</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Notes/">Android Notes</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle-Notes/">Gradle Notes</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Notes/">Java Notes</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web-Notes/">Java.Web Notes</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 16.67px;">Animation</a><a href="/tags/Apple/" style="font-size: 15px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 11.67px;">Gradle</a><a href="/tags/Java/" style="font-size: 11.67px;">Java</a><a href="/tags/Java-Web/" style="font-size: 18.33px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 13.33px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 15px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 13.33px;">Material Design</a><a href="/tags/OSX/" style="font-size: 15px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/三角函数/" style="font-size: 10px;">三角函数</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 11.67px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/贝赛尔曲线/" style="font-size: 10px;">贝赛尔曲线</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 16.67px;">Animation</a><a href="/tags/Annotation/" style="font-size: 10px;">Annotation</a><a href="/tags/Apple/" style="font-size: 15px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Facebook/" style="font-size: 10px;">Facebook</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 11.67px;">Gradle</a><a href="/tags/Java/" style="font-size: 13.33px;">Java</a><a href="/tags/Java-Web/" style="font-size: 18.33px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 13.33px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 15px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 13.33px;">Material.Design</a><a href="/tags/Morning-Routine/" style="font-size: 10px;">Morning.Routine</a><a href="/tags/OSX/" style="font-size: 15px;">OSX</a><a href="/tags/PagerIndicator/" style="font-size: 10px;">PagerIndicator</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/三角函数/" style="font-size: 10px;">三角函数</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 11.67px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/贝赛尔曲线/" style="font-size: 10px;">贝赛尔曲线</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">近期文章</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2015/04/01/Android-Animation-Facebook开源动画框架/">Android - Animation Facebook开源动画框架</a>
-          </li>
-        
-          <li>
-            <a href="/2015/03/30/Android-Animation-贝塞尔曲线之美/">Android - Animation 贝塞尔曲线之美</a>
-          </li>
-        
-          <li>
-            <a href="/2015/03/26/Android-Animation-三角函数之美/">Android - Animation 三角函数之美</a>
-          </li>
-        
-          <li>
-            <a href="/2015/03/07/Android-Animation-LayoutTransition/">Android - Animation LayoutTransition</a>
-          </li>
-        
-          <li>
-            <a href="/2015/03/01/Android-Animation-基础扫盲/">Android - Animation 基础扫盲</a>
-          </li>
-        
-      </ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
   
     <div class="widget-wrap">
-    <h3 class="widget-title">最新评论</h3>
+    <h3 class="widget-title">Recent Commits</h3>
     <div class="widget">
     <!-- 多说最新评论 start -->
     <div class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>

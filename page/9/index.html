@@ -72,6 +72,133 @@
         
         <section id="main">
   
+    <article id="post-Java-Web-Http协议初步接触" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/05/15/Java-Web-Http协议初步接触/" class="article-date">
+  <time datetime="2012-05-15T12:18:45.000Z" itemprop="datePublished">2012-05-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java-Web-Notes/">Java.Web Notes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/05/15/Java-Web-Http协议初步接触/">Java.Web - Http协议初步接触</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="【HTTP请求消息头】">【HTTP请求消息头】</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(Request-Line)     GET /manager/html HTTP/<span class="number">1.1</span>    请求行，使用的HTTP规范<span class="keyword">...</span></span><br><span class="line">下面是消息头</span><br><span class="line">Accept      */*</span><br><span class="line">Accept-Encoding     gzip, deflate      可以接收gzip文件，或者默认</span><br><span class="line">Accept-Language     zh-CN        支持中文</span><br><span class="line">Connection     Keep-Alive      保存常连接</span><br><span class="line">Host     <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">8080</span></span><br><span class="line">Referer     http://<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">8080</span>/     告诉服务器我来自哪里？可以防盗链 </span><br><span class="line">User-Agent     Mozilla/<span class="number">4.0</span>     浏览器内核</span><br><span class="line">(空行)</span><br><span class="line">内容</span><br></pre></td></tr></table></figure>
+<p>1.Servlet 中获取头信息 —&gt; String host = request.getHeader(“HOST”);<br>2.可以通过获取 Referer 信息，来判断用户是从那个页面跳转过来的，来防止盗链<br>3.直接 在浏览器输入 跳转过来，Referer 的值为null
+        
+          <p class="article-more-link">
+            
+              <a href="/2012/05/15/Java-Web-Http协议初步接触/">Read More</a>
+            
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2012/05/15/Java-Web-Http协议初步接触/" data-id="ci84lujwz00526tz20g4cpwag" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2012/05/15/Java-Web-Http协议初步接触/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Web/">Java.Web</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+
+  
+
+  
+</article>
+
+  
+    <article id="post-Andoid---上传文件实现方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2012/05/01/Andoid---上传文件实现方法/" class="article-date">
+  <time datetime="2012-05-01T02:54:07.000Z" itemprop="datePublished">2012-05-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Android-Notes/">Android Notes</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2012/05/01/Andoid---上传文件实现方法/">Andoid - 上传文件实现方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>一月份做项目时 Android 客户端需要上传图片，小小的研究了下，不改独享，分享！</p>
+<p>如果要在客户端向服务器上传文件，我们就必须模拟一个POST multipart/form-data类型的请求，Content-Type必须是multipart/form-data<br>这篇详细介绍这个 ENCTYPE=”multipart/form-data” 协议，来解决自己的Java程序向服务器传文件的问题(比如：安卓程序上传图片)</p>
+<p>ENCTYPE=”multipart/form-data” ：通过 http 协议上传文件 rfc1867协议，客户端发送内容构造。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"picture/upload.do"</span> <span class="attribute">method</span>=<span class="value">"POST"</span> <span class="attribute">ENCTYPE</span>=<span class="value">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"users_id"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"users_name"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"file"</span> <span class="attribute">name</span>=<span class="value">"image_path"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>使用上面这个表单，抓包的结果如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">POST /picture/upload.do HTTP/<span class="number">1.1</span></span><br><span class="line">Accept: application/x-ms-application, image/jpeg, application/xaml+xml, image/gif, image/pjpeg, application/x-ms-xbap, */*</span><br><span class="line">Referer: http://<span class="number">192.168</span>.<span class="number">1.98</span>:<span class="number">8080</span>/uploadpic.jsp</span><br><span class="line">Accept-Language: zh-CN</span><br><span class="line">User-Agent: Mozilla/<span class="number">4.0</span> </span><br><span class="line">Content-Type: multipart/form-data; boundary=---------------------------<span class="number">7</span>dd36df20300</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Host: <span class="number">192.168</span>.<span class="number">1.98</span>:<span class="number">8080</span></span><br><span class="line">Content-Length: <span class="number">529762</span></span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line"></span><br><span class="line">-----------------------------<span class="number">7</span>dd36df20300</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"users_id"</span></span><br><span class="line">&lt;!--空行--&gt;</span><br><span class="line"><span class="number">1</span></span><br><span class="line">-----------------------------<span class="number">7</span>dd36df20300</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"users_name"</span></span><br><span class="line">&lt;!--空行--&gt;</span><br><span class="line">admin</span><br><span class="line">-----------------------------<span class="number">7</span>dd36df20300</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"image_path"</span>; filename=<span class="string">"S21223-170317.jpg"</span></span><br><span class="line">Content-Type: image/pjpeg</span><br><span class="line">&lt;!--空行--&gt;</span><br><span class="line">&lt;!--文件 byte 数据--&gt;</span><br><span class="line">-----------------------------<span class="number">7</span>dd36df20300--</span><br><span class="line">&lt;!--空行--&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="详细解析：">详细解析：</h3>
+        
+          <p class="article-more-link">
+            
+              <a href="/2012/05/01/Andoid---上传文件实现方法/">Read More</a>
+            
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2012/05/01/Andoid---上传文件实现方法/" data-id="ci84lujx000556tz2qicbbcnf" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2012/05/01/Andoid---上传文件实现方法/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+
+  
+
+  
+</article>
+
+  
     <article id="post-JavaWeb---JSP文件上传，Servlet接收文件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/" class="article-date">
@@ -79,7 +206,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Java-Web/">Java.Web</a>
+    <a class="article-category-link" href="/categories/Java-Web-Notes/">Java.Web Notes</a>
   </div>
 
   </div>
@@ -113,7 +240,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/" data-id="ci82lfx0d004ske4war6lbxjd" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/" data-id="ci84lujx200586tz2y94mdonw" class="article-share-link" data-share="baidu">Share</a>
       
 
       <!-- 
@@ -143,7 +270,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Java-Web/">Java.Web</a>
+    <a class="article-category-link" href="/categories/Java-Web-Notes/">Java.Web Notes</a>
   </div>
 
   </div>
@@ -191,7 +318,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2012/04/15/JavaWeb---ServletContext-随笔/" data-id="ci82lfx0e004vke4wylth1jx3" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2012/04/15/JavaWeb---ServletContext-随笔/" data-id="ci84lujx3005b6tz2lgh4shgo" class="article-share-link" data-share="baidu">Share</a>
       
 
       <!-- 
@@ -221,7 +348,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Java-Web/">Java.Web</a>
+    <a class="article-category-link" href="/categories/Java-Web-Notes/">Java.Web Notes</a>
   </div>
 
   </div>
@@ -263,7 +390,7 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2012/04/08/JavaWeb---转向-转发-随笔/" data-id="ci82lfx0g004yke4w7315mt8k" class="article-share-link" data-share="baidu">分享到</a>
+        <a data-url="http://gavinliu.cn/2012/04/08/JavaWeb---转向-转发-随笔/" data-id="ci84lujx5005e6tz2vtrwmhht" class="article-share-link" data-share="baidu">Share</a>
       
 
       <!-- 
@@ -286,153 +413,9 @@
 </article>
 
   
-    <article id="post-JavaWeb---Servlet-随笔" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/04/01/JavaWeb---Servlet-随笔/" class="article-date">
-  <time datetime="2012-04-01T02:18:41.000Z" itemprop="datePublished">2012-04-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java-Web/">Java.Web</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/04/01/JavaWeb---Servlet-随笔/">Java.Web - Servlet 随笔</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        
-        
-        <ul>
-<li>注册Servlet</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">servlet</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">servlet-class</span>&gt;</span>com.sco.servlet.MyServlet<span class="tag">&lt;/<span class="title">servlet-class</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="title">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>映射servlet（不是一 一映射）</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">servlet-mapping</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/servlet/MyServlet<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>URL 还能配置成 .html 等等</li>
-<li>URL 也能用通配符配置：<br>⑴”<em>.扩展名”（</em>.do，…）<br>⑵以 / 开头，并以 /<em> 结尾（/</em>，/news/<em>，…）<br>⑶优先级 </em>.do 最低</li>
-<li>Servlet 是单例的，会出先线程安全问题，比如售票系统，需要使用线程同步</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2012/04/01/JavaWeb---Servlet-随笔/" data-id="ci82lfx0h0051ke4wfxb7kawd" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2012/04/01/JavaWeb---Servlet-随笔/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Web/">Java.Web</a></li></ul>
-
-    </footer>
-  </div>
-
-  
-
-  
-
-  
-</article>
-
-  
-    <article id="post-JavaWeb---分页技术" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2012/03/25/JavaWeb---分页技术/" class="article-date">
-  <time datetime="2012-03-25T09:40:02.000Z" itemprop="datePublished">2012-03-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java-Web/">Java.Web</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2012/03/25/JavaWeb---分页技术/">Java.Web - 分页技术</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="定义四个分页变量">定义四个分页变量</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> pageNow     <span class="comment">//表示第几页   该变量由用户决定</span></span><br><span class="line"><span class="keyword">int</span> pageSize    <span class="comment">//表示每一页显示几条记录 由程序指定(也可由用户定制)</span></span><br><span class="line"><span class="keyword">int</span> pageCont    <span class="comment">//表示共有多少页 该变量是计算出来的</span></span><br><span class="line"><span class="keyword">int</span> rowCont     <span class="comment">//表示共有多少条记录   该变量是查询数据库得到</span></span><br></pre></td></tr></table></figure>
-<h2 id="分页算法-确定rowCont的值">分页算法.确定rowCont的值</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pst = con.prepareStatement(<span class="string">"select count(*) form users"</span>);</span><br><span class="line">rst = pst.executeQuery();</span><br><span class="line">rst.next();</span><br><span class="line">rowCont = rst.getInt(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="分页算法-确定pageCont的值">分页算法.确定pageCont的值</h2><ul>
-<li>二逼青年算法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (rowCont % pageSize == <span class="number">0</span>) &#123;</span><br><span class="line">    pageCont = rowCont / pageSize;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    pageCont = rowCont / pageSize + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>普通青年算法（等价与上面那个算法）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pageCont = rowCont % pageSize == <span class="number">0</span> ? rowCont / pageSize : rowCont / pageSize + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>文艺青年算法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pageCont = (rowCont - <span class="number">1</span>)/pageSize + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            
-              <a href="/2012/03/25/JavaWeb---分页技术/">Read More</a>
-            
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2012/03/25/JavaWeb---分页技术/" data-id="ci82lfx0j0054ke4wp7zcl2rx" class="article-share-link" data-share="baidu">分享到</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2012/03/25/JavaWeb---分页技术/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-Web/">Java.Web</a></li></ul>
-
-    </footer>
-  </div>
-
-  
-
-  
-
-  
-</article>
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -442,55 +425,33 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android/">Android</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle/">Gradle</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web/">Java.Web</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Notes/">Android Notes</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle-Notes/">Gradle Notes</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Notes/">Java Notes</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web-Notes/">Java.Web Notes</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 16.67px;">Animation</a><a href="/tags/Apple/" style="font-size: 15px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 11.67px;">Gradle</a><a href="/tags/Java/" style="font-size: 11.67px;">Java</a><a href="/tags/Java-Web/" style="font-size: 18.33px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 13.33px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 15px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 13.33px;">Material Design</a><a href="/tags/OSX/" style="font-size: 15px;">OSX</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/三角函数/" style="font-size: 10px;">三角函数</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 11.67px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/贝赛尔曲线/" style="font-size: 10px;">贝赛尔曲线</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 16.67px;">Animation</a><a href="/tags/Annotation/" style="font-size: 10px;">Annotation</a><a href="/tags/Apple/" style="font-size: 15px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Facebook/" style="font-size: 10px;">Facebook</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 11.67px;">Gradle</a><a href="/tags/Java/" style="font-size: 13.33px;">Java</a><a href="/tags/Java-Web/" style="font-size: 18.33px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 13.33px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 15px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 13.33px;">Material.Design</a><a href="/tags/Morning-Routine/" style="font-size: 10px;">Morning.Routine</a><a href="/tags/OSX/" style="font-size: 15px;">OSX</a><a href="/tags/PagerIndicator/" style="font-size: 10px;">PagerIndicator</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/三角函数/" style="font-size: 10px;">三角函数</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 11.67px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/贝赛尔曲线/" style="font-size: 10px;">贝赛尔曲线</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">近期文章</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2015/04/01/Android-Animation-Facebook开源动画框架/">Android - Animation Facebook开源动画框架</a>
-          </li>
-        
-          <li>
-            <a href="/2015/03/30/Android-Animation-贝塞尔曲线之美/">Android - Animation 贝塞尔曲线之美</a>
-          </li>
-        
-          <li>
-            <a href="/2015/03/26/Android-Animation-三角函数之美/">Android - Animation 三角函数之美</a>
-          </li>
-        
-          <li>
-            <a href="/2015/03/07/Android-Animation-LayoutTransition/">Android - Animation LayoutTransition</a>
-          </li>
-        
-          <li>
-            <a href="/2015/03/01/Android-Animation-基础扫盲/">Android - Animation 基础扫盲</a>
-          </li>
-        
-      </ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
   
     <div class="widget-wrap">
-    <h3 class="widget-title">最新评论</h3>
+    <h3 class="widget-title">Recent Commits</h3>
     <div class="widget">
     <!-- 多说最新评论 start -->
     <div class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
