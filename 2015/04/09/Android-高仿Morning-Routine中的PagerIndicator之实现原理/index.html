@@ -5,15 +5,30 @@
   
   <title>Android - 高仿Morning Routine中的PagerIndicator之动画实现 | Gavin.Liu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="占坑，博客计划中…">
+  <meta name="description" content="Android - Animation 贝塞尔曲线之美中提到了PagerIndicator的绘制，这篇博客继续分析下动画应该如何实现。
+Property Animation 分析顾名思义，要实现属性动画，首先要对属性进行分析，然后对动画做分析。
+属性分析
+在这个PagerIndicator动画中，我们可以看出有两个圆，就有圆的坐标点和半径这两个属性，还有颜色的变化，所以颜色也是个属性。
+
+动画分析">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android - 高仿Morning Routine中的PagerIndicator之动画实现">
 <meta property="og:url" content="http://gavinliu.cn/2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description" content="占坑，博客计划中…">
+<meta property="og:description" content="Android - Animation 贝塞尔曲线之美中提到了PagerIndicator的绘制，这篇博客继续分析下动画应该如何实现。
+Property Animation 分析顾名思义，要实现属性动画，首先要对属性进行分析，然后对动画做分析。
+属性分析
+在这个PagerIndicator动画中，我们可以看出有两个圆，就有圆的坐标点和半径这两个属性，还有颜色的变化，所以颜色也是个属性。
+
+动画分析">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android - 高仿Morning Routine中的PagerIndicator之动画实现">
-<meta name="twitter:description" content="占坑，博客计划中…">
+<meta name="twitter:description" content="Android - Animation 贝塞尔曲线之美中提到了PagerIndicator的绘制，这篇博客继续分析下动画应该如何实现。
+Property Animation 分析顾名思义，要实现属性动画，首先要对属性进行分析，然后对动画做分析。
+属性分析
+在这个PagerIndicator动画中，我们可以看出有两个圆，就有圆的坐标点和半径这两个属性，还有颜色的变化，所以颜色也是个属性。
+
+动画分析">
   
   
     <link rel="icon" href="/favicon.png">
@@ -100,17 +115,46 @@
         
           <div id="toc" class="toc-article">
             <strong class="toc-title">文章目录</strong>
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Property_Animation_分析"><span class="toc-number">1.</span> <span class="toc-text">Property Animation 分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#属性分析"><span class="toc-number">1.1.</span> <span class="toc-text">属性分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动画分析"><span class="toc-number">1.2.</span> <span class="toc-text">动画分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-number">2.</span> <span class="toc-text">代码实现</span></a></li></ol>
           </div>
         
         
-        <p>占坑，博客计划中…</p>
+        <p><a href="/2015/03/30/Android-Animation-贝塞尔曲线之美/#一种ViewPager指示器的实现">Android - Animation 贝塞尔曲线之美</a>中提到了PagerIndicator的绘制，这篇博客继续分析下动画应该如何实现。</p>
+<h2 id="Property_Animation_分析">Property Animation 分析</h2><p>顾名思义，要实现属性动画，首先要对属性进行分析，然后对动画做分析。</p>
+<h3 id="属性分析">属性分析</h3><blockquote>
+<p>在这个PagerIndicator动画中，我们可以看出有两个圆，就有圆的<code>坐标点</code>和<code>半径</code>这两个属性，还有颜色的变化，所以<code>颜色</code>也是个属性。</p>
+</blockquote>
+<h3 id="动画分析">动画分析</h3><blockquote>
+<p>在这个PagerIndicator动画中，我们可以知道两个圆的动画起点和终点都是一样的，要实现这样一前一后的效果，肯定一个圆是加速，一个圆是减速，所以我们要使用的<code>AccelerateInterpolator</code>和<code>DecelerateInterpolator</code>这两个插值器。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="代码实现">代码实现</h2><ul>
+<li><p>定义属性，并生成seter和geter</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">float</span> leftCircleRadius;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">float</span> leftCircleX;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">float</span> rightCircleRadius;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">float</span> rightCircleX;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>确定圆形的位置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mPagerCount; i++) &#123;</span><br><span class="line">    <span class="keyword">int</span> x = mWidth / (mPagerCount + <span class="number">1</span>) * (i + <span class="number">1</span>);</span><br><span class="line">    mPoints.add(<span class="keyword">new</span> PointF(x, <span class="number">0</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义圆的运动动画</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> leftX = mPoints.get(left).x;</span><br><span class="line"><span class="keyword">float</span> rightX = mPoints.get(right).x;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 右边的圆初始速度快，做减速运动</span></span><br><span class="line">ObjectAnimator rightPointAnimator = ObjectAnimator.ofFloat(<span class="keyword">this</span>, <span class="string">"rightCircleX"</span>, leftX, rightX);</span><br><span class="line">rightPointAnimator.setDuration(<span class="number">5000L</span>);</span><br><span class="line">rightPointAnimator.setInterpolator(<span class="keyword">new</span> DecelerateInterpolator());</span><br><span class="line">mAnimators.add(rightPointAnimator);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 左边的圆初始速度慢，做加速运动</span></span><br><span class="line">ObjectAnimator leftPointAnimator = ObjectAnimator.ofFloat(<span class="keyword">this</span>, <span class="string">"leftCircleX"</span>, leftX, rightX);</span><br><span class="line">leftPointAnimator.setDuration(<span class="number">5000L</span>);</span><br><span class="line">leftPointAnimator.setInterpolator(<span class="keyword">new</span> AccelerateInterpolator());</span><br><span class="line">mAnimators.add(leftPointAnimator);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 右边的圆半径由小变大</span></span><br><span class="line">ObjectAnimator rightCircleRadiusAnimator = ObjectAnimator.ofFloat(<span class="keyword">this</span>, <span class="string">"rightCircleRadius"</span>, mMinCircleRadius, mMaxCircleRadius);</span><br><span class="line">rightCircleRadiusAnimator.setDuration(<span class="number">5000L</span>);</span><br><span class="line">rightCircleRadiusAnimator.setInterpolator(<span class="keyword">new</span> AccelerateInterpolator());</span><br><span class="line">mAnimators.add(rightCircleRadiusAnimator);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 左边的圆半径由大变小</span></span><br><span class="line">ObjectAnimator leftCircleRadiusAnimator = ObjectAnimator.ofFloat(<span class="keyword">this</span>, <span class="string">"leftCircleRadius"</span>, mMaxCircleRadius, mMinCircleRadius);</span><br><span class="line">leftCircleRadiusAnimator.setDuration(<span class="number">5000L</span>);</span><br><span class="line">leftCircleRadiusAnimator.setInterpolator(<span class="keyword">new</span> DecelerateInterpolator());</span><br><span class="line">mAnimators.add(leftCircleRadiusAnimator);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定义颜色变化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> color1 = mColors.get(left);</span><br><span class="line"><span class="keyword">int</span> color2 = mColors.get(right);</span><br><span class="line">ValueAnimator paintColorAnimator = ObjectAnimator.ofInt(color1, color2);</span><br><span class="line">paintColorAnimator.setDuration(<span class="number">5000L</span>);</span><br><span class="line">paintColorAnimator.setEvaluator(<span class="keyword">new</span> ArgbEvaluator());</span><br><span class="line">paintColorAnimator.setInterpolator(<span class="keyword">new</span> AccelerateDecelerateInterpolator());</span><br><span class="line">paintColorAnimator.addUpdateListener(<span class="keyword">new</span> ValueAnimator.AnimatorUpdateListener() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationUpdate</span><span class="params">(ValueAnimator animator)</span> </span>&#123;</span><br><span class="line">        mPaint.setColor((Integer) animator.getAnimatedValue());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>定位动画，因为动画是跟手动的，动画就不能一下子播出去，而是手动定位</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (ValueAnimator animator : mAnimators) &#123;</span><br><span class="line">    animator.setCurrentPlayTime((<span class="keyword">long</span>) (<span class="number">5000.0F</span> * offset));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>onPageChangeListener的回调</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageScrolled</span><span class="params">(<span class="keyword">int</span> position, <span class="keyword">float</span> positionOffset, <span class="keyword">int</span> positionOffsetPixels)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// position的值为viewpager的position，positionOffset的值是position到position+1的比例。</span></span><br><span class="line">    <span class="comment">// 换成人话是， 无论你滑动pager是0-&gt;1或者1-&gt;0，position的值都为0。</span></span><br><span class="line">    indicator.setPositionAndOffset(position, positionOffset);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>至此动画就完成了</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/" data-id="ci84n2i10000c9pz2qk57ejyf" class="article-share-link" data-share="baidu">Share</a>
+        <a data-url="http://gavinliu.cn/2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/" data-id="ci8a6x9u0000c85z2fcccirp7" class="article-share-link" data-share="baidu">Share</a>
       
 
       <!-- 
@@ -191,24 +235,24 @@
     <div class="widget-wrap">
     <h3 class="widget-title">Recent Comments</h3>
     <div class="widget">
-    <!-- 多说最新评论 start -->
-    <div class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
-    <!-- 多说最新评论 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-        var duoshuoQuery = {short_name:"gavinliu"};
-            (function() {
-              var ds = document.createElement('script');
-                ds.type = 'text/javascript';ds.async = true;
-               ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-                ds.charset = 'UTF-8';
-              (document.getElementsByTagName('head')[0] 
-                 || document.getElementsByTagName('body')[0]).appendChild(ds);
-           })();
-    </script>
-    <!-- 多说公共JS代码 end -->
+
+      <!-- 多说最新评论 start -->
+      <div class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70">
+      </div>
+      <!-- 多说最新评论 end -->
+
     </div>
 </div>
+  
+    <div class="widget-wrap">
+    
+    <h3 class="widget-title">Recent Visitors</h3>
+
+    <div class="widget">
+        <ul class="ds-recent-visitors" data-num-items="20"></ul>    
+    </div>
+</div>
+
   
 </aside>
         

@@ -5,15 +5,27 @@
   
   <title>Android - Animation Facebook开源动画框架 | Gavin.Liu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="占坑，码字中…">
+  <meta name="description" content="Facebook开源了个iOS&amp;amp;OSX的动画库Pop，里面定义了很多动画效果，在Android上实现了类似Pop中Spring效果的库名叫Rebound，移植于Rebound-JS
+Rebound项目地址：https://github.com/facebook/rebound.git
+
+rebound-core  使用java实现的一个引擎库。
+rebound-android  结合And">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android - Animation Facebook开源动画框架">
 <meta property="og:url" content="http://gavinliu.cn/2015/04/01/Android-Animation-Facebook开源动画框架/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description" content="占坑，码字中…">
+<meta property="og:description" content="Facebook开源了个iOS&amp;amp;OSX的动画库Pop，里面定义了很多动画效果，在Android上实现了类似Pop中Spring效果的库名叫Rebound，移植于Rebound-JS
+Rebound项目地址：https://github.com/facebook/rebound.git
+
+rebound-core  使用java实现的一个引擎库。
+rebound-android  结合And">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android - Animation Facebook开源动画框架">
-<meta name="twitter:description" content="占坑，码字中…">
+<meta name="twitter:description" content="Facebook开源了个iOS&amp;amp;OSX的动画库Pop，里面定义了很多动画效果，在Android上实现了类似Pop中Spring效果的库名叫Rebound，移植于Rebound-JS
+Rebound项目地址：https://github.com/facebook/rebound.git
+
+rebound-core  使用java实现的一个引擎库。
+rebound-android  结合And">
   
   
     <link rel="icon" href="/favicon.png">
@@ -98,19 +110,43 @@
       
 
         
-          <div id="toc" class="toc-article">
-            <strong class="toc-title">文章目录</strong>
-            
-          </div>
         
-        
-        <p>占坑，码字中…</p>
+        <p>Facebook开源了个iOS&amp;OSX的动画库<a href="http://www.cocoachina.com/industry/20140704/9034.html" target="_blank" rel="external">Pop</a>，里面定义了很多动画效果，在Android上实现了类似Pop中Spring效果的库名叫<a href="http://facebook.github.io/rebound/" target="_blank" rel="external">Rebound</a>，移植于<a href="http://facebook.github.io/rebound-js/examples/" target="_blank" rel="external">Rebound-JS</a></p>
+<p>Rebound项目地址：<a href="https://github.com/facebook/rebound.git" target="_blank" rel="external">https://github.com/facebook/rebound.git</a></p>
+<ul>
+<li>rebound-core  使用java实现的一个引擎库。</li>
+<li>rebound-android  结合Android的一些API，封装rebound-core的实现。</li>
+<li>rebound-android-example  一个很简单的图片缩放例子。</li>
+<li>rebound-android-playground  里面包含了所有的例子教程。</li>
+</ul>
+<blockquote>
+<p>rebound-android 依赖于 rebound-core，接合Android的API与SpringSystem连接，<code>Android Displayer &gt; SpringSystem.loop（）</code>，Android Jelly Bean引入黄油计划，使用Choreographer统一管理视图刷新。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Spring 特效的插值器算法位于 <code>Spring.advance(double realDeltaTime)</code></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>SpringListener 是Spring的回调<br>  通过Spring.getCurrentValue()可以拿到插值，来变换视图的位置。</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="基本使用">基本使用</h3><figure class="highlight java"><figcaption><span>初始化SpringSystem和SpringListener</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> BaseSpringSystem mSpringSystem = SpringSystem.create();</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> ExampleSpringListener mSpringListener = <span class="keyword">new</span> ExampleSpringListener();</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight java"><figcaption><span>通过SpringSystem创建一个Spring</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mScaleSpring = mSpringSystem.createSpring();</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight java"><figcaption><span>设置动画的endValue</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mScaleSpring.setEndValue(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight java"><figcaption><span>在SpringListener中改变视图</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleSpringListener</span> <span class="keyword">extends</span> <span class="title">SimpleSpringListener</span> </span>&#123;</span><br><span class="line">  <span class="annotation">@Override</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSpringUpdate</span><span class="params">(Spring spring)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">float</span> mappedValue = (<span class="keyword">float</span>) SpringUtil.mapValueFromRangeToRange(spring.getCurrentValue(), <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0.5</span>);</span><br><span class="line">    mImageView.setScaleX(mappedValue);</span><br><span class="line">    mImageView.setScaleY(mappedValue);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight java"><figcaption><span>在界面的生命周期中，不要忘了增加和删除SpringListener</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">super</span>.onResume();</span><br><span class="line">  mScaleSpring.addListener(mSpringListener);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">super</span>.onPause();</span><br><span class="line">  mScaleSpring.removeListener(mSpringListener);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="高级使用">高级使用</h3><p>使用<a href="http://facebook.github.io/origami/" target="_blank" rel="external">origami</a>可视化编辑动画效果。</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2015/04/01/Android-Animation-Facebook开源动画框架/" data-id="ci84n2i14000n9pz2otipvwqd" class="article-share-link" data-share="baidu">Share</a>
+        <a data-url="http://gavinliu.cn/2015/04/01/Android-Animation-Facebook开源动画框架/" data-id="ci8a6x9u4000n85z25jip7a1q" class="article-share-link" data-share="baidu">Share</a>
       
 
       <!-- 
@@ -191,24 +227,24 @@
     <div class="widget-wrap">
     <h3 class="widget-title">Recent Comments</h3>
     <div class="widget">
-    <!-- 多说最新评论 start -->
-    <div class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70"></div>
-    <!-- 多说最新评论 end -->
-    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-    <script type="text/javascript">
-        var duoshuoQuery = {short_name:"gavinliu"};
-            (function() {
-              var ds = document.createElement('script');
-                ds.type = 'text/javascript';ds.async = true;
-               ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-                ds.charset = 'UTF-8';
-              (document.getElementsByTagName('head')[0] 
-                 || document.getElementsByTagName('body')[0]).appendChild(ds);
-           })();
-    </script>
-    <!-- 多说公共JS代码 end -->
+
+      <!-- 多说最新评论 start -->
+      <div class="ds-recent-comments" data-num-items="5" data-show-avatars="1" data-show-time="1" data-show-title="1" data-show-admin="1" data-excerpt-length="70">
+      </div>
+      <!-- 多说最新评论 end -->
+
     </div>
 </div>
+  
+    <div class="widget-wrap">
+    
+    <h3 class="widget-title">Recent Visitors</h3>
+
+    <div class="widget">
+        <ul class="ds-recent-visitors" data-num-items="20"></ul>    
+    </div>
+</div>
+
   
 </aside>
         
