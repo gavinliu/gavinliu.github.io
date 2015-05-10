@@ -72,10 +72,10 @@
         
         <section id="main">
   
-    <article id="post-Android---实用代码片段(1)" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Android---VectorDrawable&amp;AnimatedVectorDrawable" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/26/Android---实用代码片段(1)/" class="article-date">
-  <time datetime="2014-11-26T08:25:09.000Z" itemprop="datePublished">2014-11-26</time>
+    <a href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/" class="article-date">
+  <time datetime="2015-01-19T07:30:37.000Z" itemprop="datePublished">2015-01-19</time>
 </a>
     
   <div class="article-category">
@@ -90,7 +90,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/26/Android---实用代码片段(1)/">Android - 实用代码片段(1)</a>
+      <a class="article-title" href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/">Android - VectorDrawable &amp; AnimatedVectorDrawable</a>
     </h1>
   
 
@@ -98,15 +98,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.ColorFilter 修改图片颜色，滤镜<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Drawable <span class="title">filtDrawable</span><span class="params">(Drawable drawable, <span class="keyword">int</span> color)</span> </span>&#123;</span><br><span class="line">    ColorFilter filter = <span class="keyword">new</span> LightingColorFilter(<span class="number">0</span>, color);</span><br><span class="line">    drawable.setColorFilter(filter);</span><br><span class="line">    <span class="keyword">return</span> drawable;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>相关文章 <a href="http://www.cnblogs.com/fuxiuyuan/archive/2012/04/14/2447545.html">http://www.cnblogs.com/fuxiuyuan/archive/2012/04/14/2447545.html</a> </p>
-<p>2.获取StatusBar高度<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">getStatusBarHeight</span><span class="params">(Activity activity)</span> </span>&#123;</span><br><span class="line">    Resources resources = activity.getResources();</span><br><span class="line">    <span class="keyword">int</span> status_bar_height_id = resources.getIdentifier(<span class="string">"status_bar_height"</span>, <span class="string">"dimen"</span>, <span class="string">"android"</span>);</span><br><span class="line">    <span class="keyword">return</span> resources.getDimension(status_bar_height_id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>3.获取ActionBar的视图<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">findActionBarContainer</span><span class="params">(Activity activity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = activity.getResources().getIdentifier(<span class="string">"action_bar_container"</span>, <span class="string">"id"</span>, <span class="string">"android"</span>);</span><br><span class="line">    <span class="keyword">return</span> activity.findViewById(id);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">findSplitActionBar</span><span class="params">(Activity activity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = activity.getResources().getIdentifier(<span class="string">"split_action_bar"</span>, <span class="string">"id"</span>, <span class="string">"android"</span>);</span><br><span class="line">    <span class="keyword">return</span> activity.findViewById(id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>4.计算文字大小绘制需要的宽高<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Rect rect = <span class="keyword">new</span> Rect();</span><br><span class="line">mPaint.getTextBounds(text, <span class="number">0</span>, text.length(), rect);</span><br><span class="line">rect.width();</span><br><span class="line">rect.height()；</span><br></pre></td></tr></table></figure></p>
+        <h2 id="一、概述">一、概述</h2><p>Android 5.0支持了矢量图，采用SVG的方式</p>
+<h2 id="二、使用总概">二、使用总概</h2><p><img src="/images/2015.01.19 - Android---VectorDrawable&amp;AnimatedVectorDrawable1.png" alt="VectorDrawable"></p>
+<p><img src="/images/2015.01.19 - Android---VectorDrawable&amp;AnimatedVectorDrawable2.png" alt="AnimatedVectorDrawable"></p>
+<h3 id="1-VectorDrawable">1.VectorDrawable</h3><figure class="highlight xml"><figcaption><span>res/drawable/heart.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">vector</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:height</span>=<span class="value">"256dp"</span></span><br><span class="line">    <span class="attribute">android:width</span>=<span class="value">"256dp"</span></span><br><span class="line">    <span class="attribute">android:viewportWidth</span>=<span class="value">"32"</span></span><br><span class="line">    <span class="attribute">android:viewportHeight</span>=<span class="value">"32"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">path</span> <span class="attribute">android:fillColor</span>=<span class="value">"#8fff"</span></span><br><span class="line">      <span class="attribute">android:pathData</span>=<span class="value">"M20.5,9.5 c-1.955,0,-3.83,1.268,-4.5,3 c-0.67,-1.732,-2.547,-3,-4.5,-3 C8.957,9.5,7,11.432,7,14 c0,3.53,3.793,6.257,9,11.5 c5.207,-5.242,9,-7.97,9,-11.5 C25,11.432,23.043,9.5,20.5,9.5z"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">vector</span>&gt;</span></span><br></pre></td></tr></table></figure>
         
           <p class="article-more-link">
             
-              <a href="/2014/11/26/Android---实用代码片段(1)/">Read More</a>
+              <a href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/">Read More</a>
             
           </p>
         
@@ -114,17 +113,17 @@
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2014/11/26/Android---实用代码片段(1)/" data-id="ci8a6x9v3002i85z2fvfniesf" class="article-share-link" data-share="baidu">Share</a>
+        <a data-url="http://gavinliu.cn/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/" data-id="ci9i81lmj002kp5z2qmqzotk9" class="article-share-link" data-share="baidu">Share</a>
       
 
       <!-- 
       
-        <a href="http://gavinliu.cn/2014/11/26/Android---实用代码片段(1)/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://gavinliu.cn/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/#ds-thread" class="article-comment-link">Comments</a>
       
       -->
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/实用主义/">实用主义</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material.Design</a></li></ul>
 
     </footer>
   </div>
@@ -137,14 +136,14 @@
 </article>
 
   
-    <article id="post-Android---换种思路代替ViewHolder" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Chrome-几项必要的配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/07/22/Android---换种思路代替ViewHolder/" class="article-date">
-  <time datetime="2014-07-22T11:13:10.000Z" itemprop="datePublished">2014-07-22</time>
+    <a href="/2015/01/16/Chrome-几项必要的配置/" class="article-date">
+  <time datetime="2015-01-16T07:00:08.000Z" itemprop="datePublished">2015-01-16</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/Android-Notes/">Android Notes</a>
+    <a class="article-category-link" href="/categories/环境搭建/">环境搭建</a>
   </div>
 
   </div>
@@ -155,70 +154,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/22/Android---换种思路代替ViewHolder/">Android - 换种思路代替ViewHolder</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Android开发中绝大多少界面都是使用ListView来构建的，其中对Adapter的使用，从最开始没有任何优化，到后来的<code>ViewHolder</code> <code>getItemViewType</code>等等都在不断优化ListView的性能，使用ViewHolder是为了减少findView的次数，但是总觉得使用ViewHolder的方式不够优雅，于是我换了一种实现方式。</p>
-<p>1.把ListView的item封装成一个View，也就是说每个Item其实只有一个View，不过这个View里面由很多View组成<br>2.这个View向外暴露一些set方法，用来设置内部View的属性，然后在Adapter中使用封装好的View即可。</p>
-<p>代码如下：<br><figure class="highlight java"><figcaption><span>ListItemView.java </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.gavinliu.ex.tna;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.graphics.drawable.Drawable;</span><br><span class="line"><span class="keyword">import</span> android.util.AttributeSet;</span><br><span class="line"><span class="keyword">import</span> android.view.LayoutInflater;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.FrameLayout;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageView;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListItemView</span> <span class="keyword">extends</span> <span class="title">FrameLayout</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ImageView mImageView;</span><br><span class="line">    <span class="keyword">private</span> TextView mTextView;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ListItemView</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">        init(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ListItemView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">        init(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ListItemView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs, defStyle);</span><br><span class="line">        init(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        View v = LayoutInflater.from(context).inflate(R.layout.item, <span class="keyword">this</span>);</span><br><span class="line">        mImageView = (ImageView) v.findViewById(R.id.image);</span><br><span class="line">        mTextView = (TextView) v.findViewById(R.id.text);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTitle</span><span class="params">(String title)</span> </span>&#123;</span><br><span class="line">        mTextView.setText(title);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setImage</span><span class="params">(Drawable drawable)</span> </span>&#123;</span><br><span class="line">        mImageView.setImageDrawable(drawable);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-        
-          <p class="article-more-link">
-            
-              <a href="/2014/07/22/Android---换种思路代替ViewHolder/">Read More</a>
-            
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2014/07/22/Android---换种思路代替ViewHolder/" data-id="ci8a6x9v5002n85z2bs2sdir9" class="article-share-link" data-share="baidu">Share</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2014/07/22/Android---换种思路代替ViewHolder/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </footer>
-  </div>
-
-  
-
-  
-
-  
-</article>
-
-  
-    <article id="post-Android---变色SystemBar" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/07/06/Android---变色SystemBar/" class="article-date">
-  <time datetime="2014-07-06T10:33:20.000Z" itemprop="datePublished">2014-07-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android-Notes/">Android Notes</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/06/Android---变色SystemBar/">Android - 变色SystemBar</a>
+      <a class="article-title" href="/2015/01/16/Chrome-几项必要的配置/">Chrome 几项必要的配置</a>
     </h1>
   
 
@@ -229,40 +165,36 @@
 
         
         
-        <ul>
-<li>方案一：<ol>
-<li>透明SystemBar </li>
-<li>界面使用FrameLayout 在顶部底部位置添加和高度SystemBar的高度相等的View</li>
-</ol>
+        <h2 id="自定义Css">自定义Css</h2><ol>
+<li>新建一个文件夹，比如Custom CSS，包含Custom.css和manifest.json两个文件</li>
+<li><p>manifest.json的内容如下</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   "<span class="attribute">content_scripts</span>": <span class="value">[ &#123;</span><br><span class="line">      "<span class="attribute">css</span>": <span class="value">[<span class="string">"Custom.css"</span>]</span>,</span><br><span class="line">      "<span class="attribute">all_frames</span>": <span class="value"><span class="literal">true</span></span>,</span><br><span class="line">      "<span class="attribute">matches</span>": <span class="value">[ <span class="string">"http://*/*"</span>, <span class="string">"https://*/*"</span> ]</span><br><span class="line">   </span>&#125; ]</span>,</span><br><span class="line">   "<span class="attribute">description</span>": <span class="value"><span class="string">"Custom.css"</span></span>,</span><br><span class="line">   "<span class="attribute">name</span>": <span class="value"><span class="string">"Custom CSS"</span></span>,</span><br><span class="line">   "<span class="attribute">version</span>": <span class="value"><span class="string">"1.0"</span></span>,</span><br><span class="line">   "<span class="attribute">manifest_version</span>": <span class="value"><span class="number">2</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li>方案二：<ol>
-<li>透明SystemBar</li>
-<li>​使用<a href="http://blog.csdn.net/luoshengyang/article/details/8245546" target="_blank" rel="external"><code>DecorView</code></a>，它继承于FrameLayout，在<code>DecorView</code>顶部和底部各加一个视图</li>
-</ol>
+<li><p>打开Chrome的扩展管理，选择打包扩展程序，扩展程序根目录选择Custom CSS文件夹，私有密匙文件不用管，然后选择打包扩展程序，生成Custom CSS.crx和Custom CSS.pem。</p>
 </li>
-<li>两者方案的不同：<ol>
-<li>方案一，颜色条是在Layout里面；方案二，颜色条是在<code>DecorView</code>里面。</li>
-<li>两者视图层级不一样，使用方案一需要在每一个Layout文件中添加颜色条。</li>
+<li>将Custom CSS.crx拖入扩展管理安装即可。</li>
 </ol>
-</li>
+<h2 id="chrome://flags/">chrome://flags/</h2><ul>
+<li>overlay-scrollbars : 使用自动收起的滚动条，不占用额外空间(全平台)</li>
+<li>enable-smooth-scrolling : 像Mac和手机一样平滑滚动(仅Linux可用)</li>
+<li>enable-download-resumption : 恢复下载</li>
 </ul>
-<p>Github上有开源的工具类采用的<code>方案二</code>，代码请参见：<a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="external"><code>SystemBarTint</code></a></p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2014/07/06/Android---变色SystemBar/" data-id="ci8a6x9v7002q85z2ivozvugn" class="article-share-link" data-share="baidu">Share</a>
+        <a data-url="http://gavinliu.cn/2015/01/16/Chrome-几项必要的配置/" data-id="ci9i81lml002pp5z201ra7aum" class="article-share-link" data-share="baidu">Share</a>
       
 
       <!-- 
       
-        <a href="http://gavinliu.cn/2014/07/06/Android---变色SystemBar/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://gavinliu.cn/2015/01/16/Chrome-几项必要的配置/#ds-thread" class="article-comment-link">Comments</a>
       
       -->
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Chrome/">Chrome</a></li></ul>
 
     </footer>
   </div>
@@ -275,10 +207,10 @@
 </article>
 
   
-    <article id="post-Android---透明SystemBar" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Android---ToolBar初体验" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/07/05/Android---透明SystemBar/" class="article-date">
-  <time datetime="2014-07-05T11:01:33.000Z" itemprop="datePublished">2014-07-05</time>
+    <a href="/2015/01/16/Android---ToolBar初体验/" class="article-date">
+  <time datetime="2015-01-16T06:57:01.000Z" itemprop="datePublished">2015-01-16</time>
 </a>
     
   <div class="article-category">
@@ -293,7 +225,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/05/Android---透明SystemBar/">Android - 透明SystemBar</a>
+      <a class="article-title" href="/2015/01/16/Android---ToolBar初体验/">Android - Toolbar初体验</a>
     </h1>
   
 
@@ -301,96 +233,203 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近国内的手机ROM(MIUI, Flyme等)都升级了Android 4.4，预测下半年国内APP 会有很多使用Android4.4特性。<br>Android 4.4可以支持StatusBar和NavigationBar透明了，记录一下相关代码。</p>
-<h3 id="透明StatusBar和NavigationBar">透明StatusBar和NavigationBar</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Window win = getWindow();</span><br><span class="line">WindowManager.LayoutParams winParams = win.getAttributes();</span><br><span class="line">winParams.flags |= WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;</span><br><span class="line">winParams.flags |= WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;</span><br><span class="line">win.setAttributes(winParams);</span><br></pre></td></tr></table></figure>
-<p>或者<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"Translucent.SystemBar"</span> <span class="attribute">parent</span>=<span class="value">"@android:style/Theme.Holo.Light"</span>&gt;</span><span class="css"></span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:windowTranslucentStatus"</span>&gt;<span class="tag">true</span>&lt;/<span class="tag">item</span>&gt;</span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:windowTranslucentNavigation"</span>&gt;<span class="tag">true</span>&lt;/<span class="tag">item</span>&gt;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-        
-          <p class="article-more-link">
-            
-              <a href="/2014/07/05/Android---透明SystemBar/">Read More</a>
-            
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      
-        <a data-url="http://gavinliu.cn/2014/07/05/Android---透明SystemBar/" data-id="ci8a6x9v9002t85z2dag1a4gs" class="article-share-link" data-share="baidu">Share</a>
-      
-
-      <!-- 
-      
-        <a href="http://gavinliu.cn/2014/07/05/Android---透明SystemBar/#ds-thread" class="article-comment-link">Comments</a>
-      
-      -->
-
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </footer>
-  </div>
-
-  
-
-  
-
-  
-</article>
-
-  
-    <article id="post-Android--安卓开发中最佳单例模式实现" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/04/25/Android--安卓开发中最佳单例模式实现/" class="article-date">
-  <time datetime="2014-04-25T03:18:43.000Z" itemprop="datePublished">2014-04-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Android-Notes/">Android Notes</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/04/25/Android--安卓开发中最佳单例模式实现/">Android - 安卓开发中最佳单例模式实现</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-        
-        
-        <h3 id="做开发的朋友肯定对单例模式不陌生，大概有下面两种实现方式。">做开发的朋友肯定对单例模式不陌生，大概有下面两种实现方式。</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Singleton();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance=<span class="keyword">new</span> Singleton();</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singletonget <span class="title">Instance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">```&lt;!-- more --&gt;</span><br><span class="line">###但是在我们Android中，经常会使用到Context的引用，于是你写下下面这种单例</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">(Context ctx)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// Context 参数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">getInstance</span><span class="params">(Context ctx)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</span><br><span class="line">            instance = <span class="keyword">new</span> Singleton(ctx);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="一、概述">一、概述</h2><p>配合Android L的发布，Google还更新了Appcombat V7库，新加入了代替现有ActionBar机制的控件——Toolbar，不像以前ActionBar是frameworks封装好提供接口调用的一套应用界面组成部分，它牵涉的东西很多，而Toolbar只是一个控件，和LinearLayout一样可以装载view的容器控件，所以它定制性非常强灵活度非常高，但它又加入了实现现有ActionBar功能的逻辑，感觉非重强大。接下来，我们一起来看看这个新生代Toolbar的使用方法。</p>
+<h2 id="二、使用总概">二、使用总概</h2><p>Toolbar在Appcombat V7库是一个公开的控件，位于android.support.v7.widget包中，继承自ViewGroup，所以我们可以像使用普通的容器控件一样使用Toolbar，并主动调用相关方法实现ActionBar的功能。但是，Google是希望在Appcombat V7库中使用Toolbar来代替现有ActionBar的实现，所以肯定不会仅仅提供个控件就好了，Appcombat V7还把Toolbar封装进默认的Activity中。在新建工程时，创建向导会默认导入Appcombat V7库，自动创建的Activity也会继承自对Toolbar封装过的ActionBarActivity，创建工程后立刻运行应用，此时已是Toolbar实现了ActionBar的功能。</p>
+<figure class="highlight"><figcaption><span>导入Appcombat V7库:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile 'com.android.support:appcompat-v7:21.0.3'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="android-support-v7-widget-ActionBarActivity">android.support.v7.widget.ActionBarActivity</h3><ul>
+<li>Actionbar</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ActionBar actionBar = getSupportActionBar();</span><br><span class="line">actionBar.setTitle(<span class="string">"Title"</span>);</span><br><span class="line">actionBar.setSubtitle(<span class="string">"subtitle"</span>);</span><br><span class="line">actionBar.setLogo(R.drawable.ic_launcher);</span><br></pre></td></tr></table></figure>
 <ul>
-<li>每次获取单例的时候都要传入一个Context对象，如果我们要在纯Java类下使用，岂不是就歇菜了？</li>
-<li>所以正确的单例模式应该是这样的，以PreferenceUtils为例</li>
-<li>我们只需要在Application里面调用createInstance(Context ctx)，在其他地方使用的时候只需要getInstance()即可</li>
+<li>Toolbar</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.gavinliu.formater.util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map.Entry;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.ContentValues;</span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.content.SharedPreferences;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PreferenceUtils</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> PreferenceUtils util;</span><br><span class="line">    <span class="keyword">private</span> SharedPreferences mPreference;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">createInstance</span><span class="params">(Context ctx)</span> </span>&#123;</span><br><span class="line">        util = <span class="keyword">new</span> PreferenceUtils(ctx);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PreferenceUtils <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> util;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">PreferenceUtils</span><span class="params">(Context ctx)</span> </span>&#123;</span><br><span class="line">        mPreference = ctx.getApplicationContext().getSharedPreferences(ctx.getPackageName() + <span class="string">"_preferences"</span>, Context.MODE_PRIVATE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">putString</span><span class="params">(String key, String value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mPreference.edit().putString(key, value).commit();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">putInt</span><span class="params">(String key, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mPreference.edit().putInt(key, value).commit();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">putBoolean</span><span class="params">(String key, <span class="keyword">boolean</span> value)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mPreference.edit().putBoolean(key, value).commit();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">putValues</span><span class="params">(ContentValues values)</span> </span>&#123;</span><br><span class="line">        SharedPreferences.Editor editor = mPreference.edit();</span><br><span class="line">        <span class="keyword">for</span> (Entry&lt;String, Object&gt; value : values.valueSet()) &#123;</span><br><span class="line">            editor.putString(value.getKey(), value.getValue().toString());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> editor.commit();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getString</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getString(key, <span class="string">""</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getString</span><span class="params">(String key, String defValue)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mPreference.getString(key, defValue);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getInt</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getInt(key, -<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getInt</span><span class="params">(String key, <span class="keyword">int</span> defValue)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mPreference.getInt(key, defValue);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">getBoolean</span><span class="params">(String key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getBoolean(key, <span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">getBoolean</span><span class="params">(String key, <span class="keyword">boolean</span> defValue)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mPreference.getBoolean(key, defValue);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Toolbar toolbar = (Toolbar) findViewById(R.id.action_bar);</span><br><span class="line">toolbar.setTitle(<span class="string">"Title"</span>);</span><br><span class="line">toolbar.setSubtitle(<span class="string">"subtitle"</span>);</span><br><span class="line">toolbar.setLogo(R.drawable.ic_launcher);</span><br></pre></td></tr></table></figure>
+<p>SupportActionBar是由Toolbar实现，而Toolbar又是公开的，所以上面两种方式的等价的。</p>
+<h3 id="自行指定Toolbar">自行指定Toolbar</h3>
+        
+          <p class="article-more-link">
+            
+              <a href="/2015/01/16/Android---ToolBar初体验/">Read More</a>
+            
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2015/01/16/Android---ToolBar初体验/" data-id="ci9i81lmn002up5z2n5pxv1hx" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2015/01/16/Android---ToolBar初体验/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lollipop/">Lollipop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Material-Design/">Material.Design</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+
+  
+
+  
+</article>
+
+  
+    <article id="post-Flyme互联网产品的错误示范" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/01/07/Flyme互联网产品的错误示范/" class="article-date">
+  <time datetime="2015-01-07T03:24:49.000Z" itemprop="datePublished">2015-01-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/刘说八道/">刘说八道</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/07/Flyme互联网产品的错误示范/">Flyme互联网产品的错误示范</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        
+        
+        <h3 id="账户系统">账户系统</h3><ul>
+<li><p>Flyme账户 <strong>缺少用户属性</strong><br>Flyme账户只在云服务中作为登录验证使用，在Flyme4之前连昵称和头像都没有，除了这两点之外也没有其他个性化的设置。</p>
+</li>
+<li><p>Flyme账户 <strong>缺失用户关系</strong><br>Flyme账户至Flyme系统出世就一直存在，到现在发展到Flyme4了，用户与用户之间的联系还是没有，要知道互联网产品最需要的就是通过用户关系强化用户对软件的黏性。</p>
+</li>
+</ul>
+<h3 id="互联网进程操之过急">互联网进程操之过急</h3><ul>
+<li><p>Flyme应用中心 <strong>过度拆分化</strong><br>Flyme3的<code>应用中心</code>，在Flyme4中拆分成三个<code>应用中心</code> <code>游戏中心</code> <code>个性化</code>，把原本不多的流量活生生的分发到三个地方。</p>
+</li>
+<li><p>Flyme基础应用 <strong>过渡互联网化</strong><br>引以为傲的<code>音乐播放器</code> <code>视频播放器</code> 沦为 <strong>音乐商店附带播放功能</strong>和<strong>在线视频附带本地播放</strong></p>
+</li>
+</ul>
+<h3 id="产品思路">产品思路</h3><ul>
+<li><p>应用中心(APP)，游戏中心(游戏)，个性化(主题)<br>原应用中心中的三大元素拆分成三个APP这个做法是正确，但是不应该是当前这样拆，目前主题拆分出来是没有问题的，问题存在于应用中心和游戏中心上。<br>当前的应用中心和游戏中心的功能几乎是一模一样的，就是为用户提供下载服务，然而游戏其实也是应用，现在硬生生的才分成两个App，有必要吗？！那你可能会说我意思不应该有游戏中心这个App呢？当然不是！游戏中心要做的是<strong>玩家和玩家</strong>的互动，<strong>玩家和游戏商</strong>的互动，玩家需要个漂亮的个人页面展示游戏成就等等，这才是游戏中心应该做的事情。</p>
+</li>
+<li><p>音乐<br>音乐播放器作为Flyme最有亮点的App之一，软件的信息架构却一昧的像应用中心这种以推荐为导向的软件构靠拢，<strong>用户打开音乐听歌的需求远远大于寻找歌曲的需求</strong>，那么对于音乐来说个人歌单，歌曲列表对于用户才是重要的，在线推荐这些在软件的信息架构上可以稍微靠后一点，应该有不少用户会抱怨每次打开音乐听歌步骤是如此繁琐吧。</p>
+</li>
+<li><p>视频<br>以前视频播放器也是Flyme里很有特色的软件，Flyme3的本地视频 深色的背景 着实有点影院的感觉，在Flyme 4上本地被弱化得只有一个Pager了。<br>对于Flyme的视频发展上，在线视频可以提出来单独做一个产品线类似于(Youtube)，而视频则专注本地 界面做得精致点 有点iMovie的样子就差不多，同时也可以加入视频编辑功能，也是很有买点的。</p>
+</li>
+</ul>
+<h3 id="Apple_和_Google">Apple 和 Google</h3><blockquote>
+<p>Apple<br><code>App Store</code>提供软件购买下载, <code>iTunes Store</code>提供内容购买下载。<br>通过 <code>音乐</code> <code>视频</code> <code>iBooks</code> 这些软件专注消费内容，使用内容。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Google<br><code>Play 商店</code>集合了软件和内容所有购买下载。<br>通过 <code>Play音乐</code> <code>Play电影</code> 一大堆这样的 <strong><code>Play X</code></strong> 这些软件专注消费内容，使用内容。</p>
+</blockquote>
+<p>可以看出国外对于内容消费比较成熟，会把内容当成商品买，回到国内，还没有消费内容的习惯来说，把各个内容的获取分配到各个应用中的做法是比较符合国情的，但是不对的地方是，对于音乐来说要找准用户的痛点，市面上好的播放器真的很少。</p>
+<h3 id="后记：战略发展">后记：战略发展</h3><p>Flyme账户系统以及其他互联网产品应该独立化，应该完全使用原生SDK开发，使之可以装在其他Android手机上，这样对于Flyme适配不过来的手机，可以提供Flyme服务的刷机包，而Flyme的设计也尽量追随谷歌的设计规范，这样有利于应用软件的开发和推广。</p>
+<p>迄今为止，Flyme只适配了有限的几款机型，并且PatchRom也没有完成的情况下，如果推出一个Flyme服务的刷机包，让其他Android用户能体验到Flyme的云服务，体验到Flyme优秀的基础应用，这样也能达到发展潜在用户的目的，这应该也是Google不管你怎么改Android，只要内置Google服务就行的原因吧。</p>
+<p>当年小米通过MIUI占领市场，而如今采用Flyme服务的方式来占领其他Android手机也不乏是个好点子，突然觉得这也是个不错的创业的项目。</p>
+<hr>
+<p>最后更新：2015.01.21 00:40</p>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2014/04/25/Android--安卓开发中最佳单例模式实现/" data-id="ci8a6x9va002w85z2ih95kpau" class="article-share-link" data-share="baidu">Share</a>
+        <a data-url="http://gavinliu.cn/2015/01/07/Flyme互联网产品的错误示范/" data-id="ci9i81lmq002zp5z2mz62mjkd" class="article-share-link" data-share="baidu">Share</a>
       
 
       <!-- 
       
-        <a href="http://gavinliu.cn/2014/04/25/Android--安卓开发中最佳单例模式实现/#ds-thread" class="article-comment-link">Comments</a>
+        <a href="http://gavinliu.cn/2015/01/07/Flyme互联网产品的错误示范/#ds-thread" class="article-comment-link">Comments</a>
       
       -->
 
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Flyme/">Flyme</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人人都是产品经理/">人人都是产品经理</a></li></ul>
+
+    </footer>
+  </div>
+
+  
+
+  
+
+  
+</article>
+
+  
+    <article id="post-2014-The-End" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/31/2014-The-End/" class="article-date">
+  <time datetime="2014-12-31T13:45:25.000Z" itemprop="datePublished">2014-12-31</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/刘说八道/">刘说八道</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/31/2014-The-End/">2014 The End</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+        
+        
+        <h3 id="【2014的匆匆而过】">【2014的匆匆而过】</h3><p>这一年毕业了，这一年工作了；<br>这一年去了珠海，去了深圳，去了澳门，去了北京；<br>这一年去了魅族，做了职业码农，码畜，码XX。    </p>
+<p>一直想找一份<code>Remote Working</code>的工作，也在为此而努力，对目前的状态不是很满意，全在加班，没有时间学习新的知识，很怕这种没有进步的日子，七月份入职，前三个月九九六的加班，后三个月没有九九六，但也是一周六天班。      </p>
+<h3 id="【2015的学习目标】">【2015的学习目标】</h3><ul>
+<li>英语 (Remote Working 很重要的一点)</li>
+<li>深入<code>Android 动画</code> <code>自定义控件</code></li>
+<li>学习下<code>OpenGL</code></li>
+<li>空闲时间写写<code>iOS</code>或者<code>Cocos2d</code></li>
+<li>空闲时间学学<code>QT</code></li>
+</ul>
+<h3 id="【2015的独立项目】">【2015的独立项目】</h3><ul>
+<li>Formater (一款MP3封面管理软件)</li>
+<li>Listen (一款优雅的本地音乐播放器)</li>
+</ul>
+<p>2014是幸运的一年，去了一直很想去魅族科技，感谢老大对我的赏识，因为魅族也认识了一群很牛逼的人，魅族是一家说大不大说小也不小的公司，公司成立十年，创业却刚刚开始，希望能趁着创业之际，好好充实自己，实现<code>Remote Working</code>的梦想。</p>
+<p>Bye，年终总结，明年再见…</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://gavinliu.cn/2014/12/31/2014-The-End/" data-id="ci9i81lms0036p5z2w0jidxmo" class="article-share-link" data-share="baidu">Share</a>
+      
+
+      <!-- 
+      
+        <a href="http://gavinliu.cn/2014/12/31/2014-The-End/#ds-thread" class="article-comment-link">Comments</a>
+      
+      -->
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/年终总结/">年终总结</a></li></ul>
 
     </footer>
   </div>
@@ -405,7 +444,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -417,7 +456,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Notes/">Android Notes</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle-Notes/">Gradle Notes</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Notes/">Java Notes</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web-Notes/">Java.Web Notes</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Notes/">Android Notes</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle-Notes/">Gradle Notes</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Notes/">Java Notes</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web-Notes/">Java.Web Notes</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程技巧/">编程技巧</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -426,7 +465,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 16.67px;">Animation</a><a href="/tags/Annotation/" style="font-size: 10px;">Annotation</a><a href="/tags/Apple/" style="font-size: 15px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Facebook/" style="font-size: 10px;">Facebook</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 11.67px;">Gradle</a><a href="/tags/Java/" style="font-size: 13.33px;">Java</a><a href="/tags/Java-Web/" style="font-size: 18.33px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 13.33px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 15px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 13.33px;">Material.Design</a><a href="/tags/Morning-Routine/" style="font-size: 10px;">Morning.Routine</a><a href="/tags/OSX/" style="font-size: 15px;">OSX</a><a href="/tags/PagerIndicator/" style="font-size: 10px;">PagerIndicator</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/三角函数/" style="font-size: 10px;">三角函数</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 11.67px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/贝赛尔曲线/" style="font-size: 10px;">贝赛尔曲线</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 16.67px;">Animation</a><a href="/tags/Annotation/" style="font-size: 10px;">Annotation</a><a href="/tags/Apple/" style="font-size: 15px;">Apple</a><a href="/tags/Choreographer/" style="font-size: 10px;">Choreographer</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/EventCast/" style="font-size: 10px;">EventCast</a><a href="/tags/Facebook/" style="font-size: 10px;">Facebook</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 11.67px;">Gradle</a><a href="/tags/Java/" style="font-size: 13.33px;">Java</a><a href="/tags/Java-Web/" style="font-size: 18.33px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 13.33px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 15px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 13.33px;">Material.Design</a><a href="/tags/Morning-Routine/" style="font-size: 10px;">Morning.Routine</a><a href="/tags/OSX/" style="font-size: 15px;">OSX</a><a href="/tags/PagerIndicator/" style="font-size: 10px;">PagerIndicator</a><a href="/tags/Project-Butter/" style="font-size: 10px;">Project.Butter</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/三角函数/" style="font-size: 10px;">三角函数</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 11.67px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 11.67px;">年终总结</a><a href="/tags/按位运算/" style="font-size: 10px;">按位运算</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/编程技巧/" style="font-size: 10px;">编程技巧</a><a href="/tags/贝赛尔曲线/" style="font-size: 10px;">贝赛尔曲线</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
     </div>
   </div>
 
@@ -435,7 +474,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 

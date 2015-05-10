@@ -5,15 +5,18 @@
   
   <title>Java - Annotation 使用注解让你的程序更高级 | Gavin.Liu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="占坑，博客计划中…">
+  <meta name="description" content="简介
+An annotation is a form of metadata, that can be added to Java source code. Classes, methods, variables, parameters and packages may be annotated. Annotations have no direct effect on the operation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java - Annotation 使用注解让你的程序更高级">
 <meta property="og:url" content="http://gavinliu.cn/2015/04/12/Java-Annotation-使用注解让你的程序更高级/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description" content="占坑，博客计划中…">
+<meta property="og:description" content="简介
+An annotation is a form of metadata, that can be added to Java source code. Classes, methods, variables, parameters and packages may be annotated. Annotations have no direct effect on the operation">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java - Annotation 使用注解让你的程序更高级">
-<meta name="twitter:description" content="占坑，博客计划中…">
+<meta name="twitter:description" content="简介
+An annotation is a form of metadata, that can be added to Java source code. Classes, methods, variables, parameters and packages may be annotated. Annotations have no direct effect on the operation">
   
   
     <link rel="icon" href="/favicon.png">
@@ -100,17 +103,76 @@
         
           <div id="toc" class="toc-article">
             <strong class="toc-title">文章目录</strong>
-            
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Meta_Annotation（元注解）"><span class="toc-number">1.1.</span> <span class="toc-text">Meta Annotation（元注解）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标准_Annotation"><span class="toc-number">1.2.</span> <span class="toc-text">标准 Annotation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义_Annotation"><span class="toc-number">1.3.</span> <span class="toc-text">自定义 Annotation</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#读取注解"><span class="toc-number">2.</span> <span class="toc-text">读取注解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#@Retention(RetentionPolicy-SCORCE)"><span class="toc-number">2.1.</span> <span class="toc-text">@Retention(RetentionPolicy.SCORCE)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#@Retention(RetentionPolicy-CLASS)"><span class="toc-number">2.2.</span> <span class="toc-text">@Retention(RetentionPolicy.CLASS)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#@Retention(RetentionPolicy-RUNTIME)"><span class="toc-number">2.3.</span> <span class="toc-text">@Retention(RetentionPolicy.RUNTIME)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更多资料"><span class="toc-number">3.</span> <span class="toc-text">更多资料</span></a></li></ol>
           </div>
         
         
-        <p>占坑，博客计划中…</p>
+        <h2 id="简介">简介</h2><blockquote>
+<p>An annotation is a form of metadata, that can be added to Java source code. Classes, methods, variables, parameters and packages may be annotated. Annotations have no direct effect on the operation of the code they annotate.</p>
+</blockquote>
+<p>能够添加到 Java 源代码的语法元数据。类、方法、变量、参数、包都可以被注解，可用来将信息元数据与程序元素进行关联。Annotation 中文常译为“注解”。</p>
+<h3 id="Meta_Annotation（元注解）">Meta Annotation（元注解）</h3><table>
+<thead>
+<tr>
+<th>创建新注解时需要的注解</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Target</td>
+<td style="text-align:left">表示该注解可以用于什么地方：<br>TYPE：类、接口、注解类型、enum声明<br>FIELD：域声明<br>METHOD：方法声明<br>PACKAGE：包声明<br>PARAMETER：参数声明<br>CONSTRUCTOR：构造器的声明<br>LOCAL_VARIABLE：局部变量声明</td>
+</tr>
+<tr>
+<td>@Retention</td>
+<td style="text-align:left">表示需要在什么级别保存该注解信息：<br>CLASS：注解在class文件中可用，但会被VM丢弃<br>SOURCE：注解将被编译器丢弃<br>RUNTIME：VM将在运行期间保留注解，因此可以通过反射机制读取注解的信息。</td>
+</tr>
+<tr>
+<td>@Document</td>
+<td style="text-align:left">将注解包含在Javadoc中</td>
+</tr>
+<tr>
+<td>@Inherited</td>
+<td style="text-align:left">允许子类继承父类中的注解</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h3 id="标准_Annotation">标准 Annotation</h3><table>
+<thead>
+<tr>
+<th>Jdk自带的注解</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Override</td>
+<td style="text-align:left">表示当前的方法定义将覆盖超类中的方法。</td>
+</tr>
+<tr>
+<td>@Deprecated</td>
+<td style="text-align:left">使用了注解为它的元素编译器将发出警告，因为注解@Deprecated是不赞成使用的代码，被弃用的代码。</td>
+</tr>
+<tr>
+<td>@SuppressWarnings</td>
+<td style="text-align:left">关闭不当编译器警告信息。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="自定义_Annotation">自定义 Annotation</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Documented</span></span><br><span class="line"><span class="annotation">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="annotation">@Target</span>(ElementType.METHOD)</span><br><span class="line"><span class="annotation">@Inherited</span></span><br><span class="line"><span class="keyword">public</span> <span class="annotation">@interface</span> MethodInfo &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">String <span class="title">author</span><span class="params">()</span> <span class="keyword">default</span> "admin@gmail.com"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">String <span class="title">date</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">version</span><span class="params">()</span> <span class="keyword">default</span> 1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="读取注解">读取注解</h2><h3 id="@Retention(RetentionPolicy-SCORCE)">@Retention(RetentionPolicy.SCORCE)</h3><p>主要用于源码标记，比如说JDK自带的标准注解都是这样的。</p>
+<h3 id="@Retention(RetentionPolicy-CLASS)">@Retention(RetentionPolicy.CLASS)</h3><h3 id="@Retention(RetentionPolicy-RUNTIME)">@Retention(RetentionPolicy.RUNTIME)</h3><h2 id="更多资料">更多资料</h2><p>文章部分内容来源以下博客：</p>
+<ul>
+<li><a href="http://codekk.com/open-source-project-analysis/detail/Android/Trinea/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8BJava%20%E6%B3%A8%E8%A7%A3%20Annotation" target="_blank" rel="external">公共技术点之Java 注解 Annotation</a></li>
+<li><a href="http://www.cnblogs.com/pepcod/archive/2013/02/16/2913474.html" target="_blank" rel="external">Java中注解的使用与实例(一)</a></li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
       
-        <a data-url="http://gavinliu.cn/2015/04/12/Java-Annotation-使用注解让你的程序更高级/" data-id="ci8a6x9tx000585z22igczgvg" class="article-share-link" data-share="baidu">Share</a>
+        <a data-url="http://gavinliu.cn/2015/04/12/Java-Annotation-使用注解让你的程序更高级/" data-id="ci9i81llo0010p5z2qjtiqhpv" class="article-share-link" data-share="baidu">Share</a>
       
 
       <!-- 
@@ -128,6 +190,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2015/04/15/Android-Project-Butter-黄油计划/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Android - Project Butter(黄油计划)
+        
+      </div>
+    </a>
   
   
     <a href="/2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/" id="article-nav-older" class="article-nav-link-wrap">
@@ -156,7 +227,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Notes/">Android Notes</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle-Notes/">Gradle Notes</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Notes/">Java Notes</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web-Notes/">Java.Web Notes</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Android-Notes/">Android Notes</a><span class="category-list-count">21</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Gradle-Notes/">Gradle Notes</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Notes/">Java Notes</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java-Web-Notes/">Java.Web Notes</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人作品/">个人作品</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/刘说八道/">刘说八道</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/环境搭建/">环境搭建</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程技巧/">编程技巧</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -165,7 +236,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 16.67px;">Animation</a><a href="/tags/Annotation/" style="font-size: 10px;">Annotation</a><a href="/tags/Apple/" style="font-size: 15px;">Apple</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/Facebook/" style="font-size: 10px;">Facebook</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 11.67px;">Gradle</a><a href="/tags/Java/" style="font-size: 13.33px;">Java</a><a href="/tags/Java-Web/" style="font-size: 18.33px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 13.33px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 15px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 13.33px;">Material.Design</a><a href="/tags/Morning-Routine/" style="font-size: 10px;">Morning.Routine</a><a href="/tags/OSX/" style="font-size: 15px;">OSX</a><a href="/tags/PagerIndicator/" style="font-size: 10px;">PagerIndicator</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/三角函数/" style="font-size: 10px;">三角函数</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 10px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 11.67px;">年终总结</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/贝赛尔曲线/" style="font-size: 10px;">贝赛尔曲线</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
+      <a href="/tags/Android/" style="font-size: 20px;">Android</a><a href="/tags/Animation/" style="font-size: 16.67px;">Animation</a><a href="/tags/Annotation/" style="font-size: 10px;">Annotation</a><a href="/tags/Apple/" style="font-size: 15px;">Apple</a><a href="/tags/Choreographer/" style="font-size: 10px;">Choreographer</a><a href="/tags/Chrome/" style="font-size: 10px;">Chrome</a><a href="/tags/EventCast/" style="font-size: 10px;">EventCast</a><a href="/tags/Facebook/" style="font-size: 10px;">Facebook</a><a href="/tags/Flyme/" style="font-size: 10px;">Flyme</a><a href="/tags/Gradle/" style="font-size: 11.67px;">Gradle</a><a href="/tags/Java/" style="font-size: 13.33px;">Java</a><a href="/tags/Java-Web/" style="font-size: 18.33px;">Java.Web</a><a href="/tags/Lollipop/" style="font-size: 13.33px;">Lollipop</a><a href="/tags/Mac/" style="font-size: 15px;">Mac</a><a href="/tags/Material-Design/" style="font-size: 13.33px;">Material.Design</a><a href="/tags/Morning-Routine/" style="font-size: 10px;">Morning.Routine</a><a href="/tags/OSX/" style="font-size: 15px;">OSX</a><a href="/tags/PagerIndicator/" style="font-size: 10px;">PagerIndicator</a><a href="/tags/Project-Butter/" style="font-size: 10px;">Project.Butter</a><a href="/tags/WebService/" style="font-size: 10px;">WebService</a><a href="/tags/三角函数/" style="font-size: 10px;">三角函数</a><a href="/tags/人人都是产品经理/" style="font-size: 10px;">人人都是产品经理</a><a href="/tags/实用主义/" style="font-size: 11.67px;">实用主义</a><a href="/tags/年终总结/" style="font-size: 11.67px;">年终总结</a><a href="/tags/按位运算/" style="font-size: 10px;">按位运算</a><a href="/tags/比特币-Bitcoin/" style="font-size: 10px;">比特币(Bitcoin)</a><a href="/tags/浮想联翩/" style="font-size: 10px;">浮想联翩</a><a href="/tags/编程技巧/" style="font-size: 10px;">编程技巧</a><a href="/tags/贝赛尔曲线/" style="font-size: 10px;">贝赛尔曲线</a><a href="/tags/面试经验/" style="font-size: 10px;">面试经验</a>
     </div>
   </div>
 
@@ -174,7 +245,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">May 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">January 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">December 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">April 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">March 2014</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">January 2014</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">December 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">June 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/05/">May 2013</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/04/">April 2013</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/11/">November 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/07/">July 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/06/">June 2012</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/05/">May 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/04/">April 2012</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2012/03/">March 2012</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
