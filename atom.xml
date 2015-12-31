@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Focus on Mobile Develop]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://gavinliu.cn/"/>
-  <updated>2015-12-31T12:41:17.000Z</updated>
+  <updated>2015-12-31T14:28:24.000Z</updated>
   <id>http://gavinliu.cn/</id>
   
   <author>
@@ -19,9 +19,60 @@
     <link href="http://gavinliu.cn/2015/12/31/2015-The-End/"/>
     <id>http://gavinliu.cn/2015/12/31/2015-The-End/</id>
     <published>2015-12-31T14:11:03.000Z</published>
-    <updated>2015-12-31T12:41:17.000Z</updated>
-    <content type="html"></content>
+    <updated>2015-12-31T14:28:24.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>律回岁晚冰霜少，春到人间草木知。<br>  乙未将逝，丙申如至，正值岁尾，回首往昔之事，或诸事怡然，或行事苦厄，亦或安然如故。<br>  然岁月如矢，时光不待，往之去兮，惟存之美，异日来兮，须留之冀。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="2015_工作">2015 工作</h2><p>2015是个加班的一年，忙碌的一年，感觉时间前所未有的快。</p>
+<h3 id="前大半年：Flyme5-视频项目">前大半年：<code>Flyme5</code>.视频项目</h3><p>主要工作：</p>
+<ul>
+<li>动画+自定义View</li>
+<li>列表页使用 模板方式 实现列表页Adapter大量重用</li>
+<li>移植StackBlur实现视频项目中的模糊效果 - <a href="https://github.com/gavinliu/Android-Drawables" target="_blank" rel="external">Android-Drawables</a></li>
+<li>多屏适配框架 - <a href="https://github.com/gavinliu/Android-ScaleLayout" target="_blank" rel="external">Android-ScaleLayout</a></li>
+<li>应用内的消息通知模型 - <a href="https://github.com/gavinliu/EventCast" target="_blank" rel="external">EventCast（类似EventBus）</a></li>
+<li>对接服务器数据接口</li>
+<li>完善项目的网络，缓存框架(没有用开源的东西，图片缓存的实现方式目前还没在市面上见到)</li>
+</ul>
+<h3 id="后小半年：Flyme5-读书项目">后小半年：<code>Flyme5</code>.读书项目</h3><p>新立项的项目 使用了很多很酷的开源库:</p>
+<ul>
+<li><code>Dagger2</code> - 实现依赖注入</li>
+<li><code>Gson</code> - 序列化Json</li>
+<li><code>UniversalImageLoader</code> - 图片加载</li>
+<li><code>ActiveAndroid</code> - 数据库ORM框架</li>
+<li><code>EventBus</code> - 应用内消息通知</li>
+<li><code>Butterknife</code> - View注解</li>
+<li><code>Android Async Http</code> - HTTP网络请求</li>
+</ul>
+<p>把这么多框架结合在一起，开始的时候觉得好麻烦，后面习惯了也就还好，都还比较稳定。</p>
+<h3 id="后小半年：工作上改改BUG，学学自己感兴趣的东西。">后小半年：工作上改改BUG，学学自己感兴趣的东西。</h3><ul>
+<li>学习<code>Python</code>，把之前Java爬取虾米专辑封面重写了遍 - <a href="https://github.com/gavinliu/SpiderCover" target="_blank" rel="external">SpiderCover</a></li>
+<li>学习<code>Swift</code>，使用Swift写了个简单的TodoList(就两个界面跳转，存读数据)</li>
+<li>学习<code>Android Testing Support Library</code></li>
+</ul>
+<h2 id="2015_读书">2015 读书</h2><ul>
+<li><a href="http://book.douban.com/subject/26351257/" target="_blank" rel="external">算法的乐趣</a></li>
+<li><a href="http://book.douban.com/subject/4262627/" target="_blank" rel="external">重构</a></li>
+</ul>
+<h2 id="2015_旅游">2015 旅游</h2><ul>
+<li>惠州-巽寮湾</li>
+<li>日本.大阪 京都 奈良 东京</li>
+</ul>
+<h2 id="2016_计划">2016 计划</h2><ul>
+<li>目前博客仍然是翻译API式的，希望深入学习，写点有深度的博客。<code>加班，忙 不是不学习的理由</code></li>
+<li>个人项目搁浅了，明年一定挤时间写。<code>加班，忙 不是不更新的理由</code></li>
+</ul>
+<p>工作也快两年了，仍然感觉自己碌碌无为的，国内Android社区的很多大牛，年龄都和我相仿，和他们比还差得很多，加油吧~~~</p>
+<blockquote>
+<p>以后的你会感谢当初努力奋斗的自己</p>
+</blockquote>
+<p>再见 2015，你好 2016。</p>
+]]></content>
     <summary type="html">
+    <![CDATA[<blockquote>
+<p>律回岁晚冰霜少，春到人间草木知。<br>  乙未将逝，丙申如至，正值岁尾，回首往昔之事，或诸事怡然，或行事苦厄，亦或安然如故。<br>  然岁月如矢，时光不待，往之去兮，惟存之美，异日来兮，须留之冀。</p>
+</blockquote>]]>
     
     </summary>
     
