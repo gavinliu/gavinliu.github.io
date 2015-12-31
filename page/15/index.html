@@ -1,0 +1,393 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>Page 15 | Gavin.Liu</title>
+  <meta name="author" content="Gavin Liu">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Gavin.Liu"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2842c9eadd6d87f89c3ebdba92f18bcb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Home</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class=""></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class=""></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class=""></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/project" title="Project.">
+			  <i class=""></i>Project
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class=""></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class=""></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header logo">
+  <h1>Focus on Mobile Develop<span class="blink-fast">∎</span></h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart blink-slow"></i>
+      Keep and carry on.
+</div>    
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2012/03/21/JavaWeb---网页中文乱码处理/" >Java.Web - 网页中文乱码处理</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2012-03-21  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="表单">表单</h2><ul>
+<li>get<br>⑴ 获取数据前 分解成字节，然后封装成UTF-8<br>String user = new String(request.getParameter(“user”).getBytes(“iso-8859-1”), “UTF-8”);<br>⑵ 配置服务器，也可解决：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"8080"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span>     </span><br><span class="line">   <span class="attribute">connectionTimeout</span>=<span class="value">"20000"</span> </span><br><span class="line">   <span class="attribute">redirectPort</span>=<span class="value">"8443"</span> <span class="attribute">URIEncoding</span>=<span class="value">"UTF-8"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>post<br>直接在接收 servlet 中设置  request.setCharacterEncoding(“UTF-8”);</li>
+</ul>
+<h2 id="超链接">超链接</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.qq.com?user=你好"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>处理办法和get 是一样的</p>
+<h2 id="sendRedirect(),_下载文件名中文乱码的处理：">sendRedirect(), 下载文件名中文乱码的处理：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"主机?username="</span> + <span class="string">"你好"</span>);</span><br><span class="line">String temp = java.net.URLEncoder.encode(<span class="string">"你好.mp3"</span>,<span class="string">"UTF-8"</span>);</span><br><span class="line">response.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment; filename="</span> + temp);</span><br><span class="line">response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);<span class="comment">//设置相应字符编码，告诉浏览器采用utf-8</span></span><br><span class="line">request.setCharacterEncoding(<span class="string">"UTF-8"</span>);<span class="comment">//设置请求体的字符编码</span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2012/03/21/JavaWeb---网页中文乱码处理/#more" class="btn btn-default more">Read More</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2012/03/14/JavaWeb---Response、Request-随笔/" >Java.Web - Response、Request 随笔</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2012-03-14  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>getWriter();和getOutputStream();的使用<br>区别：</p>
+<ol>
+<li>getWriter(); 用于向客户机回送字符数据</li>
+<li>getOutputStream(); 返回对象，可以回送字符数据，也可以回送字节数据(二进制数据)<br> OutputStream os = response.getOutputSteam();<br> os.writ(“hello”.getBytes());<br>如何选择：<br>如果你传送的是字符数据，则使用 getWriter(); 或者说 使用PrintWriter 对象，这样效率高；<br>如果是回送字节数据(birary date) 只能使用 OutputStream();<br>这两个流不能同时使用！</li>
+</ol>
+<p>请求相关API<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestURL().toString(); <span class="comment">//获得URL  http://lyl.com:8080/UsersManger/download.do</span></span><br><span class="line">request.getRequestURL(); <span class="comment">//获得URI  /UsersManger/download.do</span></span><br><span class="line">request.getQueryString(); <span class="comment">//获得所传参数‘?’后面的内容  username=lyl&amp;password=123</span></span><br><span class="line">request.getRemoteAddr(); <span class="comment">//获得客户机的IP</span></span><br><span class="line">request.getRemoteHost(); <span class="comment">//获得客户机的完整主机名</span></span><br><span class="line">request.getRemotePort(); <span class="comment">//获得客户机所使用的网络端口</span></span><br><span class="line">request.getLocalPort(); <span class="comment">//获得WEB服务器所使用的网络端口</span></span><br><span class="line">request.getLocalAddr(); <span class="comment">//获得WEB服务器的IP</span></span><br><span class="line">request.getLocalName(); <span class="comment">//获得WEB服务器主机名</span></span><br><span class="line">request.getParameter(<span class="string">""</span>); <span class="comment">// 获得用户提交的数据,根据name 属性获取</span></span><br></pre></td></tr></table></figure></p>
+
+	
+	</div>
+  <a type="button" href="/2012/03/14/JavaWeb---Response、Request-随笔/#more" class="btn btn-default more">Read More</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2012/03/01/Android-【手把手教你打太极】/" >Android:【手把手教你打太极】</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2012-03-01  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>太极拳，是一种武术项目，也是体育运动和健身项目，在中国有着悠久的历史。<br>但事实上太极拳的推广并不是特别广泛，我想在坐的各位老师评委，可能都没接触过太极拳。<br>其平民化。<br>手把手教你打太极是一款教你学习太极拳电子书类应用，软件收录了24式太极拳的招式，图解。让你随时随地都能体验太极拳的魅力。<br>本软件界面优美，适合阅读，是你学习太极拳必备的软件。<br>下载地址：<a href="http://mm.10086.cn/1007/300002692964.html">http://mm.10086.cn/1007/300002692964.html</a> </p>
+<p><img src="/images/2012.02.30 - -软件-Android-【手把手教你打太极】1.jpg" alt="images">
+	
+	</div>
+  <a type="button" href="/2012/03/01/Android-【手把手教你打太极】/#more" class="btn btn-default more">Read More</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+
+   
+    
+     <a href="/page/14/" type="button" class="btn btn-default"><i class="fa fa-arrow-circle-o-left"></i> Prev</a>
+      
+
+        <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+ 
+          <a type="button" class="btn btn-default disabled">Next<i class="fa fa-arrow-circle-o-right"></i></a>
+        
+
+  
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+	<div class="widget">
+		<h4>Categories</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/Android-Notes/">Android Notes<span>30</span></a></li>
+		
+			<li><a href="/categories/Gradle-Notes/">Gradle Notes<span>2</span></a></li>
+		
+			<li><a href="/categories/Java-Notes/">Java Notes<span>4</span></a></li>
+		
+			<li><a href="/categories/Java-Web-Notes/">Java.Web Notes<span>12</span></a></li>
+		
+			<li><a href="/categories/Python-Notes/">Python Notes<span>1</span></a></li>
+		
+			<li><a href="/categories/Swift-Notes/">Swift Notes<span>1</span></a></li>
+		
+			<li><a href="/categories/个人作品/">个人作品<span>6</span></a></li>
+		
+			<li><a href="/categories/刘说八道/">刘说八道<span>7</span></a></li>
+		
+			<li><a href="/categories/环境搭建/">环境搭建<span>6</span></a></li>
+		
+			<li><a href="/categories/编程技巧/">编程技巧<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>Tag Cloud</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/Java/">Java<span>3</span></a></li>
+		
+			<li><a href="/tags/Android/">Android<span>30</span></a></li>
+		
+			<li><a href="/tags/按位运算/">按位运算<span>1</span></a></li>
+		
+			<li><a href="/tags/单元测试/">单元测试<span>2</span></a></li>
+		
+			<li><a href="/tags/Java-Web/">Java.Web<span>14</span></a></li>
+		
+			<li><a href="/tags/ListView/">ListView<span>1</span></a></li>
+		
+			<li><a href="/tags/Choreographer/">Choreographer<span>1</span></a></li>
+		
+			<li><a href="/tags/内存分析/">内存分析<span>1</span></a></li>
+		
+			<li><a href="/tags/Espresso/">Espresso<span>2</span></a></li>
+		
+			<li><a href="/tags/PagerIndicator/">PagerIndicator<span>1</span></a></li>
+		
+			<li><a href="/tags/实用主义/">实用主义<span>2</span></a></li>
+		
+			<li><a href="/tags/Material-Design/">Material.Design<span>3</span></a></li>
+		
+			<li><a href="/tags/AbsListView/">AbsListView<span>1</span></a></li>
+		
+			<li><a href="/tags/浮想联翩/">浮想联翩<span>1</span></a></li>
+		
+			<li><a href="/tags/Swift/">Swift<span>1</span></a></li>
+		
+			<li><a href="/tags/Facebook/">Facebook<span>1</span></a></li>
+		
+			<li><a href="/tags/Morning-Routine/">Morning.Routine<span>1</span></a></li>
+		
+			<li><a href="/tags/Chrome/">Chrome<span>1</span></a></li>
+		
+			<li><a href="/tags/WebService/">WebService<span>1</span></a></li>
+		
+			<li><a href="/tags/年终总结/">年终总结<span>3</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>43</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 Gavin Liu
+  
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/gavinliu/hexo-theme-freemind.386" target="_blank">Freemind.386</a>.
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

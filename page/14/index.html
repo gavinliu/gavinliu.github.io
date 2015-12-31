@@ -1,0 +1,503 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>Page 14 | Gavin.Liu</title>
+  <meta name="author" content="Gavin Liu">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="Gavin.Liu"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2842c9eadd6d87f89c3ebdba92f18bcb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Home</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class=""></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class=""></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class=""></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/project" title="Project.">
+			  <i class=""></i>Project
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class=""></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class=""></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 <div class="page-header logo">
+  <h1>Focus on Mobile Develop<span class="blink-fast">∎</span></h1>
+</div>
+
+<div class="row page">
+
+	
+	<div class="col-md-9">
+	
+
+		<div class="slogan">
+      <i class="fa fa-heart blink-slow"></i>
+      Keep and carry on.
+</div>    
+		<div id="top_search"></div>
+		<div class="mypage">
+		
+		<!-- title and entry -->
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2012/04/15/JavaWeb---ServletContext-随笔/" >Java.Web - ServletContext 随笔</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2012-04-15  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<p>Servlet容器在启动时会加载Web应用，并为 每个Web应用创建 唯一的 ServletContext 对象。<br>可以把ServletContext看成是一个Web应用的服务器端组件的共享内存。<br>ServletContext对象只在Web应用被关闭时才被销毁；不同的Web应用 ServletContext各自独立存在。</p>
+<h2 id="在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法:">在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法:</h2><ul>
+<li>1）setAttribute(String name,Object object);//把一个对象和一个属性名绑定，将这个对象存储在ServletContext中；</li>
+<li>2）getAttribute(String name);//根据指定的属 性名返回所绑定的对象；</li>
+<li>3）removeAttribute(String name);//根据给定的属性名从ServletContext中删除相应的操作；</li>
+<li>4）getAttributeNames();//返回Enumeration对象，它包含了存储在ServletContext对象中的所有属性名</li>
+</ul>
+<h3 id="ServletContext_VS_Session">ServletContext VS Session</h3><ul>
+<li>ServletContext和Session相同，都是存在服务器端的东西</li>
+<li>ServletContext和Session不同，ServletVontext是所有浏览器共享的， Session是一个浏览器对应一个session</li>
+</ul>
+<p>ServletContext 案例：1.公共聊天室缓存 2.聊天室的在线人数</p>
+<h2 id="ServletContext_实现转发：//和派发器是一样的">ServletContext 实现转发：//和派发器是一样的</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.getServletContext().getRequestDispatcher(<span class="string">"/servlet2"</span>).forward(request,response);</span><br><span class="line"><span class="keyword">this</span>.getServletContext().getRequestDispatcher(<span class="string">"/servlet2"</span>).include(request, response);</span><br></pre></td></tr></table></figure>
+<p>注意：forward与include的区别 </p>
+<ul>
+<li>forward方法是把请求的内容转发到另外的一个servlet.include是把另一个servlet处理过后的内容拿过来.</li>
+<li>forward方法调用后在响应中的没有提交的内容被自动消除。将请求转发给其他的Servlet后，由被调用的Servlet负责对请求做出响应，而原先Servlet的执行则终止</li>
+<li>include方法使原先的Servlet和转发到的Servlet都可以输出响应信息，即原先的Servlet还可以继续输出响应信息
+	
+	</div>
+  <a type="button" href="/2012/04/15/JavaWeb---ServletContext-随笔/#more" class="btn btn-default more">Read More</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2012/04/08/JavaWeb---转向-转发-随笔/" >Java.Web - 转向 转发 随笔</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2012-04-08  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="一、页面转向">一、页面转向</h2><p>页面转向可以调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>页面转向时request和response的信息都丢失了，它是重新发起一个定向请求，和原先的没有关系了.</li>
+<li>由于它是新的定向请求，所以效率不高。页面转向可以用在同一个应用中，也可以用在不同应用中。也就是说redirect可以转到外部系统。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);  </span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">response.setStatus(<span class="number">302</span>);</span><br><span class="line">response.setHeader(<span class="string">"Location"</span>,<span class="string">"xx.jsp"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="二、页面转发">二、页面转发</h2><p>页面转发调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestDispatcher(<span class="string">"xx.jsp"</span>).forward(request,response);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>页面转发效率高，同时request中的对象还可以在下一页面使用</li>
+<li><p>注：转发不能转发到本web服务器以外的地址</p>
+</li>
+<li><p>转发：指一个web资源收到客户端请求，通知服务器去调用另外一个web资源进行处理。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取username 的值</span></span><br><span class="line">String u = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line"><span class="comment">// 设置request的属性</span></span><br><span class="line">request.setAttribute(<span class="string">"username"</span>,u);</span><br><span class="line"><span class="comment">// 使用转发的方法，把 request,response对象转发个下一个页面</span></span><br><span class="line"><span class="comment">// 所以下一个页面和上一个页面用的是同一个  request,response对象 ，可以获取相应的值</span></span><br><span class="line">request.getRequestDispatcher(<span class="string">"/servlet2"</span>).forward(request,response);</span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2012/04/08/JavaWeb---转向-转发-随笔/#more" class="btn btn-default more">Read More</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2012/04/01/JavaWeb---Servlet-随笔/" >Java.Web - Servlet 随笔</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2012-04-01  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<ul>
+<li>注册Servlet</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">servlet</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">servlet-class</span>&gt;</span>com.sco.servlet.MyServlet<span class="tag">&lt;/<span class="title">servlet-class</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="title">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>映射servlet（不是一 一映射）</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">servlet-mapping</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/servlet/MyServlet<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>URL 还能配置成 .html 等等</li>
+<li>URL 也能用通配符配置：<br>⑴”<em>.扩展名”（</em>.do，…）<br>⑵以 / 开头，并以 /<em> 结尾（/</em>，/news/<em>，…）<br>⑶优先级 </em>.do 最低</li>
+<li>Servlet 是单例的，会出先线程安全问题，比如售票系统，需要使用线程同步</li>
+</ul>
+
+	
+	</div>
+  <a type="button" href="/2012/04/01/JavaWeb---Servlet-随笔/#more" class="btn btn-default more">Read More</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2012/03/25/JavaWeb---分页技术/" >Java.Web - 分页技术</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2012-03-25  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="定义四个分页变量">定义四个分页变量</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> pageNow     <span class="comment">//表示第几页   该变量由用户决定</span></span><br><span class="line"><span class="keyword">int</span> pageSize    <span class="comment">//表示每一页显示几条记录 由程序指定(也可由用户定制)</span></span><br><span class="line"><span class="keyword">int</span> pageCont    <span class="comment">//表示共有多少页 该变量是计算出来的</span></span><br><span class="line"><span class="keyword">int</span> rowCont     <span class="comment">//表示共有多少条记录   该变量是查询数据库得到</span></span><br></pre></td></tr></table></figure>
+<h2 id="分页算法-确定rowCont的值">分页算法.确定rowCont的值</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pst = con.prepareStatement(<span class="string">"select count(*) form users"</span>);</span><br><span class="line">rst = pst.executeQuery();</span><br><span class="line">rst.next();</span><br><span class="line">rowCont = rst.getInt(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="分页算法-确定pageCont的值">分页算法.确定pageCont的值</h2><ul>
+<li>二逼青年算法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (rowCont % pageSize == <span class="number">0</span>) &#123;</span><br><span class="line">    pageCont = rowCont / pageSize;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    pageCont = rowCont / pageSize + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>普通青年算法（等价与上面那个算法）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pageCont = rowCont % pageSize == <span class="number">0</span> ? rowCont / pageSize : rowCont / pageSize + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>文艺青年算法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pageCont = (rowCont - <span class="number">1</span>)/pageSize + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+	
+	</div>
+  <a type="button" href="/2012/03/25/JavaWeb---分页技术/#more" class="btn btn-default more">Read More</a>
+</div>
+
+		
+			
+	
+	<!-- display as entry -->
+<div class="row">
+	<div class="col-md-8">
+		<h3 class="title">
+			<a href="/2012/03/25/JavaWeb---Http协议初步接触/" >Java.Web - Http协议初步接触</a>
+		</h3>
+		</div>
+	<div class="col-md-4">
+		<div class="date">post @ 2012-03-25  </div>
+		</div>
+	</div>
+	
+
+
+			<div class="entry">
+  <div class="row">
+	
+	
+		<h2 id="【HTTP请求消息头】">【HTTP请求消息头】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(Request-Line)     GET /manager/html HTTP/1.1    &#35831;&#27714;&#34892;&#65292;&#20351;&#29992;&#30340;HTTP&#35268;&#33539;...&#10;&#19979;&#38754;&#26159;&#28040;&#24687;&#22836;&#10;Accept      */*&#10;Accept-Encoding     gzip, deflate      &#21487;&#20197;&#25509;&#25910;gzip&#25991;&#20214;&#65292;&#25110;&#32773;&#40664;&#35748;&#10;Accept-Language     zh-CN        &#25903;&#25345;&#20013;&#25991;&#10;Connection     Keep-Alive      &#20445;&#23384;&#24120;&#36830;&#25509;&#10;Host     127.0.0.1:8080&#10;Referer     http://127.0.0.1:8080/     &#21578;&#35785;&#26381;&#21153;&#22120;&#25105;&#26469;&#33258;&#21738;&#37324;&#65311;&#21487;&#20197;&#38450;&#30423;&#38142; &#10;User-Agent     Mozilla/4.0     &#27983;&#35272;&#22120;&#20869;&#26680;&#10;(&#31354;&#34892;)&#10;&#20869;&#23481;</span><br></pre></td></tr></table></figure>
+<p>Servlet 中获取头信息 —&gt; String host = request.getHeader(“HOST”);<br>可以通过获取 Referer 信息，来判断用户是从那个页面跳转过来的，来防止盗链<br>直接 在浏览器输入 跳转过来，Referer 的值为null</p>
+<h2 id="【HTTP响应消息头】">【HTTP响应消息头】</h2><ul>
+<li>Location    用于重定向，向浏览器发送一个新URI地址。 </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response.setStatus(<span class="number">302</span>);</span><br><span class="line">response.setHeader(<span class="string">"Location"</span>,<span class="string">"URL"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Content-Disposition    用于下载文件</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置消息头 下载</span></span><br><span class="line">response.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment;filename=test.jpg"</span>);    <span class="comment">/* 1.读文件 */</span>    <span class="comment">// 获取文件全路径    String path =</span></span><br><span class="line">getServletContext().getRealPath(<span class="string">"/images/test.jpg"</span>);    <span class="comment">// 创建一个文件输入流</span></span><br><span class="line">FileInputStream fis = <span class="keyword">new</span> FileInputStream(path);</span><br><span class="line"><span class="comment">// 缓冲区</span></span><br><span class="line"><span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line"><span class="keyword">int</span> length;</span><br><span class="line"><span class="keyword">while</span> ((length = fis.read(buffer)) &gt; <span class="number">0</span>) </span><br><span class="line">    <span class="comment">/* 2.写文件 */</span></span><br><span class="line">    out.write(buffer, <span class="number">0</span>, length);    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过合适地设置Content-disposition的值<br>Servlet能指示浏览器是“内嵌”显示文件还是把它当作附件处理。<br>例1.内嵌显示一个文件 Content-disposition: inline; filename=foobar.pdf<br>例2.往response里附加一个文件 Content-disposition: attachment; filename=foobar.pdf</p>
+<ul>
+<li>Expires 应该在什么时候认为文档已经过期，从而不再缓存它？</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置页面不缓存</span></span><br><span class="line">response.setDateHeader(<span class="string">"Expires"</span>,-<span class="number">1</span>); <span class="comment">//-1则表示不缓存（IE）</span></span><br><span class="line"><span class="comment">// 下面两句代码是为了兼容性</span></span><br><span class="line">response.setHeader(<span class="string">"Cache-Control"</span>,<span class="string">"no-cache"</span>);</span><br><span class="line">response.setHeader(<span class="string">"Pragma"</span>,<span class="string">"no-cache"</span>);</span><br><span class="line">    </span><br><span class="line"><span class="comment">//设置页面缓存一定时间</span></span><br><span class="line">response.setDateHeader(<span class="string">"Expires"</span>, System.currentTimeMillis()+<span class="number">3600</span>*<span class="number">1000</span>*<span class="number">24</span>); <span class="comment">// 缓存一天</span></span><br></pre></td></tr></table></figure>
+
+	
+	</div>
+  <a type="button" href="/2012/03/25/JavaWeb---Http协议初步接触/#more" class="btn btn-default more">Read More</a>
+</div>
+
+		
+
+		</div>
+
+		<!-- pagination -->
+		<div>
+  		<center>
+		<div class="pagination">
+
+   
+    
+     <a href="/page/13/" type="button" class="btn btn-default"><i class="fa fa-arrow-circle-o-left"></i> Prev</a>
+      
+
+        <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+ 
+       <a href="/page/15/" type="button" class="btn btn-default ">Next<i class="fa fa-arrow-circle-o-right"></i></a>     
+        
+
+  
+</div>
+
+  		</center>
+		</div>
+
+		
+		
+	</div> <!-- col-md-9 -->
+
+	
+		<div class="col-md-3">
+	<div id="sidebar">
+	
+			
+	<div class="widget">
+		<h4>Categories</h4>
+		<ul class="tag_box inline list-unstyled">
+		
+			<li><a href="/categories/Android-Notes/">Android Notes<span>30</span></a></li>
+		
+			<li><a href="/categories/Gradle-Notes/">Gradle Notes<span>2</span></a></li>
+		
+			<li><a href="/categories/Java-Notes/">Java Notes<span>4</span></a></li>
+		
+			<li><a href="/categories/Java-Web-Notes/">Java.Web Notes<span>12</span></a></li>
+		
+			<li><a href="/categories/Python-Notes/">Python Notes<span>1</span></a></li>
+		
+			<li><a href="/categories/Swift-Notes/">Swift Notes<span>1</span></a></li>
+		
+			<li><a href="/categories/个人作品/">个人作品<span>6</span></a></li>
+		
+			<li><a href="/categories/刘说八道/">刘说八道<span>7</span></a></li>
+		
+			<li><a href="/categories/环境搭建/">环境搭建<span>6</span></a></li>
+		
+			<li><a href="/categories/编程技巧/">编程技巧<span>1</span></a></li>
+		
+		</ul>
+	</div>
+
+		
+			
+	<div class="widget">
+		<h4>Tag Cloud</h4>
+		<ul class="tag_box inline list-unstyled">		
+		
+			<li><a href="/tags/AbsListView/">AbsListView<span>1</span></a></li>
+		
+			<li><a href="/tags/Java-Web/">Java.Web<span>14</span></a></li>
+		
+			<li><a href="/tags/Xware/">Xware<span>1</span></a></li>
+		
+			<li><a href="/tags/EventCast/">EventCast<span>1</span></a></li>
+		
+			<li><a href="/tags/贝赛尔曲线/">贝赛尔曲线<span>1</span></a></li>
+		
+			<li><a href="/tags/Chrome/">Chrome<span>1</span></a></li>
+		
+			<li><a href="/tags/Gradle/">Gradle<span>2</span></a></li>
+		
+			<li><a href="/tags/人人都是产品经理/">人人都是产品经理<span>1</span></a></li>
+		
+			<li><a href="/tags/PagerIndicator/">PagerIndicator<span>1</span></a></li>
+		
+			<li><a href="/tags/路由器/">路由器<span>3</span></a></li>
+		
+			<li><a href="/tags/Mac/">Mac<span>4</span></a></li>
+		
+			<li><a href="/tags/Drag-And-Drop/">Drag.And.Drop<span>1</span></a></li>
+		
+			<li><a href="/tags/JNI/">JNI<span>2</span></a></li>
+		
+			<li><a href="/tags/Material-Design/">Material.Design<span>3</span></a></li>
+		
+			<li><a href="/tags/Facebook/">Facebook<span>1</span></a></li>
+		
+			<li><a href="/tags/Swift/">Swift<span>1</span></a></li>
+		
+			<li><a href="/tags/编程技巧/">编程技巧<span>1</span></a></li>
+		
+			<li><a href="/tags/多线程/">多线程<span>1</span></a></li>
+		
+			<li><a href="/tags/Java/">Java<span>3</span></a></li>
+		
+			<li><a href="/tags/OSX/">OSX<span>4</span></a></li>
+		
+		
+		   <li><a href="/tags">...<span>43</span></a></li>
+		 
+		</ul>
+	</div>
+
+
+		
+	</div> <!-- sidebar -->
+</div> <!-- col-md-3 -->
+
+	
+	
+</div> <!-- row-fluid -->
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 Gavin Liu
+  
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/gavinliu/hexo-theme-freemind.386" target="_blank">Freemind.386</a>.
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

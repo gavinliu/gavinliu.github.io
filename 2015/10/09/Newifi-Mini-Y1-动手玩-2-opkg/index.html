@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>Newifi Mini(Y1) 动手玩(2) - opkg | Gavin.Liu</title>
+  <meta name="author" content="Gavin Liu">
+  
+  <meta name="description" content="opkg ?opkg是openwrt里的软件包管理器，类似Mac下的brew、Ubuntu下的apt-get等，命令位于/bin/opkg
+由于openwrt是嵌入式系统，硬件复杂，我们需要把opkg的源和Newifi Mini(Y1)的硬件相匹配。
+配置源Y1使用的是 mt7620a 这枚cpu，我们需要使用 mt7620a 的源
+openwrt官方源：
+http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/
+
+需要说明的是 PandoraBox 和 小云OS 都是基于 openwrt 14.07 开发的
+
+由于众所周知的原因直接访问openwrt.org是非常慢，我们可以使用代理 mirrors.ustc.edu.cn 或者 downloads.openwrt.org.cn
+两种方式：
+
+ssh连接到路由器后使用vi修改配置文件
+
+1vi /etc/opkg.conf
+
+管理页面：OpenWrt 系统-&amp;gt;软件包-&amp;gt;配置；小云OS 高级设置-&amp;gt;系统-&amp;gt;软件包-&amp;gt;配置">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Newifi Mini(Y1) 动手玩(2) - opkg"/>
+  <meta property="og:site_name" content="Gavin.Liu"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2842c9eadd6d87f89c3ebdba92f18bcb";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">Home</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class=""></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class=""></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class=""></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/project" title="Project.">
+			  <i class=""></i>Project
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class=""></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class=""></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> Newifi Mini(Y1) 动手玩(2) - opkg</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <h2 id="opkg_?">opkg ?</h2><p>opkg是openwrt里的软件包管理器，类似Mac下的brew、Ubuntu下的apt-get等，命令位于<code>/bin/opkg</code></p>
+<p>由于openwrt是嵌入式系统，硬件复杂，我们需要把opkg的源和Newifi Mini(Y1)的硬件相匹配。</p>
+<h2 id="配置源">配置源</h2><p>Y1使用的是 mt7620a 这枚cpu，我们需要使用 mt7620a 的源</p>
+<p>openwrt官方源：</p>
+<p><a href="http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/" target="_blank" rel="external">http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/</a><br><a href="http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/" target="_blank" rel="external">http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/</a></p>
+<blockquote>
+<p>需要说明的是 PandoraBox 和 小云OS 都是基于 <code>openwrt 14.07</code> 开发的</p>
+</blockquote>
+<p>由于众所周知的原因直接访问openwrt.org是非常慢，我们可以使用代理 <code>mirrors.ustc.edu.cn</code> 或者 <code>downloads.openwrt.org.cn</code></p>
+<p>两种方式：</p>
+<ul>
+<li><code>ssh</code>连接到路由器后使用<code>vi</code>修改配置文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/opkg.conf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>管理页面：OpenWrt 系统-&gt;软件包-&gt;配置；小云OS 高级设置-&gt;系统-&gt;软件包-&gt;配置</li>
+</ul>
+<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-2-opkg1.png" alt=""><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dest root /&#10;dest ram /tmp&#10;lists_dir ext /var/opkg-lists&#10;option overlay_root /overlay&#10;&#10;arch ralink 1&#10;arch all 2&#10;arch ramips_24kec 3&#10;&#10;src/gz barrier_breaker_base http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/base&#10;src/gz barrier_breaker_luci http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/luci&#10;src/gz barrier_breaker_management http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/management&#10;src/gz barrier_breaker_oldpackages http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/oldpackages&#10;src/gz barrier_breaker_packages http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/packages&#10;src/gz barrier_breaker_routing http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/routing&#10;src/gz barrier_breaker_telephony http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/telephony&#10;&#10;src/gz openwrt_dist http://openwrt-dist.thankgfw.ml/releases/ramips/packages&#10;src/gz openwrt_dist_luci http://openwrt-dist.thankgfw.ml/releases/luci/packages</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用_opkg_命令">使用 opkg 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#25171;&#21360;&#24110;&#21161;&#10;opkg -h&#10;&#10;# &#26356;&#26032;&#36164;&#28304;&#21015;&#34920;&#10;opkg update&#10;&#10;# &#21015;&#20986;&#24050;&#23433;&#35013;&#30340;&#21253;&#10;opkg list&#10;&#10;# &#25628;&#32034;&#21253;&#10;opkg search ddns&#10;&#10;# &#23433;&#35013;&#36719;&#20214;&#65292;&#20197;&#23433;&#35013;curl&#21644;wget&#20026;&#20363;&#10;opkg install curl&#10;# &#23433;&#35013;&#26412;&#22320;&#36719;&#20214;&#21253;&#10;opkg install /tmp/wget_1.16-1_ramips_24kec.ipk&#10;&#10;# &#31227;&#38500;&#36719;&#20214;&#10;opkg remove wget</span><br></pre></td></tr></table></figure>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析/" type="button" class="btn btn-default"><i
+                class="fa fa-arrow-circle-o-left"></i> Prev</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-1-刷机/" type="button" class="btn btn-default ">Next<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+    <div class="ds-thread" data-thread-key="2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/" data-title="Newifi Mini(Y1) 动手玩(2) - opkg"
+         data-url="http://gavinliu.cn/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/"></div>
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-10-09 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/路由器/">路由器<span>3</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	   <a data-toggle="collapse" data-target="#toc"><i class="fa fa-bars"></i></a>
+	   <div id="toc" class="toc collapse in">
+		   <span class="toc-title">Contents</span>
+			<ol class="toc-article"><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#opkg_?"><span class="toc-article-text">opkg ?</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#配置源"><span class="toc-article-text">配置源</span></a></li><li class="toc-article-item toc-article-level-2"><a class="toc-article-link" href="#使用_opkg_命令"><span class="toc-article-text">使用 opkg 命令</span></a></li></ol>
+		</div>
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+<script type="text/javascript">
+  var duoshuoQuery = { short_name: 'gavinliu' };
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';
+    ds.async = true;
+    ds.src = 'http://static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2015 Gavin Liu
+  
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/gavinliu/hexo-theme-freemind.386" target="_blank">Freemind.386</a>.
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>

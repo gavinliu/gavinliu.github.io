@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[Gavin.Liu]]></title>
+  <subtitle><![CDATA[Focus on Mobile Develop]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://gavinliu.cn/"/>
+  <updated>2015-12-31T12:41:17.000Z</updated>
+  <id>http://gavinliu.cn/</id>
+  
+  <author>
+    <name><![CDATA[Gavin Liu]]></name>
+    <email><![CDATA[gavin6liu@gmail.com]]></email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[2015 The End]]></title>
+    <link href="http://gavinliu.cn/2015/12/31/2015-The-End/"/>
+    <id>http://gavinliu.cn/2015/12/31/2015-The-End/</id>
+    <published>2015-12-31T14:11:03.000Z</published>
+    <updated>2015-12-31T12:41:17.000Z</updated>
+    <content type="html"></content>
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="年终总结" scheme="http://gavinliu.cn/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="刘说八道" scheme="http://gavinliu.cn/categories/%E5%88%98%E8%AF%B4%E5%85%AB%E9%81%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - 单元测试之 UI Testing 2]]></title>
+    <link href="http://gavinliu.cn/2015/12/30/Android-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B9%8B-UI-Testing2/"/>
+    <id>http://gavinliu.cn/2015/12/30/Android-单元测试之-UI-Testing2/</id>
+    <published>2015-12-29T18:10:47.000Z</published>
+    <updated>2015-12-31T12:41:17.000Z</updated>
+    <content type="html"><![CDATA[<p>上篇简单介绍了UI Testing的框架<code>Espresso</code>, 这篇文章我们将要详细讲解一下<code>Espresso</code>的方方面面.</p>
+<p>Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!</p>
+<a id="more"></a>
+<h2 id="Espresso_代码基本范式">Espresso 代码基本范式</h2><p>上次我们提到的了测试代码的基本范式:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">onView(ViewMatcher).perform(ViewAction).check(ViewAssertion);</span><br><span class="line">onData(ObjectMatcher).DataOptions.perform(ViewAction).check(ViewAssertion);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ViewMatcher(ObjectMatcher) : 找某些东西</li>
+<li>ViewAction : 做某些事情</li>
+<li>ViewAssertion : 检查某些东西</li>
+</ul>
+<h2 id="View_matching">View matching</h2><p><code>Espresso.onView()</code> ViewMatcher 可用使用一下几种方式来指定目标View:</p>
+<ul>
+<li>View的类名</li>
+<li>View的content description</li>
+<li>View的ID</li>
+<li>View显示的Text</li>
+</ul>
+<h3 id="例子">例子</h3><figure class="highlight java"><figcaption><span>点击 R.id.button 按钮, 检测文字是否为Finish</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onView(withId(R.id.button)).perform(click()).check(matches(withText(R.string.finish)));</span><br></pre></td></tr></table></figure>
+<h2 id="Adapter_matching">Adapter matching</h2><p><code>Espresso.onData()</code> 对于<code>AdapterView</code>布局 内部有很多一样的View, 使用View matching就有点不太适用了, 因为<code>onView</code>只会载入第一个符合要求对象.</p>
+<h3 id="DataOptions">DataOptions</h3><p>操作<code>onData()</code>返回的数据对象</p>
+<ul>
+<li>atPosition(int) 指定某一个对象</li>
+<li>onChildView(Matcher) 指定某一个子View (循环到 View matching)</li>
+<li>inAdapterView(Matcher) 指定某一个AdapterView (循环到 Adapter matching)</li>
+</ul>
+<h3 id="例子-1">例子</h3><figure class="highlight java"><figcaption><span>点击所有Text为Hello的对象</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onData(allOf(is(instanceOf(String.class)), is(<span class="string">"Hello"</span>))).perform(click());</span><br></pre></td></tr></table></figure>
+<h2 id="基于Espresso的TDD开发实践">基于Espresso的TDD开发实践</h2><p><a href="http://www.tuicool.com/articles/3QzuQf6" target="_blank" rel="external">使用 TDD 的方式开发一个 Hacker News Android 客户端</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>上篇简单介绍了UI Testing的框架<code>Espresso</code>, 这篇文章我们将要详细讲解一下<code>Espresso</code>的方方面面.</p>
+<p>Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!</p>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="Espresso" scheme="http://gavinliu.cn/tags/Espresso/"/>
+    
+      <category term="单元测试" scheme="http://gavinliu.cn/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - 单元测试之 UI Testing]]></title>
+    <link href="http://gavinliu.cn/2015/12/23/Android-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%B9%8B-UI-Testing/"/>
+    <id>http://gavinliu.cn/2015/12/23/Android-单元测试之-UI-Testing/</id>
+    <published>2015-12-23T11:33:35.000Z</published>
+    <updated>2015-12-31T12:41:17.000Z</updated>
+    <content type="html"><![CDATA[<p>Android Studio不知从什么版本开始, 新建项目后就会默认生成<code>androidTest</code>目录, 可以看出Google在推广Android单元测试. 编写高品质的App, 测试代码是必不可少的.</p>
+<p>Android的测试框架分为:</p>
+<ul>
+<li>Espresso : UI 测试框架 - 适用于 界面功能 测试</li>
+<li>UI Automator :  UI 测试框架 - 适用于 跨app界面功能 测试</li>
+<li>AndroidJUnitRunner : 兼容Android版本的Junit 4</li>
+</ul>
+<blockquote>
+<p>其中<code>Espresso</code>是最新的UI Test框架, 支持UI的创建测试和用户流程测试, api非常简明, 运行也非常可靠. 也是很适合来写<code>白盒测试</code>, 可以实现对代码的细节测试.</p>
+</blockquote>
+<h2 id="Espresso_环境搭建">Espresso 环境搭建</h2><a id="more"></a>
+<p>新建新项目 -&gt; 修改gradle脚本</p>
+<figure class="highlight groovy"><figcaption><span>Project/build.gradle</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath <span class="string">'com.android.tools.build:gradle:2.0.0-alpha3'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><figcaption><span>Module/build.gradle</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="string">plugin:</span> <span class="string">'com.android.application'</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion <span class="number">23</span></span><br><span class="line">    buildToolsVersion <span class="string">"23.0.1"</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId <span class="string">"cn.gavinliu.testingdemo"</span></span><br><span class="line">        minSdkVersion <span class="number">14</span></span><br><span class="line">        targetSdkVersion <span class="number">23</span></span><br><span class="line">        versionCode <span class="number">1</span></span><br><span class="line">        versionName <span class="string">"1.0"</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Testing config</span></span><br><span class="line">        testInstrumentationRunner <span class="string">"android.support.test.runner.AndroidJUnitRunner"</span></span><br><span class="line">    &#125;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            minifyEnabled <span class="literal">false</span></span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    compile fileTree(<span class="string">dir:</span> <span class="string">'libs'</span>, <span class="string">include:</span> [<span class="string">'*.jar'</span>])</span><br><span class="line">    compile <span class="string">'com.android.support:appcompat-v7:23.0.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Testing dependencies</span></span><br><span class="line">    androidTestCompile <span class="string">'com.android.support:support-annotations:23.0.1'</span></span><br><span class="line">    androidTestCompile <span class="string">'com.android.support.test:runner:0.4.1'</span></span><br><span class="line">    androidTestCompile <span class="string">'com.android.support.test:rules:0.4.1'</span></span><br><span class="line">    androidTestCompile <span class="string">'com.android.support.test.espresso:espresso-core:2.2.1'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="TestCase代码主体">TestCase代码主体</h2><p>在androidTest目录下新建一个普通的类 <code>MyTestCase.java</code></p>
+<ul>
+<li>使用 @RunWith(AndroidJUnit4.class) 标记一个TestCase类</li>
+<li>使用 @Rule 标记一个测试规则</li>
+<li>使用 @Test 标记一个测试函数</li>
+</ul>
+<p>可以看出其实Espresso框架是局域JUnit的.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RunWith</span>(AndroidJUnit4.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyTestCase</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Rule</span></span><br><span class="line">    <span class="keyword">public</span> ActivityTestRule&lt;MainActivity&gt; mActivityRule = <span class="keyword">new</span> ActivityTestRule&lt;&gt;(MainActivity.class);</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeText</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="TestCase代码编写">TestCase代码编写</h2><ul>
+<li>Espresso 框架中有很多方法可以让我们获取到视图上的元素</li>
+</ul>
+<p>测试代码的基本的范式:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">onView(ViewMatcher).perform(ViewAction).check(ViewAssertion)</span><br><span class="line"></span><br><span class="line">onData(ObjectMatcher).DataOptions.perform(ViewAction).check(ViewAssertion)</span><br></pre></td></tr></table></figure></p>
+<p>如果我们要测试 点击 <code>R.id.button</code> 按钮, 检测文字是否为<code>Finish</code>, 代码可以这样写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RunWith</span>(AndroidJUnit4.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyTestCase</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Rule</span></span><br><span class="line">    <span class="keyword">public</span> ActivityTestRule&lt;MainActivity&gt; mActivityRule = <span class="keyword">new</span> ActivityTestRule&lt;&gt;(MainActivity.class);</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeText</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        onView(withId(R.id.button)).perform(click()).check(matches(withText(R.string.finish)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="运行TestCase">运行TestCase</h2><p>右键测试类 -&gt; 点击 Run 即可</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Installing cn.gavinliu.testingdemo.test&#10;DEVICE SHELL COMMAND: pm install -r &#34;/data/local/tmp/cn.gavinliu.testingdemo.test&#34;&#10;&#9;pkg: /data/local/tmp/cn.gavinliu.testingdemo.test&#10;Success&#10;&#10;&#10;Running tests&#10;Test running startedFinish</span><br></pre></td></tr></table></figure>
+<p>没有任何报错说明测试通过.</p>
+<p>可以试着吧测试代码改成, 再次点 Run , 结果就报错了.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onView(withId(R.id.button)).perform(click()).check(matches(withText(R.string.app_name)));</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/2015.12.23 - Android-单元测试之-UI-Testing2.png" alt="测试不通过"></p>
+<h2 id="Espresso_类图关系">Espresso 类图关系</h2><p><img src="/images/2015.12.23 - Android-单元测试之-UI-Testing1.png" alt="类图关系"></p>
+<h2 id="Android_Testing_相关资料">Android Testing 相关资料</h2><ul>
+<li><a href="https://google.github.io/android-testing-support-library/docs/espresso/index.html" target="_blank" rel="external">Android Testing Support Library</a></li>
+<li><a href="http://developer.android.com/tools/testing-support-library/index.html#features" target="_blank" rel="external">Testing Support Library Features</a></li>
+<li><a href="https://developer.android.com/training/testing.html" target="_blank" rel="external">Best Practices for Testing</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Android Studio不知从什么版本开始, 新建项目后就会默认生成<code>androidTest</code>目录, 可以看出Google在推广Android单元测试. 编写高品质的App, 测试代码是必不可少的.</p>
+<p>Android的测试框架分为:</p>
+<ul>
+<li>Espresso : UI 测试框架 - 适用于 界面功能 测试</li>
+<li>UI Automator :  UI 测试框架 - 适用于 跨app界面功能 测试</li>
+<li>AndroidJUnitRunner : 兼容Android版本的Junit 4</li>
+</ul>
+<blockquote>
+<p>其中<code>Espresso</code>是最新的UI Test框架, 支持UI的创建测试和用户流程测试, api非常简明, 运行也非常可靠. 也是很适合来写<code>白盒测试</code>, 可以实现对代码的细节测试.</p>
+</blockquote>
+<h2 id="Espresso_环境搭建">Espresso 环境搭建</h2>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="Espresso" scheme="http://gavinliu.cn/tags/Espresso/"/>
+    
+      <category term="单元测试" scheme="http://gavinliu.cn/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Swift - 重点汇总]]></title>
+    <link href="http://gavinliu.cn/2015/12/19/Swift-%E9%87%8D%E7%82%B9%E6%B1%87%E6%80%BB/"/>
+    <id>http://gavinliu.cn/2015/12/19/Swift-重点汇总/</id>
+    <published>2015-12-19T14:30:01.000Z</published>
+    <updated>2015-12-31T12:41:17.000Z</updated>
+    <content type="html"><![CDATA[<p>笔记整理中…</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>笔记整理中…</p>
+]]>
+    </summary>
+    
+      <category term="Swift" scheme="http://gavinliu.cn/tags/Swift/"/>
+    
+      <category term="Swift Notes" scheme="http://gavinliu.cn/categories/Swift-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Python - Mac的环境搭建]]></title>
+    <link href="http://gavinliu.cn/2015/12/17/Python-Mac%E7%9A%84%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>http://gavinliu.cn/2015/12/17/Python-Mac的环境搭建/</id>
+    <published>2015-12-17T13:34:38.000Z</published>
+    <updated>2015-12-31T12:41:17.000Z</updated>
+    <content type="html"><![CDATA[<pre><code><span class="variable">Python</span> 作为胶水语言, 是每个程序员必备的工具语言. 学习吧, 少年<span class="exclamation_mark">!</span>
+</code></pre><a id="more"></a>
+<h2 id="安装_Python">安装 Python</h2><p>Mac系统自带Python2.7, 这个其实作为工具来说已经完全够用了. 如果想学习最新的Python3.x 或者有系统洁癖不想在系统的Python上装第三方包, 可以使用<code>homebrew</code>单独安装新的Python.</p>
+<h2 id="安装_Pip">安装 Pip</h2><p>理论上说安装好python就自带pip工具了, 如果真的没有的话, 可以手动安装. 如果你独立安装python, 先使用<code>which python</code>看看当前环境是否正确.</p>
+<h3 id="下载pip安装脚本">下载pip安装脚本</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://bootstrap.pypa.io/get-pip.py</span><br></pre></td></tr></table></figure>
+<h3 id="安装pip">安装pip</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo python get-pip.py</span><br></pre></td></tr></table></figure>
+<p>如果给python3安装pip, 则使用对应的 python3 命令安装即可.</p>
+<h2 id="安装_virtualenv">安装 virtualenv</h2><p><code>virtualenv</code>是Python的虚拟化环境, 类似于虚拟机的作用, 相当于你一台电脑可以有多个单独的Python环境, 这是非常有用的. 因为python的软件包之前的依赖程度很高, 有可能软件A和软件B 赖软件C不同版本, 这样有可能会导致不兼容.</p>
+<p>譬如说: <code>scrapy</code>依赖<code>six 1.5</code>, 但是在<code>el capitan</code>自带了个<code>six 1.4</code>, 由于Mac自带的一些程序依赖于<code>six 1.4</code>. 系统是不允许你去升级<code>six</code>的. 这个时候使用虚拟化环境就能解决我们的问题.</p>
+<h3 id="命令行安装">命令行安装</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure>
+<h3 id="创建虚拟环境">创建虚拟环境</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtualenv --distribute venv</span><br></pre></td></tr></table></figure>
+<h3 id="激活虚拟环境">激活虚拟环境</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source venv/bin/activate</span><br></pre></td></tr></table></figure>
+<p>这时候命令行的的python就指向<code>venv</code>目录了, 退出虚拟环境 关闭终端即可.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<pre><code><span class="variable">Python</span> 作为胶水语言, 是每个程序员必备的工具语言. 学习吧, 少年<span class="exclamation_mark">!</span>
+</code></pre>]]>
+    
+    </summary>
+    
+      <category term="Python" scheme="http://gavinliu.cn/tags/Python/"/>
+    
+      <category term="Python Notes" scheme="http://gavinliu.cn/categories/Python-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Java - 使用Future模式进行多线程编程]]></title>
+    <link href="http://gavinliu.cn/2015/12/14/Java-%E4%BD%BF%E7%94%A8Future%E8%BF%9B%E8%A1%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B/"/>
+    <id>http://gavinliu.cn/2015/12/14/Java-使用Future进行多线程编程/</id>
+    <published>2015-12-14T07:02:41.000Z</published>
+    <updated>2015-12-31T12:41:17.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="概述">概述</h2><p>多线程开发中有几个痛点：</p>
+<ol>
+<li>主线程如何正确的关闭异步线程？</li>
+<li>主线程怎么知道异步线程是否执行完成？</li>
+</ol>
+<p>当然已经又很好的方案来解决这些问题了，这就是Future模式。</p>
+<h2 id="Future">Future</h2><p>Future模式在请求发生时，会先产生一个Future对象给发出请求的客户，而真正的结果是由一个新线程执行，结果生成之后，将之设定至Future之中，而当客户端需要结果时，Future也已经准备好，可以让客户提取使用。</p>
+<p><img src="/images/2015.12.14 - Java-使用Future进行多线程编程.jpg" alt=""><br><a id="more"></a><br><figure class="highlight java"><figcaption><span>一个简单的示范</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Future <span class="title">request</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> Future future = <span class="keyword">new</span> Future();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">new</span> Thread() &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="comment">// 下面这动作可能是耗时的</span></span><br><span class="line">            RealSubject subject = <span class="keyword">new</span> RealSubject();</span><br><span class="line">            future.setRealSubject(subject);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;.start();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> future;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>JDK里面也有对Future模式的实现，我们先来看看 <code>Future</code> 接口包含什么内容</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.util.concurrent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Future</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">cancel</span><span class="params">(<span class="keyword">boolean</span> mayInterruptIfRunning)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isCancelled</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isDone</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">V <span class="title">get</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException, ExecutionException</span>;</span><br><span class="line">    <span class="function">V <span class="title">get</span><span class="params">(<span class="keyword">long</span> timeout, TimeUnit unit)</span></span><br><span class="line">        <span class="keyword">throws</span> InterruptedException, ExecutionException, TimeoutException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>支持的功能：</p>
+<ul>
+<li>关闭线程</li>
+<li>判断是否关闭</li>
+<li>判断是否完成</li>
+<li>获取结果</li>
+</ul>
+<h3 id="线程中_Future_模式">线程中 Future 模式</h3><figure class="highlight java"><figcaption><span>单线程使用</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">FutureTask&lt;Integer&gt; future = <span class="keyword">new</span> FutureTask&lt;Integer&gt;(<span class="keyword">new</span> Callable&lt;Integer&gt;() &#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Random().nextInt(<span class="number">100</span>);  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">new</span> Thread(future).start();</span><br><span class="line"></span><br><span class="line">Thread.sleep(<span class="number">5000</span>);<span class="comment">// do something</span></span><br><span class="line"></span><br><span class="line">System.out.println(future.get());</span><br></pre></td></tr></table></figure>
+<p>这里的 <code>FutureTask</code> 的继承关系</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FutureTask</span>&lt;<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">RunnableFuture</span>&lt;<span class="title">V</span>&gt; </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">RunnableFuture</span>&lt;<span class="title">V</span>&gt; <span class="keyword">extends</span> <span class="title">Runnable</span>, <span class="title">Future</span>&lt;<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>由于继承了 <code>Runnable</code> 和 <code>Future</code> 两个接口，所以可以被在线程中运行，同样具有Future功能，需要说明的是<code>FutureTask</code>在JDK中是唯一一个实现Future的类。</p>
+<h3 id="线程池中_Future_模式">线程池中 Future 模式</h3><figure class="highlight java"><figcaption><span>线程池使用</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ExecutorService threadPool = Executors.newSingleThreadExecutor();  </span><br><span class="line">Future&lt;Integer&gt; future = threadPool.submit(<span class="keyword">new</span> Callable&lt;Integer&gt;() &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Random().nextInt(<span class="number">100</span>);  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;);  </span><br><span class="line"></span><br><span class="line">Thread.sleep(<span class="number">5000</span>);<span class="comment">// do something</span></span><br><span class="line"></span><br><span class="line">System.out.println(future.get());</span><br></pre></td></tr></table></figure>
+<p>通过<code>submit(Callable)</code>可以得到一个<code>Future</code>，之前我们说过<code>FutureTask</code>是JDK中是唯一的Future的实体类，所以<code>submit</code>返回的<code>Future</code>一定是一个<code>FutureTask</code>。其内部其实是通过<code>newTaskFor</code>方法来转换的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> &lt;T&gt; <span class="function">RunnableFuture&lt;T&gt; <span class="title">newTaskFor</span><span class="params">(Callable&lt;T&gt; callable)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> FutureTask&lt;T&gt;(callable);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="ThreadPool_框架">ThreadPool 框架</h2><p>这里我们来封装一下JDK中Future模式，使其更好用。</p>
+<ul>
+<li>实现线程完成或关闭后的通知回调</li>
+</ul>
+<figure class="highlight java"><figcaption><span>使用示例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">List&lt;ThreadTask&lt;String&gt;&gt; results = <span class="keyword">new</span> ArrayList&lt;ThreadTask&lt;String&gt;&gt;();</span><br><span class="line"></span><br><span class="line">ThreadPool threadPool = <span class="keyword">new</span> ThreadPool(<span class="number">4</span>, <span class="number">4</span>, <span class="number">10</span>, TimeUnit.SECONDS, <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;());</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    ThreadTask&lt;String&gt; threadTask = threadPool.submit(<span class="keyword">new</span> Task(i));</span><br><span class="line"></span><br><span class="line">    threadTask.setOnTaskDoneListener(<span class="keyword">new</span> OnTaskDoneListener() &#123;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTaskDone</span><span class="params">(ThreadTask&lt;?&gt; task)</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"onTaskDone "</span> + task.get());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    threadTask.setOnTaskCancelListener(<span class="keyword">new</span> OnTaskCancelListener() &#123;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTaskCancel</span><span class="params">(ThreadTask&lt;?&gt; task)</span> </span>&#123;</span><br><span class="line">            System.out.println(task + <span class="string">" onTaskCancel"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    results.add(threadTask);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (ThreadTask&lt;String&gt; res : results) &#123;</span><br><span class="line">    res.cancel();</span><br><span class="line">    System.out.println(<span class="string">"result :"</span> + res.get());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">threadPool.shutdown();</span><br></pre></td></tr></table></figure>
+<p>实现源码：<a href="https://github.com/gavinliu/MThread" target="_blank" rel="external">https://github.com/gavinliu/MThread</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="概述">概述</h2><p>多线程开发中有几个痛点：</p>
+<ol>
+<li>主线程如何正确的关闭异步线程？</li>
+<li>主线程怎么知道异步线程是否执行完成？</li>
+</ol>
+<p>当然已经又很好的方案来解决这些问题了，这就是Future模式。</p>
+<h2 id="Future">Future</h2><p>Future模式在请求发生时，会先产生一个Future对象给发出请求的客户，而真正的结果是由一个新线程执行，结果生成之后，将之设定至Future之中，而当客户端需要结果时，Future也已经准备好，可以让客户提取使用。</p>
+<p><img src="/images/2015.12.14 - Java-使用Future进行多线程编程.jpg" alt=""><br>]]>
+    
+    </summary>
+    
+      <category term="Future" scheme="http://gavinliu.cn/tags/Future/"/>
+    
+      <category term="多线程" scheme="http://gavinliu.cn/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+      <category term="Java Notes" scheme="http://gavinliu.cn/categories/Java-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - 内存泄露分析]]></title>
+    <link href="http://gavinliu.cn/2015/11/18/Android-%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E5%88%86%E6%9E%90/"/>
+    <id>http://gavinliu.cn/2015/11/18/Android-内存泄露分析/</id>
+    <published>2015-11-18T09:39:40.000Z</published>
+    <updated>2015-12-31T12:41:17.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="通过adb_shell查看内存泄露">通过<code>adb shell</code>查看内存泄露</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys meminfo &#21253;&#21517;</span><br></pre></td></tr></table></figure>
+<h2 id="MAT工具">MAT工具</h2><h3 id="Dump_内存堆">Dump 内存堆</h3><h3 id="MAT工具_使用技巧">MAT工具 使用技巧</h3><h2 id="Android_内存泄露自动检测库">Android 内存泄露自动检测库</h2>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="通过adb_shell查看内存泄露">通过<code>adb shell</code>查看内存泄露</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line]]>
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="内存分析" scheme="http://gavinliu.cn/tags/%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Newifi Mini(Y1) 动手玩(3) - DDNS动态域名解析]]></title>
+    <link href="http://gavinliu.cn/2015/10/09/Newifi-Mini-Y1-%E5%8A%A8%E6%89%8B%E7%8E%A9-3-DDNS%E5%8A%A8%E6%80%81%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/"/>
+    <id>http://gavinliu.cn/2015/10/09/Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析/</id>
+    <published>2015-10-09T13:30:02.000Z</published>
+    <updated>2015-12-31T12:41:17.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="安装_ddns">安装 ddns</h2><p>Openwrt系统应该是预装了ddns，小云OS没有预装ddns，我们可以通过opkg装上ddns</p>
+<ul>
+<li><p>配置 opkg<br>  可参考 <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/">Newifi Mini(Y1) 动手玩(2) - opkg</a></p>
+</li>
+<li><p>在管理页面搜索 <code>ddns</code></p>
+</li>
+</ul>
+<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析1.png" alt=""></p>
+<ul>
+<li>安装 <code>ddns-scripts</code> 和 <code>luci-app-ddns</code></li>
+</ul>
+<p>安装完成即可在 服务中找到动态DNS页面 <a id="more"></a></p>
+<h2 id="启动_ddns">启动 ddns</h2><p>系统 -&gt; 启动项 -&gt; 启动<code>ddns</code></p>
+<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析2.png" alt=""></p>
+<h2 id="配置_ddns">配置 ddns</h2><ul>
+<li>我们需要选择一个 ddns 服务商，这里推荐 3322.org (<a href="http://www.pubyun.com/" target="_blank" rel="external">http://www.pubyun.com/</a> )，注册后创建一个动态域名。</li>
+<li>后台配置<br><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析3.png" alt=""></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#20027;&#26426;&#21517;&#65306;&#21363;&#21018;&#21018;&#21019;&#24314;&#30340;&#21160;&#24577;&#22495;&#21517;&#10;&#29992;&#25143;&#21517;&#65306;3322.org &#29992;&#25143;&#21517;&#10;&#23494;&#30721;&#65306;3322.org &#23494;&#30721;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重启路由器</li>
+</ul>
+<h2 id="自定义域名">自定义域名</h2><p>使用 3322 的二级域名当然不能满足我们的要求，要如何实现自定义域名呢？</p>
+<ul>
+<li>注册域名</li>
+<li>在你的DNS服务商添加一个<code>CNAME</code>映射到<code>动态域名</code>中</li>
+</ul>
+<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析4.png" alt=""></p>
+<h2 id="常见问题">常见问题</h2><h3 id="为什么完成上面步骤还是不能使用自定义域名访问呢？">为什么完成上面步骤还是不能使用自定义域名访问呢？</h3><ol>
+<li>检查防火墙设置<br><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析5.png" alt="配置成此图即可"></li>
+<li>检查IP端口是否被关闭<br> 使用 <a href="http://tool.chinaz.com/port" target="_blank" rel="external">端口扫描</a> 查看80端口是否被关闭，如果关闭，我们可以换个端口</li>
+</ol>
+<figure class="highlight sh"><figcaption><span>vi/etc/config/dropbear</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原始数据</span></span><br><span class="line">config uhttpd <span class="string">'main'</span></span><br><span class="line">    list listen_http <span class="string">'0.0.0.0:80'</span></span><br><span class="line">    list listen_http <span class="string">'[::]:80'</span></span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改为</span></span><br><span class="line">config uhttpd <span class="string">'main'</span></span><br><span class="line">    list listen_http <span class="string">'0.0.0.0:8080'</span></span><br><span class="line">    list listen_http <span class="string">'[::]:8080'</span></span><br><span class="line">    ...</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<pre><code>修改保存后，重启uhttpd服务
+</code></pre><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/uhttpd restart</span><br></pre></td></tr></table></figure>
+<h3 id="安全问题">安全问题</h3><p>路由器密码不要使用弱密码，如果路由器被黑客入侵，密码安全就没有保障了。ssh应该关闭密码登录使用密钥登录。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="安装_ddns">安装 ddns</h2><p>Openwrt系统应该是预装了ddns，小云OS没有预装ddns，我们可以通过opkg装上ddns</p>
+<ul>
+<li><p>配置 opkg<br>  可参考 <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/">Newifi Mini(Y1) 动手玩(2) - opkg</a></p>
+</li>
+<li><p>在管理页面搜索 <code>ddns</code></p>
+</li>
+</ul>
+<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析1.png" alt=""></p>
+<ul>
+<li>安装 <code>ddns-scripts</code> 和 <code>luci-app-ddns</code></li>
+</ul>
+<p>安装完成即可在 服务中找到动态DNS页面]]>
+    
+    </summary>
+    
+      <category term="路由器" scheme="http://gavinliu.cn/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Newifi Mini(Y1) 动手玩(2) - opkg]]></title>
+    <link href="http://gavinliu.cn/2015/10/09/Newifi-Mini-Y1-%E5%8A%A8%E6%89%8B%E7%8E%A9-2-opkg/"/>
+    <id>http://gavinliu.cn/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/</id>
+    <published>2015-10-09T12:55:36.000Z</published>
+    <updated>2015-12-31T12:41:17.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="opkg_?">opkg ?</h2><p>opkg是openwrt里的软件包管理器，类似Mac下的brew、Ubuntu下的apt-get等，命令位于<code>/bin/opkg</code></p>
+<p>由于openwrt是嵌入式系统，硬件复杂，我们需要把opkg的源和Newifi Mini(Y1)的硬件相匹配。</p>
+<h2 id="配置源">配置源</h2><p>Y1使用的是 mt7620a 这枚cpu，我们需要使用 mt7620a 的源</p>
+<p>openwrt官方源：</p>
+<p><a href="http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/" target="_blank" rel="external">http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/</a><br><a href="http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/" target="_blank" rel="external">http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/</a></p>
+<blockquote>
+<p>需要说明的是 PandoraBox 和 小云OS 都是基于 <code>openwrt 14.07</code> 开发的</p>
+</blockquote>
+<p>由于众所周知的原因直接访问openwrt.org是非常慢，我们可以使用代理 <code>mirrors.ustc.edu.cn</code> 或者 <code>downloads.openwrt.org.cn</code></p>
+<p>两种方式：</p>
+<ul>
+<li><code>ssh</code>连接到路由器后使用<code>vi</code>修改配置文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/opkg.conf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>管理页面：OpenWrt 系统-&gt;软件包-&gt;配置；小云OS 高级设置-&gt;系统-&gt;软件包-&gt;配置</li>
+</ul>
+<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-2-opkg1.png" alt=""><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dest root /&#10;dest ram /tmp&#10;lists_dir ext /var/opkg-lists&#10;option overlay_root /overlay&#10;&#10;arch ralink 1&#10;arch all 2&#10;arch ramips_24kec 3&#10;&#10;src/gz barrier_breaker_base http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/base&#10;src/gz barrier_breaker_luci http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/luci&#10;src/gz barrier_breaker_management http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/management&#10;src/gz barrier_breaker_oldpackages http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/oldpackages&#10;src/gz barrier_breaker_packages http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/packages&#10;src/gz barrier_breaker_routing http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/routing&#10;src/gz barrier_breaker_telephony http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/telephony&#10;&#10;src/gz openwrt_dist http://openwrt-dist.thankgfw.ml/releases/ramips/packages&#10;src/gz openwrt_dist_luci http://openwrt-dist.thankgfw.ml/releases/luci/packages</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用_opkg_命令">使用 opkg 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#25171;&#21360;&#24110;&#21161;&#10;opkg -h&#10;&#10;# &#26356;&#26032;&#36164;&#28304;&#21015;&#34920;&#10;opkg update&#10;&#10;# &#21015;&#20986;&#24050;&#23433;&#35013;&#30340;&#21253;&#10;opkg list&#10;&#10;# &#25628;&#32034;&#21253;&#10;opkg search ddns&#10;&#10;# &#23433;&#35013;&#36719;&#20214;&#65292;&#20197;&#23433;&#35013;curl&#21644;wget&#20026;&#20363;&#10;opkg install curl&#10;# &#23433;&#35013;&#26412;&#22320;&#36719;&#20214;&#21253;&#10;opkg install /tmp/wget_1.16-1_ramips_24kec.ipk&#10;&#10;# &#31227;&#38500;&#36719;&#20214;&#10;opkg remove wget</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="opkg_?">opkg ?</h2><p>opkg是openwrt里的软件包管理器，类似Mac下的brew、Ubuntu下的apt-get等，命令位于<code>/bin/opkg</code></p>
+<p>由于openwrt是嵌入式系统，硬件复杂，我们需要把opkg的源和Newifi Mini(Y1)的硬件相匹配。</p>
+<h2 id="配置源">配置源</h2><p>Y1使用的是 mt7620a 这枚cpu，我们需要使用 mt7620a 的源</p>
+<p>openwrt官方源：</p>
+<p><a href="http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/">http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/</a><br><a href="http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/">http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/</a></p>
+<blockquote>
+<p>需要说明的是 PandoraBox 和 小云OS 都是基于 <code>openwrt 14.07</code> 开发的</p>
+</blockquote>
+<p>由于众所周知的原因直接访问openwrt.org是非常慢，我们可以使用代理 <code>mirrors.ustc.edu.cn</code> 或者 <code>downloads.openwrt.org.cn</code></p>
+<p>两种方式：</p>
+<ul>
+<li><code>ssh</code>连接到路由器后使用<code>vi</code>修改配置文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/opkg.conf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>管理页面：OpenWrt 系统-&gt;软件包-&gt;配置；小云OS 高级设置-&gt;系统-&gt;软件包-&gt;配置</li>
+</ul>
+<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-2-opkg1.png" alt="">]]>
+    
+    </summary>
+    
+      <category term="路由器" scheme="http://gavinliu.cn/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Newifi Mini(Y1) 动手玩(1) - 刷机]]></title>
+    <link href="http://gavinliu.cn/2015/10/09/Newifi-Mini-Y1-%E5%8A%A8%E6%89%8B%E7%8E%A9-1-%E5%88%B7%E6%9C%BA/"/>
+    <id>http://gavinliu.cn/2015/10/09/Newifi-Mini-Y1-动手玩-1-刷机/</id>
+    <published>2015-10-09T02:36:17.000Z</published>
+    <updated>2015-12-31T12:41:17.000Z</updated>
+    <content type="html"><![CDATA[<p>Newifi 本身就带有一个不死uBoot，所以可以很方便的刷机，这也是我为什么没有买极路由的原因。</p>
+<p>刚刚买回来的Newifi是<code>如意云 1.0</code>的系统，这个系统很难用，建议买回来刷 <code>小云OS 2.0</code> 或者 <code>OpenWrt</code> 或者 <code>PandoraBox</code></p>
+<p>官方固件下载地址：<a href="http://www.newbd.com/topic/download/index.html" target="_blank" rel="external">http://www.newbd.com/topic/download/index.html</a><br>OpenWrt下载地址：<a href="http://downloads.openwrt.org/chaos_calmer/15.05-rc2/ramips/mt7620/" target="_blank" rel="external">http://downloads.openwrt.org/chaos_calmer/15.05-rc2/ramips/mt7620/</a><br>PandoraBox下载地址：<a href="http://downloads.openwrt.org.cn/PandoraBox/Lenovo-Y1_RY-1S/firmware/stable/" target="_blank" rel="external">http://downloads.openwrt.org.cn/PandoraBox/Lenovo-Y1_RY-1S/firmware/stable/</a></p>
+<h2 id="uBoot_刷机">uBoot 刷机</h2><ol>
+<li>修改电脑IP为192.168.1.10</li>
+<li>路由器通电，然后拔掉，然后点击reset键，然后通电</li>
+<li>电脑网线链接路由器Wan口</li>
+<li>电脑浏览器访问192.168.1.1</li>
+<li>上传固件，点击恢复</li>
+<li>路由器升级重启后，把电脑IP修改为自动获取即可</li>
+</ol>
+<p>官方固件路由器IP是：192.168.99.1，OpenWrt和PandoraBox是：192.168.1.1</p>
+<h2 id="三个系统的区别">三个系统的区别</h2><ol>
+<li>OpenWrt 最纯净</li>
+<li>PandoraBox 基于OpenWrt做了本地优化</li>
+<li>小云OS 2.0 官方系统，基于OpenWrt做了本地优化，支持手机客户端等。</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Newifi 本身就带有一个不死uBoot，所以可以很方便的刷机，这也是我为什么没有买极路由的原因。</p>
+<p>刚刚买回来的Newifi是<code>如意云 1.0</code>的系统，这个系统很难用，建议买回来刷 <code>小云OS 2.0</code> 或者 <c]]>
+    </summary>
+    
+      <category term="路由器" scheme="http://gavinliu.cn/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - 多屏适配实践]]></title>
+    <link href="http://gavinliu.cn/2015/08/12/Android-%E5%A4%9A%E5%B1%8F%E9%80%82%E9%85%8D%E5%AE%9E%E8%B7%B5/"/>
+    <id>http://gavinliu.cn/2015/08/12/Android-多屏适配实践/</id>
+    <published>2015-08-12T11:59:01.000Z</published>
+    <updated>2015-12-31T12:41:17.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="概述">概述</h1><p>Android开发中面对这么多机型，这么多大小不一的手机屏幕，需要寻求一种高效的多屏适配方案，本文只针对不支持转屏的应用。</p>
+<h2 id="问题">问题</h2><p>一般来说应用的适配可分一下几个内容：</p>
+<ol>
+<li>系统组件(Actionbar，Dialog， Pupupmenu…)</li>
+<li>控件块区(View的大小，间距)</li>
+<li>图文相关(文字大小，图片)</li>
+</ol>
+<h2 id="方案">方案</h2><ol>
+<li>系统组件：使用相关Compat库+自定义View的方式</li>
+<li>控件块区：控件的位置大小，使用dp + 百分比缩放的方式</li>
+<li>图文相关：文子大小使用sp，或者根据需要使用百分比缩放</li>
+</ol>
+<h1 id="适配细节">适配细节</h1><h2 id="一、Android原生dp">一、Android原生dp</h2><h2 id="二、百分比缩放">二、百分比缩放</h2><h3 id="已知库">已知库</h3><ol>
+<li><p>android-percent-support-lib<br> 宽高只能和父容器的宽高对应比例。</p>
+</li>
+<li><p>android-percent-support-lib-<br> 基于上面扩展，实现可以分别选择占父容器的比例。</p>
+</li>
+</ol>
+<p>然而对于这样的在布局文件中直接定义百分比的方式，存在两大问题</p>
+<ol>
+<li>计算麻烦<br> 视觉给你标注图肯定都是标的真实的长度，百分比还得自己计算。</li>
+<li>精度丢失<br> 如果效果图的父容器宽是1080px，子View的宽是38px，占3.3333~%，1080 * 3% = 32；1080 * 3.3% = 35 无论取什么值，连视觉的设计样本都会偏移像素。</li>
+</ol>
+<h3 id="最终方案">最终方案</h3><a id="more"></a>
+<ol>
+<li>上下滑动的界面按<strong>屏幕宽</strong>等比缩放</li>
+<li>左右滑动的界面按<strong>屏幕高</strong>等比缩放</li>
+</ol>
+<figure class="highlight java"><figcaption><span>以上下滑动为例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> percent = mScreenWidth / designScreenWidth <span class="comment">// 屏幕比</span></span><br><span class="line"><span class="keyword">float</span> designDP = getPixelSize() / mDensity <span class="comment">// designDP是写入在xml文件中的，需要通过getPixel还原出来</span></span><br><span class="line"><span class="keyword">float</span> designPixel = designDP * designDensity <span class="comment">// dp 转 pixel</span></span><br><span class="line"><span class="keyword">float</span> realPixel = percent * designPixel</span><br><span class="line"><span class="keyword">float</span> realPixel = (mScreenWidth * designDensity * getPixelSize()) / (designScreenWidth * mDensity)</span><br></pre></td></tr></table></figure>
+<h3 id="基于最终方案的ScaleLayout实现">基于最终方案的ScaleLayout实现</h3><p>Github：<a href="https://github.com/gavinliu/Android-ScaleLayout" target="_blank" rel="external">Android-ScaleLayout</a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">cn.gavinliu.android.lib.scale.ScaleRelativeLayout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">xmlns:app</span>=<span class="value">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">app:layout_design_density</span>=<span class="value">"@integer/app_design_density"</span></span><br><span class="line">    <span class="attribute">app:layout_design_height</span>=<span class="value">"@dimen/app_design_height"</span></span><br><span class="line">    <span class="attribute">app:layout_design_width</span>=<span class="value">"@dimen/app_design_width"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">        <span class="attribute">android:id</span>=<span class="value">"@+id/view"</span></span><br><span class="line">        <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:background</span>=<span class="value">"#46b34b"</span></span><br><span class="line">        <span class="attribute">android:text</span>=<span class="value">"@string/hello_world"</span></span><br><span class="line">        <span class="attribute">app:layout_height</span>=<span class="value">"120dp"</span></span><br><span class="line">        <span class="attribute">app:layout_marginLeft</span>=<span class="value">"12dp"</span></span><br><span class="line">        <span class="attribute">app:layout_marginTop</span>=<span class="value">"8dp"</span></span><br><span class="line">        <span class="attribute">app:layout_scale_by</span>=<span class="value">"width"</span></span><br><span class="line">        <span class="attribute">app:layout_width</span>=<span class="value">"166dp"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">        <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:layout_toRightOf</span>=<span class="value">"@id/view"</span></span><br><span class="line">        <span class="attribute">android:background</span>=<span class="value">"#46b34b"</span></span><br><span class="line">        <span class="attribute">android:text</span>=<span class="value">"@string/hello_world"</span></span><br><span class="line">        <span class="attribute">app:layout_height</span>=<span class="value">"120dp"</span></span><br><span class="line">        <span class="attribute">app:layout_marginLeft</span>=<span class="value">"4dp"</span></span><br><span class="line">        <span class="attribute">app:layout_marginTop</span>=<span class="value">"8dp"</span></span><br><span class="line">        <span class="attribute">app:layout_paddingLeft</span>=<span class="value">"12dp"</span></span><br><span class="line">        <span class="attribute">app:layout_paddingTop</span>=<span class="value">"12dp"</span></span><br><span class="line">        <span class="attribute">app:layout_scale_by</span>=<span class="value">"width"</span></span><br><span class="line">        <span class="attribute">app:layout_width</span>=<span class="value">"166dp"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">cn.gavinliu.android.lib.scale.ScaleRelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="概述">概述</h1><p>Android开发中面对这么多机型，这么多大小不一的手机屏幕，需要寻求一种高效的多屏适配方案，本文只针对不支持转屏的应用。</p>
+<h2 id="问题">问题</h2><p>一般来说应用的适配可分一下几个内容：</p>
+<ol>
+<li>系统组件(Actionbar，Dialog， Pupupmenu…)</li>
+<li>控件块区(View的大小，间距)</li>
+<li>图文相关(文字大小，图片)</li>
+</ol>
+<h2 id="方案">方案</h2><ol>
+<li>系统组件：使用相关Compat库+自定义View的方式</li>
+<li>控件块区：控件的位置大小，使用dp + 百分比缩放的方式</li>
+<li>图文相关：文子大小使用sp，或者根据需要使用百分比缩放</li>
+</ol>
+<h1 id="适配细节">适配细节</h1><h2 id="一、Android原生dp">一、Android原生dp</h2><h2 id="二、百分比缩放">二、百分比缩放</h2><h3 id="已知库">已知库</h3><ol>
+<li><p>android-percent-support-lib<br> 宽高只能和父容器的宽高对应比例。</p>
+</li>
+<li><p>android-percent-support-lib-<br> 基于上面扩展，实现可以分别选择占父容器的比例。</p>
+</li>
+</ol>
+<p>然而对于这样的在布局文件中直接定义百分比的方式，存在两大问题</p>
+<ol>
+<li>计算麻烦<br> 视觉给你标注图肯定都是标的真实的长度，百分比还得自己计算。</li>
+<li>精度丢失<br> 如果效果图的父容器宽是1080px，子View的宽是38px，占3.3333~%，1080 * 3% = 32；1080 * 3.3% = 35 无论取什么值，连视觉的设计样本都会偏移像素。</li>
+</ol>
+<h3 id="最终方案">最终方案</h3>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - 图像处理基础]]></title>
+    <link href="http://gavinliu.cn/2015/07/27/Android-%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    <id>http://gavinliu.cn/2015/07/27/Android-图像处理/</id>
+    <published>2015-07-27T11:38:05.000Z</published>
+    <updated>2015-12-31T12:41:17.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="基础Ａｐｉ">基础Ａｐｉ</h2><h3 id="Canvas">Canvas</h3><h3 id="Paint">Paint</h3><h3 id="Path">Path</h3><h2 id="实用技巧">实用技巧</h2><h3 id="处理圆角的三种方式">处理圆角的三种方式</h3><h3 id="如何清屏?">如何清屏?</h3>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="基础Ａｐｉ">基础Ａｐｉ</h2><h3 id="Canvas">Canvas</h3><h3 id="Paint">Paint</h3><h3 id="Path">Path</h3><h2 id="实用技巧">实用技巧</h2><h3 id="处理圆角的三种方式]]>
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - JNI开发中Gradle的配置]]></title>
+    <link href="http://gavinliu.cn/2015/07/03/Android-JNI%E5%BC%80%E5%8F%91-Gradle%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+    <id>http://gavinliu.cn/2015/07/03/Android-JNI开发-Gradle的配置/</id>
+    <published>2015-07-03T06:16:29.000Z</published>
+    <updated>2015-12-31T12:41:17.000Z</updated>
+    <content type="html"><![CDATA[<p><a href="/2013/07/03/Andoid-JNI-NDKHelloWorld/">Andoid - JNI.NDKHelloWorld</a></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile fileTree(<span class="string">dir:</span> <span class="string">"$buildDir/native-libs"</span>, <span class="string">include:</span> <span class="string">'native-libs.jar'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">task nativeLibsToJar(<span class="string">type:</span> Zip, <span class="string">description:</span> <span class="string">'create a jar archive of the native libs'</span>) &#123;</span><br><span class="line">    destinationDir file(<span class="string">"$buildDir/native-libs"</span>)</span><br><span class="line">    baseName <span class="string">'native-libs'</span></span><br><span class="line">    extension <span class="string">'jar'</span></span><br><span class="line">    from fileTree(<span class="string">dir:</span> <span class="string">'libs'</span>, <span class="string">include:</span> <span class="string">'**/*.so'</span>)</span><br><span class="line">    into <span class="string">'lib/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tasks.withType(JavaCompile) &#123;</span><br><span class="line">    compileTask -&gt; compileTask.dependsOn(nativeLibsToJar)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><a href="/2013/07/03/Andoid-JNI-NDKHelloWorld/">Andoid - JNI.NDKHelloWorld</a></p>
+<figure class="highlight groovy"><table><tr><td class=]]>
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="JNI" scheme="http://gavinliu.cn/tags/JNI/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - 开源库Android-AbsListView-Drag-And-Drop]]></title>
+    <link href="http://gavinliu.cn/2015/06/24/Android-%E5%BC%80%E6%BA%90%E5%BA%93Android-AbsListView-Drag-And-Drop/"/>
+    <id>http://gavinliu.cn/2015/06/24/Android-开源库Android-AbsListView-Drag-And-Drop/</id>
+    <published>2015-06-24T12:37:43.000Z</published>
+    <updated>2015-10-09T12:18:02.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="概述">概述</h2><p>魅族的滑动选择和拖拽删除是很棒的交互, 但是Flyme5上去掉了这一特性, 魅族源码中实现滑动选择是在ListView源码中修改的, 这样也是最好的方式, 我花了点时间使用了些黑科技继承ListView的方式实现, 这样可以在任何Android手机上使用这种交互方式.</p>
+<h2 id="看看效果">看看效果</h2><h3 id="原生ActionMode">原生ActionMode</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop1.gif" alt=""></p>
+<a id="more"></a>
+<h3 id="自定义SelectionAttacher">自定义SelectionAttacher</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop2.gif" alt=""></p>
+<h3 id="滑动选择">滑动选择</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop3.gif" alt=""></p>
+<h2 id="实现原理">实现原理</h2><ol>
+<li>Drag,Drop的实现方式<br>这里是使用弹窗的方式实现: 长按的时候获取当前item的视图并转换成一张图片, 同时弹一个悬浮窗, 把这个图片作为悬浮窗的背景, 然后跟着手指移动, 如果手指移动到Menu的区域则改变颜色, 此时放下,则回调Drop方法.<br>注: 这里需要指出的是悬浮窗的弹出方式是, 先弹了一个全屏的Layout, 真正可见的悬浮窗是该Layout的子视图, 这样做的目的是优化动画效果, 如果不这样做, 悬浮窗滑动到边缘会有视图绘制掉帧的情况(计算器悬浮窗就有这个问题)</li>
+<li>多选模式的自定义SelectionAttacher<br>由于是继承于ListView, 为了扩展一些功能, 就没有使用原生的ActionMode和原生的多选模式, 使用CHOICE_MODE_MULTIPLE来模拟了CHOICE_MODE_MULTIPLE_MODAL .<br>这里SelectionAttacher包含HeaderTransformer和FooterTransformer支持自定义, 可以实现Flyme5.0的交互.Transformer添加到Activity的DecorView中.</li>
+<li>滑动选择<br>滑动选择是实现Google I/O 2015发布的Photos的交互, 实现起来也很简单, 就是多选长按滑动后, 去选中滑动掠过的item. 自定义Layout 重写setActivated方法, 来实现缩放动画</li>
+</ol>
+<h2 id="代码">代码</h2><p><a href="https://github.com/gavinliu/Android-AbsListView-Drag-And-Drop" target="_blank" rel="external">https://github.com/gavinliu/Android-AbsListView-Drag-And-Drop</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="概述">概述</h2><p>魅族的滑动选择和拖拽删除是很棒的交互, 但是Flyme5上去掉了这一特性, 魅族源码中实现滑动选择是在ListView源码中修改的, 这样也是最好的方式, 我花了点时间使用了些黑科技继承ListView的方式实现, 这样可以在任何Android手机上使用这种交互方式.</p>
+<h2 id="看看效果">看看效果</h2><h3 id="原生ActionMode">原生ActionMode</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop1.gif" alt=""></p>]]>
+    
+    </summary>
+    
+      <category term="AbsListView" scheme="http://gavinliu.cn/tags/AbsListView/"/>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="Drag.And.Drop" scheme="http://gavinliu.cn/tags/Drag-And-Drop/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[在Ubuntu中安装Xware迅雷远程下载]]></title>
+    <link href="http://gavinliu.cn/2015/06/18/%E5%9C%A8Ubuntu%E4%B8%AD%E5%AE%89%E8%A3%85Xware%E8%BF%85%E9%9B%B7%E8%BF%9C%E7%A8%8B%E4%B8%8B%E8%BD%BD/"/>
+    <id>http://gavinliu.cn/2015/06/18/在Ubuntu中安装Xware迅雷远程下载/</id>
+    <published>2015-06-18T04:44:01.000Z</published>
+    <updated>2015-06-24T13:29:25.000Z</updated>
+    <content type="html"><![CDATA[<p>公司的电脑平时一直处于开机状态, 压榨电脑的剩余价值, 网速又好, 寻思着弄成下载机, 迅雷给路由器做的版本叫Xware, 找了下发现有x86版本, 顺势装在Ubuntu上了.</p>
+<p><a href="http://pan.baidu.com/s/1dDEprRN" target="_blank" rel="external">Xware1.0.31 点击下载</a></p>
+<figure class="highlight bash"><figcaption><span>解压后有四个文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin <span class="number">4.1</span>M  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> EmbedThunderManager</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin  <span class="number">24</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> ETMDaemon</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin <span class="number">111</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> portal</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin  <span class="number">23</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> vod_httpserver</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>执行./portal </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">initing...</span><br><span class="line">try stopping xunlei service first...</span><br><span class="line">killall: ETMDaemon: no process killed</span><br><span class="line">killall: EmbedThunderManager: no process killed</span><br><span class="line">killall: vod_httpserver: no process killed</span><br><span class="line">setting xunlei runtime env...</span><br><span class="line">port: <span class="number">9000</span> is usable.</span><br><span class="line"></span><br><span class="line">YOUR CONTROL PORT IS: <span class="number">9000</span></span><br><span class="line"></span><br><span class="line">starting xunlei service...</span><br><span class="line">etm path: /home/gavin/Software/Xware1.<span class="number">0.31</span>_x86_32_glibc</span><br><span class="line">execv: /home/gavin/Software/Xware1.<span class="number">0.31</span>_x86_32_glibc/lib/ETMDaemon.</span><br><span class="line"></span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span> (<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>)</span><br><span class="line">the active key is not valid.</span><br><span class="line"></span><br><span class="line">try again...(has tried <span class="number">1</span> time(s)).</span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span> (<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>)</span><br><span class="line"></span><br><span class="line">THE ACTIVE CODE IS: ******</span><br><span class="line"></span><br><span class="line">go to http://yuancheng.xunlei.com, <span class="built_in">bind</span> your device with the active code.</span><br><span class="line">finished.</span><br></pre></td></tr></table></figure>
+<p>把 ACTIVE CODE 填入 <a href="http://yuancheng.xunlei.com/" target="_blank" rel="external">http://yuancheng.xunlei.com/</a> 中, 就算完成了.</p>
+<p>完成上一步, 还有个问题, xware是针对嵌入式设备的, xware只会检测挂载到/media目录下可写的设备, 所以我们需要把本地的某个文件夹, 挂载到/media, 同时我们又不希望一插入U盘就被识别为xware可用目录, 于是我们还需要换一个用户专门用来启动xware.</p>
+<a id="more"></a>
+<ul>
+<li>创建thunder用户</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo useradd --no-create-home --user-group thunder</span><br></pre></td></tr></table></figure>
+<ul>
+<li>把xware目录设置为thunder所有</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">su chown thunder:thunder -R Xware1.<span class="number">0.31</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建下载目录和挂载目录, 并设置为thunder用户所有</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir ~/TDDownload -p</span><br><span class="line">sudo mkdir /media/thunder/TDDownload -p</span><br><span class="line">sudo chown thunder:thunder ~/TDDownload</span><br><span class="line">sudo chown thunder:thunder /media/thunder/TDDownload</span><br></pre></td></tr></table></figure>
+<ul>
+<li>把下载目录挂载到挂载目录</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount --bind ~/TDDownload /media/thunder/TDDownload/</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置启动脚本, 放在Xware文件夹外</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span><br><span class="line"></span></span><br><span class="line">XWARE_DIR=./Xware1.<span class="number">0.31</span>_x86_32_glibc</span><br><span class="line"></span><br><span class="line">USERNAME=<span class="string">"thunder"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 下载绝对路径</span></span><br><span class="line">DOWN_DIR=&#123;你的下载绝对路径&#125;</span><br><span class="line"><span class="comment"># 挂载路径</span></span><br><span class="line">MOUNT_DIR=/media/thunder/TDDownload</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> <span class="operator">-gt</span> <span class="number">0</span> ];</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="comment"># 加参数 -s是关闭</span></span><br><span class="line">    su <span class="variable">$USERNAME</span> -c <span class="string">"<span class="variable">$XWARE_DIR</span>/portal -s"</span></span><br><span class="line">    code=$?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$code</span> <span class="operator">-eq</span> <span class="number">0</span> ];</span><br><span class="line">    <span class="keyword">then</span></span><br><span class="line">        umount <span class="variable">$MOUNT_DIR</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"xware stop sucess..."</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"xware stop fail,code <span class="variable">$code</span>"</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="comment"># 不加参数默认是启动</span></span><br><span class="line">    su <span class="variable">$USERNAME</span> -c <span class="variable">$XWARE_DIR</span>/portal</span><br><span class="line">    code=$?</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$code</span> <span class="operator">-eq</span> <span class="number">0</span> ];</span><br><span class="line">    <span class="keyword">then</span></span><br><span class="line">        mount --bind <span class="variable">$DOWN_DIR</span> <span class="variable">$MOUNT_DIR</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"xware start sucess..."</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"xware start fail,code <span class="variable">$code</span>"</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动与关闭</li>
+</ul>
+<figure class="highlight bash"><figcaption><span>启动</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./xware.sh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>关闭</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./xware.sh <span class="operator">-s</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/2015.06.18 - 在Ubuntu中安装Xware迅雷远程下载.png" alt=""></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>公司的电脑平时一直处于开机状态, 压榨电脑的剩余价值, 网速又好, 寻思着弄成下载机, 迅雷给路由器做的版本叫Xware, 找了下发现有x86版本, 顺势装在Ubuntu上了.</p>
+<p><a href="http://pan.baidu.com/s/1dDEprRN">Xware1.0.31 点击下载</a></p>
+<figure class="highlight bash"><figcaption><span>解压后有四个文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin <span class="number">4.1</span>M  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> EmbedThunderManager</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin  <span class="number">24</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> ETMDaemon</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin <span class="number">111</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> portal</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin  <span class="number">23</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> vod_httpserver</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>执行./portal </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">initing...</span><br><span class="line">try stopping xunlei service first...</span><br><span class="line">killall: ETMDaemon: no process killed</span><br><span class="line">killall: EmbedThunderManager: no process killed</span><br><span class="line">killall: vod_httpserver: no process killed</span><br><span class="line">setting xunlei runtime env...</span><br><span class="line">port: <span class="number">9000</span> is usable.</span><br><span class="line"></span><br><span class="line">YOUR CONTROL PORT IS: <span class="number">9000</span></span><br><span class="line"></span><br><span class="line">starting xunlei service...</span><br><span class="line">etm path: /home/gavin/Software/Xware1.<span class="number">0.31</span>_x86_32_glibc</span><br><span class="line">execv: /home/gavin/Software/Xware1.<span class="number">0.31</span>_x86_32_glibc/lib/ETMDaemon.</span><br><span class="line"></span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span> (<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>)</span><br><span class="line">the active key is not valid.</span><br><span class="line"></span><br><span class="line">try again...(has tried <span class="number">1</span> time(s)).</span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span> (<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>)</span><br><span class="line"></span><br><span class="line">THE ACTIVE CODE IS: ******</span><br><span class="line"></span><br><span class="line">go to http://yuancheng.xunlei.com, <span class="built_in">bind</span> your device with the active code.</span><br><span class="line">finished.</span><br></pre></td></tr></table></figure>
+<p>把 ACTIVE CODE 填入 <a href="http://yuancheng.xunlei.com/">http://yuancheng.xunlei.com/</a> 中, 就算完成了.</p>
+<p>完成上一步, 还有个问题, xware是针对嵌入式设备的, xware只会检测挂载到/media目录下可写的设备, 所以我们需要把本地的某个文件夹, 挂载到/media, 同时我们又不希望一插入U盘就被识别为xware可用目录, 于是我们还需要换一个用户专门用来启动xware.</p>]]>
+    
+    </summary>
+    
+      <category term="Xware" scheme="http://gavinliu.cn/tags/Xware/"/>
+    
+      <category term="环境搭建" scheme="http://gavinliu.cn/categories/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - ListView 奇淫绝技]]></title>
+    <link href="http://gavinliu.cn/2015/06/10/Android-ListView%E5%A5%87%E6%B7%AB%E7%BB%9D%E6%8A%80/"/>
+    <id>http://gavinliu.cn/2015/06/10/Android-ListView奇淫绝技/</id>
+    <published>2015-06-10T11:40:55.000Z</published>
+    <updated>2015-07-03T12:51:18.000Z</updated>
+    <content type="html"><![CDATA[<p>问题: 如果你遇到下面这样的界面会怎样实现呢?<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> ————————————</span><br><span class="line">|            |</span><br><span class="line">|            |</span><br><span class="line"> ————————————</span><br><span class="line"> —————  —————</span><br><span class="line">|     ||     |</span><br><span class="line"> —————  —————</span><br><span class="line"> ——   ——   ——</span><br><span class="line">|  | |  | |  |</span><br><span class="line"> ——   ——   ——</span><br><span class="line"> —————   ————</span><br><span class="line">|     | |    |</span><br><span class="line">|     |  ————</span><br><span class="line">|     |  ————</span><br><span class="line">|     | |    |</span><br><span class="line">|     |  ————</span><br><span class="line">|     |  ————</span><br><span class="line">|     | |    |</span><br><span class="line"> —————   ————</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<p>ListView算是Android开发中<strong>最常用&amp;最重要</strong>的控件,</p>
+<p>TODO 待续…</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>问题: 如果你遇到下面这样的界面会怎样实现呢?<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> ————————————</span><br><span class="line">|            |</span><br><span class="line">|            |</span><br><span class="line"> ————————————</span><br><span class="line"> —————  —————</span><br><span class="line">|     ||     |</span><br><span class="line"> —————  —————</span><br><span class="line"> ——   ——   ——</span><br><span class="line">|  | |  | |  |</span><br><span class="line"> ——   ——   ——</span><br><span class="line"> —————   ————</span><br><span class="line">|     | |    |</span><br><span class="line">|     |  ————</span><br><span class="line">|     |  ————</span><br><span class="line">|     | |    |</span><br><span class="line">|     |  ————</span><br><span class="line">|     |  ————</span><br><span class="line">|     | |    |</span><br><span class="line"> —————   ————</span><br></pre></td></tr></table></figure></p>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="ListView" scheme="http://gavinliu.cn/tags/ListView/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - Animation 次序之美]]></title>
+    <link href="http://gavinliu.cn/2015/05/25/Android-Animation-%E6%AC%A1%E5%BA%8F%E4%B9%8B%E7%BE%8E/"/>
+    <id>http://gavinliu.cn/2015/05/25/Android-Animation-次序之美/</id>
+    <published>2015-05-25T07:58:11.000Z</published>
+    <updated>2015-06-24T13:29:25.000Z</updated>
+    <content type="html"><![CDATA[<p>占坑，博客计划中…</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>占坑，博客计划中…</p>
+]]>
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="Animation" scheme="http://gavinliu.cn/tags/Animation/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[编程技巧 - 神奇的1,2,4,8和按位运算符]]></title>
+    <link href="http://gavinliu.cn/2015/05/12/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7-%E7%A5%9E%E5%A5%87%E7%9A%841-2-4-8%E5%92%8C%E6%8C%89%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+    <id>http://gavinliu.cn/2015/05/12/编程技巧-神奇的1-2-4-8和按位运算符/</id>
+    <published>2015-05-12T08:05:39.000Z</published>
+    <updated>2015-05-10T07:51:14.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="概述">概述</h2><p>在编程过程中发现有很多源码里面会定义1,2,4,8等这样的常量,比如说Android的ActionBar关于显示的常量:</p>
+<figure class="highlight java"><figcaption><span>android.app.ActionBar</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_USE_LOGO = <span class="number">0x1</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_SHOW_HOME = <span class="number">0x2</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_HOME_AS_UP = <span class="number">0x4</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_SHOW_TITLE = <span class="number">0x8</span>;</span><br></pre></td></tr></table></figure>
+<p>为什么会这样设计呢?下面告诉你. <a id="more"></a></p>
+<h2 id="使用按位运算操作1,2,4,8">使用按位运算操作1,2,4,8</h2><ul>
+<li>使用<code>按位或(|)</code> <strong>叠加参数</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getActionBar().setDisplayOptions(ActionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_HOME);</span><br></pre></td></tr></table></figure>
+<p>这里 <code>ActionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_HOME</code>的值为3, 所以<code>DISPLAY_HOME_AS_UP</code>不能为3, 值为4是个不错的选择. 一般来说我们程序中会使用2的n次幂来作为相关常量的值,如 1,2,4,8,32,64…</p>
+<ul>
+<li>使用<code>按位与(&amp;)</code> <strong>检查是否包含</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasOption</span><span class="params">(<span class="keyword">int</span> option)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ((mDisplayOptions &amp; option) != <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用<code>按位异或(^)</code> <strong>删除某个值</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">removeOption</span><span class="params">(<span class="keyword">int</span> option)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (hasOption(option)) &#123;</span><br><span class="line">        mDisplayOptions = mDisplayOptions ^ option;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用<code>按位异或(&amp;)</code>+<code>按位取反(~)</code> <strong>也可删除某个值</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">removeOption</span><span class="params">(<span class="keyword">int</span> option)</span> </span>&#123;</span><br><span class="line">    mDisplayOptions = mDisplayOptions &amp; (~option);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结">总结</h2><p>学计算机基础的时候,老师也没有介绍按位的用法. 工作中才发现其中的神奇之处, 是不是很神奇呢? 在你的程序中也用上这样的设计吧~~</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="概述">概述</h2><p>在编程过程中发现有很多源码里面会定义1,2,4,8等这样的常量,比如说Android的ActionBar关于显示的常量:</p>
+<figure class="highlight java"><figcaption><span>android.app.ActionBar</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_USE_LOGO = <span class="number">0x1</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_SHOW_HOME = <span class="number">0x2</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_HOME_AS_UP = <span class="number">0x4</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_SHOW_TITLE = <span class="number">0x8</span>;</span><br></pre></td></tr></table></figure>
+<p>为什么会这样设计呢?下面告诉你.]]>
+    
+    </summary>
+    
+      <category term="按位运算" scheme="http://gavinliu.cn/tags/%E6%8C%89%E4%BD%8D%E8%BF%90%E7%AE%97/"/>
+    
+      <category term="编程技巧" scheme="http://gavinliu.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="编程技巧" scheme="http://gavinliu.cn/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - 开源库EventCast]]></title>
+    <link href="http://gavinliu.cn/2015/05/08/Android-%E5%BC%80%E6%BA%90%E5%BA%93EventCast/"/>
+    <id>http://gavinliu.cn/2015/05/08/Android-开源库EventCast/</id>
+    <published>2015-05-08T08:01:08.000Z</published>
+    <updated>2015-05-10T08:50:03.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="概述">概述</h2><p><a href="https://github.com/gavinliu/EventCast" target="_blank" rel="external">EventCast</a>是一个事件分发的开源库, GitHub中也有很多类似的库, 比如<a href="https://github.com/greenrobot/EventBus" target="_blank" rel="external">EventBus</a>, <a href="https://github.com/square/otto" target="_blank" rel="external">otto</a>, <a href="https://github.com/bboyfeiyu/AndroidEventBus" target="_blank" rel="external">AndroidEventBus</a>, 但是还是觉得自己写的比较顺手, 所以产生了EventCast. </p>
+<p><code>AndroidEventBus</code>是<code>EventBus</code>和<code>otto</code>合并的产物, <code>EventCast</code>也借鉴<code>AndroidEventBus</code>些代码, 和他们不同的是:</p>
+<ol>
+<li>支持多参数传递</li>
+<li>定义了两种接收器</li>
+</ol>
+<a id="more"></a>
+<hr>
+<h2 id="怎么使用?">怎么使用?</h2><h3 id="引用">引用</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'cn.gavinliu.android.lib:EventCast:0.1+'</span></span><br></pre></td></tr></table></figure>
+<h3 id="注册">注册</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_main);</span><br><span class="line">    EventCast.getInstance().register(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onDestroy();</span><br><span class="line">    EventCast.getInstance().unRegister(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="事件发布与接收">事件发布与接收</h3><h4 id="接收器">接收器</h4><ul>
+<li>使用 <code>@Receiver</code> 标记一个事件接收器</li>
+<li>两种接收器<ol>
+<li>使用TAG的接收器: 会根据接受器方法的参数类型分区不同的接收器</li>
+<li>不用TAG的接收器: 会使用接受器方法的方法名和参数类型区分不同的接收器</li>
+</ol>
+</li>
+<li>接收器没有参数个数限制</li>
+</ul>
+<h4 id="发布器">发布器</h4><ul>
+<li>使用 <code>EventCast.post</code> 发布一个事件</li>
+<li><code>@Receiver</code> 中有个PosterType的参数,可以申明使用不同的发布器<ol>
+<li>PosterType.MAIN : 在主线程调用接收器方法</li>
+<li>PosterType.ASYNC : 在新线程调用接收器方法</li>
+<li>PosterType.POST : 在当前线程中调接收器方法</li>
+</ol>
+</li>
+<li>对于不同的接收器post方法有不同<ol>
+<li>有Tag的接收器: 使用支持tag的post方法</li>
+<li>无Tag的接收器: 使用支持class&amp;method的post方法</li>
+</ol>
+</li>
+</ul>
+<h4 id="示例代码">示例代码</h4><ul>
+<li>使用TAG&amp;无参数</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Receiver</span>(tag = <span class="string">"xx"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postByTag</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Toast.makeText(<span class="keyword">this</span>, <span class="string">"PostByTag"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">... other code ...</span><br><span class="line"></span><br><span class="line">EventCast.getInstance().post(<span class="string">"xx"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用TAG&amp;有参数</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Receiver</span>(tag = <span class="string">"xx"</span>, posterType = PosterType.POST)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postByTagAndParam</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    Toast.makeText(<span class="keyword">this</span>, <span class="string">"PostByTagAndParam: ("</span> + x + <span class="string">","</span> + y + <span class="string">")"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">... other code ...</span><br><span class="line"></span><br><span class="line">EventCast.getInstance().post(<span class="string">"xx"</span>, <span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不使用Tag&amp;无参数</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Receiver</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postByMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Toast.makeText(<span class="keyword">this</span>, <span class="string">"postByMethod:"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">... other code ...</span><br><span class="line"></span><br><span class="line">EventCast.getInstance().post(MainActivity.class, <span class="string">"postByMethod"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不使用Tag&amp;有参数</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Receiver</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postByMethodAndParam</span><span class="params">(String x)</span> </span>&#123;</span><br><span class="line">    Toast.makeText(<span class="keyword">this</span>, <span class="string">"postByMethodAndParam:"</span> + x, Toast.LENGTH_SHORT).show();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">... other code ...</span><br><span class="line"></span><br><span class="line">EventCast.getInstance().post(MainActivity.class, <span class="string">"postByMethodAndParam"</span>, <span class="string">"Hello~"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="设计与实现">设计与实现</h2>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="概述">概述</h2><p><a href="https://github.com/gavinliu/EventCast">EventCast</a>是一个事件分发的开源库, GitHub中也有很多类似的库, 比如<a href="https://github.com/greenrobot/EventBus">EventBus</a>, <a href="https://github.com/square/otto">otto</a>, <a href="https://github.com/bboyfeiyu/AndroidEventBus">AndroidEventBus</a>, 但是还是觉得自己写的比较顺手, 所以产生了EventCast. </p>
+<p><code>AndroidEventBus</code>是<code>EventBus</code>和<code>otto</code>合并的产物, <code>EventCast</code>也借鉴<code>AndroidEventBus</code>些代码, 和他们不同的是:</p>
+<ol>
+<li>支持多参数传递</li>
+<li>定义了两种接收器</li>
+</ol>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="EventCast" scheme="http://gavinliu.cn/tags/EventCast/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - 实用代码片段(2)]]></title>
+    <link href="http://gavinliu.cn/2015/05/03/Android-%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5-2/"/>
+    <id>http://gavinliu.cn/2015/05/03/Android-实用代码片段-2/</id>
+    <published>2015-05-03T08:31:14.000Z</published>
+    <updated>2015-05-10T08:48:27.000Z</updated>
+    <content type="html"><![CDATA[<p>1.手动设置横竖屏<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);</span><br></pre></td></tr></table></figure></p>
+<p>2.暂时性设置隐藏StatusBar,点击屏幕后会再次出现,可用于全屏播放视频的时候.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">View.setSystemUiVisibility(<span class="keyword">int</span> visibility)</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>View.SYSTEM_UI_FLAG_VISIBLE：显示状态栏，Activity不全屏显示(恢复到有状态的正常情况)。</li>
+<li>View.INVISIBLE：隐藏状态栏，同时Activity会伸展全屏显示。</li>
+<li>View.SYSTEM_UI_FLAG_FULLSCREEN：Activity全屏显示，且状态栏被隐藏覆盖掉。</li>
+<li>View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN：Activity全屏显示，但状态栏不会被隐藏覆盖，状态栏依然可见，Activity顶端布局部分会被状态遮住。</li>
+<li>View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION：效果同View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</li>
+<li>View.SYSTEM_UI_LAYOUT_FLAGS：效果同View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</li>
+<li>View.SYSTEM_UI_FLAG_HIDE_NAVIGATION：隐藏虚拟按键(导航栏)。有些手机会用虚拟按键来代替物理按键。</li>
+<li>View.SYSTEM_UI_FLAG_LOW_PROFILE：状态栏显示处于低能显示状态(low profile模式)，状态栏上一些图标显示会被隐藏。<a id="more"></a>
+3.线程安全的一种写法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Object sDecodeLock = <span class="keyword">new</span> Object();</span><br><span class="line"></span><br><span class="line"><span class="keyword">synchronized</span> (sDecodeLock) &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> doParse(response);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (OutOfMemoryError e) &#123;</span><br><span class="line">        VolleyLog.e(<span class="string">"Caught OOM for %d byte image, url=%s"</span>, response.data.length, getUrl());</span><br><span class="line">        <span class="keyword">return</span> Response.error(<span class="keyword">new</span> ParseError(e));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>4.去掉Actionbar下的阴影<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"MyAppTheme"</span> <span class="attribute">parent</span>=<span class="value">"android:Theme.Holo.Light"</span>&gt;</span><span class="css"></span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:windowContentOverlay"</span>&gt;<span class="at_rule">@<span class="keyword">null&lt;/item&gt;</span></span><br><span class="line"></span></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>5.子控件接收父控件的状态:无需Java代码即可实现点击父控件,变化子TextView的颜色.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">android:duplicateParentState="true"</span><br></pre></td></tr></table></figure></p>
+<p>6.获取ListView滑动高度,这里是默认每个itemView的高度相等.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getScrollY</span><span class="params">()</span> </span>&#123;</span><br><span class="line">​    View c = mListView.getChildAt(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> firstVisiblePosition = mListView.getFirstVisiblePosition();</span><br><span class="line">    <span class="keyword">int</span> top = c.getTop();</span><br><span class="line">    <span class="keyword">return</span> -top + firstVisiblePosition * c.getHeight() + mListView.getPaddingTop();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>7.限制value的范围大小,value最大为max,最小为min<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">float</span> <span class="title">clamp</span><span class="params">(<span class="keyword">float</span> value, <span class="keyword">float</span> min, <span class="keyword">float</span> max)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Math.max(min, Math.min(value, max));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>1.手动设置横竖屏<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);</span><br></pre></td></tr></table></figure></p>
+<p>2.暂时性设置隐藏StatusBar,点击屏幕后会再次出现,可用于全屏播放视频的时候.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">View.setSystemUiVisibility(<span class="keyword">int</span> visibility)</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>View.SYSTEM_UI_FLAG_VISIBLE：显示状态栏，Activity不全屏显示(恢复到有状态的正常情况)。</li>
+<li>View.INVISIBLE：隐藏状态栏，同时Activity会伸展全屏显示。</li>
+<li>View.SYSTEM_UI_FLAG_FULLSCREEN：Activity全屏显示，且状态栏被隐藏覆盖掉。</li>
+<li>View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN：Activity全屏显示，但状态栏不会被隐藏覆盖，状态栏依然可见，Activity顶端布局部分会被状态遮住。</li>
+<li>View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION：效果同View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</li>
+<li>View.SYSTEM_UI_LAYOUT_FLAGS：效果同View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</li>
+<li>View.SYSTEM_UI_FLAG_HIDE_NAVIGATION：隐藏虚拟按键(导航栏)。有些手机会用虚拟按键来代替物理按键。</li>
+<li>View.SYSTEM_UI_FLAG_LOW_PROFILE：状态栏显示处于低能显示状态(low profile模式)，状态栏上一些图标显示会被隐藏。]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="实用主义" scheme="http://gavinliu.cn/tags/%E5%AE%9E%E7%94%A8%E4%B8%BB%E4%B9%89/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+</feed>
