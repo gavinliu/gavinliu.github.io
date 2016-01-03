@@ -1515,7 +1515,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #9fb044;
+  background: #7a08e5;
 }
 .sidebar-nav {
   margin: 0 0 20px;
@@ -2187,7 +2187,8 @@ body {
   background: #fff;
 }
 .sidebar-inner.affix {
-  top: 20px;
+  top: 0px;
+  position: fixed;
 }
 .site-overview {
   margin: 0 10px;
