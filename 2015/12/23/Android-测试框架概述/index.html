@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,Android单元测试,Espresso," />
+  <meta name="keywords" content="Android,Android测试框架," />
 
 
 
@@ -59,27 +59,18 @@
 
 
 
-<meta name="description" content="Espresso适用于Android应用开发者使用，用来提高代码的可靠性。
-
-Espresso是最新的UI Test框架, 支持UI的创建测试和用户流程测试, api非常简明, 运行也非常可靠. 很适合来写白盒测试, 可以实现对代码的细节测试.
-Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!">
+<meta name="description" content="Android Testing 简介早前Android测试框架只是Android测试工程师的工具，Android Studio不知从什么版本开始, 新建项目后就会默认生成androidTest目录, 可以看出Google在大力推广Android测试框架, 希望开发人员也多写单元测试, 以编写高品质的App.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android - 单元测试之 UI Testing - Espresso">
-<meta property="og:url" content="http://gavinliu.cn/2015/12/30/Android-单元测试之-UI-Testing-Espresso/index.html">
+<meta property="og:title" content="Android - 测试框架概述">
+<meta property="og:url" content="http://gavinliu.cn/2015/12/23/Android-测试框架概述/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description" content="Espresso适用于Android应用开发者使用，用来提高代码的可靠性。
-
-Espresso是最新的UI Test框架, 支持UI的创建测试和用户流程测试, api非常简明, 运行也非常可靠. 很适合来写白盒测试, 可以实现对代码的细节测试.
-Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!">
-<meta property="og:image" content="http://gavinliu.cn/images/2015.12.30 - Android-单元测试之-UI-Testing-Espresso1.png">
-<meta property="og:image" content="http://gavinliu.cn/images/2015.12.30 - Android-单元测试之-UI-Testing-Espresso2.png">
-<meta property="og:updated_time" content="2016-01-02T08:06:34.000Z">
+<meta property="og:description" content="Android Testing 简介早前Android测试框架只是Android测试工程师的工具，Android Studio不知从什么版本开始, 新建项目后就会默认生成androidTest目录, 可以看出Google在大力推广Android测试框架, 希望开发人员也多写单元测试, 以编写高品质的App.">
+<meta property="og:image" content="http://gavinliu.cn/images/2015.12.23 - Android-测试框架概述1.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2015.12.23 - Android-测试框架概述2.png">
+<meta property="og:updated_time" content="2016-01-05T14:17:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android - 单元测试之 UI Testing - Espresso">
-<meta name="twitter:description" content="Espresso适用于Android应用开发者使用，用来提高代码的可靠性。
-
-Espresso是最新的UI Test框架, 支持UI的创建测试和用户流程测试, api非常简明, 运行也非常可靠. 很适合来写白盒测试, 可以实现对代码的细节测试.
-Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!">
+<meta name="twitter:title" content="Android - 测试框架概述">
+<meta name="twitter:description" content="Android Testing 简介早前Android测试框架只是Android测试工程师的工具，Android Studio不知从什么版本开始, 新建项目后就会默认生成androidTest目录, 可以看出Google在大力推广Android测试框架, 希望开发人员也多写单元测试, 以编写高品质的App.">
 
 
 
@@ -97,7 +88,7 @@ Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!">
   };
 </script>
 
-  <title> Android - 单元测试之 UI Testing - Espresso | Gavin.Liu </title>
+  <title> Android - 测试框架概述 | Gavin.Liu </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -245,7 +236,7 @@ Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!">
             
             
               
-                Android - 单元测试之 UI Testing - Espresso
+                Android - 测试框架概述
               
             
           </h1>
@@ -257,8 +248,8 @@ Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-30T02:10:47+08:00" content="2015-12-30">
-              2015-12-30
+            <time itemprop="dateCreated" datetime="2015-12-23T19:33:35+08:00" content="2015-12-23">
+              2015-12-23
             </time>
           </span>
 
@@ -287,8 +278,8 @@ Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/30/Android-单元测试之-UI-Testing-Espresso/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/30/Android-单元测试之-UI-Testing-Espresso/" itemprop="commentsCount"></span>
+                <a href="/2015/12/23/Android-测试框架概述/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/23/Android-测试框架概述/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -309,48 +300,28 @@ Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!">
       
 
       
-        <blockquote>
-<p><code>Espresso</code>适用于Android应用开发者使用，用来提高代码的可靠性。</p>
-</blockquote>
-<p><code>Espresso</code>是最新的UI Test框架, 支持UI的创建测试和用户流程测试, api非常简明, 运行也非常可靠. 很适合来写<code>白盒测试</code>, 可以实现对代码的细节测试.</p>
-<p>Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!</p>
+        <h2 id="Android_Testing_简介">Android Testing 简介</h2><p>早前Android测试框架只是Android测试工程师的工具，<code>Android Studio</code>不知从什么版本开始, 新建项目后就会默认生成<code>androidTest</code>目录, 可以看出Google在大力推广Android测试框架, 希望开发人员也多写单元测试, 以编写高品质的App.</p>
 <a id="more"></a>
-<h2 id="快速开始">快速开始</h2><h3 id="添加依赖库">添加依赖库</h3><figure class="highlight groovy"><figcaption><span>Module/build.gradle</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">apply <span class="string">plugin:</span> <span class="string">'com.android.application'</span></span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    compileSdkVersion <span class="number">23</span></span><br><span class="line">    buildToolsVersion <span class="string">"23.0.1"</span></span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">        applicationId <span class="string">"cn.gavinliu.testingdemo"</span></span><br><span class="line">        minSdkVersion <span class="number">14</span></span><br><span class="line">        targetSdkVersion <span class="number">23</span></span><br><span class="line">        versionCode <span class="number">1</span></span><br><span class="line">        versionName <span class="string">"1.0"</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Testing config</span></span><br><span class="line">        testInstrumentationRunner <span class="string">"android.support.test.runner.AndroidJUnitRunner"</span></span><br><span class="line">    &#125;</span><br><span class="line">    buildTypes &#123;</span><br><span class="line">        release &#123;</span><br><span class="line">            minifyEnabled <span class="literal">false</span></span><br><span class="line">            proguardFiles getDefaultProguardFile(<span class="string">'proguard-android.txt'</span>), <span class="string">'proguard-rules.pro'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    compile fileTree(<span class="string">dir:</span> <span class="string">'libs'</span>, <span class="string">include:</span> [<span class="string">'*.jar'</span>])</span><br><span class="line">    compile <span class="string">'com.android.support:appcompat-v7:23.0.1'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Testing dependencies</span></span><br><span class="line">    androidTestCompile <span class="string">'com.android.support:support-annotations:23.0.1'</span></span><br><span class="line">    androidTestCompile <span class="string">'com.android.support.test:runner:0.4.1'</span></span><br><span class="line">    androidTestCompile <span class="string">'com.android.support.test:rules:0.4.1'</span></span><br><span class="line">    androidTestCompile <span class="string">'com.android.support.test.espresso:espresso-core:2.2.1'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="新建测试类">新建测试类</h3><p>在<code>androidTest</code>文件夹下新建一个测试类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RunWith</span>(AndroidJUnit4.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyTestCase</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Rule</span></span><br><span class="line">    <span class="keyword">public</span> ActivityTestRule&lt;MainActivity&gt; mActivityRule = <span class="keyword">new</span> ActivityTestRule&lt;&gt;(MainActivity.class);</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeText</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        onView(withId(R.id.button)).perform(click()).check(matches(withText(R.string.finish)));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>使用 @RunWith(AndroidJUnit4.class) 标记一个TestCase类</li>
-<li>使用 @Rule 标记一个测试规则</li>
-<li>使用 @Test 标记一个测试函数</li>
+<p>Android的测试框架分为:</p>
+<h3 id="Monkey">Monkey</h3><p>一种产生随机事件的测试方法，使用<code>adb shell monkey</code>命令进行测试，是测试程序稳定的最佳方案。</p>
+<h3 id="Monkeyrunner">Monkeyrunner</h3><p>UI 测试框架 - 适用于 简单的<code>点按滑</code>操作，测试代码使用Python</p>
+<h3 id="Instrumentation">Instrumentation</h3><p>UI 测试框架 - 适用于 单App的白盒和UI测试</p>
+<h3 id="Espresso">Espresso</h3><p>UI 测试框架 - 适用于 单App的白盒和UI测试</p>
+<h3 id="UiAutomator">UiAutomator</h3><p>UI 测试框架 - 适用于 可以跨App界面功能 测试</p>
+<h3 id="Appium">Appium</h3><p>UI 测试框架 - 移动端多平台测试框架，Android部分是基于UiAutomator</p>
+<h3 id="Robotium">Robotium</h3><p>UI 测试框架 - 基于Instrumentation框架，简化了Instrumentation的繁琐</p>
+<h2 id="当前主流的测试框架">当前主流的测试框架</h2><p>Android开发工程师 ： 推荐使用 <code>Espresso</code><br>Android测试工程师 ： 推荐使用 <code>UiAutomator</code></p>
+<h2 id="Android_测试框架图">Android 测试框架图</h2><p><img src="/images/2015.12.23 - Android-测试框架概述1.png" alt=""></p>
+<h2 id="下载Android测试框架">下载Android测试框架</h2><p><img src="/images/2015.12.23 - Android-测试框架概述2.png" alt=""></p>
+<p>下载完成后可以在这里目录找到</p>
+<blockquote>
+<p>android-sdk/extras/android/m2repository/com/android/support/test</p>
+</blockquote>
+<h2 id="Android_Testing_相关资料">Android Testing 相关资料</h2><ul>
+<li><a href="https://google.github.io/android-testing-support-library/docs/espresso/index.html" target="_blank" rel="external">Android Testing Support Library</a></li>
+<li><a href="http://developer.android.com/tools/testing-support-library/index.html#features" target="_blank" rel="external">Testing Support Library Features</a></li>
+<li><a href="https://developer.android.com/training/testing.html" target="_blank" rel="external">Best Practices for Testing</a></li>
 </ul>
-<h3 id="运行测试类">运行测试类</h3><p>右键测试类 -&gt; 点击 Run 即可</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Installing cn.gavinliu.testingdemo.test&#10;DEVICE SHELL COMMAND: pm install -r &#34;/data/local/tmp/cn.gavinliu.testingdemo.test&#34;&#10;&#9;pkg: /data/local/tmp/cn.gavinliu.testingdemo.test&#10;Success&#10;&#10;&#10;Running tests&#10;Test running startedFinish</span><br></pre></td></tr></table></figure>
-<p>没有任何报错说明测试通过.</p>
-<p>可以试着吧测试代码改成, 再次点 Run , 结果就报错了.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onView(withId(R.id.button)).perform(click()).check(matches(withText(R.string.app_name)));</span><br></pre></td></tr></table></figure></p>
-<p><img src="/images/2015.12.30 - Android-单元测试之-UI-Testing-Espresso1.png" alt="测试不通过"></p>
-<h2 id="Espresso_详解">Espresso 详解</h2><h3 id="Espresso_代码基本范式">Espresso 代码基本范式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">onView(ViewMatcher).perform(ViewAction).check(ViewAssertion);</span><br><span class="line">onData(ObjectMatcher).DataOptions.perform(ViewAction).check(ViewAssertion);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>ViewMatcher(ObjectMatcher) : 找某些东西</li>
-<li>ViewAction : 做某些事情</li>
-<li>ViewAssertion : 检查某些东西</li>
-</ul>
-<h3 id="View_matching">View matching</h3><p><code>Espresso.onView()</code> ViewMatcher 可用使用一下几种方式来指定目标View:</p>
-<ul>
-<li>View的类名</li>
-<li>View的content description</li>
-<li>View的ID</li>
-<li>View显示的Text</li>
-</ul>
-<h4 id="例子">例子</h4><figure class="highlight java"><figcaption><span>点击 R.id.button 按钮, 检测文字是否为Finish</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onView(withId(R.id.button)).perform(click()).check(matches(withText(R.string.finish)));</span><br></pre></td></tr></table></figure>
-<h3 id="Adapter_matching">Adapter matching</h3><p><code>Espresso.onData()</code> 对于<code>AdapterView</code>布局 内部有很多一样的View, 使用View matching就有点不太适用了, 因为<code>onView</code>只会载入第一个符合要求对象.</p>
-<h4 id="DataOptions">DataOptions</h4><p>操作<code>onData()</code>返回的数据对象</p>
-<ul>
-<li>atPosition(int) 指定某一个对象</li>
-<li>onChildView(Matcher) 指定某一个子View (循环到 View matching)</li>
-<li>inAdapterView(Matcher) 指定某一个AdapterView (循环到 Adapter matching)</li>
-</ul>
-<h4 id="例子-1">例子</h4><figure class="highlight java"><figcaption><span>点击所有Text为Hello的对象</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">onData(allOf(is(instanceOf(String.class)), is(<span class="string">"Hello"</span>))).perform(click());</span><br></pre></td></tr></table></figure>
-<h2 id="Espresso_类图关系">Espresso 类图关系</h2><p><img src="/images/2015.12.30 - Android-单元测试之-UI-Testing-Espresso2.png" alt="类图关系"></p>
-<h2 id="基于Espresso的TDD开发实践">基于Espresso的TDD开发实践</h2><p><a href="http://www.tuicool.com/articles/3QzuQf6" target="_blank" rel="external">使用 TDD 的方式开发一个 Hacker News Android 客户端</a></p>
 
       
     </div>
@@ -361,9 +332,7 @@ Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!">
           
             <a href="/tags/Android/" rel="tag">#Android</a>
           
-            <a href="/tags/Android单元测试/" rel="tag">#Android单元测试</a>
-          
-            <a href="/tags/Espresso/" rel="tag">#Espresso</a>
+            <a href="/tags/Android测试框架/" rel="tag">#Android测试框架</a>
           
         </div>
       
@@ -372,16 +341,16 @@ Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/23/Android-单元测试之-UI-Testing/" rel="next" title="Android - 单元测试之 UI Testing 框架概述">
-                <i class="fa fa-chevron-left"></i> Android - 单元测试之 UI Testing 框架概述
+              <a href="/2015/12/19/Swift-重点汇总/" rel="next" title="Swift - 重点汇总">
+                <i class="fa fa-chevron-left"></i> Swift - 重点汇总
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/31/2015-The-End/" rel="prev" title="2015 The End">
-                2015 The End <i class="fa fa-chevron-right"></i>
+              <a href="/2015/12/30/Android-测试框架之-UI-Testing-Espresso/" rel="prev" title="Android - 测试框架之 UI Testing - Espresso">
+                Android - 测试框架之 UI Testing - Espresso <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -397,10 +366,10 @@ Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!">
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2015/12/30/Android-单元测试之-UI-Testing-Espresso/"
-     data-title="Android - 单元测试之 UI Testing - Espresso"
+        <div class="ds-share flat" data-thread-key="2015/12/23/Android-测试框架概述/"
+     data-title="Android - 测试框架概述"
      data-content=""
-     data-url="http://gavinliu.cn/2015/12/30/Android-单元测试之-UI-Testing-Espresso/">
+     data-url="http://gavinliu.cn/2015/12/23/Android-测试框架概述/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -427,8 +396,8 @@ Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/30/Android-单元测试之-UI-Testing-Espresso/"
-           data-title="Android - 单元测试之 UI Testing - Espresso" data-url="http://gavinliu.cn/2015/12/30/Android-单元测试之-UI-Testing-Espresso/">
+      <div class="ds-thread" data-thread-key="2015/12/23/Android-测试框架概述/"
+           data-title="Android - 测试框架概述" data-url="http://gavinliu.cn/2015/12/23/Android-测试框架概述/">
       </div>
     
   </div>
@@ -544,7 +513,7 @@ Espresso的英文意思是浓咖啡, Let’s Go, 来喝杯Espresso吧!">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快速开始"><span class="nav-number">1.</span> <span class="nav-text">快速开始</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加依赖库"><span class="nav-number">1.1.</span> <span class="nav-text">添加依赖库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建测试类"><span class="nav-number">1.2.</span> <span class="nav-text">新建测试类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行测试类"><span class="nav-number">1.3.</span> <span class="nav-text">运行测试类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Espresso_详解"><span class="nav-number">2.</span> <span class="nav-text">Espresso 详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Espresso_代码基本范式"><span class="nav-number">2.1.</span> <span class="nav-text">Espresso 代码基本范式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#View_matching"><span class="nav-number">2.2.</span> <span class="nav-text">View matching</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例子"><span class="nav-number">2.2.1.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adapter_matching"><span class="nav-number">2.3.</span> <span class="nav-text">Adapter matching</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DataOptions"><span class="nav-number">2.3.1.</span> <span class="nav-text">DataOptions</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例子-1"><span class="nav-number">2.3.2.</span> <span class="nav-text">例子</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Espresso_类图关系"><span class="nav-number">3.</span> <span class="nav-text">Espresso 类图关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Espresso的TDD开发实践"><span class="nav-number">4.</span> <span class="nav-text">基于Espresso的TDD开发实践</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android_Testing_简介"><span class="nav-number">1.</span> <span class="nav-text">Android Testing 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Monkey"><span class="nav-number">1.1.</span> <span class="nav-text">Monkey</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Monkeyrunner"><span class="nav-number">1.2.</span> <span class="nav-text">Monkeyrunner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Instrumentation"><span class="nav-number">1.3.</span> <span class="nav-text">Instrumentation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Espresso"><span class="nav-number">1.4.</span> <span class="nav-text">Espresso</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UiAutomator"><span class="nav-number">1.5.</span> <span class="nav-text">UiAutomator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Appium"><span class="nav-number">1.6.</span> <span class="nav-text">Appium</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Robotium"><span class="nav-number">1.7.</span> <span class="nav-text">Robotium</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#当前主流的测试框架"><span class="nav-number">2.</span> <span class="nav-text">当前主流的测试框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android_测试框架图"><span class="nav-number">3.</span> <span class="nav-text">Android 测试框架图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载Android测试框架"><span class="nav-number">4.</span> <span class="nav-text">下载Android测试框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Android_Testing_相关资料"><span class="nav-number">5.</span> <span class="nav-text">Android Testing 相关资料</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
