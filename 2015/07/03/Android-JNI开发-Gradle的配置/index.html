@@ -67,7 +67,7 @@
 <meta property="og:site_name" content="Gavin.Liu">
 <meta property="og:description" content="Andoid - JNI.NDKHelloWorld
 123456789101112131415dependencies &amp;#123;    compile fileTree(dir: &quot;$buildDir/native-libs&quot;, include: &apos;native-libs.jar&apos;)&amp;#125;task nativeLibsToJar(type: Zip, description: &apos;cre">
-<meta property="og:updated_time" content="2015-12-31T12:41:17.000Z">
+<meta property="og:updated_time" content="2016-01-09T14:10:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android - JNI开发中Gradle的配置">
 <meta name="twitter:description" content="Andoid - JNI.NDKHelloWorld
@@ -301,7 +301,7 @@
       
 
       
-        <p><a href="/2013/07/03/Andoid-JNI-NDKHelloWorld/">Andoid - JNI.NDKHelloWorld</a></p>
+        <p><a href="/2013/07/03/Android-JNI-NDKHelloWorld/">Andoid - JNI.NDKHelloWorld</a></p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile fileTree(<span class="string">dir:</span> <span class="string">"$buildDir/native-libs"</span>, <span class="string">include:</span> <span class="string">'native-libs.jar'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">task nativeLibsToJar(<span class="string">type:</span> Zip, <span class="string">description:</span> <span class="string">'create a jar archive of the native libs'</span>) &#123;</span><br><span class="line">    destinationDir file(<span class="string">"$buildDir/native-libs"</span>)</span><br><span class="line">    baseName <span class="string">'native-libs'</span></span><br><span class="line">    extension <span class="string">'jar'</span></span><br><span class="line">    from fileTree(<span class="string">dir:</span> <span class="string">'libs'</span>, <span class="string">include:</span> <span class="string">'**/*.so'</span>)</span><br><span class="line">    into <span class="string">'lib/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tasks.withType(JavaCompile) &#123;</span><br><span class="line">    compileTask -&gt; compileTask.dependsOn(nativeLibsToJar)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
@@ -423,21 +423,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">74</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

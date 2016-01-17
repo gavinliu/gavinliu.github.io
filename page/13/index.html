@@ -242,6 +242,344 @@
             
               
                 
+                <a class="post-title-link" href="/2013/04/08/Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串/" itemprop="url">
+                  Java - 抓取优酷网视频播放页面(使用jsoup解析html,正则表达式处理字符串)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-04-08T20:55:41+08:00" content="2013-04-08">
+              2013-04-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Java Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/04/08/Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/08/Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近在研究视频播放这块儿，然后打算做一款视频聚合类的软件，首先把优酷聚合搞定吧！<br>我们首先得把优酷网的视频播放页面的地址解析出来，由于优酷有很多拍客的视频，这些拍客的视频当然不是我们想要的，通过优酷网的页面分析，应该从优酷的节目列表页开始抓取，页面如下。<br><a href="http://www.youku.com/v_olist/c_96_a__s__g__r__lg__im__st__mt__tg__d_1_et_0_ag_0_fv_0_fl__fc__fe__o_7_p_1.html" target="_blank" rel="external">http://www.youku.com/v_olist/c_96_a__s__g__r__lg__im__st__mt__tg__d_1_et_0_ag_0_fv_0_fl__fc__fe__o_7_p_1.html</a><br>我们使用 jsoup 开发包进行 html 的解析，完整代码如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.gavin.video.down;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Matcher;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.jsoup.Jsoup;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Document;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Element;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.select.Elements;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DownYouku</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String ss = <span class="string">"http://www.youku.com/v_olist/c_96_a__s__g__r__lg__im__st__mt__tg__d_1_et_0_ag_0_fv_0_fl__fc__fe__o_7_p_1.html"</span>;</span><br><span class="line">		<span class="keyword">new</span> DownYouku().downMovie(ss);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">downMovie</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">		String homeurl = <span class="string">""</span>;</span><br><span class="line">		String page = <span class="string">""</span>;</span><br><span class="line">		String suf = <span class="string">""</span>;</span><br><span class="line">		<span class="comment">// 正则表达式处理 解析地址</span></span><br><span class="line">		Pattern p_url = Pattern.compile(<span class="string">"(.*)(\\d)(\\.html)"</span>);</span><br><span class="line">		Matcher m_url = p_url.matcher(str);</span><br><span class="line">		<span class="keyword">if</span> (m_url.find()) &#123;</span><br><span class="line">			homeurl = m_url.group(<span class="number">1</span>);</span><br><span class="line">			page = m_url.group(<span class="number">2</span>);</span><br><span class="line">			suf = m_url.group(<span class="number">3</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 循环抓取</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = Integer.parseInt(page); i &lt;= <span class="number">30</span>; i++) &#123;</span><br><span class="line">			String path = homeurl + i + suf;</span><br><span class="line">			Document doc1 = <span class="keyword">null</span>;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				doc1 = Jsoup.connect(path).get();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e2) &#123;</span><br><span class="line">				System.out.println(<span class="string">"&gt;&gt;&gt;&gt;&gt;&gt;IO 错误 1"</span>);</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			Element listofficial = doc1.getElementById(<span class="string">"listofficial"</span>);</span><br><span class="line">			Elements p_pvs = listofficial.getElementsByTag(<span class="string">"ul"</span>);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">40</span>; j++) &#123;</span><br><span class="line">				Element p_pv = p_pvs.get(j);</span><br><span class="line">				String a = p_pv.getElementsByTag(<span class="string">"a"</span>).attr(<span class="string">"href"</span>);</span><br><span class="line">				String title = p_pv.getElementsByTag(<span class="string">"a"</span>).attr(<span class="string">"title"</span>);</span><br><span class="line">				Document doc2 = <span class="keyword">null</span>;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					doc2 = Jsoup.connect(a).get();</span><br><span class="line">				&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">					System.out.println(<span class="string">"&gt;&gt;&gt;&gt;&gt;&gt;IO 错误 2"</span>);</span><br><span class="line">					<span class="keyword">continue</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				Element showInfo = doc2.getElementById(<span class="string">"showInfo"</span>);</span><br><span class="line">				Element baseinfo = showInfo.getElementsByClass(<span class="string">"baseinfo"</span>).get(<span class="number">0</span>);</span><br><span class="line">				Elements link = baseinfo.getElementsByClass(<span class="string">"link"</span>);</span><br><span class="line">				Element url_a = <span class="keyword">null</span>;</span><br><span class="line">				<span class="keyword">if</span> (link.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">					url_a = link.get(<span class="number">0</span>).getElementsByTag(<span class="string">"a"</span>).get(<span class="number">0</span>);</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">					System.out.println(title + <span class="string">" : "</span> + <span class="string">"无视频链接"</span>);</span><br><span class="line">					<span class="keyword">continue</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				String url = url_a.attr(<span class="string">"href"</span>);</span><br><span class="line">				System.out.print(url + <span class="string">"\t\t"</span>);</span><br><span class="line">				System.out.println(title);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>抓取结果：<br><img src="/images/2013.04.08 - Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串.png" alt="image"><br>内容就提取了这么两项，其他的内容 照着优酷的 html dom 很容易就提取出来了。<br>ok！现在我们有了，视频的播放地址，下篇博文讲讲怎么通过这个地址，来解析出视频的真实地址，然后在移动设备上播放。</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2012/11/20/Android-【Pic-FM】/" itemprop="url">
+                  Android:【Pic.FM】
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2012-11-20T21:32:54+08:00" content="2012-11-20">
+              2012-11-20
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/个人作品/" itemprop="url" rel="index">
+                    <span itemprop="name">个人作品</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2012/11/20/Android-【Pic-FM】/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/11/20/Android-【Pic-FM】/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Pic.FM一款小工具，替你定期更换手机壁纸。相信很多人都会到处去收集自己喜欢的壁纸，随着收集的壁纸越来越多，以至于你根本不知道该去换哪一张壁纸，而Pic.FM就是为你解决换壁纸的困惑。<br>Pic.FM有一个精致简约的界面，软件超级轻量小巧。而且Pic.FM不会常驻后台服务，更加省电，环保…Pic.FM和你手机系统高度融合，你设置切换时间后，系统会定期帮你随机换手机壁纸库里壁纸！</p>
+<p>使用方法：<br>1.使用Pic.FM之前，请把你的壁纸，移动到sdcard/Wallpaper 目录下(区分大小写,没有请自己新建)<br>2.打开Pic.FM-&gt; 点击【启用Pic.FM 功能】-&gt;【设置间隔时间】<br>适用于三星，魅族等支持桌面固定壁纸的手机，如果你手机只能设置为动态，可能会出现壁纸模糊的情况。<br>终于给魅族做软件咯，最喜欢的企业。还记得当年M8时代，魅族论坛的cddjr( <a href="http://t.qq.com/djr1988" target="_blank" rel="external">http://t.qq.com/djr1988</a> )，藐视腾讯，自己为M8开发QQ，做出了M8最好用的QQ软件，那个时候我才高一，而且C大，还是我们广安老乡，心中偶像啊。这也奠定了，我走上软件开发这条路…现在我也为魅族开心情</p>
+<p>魅族商店：<a href="http://app.meizu.com/phone/appsbyid/717003" target="_blank" rel="external">http://app.meizu.com/phone/appsbyid/717003</a></p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2012/07/02/Android-【安卓答录机】/" itemprop="url">
+                  Android:【安卓答录机】
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2012-07-02T21:15:44+08:00" content="2012-07-02">
+              2012-07-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/个人作品/" itemprop="url" rel="index">
+                    <span itemprop="name">个人作品</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2012/07/02/Android-【安卓答录机】/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/07/02/Android-【安卓答录机】/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>保存通话录音，在生活中其实有很大的用处，电话访记录，电话取证，记录重要事件，情侣之间，家人之间也会有很多宝贵的通话。<br>比如在生活中 上级电话交代你处理一些事情，或许你忙于做手头的事情，而忘记了上级交代的事，这个时候如果你有通话录音，你就可以拿出来听…<br>而事实原生的安卓手机上是没有这个功能的，因为安卓系统是google开发的，通话录音在美国会涉及到人权隐私等问题，所以在系统设计上，就没有把通话录音功能加上，通话录音功能就只能让第三方来实现。<br>所以在此形式上，我们基于通话周边元素 融入了应答功能，加上我们简洁的UI，逐步形成了现在这款 安卓答录机。</p>
+<p>下载地址：<a href="http://mm.10086.cn/1007/300002692958.html">http://mm.10086.cn/1007/300002692958.html</a></p>
+<p>PS：本软件设计之初实际上是想模拟港台地区，家里的座机电话上的答录功能，TVB电视剧中经常出现这个镜头 “你好，我现在不在家，请在嘟声后留言”，但是在功能实现上，发现需要很多底层的东西，需要ROM 的支持，所以只完成了，通话自动录音功能，答录功能目前尚未找解决办法，本软件在今年5月份就完成了，今年7月份魅族最新的Flyme OS，支持了语音留言功能，怎么说呢，在这一点功能上，我和魅族想到一块儿去了，很想知道魅族是怎么实现的，其实我有个梦想就是以后能在有着魅族这样的执着，低调，务实的企业文化里工作，不矫情了，上软件截图。</p>
+<p><img src="/images/2012.07.02 - -软件-Android-【安卓答录机】1.jpg" alt="images">
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2012/07/02/Android-【安卓答录机】/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2012/06/08/Java-Web-Cookies-随笔/" itemprop="url">
                   Java.Web - Cookies 随笔
                 </a>
@@ -460,354 +798,12 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/" itemprop="url">
-                  Java.WebService - Webservice初体验之调用学院客户端开放接口
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-05-21T20:32:02+08:00" content="2012-05-21">
-              2012-05-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Java.Web Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这是学院客户端的开放API <a href="http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx">http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx</a><br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口1.png" alt="开放API"><br>调用webservice首先要使用wsimport从服务器生成Java接口，wsimport，应该就是webService import 的简写<br>wsimport这个东西其实就是JDK的bin里面，你配置好java环境变量就能使用，OK，现在开始、</p>
-<p>第一步：使用wsimport获取Java接口<br>1.在D盘新建一个文件夹，命名为 api<br>2.在命令行运行wsimport -d D://api -keep -verbose <a href="http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx?WSDL">http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx?WSDL</a><br>然后在api目录下，会生成如下文件<br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口2.png" alt="开放API"><br>第二步：把获取到的java代码导入eclipse工程<br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口3.png" alt="开放API"><br>OpenAAASoap就是提供接口的API<br>OpenAAA是一个继承至Service 的一个服务类，这个类有个 getOpenAAASoap()方法，可以获取OpenAAASoap实例<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2012/05/15/Java-Web-Http协议初步接触/" itemprop="url">
-                  Java.Web - Http协议初步接触
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-05-15T20:18:45+08:00" content="2012-05-15">
-              2012-05-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Java.Web Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2012/05/15/Java-Web-Http协议初步接触/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/05/15/Java-Web-Http协议初步接触/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="【HTTP请求消息头】">【HTTP请求消息头】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(Request-Line)     GET /manager/html HTTP/1.1    &#35831;&#27714;&#34892;&#65292;&#20351;&#29992;&#30340;HTTP&#35268;&#33539;...&#10;&#19979;&#38754;&#26159;&#28040;&#24687;&#22836;&#10;Accept      */*&#10;Accept-Encoding     gzip, deflate      &#21487;&#20197;&#25509;&#25910;gzip&#25991;&#20214;&#65292;&#25110;&#32773;&#40664;&#35748;&#10;Accept-Language     zh-CN        &#25903;&#25345;&#20013;&#25991;&#10;Connection     Keep-Alive      &#20445;&#23384;&#24120;&#36830;&#25509;&#10;Host     127.0.0.1:8080&#10;Referer     http://127.0.0.1:8080/     &#21578;&#35785;&#26381;&#21153;&#22120;&#25105;&#26469;&#33258;&#21738;&#37324;&#65311;&#21487;&#20197;&#38450;&#30423;&#38142; &#10;User-Agent     Mozilla/4.0     &#27983;&#35272;&#22120;&#20869;&#26680;&#10;(&#31354;&#34892;)&#10;&#20869;&#23481;</span><br></pre></td></tr></table></figure>
-<p>1.Servlet 中获取头信息 —&gt; String host = request.getHeader(“HOST”);<br>2.可以通过获取 Referer 信息，来判断用户是从那个页面跳转过来的，来防止盗链<br>3.直接 在浏览器输入 跳转过来，Referer 的值为null
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2012/05/15/Java-Web-Http协议初步接触/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2012/05/01/Andoid---上传文件实现方法/" itemprop="url">
-                  Android - 上传文件实现方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-05-01T10:54:07+08:00" content="2012-05-01">
-              2012-05-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2012/05/01/Andoid---上传文件实现方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/05/01/Andoid---上传文件实现方法/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>一月份做项目时 Android 客户端需要上传图片，小小的研究了下，不改独享，分享！</p>
-<p>如果要在客户端向服务器上传文件，我们就必须模拟一个POST multipart/form-data类型的请求，Content-Type必须是multipart/form-data<br>这篇详细介绍这个 ENCTYPE=”multipart/form-data” 协议，来解决自己的Java程序向服务器传文件的问题(比如：安卓程序上传图片)</p>
-<p>ENCTYPE=”multipart/form-data” ：通过 http 协议上传文件 rfc1867协议，客户端发送内容构造。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">action</span>=<span class="value">"picture/upload.do"</span> <span class="attribute">method</span>=<span class="value">"POST"</span> <span class="attribute">ENCTYPE</span>=<span class="value">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"users_id"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"users_name"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"file"</span> <span class="attribute">name</span>=<span class="value">"image_path"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">form</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>使用上面这个表单，抓包的结果如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">POST /picture/upload.do HTTP/<span class="number">1.1</span></span><br><span class="line">Accept: application/x-ms-application, image/jpeg, application/xaml+xml, image/gif, image/pjpeg, application/x-ms-xbap, */*</span><br><span class="line">Referer: http://<span class="number">192.168</span>.<span class="number">1.98</span>:<span class="number">8080</span>/uploadpic.jsp</span><br><span class="line">Accept-Language: zh-CN</span><br><span class="line">User-Agent: Mozilla/<span class="number">4.0</span></span><br><span class="line">Content-Type: multipart/form-data; boundary=---------------------------<span class="number">7</span>dd36df20300</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Host: <span class="number">192.168</span>.<span class="number">1.98</span>:<span class="number">8080</span></span><br><span class="line">Content-Length: <span class="number">529762</span></span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line"></span><br><span class="line">-----------------------------<span class="number">7</span>dd36df20300</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"users_id"</span></span><br><span class="line">&lt;!--空行--&gt;</span><br><span class="line"><span class="number">1</span></span><br><span class="line">-----------------------------<span class="number">7</span>dd36df20300</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"users_name"</span></span><br><span class="line">&lt;!--空行--&gt;</span><br><span class="line">admin</span><br><span class="line">-----------------------------<span class="number">7</span>dd36df20300</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"image_path"</span>; filename=<span class="string">"S21223-170317.jpg"</span></span><br><span class="line">Content-Type: image/pjpeg</span><br><span class="line">&lt;!--空行--&gt;</span><br><span class="line">&lt;!--文件 byte 数据--&gt;</span><br><span class="line">-----------------------------<span class="number">7</span>dd36df20300--</span><br><span class="line">&lt;!--空行--&gt;</span><br></pre></td></tr></table></figure></p>
-<h3 id="详细解析：">详细解析：</h3>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2012/05/01/Andoid---上传文件实现方法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -848,21 +844,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">74</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

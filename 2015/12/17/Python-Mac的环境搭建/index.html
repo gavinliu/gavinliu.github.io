@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="Mac,Python,环境搭建," />
 
 
 
@@ -65,7 +65,7 @@
 <meta property="og:url" content="http://gavinliu.cn/2015/12/17/Python-Mac的环境搭建/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
 <meta property="og:description" content="Python 作为胶水语言, 是每个程序员必备的工具语言. 学习吧, 少年!">
-<meta property="og:updated_time" content="2015-12-31T12:41:17.000Z">
+<meta property="og:updated_time" content="2016-01-16T16:34:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python - Mac的环境搭建">
 <meta name="twitter:description" content="Python 作为胶水语言, 是每个程序员必备的工具语言. 学习吧, 少年!">
@@ -305,7 +305,7 @@
 <h3 id="下载pip安装脚本">下载pip安装脚本</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://bootstrap.pypa.io/get-pip.py</span><br></pre></td></tr></table></figure>
 <h3 id="安装pip">安装pip</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo python get-pip.py</span><br></pre></td></tr></table></figure>
 <p>如果给python3安装pip, 则使用对应的 python3 命令安装即可.</p>
-<h2 id="安装_virtualenv">安装 virtualenv</h2><p><code>virtualenv</code>是Python的虚拟化环境, 类似于虚拟机的作用, 相当于你一台电脑可以有多个单独的Python环境, 这是非常有用的. 因为python的软件包之前的依赖程度很高, 有可能软件A和软件B 赖软件C不同版本, 这样有可能会导致不兼容.</p>
+<h2 id="安装_virtualenv">安装 virtualenv</h2><p><code>virtualenv</code>是Python的虚拟化环境, 类似于虚拟机的作用, 相当于你一台电脑可以有多个单独的Python环境, 这是非常有用的. 因为python的软件包之间的依赖程度很高, 有可能软件A和软件B 赖软件C不同版本, 这样有可能会导致不兼容.</p>
 <p>譬如说: <code>scrapy</code>依赖<code>six 1.5</code>, 但是在<code>el capitan</code>自带了个<code>six 1.4</code>, 由于Mac自带的一些程序依赖于<code>six 1.4</code>. 系统是不允许你去升级<code>six</code>的. 这个时候使用虚拟化环境就能解决我们的问题.</p>
 <h3 id="命令行安装">命令行安装</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install virtualenv</span><br></pre></td></tr></table></figure>
 <h3 id="创建虚拟环境">创建虚拟环境</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtualenv --distribute venv</span><br></pre></td></tr></table></figure>
@@ -319,7 +319,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/Mac/" rel="tag">#Mac</a>
+          
             <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/环境搭建/" rel="tag">#环境搭建</a>
           
         </div>
       
@@ -429,21 +433,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">74</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

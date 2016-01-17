@@ -242,6 +242,507 @@
             
               
                 
+                <a class="post-title-link" href="/2015/04/15/Android-Project-Butter-黄油计划/" itemprop="url">
+                  Android - Project Butter(黄油计划)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-04-15T15:40:13+08:00" content="2015-04-15">
+              2015-04-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/15/Android-Project-Butter-黄油计划/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/15/Android-Project-Butter-黄油计划/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>占坑，博客计划中…</p>
+<p><a href="http://blog.csdn.net/innost/article/details/8272867" target="_blank" rel="external">邓平凡大神的分析帖</a></p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/12/Java-Annotation-使用注解让你的程序更高级/" itemprop="url">
+                  Java - Annotation 使用注解让你的程序更高级
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-04-12T22:53:18+08:00" content="2015-04-12">
+              2015-04-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Java Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/12/Java-Annotation-使用注解让你的程序更高级/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/12/Java-Annotation-使用注解让你的程序更高级/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="简介">简介</h2><blockquote>
+<p>An annotation is a form of metadata, that can be added to Java source code. Classes, methods, variables, parameters and packages may be annotated. Annotations have no direct effect on the operation of the code they annotate.</p>
+</blockquote>
+<p>能够添加到 Java 源代码的语法元数据。类、方法、变量、参数、包都可以被注解，可用来将信息元数据与程序元素进行关联。Annotation 中文常译为“注解”。</p>
+<h3 id="Meta_Annotation（元注解）">Meta Annotation（元注解）</h3><table>
+<thead>
+<tr>
+<th>创建新注解时需要的注解</th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Target</td>
+<td style="text-align:left">表示该注解可以用于什么地方：<br />TYPE：类、接口、注解类型、enum声明<br />FIELD：域声明<br />METHOD：方法声明<br />PACKAGE：包声明<br />PARAMETER：参数声明<br />CONSTRUCTOR：构造器的声明<br />LOCAL_VARIABLE：局部变量声明</td>
+</tr>
+<tr>
+<td>@Retention</td>
+<td style="text-align:left">表示需要在什么级别保存该注解信息：<br />CLASS：注解在class文件中可用，但会被VM丢弃<br />SOURCE：注解将被编译器丢弃<br />RUNTIME：VM将在运行期间保留注解，因此可以通过反射机制读取注解的信息。</td>
+</tr>
+<tr>
+<td>@Document</td>
+<td style="text-align:left">将注解包含在Javadoc中</td>
+</tr>
+<tr>
+<td>@Inherited</td>
+<td style="text-align:left">允许子类继承父类中的注解</td>
+</tr>
+</tbody>
+</table>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/12/Java-Annotation-使用注解让你的程序更高级/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/" itemprop="url">
+                  Android - 高仿Morning Routine中的PagerIndicator之动画实现
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-04-09T22:40:01+08:00" content="2015-04-09">
+              2015-04-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="/2015/03/30/Android-Animation-贝塞尔曲线之美/#一种ViewPager指示器的实现">Android - Animation 贝塞尔曲线之美</a>中提到了PagerIndicator的绘制，这篇博客继续分析下动画应该如何实现。</p>
+<h2 id="Property_Animation_分析">Property Animation 分析</h2><p>顾名思义，要实现属性动画，首先要对属性进行分析，然后对动画做分析。</p>
+<h3 id="属性分析">属性分析</h3><blockquote>
+<p>在这个PagerIndicator动画中，我们可以看出有两个圆，就有圆的<code>坐标点</code>和<code>半径</code>这两个属性，还有颜色的变化，所以<code>颜色</code>也是个属性。</p>
+</blockquote>
+<h3 id="动画分析">动画分析</h3><blockquote>
+<p>在这个PagerIndicator动画中，我们可以知道两个圆的动画起点和终点都是一样的，要实现这样一前一后的效果，肯定一个圆是加速，一个圆是减速，所以我们要使用的<code>AccelerateInterpolator</code>和<code>DecelerateInterpolator</code>这两个插值器。</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/01/Android-Animation-Facebook开源动画框架/" itemprop="url">
+                  Android - Animation Facebook开源动画框架
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-04-01T20:09:58+08:00" content="2015-04-01">
+              2015-04-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/01/Android-Animation-Facebook开源动画框架/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/01/Android-Animation-Facebook开源动画框架/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Facebook开源了个iOS&amp;OSX的动画库<a href="http://www.cocoachina.com/industry/20140704/9034.html">Pop</a>，里面定义了很多动画效果，在Android上实现了类似Pop中Spring效果的库名叫<a href="http://facebook.github.io/rebound/">Rebound</a>，移植于<a href="http://facebook.github.io/rebound-js/examples/">Rebound-JS</a></p>
+<p>Rebound项目地址：<a href="https://github.com/facebook/rebound.git">https://github.com/facebook/rebound.git</a></p>
+<ul>
+<li>rebound-core  使用java实现的一个引擎库。</li>
+<li>rebound-android  结合Android的一些API，封装rebound-core的实现。</li>
+<li>rebound-android-example  一个很简单的图片缩放例子。</li>
+<li>rebound-android-playground  里面包含了所有的例子教程。</li>
+</ul>
+<blockquote>
+<p>rebound-android 依赖于 rebound-core，接合Android的API与SpringSystem连接，<code>Android Displayer &gt; SpringSystem.loop（）</code>，Android Jelly Bean引入黄油计划，使用Choreographer统一管理视图刷新。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Spring 特效的插值器算法位于 <code>Spring.advance(double realDeltaTime)</code></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>SpringListener 是Spring的回调<br>  通过Spring.getCurrentValue()可以拿到插值，来变换视图的位置。</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/01/Android-Animation-Facebook开源动画框架/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/03/30/Android-Animation-贝塞尔曲线之美/" itemprop="url">
                   Android - Animation 贝塞尔曲线之美
                 </a>
@@ -336,462 +837,12 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/03/26/Android-Animation-三角函数之美/" itemprop="url">
-                  Android - Animation 三角函数之美
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-03-26T10:25:49+08:00" content="2015-03-26">
-              2015-03-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/03/26/Android-Animation-三角函数之美/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/26/Android-Animation-三角函数之美/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概述">概述</h2><p>初中数学中的三角函数sin，cos…是超越函数一类函数，属于初等函数，通常用平面直角坐标系来定义三角函数，如下图。<br><img src="/images/2015.03.26 - Android-Animation-三角函数之美3.png" alt="sin(x)"><br>在中学中我们通常把sin(x)的x赋值为角度，比如sin(30°)=1/2，而在计算机语言中x通常是弧度，sin(π/6)=1/2。<br>完整的正弦函数是这样的 <code>y = a * sin(wx + b) + h</code> : a影响振幅，w影响周期，h影响y位置，b为初相。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/03/26/Android-Animation-三角函数之美/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/03/07/Android-Animation-LayoutTransition/" itemprop="url">
-                  Android - Animation LayoutTransition
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-03-07T16:30:10+08:00" content="2015-03-07">
-              2015-03-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/03/07/Android-Animation-LayoutTransition/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/07/Android-Animation-LayoutTransition/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>LayoutTransition：当Layout内的View 发生 Visibility变化后，可以对Layout内的其他View产生对应的变化。<br>使用 <code>android:animateLayoutChanges=&quot;true&quot;</code> 开启LayoutTransition功能。</p>
-<hr>
-<p>LayoutTransition.APPEARING 当一个View变为Visible时，对<strong>这个</strong>元素应用动画<br>LayoutTransition.CHANGE_APPEARING 当一个View变为Visible时，因系统要重新布局有一些元素需要移动，<strong>这些</strong>要移动的元素应用动画<br>LayoutTransition.DISAPPEARING 当一个View变为Gone时，对<strong>这个</strong>元素应用动画<br>LayoutTransition.CHANGE_DISAPPEARING 当一个View变为Gone时，因系统要重新布局有一些元素需要移动，<strong>这些</strong>要移动的元素应用动画.</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/03/07/Android-Animation-LayoutTransition/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/03/01/Android-Animation-基础扫盲/" itemprop="url">
-                  Android - Animation 基础扫盲
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-03-01T14:37:17+08:00" content="2015-03-01">
-              2015-03-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/03/01/Android-Animation-基础扫盲/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/01/Android-Animation-基础扫盲/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>原文：<a href="http://developer.android.com/guide/topics/graphics/index.html">http://developer.android.com/guide/topics/graphics/index.html</a><br>转载：<a href="http://www.cnblogs.com/angeldevil/archive/2011/12/02/2271096.html">http://www.cnblogs.com/angeldevil/archive/2011/12/02/2271096.html</a></p>
-<p>Android 3.0以前，支持两种动画模式 <code>Tween Animation</code> <code>Frame Animation</code>，在Android3.0中又引入了一个新的动画系统：<code>Property Animation</code>，这三种动画模式在新的SDK中被称为<code>Property Animation</code> <code>View Animation</code> <code>Drawable Animation</code>。 可通过NineOldAndroids项目在3.0之前的系统中使用<code>Property Animation</code>。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/03/01/Android-Animation-基础扫盲/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/02/02/Gradle-学习笔记-2-编译Java工程/" itemprop="url">
-                  Gradle - 学习笔记(2) - 编译Java工程
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-02-02T22:16:05+08:00" content="2015-02-02">
-              2015-02-02
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Gradle-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Gradle Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/02/02/Gradle-学习笔记-2-编译Java工程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/02/Gradle-学习笔记-2-编译Java工程/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>上一篇了解了下基本的Gradle脚本, 现在来编译一个Java工程<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line">apply plugin: <span class="string">'eclipse'</span></span><br><span class="line">jar &#123;</span><br><span class="line">    manifest &#123;</span><br><span class="line">        attributes <span class="string">'Main-Class'</span>: <span class="string">'Your MainClass'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">sourceSets</span> &#123;</span><br><span class="line">    main &#123;</span><br><span class="line">        java &#123;</span><br><span class="line">            srcDir <span class="string">'src'</span></span><br><span class="line">        &#125;</span><br><span class="line">        resources &#123;</span><br><span class="line">            srcDir <span class="string">'res'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>apply plugin</code> 增加插件, 由于我是用的eclipse工程就使用的eclipse插件,你也可以选择idea插件来编译idea的工程.<br><code>jar</code> 可以指定 生成的jar里面的参数<br><code>dependencies</code> 声明依赖<br><code>sourceSet</code> 可以指定源码的路径</p>
-
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -832,21 +883,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">74</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

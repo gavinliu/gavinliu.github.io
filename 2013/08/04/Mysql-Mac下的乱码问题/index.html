@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Apple,Mac,OSX," />
+  <meta name="keywords" content="Mac,Mysql,乱码,环境搭建," />
 
 
 
@@ -59,19 +59,16 @@
 
 
 
-<meta name="description" content="Myeclipse 启动Tomcat 控制台乱码：window -&amp;gt; Preference -&amp;gt; myeclipse -&amp;gt; servers -&amp;gt; tomcat -&amp;gt; tomcat7.0 -&amp;gt; JDK -&amp;gt; optional java VM arguments :加入 -Dfile.encoding=GBK
-接受数据乱码，设置字符集什么都不管用时：修改To">
+<meta name="description" content="Windows 下，安装mysql 时会有一系列配置，mac下一键就安装好了，需要配置下字符编码，不然JDBC存中文数据会乱码的。解决办法：拷贝 /usr/local/mysql/support-files 下的任意一个*.cnf文件到 /etc/my.cnf编辑my.cnf[client] 后面添加default-character-set = utf8[mysqld] 后面添加default-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac OS X - Tomcat 乱码问题">
-<meta property="og:url" content="http://gavinliu.cn/2013/08/03/Mac-OS-X---Tomcat-乱码问题/index.html">
+<meta property="og:title" content="Mysql - Mac下的乱码问题">
+<meta property="og:url" content="http://gavinliu.cn/2013/08/04/Mysql-Mac下的乱码问题/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description" content="Myeclipse 启动Tomcat 控制台乱码：window -&amp;gt; Preference -&amp;gt; myeclipse -&amp;gt; servers -&amp;gt; tomcat -&amp;gt; tomcat7.0 -&amp;gt; JDK -&amp;gt; optional java VM arguments :加入 -Dfile.encoding=GBK
-接受数据乱码，设置字符集什么都不管用时：修改To">
-<meta property="og:updated_time" content="2015-04-13T14:55:07.000Z">
+<meta property="og:description" content="Windows 下，安装mysql 时会有一系列配置，mac下一键就安装好了，需要配置下字符编码，不然JDBC存中文数据会乱码的。解决办法：拷贝 /usr/local/mysql/support-files 下的任意一个*.cnf文件到 /etc/my.cnf编辑my.cnf[client] 后面添加default-character-set = utf8[mysqld] 后面添加default-">
+<meta property="og:updated_time" content="2016-01-17T07:22:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac OS X - Tomcat 乱码问题">
-<meta name="twitter:description" content="Myeclipse 启动Tomcat 控制台乱码：window -&amp;gt; Preference -&amp;gt; myeclipse -&amp;gt; servers -&amp;gt; tomcat -&amp;gt; tomcat7.0 -&amp;gt; JDK -&amp;gt; optional java VM arguments :加入 -Dfile.encoding=GBK
-接受数据乱码，设置字符集什么都不管用时：修改To">
+<meta name="twitter:title" content="Mysql - Mac下的乱码问题">
+<meta name="twitter:description" content="Windows 下，安装mysql 时会有一系列配置，mac下一键就安装好了，需要配置下字符编码，不然JDBC存中文数据会乱码的。解决办法：拷贝 /usr/local/mysql/support-files 下的任意一个*.cnf文件到 /etc/my.cnf编辑my.cnf[client] 后面添加default-character-set = utf8[mysqld] 后面添加default-">
 
 
 
@@ -89,7 +86,7 @@
   };
 </script>
 
-  <title> Mac OS X - Tomcat 乱码问题 | Gavin.Liu </title>
+  <title> Mysql - Mac下的乱码问题 | Gavin.Liu </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -237,7 +234,7 @@
             
             
               
-                Mac OS X - Tomcat 乱码问题
+                Mysql - Mac下的乱码问题
               
             
           </h1>
@@ -249,38 +246,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-08-03T17:14:28+08:00" content="2013-08-03">
-              2013-08-03
+            <time itemprop="dateCreated" datetime="2013-08-04T17:16:43+08:00" content="2013-08-04">
+              2013-08-04
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/环境搭建/" itemprop="url" rel="index">
-                    <span itemprop="name">环境搭建</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2013/08/03/Mac-OS-X---Tomcat-乱码问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/08/03/Mac-OS-X---Tomcat-乱码问题/" itemprop="commentsCount"></span>
+                <a href="/2013/08/04/Mysql-Mac下的乱码问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/08/04/Mysql-Mac下的乱码问题/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -301,12 +279,9 @@
       
 
       
-        <ol>
-<li>Myeclipse 启动Tomcat 控制台乱码：<br>window -&gt; Preference -&gt; myeclipse -&gt; servers -&gt; tomcat -&gt; tomcat7.0 -&gt; JDK -&gt; optional java VM arguments :加入 -Dfile.encoding=GBK</li>
-<li>接受数据乱码，设置字符集什么都不管用时：<br>修改Tomcat的server.xml</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"8080"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span></span><br><span class="line">               <span class="attribute">connectionTimeout</span>=<span class="value">"20000"</span></span><br><span class="line">               <span class="attribute">redirectPort</span>=<span class="value">"8443"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"8080"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span></span><br><span class="line">               <span class="attribute">connectionTimeout</span>=<span class="value">"20000"</span></span><br><span class="line">               <span class="attribute">redirectPort</span>=<span class="value">"8443"</span> <span class="attribute">URIEncoding</span>=<span class="value">"UTF-8"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+        <p>Windows 下，安装mysql 时会有一系列配置，mac下一键就安装好了，需要配置下字符编码，不然JDBC存中文数据会乱码的。<br>解决办法：<br>拷贝 /usr/local/mysql/support-files 下的任意一个*.cnf文件到 /etc/my.cnf<br>编辑my.cnf<br>[client] 后面添加<br>default-character-set = utf8<br>[mysqld] 后面添加<br>default-storage-engine = INNODB<br>character-set-server = utf8<br>collation-server = utf8_general_ci</p>
+<p>可能会出现my.cnf里面没有[client] 或者[mysqld]，自己添加一个就行了</p>
+
       
     </div>
 
@@ -314,11 +289,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Apple/" rel="tag">#Apple</a>
-          
             <a href="/tags/Mac/" rel="tag">#Mac</a>
           
-            <a href="/tags/OSX/" rel="tag">#OSX</a>
+            <a href="/tags/Mysql/" rel="tag">#Mysql</a>
+          
+            <a href="/tags/乱码/" rel="tag">#乱码</a>
+          
+            <a href="/tags/环境搭建/" rel="tag">#环境搭建</a>
           
         </div>
       
@@ -327,16 +304,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2013/08/02/Mac-OS-X---让Myeclipse10支持Retina显示屏/" rel="next" title="Mac OS X - 让Myeclipse10支持Retina显示屏">
-                <i class="fa fa-chevron-left"></i> Mac OS X - 让Myeclipse10支持Retina显示屏
+              <a href="/2013/08/03/Tomcat-Mac下的乱码问题/" rel="next" title="Mac OS X - Tomcat 乱码问题">
+                <i class="fa fa-chevron-left"></i> Mac OS X - Tomcat 乱码问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2013/08/04/Mac-OS-X---Mysql-乱码问题/" rel="prev" title="Mac OS X - Mysql 乱码问题">
-                Mac OS X - Mysql 乱码问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2013/11/27/梦境/" rel="prev" title="梦境">
+                梦境 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -352,10 +329,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2013/08/03/Mac-OS-X---Tomcat-乱码问题/"
-     data-title="Mac OS X - Tomcat 乱码问题"
+        <div class="ds-share flat" data-thread-key="2013/08/04/Mysql-Mac下的乱码问题/"
+     data-title="Mysql - Mac下的乱码问题"
      data-content=""
-     data-url="http://gavinliu.cn/2013/08/03/Mac-OS-X---Tomcat-乱码问题/">
+     data-url="http://gavinliu.cn/2013/08/04/Mysql-Mac下的乱码问题/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -382,8 +359,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2013/08/03/Mac-OS-X---Tomcat-乱码问题/"
-           data-title="Mac OS X - Tomcat 乱码问题" data-url="http://gavinliu.cn/2013/08/03/Mac-OS-X---Tomcat-乱码问题/">
+      <div class="ds-thread" data-thread-key="2013/08/04/Mysql-Mac下的乱码问题/"
+           data-title="Mysql - Mac下的乱码问题" data-url="http://gavinliu.cn/2013/08/04/Mysql-Mac下的乱码问题/">
       </div>
     
   </div>
@@ -428,21 +405,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">74</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

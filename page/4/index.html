@@ -242,6 +242,474 @@
             
               
                 
+                <a class="post-title-link" href="/2015/08/12/Android-多屏适配实践/" itemprop="url">
+                  Android - 多屏适配实践
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-08-12T19:59:01+08:00" content="2015-08-12">
+              2015-08-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/08/12/Android-多屏适配实践/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/12/Android-多屏适配实践/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="概述">概述</h1><p>Android开发中面对这么多机型，这么多大小不一的手机屏幕，需要寻求一种高效的多屏适配方案，本文只针对不支持转屏的应用。</p>
+<h2 id="问题">问题</h2><p>一般来说应用的适配可分一下几个内容：</p>
+<ol>
+<li>系统组件(Actionbar，Dialog， Pupupmenu…)</li>
+<li>控件块区(View的大小，间距)</li>
+<li>图文相关(文字大小，图片)</li>
+</ol>
+<h2 id="方案">方案</h2><ol>
+<li>系统组件：使用相关Compat库+自定义View的方式</li>
+<li>控件块区：控件的位置大小，使用dp + 百分比缩放的方式</li>
+<li>图文相关：文子大小使用sp，或者根据需要使用百分比缩放</li>
+</ol>
+<h1 id="适配细节">适配细节</h1><h2 id="一、Android原生dp">一、Android原生dp</h2><h2 id="二、百分比缩放">二、百分比缩放</h2><h3 id="已知库">已知库</h3><ol>
+<li><p>android-percent-support-lib<br> 宽高只能和父容器的宽高对应比例。</p>
+</li>
+<li><p>android-percent-support-lib-<br> 基于上面扩展，实现可以分别选择占父容器的比例。</p>
+</li>
+</ol>
+<p>然而对于这样的在布局文件中直接定义百分比的方式，存在两大问题</p>
+<ol>
+<li>计算麻烦<br> 视觉给你标注图肯定都是标的真实的长度，百分比还得自己计算。</li>
+<li>精度丢失<br> 如果效果图的父容器宽是1080px，子View的宽是38px，占3.3333~%，1080 * 3% = 32；1080 * 3.3% = 35 无论取什么值，连视觉的设计样本都会偏移像素。</li>
+</ol>
+<h3 id="最终方案">最终方案</h3>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/08/12/Android-多屏适配实践/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/07/27/Android-图像处理/" itemprop="url">
+                  Android - 图像处理基础
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-07-27T19:38:05+08:00" content="2015-07-27">
+              2015-07-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/07/27/Android-图像处理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/27/Android-图像处理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="基础Ａｐｉ">基础Ａｐｉ</h2><h3 id="Canvas">Canvas</h3><h3 id="Paint">Paint</h3><h3 id="Path">Path</h3><h2 id="实用技巧">实用技巧</h2><h3 id="处理圆角的三种方式">处理圆角的三种方式</h3><h3 id="如何清屏?">如何清屏?</h3>
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/07/03/Android-JNI开发-Gradle的配置/" itemprop="url">
+                  Android - JNI开发中Gradle的配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-07-03T14:16:29+08:00" content="2015-07-03">
+              2015-07-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/07/03/Android-JNI开发-Gradle的配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/03/Android-JNI开发-Gradle的配置/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="/2013/07/03/Android-JNI-NDKHelloWorld/">Andoid - JNI.NDKHelloWorld</a></p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile fileTree(<span class="string">dir:</span> <span class="string">"$buildDir/native-libs"</span>, <span class="string">include:</span> <span class="string">'native-libs.jar'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">task nativeLibsToJar(<span class="string">type:</span> Zip, <span class="string">description:</span> <span class="string">'create a jar archive of the native libs'</span>) &#123;</span><br><span class="line">    destinationDir file(<span class="string">"$buildDir/native-libs"</span>)</span><br><span class="line">    baseName <span class="string">'native-libs'</span></span><br><span class="line">    extension <span class="string">'jar'</span></span><br><span class="line">    from fileTree(<span class="string">dir:</span> <span class="string">'libs'</span>, <span class="string">include:</span> <span class="string">'**/*.so'</span>)</span><br><span class="line">    into <span class="string">'lib/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tasks.withType(JavaCompile) &#123;</span><br><span class="line">    compileTask -&gt; compileTask.dependsOn(nativeLibsToJar)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/24/Android-开源库Android-AbsListView-Drag-And-Drop/" itemprop="url">
+                  Android - 开源库Android-AbsListView-Drag-And-Drop
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-06-24T20:37:43+08:00" content="2015-06-24">
+              2015-06-24
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/24/Android-开源库Android-AbsListView-Drag-And-Drop/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/24/Android-开源库Android-AbsListView-Drag-And-Drop/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="概述">概述</h2><p>魅族的滑动选择和拖拽删除是很棒的交互, 但是Flyme5上去掉了这一特性, 魅族源码中实现滑动选择是在ListView源码中修改的, 这样也是最好的方式, 我花了点时间使用了些黑科技继承ListView的方式实现, 这样可以在任何Android手机上使用这种交互方式.</p>
+<h2 id="看看效果">看看效果</h2><h3 id="原生ActionMode">原生ActionMode</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop1.gif" alt=""></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/06/24/Android-开源库Android-AbsListView-Drag-And-Drop/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/06/18/在Ubuntu中安装Xware迅雷远程下载/" itemprop="url">
                   在Ubuntu中安装Xware迅雷远程下载
                 </a>
@@ -261,25 +729,6 @@
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/环境搭建/" itemprop="url" rel="index">
-                    <span itemprop="name">环境搭建</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -312,464 +761,11 @@
           <p>公司的电脑平时一直处于开机状态, 压榨电脑的剩余价值, 网速又好, 寻思着弄成下载机, 迅雷给路由器做的版本叫Xware, 找了下发现有x86版本, 顺势装在Ubuntu上了.</p>
 <p><a href="http://pan.baidu.com/s/1dDEprRN">Xware1.0.31 点击下载</a></p>
 <figure class="highlight bash"><figcaption><span>解压后有四个文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin <span class="number">4.1</span>M  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> EmbedThunderManager</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin  <span class="number">24</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> ETMDaemon</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin <span class="number">111</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> portal</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin  <span class="number">23</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> vod_httpserver</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><figcaption><span>执行./portal </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">initing...</span><br><span class="line">try stopping xunlei service first...</span><br><span class="line">killall: ETMDaemon: no process killed</span><br><span class="line">killall: EmbedThunderManager: no process killed</span><br><span class="line">killall: vod_httpserver: no process killed</span><br><span class="line">setting xunlei runtime env...</span><br><span class="line">port: <span class="number">9000</span> is usable.</span><br><span class="line"></span><br><span class="line">YOUR CONTROL PORT IS: <span class="number">9000</span></span><br><span class="line"></span><br><span class="line">starting xunlei service...</span><br><span class="line">etm path: /home/gavin/Software/Xware1.<span class="number">0.31</span>_x86_32_glibc</span><br><span class="line">execv: /home/gavin/Software/Xware1.<span class="number">0.31</span>_x86_32_glibc/lib/ETMDaemon.</span><br><span class="line"></span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span> (<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>)</span><br><span class="line">the active key is not valid.</span><br><span class="line"></span><br><span class="line">try again...(has tried <span class="number">1</span> time(s)).</span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span> (<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>)</span><br><span class="line"></span><br><span class="line">THE ACTIVE CODE IS: ******</span><br><span class="line"></span><br><span class="line">go to http://yuancheng.xunlei.com, <span class="built_in">bind</span> your device with the active code.</span><br><span class="line">finished.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>执行./portal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">initing...</span><br><span class="line">try stopping xunlei service first...</span><br><span class="line">killall: ETMDaemon: no process killed</span><br><span class="line">killall: EmbedThunderManager: no process killed</span><br><span class="line">killall: vod_httpserver: no process killed</span><br><span class="line">setting xunlei runtime env...</span><br><span class="line">port: <span class="number">9000</span> is usable.</span><br><span class="line"></span><br><span class="line">YOUR CONTROL PORT IS: <span class="number">9000</span></span><br><span class="line"></span><br><span class="line">starting xunlei service...</span><br><span class="line">etm path: /home/gavin/Software/Xware1.<span class="number">0.31</span>_x86_32_glibc</span><br><span class="line">execv: /home/gavin/Software/Xware1.<span class="number">0.31</span>_x86_32_glibc/lib/ETMDaemon.</span><br><span class="line"></span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span> (<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>)</span><br><span class="line">the active key is not valid.</span><br><span class="line"></span><br><span class="line">try again...(has tried <span class="number">1</span> time(s)).</span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span> (<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>)</span><br><span class="line"></span><br><span class="line">THE ACTIVE CODE IS: ******</span><br><span class="line"></span><br><span class="line">go to http://yuancheng.xunlei.com, <span class="built_in">bind</span> your device with the active code.</span><br><span class="line">finished.</span><br></pre></td></tr></table></figure>
 <p>把 ACTIVE CODE 填入 <a href="http://yuancheng.xunlei.com/">http://yuancheng.xunlei.com/</a> 中, 就算完成了.</p>
 <p>完成上一步, 还有个问题, xware是针对嵌入式设备的, xware只会检测挂载到/media目录下可写的设备, 所以我们需要把本地的某个文件夹, 挂载到/media, 同时我们又不希望一插入U盘就被识别为xware可用目录, 于是我们还需要换一个用户专门用来启动xware.</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/06/18/在Ubuntu中安装Xware迅雷远程下载/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/10/Android-ListView奇淫绝技/" itemprop="url">
-                  Android - ListView 奇淫绝技
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-06-10T19:40:55+08:00" content="2015-06-10">
-              2015-06-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/06/10/Android-ListView奇淫绝技/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/10/Android-ListView奇淫绝技/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>问题: 如果你遇到下面这样的界面会怎样实现呢?<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> ————————————</span><br><span class="line">|            |</span><br><span class="line">|            |</span><br><span class="line"> ————————————</span><br><span class="line"> —————  —————</span><br><span class="line">|     ||     |</span><br><span class="line"> —————  —————</span><br><span class="line"> ——   ——   ——</span><br><span class="line">|  | |  | |  |</span><br><span class="line"> ——   ——   ——</span><br><span class="line"> —————   ————</span><br><span class="line">|     | |    |</span><br><span class="line">|     |  ————</span><br><span class="line">|     |  ————</span><br><span class="line">|     | |    |</span><br><span class="line">|     |  ————</span><br><span class="line">|     |  ————</span><br><span class="line">|     | |    |</span><br><span class="line"> —————   ————</span><br></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/10/Android-ListView奇淫绝技/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/25/Android-Animation-次序之美/" itemprop="url">
-                  Android - Animation 次序之美
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-05-25T15:58:11+08:00" content="2015-05-25">
-              2015-05-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/05/25/Android-Animation-次序之美/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/25/Android-Animation-次序之美/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>占坑，博客计划中…</p>
-
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/12/编程技巧-神奇的1-2-4-8和按位运算符/" itemprop="url">
-                  编程技巧 - 神奇的1,2,4,8和按位运算符
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-05-12T16:05:39+08:00" content="2015-05-12">
-              2015-05-12
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/编程技巧/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技巧</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/05/12/编程技巧-神奇的1-2-4-8和按位运算符/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/12/编程技巧-神奇的1-2-4-8和按位运算符/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概述">概述</h2><p>在编程过程中发现有很多源码里面会定义1,2,4,8等这样的常量,比如说Android的ActionBar关于显示的常量:</p>
-<figure class="highlight java"><figcaption><span>android.app.ActionBar</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_USE_LOGO = <span class="number">0x1</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_SHOW_HOME = <span class="number">0x2</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_HOME_AS_UP = <span class="number">0x4</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_SHOW_TITLE = <span class="number">0x8</span>;</span><br></pre></td></tr></table></figure>
-<p>为什么会这样设计呢?下面告诉你.
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/12/编程技巧-神奇的1-2-4-8和按位运算符/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/08/Android-开源库EventCast/" itemprop="url">
-                  Android - 开源库EventCast
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-05-08T16:01:08+08:00" content="2015-05-08">
-              2015-05-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/05/08/Android-开源库EventCast/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/08/Android-开源库EventCast/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概述">概述</h2><p><a href="https://github.com/gavinliu/EventCast">EventCast</a>是一个事件分发的开源库, GitHub中也有很多类似的库, 比如<a href="https://github.com/greenrobot/EventBus">EventBus</a>, <a href="https://github.com/square/otto">otto</a>, <a href="https://github.com/bboyfeiyu/AndroidEventBus">AndroidEventBus</a>, 但是还是觉得自己写的比较顺手, 所以产生了EventCast. </p>
-<p><code>AndroidEventBus</code>是<code>EventBus</code>和<code>otto</code>合并的产物, <code>EventCast</code>也借鉴<code>AndroidEventBus</code>些代码, 和他们不同的是:</p>
-<ol>
-<li>支持多参数传递</li>
-<li>定义了两种接收器</li>
-</ol>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/08/Android-开源库EventCast/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -796,7 +792,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -837,21 +833,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">74</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

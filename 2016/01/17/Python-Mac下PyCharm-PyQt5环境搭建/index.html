@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Apple,Mac,OSX," />
+  <meta name="keywords" content="Mac,PyCharm,PyQt5,Python,环境搭建," />
 
 
 
@@ -59,16 +59,36 @@
 
 
 
-<meta name="description" content="Windows 下，安装mysql 时会有一系列配置，mac下一键就安装好了，需要配置下字符编码，不然JDBC存中文数据会乱码的。解决办法：拷贝 /usr/local/mysql/support-files 下的任意一个*.cnf文件到 /etc/my.cnf编辑my.cnf[client] 后面添加default-character-set = utf8[mysqld] 后面添加default-">
+<meta name="description" content="刚学Python的时候都是在文本编辑软件里面写，没有智能提示，效率实在底下，写项目当然要使用现代化的IDE，PyCharm是IntelliJ IDEA的Python版本，是一个非常优秀的IDE。(PS：我的电脑快变成IntelliJ IDEA全家桶了)
+所需软件：
+
+PyQt5
+PyCharm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mac OS X - Mysql 乱码问题">
-<meta property="og:url" content="http://gavinliu.cn/2013/08/04/Mac-OS-X---Mysql-乱码问题/index.html">
+<meta property="og:title" content="Python - Mac下PyCharm&PyQt5环境搭建">
+<meta property="og:url" content="http://gavinliu.cn/2016/01/17/Python-Mac下PyCharm-PyQt5环境搭建/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description" content="Windows 下，安装mysql 时会有一系列配置，mac下一键就安装好了，需要配置下字符编码，不然JDBC存中文数据会乱码的。解决办法：拷贝 /usr/local/mysql/support-files 下的任意一个*.cnf文件到 /etc/my.cnf编辑my.cnf[client] 后面添加default-character-set = utf8[mysqld] 后面添加default-">
-<meta property="og:updated_time" content="2015-04-13T14:55:07.000Z">
+<meta property="og:description" content="刚学Python的时候都是在文本编辑软件里面写，没有智能提示，效率实在底下，写项目当然要使用现代化的IDE，PyCharm是IntelliJ IDEA的Python版本，是一个非常优秀的IDE。(PS：我的电脑快变成IntelliJ IDEA全家桶了)
+所需软件：
+
+PyQt5
+PyCharm">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建1.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建2.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建3.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建4.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建5.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建6.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建7.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建8.png">
+<meta property="og:updated_time" content="2016-01-17T08:10:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mac OS X - Mysql 乱码问题">
-<meta name="twitter:description" content="Windows 下，安装mysql 时会有一系列配置，mac下一键就安装好了，需要配置下字符编码，不然JDBC存中文数据会乱码的。解决办法：拷贝 /usr/local/mysql/support-files 下的任意一个*.cnf文件到 /etc/my.cnf编辑my.cnf[client] 后面添加default-character-set = utf8[mysqld] 后面添加default-">
+<meta name="twitter:title" content="Python - Mac下PyCharm&PyQt5环境搭建">
+<meta name="twitter:description" content="刚学Python的时候都是在文本编辑软件里面写，没有智能提示，效率实在底下，写项目当然要使用现代化的IDE，PyCharm是IntelliJ IDEA的Python版本，是一个非常优秀的IDE。(PS：我的电脑快变成IntelliJ IDEA全家桶了)
+所需软件：
+
+PyQt5
+PyCharm">
 
 
 
@@ -86,7 +106,7 @@
   };
 </script>
 
-  <title> Mac OS X - Mysql 乱码问题 | Gavin.Liu </title>
+  <title> Python - Mac下PyCharm&PyQt5环境搭建 | Gavin.Liu </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -234,7 +254,7 @@
             
             
               
-                Mac OS X - Mysql 乱码问题
+                Python - Mac下PyCharm&PyQt5环境搭建
               
             
           </h1>
@@ -246,8 +266,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-08-04T17:16:43+08:00" content="2013-08-04">
-              2013-08-04
+            <time itemprop="dateCreated" datetime="2016-01-17T15:07:07+08:00" content="2016-01-17">
+              2016-01-17
             </time>
           </span>
 
@@ -260,8 +280,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/环境搭建/" itemprop="url" rel="index">
-                    <span itemprop="name">环境搭建</span>
+                  <a href="/categories/Python-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Python Notes</span>
                   </a>
                 </span>
 
@@ -276,8 +296,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2013/08/04/Mac-OS-X---Mysql-乱码问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/08/04/Mac-OS-X---Mysql-乱码问题/" itemprop="commentsCount"></span>
+                <a href="/2016/01/17/Python-Mac下PyCharm-PyQt5环境搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/17/Python-Mac下PyCharm-PyQt5环境搭建/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -298,8 +318,44 @@
       
 
       
-        <p>Windows 下，安装mysql 时会有一系列配置，mac下一键就安装好了，需要配置下字符编码，不然JDBC存中文数据会乱码的。<br>解决办法：<br>拷贝 /usr/local/mysql/support-files 下的任意一个*.cnf文件到 /etc/my.cnf<br>编辑my.cnf<br>[client] 后面添加<br>default-character-set = utf8<br>[mysqld] 后面添加<br>default-storage-engine = INNODB<br>character-set-server = utf8<br>collation-server = utf8_general_ci</p>
-<p>可能会出现my.cnf里面没有[client] 或者[mysqld]，自己添加一个就行了</p>
+        <p>刚学Python的时候都是在文本编辑软件里面写，没有智能提示，效率实在底下，写项目当然要使用现代化的IDE，PyCharm是<code>IntelliJ IDEA</code>的Python版本，是一个非常优秀的IDE。(PS：我的电脑快变成<code>IntelliJ IDEA</code>全家桶了)</p>
+<p>所需软件：</p>
+<ol>
+<li>PyQt5</li>
+<li><a href="http://www.jetbrains.com/pycharm/download/" target="_blank" rel="external">PyCharm</a></li>
+</ol>
+<a id="more"></a>
+<h2 id="PyQt5">PyQt5</h2><p>首先需要提前装好PyQt5，可参考：<a href="/2016/01/16/Python-Mac下PyQt5环境搭建/">Python - Mac下PyQt5环境搭建</a></p>
+<h2 id="PyCharm">PyCharm</h2><h3 id="配置_QtDesigner">配置 QtDesigner</h3><p>这是个Qt的界面可视化工具，可以很方便的设计UI，所见即所得。Designer的位置<code>Qt-5.5.1/5.5/clang_64/bin/Designer.app</code>，我们可以在PyCharm中配置Designer的路径，这样就可以在PyCharm中快速启动Designer了。</p>
+<ol>
+<li>打开 PyCharm 的设置</li>
+<li>找到 Tools -&gt; External Tools</li>
+<li>点击 + -&gt; Create Tool<br><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建1.png" alt=""></li>
+<li>配置如下图</li>
+</ol>
+<p><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建2.png" alt=""></p>
+<h3 id="配置_PyUIC">配置 PyUIC</h3><p>这个工具可以把Qt Designer的UI文件，转换成Py文件，这是个命令行工具。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.</span><br></pre></td></tr></table></figure>
+<ol>
+<li>打开 PyCharm 的设置</li>
+<li>找到 Tools -&gt; External Tools</li>
+<li>点击 + -&gt; Create Tool</li>
+<li><p>Parameters：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置如下图</p>
+</li>
+</ol>
+<p><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建3.png" alt=""></p>
+<h3 id="使用">使用</h3><p>右键菜单中选择 External Tools 即可</p>
+<p><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建4.png" alt=""></p>
+<h2 id="使用_QtDesigner_做一个窗体程序">使用 QtDesigner 做一个窗体程序</h2><h3 id="打开QtDesigner">打开QtDesigner</h3><p>设计一个最简单的窗体，放置一个Lable控件</p>
+<p><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建5.png" alt=""></p>
+<h3 id="转换成_Py">转换成 Py</h3><p><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建6.png" alt=""><br><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建7.png" alt=""></p>
+<p>HelloWorld.ui -&gt; HelloWorld.py</p>
+<figure class="highlight python"><figcaption><span>HelloWorld.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Form implementation generated from reading ui file 'HelloWorld.ui'</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Created by: PyQt5 UI code generator 5.5.1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># WARNING! All changes made in this file will be lost!</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PyQt5 <span class="keyword">import</span> QtCore, QtGui, QtWidgets</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ui_MainWindow</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setupUi</span><span class="params">(self, MainWindow)</span>:</span></span><br><span class="line">        MainWindow.setObjectName(<span class="string">"MainWindow"</span>)</span><br><span class="line">        MainWindow.resize(<span class="number">640</span>, <span class="number">480</span>)</span><br><span class="line">        self.centralwidget = QtWidgets.QWidget(MainWindow)</span><br><span class="line">        self.centralwidget.setObjectName(<span class="string">"centralwidget"</span>)</span><br><span class="line">        self.label = QtWidgets.QLabel(self.centralwidget)</span><br><span class="line">        self.label.setGeometry(QtCore.QRect(<span class="number">260</span>, <span class="number">180</span>, <span class="number">81</span>, <span class="number">21</span>))</span><br><span class="line">        self.label.setObjectName(<span class="string">"label"</span>)</span><br><span class="line">        MainWindow.setCentralWidget(self.centralwidget)</span><br><span class="line">        self.menubar = QtWidgets.QMenuBar(MainWindow)</span><br><span class="line">        self.menubar.setGeometry(QtCore.QRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">640</span>, <span class="number">22</span>))</span><br><span class="line">        self.menubar.setObjectName(<span class="string">"menubar"</span>)</span><br><span class="line">        MainWindow.setMenuBar(self.menubar)</span><br><span class="line"></span><br><span class="line">        self.retranslateUi(MainWindow)</span><br><span class="line">        QtCore.QMetaObject.connectSlotsByName(MainWindow)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">retranslateUi</span><span class="params">(self, MainWindow)</span>:</span></span><br><span class="line">        _translate = QtCore.QCoreApplication.translate</span><br><span class="line">        MainWindow.setWindowTitle(_translate(<span class="string">"MainWindow"</span>, <span class="string">"MainWindow"</span>))</span><br><span class="line">        self.label.setText(_translate(<span class="string">"MainWindow"</span>, <span class="string">"Hello, World"</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="编写_main-py">编写 main.py</h3><figure class="highlight python"><figcaption><span>main.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> HelloWorld</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QApplication, QMainWindow</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app = QApplication(sys.argv)</span><br><span class="line">    MainWindow = QMainWindow()</span><br><span class="line"></span><br><span class="line">    ui = HelloWorld.Ui_MainWindow()</span><br><span class="line">    ui.setupUi(MainWindow)</span><br><span class="line"></span><br><span class="line">    MainWindow.show()</span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
+<h3 id="运行">运行</h3><p><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建8.png" alt=""></p>
 
       
     </div>
@@ -308,11 +364,15 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Apple/" rel="tag">#Apple</a>
-          
             <a href="/tags/Mac/" rel="tag">#Mac</a>
           
-            <a href="/tags/OSX/" rel="tag">#OSX</a>
+            <a href="/tags/PyCharm/" rel="tag">#PyCharm</a>
+          
+            <a href="/tags/PyQt5/" rel="tag">#PyQt5</a>
+          
+            <a href="/tags/Python/" rel="tag">#Python</a>
+          
+            <a href="/tags/环境搭建/" rel="tag">#环境搭建</a>
           
         </div>
       
@@ -321,17 +381,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2013/08/03/Mac-OS-X---Tomcat-乱码问题/" rel="next" title="Mac OS X - Tomcat 乱码问题">
-                <i class="fa fa-chevron-left"></i> Mac OS X - Tomcat 乱码问题
+              <a href="/2016/01/16/Python-Mac下PyQt5环境搭建/" rel="next" title="Python - Mac下PyQt5环境搭建">
+                <i class="fa fa-chevron-left"></i> Python - Mac下PyQt5环境搭建
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2013/11/27/梦境/" rel="prev" title="梦境">
-                梦境 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -346,10 +402,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2013/08/04/Mac-OS-X---Mysql-乱码问题/"
-     data-title="Mac OS X - Mysql 乱码问题"
+        <div class="ds-share flat" data-thread-key="2016/01/17/Python-Mac下PyCharm-PyQt5环境搭建/"
+     data-title="Python - Mac下PyCharm&PyQt5环境搭建"
      data-content=""
-     data-url="http://gavinliu.cn/2013/08/04/Mac-OS-X---Mysql-乱码问题/">
+     data-url="http://gavinliu.cn/2016/01/17/Python-Mac下PyCharm-PyQt5环境搭建/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -376,8 +432,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2013/08/04/Mac-OS-X---Mysql-乱码问题/"
-           data-title="Mac OS X - Mysql 乱码问题" data-url="http://gavinliu.cn/2013/08/04/Mac-OS-X---Mysql-乱码问题/">
+      <div class="ds-thread" data-thread-key="2016/01/17/Python-Mac下PyCharm-PyQt5环境搭建/"
+           data-title="Python - Mac下PyCharm&PyQt5环境搭建" data-url="http://gavinliu.cn/2016/01/17/Python-Mac下PyCharm-PyQt5环境搭建/">
       </div>
     
   </div>
@@ -422,21 +478,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">74</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -493,7 +549,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PyQt5"><span class="nav-number">1.</span> <span class="nav-text">PyQt5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PyCharm"><span class="nav-number">2.</span> <span class="nav-text">PyCharm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置_QtDesigner"><span class="nav-number">2.1.</span> <span class="nav-text">配置 QtDesigner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置_PyUIC"><span class="nav-number">2.2.</span> <span class="nav-text">配置 PyUIC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.3.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用_QtDesigner_做一个窗体程序"><span class="nav-number">3.</span> <span class="nav-text">使用 QtDesigner 做一个窗体程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开QtDesigner"><span class="nav-number">3.1.</span> <span class="nav-text">打开QtDesigner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换成_Py"><span class="nav-number">3.2.</span> <span class="nav-text">转换成 Py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写_main-py"><span class="nav-number">3.3.</span> <span class="nav-text">编写 main.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-number">3.4.</span> <span class="nav-text">运行</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Chrome," />
+  <meta name="keywords" content="Chrome,环境搭建," />
 
 
 
@@ -71,7 +71,7 @@ manifest.json的内容如下
 新建一个文件夹，比如Custom CSS，包含Custom.css和manifest.json两个文件
 manifest.json的内容如下
 1234567891011&amp;#123;   &quot;content_scripts&quot;: [ &amp;#123;      &quot;css&quot;: [&quot;Custom.css&quot;],      &quot;all_frames&quot;: true,      &quot;matches&quot;: [ &quot;">
-<meta property="og:updated_time" content="2015-04-13T14:55:07.000Z">
+<meta property="og:updated_time" content="2016-01-17T07:22:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chrome 几项必要的配置">
 <meta name="twitter:description" content="自定义Css
@@ -261,25 +261,6 @@ manifest.json的内容如下
           </span>
 
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/环境搭建/" itemprop="url" rel="index">
-                    <span itemprop="name">环境搭建</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
 
           
             
@@ -316,11 +297,20 @@ manifest.json的内容如下
 </li>
 <li>将Custom CSS.crx拖入扩展管理安装即可。</li>
 </ol>
-<h2 id="chrome://flags/">chrome://flags/</h2><ul>
+<h2 id="chrome://flags/">chrome://flags/</h2><ol>
 <li>overlay-scrollbars : 使用自动收起的滚动条，不占用额外空间(全平台)</li>
 <li>enable-smooth-scrolling : 像Mac和手机一样平滑滚动(仅Linux可用)</li>
 <li>enable-download-resumption : 恢复下载</li>
-</ul>
+</ol>
+<h2 id="取消Flash_P2P上传功能">取消Flash P2P上传功能</h2><blockquote>
+<p>国内的视频网站大都会P2P上传，往往会把上传带宽吃满，导致网络卡顿，可以把这个功能禁用掉</p>
+</blockquote>
+<ol>
+<li>打开<code>/Users/{}/Library/Application Support/Google/Chrome/Default/Pepper Data/Shockwave Flash</code> 目录</li>
+<li>在下面创建一个System的新目录，然后在里面创建一个mms.cfg文件</li>
+<li>写入 RTMFPP2PDisable=1</li>
+<li>保存，然后重启Chrome</li>
+</ol>
 
       
     </div>
@@ -330,6 +320,8 @@ manifest.json的内容如下
         <div class="post-tags">
           
             <a href="/tags/Chrome/" rel="tag">#Chrome</a>
+          
+            <a href="/tags/环境搭建/" rel="tag">#环境搭建</a>
           
         </div>
       
@@ -439,21 +431,21 @@ manifest.json的内容如下
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">74</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -510,7 +502,7 @@ manifest.json的内容如下
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义Css"><span class="nav-number">1.</span> <span class="nav-text">自定义Css</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chrome://flags/"><span class="nav-number">2.</span> <span class="nav-text">chrome://flags/</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义Css"><span class="nav-number">1.</span> <span class="nav-text">自定义Css</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chrome://flags/"><span class="nav-number">2.</span> <span class="nav-text">chrome://flags/</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消Flash_P2P上传功能"><span class="nav-number">3.</span> <span class="nav-text">取消Flash P2P上传功能</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

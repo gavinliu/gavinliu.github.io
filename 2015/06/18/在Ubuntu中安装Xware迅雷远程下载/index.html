@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Xware," />
+  <meta name="keywords" content="Xware,环境搭建," />
 
 
 
@@ -70,7 +70,7 @@ Xware1.0.31 点击下载
 Xware1.0.31 点击下载
 解压后有四个文件1234-rw-rw-rw- 1 gavin gavin 4.1M  8月 27  2014 EmbedThunderManager-rw-rw-rw- 1 gavin g">
 <meta property="og:image" content="http://gavinliu.cn/images/2015.06.18 - 在Ubuntu中安装Xware迅雷远程下载.png">
-<meta property="og:updated_time" content="2015-06-24T13:29:25.000Z">
+<meta property="og:updated_time" content="2016-01-17T07:22:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Ubuntu中安装Xware迅雷远程下载">
 <meta name="twitter:description" content="公司的电脑平时一直处于开机状态, 压榨电脑的剩余价值, 网速又好, 寻思着弄成下载机, 迅雷给路由器做的版本叫Xware, 找了下发现有x86版本, 顺势装在Ubuntu上了.
@@ -259,25 +259,6 @@ Xware1.0.31 点击下载
           </span>
 
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/环境搭建/" itemprop="url" rel="index">
-                    <span itemprop="name">环境搭建</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
 
           
             
@@ -308,7 +289,7 @@ Xware1.0.31 点击下载
         <p>公司的电脑平时一直处于开机状态, 压榨电脑的剩余价值, 网速又好, 寻思着弄成下载机, 迅雷给路由器做的版本叫Xware, 找了下发现有x86版本, 顺势装在Ubuntu上了.</p>
 <p><a href="http://pan.baidu.com/s/1dDEprRN" target="_blank" rel="external">Xware1.0.31 点击下载</a></p>
 <figure class="highlight bash"><figcaption><span>解压后有四个文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin <span class="number">4.1</span>M  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> EmbedThunderManager</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin  <span class="number">24</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> ETMDaemon</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin <span class="number">111</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> portal</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin  <span class="number">23</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> vod_httpserver</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><figcaption><span>执行./portal </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">initing...</span><br><span class="line">try stopping xunlei service first...</span><br><span class="line">killall: ETMDaemon: no process killed</span><br><span class="line">killall: EmbedThunderManager: no process killed</span><br><span class="line">killall: vod_httpserver: no process killed</span><br><span class="line">setting xunlei runtime env...</span><br><span class="line">port: <span class="number">9000</span> is usable.</span><br><span class="line"></span><br><span class="line">YOUR CONTROL PORT IS: <span class="number">9000</span></span><br><span class="line"></span><br><span class="line">starting xunlei service...</span><br><span class="line">etm path: /home/gavin/Software/Xware1.<span class="number">0.31</span>_x86_32_glibc</span><br><span class="line">execv: /home/gavin/Software/Xware1.<span class="number">0.31</span>_x86_32_glibc/lib/ETMDaemon.</span><br><span class="line"></span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span> (<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>)</span><br><span class="line">the active key is not valid.</span><br><span class="line"></span><br><span class="line">try again...(has tried <span class="number">1</span> time(s)).</span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span> (<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>)</span><br><span class="line"></span><br><span class="line">THE ACTIVE CODE IS: ******</span><br><span class="line"></span><br><span class="line">go to http://yuancheng.xunlei.com, <span class="built_in">bind</span> your device with the active code.</span><br><span class="line">finished.</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>执行./portal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">initing...</span><br><span class="line">try stopping xunlei service first...</span><br><span class="line">killall: ETMDaemon: no process killed</span><br><span class="line">killall: EmbedThunderManager: no process killed</span><br><span class="line">killall: vod_httpserver: no process killed</span><br><span class="line">setting xunlei runtime env...</span><br><span class="line">port: <span class="number">9000</span> is usable.</span><br><span class="line"></span><br><span class="line">YOUR CONTROL PORT IS: <span class="number">9000</span></span><br><span class="line"></span><br><span class="line">starting xunlei service...</span><br><span class="line">etm path: /home/gavin/Software/Xware1.<span class="number">0.31</span>_x86_32_glibc</span><br><span class="line">execv: /home/gavin/Software/Xware1.<span class="number">0.31</span>_x86_32_glibc/lib/ETMDaemon.</span><br><span class="line"></span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span> (<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>)</span><br><span class="line">the active key is not valid.</span><br><span class="line"></span><br><span class="line">try again...(has tried <span class="number">1</span> time(s)).</span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span> (<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>)</span><br><span class="line"></span><br><span class="line">THE ACTIVE CODE IS: ******</span><br><span class="line"></span><br><span class="line">go to http://yuancheng.xunlei.com, <span class="built_in">bind</span> your device with the active code.</span><br><span class="line">finished.</span><br></pre></td></tr></table></figure>
 <p>把 ACTIVE CODE 填入 <a href="http://yuancheng.xunlei.com/" target="_blank" rel="external">http://yuancheng.xunlei.com/</a> 中, 就算完成了.</p>
 <p>完成上一步, 还有个问题, xware是针对嵌入式设备的, xware只会检测挂载到/media目录下可写的设备, 所以我们需要把本地的某个文件夹, 挂载到/media, 同时我们又不希望一插入U盘就被识别为xware可用目录, 于是我们还需要换一个用户专门用来启动xware.</p>
 <a id="more"></a>
@@ -347,6 +328,8 @@ Xware1.0.31 点击下载
         <div class="post-tags">
           
             <a href="/tags/Xware/" rel="tag">#Xware</a>
+          
+            <a href="/tags/环境搭建/" rel="tag">#环境搭建</a>
           
         </div>
       
@@ -456,21 +439,21 @@ Xware1.0.31 点击下载
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">74</span>
+              <span class="site-state-item-count">77</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">44</span>
+              <span class="site-state-item-count">49</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
