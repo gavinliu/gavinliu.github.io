@@ -242,6 +242,117 @@
             
               
                 
+                <a class="post-title-link" href="/2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/" itemprop="url">
+                  Java - 通过优酷网视频播放网址解析出Mp4格式的单个文件
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-04-22T21:01:59+08:00" content="2013-04-22">
+              2013-04-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Java Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html" target="_blank" rel="external">http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html</a> 简单粗暴，贴出解析代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正则表达式去除视频id</span></span><br><span class="line">String path = <span class="string">"http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html"</span>;</span><br><span class="line">Pattern p = Pattern.compile(<span class="string">".*id_(\\w+)\\.html"</span>);</span><br><span class="line">Matcher m = p.matcher(path);</span><br><span class="line">String id = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">if</span> (m.find()) &#123;</span><br><span class="line">	id = m.group(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 解析部分</span></span><br><span class="line">String s = <span class="string">"https://openapi.youku.com/v2/videos/files.json?client_id=513edb6cf9833ca7&amp;client_secret=eaf151ffdbf1383d934ab4cb91250fa6&amp;type=play&amp;video_id="</span>;</span><br><span class="line"><span class="comment">// 这里为HTTP获取得到Response，自己去实现</span></span><br><span class="line">String json = HttpUtil.changeInputStream(HttpUtil.getInputStream(s + id));</span><br><span class="line"><span class="comment">// 解析Json</span></span><br><span class="line">JSONObject object = <span class="keyword">new</span> JSONObject(json);</span><br><span class="line">object = object.getJSONObject(<span class="string">"files"</span>);</span><br><span class="line">object = object.getJSONObject(<span class="string">"3gphd"</span>);</span><br><span class="line">object = object.getJSONArray(<span class="string">"segs"</span>).getJSONObject(<span class="number">0</span>);</span><br><span class="line">String url = object.getString(<span class="string">"url"</span>);</span><br><span class="line">System.out.println(url);</span><br></pre></td></tr></table></figure></p>
+<p>最后输出：<br><a href="http://180.96.38.43/youku/65738D58CD431813202EE93924/0300200100523B433B57D707A71947923FEF7E-8BE5-FC18-E182-7B619D650F21.mp4" target="_blank" rel="external">http://180.96.38.43/youku/65738D58CD431813202EE93924/0300200100523B433B57D707A71947923FEF7E-8BE5-FC18-E182-7B619D650F21.mp4</a><br>注意这个链接是有时效性的！获取出来就尽快使用。</p>
+
+          
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2013/04/08/Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串/" itemprop="url">
                   Java - 抓取优酷网视频播放页面(使用jsoup解析html,正则表达式处理字符串)
                 </a>
@@ -678,126 +789,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2012/05/30/Java-Web-Session-随笔/" itemprop="url">
-                  Java.Web - Session 随笔
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-05-30T20:41:50+08:00" content="2012-05-30">
-              2012-05-30
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Java.Web Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2012/05/30/Java-Web-Session-随笔/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/05/30/Java-Web-Session-随笔/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ul>
-<li><h2 id="什么Session?">什么Session?</h2>指用户用一个浏览器，访问某个网站只要不关闭浏览器，不管用户点击多少个超链接，直到用户关闭浏览器，整个这个过程我们称为一次会话。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建session</span></span><br><span class="line">HttpSession session = request.getSession();</span><br><span class="line"><span class="comment">// 设置session属性，属性重名，value会被替换</span></span><br><span class="line">session.setAttribute(<span class="string">"name"</span>, <span class="string">"gavin"</span>);</span><br><span class="line">session.setAttribute(<span class="string">"pwd"</span>, <span class="string">"123456"</span>);</span><br><span class="line"><span class="comment">// 获取session属性的值，返回的是一个object对象</span></span><br><span class="line">session.getAttribute(<span class="string">"name"</span>);</span><br><span class="line"><span class="comment">// 删除session属性</span></span><br><span class="line">session.removeAttribute(<span class="string">"name"</span>);</span><br></pre></td></tr></table></figure>
-<p>Session的生命周期，可以去conf/web.xml配置，也可在项目下的web.xml配置，代码里面也可以设置。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置一个秒数，这个秒数表示客户端在不发出请求时，session被Servlet引擎维持的最长时间。</span></span><br><span class="line">session.setMaxInactiveInterval(<span class="number">100</span>);</span><br><span class="line"><span class="comment">// 让session中的所有属性解除绑定</span></span><br><span class="line">session.invalidate()</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><h2 id="服务器为每个浏览器提供单个Session服务的原理：">服务器为每个浏览器提供单个Session服务的原理：</h2><p>1.第一次访问web应用时，会创建一个Session服务，然后给浏览器返回一个cookie里面包含了Session的ID<br>2.第二次访问web应用时，cookie里的id会随请求行发给服务器，服务器就能找到ID 对于的Session</p>
-</li>
-<li><h2 id="Session_案例：1-_验证用户合法性；2-_输入验证码的验证；3-_简单的购物车">Session 案例：1. 验证用户合法性；2. 输入验证码的验证；3. 简单的购物车</h2>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2012/05/30/Java-Web-Session-随笔/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -844,7 +835,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -858,7 +849,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

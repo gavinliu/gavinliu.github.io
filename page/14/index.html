@@ -242,6 +242,126 @@
             
               
                 
+                <a class="post-title-link" href="/2012/05/30/Java-Web-Session-随笔/" itemprop="url">
+                  Java.Web - Session 随笔
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2012-05-30T20:41:50+08:00" content="2012-05-30">
+              2012-05-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Java.Web Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2012/05/30/Java-Web-Session-随笔/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/05/30/Java-Web-Session-随笔/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ul>
+<li><h2 id="什么Session?">什么Session?</h2>指用户用一个浏览器，访问某个网站只要不关闭浏览器，不管用户点击多少个超链接，直到用户关闭浏览器，整个这个过程我们称为一次会话。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建session</span></span><br><span class="line">HttpSession session = request.getSession();</span><br><span class="line"><span class="comment">// 设置session属性，属性重名，value会被替换</span></span><br><span class="line">session.setAttribute(<span class="string">"name"</span>, <span class="string">"gavin"</span>);</span><br><span class="line">session.setAttribute(<span class="string">"pwd"</span>, <span class="string">"123456"</span>);</span><br><span class="line"><span class="comment">// 获取session属性的值，返回的是一个object对象</span></span><br><span class="line">session.getAttribute(<span class="string">"name"</span>);</span><br><span class="line"><span class="comment">// 删除session属性</span></span><br><span class="line">session.removeAttribute(<span class="string">"name"</span>);</span><br></pre></td></tr></table></figure>
+<p>Session的生命周期，可以去conf/web.xml配置，也可在项目下的web.xml配置，代码里面也可以设置。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置一个秒数，这个秒数表示客户端在不发出请求时，session被Servlet引擎维持的最长时间。</span></span><br><span class="line">session.setMaxInactiveInterval(<span class="number">100</span>);</span><br><span class="line"><span class="comment">// 让session中的所有属性解除绑定</span></span><br><span class="line">session.invalidate()</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><h2 id="服务器为每个浏览器提供单个Session服务的原理：">服务器为每个浏览器提供单个Session服务的原理：</h2><p>1.第一次访问web应用时，会创建一个Session服务，然后给浏览器返回一个cookie里面包含了Session的ID<br>2.第二次访问web应用时，cookie里的id会随请求行发给服务器，服务器就能找到ID 对于的Session</p>
+</li>
+<li><h2 id="Session_案例：1-_验证用户合法性；2-_输入验证码的验证；3-_简单的购物车">Session 案例：1. 验证用户合法性；2. 输入验证码的验证；3. 简单的购物车</h2>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2012/05/30/Java-Web-Session-随笔/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/" itemprop="url">
                   Java.WebService - Webservice初体验之调用学院客户端开放接口
                 </a>
@@ -678,135 +798,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2012/04/15/JavaWeb---ServletContext-随笔/" itemprop="url">
-                  Java.Web - ServletContext 随笔
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-04-15T10:26:44+08:00" content="2012-04-15">
-              2012-04-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Java.Web Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2012/04/15/JavaWeb---ServletContext-随笔/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/04/15/JavaWeb---ServletContext-随笔/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Servlet容器在启动时会加载Web应用，并为 每个Web应用创建 唯一的 ServletContext 对象。<br>可以把ServletContext看成是一个Web应用的服务器端组件的共享内存。<br>ServletContext对象只在Web应用被关闭时才被销毁；不同的Web应用 ServletContext各自独立存在。</p>
-<h2 id="在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法:">在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法:</h2><ul>
-<li>1）setAttribute(String name,Object object);//把一个对象和一个属性名绑定，将这个对象存储在ServletContext中；</li>
-<li>2）getAttribute(String name);//根据指定的属 性名返回所绑定的对象；</li>
-<li>3）removeAttribute(String name);//根据给定的属性名从ServletContext中删除相应的操作；</li>
-<li>4）getAttributeNames();//返回Enumeration对象，它包含了存储在ServletContext对象中的所有属性名</li>
-</ul>
-<h3 id="ServletContext_VS_Session">ServletContext VS Session</h3><ul>
-<li>ServletContext和Session相同，都是存在服务器端的东西</li>
-<li>ServletContext和Session不同，ServletVontext是所有浏览器共享的， Session是一个浏览器对应一个session</li>
-</ul>
-<p>ServletContext 案例：1.公共聊天室缓存 2.聊天室的在线人数</p>
-<h2 id="ServletContext_实现转发：//和派发器是一样的">ServletContext 实现转发：//和派发器是一样的</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.getServletContext().getRequestDispatcher(<span class="string">"/servlet2"</span>).forward(request,response);</span><br><span class="line"><span class="keyword">this</span>.getServletContext().getRequestDispatcher(<span class="string">"/servlet2"</span>).include(request, response);</span><br></pre></td></tr></table></figure>
-<p>注意：forward与include的区别 </p>
-<ul>
-<li>forward方法是把请求的内容转发到另外的一个servlet.include是把另一个servlet处理过后的内容拿过来.</li>
-<li>forward方法调用后在响应中的没有提交的内容被自动消除。将请求转发给其他的Servlet后，由被调用的Servlet负责对请求做出响应，而原先Servlet的执行则终止</li>
-<li>include方法使原先的Servlet和转发到的Servlet都可以输出响应信息，即原先的Servlet还可以继续输出响应信息
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2012/04/15/JavaWeb---ServletContext-随笔/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
 
   </section>
 
@@ -853,7 +844,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">77</span>
+              <span class="site-state-item-count">78</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -867,7 +858,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">49</span>
+              <span class="site-state-item-count">50</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
