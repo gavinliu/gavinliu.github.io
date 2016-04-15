@@ -69,7 +69,7 @@
 <meta property="og:description" content="git-repogit-repo是Google推出的管理多个git项目的工具，主要被运用在Android系统源码的管理上。
 国内访问不了Google，repo版本可以选择Github上的优化版本：git-repo
 安装12curl https://raw.githubusercontent.com/esrlabs/git-repo/stable/repo &amp;gt; ~/bin/repochmod">
-<meta property="og:updated_time" content="2016-04-15T16:27:49.000Z">
+<meta property="og:updated_time" content="2016-04-15T16:37:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git - 使用Repo管理你的Git项目">
 <meta name="twitter:description" content="git-repogit-repo是Google推出的管理多个git项目的工具，主要被运用在Android系统源码的管理上。
@@ -340,6 +340,7 @@
         <h2 id="git-repo">git-repo</h2><p><code>git-repo</code>是Google推出的管理<strong>多个git项目</strong>的工具，主要被运用在Android系统源码的管理上。</p>
 <p>国内访问不了Google，repo版本可以选择Github上的优化版本：<a href="https://github.com/esrlabs/git-repo" target="_blank" rel="external">git-repo</a></p>
 <h3 id="安装">安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://raw.githubusercontent.com/esrlabs/git-repo/stable/repo &gt; ~/bin/repo</span><br><span class="line">chmod a+x ~/bin/repo</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="基本操作">基本操作</h3><figure class="highlight bash"><figcaption><span>初始化</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo init -u [url] -b [branch]</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><figcaption><span>同步</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo sync</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><figcaption><span>开始</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 所有项目都切换到某个分支</span></span><br><span class="line">repo start [branch] --all</span><br></pre></td></tr></table></figure>
