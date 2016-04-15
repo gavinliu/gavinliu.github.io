@@ -38,7 +38,7 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android, Java.Web, " />
@@ -52,7 +52,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=0.5.0" />
 
 
 
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
-    sidebar: '[object Object]',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -103,6 +103,10 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+
+
+
+
 
 
 
@@ -143,7 +147,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
@@ -197,11 +201,39 @@
       
 
       
-      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
       
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'eQz6W_tYqnDPxdE5SqsU','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -214,11 +246,139 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
 
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/15/Git-使用Repo管理你的Git项目/" itemprop="url">
+                  Git - 使用Repo管理你的Git项目
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-15T11:19:48+08:00" content="2016-04-15">
+              2016-04-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Git-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Git Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/15/Git-使用Repo管理你的Git项目/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/15/Git-使用Repo管理你的Git项目/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="git-repo">git-repo</h2><p><code>git-repo</code>是Google推出的管理<strong>多个git项目</strong>的工具，主要被运用在Android系统源码的管理上。</p>
+<p>国内访问不了Google，repo版本可以选择Github上的优化版本：<a href="https://github.com/esrlabs/git-repo" target="_blank" rel="external">git-repo</a></p>
+<h3 id="安装">安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://raw.githubusercontent.com/esrlabs/git-repo/stable/repo &gt; ~/bin/repo</span><br><span class="line">chmod a+x ~/bin/repo</span><br></pre></td></tr></table></figure>
+<h3 id="基本操作">基本操作</h3><figure class="highlight bash"><figcaption><span>初始化</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo init -u [url] -b [branch]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>同步</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo sync</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>开始</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 所有项目都切换到某个分支</span></span><br><span class="line">repo start [branch] --all</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>查看分支</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo branches</span><br></pre></td></tr></table></figure>
+<h2 id="基于Github实现repo控制多个项目">基于Github实现repo控制多个项目</h2><h3 id="repo_工作原理">repo 工作原理</h3><p>第一步<code>repo init</code>的时候我们需要提供一个<strong>url</strong>，这个<strong>url</strong>是个清单工程，工程中包含一个<strong>xml</strong>文件，指定了其他项目的路径，<code>repo sync</code>的时候通过这个<strong>xml</strong>，去下载各个项目。</p>
+<h3 id="编写_manifest-xml">编写 manifest.xml</h3><figure class="highlight xml"><figcaption><span>default.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">manifest</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- remote: name 名称，fetch 远程地址。可以有多个remote，通过project.remote可指定不同的remote --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">remote</span> <span class="attribute">name</span>=<span class="value">"origin"</span></span><br><span class="line">          <span class="attribute">fetch</span>=<span class="value">"https://github.com/gavinliu/"</span></span><br><span class="line">          <span class="attribute">review</span>=<span class="value">"https://github.com/gavinliu/"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- default: revision 指定分支，remote 指定remote name，sync-j 同步线程数 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">default</span> <span class="attribute">revision</span>=<span class="value">"master"</span></span><br><span class="line">           <span class="attribute">remote</span>=<span class="value">"origin"</span></span><br><span class="line">           <span class="attribute">sync-j</span>=<span class="value">"4"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- project：path 本地相对路径，name 远程相对路径，完整路径为 remote.fetch + project.name --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">project</span> <span class="attribute">path</span>=<span class="value">"BeautifulOfSin"</span> <span class="attribute">name</span>=<span class="value">"BeautifulOfSin"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">project</span> <span class="attribute">path</span>=<span class="value">"BeautifulOfBezier"</span> <span class="attribute">name</span>=<span class="value">"BeautifulOfBezier"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建_manifest_工程">创建 manifest 工程</h3><p><a href="https://github.com/gavinliu/manifest" target="_blank" rel="external">gavinliu/manifest</a>，添加 <code>default.xml</code></p>
+<h3 id="测试体验">测试体验</h3><figure class="highlight bash"><figcaption><span>1.初始化</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir MyGithub</span><br><span class="line">$ <span class="built_in">cd</span> MyGithub</span><br><span class="line">$ repo init -u git@github.com:gavinliu/manifest.git -b master</span><br><span class="line"></span><br><span class="line">Get git@github.com:gavinliu/manifest.git</span><br><span class="line">remote: Counting objects: <span class="number">4</span>, done.</span><br><span class="line">remote: Compressing objects: <span class="number">100</span>% (<span class="number">3</span>/<span class="number">3</span>), done.</span><br><span class="line">remote: Total <span class="number">4</span> (delta <span class="number">0</span>), reused <span class="number">4</span> (delta <span class="number">0</span>), pack-reused <span class="number">0</span></span><br><span class="line">From github.com:gavinliu/manifest</span><br><span class="line"> * [new branch]      master     -&gt; origin/master</span><br><span class="line">Your identity is: 刘云龙 &lt;gavin6liu@gmail.com&gt;</span><br><span class="line">If you want to change this, please re-run <span class="string">'repo init'</span> with --config-name</span><br><span class="line">repo has been initialized <span class="keyword">in</span> /Users/Gavin/MyGithub</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>2.同步</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ repo sync</span><br><span class="line"></span><br><span class="line">Fetching project BeautifulOfS<span class="keyword">in</span></span><br><span class="line">Fetching project BeautifulOfBezier</span><br><span class="line">remote: Counting objects: <span class="number">77</span>, done.</span><br><span class="line">remote: Compressing objects: <span class="number">100</span>% (<span class="number">44</span>/<span class="number">44</span>), done.</span><br><span class="line">remote: Counting objects: <span class="number">133</span>, done.</span><br><span class="line">remote: Total <span class="number">133</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>), pack-reused <span class="number">133</span></span><br><span class="line">Receiving objects: <span class="number">100</span>% (<span class="number">133</span>/<span class="number">133</span>), <span class="number">38.84</span> KiB | <span class="number">0</span> bytes/s, done.</span><br><span class="line">Resolving deltas: <span class="number">100</span>% (<span class="number">39</span>/<span class="number">39</span>), done.</span><br><span class="line">From https://github.com/gavinliu/BeautifulOfBezier</span><br><span class="line"> * [new branch]      master     -&gt; origin/master</span><br><span class="line">Fetching projects:  <span class="number">50</span>% (<span class="number">1</span>/<span class="number">2</span>)  remote: Total <span class="number">77</span> (delta <span class="number">11</span>), reused <span class="number">77</span> (delta <span class="number">11</span>), pack-reused <span class="number">0</span></span><br><span class="line">From https://github.com/gavinliu/BeautifulOfS<span class="keyword">in</span></span><br><span class="line"> * [new branch]      master     -&gt; origin/master</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>3.切分支</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ repo start master --all</span><br><span class="line">$ repo branches</span><br><span class="line"></span><br><span class="line">*  master                    | <span class="keyword">in</span> all projects</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>4.查看项目</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ ll</span><br><span class="line"></span><br><span class="line">total <span class="number">0</span></span><br><span class="line">drwxr-xr-x  <span class="number">8</span> Gavin  staff  <span class="number">272</span>  <span class="number">4</span> <span class="number">15</span> <span class="number">22</span>:<span class="number">39</span> BeautifulOfBezier</span><br><span class="line">drwxr-xr-x  <span class="number">9</span> Gavin  staff  <span class="number">306</span>  <span class="number">4</span> <span class="number">15</span> <span class="number">22</span>:<span class="number">39</span> BeautifulOfS<span class="keyword">in</span></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">cd</span> BeautifulOfBezier</span><br><span class="line">$ git status</span><br><span class="line"></span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with <span class="string">'origin/master'</span>.</span><br><span class="line">nothing to commit, working directory clean</span><br></pre></td></tr></table></figure>
+<p>最后查看各个项目，都已切换到master分支，代码也都是最新的，成功啦~</p>
+<h2 id="End">End</h2><p>更多repo使用技巧，利用搜索引擎能找到很多资料，这里就不赘述啦。</p>
+
+          
+        
+      
+    </div>
     
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -242,8 +402,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/01/19/Android-adb-forward实现PC和Android的Socket通讯/" itemprop="url">
-                  Android - adb forward实现PC和App的Socket通讯
+                <a class="post-title-link" href="/2016/04/12/Android-实现图片圆角显示的几种方式/" itemprop="url">
+                  Android - 实现图片圆角显示的几种方式
                 </a>
               
             
@@ -256,8 +416,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-19T17:52:26+08:00" content="2016-01-19">
-              2016-01-19
+            <time itemprop="dateCreated" datetime="2016-04-12T20:40:24+08:00" content="2016-04-12">
+              2016-04-12
             </time>
           </span>
 
@@ -286,8 +446,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/19/Android-adb-forward实现PC和Android的Socket通讯/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/19/Android-adb-forward实现PC和Android的Socket通讯/" itemprop="commentsCount"></span>
+                <a href="/2016/04/12/Android-实现图片圆角显示的几种方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/12/Android-实现图片圆角显示的几种方式/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -297,6 +457,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -309,135 +470,26 @@
 
       
         
-          <p>PC端的XX助手和手机App的通讯原理:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 把PC端8000端口的数据, 转发到Android端的9000端口上.</span></span><br><span class="line">adb forward tcp:<span class="number">8000</span> tcp:<span class="number">9000</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><a href="/2012/04/08/JavaWeb---转向-转发-随笔/">什么是转发? </a></p>
-</blockquote>
-<p>执行命令后, PC端的8000端口会被 <code>adb</code> 监听, 这个时候我们只需要往8000端口写数据, 这个数据就会发送到手机端的9000端口上.</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/19/Android-adb-forward实现PC和Android的Socket通讯/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/17/Python-Mac下PyCharm-PyQt5环境搭建/" itemprop="url">
-                  Python - Mac下PyCharm&PyQt5环境搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-17T15:07:07+08:00" content="2016-01-17">
-              2016-01-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Python Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/17/Python-Mac下PyCharm-PyQt5环境搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/17/Python-Mac下PyCharm-PyQt5环境搭建/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>刚学Python的时候都是在文本编辑软件里面写，没有智能提示，效率实在底下，写项目当然要使用现代化的IDE，PyCharm是<code>IntelliJ IDEA</code>的Python版本，是一个非常优秀的IDE。(PS：我的电脑快变成<code>IntelliJ IDEA</code>全家桶了)</p>
-<p>所需软件：</p>
+          <p>在实际开发中我们经常会对图片进行圆角处理，这里做一个小总结，文章结尾还有一个不到100行实现的，支持圆形，圆角和TransitionDrawable的<code>ImageView</code>。</p>
+<p>图片的圆角显示，从实现方法上讲分为两种做法：</p>
 <ol>
-<li>PyQt5</li>
-<li><a href="http://www.jetbrains.com/pycharm/download/">PyCharm</a></li>
+<li>在图片上做</li>
+<li>在控件上做</li>
 </ol>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/17/Python-Mac下PyCharm-PyQt5环境搭建/#more" rel="contents">
+            <a class="btn" href="/2016/04/12/Android-实现图片圆角显示的几种方式/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -476,8 +528,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/01/16/Python-Mac下PyQt5环境搭建/" itemprop="url">
-                  Python - Mac下PyQt5环境搭建
+                <a class="post-title-link" href="/2016/04/09/Android-基于MediaSession的音乐播放流程/" itemprop="url">
+                  Android - 基于MediaSession的音乐播放流程
                 </a>
               
             
@@ -490,8 +542,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-16T23:54:27+08:00" content="2016-01-16">
-              2016-01-16
+            <time itemprop="dateCreated" datetime="2016-04-09T16:54:25+08:00" content="2016-04-09">
+              2016-04-09
             </time>
           </span>
 
@@ -504,8 +556,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Python Notes</span>
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
                   </a>
                 </span>
 
@@ -520,8 +572,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/16/Python-Mac下PyQt5环境搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/16/Python-Mac下PyQt5环境搭建/" itemprop="commentsCount"></span>
+                <a href="/2016/04/09/Android-基于MediaSession的音乐播放流程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/09/Android-基于MediaSession的音乐播放流程/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -531,6 +583,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -543,21 +596,152 @@
 
       
         
-          <p>一直想写一些桌面软件，公司电脑是Ubuntu，个人电脑是Mac，Windows又是用户量最多的，想来想去使用跨平台的开发工具来写才是唯一的选择。</p>
-<p>最终选择使用PyQt，把Python的便利和Qt的兼容完美结合。</p>
-<p>所需软件：</p>
+          <h2 id="概述">概述</h2><p>Android 5.0(Lolippop)更新了新的<code>媒体播放API</code>和<code>媒体类型通知</code>，使用最新的API可以让系统界面能够读取你的媒体播放并提取和显示专辑封面。比如在Lolippop上，播放音乐时锁屏界面背景会变成专辑封面，并且还有播放控制按钮。</p>
+<p>Lolippop之前是使用<code>RemoteControlClient</code>来实现跨界面的播放，新版被 <strong><strong><code>MediaSession</code></strong></strong> 所替代，并且提供了一系列用于处理传输控件和媒体按钮的回调方法，可以让你的媒体播放在<code>Android TV</code>或<code>Wear</code>平台上运行。</p>
+<p>实际测试Lolippop的锁屏兼容了<code>RemoteControlClient</code>和<code>MediaSession</code>两种方式，都可以在锁屏控制媒体播放并提取和显示专辑封面。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/09/Android-基于MediaSession的音乐播放流程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/29/Android-在平坦的道路上曲折前行-插件式开发/" itemprop="url">
+                  Android - 在平坦的道路上曲折前行-插件式开发
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-03-29T13:47:53+08:00" content="2016-03-29">
+              2016-03-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/29/Android-在平坦的道路上曲折前行-插件式开发/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/29/Android-在平坦的道路上曲折前行-插件式开发/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="为何要插件化?">为何要插件化?</h2><p>谈到插件化，在Android环境下可能很多人会说”真邪恶”， “不要脸”，”TMD，自己主动更新，流氓软件！”。</p>
+<p>但业务越来越大的时候，会遇到些问题:</p>
 <ol>
-<li>Python3</li>
-<li><a href="http://download.qt.io/official_releases/qt/5.5/5.5.1/">Qt5</a></li>
-<li><a href="https://www.riverbankcomputing.com/software/sip/download">SIP</a></li>
-<li><a href="https://www.riverbankcomputing.com/software/pyqt/download5">PyQt5</a></li>
+<li>模块越来越多，如何有效的组装各个模块，让不同部门更好的协作开发。</li>
+<li>软件包越来越大，如何更好的降低更新成本。</li>
+<li>如何支持高效的A/B Test，而不是发布不同的包出去。</li>
+<li>…</li>
 </ol>
+<p>这个时候似乎插件化是解决问题的最好方案，对于程序员来说，我们也是一直在想方设法的写<strong>高类聚低耦合</strong>的代码，插件化几乎成了不二之选。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/16/Python-Mac下PyQt5环境搭建/#more" rel="contents">
+            <a class="btn" href="/2016/03/29/Android-在平坦的道路上曲折前行-插件式开发/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -596,8 +780,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/01/10/我的Mac环境-工作流/" itemprop="url">
-                  我的Mac环境&工作流
+                <a class="post-title-link" href="/2016/03/20/机器学习-1-索引/" itemprop="url">
+                  机器学习 - 1.索引
                 </a>
               
             
@@ -610,8 +794,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-10T20:51:53+08:00" content="2016-01-10">
-              2016-01-10
+            <time itemprop="dateCreated" datetime="2016-03-20T16:39:54+08:00" content="2016-03-20">
+              2016-03-20
             </time>
           </span>
 
@@ -624,8 +808,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
-                    <span itemprop="name">刘说八道</span>
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
                   </a>
                 </span>
 
@@ -640,8 +824,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/10/我的Mac环境-工作流/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/10/我的Mac环境-工作流/" itemprop="commentsCount"></span>
+                <a href="/2016/03/20/机器学习-1-索引/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/20/机器学习-1-索引/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -651,6 +835,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -663,13 +848,24 @@
 
       
         
-          <p>工欲善其事，必先利其器</p>
+          <p>前阵子李世石对战AlphaGo着实让深度学习火了一把，AlphaGo 4:1 赢了比赛，确实牛逼，再不学习学习就落伍了，开这篇博客写写学习笔记。</p>
+<h2 id="机器学习_or_深度学习">机器学习 or 深度学习</h2><p>这两个是包含的关系，深度学习属于机器学习的更深入的研究。</p>
+<p>学习的概念：针对经验E (experience) 和一系列的任务 T (tasks) 和一定表现的衡量 P，如果随之经验E的积累，针对定义好的任务T可以提高表现P，就说计算机具有学习能力。</p>
+<h2 id="基本概念">基本概念</h2><p>训练集，测试集，特征值，监督学习，非监督学习，半监督学习，分类，回归</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/10/我的Mac环境-工作流/#more" rel="contents">
+            <a class="btn" href="/2016/03/20/机器学习-1-索引/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -687,126 +883,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/09/幻想被时代选中了/" itemprop="url">
-                  幻想被时代选中了
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-09T21:00:53+08:00" content="2016-01-09">
-              2016-01-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
-                    <span itemprop="name">刘说八道</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/09/幻想被时代选中了/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/09/幻想被时代选中了/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>老罗就像青春期的我们，常常幻想被时代选中了，但真正经历过才发现，很多当年觉得别人白痴的选择，其实都是基于自己不知道的角度的一种妥协。<br>  <div style="text-align:right">— FView测评结语</div></p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/09/幻想被时代选中了/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -847,24 +928,28 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">78</span>
+              <span class="site-state-item-count">86</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">50</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -883,16 +968,18 @@
               <span class="links-of-author-item">
                 <a href="https://github.com/gavinliu" target="_blank">
                   
-                    <i class="fa fa-github"></i> GitHub
+                    <i class="fa fa-github"></i>
                   
+                  GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
                 <a href="http://weibo.com/512315128" target="_blank">
                   
-                    <i class="fa fa-weibo"></i> Weibo
+                    <i class="fa fa-weibo"></i>
                   
+                  Weibo
                 </a>
               </span>
             
@@ -902,7 +989,8 @@
         
         
 
-        <div class="links-of-author motion-element">
+        
+        <div class="links-of-blogroll motion-element">
           
         </div>
 
@@ -925,7 +1013,7 @@
   &copy;  2012 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
 </div>
@@ -946,7 +1034,9 @@
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -954,6 +1044,14 @@
 
   
 
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
@@ -972,28 +1070,28 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
 
 
 
@@ -1026,6 +1124,136 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       tex2jax: {
@@ -1052,8 +1280,8 @@
 
 
   
-  
 
+  
 
 </body>
 </html>

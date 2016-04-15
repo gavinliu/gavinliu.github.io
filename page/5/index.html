@@ -38,7 +38,7 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android, Java.Web, " />
@@ -52,7 +52,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=0.5.0" />
 
 
 
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
-    sidebar: '[object Object]',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -103,6 +103,10 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+
+
+
+
 
 
 
@@ -143,7 +147,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
@@ -197,11 +201,39 @@
       
 
       
-      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
       
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'eQz6W_tYqnDPxdE5SqsU','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -214,12 +246,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-
-    
-
-    
-    
-
     
       
 
@@ -242,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/06/18/在Ubuntu中安装Xware迅雷远程下载/" itemprop="url">
-                  在Ubuntu中安装Xware迅雷远程下载
+                <a class="post-title-link" href="/2015/11/18/Android-内存泄露分析/" itemprop="url">
+                  Android - 内存泄露分析
                 </a>
               
             
@@ -256,106 +282,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-06-18T12:44:01+08:00" content="2015-06-18">
-              2015-06-18
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/06/18/在Ubuntu中安装Xware迅雷远程下载/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/18/在Ubuntu中安装Xware迅雷远程下载/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>公司的电脑平时一直处于开机状态, 压榨电脑的剩余价值, 网速又好, 寻思着弄成下载机, 迅雷给路由器做的版本叫Xware, 找了下发现有x86版本, 顺势装在Ubuntu上了.</p>
-<p><a href="http://pan.baidu.com/s/1dDEprRN">Xware1.0.31 点击下载</a></p>
-<figure class="highlight bash"><figcaption><span>解压后有四个文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin <span class="number">4.1</span>M  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> EmbedThunderManager</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin  <span class="number">24</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> ETMDaemon</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin <span class="number">111</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> portal</span><br><span class="line">-rw-rw-rw- <span class="number">1</span> gavin gavin  <span class="number">23</span>K  <span class="number">8</span>月 <span class="number">27</span>  <span class="number">2014</span> vod_httpserver</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><figcaption><span>执行./portal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">initing...</span><br><span class="line">try stopping xunlei service first...</span><br><span class="line">killall: ETMDaemon: no process killed</span><br><span class="line">killall: EmbedThunderManager: no process killed</span><br><span class="line">killall: vod_httpserver: no process killed</span><br><span class="line">setting xunlei runtime env...</span><br><span class="line">port: <span class="number">9000</span> is usable.</span><br><span class="line"></span><br><span class="line">YOUR CONTROL PORT IS: <span class="number">9000</span></span><br><span class="line"></span><br><span class="line">starting xunlei service...</span><br><span class="line">etm path: /home/gavin/Software/Xware1.<span class="number">0.31</span>_x86_32_glibc</span><br><span class="line">execv: /home/gavin/Software/Xware1.<span class="number">0.31</span>_x86_32_glibc/lib/ETMDaemon.</span><br><span class="line"></span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span> (<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>)</span><br><span class="line">the active key is not valid.</span><br><span class="line"></span><br><span class="line">try again...(has tried <span class="number">1</span> time(s)).</span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span> (<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>)</span><br><span class="line"></span><br><span class="line">THE ACTIVE CODE IS: ******</span><br><span class="line"></span><br><span class="line">go to http://yuancheng.xunlei.com, <span class="built_in">bind</span> your device with the active code.</span><br><span class="line">finished.</span><br></pre></td></tr></table></figure>
-<p>把 ACTIVE CODE 填入 <a href="http://yuancheng.xunlei.com/">http://yuancheng.xunlei.com/</a> 中, 就算完成了.</p>
-<p>完成上一步, 还有个问题, xware是针对嵌入式设备的, xware只会检测挂载到/media目录下可写的设备, 所以我们需要把本地的某个文件夹, 挂载到/media, 同时我们又不希望一插入U盘就被识别为xware可用目录, 于是我们还需要换一个用户专门用来启动xware.</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/18/在Ubuntu中安装Xware迅雷远程下载/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/10/Android-ListView奇淫绝技/" itemprop="url">
-                  Android - ListView 奇淫绝技
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-06-10T19:40:55+08:00" content="2015-06-10">
-              2015-06-10
+            <time itemprop="dateCreated" datetime="2015-11-18T17:39:40+08:00" content="2015-11-18">
+              2015-11-18
             </time>
           </span>
 
@@ -384,8 +312,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/06/10/Android-ListView奇淫绝技/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/10/Android-ListView奇淫绝技/" itemprop="commentsCount"></span>
+                <a href="/2015/11/18/Android-内存泄露分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/18/Android-内存泄露分析/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -395,6 +323,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -407,123 +336,132 @@
 
       
         
-          <p>问题: 如果你遇到下面这样的界面会怎样实现呢?<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> ————————————</span><br><span class="line">|            |</span><br><span class="line">|            |</span><br><span class="line"> ————————————</span><br><span class="line"> —————  —————</span><br><span class="line">|     ||     |</span><br><span class="line"> —————  —————</span><br><span class="line"> ——   ——   ——</span><br><span class="line">|  | |  | |  |</span><br><span class="line"> ——   ——   ——</span><br><span class="line"> —————   ————</span><br><span class="line">|     | |    |</span><br><span class="line">|     |  ————</span><br><span class="line">|     |  ————</span><br><span class="line">|     | |    |</span><br><span class="line">|     |  ————</span><br><span class="line">|     |  ————</span><br><span class="line">|     | |    |</span><br><span class="line"> —————   ————</span><br></pre></td></tr></table></figure></p>
+          
+            <h2 id="通过adb_shell查看内存泄露">通过<code>adb shell</code>查看内存泄露</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys meminfo &#21253;&#21517;</span><br></pre></td></tr></table></figure>
+<h2 id="MAT工具">MAT工具</h2><h3 id="Dump_内存堆">Dump 内存堆</h3><h3 id="MAT工具_使用技巧">MAT工具 使用技巧</h3><h2 id="Android_内存泄露自动检测库">Android 内存泄露自动检测库</h2>
+          
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/09/Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析/" itemprop="url">
+                  Newifi Mini(Y1) 动手玩(3) - DDNS动态域名解析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-09T21:30:02+08:00" content="2015-10-09">
+              2015-10-09
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="安装_ddns">安装 ddns</h2><p>Openwrt系统应该是预装了ddns，小云OS没有预装ddns，我们可以通过opkg装上ddns</p>
+<ul>
+<li><p>配置 opkg<br>  可参考 <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/">Newifi Mini(Y1) 动手玩(2) - opkg</a></p>
+</li>
+<li><p>在管理页面搜索 <code>ddns</code></p>
+</li>
+</ul>
+<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析1.png" alt=""></p>
+<ul>
+<li>安装 <code>ddns-scripts</code> 和 <code>luci-app-ddns</code></li>
+</ul>
+<p>安装完成即可在 服务中找到动态DNS页面
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/10/Android-ListView奇淫绝技/#more" rel="contents">
+            <a class="btn" href="/2015/10/09/Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
         
       
     </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
     
+    <div>
       
+    </div>
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/05/25/Android-Animation-次序之美/" itemprop="url">
-                  Android - Animation 次序之美
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-05-25T15:58:11+08:00" content="2015-05-25">
-              2015-05-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/05/25/Android-Animation-次序之美/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/25/Android-Animation-次序之美/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>占坑，博客计划中…</p>
-
-          
-        
+    <div>
       
     </div>
 
@@ -562,8 +500,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/05/12/编程技巧-神奇的1-2-4-8和按位运算符/" itemprop="url">
-                  编程技巧 - 神奇的1,2,4,8和按位运算符
+                <a class="post-title-link" href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/" itemprop="url">
+                  Newifi Mini(Y1) 动手玩(2) - opkg
                 </a>
               
             
@@ -576,38 +514,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-05-12T16:05:39+08:00" content="2015-05-12">
-              2015-05-12
+            <time itemprop="dateCreated" datetime="2015-10-09T20:55:36+08:00" content="2015-10-09">
+              2015-10-09
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/编程技巧/" itemprop="url" rel="index">
-                    <span itemprop="name">编程技巧</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/05/12/编程技巧-神奇的1-2-4-8和按位运算符/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/12/编程技巧-神奇的1-2-4-8和按位运算符/" itemprop="commentsCount"></span>
+                <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -617,6 +536,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -629,17 +549,40 @@
 
       
         
-          <h2 id="概述">概述</h2><p>在编程过程中发现有很多源码里面会定义1,2,4,8等这样的常量,比如说Android的ActionBar关于显示的常量:</p>
-<figure class="highlight java"><figcaption><span>android.app.ActionBar</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_USE_LOGO = <span class="number">0x1</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_SHOW_HOME = <span class="number">0x2</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_HOME_AS_UP = <span class="number">0x4</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_SHOW_TITLE = <span class="number">0x8</span>;</span><br></pre></td></tr></table></figure>
-<p>为什么会这样设计呢?下面告诉你.
+          <h2 id="opkg_?">opkg ?</h2><p>opkg是openwrt里的软件包管理器，类似Mac下的brew、Ubuntu下的apt-get等，命令位于<code>/bin/opkg</code></p>
+<p>由于openwrt是嵌入式系统，硬件复杂，我们需要把opkg的源和Newifi Mini(Y1)的硬件相匹配。</p>
+<h2 id="配置源">配置源</h2><p>Y1使用的是 mt7620a 这枚cpu，我们需要使用 mt7620a 的源</p>
+<p>openwrt官方源：</p>
+<p><a href="http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/">http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/</a><br><a href="http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/">http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/</a></p>
+<blockquote>
+<p>需要说明的是 PandoraBox 和 小云OS 都是基于 <code>openwrt 14.07</code> 开发的</p>
+</blockquote>
+<p>由于众所周知的原因直接访问openwrt.org是非常慢，我们可以使用代理 <code>mirrors.ustc.edu.cn</code> 或者 <code>downloads.openwrt.org.cn</code></p>
+<p>两种方式：</p>
+<ul>
+<li><code>ssh</code>连接到路由器后使用<code>vi</code>修改配置文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/opkg.conf</span><br></pre></td></tr></table></figure>
+<ul>
+<li>管理页面：OpenWrt 系统-&gt;软件包-&gt;配置；小云OS 高级设置-&gt;系统-&gt;软件包-&gt;配置</li>
+</ul>
+<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-2-opkg1.png" alt="">
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/12/编程技巧-神奇的1-2-4-8和按位运算符/#more" rel="contents">
+            <a class="btn" href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
         
       
     </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
 
     <footer class="post-footer">
       
@@ -676,8 +619,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/05/08/Android-开源库EventCast/" itemprop="url">
-                  Android - 开源库EventCast
+                <a class="post-title-link" href="/2015/10/09/Newifi-Mini-Y1-动手玩-1-刷机/" itemprop="url">
+                  Newifi Mini(Y1) 动手玩(1) - 刷机
                 </a>
               
             
@@ -690,38 +633,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-05-08T16:01:08+08:00" content="2015-05-08">
-              2015-05-08
+            <time itemprop="dateCreated" datetime="2015-10-09T10:36:17+08:00" content="2015-10-09">
+              2015-10-09
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/05/08/Android-开源库EventCast/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/08/Android-开源库EventCast/" itemprop="commentsCount"></span>
+                <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-1-刷机/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Newifi-Mini-Y1-动手玩-1-刷机/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -731,6 +655,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -743,18 +668,35 @@
 
       
         
-          <h2 id="概述">概述</h2><p><a href="https://github.com/gavinliu/EventCast">EventCast</a>是一个事件分发的开源库, GitHub中也有很多类似的库, 比如<a href="https://github.com/greenrobot/EventBus">EventBus</a>, <a href="https://github.com/square/otto">otto</a>, <a href="https://github.com/bboyfeiyu/AndroidEventBus">AndroidEventBus</a>, 但是还是觉得自己写的比较顺手, 所以产生了EventCast. </p>
-<p><code>AndroidEventBus</code>是<code>EventBus</code>和<code>otto</code>合并的产物, <code>EventCast</code>也借鉴<code>AndroidEventBus</code>些代码, 和他们不同的是:</p>
-<ol>
-<li>支持多参数传递</li>
-<li>定义了两种接收器</li>
+          
+            <p>Newifi 本身就带有一个不死uBoot，所以可以很方便的刷机，这也是我为什么没有买极路由的原因。</p>
+<p>刚刚买回来的Newifi是<code>如意云 1.0</code>的系统，这个系统很难用，建议买回来刷 <code>小云OS 2.0</code> 或者 <code>OpenWrt</code> 或者 <code>PandoraBox</code></p>
+<p>官方固件下载地址：<a href="http://www.newbd.com/topic/download/index.html" target="_blank" rel="external">http://www.newbd.com/topic/download/index.html</a><br>OpenWrt下载地址：<a href="http://downloads.openwrt.org/chaos_calmer/15.05-rc2/ramips/mt7620/" target="_blank" rel="external">http://downloads.openwrt.org/chaos_calmer/15.05-rc2/ramips/mt7620/</a><br>PandoraBox下载地址：<a href="http://downloads.openwrt.org.cn/PandoraBox/Lenovo-Y1_RY-1S/firmware/stable/" target="_blank" rel="external">http://downloads.openwrt.org.cn/PandoraBox/Lenovo-Y1_RY-1S/firmware/stable/</a></p>
+<h2 id="uBoot_刷机">uBoot 刷机</h2><ol>
+<li>修改电脑IP为192.168.1.10</li>
+<li>路由器通电，然后拔掉，然后点击reset键，然后通电</li>
+<li>电脑网线链接路由器Wan口</li>
+<li>电脑浏览器访问192.168.1.1</li>
+<li>上传固件，点击恢复</li>
+<li>路由器升级重启后，把电脑IP修改为自动获取即可</li>
 </ol>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/08/Android-开源库EventCast/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+<p>官方固件路由器IP是：192.168.99.1，OpenWrt和PandoraBox是：192.168.1.1</p>
+<h2 id="三个系统的区别">三个系统的区别</h2><ol>
+<li>OpenWrt 最纯净</li>
+<li>PandoraBox 基于OpenWrt做了本地优化</li>
+<li>小云OS 2.0 官方系统，基于OpenWrt做了本地优化，支持手机客户端等。</li>
+</ol>
+
+          
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -772,12 +714,155 @@
 
 
     
+      
 
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/08/12/Android-多屏适配实践/" itemprop="url">
+                  Android - 多屏适配实践
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-08-12T19:59:01+08:00" content="2015-08-12">
+              2015-08-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/08/12/Android-多屏适配实践/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/12/Android-多屏适配实践/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="概述">概述</h1><p>Android开发中面对这么多机型，这么多大小不一的手机屏幕，需要寻求一种高效的多屏适配方案，本文只针对不支持转屏的应用。</p>
+<h2 id="问题">问题</h2><p>一般来说应用的适配可分一下几个内容：</p>
+<ol>
+<li>系统组件(Actionbar，Dialog， Pupupmenu…)</li>
+<li>控件块区(View的大小，间距)</li>
+<li>图文相关(文字大小，图片)</li>
+</ol>
+<h2 id="方案">方案</h2><ol>
+<li>系统组件：使用相关Compat库+自定义View的方式</li>
+<li>控件块区：控件的位置大小，使用dp + 百分比缩放的方式</li>
+<li>图文相关：文子大小使用sp，或者根据需要使用百分比缩放</li>
+</ol>
+<h1 id="适配细节">适配细节</h1><h2 id="一、Android原生dp">一、Android原生dp</h2><h2 id="二、百分比缩放">二、百分比缩放</h2><h3 id="已知库">已知库</h3><ol>
+<li><p>android-percent-support-lib<br> 宽高只能和父容器的宽高对应比例。</p>
+</li>
+<li><p>android-percent-support-lib-<br> 基于上面扩展，实现可以分别选择占父容器的比例。</p>
+</li>
+</ol>
+<p>然而对于这样的在布局文件中直接定义百分比的方式，存在两大问题</p>
+<ol>
+<li>计算麻烦<br> 视觉给你标注图肯定都是标的真实的长度，百分比还得自己计算。</li>
+<li>精度丢失<br> 如果效果图的父容器宽是1080px，子View的宽是38px，占3.3333~%，1080 * 3% = 32；1080 * 3.3% = 35 无论取什么值，连视觉的设计样本都会偏移像素。</li>
+</ol>
+<h3 id="最终方案">最终方案</h3>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/08/12/Android-多屏适配实践/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -818,24 +903,28 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">78</span>
+              <span class="site-state-item-count">86</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">50</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -854,16 +943,18 @@
               <span class="links-of-author-item">
                 <a href="https://github.com/gavinliu" target="_blank">
                   
-                    <i class="fa fa-github"></i> GitHub
+                    <i class="fa fa-github"></i>
                   
+                  GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
                 <a href="http://weibo.com/512315128" target="_blank">
                   
-                    <i class="fa fa-weibo"></i> Weibo
+                    <i class="fa fa-weibo"></i>
                   
+                  Weibo
                 </a>
               </span>
             
@@ -873,7 +964,8 @@
         
         
 
-        <div class="links-of-author motion-element">
+        
+        <div class="links-of-blogroll motion-element">
           
         </div>
 
@@ -896,7 +988,7 @@
   &copy;  2012 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
 </div>
@@ -917,7 +1009,9 @@
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -925,6 +1019,14 @@
 
   
 
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
@@ -943,28 +1045,28 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
 
 
 
@@ -997,6 +1099,136 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       tex2jax: {
@@ -1023,8 +1255,8 @@
 
 
   
-  
 
+  
 
 </body>
 </html>

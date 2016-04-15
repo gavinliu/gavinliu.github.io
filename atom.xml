@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Focus on Mobile Develop]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://gavinliu.cn/"/>
-  <updated>2016-01-19T13:20:21.000Z</updated>
+  <updated>2016-04-15T16:27:49.000Z</updated>
   <id>http://gavinliu.cn/</id>
   
   <author>
@@ -13,6 +13,378 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Git - 使用Repo管理你的Git项目]]></title>
+    <link href="http://gavinliu.cn/2016/04/15/Git-%E4%BD%BF%E7%94%A8Repo%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84Git%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://gavinliu.cn/2016/04/15/Git-使用Repo管理你的Git项目/</id>
+    <published>2016-04-15T03:19:48.000Z</published>
+    <updated>2016-04-15T16:27:49.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="git-repo">git-repo</h2><p><code>git-repo</code>是Google推出的管理<strong>多个git项目</strong>的工具，主要被运用在Android系统源码的管理上。</p>
+<p>国内访问不了Google，repo版本可以选择Github上的优化版本：<a href="https://github.com/esrlabs/git-repo" target="_blank" rel="external">git-repo</a></p>
+<h3 id="安装">安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://raw.githubusercontent.com/esrlabs/git-repo/stable/repo &gt; ~/bin/repo</span><br><span class="line">chmod a+x ~/bin/repo</span><br></pre></td></tr></table></figure>
+<h3 id="基本操作">基本操作</h3><figure class="highlight bash"><figcaption><span>初始化</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo init -u [url] -b [branch]</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>同步</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo sync</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>开始</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 所有项目都切换到某个分支</span></span><br><span class="line">repo start [branch] --all</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>查看分支</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">repo branches</span><br></pre></td></tr></table></figure>
+<h2 id="基于Github实现repo控制多个项目">基于Github实现repo控制多个项目</h2><h3 id="repo_工作原理">repo 工作原理</h3><p>第一步<code>repo init</code>的时候我们需要提供一个<strong>url</strong>，这个<strong>url</strong>是个清单工程，工程中包含一个<strong>xml</strong>文件，指定了其他项目的路径，<code>repo sync</code>的时候通过这个<strong>xml</strong>，去下载各个项目。</p>
+<h3 id="编写_manifest-xml">编写 manifest.xml</h3><figure class="highlight xml"><figcaption><span>default.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">manifest</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- remote: name 名称，fetch 远程地址。可以有多个remote，通过project.remote可指定不同的remote --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">remote</span> <span class="attribute">name</span>=<span class="value">"origin"</span></span><br><span class="line">          <span class="attribute">fetch</span>=<span class="value">"https://github.com/gavinliu/"</span></span><br><span class="line">          <span class="attribute">review</span>=<span class="value">"https://github.com/gavinliu/"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- default: revision 指定分支，remote 指定remote name，sync-j 同步线程数 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">default</span> <span class="attribute">revision</span>=<span class="value">"master"</span></span><br><span class="line">           <span class="attribute">remote</span>=<span class="value">"origin"</span></span><br><span class="line">           <span class="attribute">sync-j</span>=<span class="value">"4"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- project：path 本地相对路径，name 远程相对路径，完整路径为 remote.fetch + project.name --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">project</span> <span class="attribute">path</span>=<span class="value">"BeautifulOfSin"</span> <span class="attribute">name</span>=<span class="value">"BeautifulOfSin"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">project</span> <span class="attribute">path</span>=<span class="value">"BeautifulOfBezier"</span> <span class="attribute">name</span>=<span class="value">"BeautifulOfBezier"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建_manifest_工程">创建 manifest 工程</h3><p><a href="https://github.com/gavinliu/manifest" target="_blank" rel="external">gavinliu/manifest</a>，添加 <code>default.xml</code></p>
+<h3 id="测试体验">测试体验</h3><figure class="highlight bash"><figcaption><span>1.初始化</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir MyGithub</span><br><span class="line">$ <span class="built_in">cd</span> MyGithub</span><br><span class="line">$ repo init -u git@github.com:gavinliu/manifest.git -b master</span><br><span class="line"></span><br><span class="line">Get git@github.com:gavinliu/manifest.git</span><br><span class="line">remote: Counting objects: <span class="number">4</span>, done.</span><br><span class="line">remote: Compressing objects: <span class="number">100</span>% (<span class="number">3</span>/<span class="number">3</span>), done.</span><br><span class="line">remote: Total <span class="number">4</span> (delta <span class="number">0</span>), reused <span class="number">4</span> (delta <span class="number">0</span>), pack-reused <span class="number">0</span></span><br><span class="line">From github.com:gavinliu/manifest</span><br><span class="line"> * [new branch]      master     -&gt; origin/master</span><br><span class="line">Your identity is: 刘云龙 &lt;gavin6liu@gmail.com&gt;</span><br><span class="line">If you want to change this, please re-run <span class="string">'repo init'</span> with --config-name</span><br><span class="line">repo has been initialized <span class="keyword">in</span> /Users/Gavin/MyGithub</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>2.同步</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ repo sync</span><br><span class="line"></span><br><span class="line">Fetching project BeautifulOfS<span class="keyword">in</span></span><br><span class="line">Fetching project BeautifulOfBezier</span><br><span class="line">remote: Counting objects: <span class="number">77</span>, done.</span><br><span class="line">remote: Compressing objects: <span class="number">100</span>% (<span class="number">44</span>/<span class="number">44</span>), done.</span><br><span class="line">remote: Counting objects: <span class="number">133</span>, done.</span><br><span class="line">remote: Total <span class="number">133</span> (delta <span class="number">0</span>), reused <span class="number">0</span> (delta <span class="number">0</span>), pack-reused <span class="number">133</span></span><br><span class="line">Receiving objects: <span class="number">100</span>% (<span class="number">133</span>/<span class="number">133</span>), <span class="number">38.84</span> KiB | <span class="number">0</span> bytes/s, done.</span><br><span class="line">Resolving deltas: <span class="number">100</span>% (<span class="number">39</span>/<span class="number">39</span>), done.</span><br><span class="line">From https://github.com/gavinliu/BeautifulOfBezier</span><br><span class="line"> * [new branch]      master     -&gt; origin/master</span><br><span class="line">Fetching projects:  <span class="number">50</span>% (<span class="number">1</span>/<span class="number">2</span>)  remote: Total <span class="number">77</span> (delta <span class="number">11</span>), reused <span class="number">77</span> (delta <span class="number">11</span>), pack-reused <span class="number">0</span></span><br><span class="line">From https://github.com/gavinliu/BeautifulOfS<span class="keyword">in</span></span><br><span class="line"> * [new branch]      master     -&gt; origin/master</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>3.切分支</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ repo start master --all</span><br><span class="line">$ repo branches</span><br><span class="line"></span><br><span class="line">*  master                    | <span class="keyword">in</span> all projects</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>4.查看项目</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ ll</span><br><span class="line"></span><br><span class="line">total <span class="number">0</span></span><br><span class="line">drwxr-xr-x  <span class="number">8</span> Gavin  staff  <span class="number">272</span>  <span class="number">4</span> <span class="number">15</span> <span class="number">22</span>:<span class="number">39</span> BeautifulOfBezier</span><br><span class="line">drwxr-xr-x  <span class="number">9</span> Gavin  staff  <span class="number">306</span>  <span class="number">4</span> <span class="number">15</span> <span class="number">22</span>:<span class="number">39</span> BeautifulOfS<span class="keyword">in</span></span><br><span class="line"></span><br><span class="line">$ <span class="built_in">cd</span> BeautifulOfBezier</span><br><span class="line">$ git status</span><br><span class="line"></span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with <span class="string">'origin/master'</span>.</span><br><span class="line">nothing to commit, working directory clean</span><br></pre></td></tr></table></figure>
+<p>最后查看各个项目，都已切换到master分支，代码也都是最新的，成功啦~</p>
+<h2 id="End">End</h2><p>更多repo使用技巧，利用搜索引擎能找到很多资料，这里就不赘述啦。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="git-repo">git-repo</h2><p><code>git-repo</code>是Google推出的管理<strong>多个git项目</strong>的工具，主要被运用在Android系统源码的管理上。</p>
+<p>国内访问不了Google，re]]>
+    </summary>
+    
+      <category term="git" scheme="http://gavinliu.cn/tags/git/"/>
+    
+      <category term="git-repo" scheme="http://gavinliu.cn/tags/git-repo/"/>
+    
+      <category term="repo" scheme="http://gavinliu.cn/tags/repo/"/>
+    
+      <category term="Git Notes" scheme="http://gavinliu.cn/categories/Git-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - 实现图片圆角显示的几种方式]]></title>
+    <link href="http://gavinliu.cn/2016/04/12/Android-%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E5%9C%86%E8%A7%92%E6%98%BE%E7%A4%BA%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
+    <id>http://gavinliu.cn/2016/04/12/Android-实现图片圆角显示的几种方式/</id>
+    <published>2016-04-12T12:40:24.000Z</published>
+    <updated>2016-04-15T11:43:40.000Z</updated>
+    <content type="html"><![CDATA[<p>在实际开发中我们经常会对图片进行圆角处理，这里做一个小总结，文章结尾还有一个不到100行实现的，支持圆形，圆角和TransitionDrawable的<code>ImageView</code>。</p>
+<p>图片的圆角显示，从实现方法上讲分为两种做法：</p>
+<ol>
+<li>在图片上做</li>
+<li>在控件上做</li>
+</ol>
+<a id="more"></a>
+<p>从代码上讲，均使用 Android Graphics API：</p>
+<ul>
+<li>Xfermodes</li>
+<li>Regions</li>
+<li>Canvas.drawRoundRect</li>
+<li>Canvas.clipPath</li>
+<li>GradientDrawable.setCornerRadii</li>
+</ul>
+<p>圆角和圆形的处理方式可以统一成一种，当圆角大小等于图片宽的一半时候，就变成了圆形。</p>
+<h2 id="原理">原理</h2><h3 id="Clip_+_Region">Clip + Region</h3><p><img src="/images/2016.04.12 - Android-实现图片圆角显示的几种方式1.jpg" alt=""></p>
+<ul>
+<li>Region.Op.UNION：显示两层。</li>
+<li>Region.Op.XOR：去交集，显示两层。</li>
+<li>Region.Op.DIFFERENCE：去交集，显示下层。</li>
+<li>Region.Op.INTERSECT：取交集，显示上层。</li>
+</ul>
+<h3 id="Xfermodes">Xfermodes</h3><p><img src="/images/2016.04.12 - Android-实现图片圆角显示的几种方式2.jpg" alt=""></p>
+<ul>
+<li>PorterDuff.Mode.SRC_IN：取交集，显示上层。</li>
+<li>PorterDuff.Mode.DST_IN：取交集，显示下层。</li>
+</ul>
+<h2 id="示例">示例</h2><p><img src="/images/2016.04.12 - Android-实现图片圆角显示的几种方式3.png" alt=""></p>
+<p>示例源码：<a href="https://github.com/gavinliu/BeautifulOfRoundedBitmap" target="_blank" rel="external">https://github.com/gavinliu/BeautifulOfRoundedBitmap</a></p>
+<h3 id="在图片上做">在图片上做</h3><blockquote>
+<p>把图片裁剪成圆角图片<br>优点：节约内存</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Bitmap <span class="title">getRoundRectBitmap</span><span class="params">(Bitmap bitmap, <span class="keyword">int</span> radius)</span> </span>&#123;</span><br><span class="line">    Paint paint = <span class="keyword">new</span> Paint();</span><br><span class="line">    paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">    paint.setFilterBitmap(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> bmWidth = bitmap.getWidth();</span><br><span class="line">    <span class="keyword">int</span> bmHeight = bitmap.getHeight();</span><br><span class="line">    <span class="keyword">final</span> RectF rectF = <span class="keyword">new</span> RectF(<span class="number">0</span>, <span class="number">0</span>, width, height);</span><br><span class="line"></span><br><span class="line">    Canvas canvas = <span class="keyword">new</span> Canvas(bitmap);</span><br><span class="line"></span><br><span class="line">    paint.setXfermode(<span class="keyword">null</span>);</span><br><span class="line">    canvas.drawRoundRect(rectF, radius, radius, paint);</span><br><span class="line">    paint.setXfermode(<span class="keyword">new</span> PorterDuffXfermode(Mode.SRC_IN));</span><br><span class="line">    canvas.drawBitmap(bitmap, rect, rectF, paint);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> bitmap;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="在控件上做">在控件上做</h3><blockquote>
+<p>控件绘制的时候，控制显示区域<br>优点：方便省事，适合各种图片框架</p>
+</blockquote>
+<figure class="highlight java"><figcaption><span>ImageView</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> saveCount = canvas.getSaveCount();</span><br><span class="line">    canvas.save();</span><br><span class="line">    <span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line"></span><br><span class="line">    mPaint.setXfermode(<span class="keyword">new</span> PorterDuffXfermode(PorterDuff.Mode.DST_IN));</span><br><span class="line">    canvas.drawRoundRect(rectF, radius, radius, mPaint);</span><br><span class="line"></span><br><span class="line">    canvas.restoreToCount(saveCount);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="开源库：不到百行代码的圆角ImageView">开源库：不到百行代码的圆角ImageView</h2><blockquote>
+<p>面对网上各种CircleImageView，各种还可以自定义形状的ImageView，根本不知道选那个好，或许你就只想要一个能显示圆角的ImageView而已，网上的都太复杂，或者有使用限制，譬如说3K+ Star的<a href="https://github.com/hdodenhof/CircleImageView" target="_blank" rel="external">CircleImageView</a>不支持TransitionDrawable。<br><img src="/images/2016.04.12 - Android-实现图片圆角显示的几种方式.png" alt=""></p>
+</blockquote>
+<h3 id="ShapedImageView"><a href="https://github.com/gavinliu/ShapedImageView" target="_blank" rel="external">ShapedImageView</a></h3><ul>
+<li>简洁，不到<strong><em>100</em></strong>行代码： <a href="https://github.com/gavinliu/ShapedImageView/blob/master/ShapedImageView%2Fsrc%2Fmain%2Fjava%2Fcn%2Fgavinliu%2Fandroid%2Flib%2Fshapedimageview%2FShapedImageView.java" target="_blank" rel="external">ShapedImageView.java</a></li>
+<li>支持<code>圆形</code> <code>圆角矩形</code></li>
+<li>支持<code>TransitionDrawable</code></li>
+</ul>
+<p><img src="/images/2016.04.12 - Android-实现图片圆角显示的几种方式4.png" alt=""></p>
+<h4 id="dependencies">dependencies</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile &#39;cn.gavinliu.android.lib:ShapedImageView:0.4&#39;</span><br></pre></td></tr></table></figure>
+<h4 id="attr">attr</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">resources</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">declare-styleable</span> <span class="attribute">name</span>=<span class="value">"ShapedImageView"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"shape_mode"</span> <span class="attribute">format</span>=<span class="value">"enum"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">enum</span> <span class="attribute">name</span>=<span class="value">"round_rect"</span> <span class="attribute">value</span>=<span class="value">"1"</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">enum</span> <span class="attribute">name</span>=<span class="value">"circle"</span> <span class="attribute">value</span>=<span class="value">"2"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">attr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"round_radius"</span> <span class="attribute">format</span>=<span class="value">"dimension"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">declare-styleable</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="Circle">Circle</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;cn.gavinliu.android.lib.shapedimageview.ShapedImageView</span><br><span class="line">    android:id=<span class="string">"@+id/image1"</span></span><br><span class="line">    android:layout_width=<span class="string">"200dp"</span></span><br><span class="line">    android:layout_height=<span class="string">"200dp"</span></span><br><span class="line">    android:layout_centerInParent=<span class="string">"true"</span></span><br><span class="line">    app:shape_mode=<span class="string">"circle"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="Round_Rect">Round Rect</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;cn.gavinliu.android.lib.shapedimageview.ShapedImageView</span><br><span class="line">    android:id=<span class="string">"@+id/image2"</span></span><br><span class="line">    android:layout_width=<span class="string">"200dp"</span></span><br><span class="line">    android:layout_height=<span class="string">"200dp"</span></span><br><span class="line">    android:layout_centerInParent=<span class="string">"true"</span></span><br><span class="line">    app:round_radius=<span class="string">"20dp"</span></span><br><span class="line">    app:shape_mode=<span class="string">"round_rect"</span> /&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>在实际开发中我们经常会对图片进行圆角处理，这里做一个小总结，文章结尾还有一个不到100行实现的，支持圆形，圆角和TransitionDrawable的<code>ImageView</code>。</p>
+<p>图片的圆角显示，从实现方法上讲分为两种做法：</p>
+<ol>
+<li>在图片上做</li>
+<li>在控件上做</li>
+</ol>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - 基于MediaSession的音乐播放流程]]></title>
+    <link href="http://gavinliu.cn/2016/04/09/Android-%E5%9F%BA%E4%BA%8EMediaSession%E7%9A%84%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E6%B5%81%E7%A8%8B/"/>
+    <id>http://gavinliu.cn/2016/04/09/Android-基于MediaSession的音乐播放流程/</id>
+    <published>2016-04-09T08:54:25.000Z</published>
+    <updated>2016-04-10T04:26:48.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="概述">概述</h2><p>Android 5.0(Lolippop)更新了新的<code>媒体播放API</code>和<code>媒体类型通知</code>，使用最新的API可以让系统界面能够读取你的媒体播放并提取和显示专辑封面。比如在Lolippop上，播放音乐时锁屏界面背景会变成专辑封面，并且还有播放控制按钮。</p>
+<p>Lolippop之前是使用<code>RemoteControlClient</code>来实现跨界面的播放，新版被 <strong><strong><code>MediaSession</code></strong></strong> 所替代，并且提供了一系列用于处理传输控件和媒体按钮的回调方法，可以让你的媒体播放在<code>Android TV</code>或<code>Wear</code>平台上运行。</p>
+<p>实际测试Lolippop的锁屏兼容了<code>RemoteControlClient</code>和<code>MediaSession</code>两种方式，都可以在锁屏控制媒体播放并提取和显示专辑封面。</p>
+<a id="more"></a>
+<h2 id="大致流程">大致流程</h2><p>如下图所示，红色的部分为自己需要实现的类，方框内即Android 5.0的媒体控制大致流程。</p>
+<p><img src="/images/2016.04.09 - Android-基于MediaSession的音乐播放流程1.png" alt=""></p>
+<p>抛开每个类要如何实例化不谈，单从用户播放流程来说：</p>
+<ol>
+<li>通过<code>Activity</code>有个<code>getMediaController()</code>方法可以拿到<code>MediaController</code>对象</li>
+<li>通过<code>MediaController</code>拿到<code>TransportControler</code>对象</li>
+<li>通过<code>TransportControler</code>发送<code>play()</code>的指令</li>
+<li><code>MediaSession.Callback</code>收到指令回调<code>onPlay()</code>方法</li>
+<li>播放音乐，设置<code>MediaSession</code>现在的播放状态</li>
+<li><code>MediaController.Callback</code>收到状态改变</li>
+<li>刷新UI界面</li>
+</ol>
+<p>类的实例化和关联：<br>创建<code>MediaController</code>，指定一个<code>MediaSession.Token</code>，这样就和该<code>MediaSession</code>绑定好啦。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MediaSession mediaSession = <span class="keyword">new</span> MediaSession(context, <span class="string">"MyMediaSession"</span>);</span><br><span class="line"></span><br><span class="line">MediaController mediaController = <span class="keyword">new</span> mediaController(context, mediaSession.getSessionToken());</span><br></pre></td></tr></table></figure>
+<h2 id="关键类">关键类</h2><p><img src="/images/2016.04.09 - Android-基于MediaSession的音乐播放流程2.png" alt=""></p>
+<h2 id="关于音乐播放器">关于音乐播放器</h2><p>在没自己去写音乐播放器的时候，觉得音乐播放器很简单，无非就是用<code>MediaPlayer</code>播放一个文件而已嘛，深入后发现要写好一个播放器其实也没那么简单的，Android 5.0更新的API让音乐播放流程和代码架构更加清晰，推荐大家都基于MediaSession开发。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="概述">概述</h2><p>Android 5.0(Lolippop)更新了新的<code>媒体播放API</code>和<code>媒体类型通知</code>，使用最新的API可以让系统界面能够读取你的媒体播放并提取和显示专辑封面。比如在Lolippop上，播放音乐时锁屏界面背景会变成专辑封面，并且还有播放控制按钮。</p>
+<p>Lolippop之前是使用<code>RemoteControlClient</code>来实现跨界面的播放，新版被 <strong><strong><code>MediaSession</code></strong></strong> 所替代，并且提供了一系列用于处理传输控件和媒体按钮的回调方法，可以让你的媒体播放在<code>Android TV</code>或<code>Wear</code>平台上运行。</p>
+<p>实际测试Lolippop的锁屏兼容了<code>RemoteControlClient</code>和<code>MediaSession</code>两种方式，都可以在锁屏控制媒体播放并提取和显示专辑封面。</p>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="音乐播放器" scheme="http://gavinliu.cn/tags/%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - 在平坦的道路上曲折前行-插件式开发]]></title>
+    <link href="http://gavinliu.cn/2016/03/29/Android-%E5%9C%A8%E5%B9%B3%E5%9D%A6%E7%9A%84%E9%81%93%E8%B7%AF%E4%B8%8A%E6%9B%B2%E6%8A%98%E5%89%8D%E8%A1%8C-%E6%8F%92%E4%BB%B6%E5%BC%8F%E5%BC%80%E5%8F%91/"/>
+    <id>http://gavinliu.cn/2016/03/29/Android-在平坦的道路上曲折前行-插件式开发/</id>
+    <published>2016-03-29T05:47:53.000Z</published>
+    <updated>2016-04-13T13:49:22.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="为何要插件化?">为何要插件化?</h2><p>谈到插件化，在Android环境下可能很多人会说”真邪恶”， “不要脸”，”TMD，自己主动更新，流氓软件！”。</p>
+<p>但业务越来越大的时候，会遇到些问题:</p>
+<ol>
+<li>模块越来越多，如何有效的组装各个模块，让不同部门更好的协作开发。</li>
+<li>软件包越来越大，如何更好的降低更新成本。</li>
+<li>如何支持高效的A/B Test，而不是发布不同的包出去。</li>
+<li>…</li>
+</ol>
+<p>这个时候似乎插件化是解决问题的最好方案，对于程序员来说，我们也是一直在想方设法的写<strong>高类聚低耦合</strong>的代码，插件化几乎成了不二之选。</p>
+<a id="more"></a>
+<h2 id="微信的插件化">微信的插件化</h2><p>第一次在Android了解到插件化是在14年的InfoQ全球架构师峰会上，赵原分享的<a href="http://www.infoq.com/cn/presentations/android-client-architecture-evolution-and-impact-on-development-process" target="_blank" rel="external">微信Android客户端架构演进及其对开发流程的影响</a>。</p>
+<p>现在微信的功能越来越丰富，</p>
+<h2 id="Eclipse的插件化">Eclipse的插件化</h2><h2 id="Android插件化的两种方式">Android插件化的两种方式</h2><h3 id="脚本语言+Android_API">脚本语言+Android API</h3><p>这里的脚本语言可以是Javascript，Lua等，使用<a href="https://github.com/damonkohler/sl4a" target="_blank" rel="external">Scripting Layer for Android</a>实现脚本语言的运行环境，在Android层实现API提供给脚本语言调用。</p>
+<h3 id="APK动态加载">APK动态加载</h3><p>ClassLoader</p>
+<h2 id="定制自己的插件化框架">定制自己的插件化框架</h2><p>市面上太不可能有一款框架，能绝对满足你的软件，插件化也是多种技术方案的并存的，所以往往都需要自己定制自己的框架。</p>
+<p>一些比较靠谱的APK动态加载库</p>
+<ul>
+<li>Small</li>
+<li>DL</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="为何要插件化?">为何要插件化?</h2><p>谈到插件化，在Android环境下可能很多人会说”真邪恶”， “不要脸”，”TMD，自己主动更新，流氓软件！”。</p>
+<p>但业务越来越大的时候，会遇到些问题:</p>
+<ol>
+<li>模块越来越多，如何有效的组装各个模块，让不同部门更好的协作开发。</li>
+<li>软件包越来越大，如何更好的降低更新成本。</li>
+<li>如何支持高效的A/B Test，而不是发布不同的包出去。</li>
+<li>…</li>
+</ol>
+<p>这个时候似乎插件化是解决问题的最好方案，对于程序员来说，我们也是一直在想方设法的写<strong>高类聚低耦合</strong>的代码，插件化几乎成了不二之选。</p>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[机器学习 - 1.索引]]></title>
+    <link href="http://gavinliu.cn/2016/03/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1-%E7%B4%A2%E5%BC%95/"/>
+    <id>http://gavinliu.cn/2016/03/20/机器学习-1-索引/</id>
+    <published>2016-03-20T08:39:54.000Z</published>
+    <updated>2016-04-12T14:31:59.000Z</updated>
+    <content type="html"><![CDATA[<p>前阵子李世石对战AlphaGo着实让深度学习火了一把，AlphaGo 4:1 赢了比赛，确实牛逼，再不学习学习就落伍了，开这篇博客写写学习笔记。</p>
+<h2 id="机器学习_or_深度学习">机器学习 or 深度学习</h2><p>这两个是包含的关系，深度学习属于机器学习的更深入的研究。</p>
+<p>学习的概念：针对经验E (experience) 和一系列的任务 T (tasks) 和一定表现的衡量 P，如果随之经验E的积累，针对定义好的任务T可以提高表现P，就说计算机具有学习能力。</p>
+<h2 id="基本概念">基本概念</h2><p>训练集，测试集，特征值，监督学习，非监督学习，半监督学习，分类，回归</p>
+<a id="more"></a>
+<ul>
+<li>训练集(training set/data)/训练样例（training examples): 用来进行训练，也就是产生模型或者算法的数据集</li>
+<li>测试集(testing set/data)/测试样例(testing examples)：用来专门进行测试已经学习好的模型或者算法的数据集</li>
+<li>特征向量(features/feature vector)：属性的集合，通常用一个向量来表示，附属于一个实例</li>
+<li>标记(label): 实例类别的标记</li>
+<li>正例(positive example)</li>
+<li>反例(negative example)</li>
+</ul>
+<ul>
+<li>有监督学习(supervised learning)：训练集有类别标记(class label)</li>
+<li>无监督学习(unsupervised learning)：无类别标记(class label)</li>
+<li>半监督学习（semi-supervised learning)：有类别标记的训练集 + 无标记的训练集</li>
+</ul>
+<ul>
+<li>分类(classification): 目标标记为类别型数据(category)</li>
+<li>回归(regression): 目标标记为连续性数值(continuous numeric value)</li>
+</ul>
+<h2 id="机器学习步骤框架">机器学习步骤框架</h2><ol>
+<li>把数据拆分为训练集和测试集</li>
+<li>用训练集和训练集的特征向量来训练算法</li>
+<li>用学习来的算法运用在测试集上来评估算法 （可能要设计到调整参数（parameter tuning), 用验证集（validation set）</li>
+</ol>
+<h2 id="学习资料">学习资料</h2><ul>
+<li><a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="external">https://www.coursera.org/learn/machine-learning</a></li>
+<li><a href="https://www.coursera.org/specializations/machine-learning" target="_blank" rel="external">https://www.coursera.org/specializations/machine-learning</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>前阵子李世石对战AlphaGo着实让深度学习火了一把，AlphaGo 4:1 赢了比赛，确实牛逼，再不学习学习就落伍了，开这篇博客写写学习笔记。</p>
+<h2 id="机器学习_or_深度学习">机器学习 or 深度学习</h2><p>这两个是包含的关系，深度学习属于机器学习的更深入的研究。</p>
+<p>学习的概念：针对经验E (experience) 和一系列的任务 T (tasks) 和一定表现的衡量 P，如果随之经验E的积累，针对定义好的任务T可以提高表现P，就说计算机具有学习能力。</p>
+<h2 id="基本概念">基本概念</h2><p>训练集，测试集，特征值，监督学习，非监督学习，半监督学习，分类，回归</p>]]>
+    
+    </summary>
+    
+      <category term="Deep Learning" scheme="http://gavinliu.cn/tags/Deep-Learning/"/>
+    
+      <category term="Machine Learning" scheme="http://gavinliu.cn/tags/Machine-Learning/"/>
+    
+      <category term="机器学习" scheme="http://gavinliu.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="机器学习" scheme="http://gavinliu.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - 实用代码片段(3)]]></title>
+    <link href="http://gavinliu.cn/2016/02/29/Android-%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5-3/"/>
+    <id>http://gavinliu.cn/2016/02/29/Android-实用代码片段-3/</id>
+    <published>2016-02-29T12:05:33.000Z</published>
+    <updated>2016-02-28T13:36:11.000Z</updated>
+    <content type="html"><![CDATA[<ul>
+<li>在View Layout完成后获取 控件大小</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> TextView tv = (TextView) findViewById(R.id.myTextView);</span><br><span class="line">ViewTreeObserver vto = tv.getViewTreeObserver();</span><br><span class="line">vto.addOnGlobalLayoutListener(<span class="keyword">new</span> OnGlobalLayoutListener() &#123;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGlobalLayout</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Toast.makeText(MyActivity.<span class="keyword">this</span>, tv.getWidth() + <span class="string">" x "</span> + tv.getHeight(), Toast.LENGTH_LONG).show();</span><br><span class="line">        tv.getViewTreeObserver().removeGlobalOnLayoutListener(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>关键帧插值器</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">calculateValue</span><span class="params">(<span class="keyword">float</span>[] values, <span class="keyword">float</span> time, <span class="keyword">float</span> def)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">float</span> value = def;</span><br><span class="line">        <span class="keyword">if</span> (values != <span class="keyword">null</span> &amp;&amp; values.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">float</span> segment = <span class="number">1.0f</span> / (<span class="keyword">float</span>)(values.length - <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">int</span> index = (<span class="keyword">int</span>)(time / segment);</span><br><span class="line">            <span class="keyword">if</span> (index &gt;= values.length - <span class="number">1</span>) &#123;</span><br><span class="line">            	value = values[values.length - <span class="number">1</span>];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            	<span class="keyword">float</span> extra = time - segment * (<span class="keyword">float</span>)index;</span><br><span class="line">            	value = values[index] + (values[index + <span class="number">1</span>] - values[index]) * extra / segment;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>给图片叠加渐变</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addShadow</span><span class="params">(Bitmap bitmap, <span class="keyword">int</span> color)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] colors = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;</span><br><span class="line">            color &amp; <span class="number">0x00FFFFFF</span>,</span><br><span class="line">            color &amp; <span class="number">0x0AFFFFFF</span>,</span><br><span class="line">            color &amp; <span class="number">0x33FFFFFF</span>,</span><br><span class="line">            color &amp; <span class="number">0x66FFFFFF</span>,</span><br><span class="line">            color &amp; <span class="number">0x99FFFFFF</span>,</span><br><span class="line">            color &amp; <span class="number">0xCCFFFFFF</span>,</span><br><span class="line">            color</span><br><span class="line">    &#125;;</span><br><span class="line">    GradientDrawable gradientDrawable = <span class="keyword">new</span> GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, colors);</span><br><span class="line">    gradientDrawable.setGradientType(GradientDrawable.LINEAR_GRADIENT);</span><br><span class="line">    Rect rect = <span class="keyword">new</span> Rect(<span class="number">0</span>, <span class="number">0</span>, bitmap.getWidth(), bitmap.getHeight());</span><br><span class="line">    gradientDrawable.setBounds(rect);</span><br><span class="line">    gradientDrawable.setLevel(<span class="number">8</span>);</span><br><span class="line">    Canvas canvass = <span class="keyword">new</span> Canvas(bitmap);</span><br><span class="line">    gradientDrawable.draw(canvass);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ListView 或者 GridView 去除滑动特性 (即固定高度)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</span><br><span class="line">    heightMeasureSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE &gt;&gt; <span class="number">2</span>, MeasureSpec.AT_MOST);</span><br><span class="line">    <span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取系统长按时间，自定义View会用到</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getSystemLongPressTime</span><br></pre></td></tr></table></figure>
+<ul>
+<li>判断设备是否有网</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isOnline</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">    ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);</span><br><span class="line">    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();</span><br><span class="line">    <span class="keyword">return</span> (networkInfo != <span class="keyword">null</span> &amp;&amp; networkInfo.isConnected());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[<ul>
+<li>在View Layout完成后获取 控件大小</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> TextView tv = (TextView) findViewById(R.id.myTextView);</span><br><span class="line">ViewTreeObserver vto = tv.getViewTreeObserver();</span><br><span class="line">vto.addOnGlobalLayoutListener(<span class="keyword">new</span> OnGlobalLayoutListener() &#123;</span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGlobalLayout</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Toast.makeText(MyActivity.<span class="keyword">this</span>, tv.getWidth() + <span class="string">" x "</span> + tv.getHeight(), Toast.LENGTH_LONG).show();</span><br><span class="line">        tv.getViewTreeObserver().removeGlobalOnLayoutListener(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="实用主义" scheme="http://gavinliu.cn/tags/%E5%AE%9E%E7%94%A8%E4%B8%BB%E4%B9%89/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - 开源项目:OpenGpad(电脑键盘当手游手柄)]]></title>
+    <link href="http://gavinliu.cn/2016/02/28/Android-%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%EF%BC%9AOpenGpad-%E7%94%B5%E8%84%91%E9%94%AE%E7%9B%98%E5%BD%93%E6%89%8B%E6%9C%BA%E6%B8%B8%E6%88%8F%E6%89%8B%E6%9F%84/"/>
+    <id>http://gavinliu.cn/2016/02/28/Android-开源项目：OpenGpad-电脑键盘当手机游戏手柄/</id>
+    <published>2016-02-28T04:43:17.000Z</published>
+    <updated>2016-04-09T08:51:40.000Z</updated>
+    <content type="html"><![CDATA[<p>这是个基于测试框架(<a href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/">UiAutomator</a>)做的一款：使用电脑键盘玩手机游戏的软件。</p>
+<h2 id="初衷">初衷</h2><p>本职工作是做Android开发，电脑环境为Linux Mint，没有好的娱乐方式，手机也是长时间插在电脑上的，所以就寻思着，用电脑键盘当手柄，控制手机玩游戏，于是就有了这个项目。</p>
+<h2 id="体验视频">体验视频</h2><iframe height="400" width="620" src="http://player.youku.com/embed/XMTQ4OTQzMjU4NA==" frameborder="0" allowfullscreen></iframe>
+
+<a id="more"></a>
+<h2 id="原理">原理</h2><p>PC通过adb命令启动一个<code>UiAutomator</code>测试用例，测试用例死循环等待接受指令，接受到指令后，根据指令对手机进行操作，操作手机采取注入屏幕点击事件的方式，这样做的好处是，可以支持所有手机软件。</p>
+<h2 id="OpenSource">OpenSource</h2><p><a href="https://github.com/gavinliu/OpenGpad" target="_blank" rel="external">OpenGpad</a>：项目介绍，用于发布版本。<br><a href="https://github.com/gavinliu/OpenGpad-PyQT" target="_blank" rel="external">OpenGpad-PyQT</a>：PC端控制程序。<br><a href="https://github.com/gavinliu/OpenGpad-Android" target="_blank" rel="external">OpenGpad-Android</a>：Android辅助程序 用于编辑映射规则。</p>
+<h2 id="相关技术">相关技术</h2><p><a href="/2016/01/19/Android-adb-forward实现PC和Android的Socket通讯/">Android - adb forward实现PC和App的Socket通讯</a><br><a href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/">Android - 测试框架之 UI Testing - UiAutomator</a><br><a href="/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/">Android - 测试框架之 UI Testing - 实现多点触控事件</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>这是个基于测试框架(<a href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/">UiAutomator</a>)做的一款：使用电脑键盘玩手机游戏的软件。</p>
+<h2 id="初衷">初衷</h2><p>本职工作是做Android开发，电脑环境为Linux Mint，没有好的娱乐方式，手机也是长时间插在电脑上的，所以就寻思着，用电脑键盘当手柄，控制手机玩游戏，于是就有了这个项目。</p>
+<h2 id="体验视频">体验视频</h2><iframe height=400 width=620 src="http://player.youku.com/embed/XMTQ4OTQzMjU4NA==" frameborder=0 allowfullscreen></iframe>]]>
+    
+    </summary>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Android - 测试框架之 UI Testing - 实现多点触控事件]]></title>
+    <link href="http://gavinliu.cn/2016/02/23/Android-%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E4%B9%8B-UI-Testing-%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%82%B9%E8%A7%A6%E6%8E%A7%E4%BA%8B%E4%BB%B6/"/>
+    <id>http://gavinliu.cn/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/</id>
+    <published>2016-02-23T04:37:25.000Z</published>
+    <updated>2016-04-09T08:51:40.000Z</updated>
+    <content type="html"><![CDATA[<p><code>UiAutomator</code>已经现有的的API没有提高多点触控的方法，但是我们可以通过注入多点事件的方式来实现。</p>
+<h2 id="Android_TouchEvent_Flow">Android TouchEvent Flow</h2><p>一个基本的单点事件流</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MotionEvent.ACTION_DOWN</span><br><span class="line">MotionEvent.ACTION_MOVE</span><br><span class="line">MotionEvent.ACTION_UP</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>如果加上多点事件，基本的事件流是这样的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MotionEvent.ACTION_DOWN</span><br><span class="line">MotionEvent.ACTION_POINTER_DOWN</span><br><span class="line">MotionEvent.ACTION_MOVE</span><br><span class="line">MotionEvent.ACTION_POINTER_UP</span><br><span class="line">MotionEvent.ACTION_UP</span><br></pre></td></tr></table></figure>
+<p>需要明白的点：</p>
+<blockquote>
+<p>无论多点还是单点，正常的事件流是以<code>ACTION_DOWN</code>开始 <code>ACTION_UP</code>结束。</p>
+<p>对于多点事件来说，当你第一个手指点击屏幕触发<code>ACTION_DOWN</code>，后面的手指按压触发<code>ACTION_POINTER_DOWN</code>，然后进过<code>ACTION_MOVE</code>，<code>ACTION_POINTER_UP</code>，最终到达<code>ACTION_UP</code>。</p>
+<p>事件注入有个原则是：<br>1.<code>ACTION_POINTER_UP</code>和<code>ACTION_UP</code>的点是<code>ACTION_MOVE</code>后的最后那个点；<br>2.<code>ACTION_POINTER_UP</code>与<code>ACTION_UP</code>的点和<code>ACTION_POINTER_DOWN</code>与<code>ACTION_DOWN</code>的点应该一一对应的；<br>3.先<code>DOWN</code>的点应该后<code>UP</code></p>
+</blockquote>
+<h2 id="代码实现">代码实现</h2><h3 id="UiAutomator：事件注入入口">UiAutomator：事件注入入口</h3><p><code>UiAutomator</code>：测试框架已经为我们准备好了相关的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Instrumentation mInstrumentation = InstrumentationRegistry.getInstrumentation();</span><br><span class="line">UiAutomation mUiAutomation = mInstrumentation.getUiAutomation();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这就是注入事件的方法</span></span><br><span class="line">mUiAutomation.injectInputEvent(InputEvent event, <span class="keyword">boolean</span> sync)</span><br></pre></td></tr></table></figure>
+<h3 id="MotionEvent：相关类和方法">MotionEvent：相关类和方法</h3><p><code>MotionEvent.PointerCoords</code>：Point坐标传输对象，有点像的<a href="http://baike.baidu.com/item/DTO/16016821" target="_blank" rel="external">DTO</a>意思，里面包含了位置，大小，压力等属性，<br><code>MotionEvent.PointerProperties</code>：Point属性传输对象，有点像的<a href="http://baike.baidu.com/item/DTO/16016821" target="_blank" rel="external">DTO</a>意思，里面包含了ID，TYPE：区分是鼠标，手指等等不同设备的Pointer<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MotionEvent.obtain(<span class="keyword">long</span> downTime, <span class="keyword">long</span> eventTime,</span><br><span class="line">            <span class="keyword">int</span> action, <span class="keyword">int</span> pointerCount, PointerProperties[] pointerProperties,</span><br><span class="line">            PointerCoords[] pointerCoords, <span class="keyword">int</span> metaState, <span class="keyword">int</span> buttonState,</span><br><span class="line">            <span class="keyword">float</span> xPrecision, <span class="keyword">float</span> yPrecision, <span class="keyword">int</span> deviceId,</span><br><span class="line">            <span class="keyword">int</span> edgeFlags, <span class="keyword">int</span> source, <span class="keyword">int</span> flags)</span><br></pre></td></tr></table></figure></p>
+<p>我们使用这个方法来创建一个MotionEvent，用于事件的注入。</p>
+<h3 id="详细代码">详细代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 伪代码</span></span><br><span class="line">    <span class="comment">// 创建一个二维数组</span></span><br><span class="line">    <span class="comment">// [[PointerCoords，...], [PointerCoords, ..], [PointerCoords, ..], ...]</span></span><br><span class="line">    <span class="comment">// 二维数组的第一个点，为DOWN点，后面的为MOVE点，最后一个就是UP点。</span></span><br><span class="line"></span><br><span class="line">    injectMultiTouch([[PointerCoords，...],[PointerCoords，...]]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> PointerCoords <span class="title">createPoint</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    PointerCoords pointerCoords = <span class="keyword">new</span> PointerCoords();</span><br><span class="line">    pointerCoords.x = x;</span><br><span class="line">    pointerCoords.y = y;</span><br><span class="line">    pointerCoords.pressure = <span class="number">1</span>;</span><br><span class="line">    pointerCoords.size = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> pointerCoords;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里的参数是个二维数组，一维代表点的个度，二维代表点的移动位置</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">injectMultiTouch</span><span class="params">(PointerCoords[]... touches)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">boolean</span> ret = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (touches.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Must provide coordinates for at least 2 pointers"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> maxSteps = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; touches.length; x++)</span><br><span class="line">        maxSteps = (maxSteps &lt; touches[x].length) ? touches[x].length : maxSteps;</span><br><span class="line"></span><br><span class="line">    PointerProperties[] properties = <span class="keyword">new</span> PointerProperties[touches.length];</span><br><span class="line">    PointerCoords[] pointerCoords = <span class="keyword">new</span> PointerCoords[touches.length];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; touches.length; x++) &#123;</span><br><span class="line">        MotionEvent.PointerProperties prop = <span class="keyword">new</span> MotionEvent.PointerProperties();</span><br><span class="line">        prop.id = x;</span><br><span class="line">        prop.toolType = MotionEvent.TOOL_TYPE_FINGER;</span><br><span class="line">        properties[x] = prop;</span><br><span class="line"></span><br><span class="line">        pointerCoords[x] = touches[x][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">long</span> downTime = SystemClock.uptimeMillis();</span><br><span class="line">    MotionEvent event;</span><br><span class="line">    event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, <span class="number">1</span>,</span><br><span class="line">            properties, pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</span><br><span class="line">    ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>; x &lt; touches.length; x++) &#123;</span><br><span class="line">        event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(),</span><br><span class="line">            getPointerAction(MotionEvent.ACTION_POINTER_DOWN, x), x + <span class="number">1</span>, properties,</span><br><span class="line">            pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</span><br><span class="line">        ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; maxSteps - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; touches.length; x++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (touches[x].length &gt; i)</span><br><span class="line">                pointerCoords[x] = touches[x][i];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                pointerCoords[x] = touches[x][touches[x].length - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(),</span><br><span class="line">                MotionEvent.ACTION_MOVE, touches.length, properties, pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>,</span><br><span class="line">                <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</span><br><span class="line">        SystemClock.sleep(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; touches.length; x++)</span><br><span class="line">        pointerCoords[x] = touches[x][touches[x].length - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>; x &lt; touches.length; x++) &#123;</span><br><span class="line">        event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(),</span><br><span class="line">                getPointerAction(MotionEvent.ACTION_POINTER_UP, x), x + <span class="number">1</span>, properties,</span><br><span class="line">                pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</span><br><span class="line">        ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, <span class="number">1</span>,</span><br><span class="line">                properties, pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</span><br><span class="line">    ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="相关项目">相关项目</h2><p>可参考<a href="https://github.com/gavinliu/OpenGpad-Android" target="_blank" rel="external">OpenGpad-Android</a>：基于测试框架做的使用PC键盘玩儿手机游戏的软件。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><code>UiAutomator</code>已经现有的的API没有提高多点触控的方法，但是我们可以通过注入多点事件的方式来实现。</p>
+<h2 id="Android_TouchEvent_Flow">Android TouchEvent Flow</h2><p>一个基本的单点事件流</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MotionEvent.ACTION_DOWN</span><br><span class="line">MotionEvent.ACTION_MOVE</span><br><span class="line">MotionEvent.ACTION_UP</span><br></pre></td></tr></table></figure>]]>
+    
+    </summary>
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="Android测试框架" scheme="http://gavinliu.cn/tags/Android%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="UiAutomator" scheme="http://gavinliu.cn/tags/UiAutomator/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Android - adb forward实现PC和App的Socket通讯]]></title>
@@ -128,7 +500,7 @@
     <link href="http://gavinliu.cn/2016/01/16/Python-Mac%E4%B8%8BPyQt5%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     <id>http://gavinliu.cn/2016/01/16/Python-Mac下PyQt5环境搭建/</id>
     <published>2016-01-16T15:54:27.000Z</published>
-    <updated>2016-01-17T07:27:30.000Z</updated>
+    <updated>2016-02-26T12:02:25.000Z</updated>
     <content type="html"><![CDATA[<p>一直想写一些桌面软件，公司电脑是Ubuntu，个人电脑是Mac，Windows又是用户量最多的，想来想去使用跨平台的开发工具来写才是唯一的选择。</p>
 <p>最终选择使用PyQt，把Python的便利和Qt的兼容完美结合。</p>
 <p>所需软件：</p>
@@ -142,9 +514,11 @@
 <h2 id="安装_Python3">安装 Python3</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install python3</span><br></pre></td></tr></table></figure>
 <p>Python环境搭建相关可参考：<a href="/2015/12/17/Python-Mac的环境搭建/">Python - Mac的环境搭建</a></p>
 <h2 id="安装_Qt5-5">安装 Qt5.5</h2><p>官网下载后打开安装后，把bin目录加入环境变量</p>
-<h2 id="安装_SIP">安装 SIP</h2><figure class="highlight bash"><figcaption><span>sip-4.17</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">$ python3 configure.py</span><br><span class="line">This is SIP <span class="number">4.17</span> <span class="keyword">for</span> Python <span class="number">3.5</span>.<span class="number">1</span> on darwin.</span><br><span class="line">The SIP code generator will be installed <span class="keyword">in</span></span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/bin.</span><br><span class="line">The sip module will be installed <span class="keyword">in</span></span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages.</span><br><span class="line">The sip.h header file will be installed <span class="keyword">in</span></span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m.</span><br><span class="line">The default directory to install .sip files <span class="keyword">in</span> is</span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/share/sip.</span><br><span class="line">Creating siplib/sip.h...</span><br><span class="line">Creating siplib/siplib.c...</span><br><span class="line">Creating siplib/siplib.sbf...</span><br><span class="line">Creating sipconfig.py...</span><br><span class="line">Creating top level Makefile...</span><br><span class="line">Creating sip code generator Makefile...</span><br><span class="line">Creating sip module Makefile...</span><br><span class="line"></span><br><span class="line">$ make</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o main.o main.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o transform.o transform.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o gencode.o gencode.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o extracts.o extracts.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o export.o export.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o heap.o heap.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o parser.o parser.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o lexer.o lexer.c</span><br><span class="line">c++ -headerpad_max_install_names -o sip main.o transform.o gencode.o extracts.o export.o heap.o parser.o lexer.o</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o siplib.o siplib.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o apiversions.o apiversions.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o descriptors.o descriptors.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o qtlib.o qtlib.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o threads.o threads.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o objmap.o objmap.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o voidptr.o voidptr.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o array.o array.c</span><br><span class="line">c++ -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o bool.o bool.cpp</span><br><span class="line">c++ -headerpad_max_install_names -bundle -undefined dynamic_lookup -o sip.so siplib.o apiversions.o descriptors.o qtlib.o threads.o objmap.o voidptr.o array.o bool.o</span><br><span class="line"></span><br><span class="line">$ sudo make install</span><br><span class="line">cp <span class="operator">-f</span> sip /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/bin/sip</span><br><span class="line">cp <span class="operator">-f</span> sip.so /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages/sip.so</span><br><span class="line">cp <span class="operator">-f</span> /Users/Gavin/Downloads/PyQt/sip-<span class="number">4.17</span>/siplib/sip.h /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m/sip.h</span><br><span class="line">cp <span class="operator">-f</span> sipconfig.py /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages/sipconfig.py</span><br><span class="line">cp <span class="operator">-f</span> /Users/Gavin/Downloads/PyQt/sip-<span class="number">4.17</span>/sipdistutils.py /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages/sipdistutils.py</span><br></pre></td></tr></table></figure>
+<h2 id="终端安装_Pyqt">终端安装 Pyqt</h2><p>Mac上使用编译安装，后面使用<code>pyinstaller</code>打包会出问题，推荐使用命令行一键安装，Linux如果包管理没有的话，就使用编译安装吧。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install pyqt5</span><br></pre></td></tr></table></figure>
+<h2 id="编译安装_Pyqt">编译安装 Pyqt</h2><h3 id="安装_SIP">安装 SIP</h3><figure class="highlight bash"><figcaption><span>sip-4.17</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">$ python3 configure.py</span><br><span class="line">This is SIP <span class="number">4.17</span> <span class="keyword">for</span> Python <span class="number">3.5</span>.<span class="number">1</span> on darwin.</span><br><span class="line">The SIP code generator will be installed <span class="keyword">in</span></span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/bin.</span><br><span class="line">The sip module will be installed <span class="keyword">in</span></span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages.</span><br><span class="line">The sip.h header file will be installed <span class="keyword">in</span></span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m.</span><br><span class="line">The default directory to install .sip files <span class="keyword">in</span> is</span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/share/sip.</span><br><span class="line">Creating siplib/sip.h...</span><br><span class="line">Creating siplib/siplib.c...</span><br><span class="line">Creating siplib/siplib.sbf...</span><br><span class="line">Creating sipconfig.py...</span><br><span class="line">Creating top level Makefile...</span><br><span class="line">Creating sip code generator Makefile...</span><br><span class="line">Creating sip module Makefile...</span><br><span class="line"></span><br><span class="line">$ make</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o main.o main.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o transform.o transform.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o gencode.o gencode.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o extracts.o extracts.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o export.o export.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o heap.o heap.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o parser.o parser.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o lexer.o lexer.c</span><br><span class="line">c++ -headerpad_max_install_names -o sip main.o transform.o gencode.o extracts.o export.o heap.o parser.o lexer.o</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o siplib.o siplib.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o apiversions.o apiversions.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o descriptors.o descriptors.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o qtlib.o qtlib.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o threads.o threads.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o objmap.o objmap.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o voidptr.o voidptr.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o array.o array.c</span><br><span class="line">c++ -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o bool.o bool.cpp</span><br><span class="line">c++ -headerpad_max_install_names -bundle -undefined dynamic_lookup -o sip.so siplib.o apiversions.o descriptors.o qtlib.o threads.o objmap.o voidptr.o array.o bool.o</span><br><span class="line"></span><br><span class="line">$ sudo make install</span><br><span class="line">cp <span class="operator">-f</span> sip /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/bin/sip</span><br><span class="line">cp <span class="operator">-f</span> sip.so /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages/sip.so</span><br><span class="line">cp <span class="operator">-f</span> /Users/Gavin/Downloads/PyQt/sip-<span class="number">4.17</span>/siplib/sip.h /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m/sip.h</span><br><span class="line">cp <span class="operator">-f</span> sipconfig.py /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages/sipconfig.py</span><br><span class="line">cp <span class="operator">-f</span> /Users/Gavin/Downloads/PyQt/sip-<span class="number">4.17</span>/sipdistutils.py /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages/sipdistutils.py</span><br></pre></td></tr></table></figure>
 <p>最终安装在<code>/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/bin/sip</code>，记住这个地址，安装PyQt5会用到。</p>
-<h2 id="安装_PyQt5">安装 PyQt5</h2><figure class="highlight bash"><figcaption><span>PyQt-gpl-5.5.1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ python3 configure.py -q /Users/Gavin/Develop/Qt-<span class="number">5.5</span>.<span class="number">1</span>/<span class="number">5.5</span>/clang_64/bin/qmake <span class="operator">-d</span> /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages --sip /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/bin/sip</span><br><span class="line"></span><br><span class="line"><span class="comment"># -q 为 Qt 的 qmake 路径</span></span><br><span class="line"><span class="comment"># -d 为 python3.5 的 site-packages，可通过 import site; site.getsitepackages() 来查看</span></span><br><span class="line"><span class="comment"># --sip 为 sip 的路径</span></span><br><span class="line"></span><br><span class="line">$ make</span><br><span class="line"></span><br><span class="line"><span class="comment"># 时间比较长</span></span><br><span class="line"></span><br><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
+<h3 id="安装_PyQt5">安装 PyQt5</h3><figure class="highlight bash"><figcaption><span>PyQt-gpl-5.5.1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ python3 configure.py -q /Users/Gavin/Develop/Qt-<span class="number">5.5</span>.<span class="number">1</span>/<span class="number">5.5</span>/clang_64/bin/qmake <span class="operator">-d</span> /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages --sip /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/bin/sip</span><br><span class="line"></span><br><span class="line"><span class="comment"># -q 为 Qt 的 qmake 路径</span></span><br><span class="line"><span class="comment"># -d 为 python3.5 的 site-packages，可通过 import site; site.getsitepackages() 来查看</span></span><br><span class="line"><span class="comment"># --sip 为 sip 的路径</span></span><br><span class="line"></span><br><span class="line">$ make</span><br><span class="line"></span><br><span class="line"><span class="comment"># 时间比较长</span></span><br><span class="line"></span><br><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
 <p>可能出现的错误：<code>fatal error: &#39;qgeolocation.h&#39; file not found</code>，<br>下载<a href="https://github.com/RSATom/Qt/blob/master/qtlocation/src/positioning/qgeolocation.h" target="_blank" rel="external">‘qgeolocation.h’</a>放入<code>PyQt-gpl-5.5.1/QtPositioning/</code>即可</p>
 <h2 id="Hello_PyQt">Hello PyQt</h2><figure class="highlight python"><figcaption><span>hello.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5 <span class="keyword">import</span> QtCore, QtGui, QtWidgets</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app = QtWidgets.QApplication(sys.argv)</span><br><span class="line">    w = QtWidgets.QWidget()</span><br><span class="line">    w.resize(<span class="number">250</span>, <span class="number">150</span>)</span><br><span class="line">    w.move(<span class="number">300</span>, <span class="number">300</span>)</span><br><span class="line">    w.setWindowTitle(<span class="string">'Hello PyQt'</span>)</span><br><span class="line">    w.show()</span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 hello.py</span><br></pre></td></tr></table></figure>
@@ -239,7 +613,7 @@
     <link href="http://gavinliu.cn/2016/01/02/Android-%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E4%B9%8B-UI-Testing-UI-Automator/"/>
     <id>http://gavinliu.cn/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/</id>
     <published>2016-01-01T16:34:13.000Z</published>
-    <updated>2016-01-05T14:22:22.000Z</updated>
+    <updated>2016-04-09T08:51:40.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p><code>UiAutomator</code>和<code>Espresso</code>最大的不同是<strong>支持多个App</strong>，所以<code>UiAutomator</code>是所有Android测试工程师的必备技能。</p>
 </blockquote>
@@ -251,9 +625,7 @@
 <p><img src="/images/2016.01.02 - Android-测试框架之-UI-Testing-UI-Automator1.png" alt="run"></p>
 <h3 id="运行效果">运行效果</h3><p><img src="/images/2016.01.02 - Android-测试框架之-UI-Testing-UI-Automator2.gif" alt="run"></p>
 <h3 id="命令行运行">命令行运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查找</span></span><br><span class="line">$ adb shell pm list instrumentation</span><br><span class="line">instrumentation:cn.gavinliu.uiautomator.test/android.support.test.runner.AndroidJUnitRunner (target=cn.gavinliu.uiautomator)</span><br><span class="line"><span class="comment"># 运行</span></span><br><span class="line">$ adb shell am instrument -w cn.gavinliu.uiautomator.test/android.support.test.runner.AndroidJUnitRunner</span><br></pre></td></tr></table></figure>
-<h2 id="UiAutomator详解">UiAutomator详解</h2><p>这里详解UiAutomator的各个API</p>
-<h3 id="Instrumentation">Instrumentation</h3><p><code>Instrumentation</code>也是一个测试框架，可以操作很多系统API，<code>UiAutomator2.x</code>引入了它，大大增强了UiAutomator的功能。</p>
-<p><code>InstrumentationRegistry</code>:</p>
+<h2 id="UiAutomator_主要API">UiAutomator 主要API</h2><h3 id="Instrumentation">Instrumentation</h3><p><code>Instrumentation</code>也是一个测试框架，可以操作很多系统API，<code>UiAutomator2.x</code>引入了它，大大增强了UiAutomator的功能。</p>
 <h3 id="UiDevice">UiDevice</h3><h3 id="UiSelector">UiSelector</h3><h3 id="UiObject">UiObject</h3>]]></content>
     <summary type="html">
     <![CDATA[<blockquote>
@@ -560,317 +932,6 @@
       <category term="多线程" scheme="http://gavinliu.cn/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
     
       <category term="Java Notes" scheme="http://gavinliu.cn/categories/Java-Notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Android - 内存泄露分析]]></title>
-    <link href="http://gavinliu.cn/2015/11/18/Android-%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E5%88%86%E6%9E%90/"/>
-    <id>http://gavinliu.cn/2015/11/18/Android-内存泄露分析/</id>
-    <published>2015-11-18T09:39:40.000Z</published>
-    <updated>2015-12-31T12:41:17.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="通过adb_shell查看内存泄露">通过<code>adb shell</code>查看内存泄露</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys meminfo &#21253;&#21517;</span><br></pre></td></tr></table></figure>
-<h2 id="MAT工具">MAT工具</h2><h3 id="Dump_内存堆">Dump 内存堆</h3><h3 id="MAT工具_使用技巧">MAT工具 使用技巧</h3><h2 id="Android_内存泄露自动检测库">Android 内存泄露自动检测库</h2>]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="通过adb_shell查看内存泄露">通过<code>adb shell</code>查看内存泄露</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line]]>
-    </summary>
-    
-      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
-    
-      <category term="内存分析" scheme="http://gavinliu.cn/tags/%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/"/>
-    
-      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Newifi Mini(Y1) 动手玩(3) - DDNS动态域名解析]]></title>
-    <link href="http://gavinliu.cn/2015/10/09/Newifi-Mini-Y1-%E5%8A%A8%E6%89%8B%E7%8E%A9-3-DDNS%E5%8A%A8%E6%80%81%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90/"/>
-    <id>http://gavinliu.cn/2015/10/09/Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析/</id>
-    <published>2015-10-09T13:30:02.000Z</published>
-    <updated>2015-12-31T12:41:17.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="安装_ddns">安装 ddns</h2><p>Openwrt系统应该是预装了ddns，小云OS没有预装ddns，我们可以通过opkg装上ddns</p>
-<ul>
-<li><p>配置 opkg<br>  可参考 <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/">Newifi Mini(Y1) 动手玩(2) - opkg</a></p>
-</li>
-<li><p>在管理页面搜索 <code>ddns</code></p>
-</li>
-</ul>
-<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析1.png" alt=""></p>
-<ul>
-<li>安装 <code>ddns-scripts</code> 和 <code>luci-app-ddns</code></li>
-</ul>
-<p>安装完成即可在 服务中找到动态DNS页面 <a id="more"></a></p>
-<h2 id="启动_ddns">启动 ddns</h2><p>系统 -&gt; 启动项 -&gt; 启动<code>ddns</code></p>
-<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析2.png" alt=""></p>
-<h2 id="配置_ddns">配置 ddns</h2><ul>
-<li>我们需要选择一个 ddns 服务商，这里推荐 3322.org (<a href="http://www.pubyun.com/" target="_blank" rel="external">http://www.pubyun.com/</a> )，注册后创建一个动态域名。</li>
-<li>后台配置<br><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析3.png" alt=""></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#20027;&#26426;&#21517;&#65306;&#21363;&#21018;&#21018;&#21019;&#24314;&#30340;&#21160;&#24577;&#22495;&#21517;&#10;&#29992;&#25143;&#21517;&#65306;3322.org &#29992;&#25143;&#21517;&#10;&#23494;&#30721;&#65306;3322.org &#23494;&#30721;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>重启路由器</li>
-</ul>
-<h2 id="自定义域名">自定义域名</h2><p>使用 3322 的二级域名当然不能满足我们的要求，要如何实现自定义域名呢？</p>
-<ul>
-<li>注册域名</li>
-<li>在你的DNS服务商添加一个<code>CNAME</code>映射到<code>动态域名</code>中</li>
-</ul>
-<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析4.png" alt=""></p>
-<h2 id="常见问题">常见问题</h2><h3 id="为什么完成上面步骤还是不能使用自定义域名访问呢？">为什么完成上面步骤还是不能使用自定义域名访问呢？</h3><ol>
-<li>检查防火墙设置<br><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析5.png" alt="配置成此图即可"></li>
-<li>检查IP端口是否被关闭<br> 使用 <a href="http://tool.chinaz.com/port" target="_blank" rel="external">端口扫描</a> 查看80端口是否被关闭，如果关闭，我们可以换个端口</li>
-</ol>
-<figure class="highlight sh"><figcaption><span>vi/etc/config/dropbear</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原始数据</span></span><br><span class="line">config uhttpd <span class="string">'main'</span></span><br><span class="line">    list listen_http <span class="string">'0.0.0.0:80'</span></span><br><span class="line">    list listen_http <span class="string">'[::]:80'</span></span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改为</span></span><br><span class="line">config uhttpd <span class="string">'main'</span></span><br><span class="line">    list listen_http <span class="string">'0.0.0.0:8080'</span></span><br><span class="line">    list listen_http <span class="string">'[::]:8080'</span></span><br><span class="line">    ...</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
-<pre><code>修改保存后，重启uhttpd服务
-</code></pre><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/uhttpd restart</span><br></pre></td></tr></table></figure>
-<h3 id="安全问题">安全问题</h3><p>路由器密码不要使用弱密码，如果路由器被黑客入侵，密码安全就没有保障了。ssh应该关闭密码登录使用密钥登录。</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="安装_ddns">安装 ddns</h2><p>Openwrt系统应该是预装了ddns，小云OS没有预装ddns，我们可以通过opkg装上ddns</p>
-<ul>
-<li><p>配置 opkg<br>  可参考 <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/">Newifi Mini(Y1) 动手玩(2) - opkg</a></p>
-</li>
-<li><p>在管理页面搜索 <code>ddns</code></p>
-</li>
-</ul>
-<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析1.png" alt=""></p>
-<ul>
-<li>安装 <code>ddns-scripts</code> 和 <code>luci-app-ddns</code></li>
-</ul>
-<p>安装完成即可在 服务中找到动态DNS页面]]>
-    
-    </summary>
-    
-      <category term="路由器" scheme="http://gavinliu.cn/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Newifi Mini(Y1) 动手玩(2) - opkg]]></title>
-    <link href="http://gavinliu.cn/2015/10/09/Newifi-Mini-Y1-%E5%8A%A8%E6%89%8B%E7%8E%A9-2-opkg/"/>
-    <id>http://gavinliu.cn/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/</id>
-    <published>2015-10-09T12:55:36.000Z</published>
-    <updated>2015-12-31T12:41:17.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="opkg_?">opkg ?</h2><p>opkg是openwrt里的软件包管理器，类似Mac下的brew、Ubuntu下的apt-get等，命令位于<code>/bin/opkg</code></p>
-<p>由于openwrt是嵌入式系统，硬件复杂，我们需要把opkg的源和Newifi Mini(Y1)的硬件相匹配。</p>
-<h2 id="配置源">配置源</h2><p>Y1使用的是 mt7620a 这枚cpu，我们需要使用 mt7620a 的源</p>
-<p>openwrt官方源：</p>
-<p><a href="http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/" target="_blank" rel="external">http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/</a><br><a href="http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/" target="_blank" rel="external">http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/</a></p>
-<blockquote>
-<p>需要说明的是 PandoraBox 和 小云OS 都是基于 <code>openwrt 14.07</code> 开发的</p>
-</blockquote>
-<p>由于众所周知的原因直接访问openwrt.org是非常慢，我们可以使用代理 <code>mirrors.ustc.edu.cn</code> 或者 <code>downloads.openwrt.org.cn</code></p>
-<p>两种方式：</p>
-<ul>
-<li><code>ssh</code>连接到路由器后使用<code>vi</code>修改配置文件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/opkg.conf</span><br></pre></td></tr></table></figure>
-<ul>
-<li>管理页面：OpenWrt 系统-&gt;软件包-&gt;配置；小云OS 高级设置-&gt;系统-&gt;软件包-&gt;配置</li>
-</ul>
-<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-2-opkg1.png" alt=""><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dest root /&#10;dest ram /tmp&#10;lists_dir ext /var/opkg-lists&#10;option overlay_root /overlay&#10;&#10;arch ralink 1&#10;arch all 2&#10;arch ramips_24kec 3&#10;&#10;src/gz barrier_breaker_base http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/base&#10;src/gz barrier_breaker_luci http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/luci&#10;src/gz barrier_breaker_management http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/management&#10;src/gz barrier_breaker_oldpackages http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/oldpackages&#10;src/gz barrier_breaker_packages http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/packages&#10;src/gz barrier_breaker_routing http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/routing&#10;src/gz barrier_breaker_telephony http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/telephony&#10;&#10;src/gz openwrt_dist http://openwrt-dist.thankgfw.ml/releases/ramips/packages&#10;src/gz openwrt_dist_luci http://openwrt-dist.thankgfw.ml/releases/luci/packages</span><br></pre></td></tr></table></figure></p>
-<h2 id="使用_opkg_命令">使用 opkg 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#25171;&#21360;&#24110;&#21161;&#10;opkg -h&#10;&#10;# &#26356;&#26032;&#36164;&#28304;&#21015;&#34920;&#10;opkg update&#10;&#10;# &#21015;&#20986;&#24050;&#23433;&#35013;&#30340;&#21253;&#10;opkg list&#10;&#10;# &#25628;&#32034;&#21253;&#10;opkg search ddns&#10;&#10;# &#23433;&#35013;&#36719;&#20214;&#65292;&#20197;&#23433;&#35013;curl&#21644;wget&#20026;&#20363;&#10;opkg install curl&#10;# &#23433;&#35013;&#26412;&#22320;&#36719;&#20214;&#21253;&#10;opkg install /tmp/wget_1.16-1_ramips_24kec.ipk&#10;&#10;# &#31227;&#38500;&#36719;&#20214;&#10;opkg remove wget</span><br></pre></td></tr></table></figure>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="opkg_?">opkg ?</h2><p>opkg是openwrt里的软件包管理器，类似Mac下的brew、Ubuntu下的apt-get等，命令位于<code>/bin/opkg</code></p>
-<p>由于openwrt是嵌入式系统，硬件复杂，我们需要把opkg的源和Newifi Mini(Y1)的硬件相匹配。</p>
-<h2 id="配置源">配置源</h2><p>Y1使用的是 mt7620a 这枚cpu，我们需要使用 mt7620a 的源</p>
-<p>openwrt官方源：</p>
-<p><a href="http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/">http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/</a><br><a href="http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/">http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/</a></p>
-<blockquote>
-<p>需要说明的是 PandoraBox 和 小云OS 都是基于 <code>openwrt 14.07</code> 开发的</p>
-</blockquote>
-<p>由于众所周知的原因直接访问openwrt.org是非常慢，我们可以使用代理 <code>mirrors.ustc.edu.cn</code> 或者 <code>downloads.openwrt.org.cn</code></p>
-<p>两种方式：</p>
-<ul>
-<li><code>ssh</code>连接到路由器后使用<code>vi</code>修改配置文件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/opkg.conf</span><br></pre></td></tr></table></figure>
-<ul>
-<li>管理页面：OpenWrt 系统-&gt;软件包-&gt;配置；小云OS 高级设置-&gt;系统-&gt;软件包-&gt;配置</li>
-</ul>
-<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-2-opkg1.png" alt="">]]>
-    
-    </summary>
-    
-      <category term="路由器" scheme="http://gavinliu.cn/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Newifi Mini(Y1) 动手玩(1) - 刷机]]></title>
-    <link href="http://gavinliu.cn/2015/10/09/Newifi-Mini-Y1-%E5%8A%A8%E6%89%8B%E7%8E%A9-1-%E5%88%B7%E6%9C%BA/"/>
-    <id>http://gavinliu.cn/2015/10/09/Newifi-Mini-Y1-动手玩-1-刷机/</id>
-    <published>2015-10-09T02:36:17.000Z</published>
-    <updated>2015-12-31T12:41:17.000Z</updated>
-    <content type="html"><![CDATA[<p>Newifi 本身就带有一个不死uBoot，所以可以很方便的刷机，这也是我为什么没有买极路由的原因。</p>
-<p>刚刚买回来的Newifi是<code>如意云 1.0</code>的系统，这个系统很难用，建议买回来刷 <code>小云OS 2.0</code> 或者 <code>OpenWrt</code> 或者 <code>PandoraBox</code></p>
-<p>官方固件下载地址：<a href="http://www.newbd.com/topic/download/index.html" target="_blank" rel="external">http://www.newbd.com/topic/download/index.html</a><br>OpenWrt下载地址：<a href="http://downloads.openwrt.org/chaos_calmer/15.05-rc2/ramips/mt7620/" target="_blank" rel="external">http://downloads.openwrt.org/chaos_calmer/15.05-rc2/ramips/mt7620/</a><br>PandoraBox下载地址：<a href="http://downloads.openwrt.org.cn/PandoraBox/Lenovo-Y1_RY-1S/firmware/stable/" target="_blank" rel="external">http://downloads.openwrt.org.cn/PandoraBox/Lenovo-Y1_RY-1S/firmware/stable/</a></p>
-<h2 id="uBoot_刷机">uBoot 刷机</h2><ol>
-<li>修改电脑IP为192.168.1.10</li>
-<li>路由器通电，然后拔掉，然后点击reset键，然后通电</li>
-<li>电脑网线链接路由器Wan口</li>
-<li>电脑浏览器访问192.168.1.1</li>
-<li>上传固件，点击恢复</li>
-<li>路由器升级重启后，把电脑IP修改为自动获取即可</li>
-</ol>
-<p>官方固件路由器IP是：192.168.99.1，OpenWrt和PandoraBox是：192.168.1.1</p>
-<h2 id="三个系统的区别">三个系统的区别</h2><ol>
-<li>OpenWrt 最纯净</li>
-<li>PandoraBox 基于OpenWrt做了本地优化</li>
-<li>小云OS 2.0 官方系统，基于OpenWrt做了本地优化，支持手机客户端等。</li>
-</ol>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Newifi 本身就带有一个不死uBoot，所以可以很方便的刷机，这也是我为什么没有买极路由的原因。</p>
-<p>刚刚买回来的Newifi是<code>如意云 1.0</code>的系统，这个系统很难用，建议买回来刷 <code>小云OS 2.0</code> 或者 <c]]>
-    </summary>
-    
-      <category term="路由器" scheme="http://gavinliu.cn/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Android - 多屏适配实践]]></title>
-    <link href="http://gavinliu.cn/2015/08/12/Android-%E5%A4%9A%E5%B1%8F%E9%80%82%E9%85%8D%E5%AE%9E%E8%B7%B5/"/>
-    <id>http://gavinliu.cn/2015/08/12/Android-多屏适配实践/</id>
-    <published>2015-08-12T11:59:01.000Z</published>
-    <updated>2015-12-31T12:41:17.000Z</updated>
-    <content type="html"><![CDATA[<h1 id="概述">概述</h1><p>Android开发中面对这么多机型，这么多大小不一的手机屏幕，需要寻求一种高效的多屏适配方案，本文只针对不支持转屏的应用。</p>
-<h2 id="问题">问题</h2><p>一般来说应用的适配可分一下几个内容：</p>
-<ol>
-<li>系统组件(Actionbar，Dialog， Pupupmenu…)</li>
-<li>控件块区(View的大小，间距)</li>
-<li>图文相关(文字大小，图片)</li>
-</ol>
-<h2 id="方案">方案</h2><ol>
-<li>系统组件：使用相关Compat库+自定义View的方式</li>
-<li>控件块区：控件的位置大小，使用dp + 百分比缩放的方式</li>
-<li>图文相关：文子大小使用sp，或者根据需要使用百分比缩放</li>
-</ol>
-<h1 id="适配细节">适配细节</h1><h2 id="一、Android原生dp">一、Android原生dp</h2><h2 id="二、百分比缩放">二、百分比缩放</h2><h3 id="已知库">已知库</h3><ol>
-<li><p>android-percent-support-lib<br> 宽高只能和父容器的宽高对应比例。</p>
-</li>
-<li><p>android-percent-support-lib-<br> 基于上面扩展，实现可以分别选择占父容器的比例。</p>
-</li>
-</ol>
-<p>然而对于这样的在布局文件中直接定义百分比的方式，存在两大问题</p>
-<ol>
-<li>计算麻烦<br> 视觉给你标注图肯定都是标的真实的长度，百分比还得自己计算。</li>
-<li>精度丢失<br> 如果效果图的父容器宽是1080px，子View的宽是38px，占3.3333~%，1080 * 3% = 32；1080 * 3.3% = 35 无论取什么值，连视觉的设计样本都会偏移像素。</li>
-</ol>
-<h3 id="最终方案">最终方案</h3><a id="more"></a>
-<ol>
-<li>上下滑动的界面按<strong>屏幕宽</strong>等比缩放</li>
-<li>左右滑动的界面按<strong>屏幕高</strong>等比缩放</li>
-</ol>
-<figure class="highlight java"><figcaption><span>以上下滑动为例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> percent = mScreenWidth / designScreenWidth <span class="comment">// 屏幕比</span></span><br><span class="line"><span class="keyword">float</span> designDP = getPixelSize() / mDensity <span class="comment">// designDP是写入在xml文件中的，需要通过getPixel还原出来</span></span><br><span class="line"><span class="keyword">float</span> designPixel = designDP * designDensity <span class="comment">// dp 转 pixel</span></span><br><span class="line"><span class="keyword">float</span> realPixel = percent * designPixel</span><br><span class="line"><span class="keyword">float</span> realPixel = (mScreenWidth * designDensity * getPixelSize()) / (designScreenWidth * mDensity)</span><br></pre></td></tr></table></figure>
-<h3 id="基于最终方案的ScaleLayout实现">基于最终方案的ScaleLayout实现</h3><p>Github：<a href="https://github.com/gavinliu/Android-ScaleLayout" target="_blank" rel="external">Android-ScaleLayout</a></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">cn.gavinliu.android.lib.scale.ScaleRelativeLayout</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">xmlns:app</span>=<span class="value">"http://schemas.android.com/apk/res-auto"</span></span><br><span class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span></span><br><span class="line">    <span class="attribute">app:layout_design_density</span>=<span class="value">"@integer/app_design_density"</span></span><br><span class="line">    <span class="attribute">app:layout_design_height</span>=<span class="value">"@dimen/app_design_height"</span></span><br><span class="line">    <span class="attribute">app:layout_design_width</span>=<span class="value">"@dimen/app_design_width"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">        <span class="attribute">android:id</span>=<span class="value">"@+id/view"</span></span><br><span class="line">        <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:background</span>=<span class="value">"#46b34b"</span></span><br><span class="line">        <span class="attribute">android:text</span>=<span class="value">"@string/hello_world"</span></span><br><span class="line">        <span class="attribute">app:layout_height</span>=<span class="value">"120dp"</span></span><br><span class="line">        <span class="attribute">app:layout_marginLeft</span>=<span class="value">"12dp"</span></span><br><span class="line">        <span class="attribute">app:layout_marginTop</span>=<span class="value">"8dp"</span></span><br><span class="line">        <span class="attribute">app:layout_scale_by</span>=<span class="value">"width"</span></span><br><span class="line">        <span class="attribute">app:layout_width</span>=<span class="value">"166dp"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">TextView</span></span><br><span class="line">        <span class="attribute">android:layout_width</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:layout_height</span>=<span class="value">"wrap_content"</span></span><br><span class="line">        <span class="attribute">android:layout_toRightOf</span>=<span class="value">"@id/view"</span></span><br><span class="line">        <span class="attribute">android:background</span>=<span class="value">"#46b34b"</span></span><br><span class="line">        <span class="attribute">android:text</span>=<span class="value">"@string/hello_world"</span></span><br><span class="line">        <span class="attribute">app:layout_height</span>=<span class="value">"120dp"</span></span><br><span class="line">        <span class="attribute">app:layout_marginLeft</span>=<span class="value">"4dp"</span></span><br><span class="line">        <span class="attribute">app:layout_marginTop</span>=<span class="value">"8dp"</span></span><br><span class="line">        <span class="attribute">app:layout_paddingLeft</span>=<span class="value">"12dp"</span></span><br><span class="line">        <span class="attribute">app:layout_paddingTop</span>=<span class="value">"12dp"</span></span><br><span class="line">        <span class="attribute">app:layout_scale_by</span>=<span class="value">"width"</span></span><br><span class="line">        <span class="attribute">app:layout_width</span>=<span class="value">"166dp"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">cn.gavinliu.android.lib.scale.ScaleRelativeLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="概述">概述</h1><p>Android开发中面对这么多机型，这么多大小不一的手机屏幕，需要寻求一种高效的多屏适配方案，本文只针对不支持转屏的应用。</p>
-<h2 id="问题">问题</h2><p>一般来说应用的适配可分一下几个内容：</p>
-<ol>
-<li>系统组件(Actionbar，Dialog， Pupupmenu…)</li>
-<li>控件块区(View的大小，间距)</li>
-<li>图文相关(文字大小，图片)</li>
-</ol>
-<h2 id="方案">方案</h2><ol>
-<li>系统组件：使用相关Compat库+自定义View的方式</li>
-<li>控件块区：控件的位置大小，使用dp + 百分比缩放的方式</li>
-<li>图文相关：文子大小使用sp，或者根据需要使用百分比缩放</li>
-</ol>
-<h1 id="适配细节">适配细节</h1><h2 id="一、Android原生dp">一、Android原生dp</h2><h2 id="二、百分比缩放">二、百分比缩放</h2><h3 id="已知库">已知库</h3><ol>
-<li><p>android-percent-support-lib<br> 宽高只能和父容器的宽高对应比例。</p>
-</li>
-<li><p>android-percent-support-lib-<br> 基于上面扩展，实现可以分别选择占父容器的比例。</p>
-</li>
-</ol>
-<p>然而对于这样的在布局文件中直接定义百分比的方式，存在两大问题</p>
-<ol>
-<li>计算麻烦<br> 视觉给你标注图肯定都是标的真实的长度，百分比还得自己计算。</li>
-<li>精度丢失<br> 如果效果图的父容器宽是1080px，子View的宽是38px，占3.3333~%，1080 * 3% = 32；1080 * 3.3% = 35 无论取什么值，连视觉的设计样本都会偏移像素。</li>
-</ol>
-<h3 id="最终方案">最终方案</h3>]]>
-    
-    </summary>
-    
-      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
-    
-      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Android - 图像处理基础]]></title>
-    <link href="http://gavinliu.cn/2015/07/27/Android-%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
-    <id>http://gavinliu.cn/2015/07/27/Android-图像处理/</id>
-    <published>2015-07-27T11:38:05.000Z</published>
-    <updated>2015-12-31T12:41:17.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="基础Ａｐｉ">基础Ａｐｉ</h2><h3 id="Canvas">Canvas</h3><h3 id="Paint">Paint</h3><h3 id="Path">Path</h3><h2 id="实用技巧">实用技巧</h2><h3 id="处理圆角的三种方式">处理圆角的三种方式</h3><h3 id="如何清屏?">如何清屏?</h3>]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="基础Ａｐｉ">基础Ａｐｉ</h2><h3 id="Canvas">Canvas</h3><h3 id="Paint">Paint</h3><h3 id="Path">Path</h3><h2 id="实用技巧">实用技巧</h2><h3 id="处理圆角的三种方式]]>
-    </summary>
-    
-      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
-    
-      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Android - JNI开发中Gradle的配置]]></title>
-    <link href="http://gavinliu.cn/2015/07/03/Android-JNI%E5%BC%80%E5%8F%91-Gradle%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
-    <id>http://gavinliu.cn/2015/07/03/Android-JNI开发-Gradle的配置/</id>
-    <published>2015-07-03T06:16:29.000Z</published>
-    <updated>2016-01-09T14:10:26.000Z</updated>
-    <content type="html"><![CDATA[<p><a href="/2013/07/03/Android-JNI-NDKHelloWorld/">Andoid - JNI.NDKHelloWorld</a></p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile fileTree(<span class="string">dir:</span> <span class="string">"$buildDir/native-libs"</span>, <span class="string">include:</span> <span class="string">'native-libs.jar'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">task nativeLibsToJar(<span class="string">type:</span> Zip, <span class="string">description:</span> <span class="string">'create a jar archive of the native libs'</span>) &#123;</span><br><span class="line">    destinationDir file(<span class="string">"$buildDir/native-libs"</span>)</span><br><span class="line">    baseName <span class="string">'native-libs'</span></span><br><span class="line">    extension <span class="string">'jar'</span></span><br><span class="line">    from fileTree(<span class="string">dir:</span> <span class="string">'libs'</span>, <span class="string">include:</span> <span class="string">'**/*.so'</span>)</span><br><span class="line">    into <span class="string">'lib/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tasks.withType(JavaCompile) &#123;</span><br><span class="line">    compileTask -&gt; compileTask.dependsOn(nativeLibsToJar)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><a href="/2013/07/03/Android-JNI-NDKHelloWorld/">Andoid - JNI.NDKHelloWorld</a></p>
-<figure class="highlight groovy"><table><tr><td class]]>
-    </summary>
-    
-      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
-    
-      <category term="JNI" scheme="http://gavinliu.cn/tags/JNI/"/>
-    
-      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Android - 开源库Android-AbsListView-Drag-And-Drop]]></title>
-    <link href="http://gavinliu.cn/2015/06/24/Android-%E5%BC%80%E6%BA%90%E5%BA%93Android-AbsListView-Drag-And-Drop/"/>
-    <id>http://gavinliu.cn/2015/06/24/Android-开源库Android-AbsListView-Drag-And-Drop/</id>
-    <published>2015-06-24T12:37:43.000Z</published>
-    <updated>2016-01-17T07:19:10.000Z</updated>
-    <content type="html"><![CDATA[<h2 id="概述">概述</h2><p>魅族的滑动选择和拖拽删除是很棒的交互, 但是Flyme5上去掉了这一特性, 魅族源码中实现滑动选择是在ListView源码中修改的, 这样也是最好的方式, 我花了点时间使用了些黑科技继承ListView的方式实现, 这样可以在任何Android手机上使用这种交互方式.</p>
-<h2 id="看看效果">看看效果</h2><h3 id="原生ActionMode">原生ActionMode</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop1.gif" alt=""></p>
-<a id="more"></a>
-<h3 id="自定义SelectionAttacher">自定义SelectionAttacher</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop2.gif" alt=""></p>
-<h3 id="滑动选择">滑动选择</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop3.gif" alt=""></p>
-<h2 id="实现原理">实现原理</h2><ol>
-<li>Drag,Drop的实现方式<br>这里是使用弹窗的方式实现: 长按的时候获取当前item的视图并转换成一张图片, 同时弹一个悬浮窗, 把这个图片作为悬浮窗的背景, 然后跟着手指移动, 如果手指移动到Menu的区域则改变颜色, 此时放下,则回调Drop方法.<br>注: 这里需要指出的是悬浮窗的弹出方式是, 先弹了一个全屏的Layout, 真正可见的悬浮窗是该Layout的子视图, 这样做的目的是优化动画效果, 如果不这样做, 悬浮窗滑动到边缘会有视图绘制掉帧的情况(计算器悬浮窗就有这个问题)</li>
-<li>多选模式的自定义SelectionAttacher<br>由于是继承于ListView, 为了扩展一些功能, 就没有使用原生的ActionMode和原生的多选模式, 使用CHOICE_MODE_MULTIPLE来模拟了CHOICE_MODE_MULTIPLE_MODAL .<br>这里SelectionAttacher包含HeaderTransformer和FooterTransformer支持自定义, 可以实现Flyme5.0的交互.Transformer添加到Activity的DecorView中.</li>
-<li>滑动选择<br>滑动选择是实现Google I/O 2015发布的Photos的交互, 实现起来也很简单, 就是多选长按滑动后, 去选中滑动掠过的item. 自定义Layout 重写setActivated方法, 来实现缩放动画</li>
-</ol>
-<h2 id="代码">代码</h2><p><a href="https://github.com/gavinliu/Android-AbsListView-Drag-And-Drop" target="_blank" rel="external">https://github.com/gavinliu/Android-AbsListView-Drag-And-Drop</a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h2 id="概述">概述</h2><p>魅族的滑动选择和拖拽删除是很棒的交互, 但是Flyme5上去掉了这一特性, 魅族源码中实现滑动选择是在ListView源码中修改的, 这样也是最好的方式, 我花了点时间使用了些黑科技继承ListView的方式实现, 这样可以在任何Android手机上使用这种交互方式.</p>
-<h2 id="看看效果">看看效果</h2><h3 id="原生ActionMode">原生ActionMode</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop1.gif" alt=""></p>]]>
-    
-    </summary>
-    
-      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
-    
-      <category term="Drag.And.Drop" scheme="http://gavinliu.cn/tags/Drag-And-Drop/"/>
-    
-      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
     
   </entry>
   

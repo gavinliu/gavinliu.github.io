@@ -38,7 +38,7 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android, Java.Web, " />
@@ -52,7 +52,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=0.5.0" />
 
 
 
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
-    sidebar: '[object Object]',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -103,6 +103,10 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+
+
+
+
 
 
 
@@ -143,7 +147,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
@@ -197,11 +201,39 @@
       
 
       
-      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
       
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'eQz6W_tYqnDPxdE5SqsU','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -214,12 +246,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-
-    
-
-    
-    
-
     
       
 
@@ -242,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2013/08/02/Myeclipse-支持Retina显示屏/" itemprop="url">
-                  Myeclipse - 支持Retina显示屏
+                <a class="post-title-link" href="/2014/03/25/Android---让控件变得可拖拽/" itemprop="url">
+                  Android - 让控件变得可拖拽
                 </a>
               
             
@@ -256,112 +282,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-08-02T17:04:20+08:00" content="2013-08-02">
-              2013-08-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2013/08/02/Myeclipse-支持Retina显示屏/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/08/02/Myeclipse-支持Retina显示屏/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>英文原文：<a href="http://zxzjim.wordpress.com/2012/11/13/how-to-crack-myeclipse-10-6-in-macosx/" target="_blank" rel="external">http://zxzjim.wordpress.com/2012/11/13/how-to-crack-myeclipse-10-6-in-macosx/</a></p>
-<p>结合我修改的方式，稍加修改。</p>
-<ol>
-<li>找到文件：/Applications/MyEclipse/MyEclipse 10.app/Contents/Profile/myeclipse.app/Contents/Info.plist</li>
-<li>打开该文件，添加一个boolean属性：</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">key</span>&gt;</span>NSHighResolutionCapable<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">true</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<p>下面是重点，网上找的很多教程是修改好，重启myeclipse就可以了，我试了下 不行，或许是人品问题，然后换了下面这个方法，成功了。</p>
-<ol>
-<li>找个文件：/Applications/MyEclipse/MyEclipse 10.app/Contents/Profile/myeclipse.app</li>
-<li>复制 粘贴 得到 myeclipse.app 副本</li>
-<li>删除 myeclipse.app</li>
-<li>重命名 myeclipse.app 副本 -&gt; myeclipse.app<br>OK！现在打开 myeclipse.app 即可享受到 Retina 编程~~</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2013/07/03/Android-JNI-NDKHelloWorld/" itemprop="url">
-                  Android - JNI.NDKHelloWorld
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-07-03T14:22:38+08:00" content="2013-07-03">
-              2013-07-03
+            <time itemprop="dateCreated" datetime="2014-03-25T18:48:00+08:00" content="2014-03-25">
+              2014-03-25
             </time>
           </span>
 
@@ -390,8 +312,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2013/07/03/Android-JNI-NDKHelloWorld/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/07/03/Android-JNI-NDKHelloWorld/" itemprop="commentsCount"></span>
+                <a href="/2014/03/25/Android---让控件变得可拖拽/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/03/25/Android---让控件变得可拖拽/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -401,6 +323,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -413,11 +336,23 @@
 
       
         
-          
-            <p><a href="http://blog.csdn.net/lyl_studio/article/details/9238175" target="_blank" rel="external">JNI.NDKHelloWorld</a></p>
-
-          
+          <p>其实要实现拖拽的控件是非常简单的事情，和让控件支持点击一样简单！我们只需要实现<code>onDragEvent()</code> <code>dispatchDragEvent()</code> <code>setOnDragListener()</code>即可，是不是和触摸事件的回调差不多呢？(<code>onTouchEvent()</code> <code>dispatchTouchEvent()</code> <code>setOnTouchListener()</code>)</p>
+<p>我们可以通过<code>View.startDarg(ClipData data, DragShadowBuilder shadowBuilder, Object myLocalState, int flags)</code>来开始拖拽。<br>这里需要我们传入一个DragShadowBuilder对象，DragShadow就是拖拽阴影，会在你拖动的时候显示出来，<br>所以DragShadowBuilder有一个传View的构造函数-new DragShadowBuilder(View)。</p>
+<p><img src="/images/2014.03.25 - Android---让控件变得可拖拽.gif" alt="Drag"><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/03/25/Android---让控件变得可拖拽/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -456,8 +391,8 @@
             
               
                 
-                <a class="post-title-link" href="/2013/06/20/Android-【Telescop】-社交日历/" itemprop="url">
-                  Android:【Telescop】(社交日历)
+                <a class="post-title-link" href="/2014/03/18/Android---使用Loader进行数据加载/" itemprop="url">
+                  Android - 使用Loader进行数据加载
                 </a>
               
             
@@ -470,8 +405,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-06-20T21:48:27+08:00" content="2013-06-20">
-              2013-06-20
+            <time itemprop="dateCreated" datetime="2014-03-18T19:05:33+08:00" content="2014-03-18">
+              2014-03-18
             </time>
           </span>
 
@@ -484,8 +419,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/个人作品/" itemprop="url" rel="index">
-                    <span itemprop="name">个人作品</span>
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
                   </a>
                 </span>
 
@@ -500,8 +435,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2013/06/20/Android-【Telescop】-社交日历/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/06/20/Android-【Telescop】-社交日历/" itemprop="commentsCount"></span>
+                <a href="/2014/03/18/Android---使用Loader进行数据加载/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/03/18/Android---使用Loader进行数据加载/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -511,6 +446,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -523,29 +459,21 @@
 
       
         
-          <p>这款软件是我们基于日历做的一个社交软件，为什么基于日历？</p>
-<p>因为我们的生活本来就是基于日历的，我们每天会固定，按部就班的一些事情，学生每天上课，白领每天上班，电视台会定点节目等等，而这些事情其实反射到日历上，就是一个事件，一个Event。</p>
-<p>OK，在Telescop上最小的元素就是Event(事件)，这些事件的来源有三个途径：</p>
-<p>1.自己添加，2.好友添加，3.公共频道</p>
-<p>ps：自己添加，管理自己的生活，可以选择公开，让好友也能看到。<br>ps：公告频道，我们认证的一些公共资源(比如学校发布活动，课程表，美剧更新，电影上映等等)</p>
-<p>看到这里，可能很多人有所疑问，我还是没弄懂这个软件是干什么的，OK，我来给你举几个例子！</p>
-<p>场景一：<br><strong>Q</strong>：现在学校里面的组织发布活动，通常都是在食堂门口张贴海报什么的，你又没有经常看到一个感兴趣的活动想要参加时，却发现过期了？想了解更多关于活动的信息，想看看别人对这个活动的看法？</p>
-<blockquote>
-<p>有了Telescop，学校的组织发布活动就可以通过我们的公共频道来进行发布，而你只需要关注这个频道，就可以获得最新的活动，还可以在上面进行讨论，点评等等…再也不会错过精彩的活动了。</p>
-</blockquote>
-<p>场景二：<br><strong>Q</strong>：你想去游泳，想邀请朋友一起来，不知道朋友有没有时间，你可能需要QQ，电话联系一下，有没有很麻烦？</p>
-<blockquote>
-<p>有了Telescop，你可以提前一周发布一个Event，你的朋友们都能看到，因为你也能看到朋友们的Event，所以你也可以安排一个合适的时间去游泳。你朋友们看你打算去游泳，他想和你一起去，他就可以点击 参加 按钮，这时候他就会拥有这个Event 到时间会提醒他，这时候你能知道，谁谁谁也会参加，你们也可以在上面讨论，更加方便有效的组织互动。如果软件和游泳馆合作，你们还能直接买票。</p>
-</blockquote>
-<p>上面简单举了两个例子，其实应用范围还很广，公共频道里面可以有更多丰富的内容 电视台的节目，NBA的比赛等等等等</p>
-<p>——————↓↓创意的重点↓↓——————<br><strong>现在你有没有发现 我的社交软件里面的元素是【面向未来】的？！是的，我们不关心过去，我们只在乎未来！</strong><br><strong>现有的社交平台QQ空间，人人网，微博等等 都是在说我【过去】做了什么，我【现在】在做什么，而我们是在说我【未来】会做什么，有着【跨时代】意义！</strong><br>——————↑↑↑↑↑↑↑↑↑↑↑↑↑↑——————</p>
-<p>Telescop α-beta版<br><img src="/images/2013.06.20 - Android-【Telescop】-社交日历1.jpg" alt="images">
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2013/06/20/Android-【Telescop】-社交日历/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>Android3.0 开始提出Loader和LoaderManager的概念，通过LoaderManager类可以很轻松的从Fragment或Activity 中进行异步加载数据。<br>这和AsyncTask很类似，但是AsyncTask没有LoaderManager的统一管理，并且不方便实现MVC的开发模式，对于和UI相关的数据加载就不要使用AsyncTask使用Loader最佳！<br>官方示例：<br><a href="http://developer.android.com/reference/android/app/LoaderManager.html" target="_blank" rel="external">http://developer.android.com/reference/android/app/LoaderManager.html</a><br><a href="http://developer.android.com/reference/android/content/AsyncTaskLoader.html" target="_blank" rel="external">http://developer.android.com/reference/android/content/AsyncTaskLoader.html</a><br>当然我们实际开发中，需要自己去实现一个更加酷的Loader，来满足我们的开发需要。</p>
+<p>BaseDataLoader.java  — 一个基础Loader，提取于AsyncTaskLoader.html的示例代码，并做了自己的处理。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.gavinliu.loader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.AsyncTaskLoader;</span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 这是一个基础的数据加载Loader</span><br><span class="line"> * </span><br><span class="line"> * <span class="doctag">@author</span> Gavinliu</span><br><span class="line"> * <span class="doctag">@param</span> &lt;T&gt;</span><br><span class="line"> * </span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseDataLoader</span>&lt;<span class="title">T</span>&gt; <span class="keyword">extends</span> <span class="title">AsyncTaskLoader</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> T mData;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BaseDataLoader</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Handles a request to start the Loader.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStartLoading</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mData != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// If we currently have a result available, deliver it</span></span><br><span class="line">            <span class="comment">// immediately.</span></span><br><span class="line">            deliverResult(mData);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        registerObserver();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (takeContentChanged() || mData == <span class="keyword">null</span> || isConfigChanged()) &#123;</span><br><span class="line">            <span class="comment">// If the data has changed since the last time it was loaded</span></span><br><span class="line">            <span class="comment">// or is not currently available, start a load.</span></span><br><span class="line">            forceLoad();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Called when there is new data to deliver to the client. The super class</span><br><span class="line">     * will take care of delivering it; the implementation here just adds a</span><br><span class="line">     * little more logic.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deliverResult</span><span class="params">(T data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (isReset()) &#123;</span><br><span class="line">            <span class="comment">// An async query came in while the loader is stopped. We</span></span><br><span class="line">            <span class="comment">// don't need the result.</span></span><br><span class="line">            <span class="keyword">if</span> (mData != <span class="keyword">null</span>) &#123;</span><br><span class="line">                onReleaseResources(mData);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        T oldApps = mData;</span><br><span class="line">        mData = data;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (isStarted()) &#123;</span><br><span class="line">            <span class="comment">// If the Loader is currently started, we can immediately</span></span><br><span class="line">            <span class="comment">// deliver its results.</span></span><br><span class="line">            <span class="keyword">super</span>.deliverResult(data);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// At this point we can release the resources associated with</span></span><br><span class="line">        <span class="comment">// 'oldApps' if needed; now that the new result is delivered we</span></span><br><span class="line">        <span class="comment">// know that it is no longer in use.</span></span><br><span class="line">        <span class="keyword">if</span> (oldApps != <span class="keyword">null</span>) &#123;</span><br><span class="line">            onReleaseResources(oldApps);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Handles a request to stop the Loader.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStopLoading</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// Attempt to cancel the current load task if possible.</span></span><br><span class="line">        cancelLoad();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Handles a request to cancel a load.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCanceled</span><span class="params">(T data)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCanceled(data);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// At this point we can release the resources associated with 'apps'</span></span><br><span class="line">        <span class="comment">// if needed.</span></span><br><span class="line">        onReleaseResources(data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * Handles a request to completely reset the Loader.</span><br><span class="line">     */</span></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onReset</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onReset();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Ensure the loader is stopped</span></span><br><span class="line">        onStopLoading();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// At this point we can release the resources associated with 'apps'</span></span><br><span class="line">        <span class="comment">// if needed.</span></span><br><span class="line">        <span class="keyword">if</span> (mData != <span class="keyword">null</span>) &#123;</span><br><span class="line">            onReleaseResources(mData);</span><br><span class="line">            mData = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        unregisterObserver();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">isConfigChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">unregisterObserver</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onReleaseResources</span><span class="params">(T mData)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>MainActivity.java — 使用示例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.gavinliu.loader;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.app.LoaderManager.LoaderCallbacks;</span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.content.Loader;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">LoaderCallbacks</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        getLoaderManager().initLoader(<span class="number">0</span>, <span class="keyword">null</span>, <span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Loader&lt;String&gt; <span class="title">onCreateLoader</span><span class="params">(<span class="keyword">int</span> id, Bundle args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"onCreateLoader"</span>);</span><br><span class="line">        mLoader = <span class="keyword">new</span> MyLoader(getApplicationContext());</span><br><span class="line">        <span class="keyword">return</span> mLoader;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoadFinished</span><span class="params">(Loader&lt;String&gt; loader, String data)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"onLoadFinished"</span>);</span><br><span class="line">        System.out.println(<span class="string">"-----&gt;"</span> + data);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoaderReset</span><span class="params">(Loader&lt;String&gt; loader)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"onLoaderReset"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> MyLoader mLoader;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyLoader</span> <span class="keyword">extends</span> <span class="title">BaseDataLoader</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">        String mData;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyLoader</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>(context);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">loadInBackground</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"LoadInBackground"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Load Success"</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -584,8 +512,8 @@
             
               
                 
-                <a class="post-title-link" href="/2013/05/22/Android-【美中宜和】-医院外包/" itemprop="url">
-                  Android:【美中宜和】(医院)
+                <a class="post-title-link" href="/2014/03/08/总结这段时间的面试经验/" itemprop="url">
+                  总结这段时间的面试经验
                 </a>
               
             
@@ -598,8 +526,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-05-22T21:43:32+08:00" content="2013-05-22">
-              2013-05-22
+            <time itemprop="dateCreated" datetime="2014-03-08T23:06:56+08:00" content="2014-03-08">
+              2014-03-08
             </time>
           </span>
 
@@ -612,8 +540,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/个人作品/" itemprop="url" rel="index">
-                    <span itemprop="name">个人作品</span>
+                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
+                    <span itemprop="name">刘说八道</span>
                   </a>
                 </span>
 
@@ -628,8 +556,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2013/05/22/Android-【美中宜和】-医院外包/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/05/22/Android-【美中宜和】-医院外包/" itemprop="commentsCount"></span>
+                <a href="/2014/03/08/总结这段时间的面试经验/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/03/08/总结这段时间的面试经验/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -639,6 +567,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -651,13 +580,25 @@
 
       
         
-          <p>整个软件包含 新闻 自助服务 系统信息 关于我们 联系我们 五个模块。<br>热点新闻带图，轮播效果，下拉刷新、到列表底部加载更多，系统信息模块使用的是极光推动(www.jpush.cn)；<br>美中宜和介绍：<a href="http://www.amcare.com.cn">http://www.amcare.com.cn</a><br><img src="/images/2013.05.22 - Android-【美中宜和】-医院外包1.png" alt="images">
+          <p>2014.02.17-2014.02.28 这两周一直在面试，找工作，前前后后面试了十多家公司。<br>当然绝大多数都是成都的小型创业公司，一般创业公司多为直接面试，好一点的公司或者对技术比较看中的公司会有笔试。<br>大牛看到勿喷，本文仅仅作为我的一点点经验，应该能代表百分之五十的软件专业毕业生吧。       </p>
+<h2 id="一、准备工作">一、准备工作</h2><h3 id="简历">简历</h3><p>1.网投平台一般有简历模板，这个要尽量填满，填完之后预览，看哪里要修改的，修改需要突出显示的。(比如说我就把我的博客信息，直接填在专业描述里面，因为这样可以显示在最前面)<br>2.邮件投简历，需要你自己做一个简历文档，找模板，注意最后最好导出成PDF格式，不要用Doc。<br>3.通知面试最好备一份纸质简历，有些公司可能不会把你发给他的简历打印出来。  </p>
+<h3 id="笔试">笔试</h3><p>1.临时抱佛脚吧，直接上网找笔试题，然后做，一般找个两三套就够了。<br>2.Java主要知识点:线程同步，异常处理，集合(Collection的那些子类，Arraylist和LinkedList的不同)，多态性，final, finally, finalize的不同。      </p>
+<h3 id="面试">面试</h3><p>1.有笔试，可能会对你笔试内容做个询问。<br>2.会让你介绍你做过的项目。<br>3.基本上所有公司都有问Android Listview的优化，Bitmap的处理，网络异步通讯。        </p>
+<h2 id="二、面试经历">二、面试经历</h2>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2013/05/22/Android-【美中宜和】-医院外包/#more" rel="contents">
+            <a class="btn" href="/2014/03/08/总结这段时间的面试经验/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -696,8 +637,8 @@
             
               
                 
-                <a class="post-title-link" href="/2013/04/27/Android-【Battery-FM】/" itemprop="url">
-                  Android:【Battery.FM】
+                <a class="post-title-link" href="/2014/01/06/比特币里面的技术知识/" itemprop="url">
+                  比特币里面的技术知识
                 </a>
               
             
@@ -710,8 +651,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-04-27T21:38:35+08:00" content="2013-04-27">
-              2013-04-27
+            <time itemprop="dateCreated" datetime="2014-01-06T19:27:48+08:00" content="2014-01-06">
+              2014-01-06
             </time>
           </span>
 
@@ -724,8 +665,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/个人作品/" itemprop="url" rel="index">
-                    <span itemprop="name">个人作品</span>
+                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
+                    <span itemprop="name">刘说八道</span>
                   </a>
                 </span>
 
@@ -740,8 +681,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2013/04/27/Android-【Battery-FM】/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/27/Android-【Battery-FM】/" itemprop="commentsCount"></span>
+                <a href="/2014/01/06/比特币里面的技术知识/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/01/06/比特币里面的技术知识/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -751,6 +692,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -763,16 +705,22 @@
 
       
         
-          <p>Battery.FM  魅族风的界面，魅族风的图标、没错这就是最魅族的电池软件！</p>
-<p>Battery.FM 1.0 功能：<br>1.电池信息折线图<br>2.满电提示</p>
-<p><a href="http://bbs.meizu.cn/thread-4433210-1-1.html">http://bbs.meizu.cn/thread-4433210-1-1.html</a></p>
-<p><img src="/images/2013.04.27 - Android-【Battery-FM】1.png" alt="images">
+          <h2 id="什么是比特币？">什么是比特币？</h2><p>比特币（英语：Bitcoin，简写：BTC，货币符号：฿）是一种用户自治的、全球通用的加密电子货币。<br>它是产生和流通是基于非对称加密算法，P2P对等网络和分布式数据库的平台上，开发的交易和账户管理的操作系统。</p>
+<h2 id="什么是对称加密算法？">什么是对称加密算法？</h2><p>1.A要向B发送信息，A和B要事先商量一个密钥，各保存一份。<br>2.A要给B发送信息时，A用密钥加密，发个B。<br>3.B拿到密文，用密钥解密。<br>4.反之亦然。<br>这就是对称加密算法，只有一份密钥，安全性依赖于密钥，泄漏密钥就意味着任何人都可以对他们发送或接收的消息解密，所以密钥的保密性对通信性至关重要。
           <div class="post-more-link text-center">
-            <a class="btn" href="/2013/04/27/Android-【Battery-FM】/#more" rel="contents">
+            <a class="btn" href="/2014/01/06/比特币里面的技术知识/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -790,12 +738,134 @@
 
 
     
+      
 
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2013/12/31/2013-The-End/" itemprop="url">
+                  2013 The End
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-12-31T20:21:21+08:00" content="2013-12-31">
+              2013-12-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
+                    <span itemprop="name">刘说八道</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/12/31/2013-The-End/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/12/31/2013-The-End/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>又到12月31日，这一年做项目，参比赛，找工作，不知不觉就稀里糊涂就过去了，最后这几个小时，还是做个总结。   </p>
+<h3 id="项目篇">项目篇</h3><p>今年初第一次实习工作，拿着工资回家过年，第一次在父母面前证明了我学的知识，不是白学的。<br>结果却告知一个‘噩耗’，“既然你能赚钱了，那以后生活费自理…”(请问这是亲妈么？)<br>好吧，我把这当成是对我的锻炼，很庆幸，一年过去了，我活了过来，也没问家里要一分钱，并且还买了Macbook，换了手机。算是初步实现了经济独立了吧！<br>其实这个也要感谢，各路朋友介绍项目，不我然活不到今天，感谢感谢！       </p>
+<p>这一年做了不少项目<br>    某电视机顶盒 后台维护系统<br>    某电视机顶盒 REST Web服务<br>    某知名医院 Android客户端<br>    某音乐传媒公司的彩铃服务 Android客户端<br>    某美容美发平台 Android客户端+REST Webservice<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2013/12/31/2013-The-End/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -836,24 +906,28 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">78</span>
+              <span class="site-state-item-count">86</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">50</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -872,16 +946,18 @@
               <span class="links-of-author-item">
                 <a href="https://github.com/gavinliu" target="_blank">
                   
-                    <i class="fa fa-github"></i> GitHub
+                    <i class="fa fa-github"></i>
                   
+                  GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
                 <a href="http://weibo.com/512315128" target="_blank">
                   
-                    <i class="fa fa-weibo"></i> Weibo
+                    <i class="fa fa-weibo"></i>
                   
+                  Weibo
                 </a>
               </span>
             
@@ -891,7 +967,8 @@
         
         
 
-        <div class="links-of-author motion-element">
+        
+        <div class="links-of-blogroll motion-element">
           
         </div>
 
@@ -914,7 +991,7 @@
   &copy;  2012 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
 </div>
@@ -935,7 +1012,9 @@
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -943,6 +1022,14 @@
 
   
 
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
@@ -961,28 +1048,28 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
 
 
 
@@ -1015,6 +1102,136 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       tex2jax: {
@@ -1041,8 +1258,8 @@
 
 
   
-  
 
+  
 
 </body>
 </html>

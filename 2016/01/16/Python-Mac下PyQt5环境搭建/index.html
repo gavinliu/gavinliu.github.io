@@ -38,7 +38,7 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Mac,PyQt5,Python,Qt5,环境搭建," />
@@ -52,7 +52,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=0.5.0" />
 
 
 
@@ -80,7 +80,7 @@ Qt5
 SIP
 PyQt5">
 <meta property="og:image" content="http://gavinliu.cn/images/2016.01.16 - Python-Mac下PyQt5环境搭建1.png">
-<meta property="og:updated_time" content="2016-01-17T07:27:30.000Z">
+<meta property="og:updated_time" content="2016-02-26T12:02:25.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python - Mac下PyQt5环境搭建">
 <meta name="twitter:description" content="一直想写一些桌面软件，公司电脑是Ubuntu，个人电脑是Mac，Windows又是用户量最多的，想来想去使用跨平台的开发工具来写才是唯一的选择。
@@ -98,7 +98,7 @@ PyQt5">
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
-    sidebar: '[object Object]',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -126,6 +126,10 @@ PyQt5">
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+
+
+
+
 
 
 
@@ -164,7 +168,7 @@ PyQt5">
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
@@ -218,11 +222,39 @@ PyQt5">
       
 
       
-      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
       
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'eQz6W_tYqnDPxdE5SqsU','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -309,6 +341,7 @@ PyQt5">
 
           
           
+
         </div>
       </header>
     
@@ -333,9 +366,11 @@ PyQt5">
 <h2 id="安装_Python3">安装 Python3</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install python3</span><br></pre></td></tr></table></figure>
 <p>Python环境搭建相关可参考：<a href="/2015/12/17/Python-Mac的环境搭建/">Python - Mac的环境搭建</a></p>
 <h2 id="安装_Qt5-5">安装 Qt5.5</h2><p>官网下载后打开安装后，把bin目录加入环境变量</p>
-<h2 id="安装_SIP">安装 SIP</h2><figure class="highlight bash"><figcaption><span>sip-4.17</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">$ python3 configure.py</span><br><span class="line">This is SIP <span class="number">4.17</span> <span class="keyword">for</span> Python <span class="number">3.5</span>.<span class="number">1</span> on darwin.</span><br><span class="line">The SIP code generator will be installed <span class="keyword">in</span></span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/bin.</span><br><span class="line">The sip module will be installed <span class="keyword">in</span></span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages.</span><br><span class="line">The sip.h header file will be installed <span class="keyword">in</span></span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m.</span><br><span class="line">The default directory to install .sip files <span class="keyword">in</span> is</span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/share/sip.</span><br><span class="line">Creating siplib/sip.h...</span><br><span class="line">Creating siplib/siplib.c...</span><br><span class="line">Creating siplib/siplib.sbf...</span><br><span class="line">Creating sipconfig.py...</span><br><span class="line">Creating top level Makefile...</span><br><span class="line">Creating sip code generator Makefile...</span><br><span class="line">Creating sip module Makefile...</span><br><span class="line"></span><br><span class="line">$ make</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o main.o main.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o transform.o transform.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o gencode.o gencode.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o extracts.o extracts.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o export.o export.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o heap.o heap.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o parser.o parser.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o lexer.o lexer.c</span><br><span class="line">c++ -headerpad_max_install_names -o sip main.o transform.o gencode.o extracts.o export.o heap.o parser.o lexer.o</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o siplib.o siplib.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o apiversions.o apiversions.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o descriptors.o descriptors.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o qtlib.o qtlib.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o threads.o threads.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o objmap.o objmap.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o voidptr.o voidptr.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o array.o array.c</span><br><span class="line">c++ -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o bool.o bool.cpp</span><br><span class="line">c++ -headerpad_max_install_names -bundle -undefined dynamic_lookup -o sip.so siplib.o apiversions.o descriptors.o qtlib.o threads.o objmap.o voidptr.o array.o bool.o</span><br><span class="line"></span><br><span class="line">$ sudo make install</span><br><span class="line">cp <span class="operator">-f</span> sip /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/bin/sip</span><br><span class="line">cp <span class="operator">-f</span> sip.so /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages/sip.so</span><br><span class="line">cp <span class="operator">-f</span> /Users/Gavin/Downloads/PyQt/sip-<span class="number">4.17</span>/siplib/sip.h /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m/sip.h</span><br><span class="line">cp <span class="operator">-f</span> sipconfig.py /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages/sipconfig.py</span><br><span class="line">cp <span class="operator">-f</span> /Users/Gavin/Downloads/PyQt/sip-<span class="number">4.17</span>/sipdistutils.py /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages/sipdistutils.py</span><br></pre></td></tr></table></figure>
+<h2 id="终端安装_Pyqt">终端安装 Pyqt</h2><p>Mac上使用编译安装，后面使用<code>pyinstaller</code>打包会出问题，推荐使用命令行一键安装，Linux如果包管理没有的话，就使用编译安装吧。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install pyqt5</span><br></pre></td></tr></table></figure>
+<h2 id="编译安装_Pyqt">编译安装 Pyqt</h2><h3 id="安装_SIP">安装 SIP</h3><figure class="highlight bash"><figcaption><span>sip-4.17</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">$ python3 configure.py</span><br><span class="line">This is SIP <span class="number">4.17</span> <span class="keyword">for</span> Python <span class="number">3.5</span>.<span class="number">1</span> on darwin.</span><br><span class="line">The SIP code generator will be installed <span class="keyword">in</span></span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/bin.</span><br><span class="line">The sip module will be installed <span class="keyword">in</span></span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages.</span><br><span class="line">The sip.h header file will be installed <span class="keyword">in</span></span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m.</span><br><span class="line">The default directory to install .sip files <span class="keyword">in</span> is</span><br><span class="line">/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/share/sip.</span><br><span class="line">Creating siplib/sip.h...</span><br><span class="line">Creating siplib/siplib.c...</span><br><span class="line">Creating siplib/siplib.sbf...</span><br><span class="line">Creating sipconfig.py...</span><br><span class="line">Creating top level Makefile...</span><br><span class="line">Creating sip code generator Makefile...</span><br><span class="line">Creating sip module Makefile...</span><br><span class="line"></span><br><span class="line">$ make</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o main.o main.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o transform.o transform.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o gencode.o gencode.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o extracts.o extracts.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o export.o export.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o heap.o heap.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o parser.o parser.c</span><br><span class="line">cc -c -pipe -Os -w -DNDEBUG -I. -o lexer.o lexer.c</span><br><span class="line">c++ -headerpad_max_install_names -o sip main.o transform.o gencode.o extracts.o export.o heap.o parser.o lexer.o</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o siplib.o siplib.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o apiversions.o apiversions.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o descriptors.o descriptors.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o qtlib.o qtlib.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o threads.o threads.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o objmap.o objmap.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o voidptr.o voidptr.c</span><br><span class="line">cc -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o array.o array.c</span><br><span class="line">c++ -c -pipe <span class="operator">-f</span>PIC -Os -w -DNDEBUG -I. -I/usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m -o bool.o bool.cpp</span><br><span class="line">c++ -headerpad_max_install_names -bundle -undefined dynamic_lookup -o sip.so siplib.o apiversions.o descriptors.o qtlib.o threads.o objmap.o voidptr.o array.o bool.o</span><br><span class="line"></span><br><span class="line">$ sudo make install</span><br><span class="line">cp <span class="operator">-f</span> sip /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/bin/sip</span><br><span class="line">cp <span class="operator">-f</span> sip.so /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages/sip.so</span><br><span class="line">cp <span class="operator">-f</span> /Users/Gavin/Downloads/PyQt/sip-<span class="number">4.17</span>/siplib/sip.h /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/include/python3.<span class="number">5</span>m/sip.h</span><br><span class="line">cp <span class="operator">-f</span> sipconfig.py /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages/sipconfig.py</span><br><span class="line">cp <span class="operator">-f</span> /Users/Gavin/Downloads/PyQt/sip-<span class="number">4.17</span>/sipdistutils.py /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages/sipdistutils.py</span><br></pre></td></tr></table></figure>
 <p>最终安装在<code>/usr/local/Cellar/python3/3.5.1/Frameworks/Python.framework/Versions/3.5/bin/sip</code>，记住这个地址，安装PyQt5会用到。</p>
-<h2 id="安装_PyQt5">安装 PyQt5</h2><figure class="highlight bash"><figcaption><span>PyQt-gpl-5.5.1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ python3 configure.py -q /Users/Gavin/Develop/Qt-<span class="number">5.5</span>.<span class="number">1</span>/<span class="number">5.5</span>/clang_64/bin/qmake <span class="operator">-d</span> /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages --sip /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/bin/sip</span><br><span class="line"></span><br><span class="line"><span class="comment"># -q 为 Qt 的 qmake 路径</span></span><br><span class="line"><span class="comment"># -d 为 python3.5 的 site-packages，可通过 import site; site.getsitepackages() 来查看</span></span><br><span class="line"><span class="comment"># --sip 为 sip 的路径</span></span><br><span class="line"></span><br><span class="line">$ make</span><br><span class="line"></span><br><span class="line"><span class="comment"># 时间比较长</span></span><br><span class="line"></span><br><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
+<h3 id="安装_PyQt5">安装 PyQt5</h3><figure class="highlight bash"><figcaption><span>PyQt-gpl-5.5.1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ python3 configure.py -q /Users/Gavin/Develop/Qt-<span class="number">5.5</span>.<span class="number">1</span>/<span class="number">5.5</span>/clang_64/bin/qmake <span class="operator">-d</span> /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/lib/python3.<span class="number">5</span>/site-packages --sip /usr/<span class="built_in">local</span>/Cellar/python3/<span class="number">3.5</span>.<span class="number">1</span>/Frameworks/Python.framework/Versions/<span class="number">3.5</span>/bin/sip</span><br><span class="line"></span><br><span class="line"><span class="comment"># -q 为 Qt 的 qmake 路径</span></span><br><span class="line"><span class="comment"># -d 为 python3.5 的 site-packages，可通过 import site; site.getsitepackages() 来查看</span></span><br><span class="line"><span class="comment"># --sip 为 sip 的路径</span></span><br><span class="line"></span><br><span class="line">$ make</span><br><span class="line"></span><br><span class="line"><span class="comment"># 时间比较长</span></span><br><span class="line"></span><br><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
 <p>可能出现的错误：<code>fatal error: &#39;qgeolocation.h&#39; file not found</code>，<br>下载<a href="https://github.com/RSATom/Qt/blob/master/qtlocation/src/positioning/qgeolocation.h" target="_blank" rel="external">‘qgeolocation.h’</a>放入<code>PyQt-gpl-5.5.1/QtPositioning/</code>即可</p>
 <h2 id="Hello_PyQt">Hello PyQt</h2><figure class="highlight python"><figcaption><span>hello.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> PyQt5 <span class="keyword">import</span> QtCore, QtGui, QtWidgets</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app = QtWidgets.QApplication(sys.argv)</span><br><span class="line">    w = QtWidgets.QWidget()</span><br><span class="line">    w.resize(<span class="number">250</span>, <span class="number">150</span>)</span><br><span class="line">    w.move(<span class="number">300</span>, <span class="number">300</span>)</span><br><span class="line">    w.setWindowTitle(<span class="string">'Hello PyQt'</span>)</span><br><span class="line">    w.show()</span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 hello.py</span><br></pre></td></tr></table></figure>
@@ -343,6 +378,18 @@ PyQt5">
 <p>完美运行，成功搭建好开发环境，Ubuntu的搭建和Mac类似，Windows下载PyQt5的Binary Packages一键就可以搭建好。</p>
 <p>enjoy it~</p>
 
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
       
     </div>
 
@@ -468,24 +515,28 @@ PyQt5">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">78</span>
+              <span class="site-state-item-count">86</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">50</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -504,16 +555,18 @@ PyQt5">
               <span class="links-of-author-item">
                 <a href="https://github.com/gavinliu" target="_blank">
                   
-                    <i class="fa fa-github"></i> GitHub
+                    <i class="fa fa-github"></i>
                   
+                  GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
                 <a href="http://weibo.com/512315128" target="_blank">
                   
-                    <i class="fa fa-weibo"></i> Weibo
+                    <i class="fa fa-weibo"></i>
                   
+                  Weibo
                 </a>
               </span>
             
@@ -523,7 +576,8 @@ PyQt5">
         
         
 
-        <div class="links-of-author motion-element">
+        
+        <div class="links-of-blogroll motion-element">
           
         </div>
 
@@ -531,19 +585,13 @@ PyQt5">
 
       
         <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator">
-            <i class="fa fa-angle-double-up"></i>
-          </div>
           <div class="post-toc">
             
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装_Python3"><span class="nav-number">1.</span> <span class="nav-text">安装 Python3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装_Qt5-5"><span class="nav-number">2.</span> <span class="nav-text">安装 Qt5.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装_SIP"><span class="nav-number">3.</span> <span class="nav-text">安装 SIP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装_PyQt5"><span class="nav-number">4.</span> <span class="nav-text">安装 PyQt5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello_PyQt"><span class="nav-number">5.</span> <span class="nav-text">Hello PyQt</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装_Python3"><span class="nav-number">1.</span> <span class="nav-text">安装 Python3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装_Qt5-5"><span class="nav-number">2.</span> <span class="nav-text">安装 Qt5.5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#终端安装_Pyqt"><span class="nav-number">3.</span> <span class="nav-text">终端安装 Pyqt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译安装_Pyqt"><span class="nav-number">4.</span> <span class="nav-text">编译安装 Pyqt</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装_SIP"><span class="nav-number">4.1.</span> <span class="nav-text">安装 SIP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装_PyQt5"><span class="nav-number">4.2.</span> <span class="nav-text">安装 PyQt5</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello_PyQt"><span class="nav-number">5.</span> <span class="nav-text">Hello PyQt</span></a></li></ol></div>
             
-          </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator">
-            <i class="fa fa-angle-double-down"></i>
           </div>
         </section>
       
@@ -563,7 +611,7 @@ PyQt5">
   &copy;  2012 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
 </div>
@@ -584,7 +632,9 @@ PyQt5">
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -592,6 +642,14 @@ PyQt5">
 
   
 
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
@@ -610,189 +668,32 @@ PyQt5">
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
 
 
 
   
   
-<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
 
-<script type="text/javascript" id="sidebar.toc.highlight">
-  $(document).ready(function () {
-    var tocSelector = '.post-toc';
-    var $tocSelector = $(tocSelector);
-    var activeCurrentSelector = '.active-current';
 
-    $tocSelector
-      .on('activate.bs.scrollspy', function () {
-        var $currentActiveElement = $(tocSelector + ' .active').last();
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
 
-        removeCurrentActiveClass();
-        $currentActiveElement.addClass('active-current');
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
 
-        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
-      })
-      .on('clear.bs.scrollspy', function () {
-        removeCurrentActiveClass();
-      });
 
-    function removeCurrentActiveClass () {
-      $(tocSelector + ' ' + activeCurrentSelector)
-        .removeClass(activeCurrentSelector.substring(1));
-    }
 
-    function processTOC () {
-      getTOCMaxHeight();
-      toggleTOCOverflowIndicators();
-    }
-
-    function getTOCMaxHeight () {
-      var height = $('.sidebar').height() -
-                   $tocSelector.position().top -
-                   $('.post-toc-indicator-bottom').height();
-
-      $tocSelector.css('height', height);
-
-      return height;
-    }
-
-    function toggleTOCOverflowIndicators () {
-      tocOverflowIndicator(
-        '.post-toc-indicator-top',
-        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
-      );
-
-      tocOverflowIndicator(
-        '.post-toc-indicator-bottom',
-        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
-      )
-    }
-
-    $(document).on('sidebar.motion.complete', function () {
-      processTOC();
-    });
-
-    $('body').scrollspy({ target: tocSelector });
-    $(window).on('resize', function () {
-      if ( $('.sidebar').hasClass('sidebar-active') ) {
-        processTOC();
-      }
-    });
-
-    onScroll($tocSelector);
-
-    function onScroll (element) {
-      element.on('mousewheel DOMMouseScroll', function (event) {
-          var oe = event.originalEvent;
-          var delta = oe.wheelDelta || -oe.detail;
-
-          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
-          event.preventDefault();
-
-          toggleTOCOverflowIndicators();
-      });
-    }
-
-    function tocOverflowIndicator (indicator, action) {
-      var $indicator = $(indicator);
-      var opacity = action === 'show' ? 1 : 0;
-      $indicator.velocity ?
-        $indicator.velocity('stop').velocity({
-          opacity: opacity
-        }, { duration: 100 }) :
-        $indicator.stop().animate({
-          opacity: opacity
-        }, 100);
-    }
-
-  });
-</script>
-
-<script type="text/javascript" id="sidebar.nav">
-  $(document).ready(function () {
-    var html = $('html');
-    var TAB_ANIMATE_DURATION = 200;
-    var hasVelocity = $.isFunction(html.velocity);
-
-    $('.sidebar-nav li').on('click', function () {
-      var item = $(this);
-      var activeTabClassName = 'sidebar-nav-active';
-      var activePanelClassName = 'sidebar-panel-active';
-      if (item.hasClass(activeTabClassName)) {
-        return;
-      }
-
-      var currentTarget = $('.' + activePanelClassName);
-      var target = $('.' + item.data('target'));
-
-      hasVelocity ?
-        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
-          target
-            .velocity('stop')
-            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
-            .addClass(activePanelClassName);
-        }) :
-        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
-          currentTarget.hide();
-          target
-            .stop()
-            .css({'opacity': 0, 'display': 'block'})
-            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
-              currentTarget.removeClass(activePanelClassName);
-              target.addClass(activePanelClassName);
-            });
-        });
-
-      item.siblings().removeClass(activeTabClassName);
-      item.addClass(activeTabClassName);
-    });
-
-    $('.post-toc a').on('click', function (e) {
-      e.preventDefault();
-      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
-      var offset = $(targetSelector).offset().top;
-      hasVelocity ?
-        html.velocity('stop').velocity('scroll', {
-          offset: offset  + 'px',
-          mobileHA: false
-        }) :
-        $('html, body').stop().animate({
-          scrollTop: offset
-        }, 500);
-    });
-
-    // Expand sidebar on post detail page by default, when post has a toc.
-    NexT.motion.middleWares.sidebar = function () {
-      var $tocContent = $('.post-toc-content');
-
-      if (CONFIG.sidebar === 'post') {
-        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          NexT.utils.displaySidebar();
-        }
-      }
-    };
-  });
-</script>
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
 
 
 
@@ -825,6 +726,136 @@ PyQt5">
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       tex2jax: {
@@ -851,8 +882,8 @@ PyQt5">
 
 
   
-  
 
+  
 
 </body>
 </html>

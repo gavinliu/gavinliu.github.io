@@ -38,7 +38,7 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android, Java.Web, " />
@@ -52,7 +52,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=0.5.0" />
 
 
 
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
-    sidebar: '[object Object]',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -103,6 +103,10 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+
+
+
+
 
 
 
@@ -143,7 +147,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
@@ -197,11 +201,39 @@
       
 
       
-      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
       
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'eQz6W_tYqnDPxdE5SqsU','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -214,12 +246,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-
-    
-
-    
-    
-
     
       
 
@@ -242,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/" itemprop="url">
-                  Java - 通过优酷网视频播放网址解析出Mp4格式的单个文件
+                <a class="post-title-link" href="/2013/11/27/梦境/" itemprop="url">
+                  梦境
                 </a>
               
             
@@ -256,8 +282,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-04-22T21:01:59+08:00" content="2013-04-22">
-              2013-04-22
+            <time itemprop="dateCreated" datetime="2013-11-27T13:58:54+08:00" content="2013-11-27">
+              2013-11-27
             </time>
           </span>
 
@@ -270,8 +296,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Java Notes</span>
+                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
+                    <span itemprop="name">刘说八道</span>
                   </a>
                 </span>
 
@@ -286,8 +312,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/" itemprop="commentsCount"></span>
+                <a href="/2013/11/27/梦境/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/11/27/梦境/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -297,6 +323,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -310,11 +337,18 @@
       
         
           
-            <p><a href="http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html" target="_blank" rel="external">http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html</a> 简单粗暴，贴出解析代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正则表达式去除视频id</span></span><br><span class="line">String path = <span class="string">"http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html"</span>;</span><br><span class="line">Pattern p = Pattern.compile(<span class="string">".*id_(\\w+)\\.html"</span>);</span><br><span class="line">Matcher m = p.matcher(path);</span><br><span class="line">String id = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">if</span> (m.find()) &#123;</span><br><span class="line">	id = m.group(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 解析部分</span></span><br><span class="line">String s = <span class="string">"https://openapi.youku.com/v2/videos/files.json?client_id=513edb6cf9833ca7&amp;client_secret=eaf151ffdbf1383d934ab4cb91250fa6&amp;type=play&amp;video_id="</span>;</span><br><span class="line"><span class="comment">// 这里为HTTP获取得到Response，自己去实现</span></span><br><span class="line">String json = HttpUtil.changeInputStream(HttpUtil.getInputStream(s + id));</span><br><span class="line"><span class="comment">// 解析Json</span></span><br><span class="line">JSONObject object = <span class="keyword">new</span> JSONObject(json);</span><br><span class="line">object = object.getJSONObject(<span class="string">"files"</span>);</span><br><span class="line">object = object.getJSONObject(<span class="string">"3gphd"</span>);</span><br><span class="line">object = object.getJSONArray(<span class="string">"segs"</span>).getJSONObject(<span class="number">0</span>);</span><br><span class="line">String url = object.getString(<span class="string">"url"</span>);</span><br><span class="line">System.out.println(url);</span><br></pre></td></tr></table></figure></p>
-<p>最后输出：<br><a href="http://180.96.38.43/youku/65738D58CD431813202EE93924/0300200100523B433B57D707A71947923FEF7E-8BE5-FC18-E182-7B619D650F21.mp4" target="_blank" rel="external">http://180.96.38.43/youku/65738D58CD431813202EE93924/0300200100523B433B57D707A71947923FEF7E-8BE5-FC18-E182-7B619D650F21.mp4</a><br>注意这个链接是有时效性的！获取出来就尽快使用。</p>
+            <p>X：去追那个女孩子吧，那是你的爱情！<br>Y：爱情？你是在说笑吗？难道你要我抛下家的责任和同伴的重托去追寻那随时会随风而散留下我孤独一人的爱情吗？！<br>X：始终都得有个替代不是么？难道就这样一辈子和自己的精神在一起？这样我们的孩子不一样会怪罪我们吗？<br>Y：逝去的一切都将以另外的方式又回到未来的另一个点…爱情也会，况且这不是爱情，或者说只是因为周遭太热闹反而更显寂寞罢了。<br>X：就这样和我在一起一辈子？没有人牵手，没有人拥抱，没有人亲吻，只会有淡淡的关心，这样的生活 是孤独的，你不会喜欢的。<br>Y：现实与梦的区别在于梦不被他人认同。可是认同与不认同又有什么关系？一人生，一人死，路上遇见很多人，都无法走过一生,可是自己却可以，如果只是需要的话，那么一个人也没什么不好。<br>X：记得你说爱情是如死寂一般的黑色，我却觉得更像是夜空。像是夜的羽翼铺洒在空中拥抱了你我，轻抚你我的眼眸使你我安眠，也悄悄溜进你我的生命将爱情渲染，世人总认为爱情是彩色的，却毫不知万般缤纷交错之下的正是这夜色…<br>Y：于是我们就在此夜色月光下澈之时，一起散步、聊天、思考…忽然间也像是情侣、朋友、同伴…<br>X：于是我们正是在此时此刻，一起牵手、拥抱、自顾自的疯狂…书写了回忆，赶走了寂寞。<br>Y：可是你，我也同样也明白命运所指的未来，也明白家庭的责任，也明白同伴的托付。<br>X：所以依然劝阻你，为了这镜花水月般的思绪而坠落于自身所建的牢笼，同样是侮辱了时间和我。<br>Y：会孤独吗？<br>X：他们不是在吗？<br>Y：会痛苦吗？<br>X：不是有我吗？<br>Y：那还有什么我会惧怕的？<br>X：是啊，应该是没有什么需要惧怕的了，所以，不需要。<br>Y：如果有人会在电话里叫我一声亲爱的，那该多幸福？<br>X：我不是一直都叫着‘龙’吗？<br>Y：可是你叫了也只有我听见了呢。<br>X：是只有你能听见我的声音，但是我也没打算叫别人呢，不是吗？亦或是你只是为了虚荣？<br>Y：好，我明白了，我会记住的，我还有些事，我要去忙了，先起来了。<br>X：照顾好自己就好，不要去管其他人，因为你就算你做了好事我也看不见，我只会看到你的悲伤和疲惫…  </p>
 
           
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -353,8 +387,8 @@
             
               
                 
-                <a class="post-title-link" href="/2013/04/08/Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串/" itemprop="url">
-                  Java - 抓取优酷网视频播放页面(使用jsoup解析html,正则表达式处理字符串)
+                <a class="post-title-link" href="/2013/08/04/Mysql-Mac下的乱码问题/" itemprop="url">
+                  Mysql - Mac下的乱码问题
                 </a>
               
             
@@ -367,38 +401,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-04-08T20:55:41+08:00" content="2013-04-08">
-              2013-04-08
+            <time itemprop="dateCreated" datetime="2013-08-04T17:16:43+08:00" content="2013-08-04">
+              2013-08-04
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Java Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2013/04/08/Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/08/Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串/" itemprop="commentsCount"></span>
+                <a href="/2013/08/04/Mysql-Mac下的乱码问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/08/04/Mysql-Mac下的乱码问题/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -408,6 +423,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -421,11 +437,19 @@
       
         
           
-            <p>最近在研究视频播放这块儿，然后打算做一款视频聚合类的软件，首先把优酷聚合搞定吧！<br>我们首先得把优酷网的视频播放页面的地址解析出来，由于优酷有很多拍客的视频，这些拍客的视频当然不是我们想要的，通过优酷网的页面分析，应该从优酷的节目列表页开始抓取，页面如下。<br><a href="http://www.youku.com/v_olist/c_96_a__s__g__r__lg__im__st__mt__tg__d_1_et_0_ag_0_fv_0_fl__fc__fe__o_7_p_1.html" target="_blank" rel="external">http://www.youku.com/v_olist/c_96_a__s__g__r__lg__im__st__mt__tg__d_1_et_0_ag_0_fv_0_fl__fc__fe__o_7_p_1.html</a><br>我们使用 jsoup 开发包进行 html 的解析，完整代码如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.gavin.video.down;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Matcher;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.jsoup.Jsoup;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Document;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Element;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.select.Elements;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DownYouku</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String ss = <span class="string">"http://www.youku.com/v_olist/c_96_a__s__g__r__lg__im__st__mt__tg__d_1_et_0_ag_0_fv_0_fl__fc__fe__o_7_p_1.html"</span>;</span><br><span class="line">		<span class="keyword">new</span> DownYouku().downMovie(ss);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">downMovie</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">		String homeurl = <span class="string">""</span>;</span><br><span class="line">		String page = <span class="string">""</span>;</span><br><span class="line">		String suf = <span class="string">""</span>;</span><br><span class="line">		<span class="comment">// 正则表达式处理 解析地址</span></span><br><span class="line">		Pattern p_url = Pattern.compile(<span class="string">"(.*)(\\d)(\\.html)"</span>);</span><br><span class="line">		Matcher m_url = p_url.matcher(str);</span><br><span class="line">		<span class="keyword">if</span> (m_url.find()) &#123;</span><br><span class="line">			homeurl = m_url.group(<span class="number">1</span>);</span><br><span class="line">			page = m_url.group(<span class="number">2</span>);</span><br><span class="line">			suf = m_url.group(<span class="number">3</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 循环抓取</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = Integer.parseInt(page); i &lt;= <span class="number">30</span>; i++) &#123;</span><br><span class="line">			String path = homeurl + i + suf;</span><br><span class="line">			Document doc1 = <span class="keyword">null</span>;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				doc1 = Jsoup.connect(path).get();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e2) &#123;</span><br><span class="line">				System.out.println(<span class="string">"&gt;&gt;&gt;&gt;&gt;&gt;IO 错误 1"</span>);</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			Element listofficial = doc1.getElementById(<span class="string">"listofficial"</span>);</span><br><span class="line">			Elements p_pvs = listofficial.getElementsByTag(<span class="string">"ul"</span>);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">40</span>; j++) &#123;</span><br><span class="line">				Element p_pv = p_pvs.get(j);</span><br><span class="line">				String a = p_pv.getElementsByTag(<span class="string">"a"</span>).attr(<span class="string">"href"</span>);</span><br><span class="line">				String title = p_pv.getElementsByTag(<span class="string">"a"</span>).attr(<span class="string">"title"</span>);</span><br><span class="line">				Document doc2 = <span class="keyword">null</span>;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					doc2 = Jsoup.connect(a).get();</span><br><span class="line">				&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">					System.out.println(<span class="string">"&gt;&gt;&gt;&gt;&gt;&gt;IO 错误 2"</span>);</span><br><span class="line">					<span class="keyword">continue</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				Element showInfo = doc2.getElementById(<span class="string">"showInfo"</span>);</span><br><span class="line">				Element baseinfo = showInfo.getElementsByClass(<span class="string">"baseinfo"</span>).get(<span class="number">0</span>);</span><br><span class="line">				Elements link = baseinfo.getElementsByClass(<span class="string">"link"</span>);</span><br><span class="line">				Element url_a = <span class="keyword">null</span>;</span><br><span class="line">				<span class="keyword">if</span> (link.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">					url_a = link.get(<span class="number">0</span>).getElementsByTag(<span class="string">"a"</span>).get(<span class="number">0</span>);</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">					System.out.println(title + <span class="string">" : "</span> + <span class="string">"无视频链接"</span>);</span><br><span class="line">					<span class="keyword">continue</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				String url = url_a.attr(<span class="string">"href"</span>);</span><br><span class="line">				System.out.print(url + <span class="string">"\t\t"</span>);</span><br><span class="line">				System.out.println(title);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>抓取结果：<br><img src="/images/2013.04.08 - Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串.png" alt="image"><br>内容就提取了这么两项，其他的内容 照着优酷的 html dom 很容易就提取出来了。<br>ok！现在我们有了，视频的播放地址，下篇博文讲讲怎么通过这个地址，来解析出视频的真实地址，然后在移动设备上播放。</p>
+            <p>Windows 下，安装mysql 时会有一系列配置，mac下一键就安装好了，需要配置下字符编码，不然JDBC存中文数据会乱码的。<br>解决办法：<br>拷贝 /usr/local/mysql/support-files 下的任意一个*.cnf文件到 /etc/my.cnf<br>编辑my.cnf<br>[client] 后面添加<br>default-character-set = utf8<br>[mysqld] 后面添加<br>default-storage-engine = INNODB<br>character-set-server = utf8<br>collation-server = utf8_general_ci</p>
+<p>可能会出现my.cnf里面没有[client] 或者[mysqld]，自己添加一个就行了</p>
 
           
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -464,8 +488,8 @@
             
               
                 
-                <a class="post-title-link" href="/2012/11/20/Android-【Pic-FM】/" itemprop="url">
-                  Android:【Pic.FM】
+                <a class="post-title-link" href="/2013/08/03/Tomcat-Mac下的乱码问题/" itemprop="url">
+                  Mac OS X - Tomcat 乱码问题
                 </a>
               
             
@@ -478,38 +502,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-11-20T21:32:54+08:00" content="2012-11-20">
-              2012-11-20
+            <time itemprop="dateCreated" datetime="2013-08-03T17:14:28+08:00" content="2013-08-03">
+              2013-08-03
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/个人作品/" itemprop="url" rel="index">
-                    <span itemprop="name">个人作品</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2012/11/20/Android-【Pic-FM】/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/11/20/Android-【Pic-FM】/" itemprop="commentsCount"></span>
+                <a href="/2013/08/03/Tomcat-Mac下的乱码问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/08/03/Tomcat-Mac下的乱码问题/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -519,6 +524,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -532,12 +538,23 @@
       
         
           
-            <p>Pic.FM一款小工具，替你定期更换手机壁纸。相信很多人都会到处去收集自己喜欢的壁纸，随着收集的壁纸越来越多，以至于你根本不知道该去换哪一张壁纸，而Pic.FM就是为你解决换壁纸的困惑。<br>Pic.FM有一个精致简约的界面，软件超级轻量小巧。而且Pic.FM不会常驻后台服务，更加省电，环保…Pic.FM和你手机系统高度融合，你设置切换时间后，系统会定期帮你随机换手机壁纸库里壁纸！</p>
-<p>使用方法：<br>1.使用Pic.FM之前，请把你的壁纸，移动到sdcard/Wallpaper 目录下(区分大小写,没有请自己新建)<br>2.打开Pic.FM-&gt; 点击【启用Pic.FM 功能】-&gt;【设置间隔时间】<br>适用于三星，魅族等支持桌面固定壁纸的手机，如果你手机只能设置为动态，可能会出现壁纸模糊的情况。<br>终于给魅族做软件咯，最喜欢的企业。还记得当年M8时代，魅族论坛的cddjr( <a href="http://t.qq.com/djr1988" target="_blank" rel="external">http://t.qq.com/djr1988</a> )，藐视腾讯，自己为M8开发QQ，做出了M8最好用的QQ软件，那个时候我才高一，而且C大，还是我们广安老乡，心中偶像啊。这也奠定了，我走上软件开发这条路…现在我也为魅族开心情</p>
-<p>魅族商店：<a href="http://app.meizu.com/phone/appsbyid/717003" target="_blank" rel="external">http://app.meizu.com/phone/appsbyid/717003</a></p>
+            <ol>
+<li>Myeclipse 启动Tomcat 控制台乱码：<br>window -&gt; Preference -&gt; myeclipse -&gt; servers -&gt; tomcat -&gt; tomcat7.0 -&gt; JDK -&gt; optional java VM arguments :加入 -Dfile.encoding=GBK</li>
+<li>接受数据乱码，设置字符集什么都不管用时：<br>修改Tomcat的server.xml</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"8080"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span></span><br><span class="line">               <span class="attribute">connectionTimeout</span>=<span class="value">"20000"</span></span><br><span class="line">               <span class="attribute">redirectPort</span>=<span class="value">"8443"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"8080"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span></span><br><span class="line">               <span class="attribute">connectionTimeout</span>=<span class="value">"20000"</span></span><br><span class="line">               <span class="attribute">redirectPort</span>=<span class="value">"8443"</span> <span class="attribute">URIEncoding</span>=<span class="value">"UTF-8"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
 
           
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -576,8 +593,8 @@
             
               
                 
-                <a class="post-title-link" href="/2012/07/02/Android-【安卓答录机】/" itemprop="url">
-                  Android:【安卓答录机】
+                <a class="post-title-link" href="/2013/08/02/Myeclipse-支持Retina显示屏/" itemprop="url">
+                  Myeclipse - 支持Retina显示屏
                 </a>
               
             
@@ -590,38 +607,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-07-02T21:15:44+08:00" content="2012-07-02">
-              2012-07-02
+            <time itemprop="dateCreated" datetime="2013-08-02T17:04:20+08:00" content="2013-08-02">
+              2013-08-02
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/个人作品/" itemprop="url" rel="index">
-                    <span itemprop="name">个人作品</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2012/07/02/Android-【安卓答录机】/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/07/02/Android-【安卓答录机】/" itemprop="commentsCount"></span>
+                <a href="/2013/08/02/Myeclipse-支持Retina显示屏/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/08/02/Myeclipse-支持Retina显示屏/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -631,6 +629,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -643,16 +642,32 @@
 
       
         
-          <p>保存通话录音，在生活中其实有很大的用处，电话访记录，电话取证，记录重要事件，情侣之间，家人之间也会有很多宝贵的通话。<br>比如在生活中 上级电话交代你处理一些事情，或许你忙于做手头的事情，而忘记了上级交代的事，这个时候如果你有通话录音，你就可以拿出来听…<br>而事实原生的安卓手机上是没有这个功能的，因为安卓系统是google开发的，通话录音在美国会涉及到人权隐私等问题，所以在系统设计上，就没有把通话录音功能加上，通话录音功能就只能让第三方来实现。<br>所以在此形式上，我们基于通话周边元素 融入了应答功能，加上我们简洁的UI，逐步形成了现在这款 安卓答录机。</p>
-<p>下载地址：<a href="http://mm.10086.cn/1007/300002692958.html">http://mm.10086.cn/1007/300002692958.html</a></p>
-<p>PS：本软件设计之初实际上是想模拟港台地区，家里的座机电话上的答录功能，TVB电视剧中经常出现这个镜头 “你好，我现在不在家，请在嘟声后留言”，但是在功能实现上，发现需要很多底层的东西，需要ROM 的支持，所以只完成了，通话自动录音功能，答录功能目前尚未找解决办法，本软件在今年5月份就完成了，今年7月份魅族最新的Flyme OS，支持了语音留言功能，怎么说呢，在这一点功能上，我和魅族想到一块儿去了，很想知道魅族是怎么实现的，其实我有个梦想就是以后能在有着魅族这样的执着，低调，务实的企业文化里工作，不矫情了，上软件截图。</p>
-<p><img src="/images/2012.07.02 - -软件-Android-【安卓答录机】1.jpg" alt="images">
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2012/07/02/Android-【安卓答录机】/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>英文原文：<a href="http://zxzjim.wordpress.com/2012/11/13/how-to-crack-myeclipse-10-6-in-macosx/" target="_blank" rel="external">http://zxzjim.wordpress.com/2012/11/13/how-to-crack-myeclipse-10-6-in-macosx/</a></p>
+<p>结合我修改的方式，稍加修改。</p>
+<ol>
+<li>找到文件：/Applications/MyEclipse/MyEclipse 10.app/Contents/Profile/myeclipse.app/Contents/Info.plist</li>
+<li>打开该文件，添加一个boolean属性：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">key</span>&gt;</span>NSHighResolutionCapable<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">true</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下面是重点，网上找的很多教程是修改好，重启myeclipse就可以了，我试了下 不行，或许是人品问题，然后换了下面这个方法，成功了。</p>
+<ol>
+<li>找个文件：/Applications/MyEclipse/MyEclipse 10.app/Contents/Profile/myeclipse.app</li>
+<li>复制 粘贴 得到 myeclipse.app 副本</li>
+<li>删除 myeclipse.app</li>
+<li>重命名 myeclipse.app 副本 -&gt; myeclipse.app<br>OK！现在打开 myeclipse.app 即可享受到 Retina 编程~~</li>
+</ol>
+
+          
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -691,8 +706,8 @@
             
               
                 
-                <a class="post-title-link" href="/2012/06/08/Java-Web-Cookies-随笔/" itemprop="url">
-                  Java.Web - Cookies 随笔
+                <a class="post-title-link" href="/2013/07/03/Android-JNI-NDKHelloWorld/" itemprop="url">
+                  Android - JNI.NDKHelloWorld
                 </a>
               
             
@@ -705,8 +720,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-06-08T20:52:08+08:00" content="2012-06-08">
-              2012-06-08
+            <time itemprop="dateCreated" datetime="2013-07-03T14:22:38+08:00" content="2013-07-03">
+              2013-07-03
             </time>
           </span>
 
@@ -719,8 +734,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Java.Web Notes</span>
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
                   </a>
                 </span>
 
@@ -735,8 +750,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2012/06/08/Java-Web-Cookies-随笔/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/06/08/Java-Web-Cookies-随笔/" itemprop="commentsCount"></span>
+                <a href="/2013/07/03/Android-JNI-NDKHelloWorld/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/07/03/Android-JNI-NDKHelloWorld/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -746,6 +761,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -759,19 +775,18 @@
       
         
           
-            <ul>
-<li><h2 id="Cookie">Cookie</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建cookie(name, value)</span></span><br><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"username"</span>,<span class="string">"admin"</span>);</span><br><span class="line"><span class="comment">// 设置cookie生命周期(如果没有设置，则关闭浏览器cookie消失)</span></span><br><span class="line">cookie.setMaxAge(<span class="number">3200</span>);</span><br><span class="line"><span class="comment">// 把cookie信息回写个浏览器</span></span><br><span class="line">response.addCookie(cookie);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取cookie</span></span><br><span class="line"><span class="comment">// 获取所有cookie</span></span><br><span class="line">Cookie cookies[] = <span class="keyword">new</span> request.getCookies();</span><br><span class="line"><span class="comment">// 筛选</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; cookies.length; i++)&#123;</span><br><span class="line">    Cookie cookie = cookies[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><h2 id="Cookie存放中文，把中文转成base64码">Cookie存放中文，把中文转成base64码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String username = java.net.URLEncoder.encode(<span class="string">"刘云龙"</span>,<span class="string">"UTF-8"</span>);</span><br><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"username"</span>,username);</span><br><span class="line">cookie.setMaxAge(<span class="number">3200</span>);</span><br><span class="line">response.addCookie(cookie);</span><br></pre></td></tr></table></figure>
-</li>
-<li><h2 id="Cookie读取中文，把base64码转成中文">Cookie读取中文，把base64码转成中文</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String username = java.net.URLDecoder.decode(cookie.getValue(),<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>1.如果cookie重名了，会被替换<br>2.cookie是明文存放，得加密存放</p>
-<p>Cookie案例：提示用户上次登录时间</p>
+            <p><a href="http://blog.csdn.net/lyl_studio/article/details/9238175" target="_blank" rel="external">JNI.NDKHelloWorld</a></p>
 
           
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -789,12 +804,11 @@
 
 
     
-
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -835,24 +849,28 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">78</span>
+              <span class="site-state-item-count">86</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">50</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -871,16 +889,18 @@
               <span class="links-of-author-item">
                 <a href="https://github.com/gavinliu" target="_blank">
                   
-                    <i class="fa fa-github"></i> GitHub
+                    <i class="fa fa-github"></i>
                   
+                  GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
                 <a href="http://weibo.com/512315128" target="_blank">
                   
-                    <i class="fa fa-weibo"></i> Weibo
+                    <i class="fa fa-weibo"></i>
                   
+                  Weibo
                 </a>
               </span>
             
@@ -890,7 +910,8 @@
         
         
 
-        <div class="links-of-author motion-element">
+        
+        <div class="links-of-blogroll motion-element">
           
         </div>
 
@@ -913,7 +934,7 @@
   &copy;  2012 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
 </div>
@@ -934,7 +955,9 @@
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -942,6 +965,14 @@
 
   
 
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
@@ -960,28 +991,28 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
 
 
 
@@ -1014,6 +1045,136 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       tex2jax: {
@@ -1040,8 +1201,8 @@
 
 
   
-  
 
+  
 
 </body>
 </html>

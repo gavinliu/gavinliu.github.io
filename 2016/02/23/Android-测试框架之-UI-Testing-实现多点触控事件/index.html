@@ -1,0 +1,863 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,Android测试框架,UiAutomator," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Gavin.Liu" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="UiAutomator已经现有的的API没有提高多点触控的方法，但是我们可以通过注入多点事件的方式来实现。
+Android TouchEvent Flow一个基本的单点事件流
+123MotionEvent.ACTION_DOWNMotionEvent.ACTION_MOVEMotionEvent.ACTION_UP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android - 测试框架之 UI Testing - 实现多点触控事件">
+<meta property="og:url" content="http://gavinliu.cn/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/index.html">
+<meta property="og:site_name" content="Gavin.Liu">
+<meta property="og:description" content="UiAutomator已经现有的的API没有提高多点触控的方法，但是我们可以通过注入多点事件的方式来实现。
+Android TouchEvent Flow一个基本的单点事件流
+123MotionEvent.ACTION_DOWNMotionEvent.ACTION_MOVEMotionEvent.ACTION_UP">
+<meta property="og:updated_time" content="2016-04-09T08:51:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android - 测试框架之 UI Testing - 实现多点触控事件">
+<meta name="twitter:description" content="UiAutomator已经现有的的API没有提高多点触控的方法，但是我们可以通过注入多点事件的方式来实现。
+Android TouchEvent Flow一个基本的单点事件流
+123MotionEvent.ACTION_DOWNMotionEvent.ACTION_MOVEMotionEvent.ACTION_UP">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Android - 测试框架之 UI Testing - 实现多点触控事件 | Gavin.Liu </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?2842c9eadd6d87f89c3ebdba92f18bcb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Gavin.Liu</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Focus on Mobile Develop</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'eQz6W_tYqnDPxdE5SqsU','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android - 测试框架之 UI Testing - 实现多点触控事件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-23T12:37:25+08:00" content="2016-02-23">
+              2016-02-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><code>UiAutomator</code>已经现有的的API没有提高多点触控的方法，但是我们可以通过注入多点事件的方式来实现。</p>
+<h2 id="Android_TouchEvent_Flow">Android TouchEvent Flow</h2><p>一个基本的单点事件流</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MotionEvent.ACTION_DOWN</span><br><span class="line">MotionEvent.ACTION_MOVE</span><br><span class="line">MotionEvent.ACTION_UP</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>如果加上多点事件，基本的事件流是这样的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MotionEvent.ACTION_DOWN</span><br><span class="line">MotionEvent.ACTION_POINTER_DOWN</span><br><span class="line">MotionEvent.ACTION_MOVE</span><br><span class="line">MotionEvent.ACTION_POINTER_UP</span><br><span class="line">MotionEvent.ACTION_UP</span><br></pre></td></tr></table></figure>
+<p>需要明白的点：</p>
+<blockquote>
+<p>无论多点还是单点，正常的事件流是以<code>ACTION_DOWN</code>开始 <code>ACTION_UP</code>结束。</p>
+<p>对于多点事件来说，当你第一个手指点击屏幕触发<code>ACTION_DOWN</code>，后面的手指按压触发<code>ACTION_POINTER_DOWN</code>，然后进过<code>ACTION_MOVE</code>，<code>ACTION_POINTER_UP</code>，最终到达<code>ACTION_UP</code>。</p>
+<p>事件注入有个原则是：<br>1.<code>ACTION_POINTER_UP</code>和<code>ACTION_UP</code>的点是<code>ACTION_MOVE</code>后的最后那个点；<br>2.<code>ACTION_POINTER_UP</code>与<code>ACTION_UP</code>的点和<code>ACTION_POINTER_DOWN</code>与<code>ACTION_DOWN</code>的点应该一一对应的；<br>3.先<code>DOWN</code>的点应该后<code>UP</code></p>
+</blockquote>
+<h2 id="代码实现">代码实现</h2><h3 id="UiAutomator：事件注入入口">UiAutomator：事件注入入口</h3><p><code>UiAutomator</code>：测试框架已经为我们准备好了相关的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Instrumentation mInstrumentation = InstrumentationRegistry.getInstrumentation();</span><br><span class="line">UiAutomation mUiAutomation = mInstrumentation.getUiAutomation();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这就是注入事件的方法</span></span><br><span class="line">mUiAutomation.injectInputEvent(InputEvent event, <span class="keyword">boolean</span> sync)</span><br></pre></td></tr></table></figure>
+<h3 id="MotionEvent：相关类和方法">MotionEvent：相关类和方法</h3><p><code>MotionEvent.PointerCoords</code>：Point坐标传输对象，有点像的<a href="http://baike.baidu.com/item/DTO/16016821" target="_blank" rel="external">DTO</a>意思，里面包含了位置，大小，压力等属性，<br><code>MotionEvent.PointerProperties</code>：Point属性传输对象，有点像的<a href="http://baike.baidu.com/item/DTO/16016821" target="_blank" rel="external">DTO</a>意思，里面包含了ID，TYPE：区分是鼠标，手指等等不同设备的Pointer<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MotionEvent.obtain(<span class="keyword">long</span> downTime, <span class="keyword">long</span> eventTime,</span><br><span class="line">            <span class="keyword">int</span> action, <span class="keyword">int</span> pointerCount, PointerProperties[] pointerProperties,</span><br><span class="line">            PointerCoords[] pointerCoords, <span class="keyword">int</span> metaState, <span class="keyword">int</span> buttonState,</span><br><span class="line">            <span class="keyword">float</span> xPrecision, <span class="keyword">float</span> yPrecision, <span class="keyword">int</span> deviceId,</span><br><span class="line">            <span class="keyword">int</span> edgeFlags, <span class="keyword">int</span> source, <span class="keyword">int</span> flags)</span><br></pre></td></tr></table></figure></p>
+<p>我们使用这个方法来创建一个MotionEvent，用于事件的注入。</p>
+<h3 id="详细代码">详细代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 伪代码</span></span><br><span class="line">    <span class="comment">// 创建一个二维数组</span></span><br><span class="line">    <span class="comment">// [[PointerCoords，...], [PointerCoords, ..], [PointerCoords, ..], ...]</span></span><br><span class="line">    <span class="comment">// 二维数组的第一个点，为DOWN点，后面的为MOVE点，最后一个就是UP点。</span></span><br><span class="line"></span><br><span class="line">    injectMultiTouch([[PointerCoords，...],[PointerCoords，...]]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> PointerCoords <span class="title">createPoint</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    PointerCoords pointerCoords = <span class="keyword">new</span> PointerCoords();</span><br><span class="line">    pointerCoords.x = x;</span><br><span class="line">    pointerCoords.y = y;</span><br><span class="line">    pointerCoords.pressure = <span class="number">1</span>;</span><br><span class="line">    pointerCoords.size = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> pointerCoords;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 这里的参数是个二维数组，一维代表点的个度，二维代表点的移动位置</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">injectMultiTouch</span><span class="params">(PointerCoords[]... touches)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">boolean</span> ret = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (touches.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Must provide coordinates for at least 2 pointers"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> maxSteps = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; touches.length; x++)</span><br><span class="line">        maxSteps = (maxSteps &lt; touches[x].length) ? touches[x].length : maxSteps;</span><br><span class="line"></span><br><span class="line">    PointerProperties[] properties = <span class="keyword">new</span> PointerProperties[touches.length];</span><br><span class="line">    PointerCoords[] pointerCoords = <span class="keyword">new</span> PointerCoords[touches.length];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; touches.length; x++) &#123;</span><br><span class="line">        MotionEvent.PointerProperties prop = <span class="keyword">new</span> MotionEvent.PointerProperties();</span><br><span class="line">        prop.id = x;</span><br><span class="line">        prop.toolType = MotionEvent.TOOL_TYPE_FINGER;</span><br><span class="line">        properties[x] = prop;</span><br><span class="line"></span><br><span class="line">        pointerCoords[x] = touches[x][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">long</span> downTime = SystemClock.uptimeMillis();</span><br><span class="line">    MotionEvent event;</span><br><span class="line">    event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, <span class="number">1</span>,</span><br><span class="line">            properties, pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</span><br><span class="line">    ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>; x &lt; touches.length; x++) &#123;</span><br><span class="line">        event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(),</span><br><span class="line">            getPointerAction(MotionEvent.ACTION_POINTER_DOWN, x), x + <span class="number">1</span>, properties,</span><br><span class="line">            pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</span><br><span class="line">        ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; maxSteps - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; touches.length; x++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (touches[x].length &gt; i)</span><br><span class="line">                pointerCoords[x] = touches[x][i];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                pointerCoords[x] = touches[x][touches[x].length - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(),</span><br><span class="line">                MotionEvent.ACTION_MOVE, touches.length, properties, pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>,</span><br><span class="line">                <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</span><br><span class="line">        SystemClock.sleep(<span class="number">5</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; touches.length; x++)</span><br><span class="line">        pointerCoords[x] = touches[x][touches[x].length - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>; x &lt; touches.length; x++) &#123;</span><br><span class="line">        event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(),</span><br><span class="line">                getPointerAction(MotionEvent.ACTION_POINTER_UP, x), x + <span class="number">1</span>, properties,</span><br><span class="line">                pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</span><br><span class="line">        ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, <span class="number">1</span>,</span><br><span class="line">                properties, pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</span><br><span class="line">    ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="相关项目">相关项目</h2><p>可参考<a href="https://github.com/gavinliu/OpenGpad-Android" target="_blank" rel="external">OpenGpad-Android</a>：基于测试框架做的使用PC键盘玩儿手机游戏的软件。</p>
+
+      
+    </div>
+    
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+            <a href="/tags/Android测试框架/" rel="tag">#Android测试框架</a>
+          
+            <a href="/tags/UiAutomator/" rel="tag">#UiAutomator</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/19/Android-adb-forward实现PC和Android的Socket通讯/" rel="next" title="Android - adb forward实现PC和App的Socket通讯">
+                <i class="fa fa-chevron-left"></i> Android - adb forward实现PC和App的Socket通讯
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/28/Android-开源项目：OpenGpad-电脑键盘当手机游戏手柄/" rel="prev" title="Android - 开源项目:OpenGpad(电脑键盘当手游手柄)">
+                Android - 开源项目:OpenGpad(电脑键盘当手游手柄) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/"
+     data-title="Android - 测试框架之 UI Testing - 实现多点触控事件"
+     data-content=""
+     data-url="http://gavinliu.cn/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/"
+           data-title="Android - 测试框架之 UI Testing - 实现多点触控事件" data-url="http://gavinliu.cn/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
+               alt="Gavin Liu" />
+          <p class="site-author-name" itemprop="name">Gavin Liu</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">86</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gavinliu" target="_blank">
+                  
+                    <i class="fa fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/512315128" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        <div class="links-of-blogroll motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android_TouchEvent_Flow"><span class="nav-number">1.</span> <span class="nav-text">Android TouchEvent Flow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">2.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UiAutomator：事件注入入口"><span class="nav-number">2.1.</span> <span class="nav-text">UiAutomator：事件注入入口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MotionEvent：相关类和方法"><span class="nav-number">2.2.</span> <span class="nav-text">MotionEvent：相关类和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详细代码"><span class="nav-number">2.3.</span> <span class="nav-text">详细代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关项目"><span class="nav-number">3.</span> <span class="nav-text">相关项目</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2012 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+
+  
+
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=0.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gavinliu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+
+  
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -38,7 +38,7 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android, Java.Web, " />
@@ -52,7 +52,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=0.5.0" />
 
 
 
@@ -75,7 +75,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Pisces',
-    sidebar: '[object Object]',
+    sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -103,6 +103,10 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
+
+
+
+
 
 
 
@@ -143,7 +147,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
@@ -197,11 +201,39 @@
       
 
       
-      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
       
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'eQz6W_tYqnDPxdE5SqsU','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -214,12 +246,6 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
-
-    
-
-    
-    
-
     
       
 
@@ -242,8 +268,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/12/17/Python-Mac的环境搭建/" itemprop="url">
-                  Python - Mac的环境搭建
+                <a class="post-title-link" href="/2016/01/16/Python-Mac下PyQt5环境搭建/" itemprop="url">
+                  Python - Mac下PyQt5环境搭建
                 </a>
               
             
@@ -256,8 +282,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-17T21:34:38+08:00" content="2015-12-17">
-              2015-12-17
+            <time itemprop="dateCreated" datetime="2016-01-16T23:54:27+08:00" content="2016-01-16">
+              2016-01-16
             </time>
           </span>
 
@@ -286,8 +312,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/17/Python-Mac的环境搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/17/Python-Mac的环境搭建/" itemprop="commentsCount"></span>
+                <a href="/2016/01/16/Python-Mac下PyQt5环境搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/16/Python-Mac下PyQt5环境搭建/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -297,6 +323,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -309,14 +336,29 @@
 
       
         
-          <pre><code><span class="variable">Python</span> 作为胶水语言, 是每个程序员必备的工具语言. 学习吧, 少年<span class="exclamation_mark">!</span>
-</code></pre>
+          <p>一直想写一些桌面软件，公司电脑是Ubuntu，个人电脑是Mac，Windows又是用户量最多的，想来想去使用跨平台的开发工具来写才是唯一的选择。</p>
+<p>最终选择使用PyQt，把Python的便利和Qt的兼容完美结合。</p>
+<p>所需软件：</p>
+<ol>
+<li>Python3</li>
+<li><a href="http://download.qt.io/official_releases/qt/5.5/5.5.1/">Qt5</a></li>
+<li><a href="https://www.riverbankcomputing.com/software/sip/download">SIP</a></li>
+<li><a href="https://www.riverbankcomputing.com/software/pyqt/download5">PyQt5</a></li>
+</ol>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/17/Python-Mac的环境搭建/#more" rel="contents">
+            <a class="btn" href="/2016/01/16/Python-Mac下PyQt5环境搭建/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -355,8 +397,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/12/14/Java-使用Future进行多线程编程/" itemprop="url">
-                  Java - 使用Future模式进行多线程编程
+                <a class="post-title-link" href="/2016/01/10/我的Mac环境-工作流/" itemprop="url">
+                  我的Mac环境&工作流
                 </a>
               
             
@@ -369,8 +411,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-14T15:02:41+08:00" content="2015-12-14">
-              2015-12-14
+            <time itemprop="dateCreated" datetime="2016-01-10T20:51:53+08:00" content="2016-01-10">
+              2016-01-10
             </time>
           </span>
 
@@ -383,8 +425,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Java Notes</span>
+                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
+                    <span itemprop="name">刘说八道</span>
                   </a>
                 </span>
 
@@ -399,8 +441,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/14/Java-使用Future进行多线程编程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/14/Java-使用Future进行多线程编程/" itemprop="commentsCount"></span>
+                <a href="/2016/01/10/我的Mac环境-工作流/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/10/我的Mac环境-工作流/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -410,6 +452,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -422,20 +465,21 @@
 
       
         
-          <h2 id="概述">概述</h2><p>多线程开发中有几个痛点：</p>
-<ol>
-<li>主线程如何正确的关闭异步线程？</li>
-<li>主线程怎么知道异步线程是否执行完成？</li>
-</ol>
-<p>当然已经又很好的方案来解决这些问题了，这就是Future模式。</p>
-<h2 id="Future">Future</h2><p>Future模式在请求发生时，会先产生一个Future对象给发出请求的客户，而真正的结果是由一个新线程执行，结果生成之后，将之设定至Future之中，而当客户端需要结果时，Future也已经准备好，可以让客户提取使用。</p>
-<p><img src="/images/2015.12.14 - Java-使用Future进行多线程编程.jpg" alt=""><br>
+          <p>工欲善其事，必先利其器</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/14/Java-使用Future进行多线程编程/#more" rel="contents">
+            <a class="btn" href="/2016/01/10/我的Mac环境-工作流/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -474,8 +518,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/11/18/Android-内存泄露分析/" itemprop="url">
-                  Android - 内存泄露分析
+                <a class="post-title-link" href="/2016/01/09/幻想被时代选中了/" itemprop="url">
+                  幻想被时代选中了
                 </a>
               
             
@@ -488,8 +532,131 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-11-18T17:39:40+08:00" content="2015-11-18">
-              2015-11-18
+            <time itemprop="dateCreated" datetime="2016-01-09T21:00:53+08:00" content="2016-01-09">
+              2016-01-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
+                    <span itemprop="name">刘说八道</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/09/幻想被时代选中了/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/09/幻想被时代选中了/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>老罗就像青春期的我们，常常幻想被时代选中了，但真正经历过才发现，很多当年觉得别人白痴的选择，其实都是基于自己不知道的角度的一种妥协。<br>  <div style="text-align:right">— FView测评结语</div></p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/09/幻想被时代选中了/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/" itemprop="url">
+                  Android - 测试框架之 UI Testing - UiAutomator
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-02T00:34:13+08:00" content="2016-01-02">
+              2016-01-02
             </time>
           </span>
 
@@ -518,8 +685,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/11/18/Android-内存泄露分析/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/18/Android-内存泄露分析/" itemprop="commentsCount"></span>
+                <a href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -529,6 +696,7 @@
 
           
           
+
         </div>
       </header>
     
@@ -541,225 +709,24 @@
 
       
         
-          
-            <h2 id="通过adb_shell查看内存泄露">通过<code>adb shell</code>查看内存泄露</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys meminfo &#21253;&#21517;</span><br></pre></td></tr></table></figure>
-<h2 id="MAT工具">MAT工具</h2><h3 id="Dump_内存堆">Dump 内存堆</h3><h3 id="MAT工具_使用技巧">MAT工具 使用技巧</h3><h2 id="Android_内存泄露自动检测库">Android 内存泄露自动检测库</h2>
-          
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/09/Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析/" itemprop="url">
-                  Newifi Mini(Y1) 动手玩(3) - DDNS动态域名解析
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-09T21:30:02+08:00" content="2015-10-09">
-              2015-10-09
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="安装_ddns">安装 ddns</h2><p>Openwrt系统应该是预装了ddns，小云OS没有预装ddns，我们可以通过opkg装上ddns</p>
-<ul>
-<li><p>配置 opkg<br>  可参考 <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/">Newifi Mini(Y1) 动手玩(2) - opkg</a></p>
-</li>
-<li><p>在管理页面搜索 <code>ddns</code></p>
-</li>
-</ul>
-<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析1.png" alt=""></p>
-<ul>
-<li>安装 <code>ddns-scripts</code> 和 <code>luci-app-ddns</code></li>
-</ul>
-<p>安装完成即可在 服务中找到动态DNS页面
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/09/Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/" itemprop="url">
-                  Newifi Mini(Y1) 动手玩(2) - opkg
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-09T20:55:36+08:00" content="2015-10-09">
-              2015-10-09
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="opkg_?">opkg ?</h2><p>opkg是openwrt里的软件包管理器，类似Mac下的brew、Ubuntu下的apt-get等，命令位于<code>/bin/opkg</code></p>
-<p>由于openwrt是嵌入式系统，硬件复杂，我们需要把opkg的源和Newifi Mini(Y1)的硬件相匹配。</p>
-<h2 id="配置源">配置源</h2><p>Y1使用的是 mt7620a 这枚cpu，我们需要使用 mt7620a 的源</p>
-<p>openwrt官方源：</p>
-<p><a href="http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/">http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/</a><br><a href="http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/">http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/</a></p>
-<blockquote>
-<p>需要说明的是 PandoraBox 和 小云OS 都是基于 <code>openwrt 14.07</code> 开发的</p>
+          <blockquote>
+<p><code>UiAutomator</code>和<code>Espresso</code>最大的不同是<strong>支持多个App</strong>，所以<code>UiAutomator</code>是所有Android测试工程师的必备技能。</p>
 </blockquote>
-<p>由于众所周知的原因直接访问openwrt.org是非常慢，我们可以使用代理 <code>mirrors.ustc.edu.cn</code> 或者 <code>downloads.openwrt.org.cn</code></p>
-<p>两种方式：</p>
-<ul>
-<li><code>ssh</code>连接到路由器后使用<code>vi</code>修改配置文件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/opkg.conf</span><br></pre></td></tr></table></figure>
-<ul>
-<li>管理页面：OpenWrt 系统-&gt;软件包-&gt;配置；小云OS 高级设置-&gt;系统-&gt;软件包-&gt;配置</li>
-</ul>
-<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-2-opkg1.png" alt="">
+<p><code>UiAutomator</code>2.0版本依赖了<code>Instrumentation</code>使得<code>UiAutomator 2</code>可以轻松的拿到Activity的Context，就可以像写Android应用程序一样，实现很多功能。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/#more" rel="contents">
+            <a class="btn" href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -777,12 +744,134 @@
 
 
     
+      
 
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/31/2015-The-End/" itemprop="url">
+                  2015 The End
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-31T22:11:03+08:00" content="2015-12-31">
+              2015-12-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
+                    <span itemprop="name">刘说八道</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/31/2015-The-End/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/31/2015-The-End/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>律回岁晚冰霜少，春到人间草木知。<br>  乙未将逝，丙申如至，正值岁尾，回首往昔之事，或诸事怡然，或行事苦厄，亦或安然如故。<br>  然岁月如矢，时光不待，往之去兮，惟存之美，异日来兮，须留之冀。</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/31/2015-The-End/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -823,24 +912,28 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">78</span>
+              <span class="site-state-item-count">86</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">9</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">50</span>
-              <span class="site-state-item-name">标签</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -859,16 +952,18 @@
               <span class="links-of-author-item">
                 <a href="https://github.com/gavinliu" target="_blank">
                   
-                    <i class="fa fa-github"></i> GitHub
+                    <i class="fa fa-github"></i>
                   
+                  GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
                 <a href="http://weibo.com/512315128" target="_blank">
                   
-                    <i class="fa fa-weibo"></i> Weibo
+                    <i class="fa fa-weibo"></i>
                   
+                  Weibo
                 </a>
               </span>
             
@@ -878,7 +973,8 @@
         
         
 
-        <div class="links-of-author motion-element">
+        
+        <div class="links-of-blogroll motion-element">
           
         </div>
 
@@ -901,7 +997,7 @@
   &copy;  2012 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
 </div>
@@ -922,7 +1018,9 @@
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
   
@@ -930,6 +1028,14 @@
 
   
 
+
+
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
 
 
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
@@ -948,28 +1054,28 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+
+
+
+  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
 
 
 
@@ -1002,6 +1108,136 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
       tex2jax: {
@@ -1028,8 +1264,8 @@
 
 
   
-  
 
+  
 
 </body>
 </html>
