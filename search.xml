@@ -71,7 +71,7 @@
 <p>面对网上各种CircleImageView，各种还可以自定义形状的ImageView，根本不知道选那个好，或许你就只想要一个能显示圆角的ImageView而已，网上的都太复杂，或者有使用限制，譬如说3K+ Star的<a href="https://github.com/hdodenhof/CircleImageView" target="_blank" rel="external">CircleImageView</a>不支持TransitionDrawable。<br><img src="/images/2016.04.12 - Android-实现图片圆角显示的几种方式.png" alt=""></p>
 </blockquote>
 <h3 id="ShapedImageView"><a href="https://github.com/gavinliu/ShapedImageView" target="_blank" rel="external">ShapedImageView</a></h3><ul>
-<li>简洁，不到<strong><em>100</em></strong>行代码： <a href="https://github.com/gavinliu/ShapedImageView/blob/master/ShapedImageView%2Fsrc%2Fmain%2Fjava%2Fcn%2Fgavinliu%2Fandroid%2Flib%2Fshapedimageview%2FShapedImageView.java" target="_blank" rel="external">ShapedImageView.java</a></li>
+<li>简洁，不到<strong><em>100</em></strong>行代码： <a href="https://github.com/gavinliu/ShapedImageView/blob/0.4/ShapedImageView%2Fsrc%2Fmain%2Fjava%2Fcn%2Fgavinliu%2Fandroid%2Flib%2Fshapedimageview%2FShapedImageView.java" target="_blank" rel="external">ShapedImageView.java</a></li>
 <li>支持<code>圆形</code> <code>圆角矩形</code></li>
 <li>支持<code>TransitionDrawable</code></li>
 </ul>
