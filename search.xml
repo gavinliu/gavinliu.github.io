@@ -123,15 +123,21 @@
 <p>这个时候似乎插件化是解决问题的最好方案，对于程序员来说，我们也是一直在想方设法的写<strong>高类聚低耦合</strong>的代码，插件化几乎成了不二之选。</p>
 <a id="more"></a>
 <h2 id="微信的插件化">微信的插件化</h2><p>第一次在Android了解到插件化是在14年的InfoQ全球架构师峰会上，赵原分享的<a href="http://www.infoq.com/cn/presentations/android-client-architecture-evolution-and-impact-on-development-process" target="_blank" rel="external">微信Android客户端架构演进及其对开发流程的影响</a>。</p>
-<p>现在微信的功能越来越丰富，</p>
-<h2 id="Eclipse的插件化">Eclipse的插件化</h2><h2 id="Android插件化的两种方式">Android插件化的两种方式</h2><h3 id="脚本语言+Android_API">脚本语言+Android API</h3><p>这里的脚本语言可以是Javascript，Lua等，使用<a href="https://github.com/damonkohler/sl4a" target="_blank" rel="external">Scripting Layer for Android</a>实现脚本语言的运行环境，在Android层实现API提供给脚本语言调用。</p>
-<h3 id="APK动态加载">APK动态加载</h3><p>ClassLoader</p>
+<h2 id="Eclipse的插件化">Eclipse的插件化</h2><p>在学Java开发的时候，就觉得Eclipse很神奇，有各种插件，各种Eclipse的衍生版本，其实Eclipse本身就是完全插件化的软件。</p>
+<h2 id="Android的插件化">Android的插件化</h2><h3 id="脚本语言+Android_API">脚本语言+Android API</h3><p>这里的脚本语言可以是Javascript，Lua等，使用<a href="https://github.com/damonkohler/sl4a" target="_blank" rel="external">Scripting Layer for Android</a>实现脚本语言的运行环境，在Android层实现API提供给脚本语言调用。</p>
+<h3 id="APK动态加载">APK动态加载</h3><p>动态加载和热更新基本上可以等同起来，其主要技术点：</p>
+<ul>
+<li>ClassLoader</li>
+<li>Dex 分包</li>
+<li>CLASS_ISPREVERIFIED</li>
+</ul>
 <h2 id="定制自己的插件化框架">定制自己的插件化框架</h2><p>市面上太不可能有一款框架，能绝对满足你的软件，插件化也是多种技术方案的并存的，所以往往都需要自己定制自己的框架。</p>
 <p>一些比较靠谱的APK动态加载库</p>
 <ul>
 <li>Small</li>
 <li>DL</li>
 </ul>
+<h2 id="Final：React_Native">Final：React Native</h2><p>Facebook推出的React Native，写的是H5但运行的是Native源码，基于React做的插件化，比去<code>Hook</code>Android源码，干扰ClassLoader加载流程更具有优势，随着React Native的横空出世，Android插件化会慢慢退出历史舞台。</p>
 ]]></content>
     </entry>
     
@@ -337,11 +343,11 @@
     </entry>
     
     <entry>
-      <title><![CDATA[我的Mac环境&工作流]]></title>
-      <url>http://gavinliu.cn/2016/01/10/%E6%88%91%E7%9A%84Mac%E7%8E%AF%E5%A2%83-%E5%B7%A5%E4%BD%9C%E6%B5%81/</url>
+      <title><![CDATA[我的电脑环境&工作流]]></title>
+      <url>http://gavinliu.cn/2016/01/10/%E6%88%91%E7%9A%84%E7%94%B5%E8%84%91%E7%8E%AF%E5%A2%83-%E5%B7%A5%E4%BD%9C%E6%B5%81/</url>
       <content type="html"><![CDATA[<p>工欲善其事，必先利其器</p>
 <a id="more"></a>
-<h2 id="1Password">1Password</h2><p>密码安全你懂的</p>
+<h1 id="Mac">Mac</h1><h2 id="1Password">1Password</h2><p>密码安全你懂的</p>
 <h2 id="Atom">Atom</h2><p>主要用来写博客，配合<code>Script</code>插件也快速对简单的算法，想法实现，而不用打开繁重的IDE。</p>
 <h2 id="Bartender">Bartender</h2><p>整理状态栏图标</p>
 <h2 id="IntelliJ_IDEA">IntelliJ IDEA</h2><p>Android：<code>Android Studio</code>，Python：<code>PyCharm CE</code></p>
@@ -349,6 +355,8 @@
 <h2 id="Manico">Manico</h2><p>程序启动/切换快捷键，基本上替代了Dock和<code>CMD + Tab</code></p>
 <h2 id="Shadowsocks">Shadowsocks</h2><p>一张国外的飞机票</p>
 <h2 id="SourceTree">SourceTree</h2><p>Code Review</p>
+<h1 id="Linux">Linux</h1><h2 id="gitg">gitg</h2><p>Code Review</p>
+<h2 id="Meld">Meld</h2><p>文件比较</p>
 ]]></content>
     </entry>
     
