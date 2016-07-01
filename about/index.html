@@ -27,18 +27,45 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
 
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android, Java.Web, " />
@@ -52,7 +79,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=0.5.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.1" />
 
 
 
@@ -62,8 +89,8 @@
 <meta name="description" content="四川人，生于1992.11.02，英文名：Gavin，现居广东珠海，就职于魅族科技。
 Ｃｏｄｅ写过PHP，J2EE，现在全职Android，业余时间学学iOS Cocos2d-x Python，没事也会逛逛dribbble提高自己的审美，不喜欢写UI很糟糕的软件，专注于移动开发。
 我的开源
-OpenGpad：电脑键盘当Android手游手柄
-Android-AbsListView-Drag-And">
+ShapedImageView：简洁的自定义形状的图片控件(支持圆角、圆形以及边框显示)
+OpenGpad：">
 <meta property="og:type" content="website">
 <meta property="og:title" content="About">
 <meta property="og:url" content="http://gavinliu.cn/about/index.html">
@@ -71,16 +98,16 @@ Android-AbsListView-Drag-And">
 <meta property="og:description" content="四川人，生于1992.11.02，英文名：Gavin，现居广东珠海，就职于魅族科技。
 Ｃｏｄｅ写过PHP，J2EE，现在全职Android，业余时间学学iOS Cocos2d-x Python，没事也会逛逛dribbble提高自己的审美，不喜欢写UI很糟糕的软件，专注于移动开发。
 我的开源
-OpenGpad：电脑键盘当Android手游手柄
-Android-AbsListView-Drag-And">
-<meta property="og:updated_time" content="2016-04-23T04:48:14.000Z">
+ShapedImageView：简洁的自定义形状的图片控件(支持圆角、圆形以及边框显示)
+OpenGpad：">
+<meta property="og:updated_time" content="2016-05-04T17:38:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="About">
 <meta name="twitter:description" content="四川人，生于1992.11.02，英文名：Gavin，现居广东珠海，就职于魅族科技。
 Ｃｏｄｅ写过PHP，J2EE，现在全职Android，业余时间学学iOS Cocos2d-x Python，没事也会逛逛dribbble提高自己的审美，不喜欢写UI很糟糕的软件，专注于移动开发。
 我的开源
-OpenGpad：电脑键盘当Android手游手柄
-Android-AbsListView-Drag-And">
+ShapedImageView：简洁的自定义形状的图片控件(支持圆角、圆形以及边框显示)
+OpenGpad：">
 
 
 
@@ -97,6 +124,11 @@ Android-AbsListView-Drag-And">
     }
   };
 </script>
+
+
+
+
+  <link rel="canonical" href="http://gavinliu.cn/about/"/>
 
   <title>
   
@@ -170,7 +202,7 @@ Android-AbsListView-Drag-And">
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -180,7 +212,7 @@ Android-AbsListView-Drag-And">
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -190,7 +222,7 @@ Android-AbsListView-Drag-And">
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -200,7 +232,7 @@ Android-AbsListView-Drag-And">
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -210,9 +242,19 @@ Android-AbsListView-Drag-And">
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-bookmark">
+          <a href="/bookmark" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br />
+            
+            书签
           </a>
         </li>
       
@@ -269,20 +311,22 @@ Android-AbsListView-Drag-And">
       <p>四川人，生于1992.11.02，英文名：Gavin，现居广东珠海，就职于魅族科技。</p>
 <h2 id="Ｃｏｄｅ">Ｃｏｄｅ</h2><p>写过PHP，J2EE，现在全职<code>Android</code>，业余时间学学<code>iOS</code> <code>Cocos2d-x</code> <code>Python</code>，没事也会逛逛<code>dribbble</code>提高自己的审美，不喜欢写UI很糟糕的软件，专注于移动开发。</p>
 <h3 id="我的开源">我的开源</h3><ul>
+<li><a href="https://github.com/gavinliu/ShapedImageView" target="_blank" rel="external">ShapedImageView</a>：简洁的自定义形状的图片控件(支持圆角、圆形以及边框显示)</li>
 <li><a href="/2016/02/28/Android-开源项目：OpenGpad-电脑键盘当手机游戏手柄/">OpenGpad</a>：电脑键盘当Android手游手柄</li>
 <li><a href="https://github.com/gavinliu/Android-AbsListView-Drag-And-Drop" target="_blank" rel="external">Android-AbsListView-Drag-And-Drop</a>：Android滑动选择库</li>
 </ul>
 <h3 id="个人作品">个人作品</h3><ul>
-<li><a href="/2013/06/20/Android-【Telescop】-社交日历/">Telescop</a>：一款基于日历线的社交软件</li>
+<li><a href="/">Listen(聆听)</a>：简单、优雅、手势控制的音乐播放器</li>
+<li><a href="/2013/06/20/Android-【Telescop】-社交日历/">Telescop</a>：一款基于日历事件线的社交软件</li>
 </ul>
 <h3 id="公司项目">公司项目</h3><ul>
-<li>Flyme视频</li>
-<li>Flyme读书</li>
+<li>Flyme.视频</li>
+<li>Flyme.读书</li>
 </ul>
 <h2 id="兴趣爱好">兴趣爱好</h2><ul>
 <li>骑行</li>
 <li>下厨，曾经的梦想是做一名厨师</li>
-<li>各种手游，策略，RTS游戏。(<code>炉石传说</code> <code>War3</code> <code>LOL</code> <code>GTA</code>)</li>
+<li>各种手游，策略，RTS游戏：<code>炉石传说</code> <code>War3</code> <code>LOL</code> <code>GTA</code></li>
 <li>最喜欢并唯一坚持追番的动漫：<code>名侦探柯南</code></li>
 </ul>
 <h2 id="关于博客">关于博客</h2><p>这是一个技术为主的博客，予以好记性不如烂笔头之用。</p>
@@ -379,18 +423,18 @@ Android-AbsListView-Drag-And">
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/gavinliu" target="_blank">
+                <a href="https://github.com/gavinliu" target="_blank" title="GitHub">
                   
-                    <i class="fa fa-github"></i>
+                    <i class="fa fa-fw fa-github"></i>
                   
                   GitHub
                 </a>
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://weibo.com/512315128" target="_blank">
+                <a href="http://weibo.com/512315128" target="_blank" title="Weibo">
                   
-                    <i class="fa fa-weibo"></i>
+                    <i class="fa fa-fw fa-weibo"></i>
                   
                   Weibo
                 </a>
@@ -403,9 +447,7 @@ Android-AbsListView-Drag-And">
         
 
         
-        <div class="links-of-blogroll motion-element">
-          
-        </div>
+        
 
       </section>
 
@@ -442,8 +484,21 @@ Android-AbsListView-Drag-And">
   </a>
 </div>
 
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+  
+</div>
 
 
+
+        
       </div>
     </footer>
 
@@ -454,12 +509,6 @@ Android-AbsListView-Drag-And">
 
   
 
-
-  
-
-
-
-
 <script type="text/javascript">
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
@@ -467,44 +516,61 @@ Android-AbsListView-Drag-And">
 </script>
 
 
+
+
+
+
+
+
+
+  
+
+
+
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
+  
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
+  
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=0.5.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=0.5.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
@@ -530,6 +596,7 @@ Android-AbsListView-Drag-And">
   
     
   
+
 
 
 
@@ -685,11 +752,7 @@ Android-AbsListView-Drag-And">
       }
     });
   </script>
-
-  
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
-  
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
   
