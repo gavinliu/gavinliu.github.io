@@ -4,6 +4,205 @@
   
     
     <entry>
+      <title><![CDATA[开发环境搭建 - 各种代理/加速配置]]></title>
+      <url>http://gavinliu.cn/2016/08/01/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA-%E5%90%84%E7%A7%8D%E4%BB%A3%E7%90%86-%E5%8A%A0%E9%80%9F%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<p>身在大中华区局域网，有些时候更新各种开发包速度非常非常非常慢，这篇文章集合常见开发语言的国内源的配置。</p>
+<a id="more"></a>
+<h2 id="ruby">ruby</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/</span><br></pre></td></tr></table></figure>
+<p>参考：<a href="http://ruby-china.org/wiki/install_ruby_guide" target="_blank" rel="external">ruby-china</a></p>
+<h2 id="python">python</h2><h3 id="临时使用">临时使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pythonModuleName -i http://pypi.douban.com --trusted-host=pypi.douban.com</span><br></pre></td></tr></table></figure>
+<h3 id="修改配置文件">修改配置文件</h3><figure class="highlight bash"><figcaption><span>~/.pip/pip.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">index-url = http://pypi.douban.com/simple</span><br><span class="line">trusted-host = pypi.douban.com</span><br></pre></td></tr></table></figure>
+<p>参考：<br><a href="http://www.jianshu.com/p/785bb1f4700d" target="_blank" rel="external">pip 更换软件镜像源</a><br><a href="https://pip.pypa.io/en/stable/user_guide/#config-file" target="_blank" rel="external">pip configuration</a></p>
+<h2 id="maven">maven</h2><figure class="highlight xml"><figcaption><span>maven/conf/setting.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">repositories</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">repository</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">name</span>&gt;</span>local private nexus<span class="tag">&lt;/<span class="title">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">url</span>&gt;</span>http://maven.oschina.net/content/groups/public/<span class="tag">&lt;/<span class="title">url</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">releases</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="title">enabled</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">releases</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">snapshots</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="title">enabled</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">snapshots</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">repository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">repositories</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">pluginRepositories</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">pluginRepository</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">id</span>&gt;</span>nexus<span class="tag">&lt;/<span class="title">id</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">name</span>&gt;</span>local private nexus<span class="tag">&lt;/<span class="title">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">url</span>&gt;</span>http://maven.oschina.net/content/groups/public/<span class="tag">&lt;/<span class="title">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">releases</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="title">enabled</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">releases</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">snapshots</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">enabled</span>&gt;</span>false<span class="tag">&lt;/<span class="title">enabled</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">snapshots</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">pluginRepository</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">pluginRepositories</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>参考：<a href="http://my.oschina.net/cokolin/blog/483989" target="_blank" rel="external">Maven 中央（或国内）仓库地址</a></p>
+<h2 id="gredle">gredle</h2><figure class="highlight bash"><figcaption><span>project/.gradle/gradle.properties</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">systemProp.http.proxyHost=www.proxyhost.org</span><br><span class="line">systemProp.http.proxyPort=<span class="number">8080</span></span><br><span class="line">systemProp.http.proxyUser=userid</span><br><span class="line">systemProp.http.proxyPassword=password</span><br><span class="line">systemProp.http.nonProxyHosts=*.nonproxyrepos.com|localhost</span><br><span class="line"></span><br><span class="line">systemProp.https.proxyHost=www.proxyhost.org</span><br><span class="line">systemProp.https.proxyPort=<span class="number">8080</span></span><br><span class="line">systemProp.https.proxyUser=userid</span><br><span class="line">systemProp.https.proxyPassword=password</span><br><span class="line">systemProp.https.nonProxyHosts=*.nonproxyrepos.com|localhost</span><br></pre></td></tr></table></figure>
+<p>参考：<a href="http://my.oschina.net/hulingfeng/blog/367949" target="_blank" rel="external">gradle代理设置</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Server - nginx 基本配置]]></title>
+      <url>http://gavinliu.cn/2016/07/14/Server-nginx-%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<h2 id="安装">安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install nginx</span><br></pre></td></tr></table></figure>
+<p>安装完成后配置文件在 <code>/etc/nginx/conf.d/</code></p>
+<h2 id="配置">配置</h2><h3 id="安全配置：访问限制">安全配置：访问限制</h3><p>修改后可以阻止ip和未配置的域名访问主机</p>
+<a id="more"></a>
+<figure class="highlight bash"><figcaption><span>/etc/nginx/conf.d/</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi default.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改 server_name ；添加 return 500</span></span><br><span class="line"></span><br><span class="line">server_name  _;</span><br><span class="line"><span class="built_in">return</span> <span class="number">500</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="配置多域名">配置多域名</h2><p>以 tomcat 为例</p>
+<figure class="highlight bash"><figcaption><span>/etc/nginx/conf.d/</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi tomcat.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       <span class="number">80</span>;</span><br><span class="line">    server_name  xx.cn; <span class="comment"># 填入绑定的域名</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#charset koi8-r;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#access_log  logs/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Load configuration files for the default server block.</span></span><br><span class="line">    include /etc/nginx/default.d/*.conf;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">        proxy_pass http://localhost:<span class="number">8080</span>; <span class="comment"># 转发到本机的 8080 端口</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    error_page  <span class="number">404</span>              /<span class="number">404</span>.html;</span><br><span class="line">    location = /<span class="number">404</span>.html &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># redirect server error pages to the static page /50x.html</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    error_page   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /<span class="number">50</span>x.html;</span><br><span class="line">    location = /<span class="number">50</span>x.html &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">    <span class="comment">#    proxy_pass   http://127.0.0.1;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">    <span class="comment">#    root           html;</span></span><br><span class="line">    <span class="comment">#    fastcgi_pass   127.0.0.1:9000;</span></span><br><span class="line">    <span class="comment">#    fastcgi_index  index.php;</span></span><br><span class="line">    <span class="comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span></span><br><span class="line">    <span class="comment">#    include        fastcgi_params;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># deny access to .htaccess files, if Apache's document root</span></span><br><span class="line">    <span class="comment"># concurs with nginx's one</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ /\.ht &#123;</span></span><br><span class="line">    <span class="comment">#    deny  all;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="管理">管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 改了配置都重新载入</span></span><br><span class="line">nginx <span class="operator">-s</span> reload</span><br></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Server - Linux Server 基本配置]]></title>
+      <url>http://gavinliu.cn/2016/07/14/Server-Linux-Server-%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<h2 id="开启SSH">开启SSH</h2><p>使用SSH免密登录</p>
+<p>本机：</p>
+<ol>
+<li>使用<code>ssh-keygen</code>生成SSH公钥</li>
+<li>查看公钥<code>cat ~/.ssh/id_rsa.pub</code></li>
+</ol>
+<a id="more"></a>
+<p>服务器：</p>
+<ol>
+<li><p>新建文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /root/.ssh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>写入本机的SSH公钥</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /root/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>关闭密码登录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line">找到 PasswordAuthentication yes</span><br><span class="line">改成 PasswordAuthentication no</span><br><span class="line"></span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>测试：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@<span class="number">192.168</span>.<span class="number">1.2</span></span><br></pre></td></tr></table></figure></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Android - 编写优质程序从内存管理开始]]></title>
+      <url>http://gavinliu.cn/2016/07/08/Android-%E7%BC%96%E5%86%99%E4%BC%98%E8%B4%A8%E7%A8%8B%E5%BA%8F%E4%BB%8E%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%BC%80%E5%A7%8B/</url>
+      <content type="html"><![CDATA[<h2 id="前言">前言</h2><blockquote>
+<p>Java 没有指针；Java 自带内存回收机制，不用管理内存。<br>这大概是很多不负责任的大学老师教给同学们的错误概念。</p>
+</blockquote>
+<p>虽然Java虚拟机有一套内存回收机制，但是我们写程序仍然需要注意内存管理，并不是传说中的只申请不释放，内存和性能是程序永恒的话题，Android开发中卡顿往往都是由于内存的问题。</p>
+<p>最近在着手公司项目的内存优化，做个总结，下文全是干货。</p>
+<a id="more"></a>
+<h2 id="Java对象的生命周期">Java对象的生命周期</h2><p>上学的时候老师讲课为了让同学们容易理解把Java内存分为堆（Heap）和栈（Stack），在《深入Java虚拟机》书中讲到完整版应该是这样的，在Java世界中，内存分为：</p>
+<ol>
+<li>虚拟机栈（java stacks）</li>
+<li>堆（heap）</li>
+<li>方法区（method area）</li>
+<li>PC寄存器/程序计数器（pc registers）</li>
+<li>本地方法栈（native method stacks）</li>
+</ol>
+<p>这里就不过多介绍每一个内存区域都是做什么用的，详情查看《深入Java虚拟机》一书。</p>
+<h3 id="出生">出生</h3><p><img src="/images/2016.07.08 - Android-编写优质程序从内存管理开始1.gif" alt=""></p>
+<h3 id="死亡">死亡</h3><ol>
+<li><p>引用计数</p>
+</li>
+<li><p>根集算法</p>
+</li>
+</ol>
+<h2 id="Java语言的特性">Java语言的特性</h2><h3 id="多态">多态</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; strs = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br></pre></td></tr></table></figure>
+<p>父类引用指向子类对象，使其可以调用子类的方法。其原理是虚表，学过C++的同学对这个应该很熟悉。</p>
+<h3 id="JIT_影响for循环的执行效率">JIT 影响for循环的执行效率</h3><p>JIT - <code>just in time</code>，即时编译技术。使用该技术，能够加速java程序的执行速度。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mSplat;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Foo[] mArray = ...</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">zero</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mArray.length; i++) &#123;</span><br><span class="line">        sum += mArray[i].mSplat;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">one</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">final</span> Foo[] localArray = mArray;</span><br><span class="line">    <span class="keyword">int</span> length = localArray.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">        sum += localArray[i].mSplat;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">two</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (Foo a : mArray) &#123;</span><br><span class="line">        sum += a.mSplat;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有上面三个<code>zero()</code> <code>one()</code> <code>two()</code> 三个for循环的函数，其中：</p>
+<ul>
+<li><code>zero()</code> 最慢，因为JIT不能去优化mArray.length，无论有没有JIT都是最慢的；</li>
+<li><code>one()</code> 比 <code>zero()</code> 快，无论有没有JIT；</li>
+<li><code>two()</code> 在没有JIT的情况下最快，而如果有JIT，其速度几乎和<code>zero()</code>一样慢。</li>
+</ul>
+<p>所以，如果性能敏感的情况下，遍历ArrayList这样的线性结构的数据，应该采用<code>one()</code>。</p>
+<h3 id="内部类">内部类</h3><p>非静态内部类天生持有宿主类的一个引用，所以如果内部类泄露了会导致宿主类也跟着遭殃。</p>
+<h2 id="Android平台的特性">Android平台的特性</h2><h3 id="onTrimMemory()">onTrimMemory()</h3><p>当内存不足时，系统会主动触发<code>onTrimMemory()</code>，这时你应该主动回收掉一些不用的内存。</p>
+<h3 id="数据结构选择">数据结构选择</h3><p>Bitmap —&gt; LruCache</p>
+<p>HashMap — &gt; ArrayMap / SparseArray</p>
+<p>List —&gt; LinkedList / ArrayList</p>
+<p>不推荐使用：<br>Vector<br>Enum</p>
+<h3 id="findView">findView</h3><p>这个是个比较耗时的操作，所以应该避免一个View多次find。</p>
+<h2 id="Android平台内存调优方法">Android平台内存调优方法</h2><h3 id="通过adb_shell查看内存泄露">通过<code>adb shell</code>查看内存泄露</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys meminfo &#21253;&#21517;</span><br></pre></td></tr></table></figure>
+<h4 id="Dump_HPROF_file">Dump HPROF file</h4><h4 id="MAT（Eclipse_Memory_Analysis_Tool）">MAT（Eclipse Memory Analysis Tool）</h4><h2 id="常见案例">常见案例</h2><h3 id="单例">单例</h3><p>这个比较常见，就是声明了单例，如果里面有大内存数据，在程序退出的时候应该主动去回收掉。</p>
+<h3 id="内部类_泄露">内部类 泄露</h3><p>经典例子为 Handler 作为内部类时发生的泄露。</p>
+<h3 id="静态引用">静态引用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProgressHelper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> TextView mTextView;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(String text)</span> </span>&#123;</span><br><span class="line">        mTextView.setText(text);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有时候业务需要使用静态应用会得到一定的便利，但是请注意这是很危险的，如果一定要这样做，请使用WeakReference包一层。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProgressHelper</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> WeakReference&lt;TextView&gt; mWeakTextView;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Context_泄露">Context 泄露</h3><p>一般来说等同于Activity泄露</p>
+<h3 id="Bitmap_泄露">Bitmap 泄露</h3><ul>
+<li>Bitmap对象需要手动调用recycle</li>
+<li>切记不要把一张巨大的图，不缩放就放入控件里了。<blockquote>
+<p>如果一张图是<code>2000*2000</code>，比手机分辨率还大，但是你程序的ImageView只有<code>300*300</code>的大小，你需要先把<code>2000*2000</code>的图缩小成<code>300*300</code>再设置给ImageView。这样一定不会出现OOM的情况。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="飞线">飞线</h3><p>一个类使用了另一个类的静态资源。</p>
+<figure class="highlight java"><figcaption><span>A.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> isOk = <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>B.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (A.isOK) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种情况和静态引用一样，使用WeakReference包一层，即可。</p>
+<h3 id="内存抖动">内存抖动</h3><p>内存的不停申请和释放会导致内存抖动，最可能出问题的就是频繁的使用 “” + “” 的方式生产新的字符串。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String newStr = <span class="string">""</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; x.length; i++) &#123;</span><br><span class="line">    newStr += x[i].str;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为字符串相加得到的是一个新的字符串，所以如果遇到这种情况，应该使用<code>StringBuilder</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; x.length; i++) &#123;</span><br><span class="line">    sb.append(x[i].str);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">String newStr = sb.toString();;</span><br></pre></td></tr></table></figure>
+<h2 id="经验">经验</h2><h2 id="开源库">开源库</h2><ul>
+<li><a href="https://github.com/square/leakcanary" target="_blank" rel="external">leakcanary</a></li>
+<li><a href="https://github.com/google/battery-historian" target="_blank" rel="external">battery-historian</a></li>
+</ul>
+<h2 id="相关资料">相关资料</h2><ul>
+<li><a href="http://www.cnblogs.com/BangQ/p/4045954.html" target="_blank" rel="external">Java内存模型</a></li>
+<li><a href="http://blog.chinaunix.net/uid-9789791-id-1997450.html" target="_blank" rel="external">Java JIT</a></li>
+</ul>
+<!--
+* [](https://github.com/xitu/gold-miner/blob/master/TODO/Eight-Ways-Your-Android-App-Can-Leak-Memory.md)
+* [](http://blog.csdn.net/imuhao/article/details/51694144)
+* [](http://wetest.qq.com/lab/view/?id=99)
+-->
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[数据安全和加密那点事]]></title>
+      <url>http://gavinliu.cn/2016/07/04/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E5%92%8C%E5%8A%A0%E5%AF%86%E9%82%A3%E7%82%B9%E4%BA%8B/</url>
+      <content type="html"><![CDATA[<h1 id="常规的加密算法">常规的加密算法</h1><h2 id="传统密码学">传统密码学</h2><ul>
+<li>字符替换</li>
+</ul>
+<p>特点：算法保密</p>
+<h2 id="公钥密码学">公钥密码学</h2><ul>
+<li><p>对称加密算法：DES，AES</p>
+</li>
+<li><p>非对称加密算法：RSA</p>
+</li>
+</ul>
+<p>特点：算法公开，参数保密</p>
+<a id="more"></a>
+<h2 id="密码学的基本术语">密码学的基本术语</h2><p>明文，密文，加密算法，密钥，加密，解密</p>
+<h2 id="加密基本操作">加密基本操作</h2><p>代换，置换，多重加密</p>
+<h2 id="加密基本处理方式">加密基本处理方式</h2><p>流水加密：一个字符一个字符加密<br>分组加密：分析各个字符的关系，进行批量加密</p>
+<h1 id="对称加密算法">对称加密算法</h1><ul>
+<li>加密解密是同一个密钥，由发送方和接收方共享</li>
+<li>如果密钥公开，则通讯不安全</li>
+<li>存在的问题：<blockquote>
+<ol>
+<li>在建立安全通讯前，如何保证密钥共享的安全性？</li>
+<li>无法保护发送方，接收方伪造一个消息宣称是发送方发过来的，发送方无法自证</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h1 id="非对称加密算法">非对称加密算法</h1><ul>
+<li>使用两个密钥：一个公钥，一个私钥</li>
+<li>公钥加密的数据只能用私钥解，私钥加密的数据只能用公钥解</li>
+<li>数字签名：发送方可以使用私钥对消息进行签名，使用公钥+签名可以对消息进行校验</li>
+<li>可以解决对称机密算法的两个问题，但是计算量比较大，通常来说比对称加密慢100倍</li>
+</ul>
+<h2 id="加密过程">加密过程</h2><p>假定有两个A B两人，生成公钥A，私钥A，公钥B，私钥B，公钥是任何人都可以知道的</p>
+<ol>
+<li>A给B发消息：A使用 <strong><strong>公钥B</strong></strong> 机密数据后发给B，B用 <strong><strong>私钥B</strong></strong> 解密得到消息</li>
+<li>B给A发消息：B使用 <strong><strong>公钥A</strong></strong> 机密数据后发给A，A用 <strong><strong>私钥A</strong></strong> 解密得到消息</li>
+</ol>
+<h2 id="签名流程">签名流程</h2><p>举个例子：现实中会借条，签合同等签上名，来证明合法性，证明这个东西是我承认的。</p>
+<p>在互联网如何证明一个数据是由我发出的呢？ 数字签名</p>
+<p>当A要给B发消息时：<br>使用 <strong><strong>私钥A</strong></strong> 对数据进行签名可得到一个签名字符串，把这个签名字符串和加密字符串一起发给B，B可以用 <strong><strong>公钥A</strong></strong> 来验证 这个签名和数据是否匹配。</p>
+<h1 id="在Java代码中的运用">在Java代码中的运用</h1><p>JDK中已经包含了加密算法的实现</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Github：</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Gradle - 编写自定义插件]]></title>
+      <url>http://gavinliu.cn/2016/06/18/Gradle-%E7%BC%96%E5%86%99%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8F%92%E4%BB%B6/</url>
+      <content type="html"></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Git - 使用Repo管理你的Git项目]]></title>
       <url>http://gavinliu.cn/2016/04/15/Git-%E4%BD%BF%E7%94%A8Repo%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84Git%E9%A1%B9%E7%9B%AE/</url>
       <content type="html"><![CDATA[<h2 id="git-repo">git-repo</h2><p><code>git-repo</code>是Google推出的管理<strong>多个git项目</strong>的工具，主要被运用在Android系统源码的管理上。</p>
@@ -579,13 +778,6 @@
 <figure class="highlight java"><figcaption><span>使用示例</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">List&lt;ThreadTask&lt;String&gt;&gt; results = <span class="keyword">new</span> ArrayList&lt;ThreadTask&lt;String&gt;&gt;();</span><br><span class="line"></span><br><span class="line">ThreadPool threadPool = <span class="keyword">new</span> ThreadPool(<span class="number">4</span>, <span class="number">4</span>, <span class="number">10</span>, TimeUnit.SECONDS, <span class="keyword">new</span> LinkedBlockingQueue&lt;Runnable&gt;());</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    ThreadTask&lt;String&gt; threadTask = threadPool.submit(<span class="keyword">new</span> Task(i));</span><br><span class="line"></span><br><span class="line">    threadTask.setOnTaskDoneListener(<span class="keyword">new</span> OnTaskDoneListener() &#123;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTaskDone</span><span class="params">(ThreadTask&lt;?&gt; task)</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"onTaskDone "</span> + task.get());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    threadTask.setOnTaskCancelListener(<span class="keyword">new</span> OnTaskCancelListener() &#123;</span><br><span class="line"></span><br><span class="line">        <span class="annotation">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTaskCancel</span><span class="params">(ThreadTask&lt;?&gt; task)</span> </span>&#123;</span><br><span class="line">            System.out.println(task + <span class="string">" onTaskCancel"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    results.add(threadTask);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (ThreadTask&lt;String&gt; res : results) &#123;</span><br><span class="line">    res.cancel();</span><br><span class="line">    System.out.println(<span class="string">"result :"</span> + res.get());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">threadPool.shutdown();</span><br></pre></td></tr></table></figure>
 <p>实现源码：<a href="https://github.com/gavinliu/MThread" target="_blank" rel="external">https://github.com/gavinliu/MThread</a></p>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Android - 内存泄露分析]]></title>
-      <url>http://gavinliu.cn/2015/11/18/Android-%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E5%88%86%E6%9E%90/</url>
-      <content type="html"><![CDATA[<h2 id="通过adb_shell查看内存泄露">通过<code>adb shell</code>查看内存泄露</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adb shell dumpsys meminfo &#21253;&#21517;</span><br></pre></td></tr></table></figure>
-<h2 id="MAT工具">MAT工具</h2><h3 id="Dump_内存堆">Dump 内存堆</h3><h3 id="MAT工具_使用技巧">MAT工具 使用技巧</h3><h2 id="Android_内存泄露自动检测库">Android 内存泄露自动检测库</h2>]]></content>
     </entry>
     
     <entry>

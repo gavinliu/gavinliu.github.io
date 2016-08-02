@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android, Java.Web, " />
+  <meta name="keywords" content="nginx,服务器," />
 
 
 
@@ -86,15 +86,22 @@
 
 
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gavin.Liu">
-<meta property="og:url" content="http://gavinliu.cn/tags/内存分析/index.html">
+<meta name="description" content="安装1apt install nginx
+安装完成后配置文件在 /etc/nginx/conf.d/
+配置安全配置：访问限制修改后可以阻止ip和未配置的域名访问主机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Server - nginx 基本配置">
+<meta property="og:url" content="http://gavinliu.cn/2016/07/14/Server-nginx-基本配置/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description">
+<meta property="og:description" content="安装1apt install nginx
+安装完成后配置文件在 /etc/nginx/conf.d/
+配置安全配置：访问限制修改后可以阻止ip和未配置的域名访问主机">
+<meta property="og:updated_time" content="2016-07-21T15:58:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gavin.Liu">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Server - nginx 基本配置">
+<meta name="twitter:description" content="安装1apt install nginx
+安装完成后配置文件在 /etc/nginx/conf.d/
+配置安全配置：访问限制修改后可以阻止ip和未配置的域名访问主机">
 
 
 
@@ -115,9 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://gavinliu.cn/tags/内存分析/"/>
+  <link rel="canonical" href="http://gavinliu.cn/2016/07/14/Server-nginx-基本配置/"/>
 
-  <title> 标签: 内存分析 | Gavin.Liu </title>
+  <title> Server - nginx 基本配置 | Gavin.Liu </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -148,7 +155,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -286,46 +293,186 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        内存分析
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Server - nginx 基本配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-14T11:24:50+08:00" content="2016-07-14">
+              2016-07-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Server-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Server Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/14/Server-nginx-基本配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/14/Server-nginx-基本配置/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-eye"></i>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="安装">安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install nginx</span><br></pre></td></tr></table></figure>
+<p>安装完成后配置文件在 <code>/etc/nginx/conf.d/</code></p>
+<h2 id="配置">配置</h2><h3 id="安全配置：访问限制">安全配置：访问限制</h3><p>修改后可以阻止ip和未配置的域名访问主机</p>
+<a id="more"></a>
+<figure class="highlight bash"><figcaption><span>/etc/nginx/conf.d/</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi default.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 修改 server_name ；添加 return 500</span></span><br><span class="line"></span><br><span class="line">server_name  _;</span><br><span class="line"><span class="built_in">return</span> <span class="number">500</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="配置多域名">配置多域名</h2><p>以 tomcat 为例</p>
+<figure class="highlight bash"><figcaption><span>/etc/nginx/conf.d/</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi tomcat.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen       <span class="number">80</span>;</span><br><span class="line">    server_name  xx.cn; <span class="comment"># 填入绑定的域名</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#charset koi8-r;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#access_log  logs/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Load configuration files for the default server block.</span></span><br><span class="line">    include /etc/nginx/default.d/*.conf;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">        index  index.html index.htm;</span><br><span class="line">        proxy_pass http://localhost:<span class="number">8080</span>; <span class="comment"># 转发到本机的 8080 端口</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    error_page  <span class="number">404</span>              /<span class="number">404</span>.html;</span><br><span class="line">    location = /<span class="number">404</span>.html &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># redirect server error pages to the static page /50x.html</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    error_page   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /<span class="number">50</span>x.html;</span><br><span class="line">    location = /<span class="number">50</span>x.html &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">    <span class="comment">#    proxy_pass   http://127.0.0.1;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">    <span class="comment">#    root           html;</span></span><br><span class="line">    <span class="comment">#    fastcgi_pass   127.0.0.1:9000;</span></span><br><span class="line">    <span class="comment">#    fastcgi_index  index.php;</span></span><br><span class="line">    <span class="comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span></span><br><span class="line">    <span class="comment">#    include        fastcgi_params;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># deny access to .htaccess files, if Apache's document root</span></span><br><span class="line">    <span class="comment"># concurs with nginx's one</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ /\.ht &#123;</span></span><br><span class="line">    <span class="comment">#    deny  all;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="管理">管理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 改了配置都重新载入</span></span><br><span class="line">nginx <span class="operator">-s</span> reload</span><br></pre></td></tr></table></figure>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2015/11/18/Android-内存泄露分析/" itemprop="url">
-              
-                <span itemprop="name">Android - 内存泄露分析</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-11-18T17:39:40+08:00"
-              content="2015-11-18" >
-          11-18
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/nginx/" rel="tag">#nginx</a>
+          
+            <a href="/tags/服务器/" rel="tag">#服务器</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/14/Server-Linux-Server-基本配置/" rel="next" title="Server - Linux Server 基本配置">
+                <i class="fa fa-chevron-left"></i> Server - Linux Server 基本配置
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/01/开发环境搭建-各种代理-加速配置/" rel="prev" title="开发环境搭建 - 各种代理/加速配置">
+                开发环境搭建 - 各种代理/加速配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/07/14/Server-nginx-基本配置/"
+     data-title="Server - nginx 基本配置"
+     data-content=""
+     data-url="http://gavinliu.cn/2016/07/14/Server-nginx-基本配置/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -333,6 +480,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/07/14/Server-nginx-基本配置/"
+           data-title="Server - nginx 基本配置" data-url="http://gavinliu.cn/2016/07/14/Server-nginx-基本配置/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -352,8 +507,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
@@ -364,7 +528,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">86</span>
+              <span class="site-state-item-count">91</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -372,7 +536,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -381,7 +545,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -430,6 +594,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">2.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安全配置：访问限制"><span class="nav-number">2.1.</span> <span class="nav-text">安全配置：访问限制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置多域名"><span class="nav-number">3.</span> <span class="nav-text">配置多域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管理"><span class="nav-number">4.</span> <span class="nav-text">管理</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -545,6 +720,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

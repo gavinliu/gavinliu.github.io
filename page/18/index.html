@@ -310,8 +310,8 @@
             
               
                 
-                <a class="post-title-link" href="/2012/03/01/Android-【手把手教你打太极】/" itemprop="url">
-                  Android:【手把手教你打太极】
+                <a class="post-title-link" href="/2012/04/01/JavaWeb---Servlet-随笔/" itemprop="url">
+                  Java.Web - Servlet 随笔
                 </a>
               
             
@@ -324,8 +324,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2012-03-01T21:04:30+08:00" content="2012-03-01">
-              2012-03-01
+            <time itemprop="dateCreated" datetime="2012-04-01T10:18:41+08:00" content="2012-04-01">
+              2012-04-01
             </time>
           </span>
 
@@ -338,8 +338,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/个人作品/" itemprop="url" rel="index">
-                    <span itemprop="name">个人作品</span>
+                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Java.Web Notes</span>
                   </a>
                 </span>
 
@@ -354,8 +354,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2012/03/01/Android-【手把手教你打太极】/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/03/01/Android-【手把手教你打太极】/" itemprop="commentsCount"></span>
+                <a href="/2012/04/01/JavaWeb---Servlet-随笔/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/04/01/JavaWeb---Servlet-随笔/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -379,13 +379,545 @@
 
       
         
-          <p>太极拳，是一种武术项目，也是体育运动和健身项目，在中国有着悠久的历史。<br>但事实上太极拳的推广并不是特别广泛，我想在坐的各位老师评委，可能都没接触过太极拳。<br>其平民化。<br>手把手教你打太极是一款教你学习太极拳电子书类应用，软件收录了24式太极拳的招式，图解。让你随时随地都能体验太极拳的魅力。<br>本软件界面优美，适合阅读，是你学习太极拳必备的软件。<br>下载地址：<a href="http://mm.10086.cn/1007/300002692964.html">http://mm.10086.cn/1007/300002692964.html</a> </p>
-<p><img src="/images/2012.02.30 - -软件-Android-【手把手教你打太极】1.jpg" alt="images">
+          
+            <ul>
+<li>注册Servlet</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">servlet</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">servlet-class</span>&gt;</span>com.sco.servlet.MyServlet<span class="tag">&lt;/<span class="title">servlet-class</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="title">servlet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>映射servlet（不是一 一映射）</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">servlet-mapping</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">servlet-name</span>&gt;</span>MyServlet<span class="tag">&lt;/<span class="title">servlet-name</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">url-pattern</span>&gt;</span>/servlet/MyServlet<span class="tag">&lt;/<span class="title">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>URL 还能配置成 .html 等等</li>
+<li>URL 也能用通配符配置：<br>⑴”<em>.扩展名”（</em>.do，…）<br>⑵以 / 开头，并以 /<em> 结尾（/</em>，/news/<em>，…）<br>⑶优先级 </em>.do 最低</li>
+<li>Servlet 是单例的，会出先线程安全问题，比如售票系统，需要使用线程同步</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2012/03/25/JavaWeb---分页技术/" itemprop="url">
+                  Java.Web - 分页技术
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2012-03-25T17:40:02+08:00" content="2012-03-25">
+              2012-03-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Java.Web Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2012/03/25/JavaWeb---分页技术/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/03/25/JavaWeb---分页技术/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="定义四个分页变量">定义四个分页变量</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> pageNow     <span class="comment">//表示第几页   该变量由用户决定</span></span><br><span class="line"><span class="keyword">int</span> pageSize    <span class="comment">//表示每一页显示几条记录 由程序指定(也可由用户定制)</span></span><br><span class="line"><span class="keyword">int</span> pageCont    <span class="comment">//表示共有多少页 该变量是计算出来的</span></span><br><span class="line"><span class="keyword">int</span> rowCont     <span class="comment">//表示共有多少条记录   该变量是查询数据库得到</span></span><br></pre></td></tr></table></figure>
+<h2 id="分页算法-确定rowCont的值">分页算法.确定rowCont的值</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pst = con.prepareStatement(<span class="string">"select count(*) form users"</span>);</span><br><span class="line">rst = pst.executeQuery();</span><br><span class="line">rst.next();</span><br><span class="line">rowCont = rst.getInt(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="分页算法-确定pageCont的值">分页算法.确定pageCont的值</h2><ul>
+<li>二逼青年算法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (rowCont % pageSize == <span class="number">0</span>) &#123;</span><br><span class="line">    pageCont = rowCont / pageSize;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    pageCont = rowCont / pageSize + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>普通青年算法（等价与上面那个算法）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pageCont = rowCont % pageSize == <span class="number">0</span> ? rowCont / pageSize : rowCont / pageSize + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>文艺青年算法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pageCont = (rowCont - <span class="number">1</span>)/pageSize + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2012/03/01/Android-【手把手教你打太极】/#more" rel="contents">
+            <a class="btn" href="/2012/03/25/JavaWeb---分页技术/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2012/03/25/JavaWeb---Http协议初步接触/" itemprop="url">
+                  Java.Web - Http协议初步接触
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2012-03-25T10:37:51+08:00" content="2012-03-25">
+              2012-03-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Java.Web Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2012/03/25/JavaWeb---Http协议初步接触/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/03/25/JavaWeb---Http协议初步接触/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="【HTTP请求消息头】">【HTTP请求消息头】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(Request-Line)     GET /manager/html HTTP/1.1    &#35831;&#27714;&#34892;&#65292;&#20351;&#29992;&#30340;HTTP&#35268;&#33539;...&#10;&#19979;&#38754;&#26159;&#28040;&#24687;&#22836;&#10;Accept      */*&#10;Accept-Encoding     gzip, deflate      &#21487;&#20197;&#25509;&#25910;gzip&#25991;&#20214;&#65292;&#25110;&#32773;&#40664;&#35748;&#10;Accept-Language     zh-CN        &#25903;&#25345;&#20013;&#25991;&#10;Connection     Keep-Alive      &#20445;&#23384;&#24120;&#36830;&#25509;&#10;Host     127.0.0.1:8080&#10;Referer     http://127.0.0.1:8080/     &#21578;&#35785;&#26381;&#21153;&#22120;&#25105;&#26469;&#33258;&#21738;&#37324;&#65311;&#21487;&#20197;&#38450;&#30423;&#38142; &#10;User-Agent     Mozilla/4.0     &#27983;&#35272;&#22120;&#20869;&#26680;&#10;(&#31354;&#34892;)&#10;&#20869;&#23481;</span><br></pre></td></tr></table></figure>
+<p>Servlet 中获取头信息 —&gt; String host = request.getHeader(“HOST”);<br>可以通过获取 Referer 信息，来判断用户是从那个页面跳转过来的，来防止盗链<br>直接 在浏览器输入 跳转过来，Referer 的值为null</p>
+<h2 id="【HTTP响应消息头】">【HTTP响应消息头】</h2><ul>
+<li>Location    用于重定向，向浏览器发送一个新URI地址。 </li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">response.setStatus(<span class="number">302</span>);</span><br><span class="line">response.setHeader(<span class="string">"Location"</span>,<span class="string">"URL"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Content-Disposition    用于下载文件</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置消息头 下载</span></span><br><span class="line">response.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment;filename=test.jpg"</span>);    <span class="comment">/* 1.读文件 */</span>    <span class="comment">// 获取文件全路径    String path =</span></span><br><span class="line">getServletContext().getRealPath(<span class="string">"/images/test.jpg"</span>);    <span class="comment">// 创建一个文件输入流</span></span><br><span class="line">FileInputStream fis = <span class="keyword">new</span> FileInputStream(path);</span><br><span class="line"><span class="comment">// 缓冲区</span></span><br><span class="line"><span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</span><br><span class="line"><span class="keyword">int</span> length;</span><br><span class="line"><span class="keyword">while</span> ((length = fis.read(buffer)) &gt; <span class="number">0</span>) </span><br><span class="line">    <span class="comment">/* 2.写文件 */</span></span><br><span class="line">    out.write(buffer, <span class="number">0</span>, length);    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过合适地设置Content-disposition的值<br>Servlet能指示浏览器是“内嵌”显示文件还是把它当作附件处理。<br>例1.内嵌显示一个文件 Content-disposition: inline; filename=foobar.pdf<br>例2.往response里附加一个文件 Content-disposition: attachment; filename=foobar.pdf</p>
+<ul>
+<li>Expires 应该在什么时候认为文档已经过期，从而不再缓存它？</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置页面不缓存</span></span><br><span class="line">response.setDateHeader(<span class="string">"Expires"</span>,-<span class="number">1</span>); <span class="comment">//-1则表示不缓存（IE）</span></span><br><span class="line"><span class="comment">// 下面两句代码是为了兼容性</span></span><br><span class="line">response.setHeader(<span class="string">"Cache-Control"</span>,<span class="string">"no-cache"</span>);</span><br><span class="line">response.setHeader(<span class="string">"Pragma"</span>,<span class="string">"no-cache"</span>);</span><br><span class="line">    </span><br><span class="line"><span class="comment">//设置页面缓存一定时间</span></span><br><span class="line">response.setDateHeader(<span class="string">"Expires"</span>, System.currentTimeMillis()+<span class="number">3600</span>*<span class="number">1000</span>*<span class="number">24</span>); <span class="comment">// 缓存一天</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2012/03/21/JavaWeb---网页中文乱码处理/" itemprop="url">
+                  Java.Web - 网页中文乱码处理
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2012-03-21T17:16:43+08:00" content="2012-03-21">
+              2012-03-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Java.Web Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2012/03/21/JavaWeb---网页中文乱码处理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/03/21/JavaWeb---网页中文乱码处理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="表单">表单</h2><ul>
+<li>get<br>⑴ 获取数据前 分解成字节，然后封装成UTF-8<br>String user = new String(request.getParameter(“user”).getBytes(“iso-8859-1”), “UTF-8”);<br>⑵ 配置服务器，也可解决：</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"8080"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span>     </span><br><span class="line">   <span class="attribute">connectionTimeout</span>=<span class="value">"20000"</span> </span><br><span class="line">   <span class="attribute">redirectPort</span>=<span class="value">"8443"</span> <span class="attribute">URIEncoding</span>=<span class="value">"UTF-8"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>post<br>直接在接收 servlet 中设置  request.setCharacterEncoding(“UTF-8”);</li>
+</ul>
+<h2 id="超链接">超链接</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"http://www.qq.com?user=你好"</span>&gt;</span><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>处理办法和get 是一样的</p>
+<h2 id="sendRedirect(),_下载文件名中文乱码的处理：">sendRedirect(), 下载文件名中文乱码的处理：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"主机?username="</span> + <span class="string">"你好"</span>);</span><br><span class="line">String temp = java.net.URLEncoder.encode(<span class="string">"你好.mp3"</span>,<span class="string">"UTF-8"</span>);</span><br><span class="line">response.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment; filename="</span> + temp);</span><br><span class="line">response.setContentType(<span class="string">"text/html;charset=utf-8"</span>);<span class="comment">//设置相应字符编码，告诉浏览器采用utf-8</span></span><br><span class="line">request.setCharacterEncoding(<span class="string">"UTF-8"</span>);<span class="comment">//设置请求体的字符编码</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2012/03/14/JavaWeb---Response、Request-随笔/" itemprop="url">
+                  Java.Web - Response、Request 随笔
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2012-03-14T17:08:54+08:00" content="2012-03-14">
+              2012-03-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Java.Web Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2012/03/14/JavaWeb---Response、Request-随笔/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/03/14/JavaWeb---Response、Request-随笔/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>getWriter();和getOutputStream();的使用<br>区别：</p>
+<ol>
+<li>getWriter(); 用于向客户机回送字符数据</li>
+<li>getOutputStream(); 返回对象，可以回送字符数据，也可以回送字节数据(二进制数据)<br> OutputStream os = response.getOutputSteam();<br> os.writ(“hello”.getBytes());<br>如何选择：<br>如果你传送的是字符数据，则使用 getWriter(); 或者说 使用PrintWriter 对象，这样效率高；<br>如果是回送字节数据(birary date) 只能使用 OutputStream();<br>这两个流不能同时使用！</li>
+</ol>
+<p>请求相关API<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestURL().toString(); <span class="comment">//获得URL  http://lyl.com:8080/UsersManger/download.do</span></span><br><span class="line">request.getRequestURL(); <span class="comment">//获得URI  /UsersManger/download.do</span></span><br><span class="line">request.getQueryString(); <span class="comment">//获得所传参数‘?’后面的内容  username=lyl&amp;password=123</span></span><br><span class="line">request.getRemoteAddr(); <span class="comment">//获得客户机的IP</span></span><br><span class="line">request.getRemoteHost(); <span class="comment">//获得客户机的完整主机名</span></span><br><span class="line">request.getRemotePort(); <span class="comment">//获得客户机所使用的网络端口</span></span><br><span class="line">request.getLocalPort(); <span class="comment">//获得WEB服务器所使用的网络端口</span></span><br><span class="line">request.getLocalAddr(); <span class="comment">//获得WEB服务器的IP</span></span><br><span class="line">request.getLocalName(); <span class="comment">//获得WEB服务器主机名</span></span><br><span class="line">request.getParameter(<span class="string">""</span>); <span class="comment">// 获得用户提交的数据,根据name 属性获取</span></span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -416,7 +948,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span>
+    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -457,7 +989,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">86</span>
+              <span class="site-state-item-count">91</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -465,7 +997,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -474,7 +1006,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
