@@ -310,6 +310,131 @@
             
               
                 
+                <a class="post-title-link" href="/2012/03/14/JavaWeb---Response、Request-随笔/" itemprop="url">
+                  Java.Web - Response、Request 随笔
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2012-03-14T17:08:54+08:00" content="2012-03-14">
+              2012-03-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Java.Web Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2012/03/14/JavaWeb---Response、Request-随笔/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2012/03/14/JavaWeb---Response、Request-随笔/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>getWriter();和getOutputStream();的使用<br>区别：</p>
+<ol>
+<li>getWriter(); 用于向客户机回送字符数据</li>
+<li>getOutputStream(); 返回对象，可以回送字符数据，也可以回送字节数据(二进制数据)<br> OutputStream os = response.getOutputSteam();<br> os.writ(“hello”.getBytes());<br>如何选择：<br>如果你传送的是字符数据，则使用 getWriter(); 或者说 使用PrintWriter 对象，这样效率高；<br>如果是回送字节数据(birary date) 只能使用 OutputStream();<br>这两个流不能同时使用！</li>
+</ol>
+<p>请求相关API<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestURL().toString(); <span class="comment">//获得URL  http://lyl.com:8080/UsersManger/download.do</span></span><br><span class="line">request.getRequestURL(); <span class="comment">//获得URI  /UsersManger/download.do</span></span><br><span class="line">request.getQueryString(); <span class="comment">//获得所传参数‘?’后面的内容  username=lyl&amp;password=123</span></span><br><span class="line">request.getRemoteAddr(); <span class="comment">//获得客户机的IP</span></span><br><span class="line">request.getRemoteHost(); <span class="comment">//获得客户机的完整主机名</span></span><br><span class="line">request.getRemotePort(); <span class="comment">//获得客户机所使用的网络端口</span></span><br><span class="line">request.getLocalPort(); <span class="comment">//获得WEB服务器所使用的网络端口</span></span><br><span class="line">request.getLocalAddr(); <span class="comment">//获得WEB服务器的IP</span></span><br><span class="line">request.getLocalName(); <span class="comment">//获得WEB服务器主机名</span></span><br><span class="line">request.getParameter(<span class="string">""</span>); <span class="comment">// 获得用户提交的数据,根据name 属性获取</span></span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2012/03/01/Android-【手把手教你打太极】/" itemprop="url">
                   Android:【手把手教你打太极】
                 </a>
@@ -457,7 +582,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">91</span>
+              <span class="site-state-item-count">92</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -474,7 +599,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-count">68</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[Focus on Mobile Develop]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://gavinliu.cn/"/>
-  <updated>2016-08-02T07:28:42.000Z</updated>
+  <updated>2016-08-04T15:56:14.000Z</updated>
   <id>http://gavinliu.cn/</id>
   
   <author>
@@ -13,6 +13,56 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Android - Nougat(7.0) 创建通知栏快捷设置]]></title>
+    <link href="http://gavinliu.cn/2016/08/04/Android-Nougat-7-%E5%88%9B%E5%BB%BA%E9%80%9A%E7%9F%A5%E6%A0%8F%E7%9A%84%E5%BF%AB%E6%8D%B7%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://gavinliu.cn/2016/08/04/Android-Nougat-7-创建通知栏的快捷设置/</id>
+    <published>2016-08-04T13:48:33.000Z</published>
+    <updated>2016-08-04T15:56:14.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="/images/2016.08.04 - Android-Androd7-创建通知栏的快捷设置1.png" alt=""></p>
+<blockquote>
+<p><code>Android Nougat(7.0)</code> 可以往通知栏的快捷设置里添加自定义按钮了</p>
+</blockquote>
+<p>Android 把快捷设置项叫做<code>Tile(瓦片)</code>，创建<code>Tile</code>需要一个<code>TileService</code>。</p>
+<a id="more"></a>
+<h2 id="TileService"><a href="https://developer.android.com/reference/android/service/quicksettings/TileService.html" target="_blank" rel="external">TileService</a></h2><p>继承<code>TileService</code>实现一个<code>QuickService</code>，在<code>AndroidManifest.xml</code>中声明<br>权限：<code>android:permission=&quot;android.permission.BIND_QUICK_SETTINGS_TILE&quot;</code><br>过滤器：<code>android:name=&quot;android.service.quicksettings.action.QS_TILE&quot;</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickService</span> <span class="keyword">extends</span> <span class="title">TileService</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><figcaption><span>AndroidManifest.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">service</span></span><br><span class="line">    <span class="attribute">android:name</span>=<span class="value">".QuickService"</span></span><br><span class="line">    <span class="attribute">android:label</span>=<span class="value">"@string/quick_service_name"</span></span><br><span class="line">    <span class="attribute">android:icon</span>=<span class="value">"@drawable/ic_quick_setting"</span></span><br><span class="line">    <span class="attribute">android:permission</span>=<span class="value">"android.permission.BIND_QUICK_SETTINGS_TILE"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">intent-filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">action</span> <span class="attribute">android:name</span>=<span class="value">"android.service.quicksettings.action.QS_TILE"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">intent-filter</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">service</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>完成上面的代码，就已经可以在通知栏的快捷设置添加我们的设置项了</p>
+<figure class="highlight java"><figcaption><span>TileService.工作流</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当 tile 被添加时的回调</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onTileAdded</span><span class="params">()</span></span><br><span class="line"><span class="comment">// 当 tile 被移除时的回调</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTileRemoved</span><span class="params">()</span></span><br><span class="line"><span class="comment">// 当 tile 可见时的回调</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStartListening</span> <span class="params">()</span></span><br><span class="line"><span class="comment">// 当 tile 不可见加时的回调</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onStopListening</span> <span class="params">()</span></span><br><span class="line"><span class="comment">// 当 tile 点击时的回调</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span> <span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>TileService.获取对应的 Tile</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> Tile <span class="title">getQsTile</span> <span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="Tile">Tile</h2><figure class="highlight java"><figcaption><span>Tile Setters</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIcon</span> <span class="params">(Icon icon)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLabel</span> <span class="params">(CharSequence label)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setState</span> <span class="params">(<span class="keyword">int</span> state)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContentDescription</span> <span class="params">(CharSequence contentDescription)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>Title Update</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateTile</span> <span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+<p>修改了<code>Tile</code>的属性，需要手动调用<code>updateTile()</code>，才会更新。</p>
+<h2 id="生命周期">生命周期</h2><figure class="highlight bash"><figcaption><span>编辑界面 把按钮拖进快捷设置栏</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">D/QuickService: onCreate</span><br><span class="line">D/QuickService: onTileAdded</span><br><span class="line">D/QuickService: onDestroy</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>快捷设置栏中按钮可见</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D/QuickService: onCreate</span><br><span class="line">D/QuickService: onStartListening</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>快捷设置栏按钮不可见</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D/QuickService: onStopListening</span><br><span class="line">D/QuickService: onDestroy</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>点击按钮</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D/QuickService: onClick</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>编辑界面 把按钮移除快捷设置栏</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">D/QuickService: onStopListening</span><br><span class="line">D/QuickService: onDestroy</span><br><span class="line">D/QuickService: onCreate</span><br><span class="line">D/QuickService: onTileRemoved</span><br><span class="line">D/QuickService: onDestroy</span><br></pre></td></tr></table></figure>
+<h2 id="源码">源码</h2><p><img src="/images/2016.08.04 - Android-Androd7-创建通知栏的快捷设置2.gif" alt=""></p>
+<p><a href="https://github.com/gavinliu/CustomQuickSettingTile" target="_blank" rel="external">https://github.com/gavinliu/CustomQuickSettingTile</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="/images/2016.08.04 - Android-Androd7-创建通知栏的快捷设置1.png" alt=""></p>
+<blockquote>
+<p><code>Android Nougat(7.0)</code> 可以往通知栏的快捷设置里添加自定义按钮了</p>
+</blockquote>
+<p>Android 把快捷设置项叫做<code>Tile(瓦片)</code>，创建<code>Tile</code>需要一个<code>TileService</code>。</p>]]>
+    
+    </summary>
+    
+      <category term="Nougat" scheme="http://gavinliu.cn/tags/Nougat/"/>
+    
+      <category term="QuickSettings" scheme="http://gavinliu.cn/tags/QuickSettings/"/>
+    
+      <category term="Tile" scheme="http://gavinliu.cn/tags/Tile/"/>
+    
+      <category term="TileService" scheme="http://gavinliu.cn/tags/TileService/"/>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[开发环境搭建 - 各种代理/加速配置]]></title>
@@ -919,43 +969,6 @@
       <category term="人人都是产品经理" scheme="http://gavinliu.cn/tags/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
     
       <category term="刘说八道" scheme="http://gavinliu.cn/categories/%E5%88%98%E8%AF%B4%E5%85%AB%E9%81%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Android - 测试框架之 UI Testing - UiAutomator]]></title>
-    <link href="http://gavinliu.cn/2016/01/02/Android-%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E4%B9%8B-UI-Testing-UI-Automator/"/>
-    <id>http://gavinliu.cn/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/</id>
-    <published>2016-01-01T16:34:13.000Z</published>
-    <updated>2016-04-09T08:51:40.000Z</updated>
-    <content type="html"><![CDATA[<blockquote>
-<p><code>UiAutomator</code>和<code>Espresso</code>最大的不同是<strong>支持多个App</strong>，所以<code>UiAutomator</code>是所有Android测试工程师的必备技能。</p>
-</blockquote>
-<p><code>UiAutomator</code>2.0版本依赖了<code>Instrumentation</code>使得<code>UiAutomator 2</code>可以轻松的拿到Activity的Context，就可以像写Android应用程序一样，实现很多功能。</p>
-<a id="more"></a>
-<h2 id="快速开始">快速开始</h2><h3 id="添加依赖库">添加依赖库</h3><figure class="highlight groovy"><figcaption><span>Module/build.gradle</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line"></span><br><span class="line">    defaultConfig &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Testing config</span></span><br><span class="line">        testInstrumentationRunner <span class="string">"android.support.test.runner.AndroidJUnitRunner"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">dependencies &#123;</span><br><span class="line">    <span class="comment">// Testing dependencies</span></span><br><span class="line">    androidTestCompile <span class="string">'com.android.support:support-annotations:23.1.1'</span></span><br><span class="line">    androidTestCompile <span class="string">'com.android.support.test:runner:0.4.1'</span></span><br><span class="line">    androidTestCompile <span class="string">'com.android.support.test.uiautomator:uiautomator-v18:2.1.1'</span></span><br><span class="line">    androidTestCompile <span class="string">'org.hamcrest:hamcrest-integration:1.3'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="新建测试类">新建测试类</h3><p>在<code>androidTest</code>文件夹下新建一个测试类<br><figure class="highlight java"><figcaption><span>UiAutomatorTest.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@RunWith</span>(AndroidJUnit4.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UiAutomatorTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    Context mContext;</span><br><span class="line">    UiDevice mDevice;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Before</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());</span><br><span class="line">        mContext = InstrumentationRegistry.getContext();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSetting</span><span class="params">()</span> <span class="keyword">throws</span> UiObjectNotFoundException </span>&#123;</span><br><span class="line">        <span class="comment">// Home键</span></span><br><span class="line">        mDevice.pressHome();</span><br><span class="line">        <span class="comment">// 找到设置并点击</span></span><br><span class="line">        mDevice.findObject(<span class="keyword">new</span> UiSelector().text(<span class="string">"设置"</span>)).click();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="运行测试类">运行测试类</h3><p>右键，选择 <code>run &#39;UiAutomatorTest&#39;</code></p>
-<p><img src="/images/2016.01.02 - Android-测试框架之-UI-Testing-UI-Automator1.png" alt="run"></p>
-<h3 id="运行效果">运行效果</h3><p><img src="/images/2016.01.02 - Android-测试框架之-UI-Testing-UI-Automator2.gif" alt="run"></p>
-<h3 id="命令行运行">命令行运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查找</span></span><br><span class="line">$ adb shell pm list instrumentation</span><br><span class="line">instrumentation:cn.gavinliu.uiautomator.test/android.support.test.runner.AndroidJUnitRunner (target=cn.gavinliu.uiautomator)</span><br><span class="line"><span class="comment"># 运行</span></span><br><span class="line">$ adb shell am instrument -w cn.gavinliu.uiautomator.test/android.support.test.runner.AndroidJUnitRunner</span><br></pre></td></tr></table></figure>
-<h2 id="UiAutomator_主要API">UiAutomator 主要API</h2><h3 id="Instrumentation">Instrumentation</h3><p><code>Instrumentation</code>也是一个测试框架，可以操作很多系统API，<code>UiAutomator2.x</code>引入了它，大大增强了UiAutomator的功能。</p>
-<h3 id="UiDevice">UiDevice</h3><h3 id="UiSelector">UiSelector</h3><h3 id="UiObject">UiObject</h3>]]></content>
-    <summary type="html">
-    <![CDATA[<blockquote>
-<p><code>UiAutomator</code>和<code>Espresso</code>最大的不同是<strong>支持多个App</strong>，所以<code>UiAutomator</code>是所有Android测试工程师的必备技能。</p>
-</blockquote>
-<p><code>UiAutomator</code>2.0版本依赖了<code>Instrumentation</code>使得<code>UiAutomator 2</code>可以轻松的拿到Activity的Context，就可以像写Android应用程序一样，实现很多功能。</p>]]>
-    
-    </summary>
-    
-      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
-    
-      <category term="Android测试框架" scheme="http://gavinliu.cn/tags/Android%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/"/>
-    
-      <category term="UiAutomator" scheme="http://gavinliu.cn/tags/UiAutomator/"/>
-    
-      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
     
   </entry>
   

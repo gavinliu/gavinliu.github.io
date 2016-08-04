@@ -310,6 +310,129 @@
             
               
                 
+                <a class="post-title-link" href="/2015/12/17/Python-Mac的环境搭建/" itemprop="url">
+                  Python - Mac的环境搭建
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-17T21:34:38+08:00" content="2015-12-17">
+              2015-12-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Python Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/17/Python-Mac的环境搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/17/Python-Mac的环境搭建/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <pre><code><span class="variable">Python</span> 作为胶水语言, 是每个程序员必备的工具语言. 学习吧, 少年<span class="exclamation_mark">!</span>
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/17/Python-Mac的环境搭建/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/14/Java-使用Future进行多线程编程/" itemprop="url">
                   Java - 使用Future模式进行多线程编程
                 </a>
@@ -769,151 +892,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/08/12/Android-多屏适配实践/" itemprop="url">
-                  Android - 多屏适配实践
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-08-12T19:59:01+08:00" content="2015-08-12">
-              2015-08-12
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/08/12/Android-多屏适配实践/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/12/Android-多屏适配实践/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="概述">概述</h1><p>Android开发中面对这么多机型，这么多大小不一的手机屏幕，需要寻求一种高效的多屏适配方案，本文只针对不支持转屏的应用。</p>
-<h2 id="问题">问题</h2><p>一般来说应用的适配可分一下几个内容：</p>
-<ol>
-<li>系统组件(Actionbar，Dialog， Pupupmenu…)</li>
-<li>控件块区(View的大小，间距)</li>
-<li>图文相关(文字大小，图片)</li>
-</ol>
-<h2 id="方案">方案</h2><ol>
-<li>系统组件：使用相关Compat库+自定义View的方式</li>
-<li>控件块区：控件的位置大小，使用dp + 百分比缩放的方式</li>
-<li>图文相关：文子大小使用sp，或者根据需要使用百分比缩放</li>
-</ol>
-<h1 id="适配细节">适配细节</h1><h2 id="一、Android原生dp">一、Android原生dp</h2><h2 id="二、百分比缩放">二、百分比缩放</h2><h3 id="已知库">已知库</h3><ol>
-<li><p>android-percent-support-lib<br> 宽高只能和父容器的宽高对应比例。</p>
-</li>
-<li><p>android-percent-support-lib-<br> 基于上面扩展，实现可以分别选择占父容器的比例。</p>
-</li>
-</ol>
-<p>然而对于这样的在布局文件中直接定义百分比的方式，存在两大问题</p>
-<ol>
-<li>计算麻烦<br> 视觉给你标注图肯定都是标的真实的长度，百分比还得自己计算。</li>
-<li>精度丢失<br> 如果效果图的父容器宽是1080px，子View的宽是38px，占3.3333~%，1080 * 3% = 32；1080 * 3.3% = 35 无论取什么值，连视觉的设计样本都会偏移像素。</li>
-</ol>
-<h3 id="最终方案">最终方案</h3>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/08/12/Android-多屏适配实践/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -959,7 +937,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">91</span>
+              <span class="site-state-item-count">92</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -976,7 +954,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">64</span>
+                <span class="site-state-item-count">68</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
