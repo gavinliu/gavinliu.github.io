@@ -310,6 +310,265 @@
             
               
                 
+                <a class="post-title-link" href="/2015/05/08/Android-开源库EventCast/" itemprop="url">
+                  Android - 开源库EventCast
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-05-08T16:01:08+08:00" content="2015-05-08">
+              2015-05-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/08/Android-开源库EventCast/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/08/Android-开源库EventCast/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="概述">概述</h2><p><a href="https://github.com/gavinliu/EventCast">EventCast</a>是一个事件分发的开源库, GitHub中也有很多类似的库, 比如<a href="https://github.com/greenrobot/EventBus">EventBus</a>, <a href="https://github.com/square/otto">otto</a>, <a href="https://github.com/bboyfeiyu/AndroidEventBus">AndroidEventBus</a>, 但是还是觉得自己写的比较顺手, 所以产生了EventCast. </p>
+<p><code>AndroidEventBus</code>是<code>EventBus</code>和<code>otto</code>合并的产物, <code>EventCast</code>也借鉴<code>AndroidEventBus</code>些代码, 和他们不同的是:</p>
+<ol>
+<li>支持多参数传递</li>
+<li>定义了两种接收器</li>
+</ol>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/08/Android-开源库EventCast/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/03/Android-实用代码片段-2/" itemprop="url">
+                  Android - 实用代码片段(2)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-05-03T16:31:14+08:00" content="2015-05-03">
+              2015-05-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/03/Android-实用代码片段-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/03/Android-实用代码片段-2/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1.手动设置横竖屏<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);</span><br></pre></td></tr></table></figure></p>
+<p>2.暂时性设置隐藏StatusBar,点击屏幕后会再次出现,可用于全屏播放视频的时候.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">View.setSystemUiVisibility(<span class="keyword">int</span> visibility)</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>View.SYSTEM_UI_FLAG_VISIBLE：显示状态栏，Activity不全屏显示(恢复到有状态的正常情况)。</li>
+<li>View.INVISIBLE：隐藏状态栏，同时Activity会伸展全屏显示。</li>
+<li>View.SYSTEM_UI_FLAG_FULLSCREEN：Activity全屏显示，且状态栏被隐藏覆盖掉。</li>
+<li>View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN：Activity全屏显示，但状态栏不会被隐藏覆盖，状态栏依然可见，Activity顶端布局部分会被状态遮住。</li>
+<li>View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION：效果同View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</li>
+<li>View.SYSTEM_UI_LAYOUT_FLAGS：效果同View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</li>
+<li>View.SYSTEM_UI_FLAG_HIDE_NAVIGATION：隐藏虚拟按键(导航栏)。有些手机会用虚拟按键来代替物理按键。</li>
+<li>View.SYSTEM_UI_FLAG_LOW_PROFILE：状态栏显示处于低能显示状态(low profile模式)，状态栏上一些图标显示会被隐藏。
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/03/Android-实用代码片段-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/04/15/Android-Project-Butter-黄油计划/" itemprop="url">
                   Android - Project Butter(黄油计划)
                 </a>
@@ -690,271 +949,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/04/01/Android-Animation-Facebook开源动画框架/" itemprop="url">
-                  Android - Animation Facebook开源动画框架
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-04-01T20:09:58+08:00" content="2015-04-01">
-              2015-04-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/04/01/Android-Animation-Facebook开源动画框架/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/01/Android-Animation-Facebook开源动画框架/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Facebook开源了个iOS&amp;OSX的动画库<a href="http://www.cocoachina.com/industry/20140704/9034.html">Pop</a>，里面定义了很多动画效果，在Android上实现了类似Pop中Spring效果的库名叫<a href="http://facebook.github.io/rebound/">Rebound</a>，移植于<a href="http://facebook.github.io/rebound-js/examples/">Rebound-JS</a></p>
-<p>Rebound项目地址：<a href="https://github.com/facebook/rebound.git">https://github.com/facebook/rebound.git</a></p>
-<ul>
-<li>rebound-core  使用java实现的一个引擎库。</li>
-<li>rebound-android  结合Android的一些API，封装rebound-core的实现。</li>
-<li>rebound-android-example  一个很简单的图片缩放例子。</li>
-<li>rebound-android-playground  里面包含了所有的例子教程。</li>
-</ul>
-<blockquote>
-<p>rebound-android 依赖于 rebound-core，接合Android的API与SpringSystem连接，<code>Android Displayer &gt; SpringSystem.loop（）</code>，Android Jelly Bean引入黄油计划，使用Choreographer统一管理视图刷新。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>Spring 特效的插值器算法位于 <code>Spring.advance(double realDeltaTime)</code></p>
-</blockquote>
-<hr>
-<blockquote>
-<p>SpringListener 是Spring的回调<br>  通过Spring.getCurrentValue()可以拿到插值，来变换视图的位置。</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/04/01/Android-Animation-Facebook开源动画框架/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/03/30/Android-Animation-贝塞尔曲线之美/" itemprop="url">
-                  Android - Animation 贝塞尔曲线之美
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-03-30T15:20:04+08:00" content="2015-03-30">
-              2015-03-30
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/03/30/Android-Animation-贝塞尔曲线之美/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/30/Android-Animation-贝塞尔曲线之美/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概述">概述</h2><p>贝塞尔曲线于1962，由法国工程师皮埃尔·贝塞尔所广泛发表，他运用贝塞尔曲线来为汽车的主体进行设计。贝塞尔曲线最初由Paul de Casteljau于1959年运用de Casteljau演算法开发，以稳定数值的方法求出贝兹曲线。<br>在计算机图形学中贝赛尔曲线的运用也很广泛，Photoshop中的钢笔效果，Flash5的贝塞尔曲线工具，在软件GUI开发中一般也会提供对应的方法来实现贝赛尔曲线。</p>
-<h3 id="线性公式">线性公式</h3><p>给定点P0、P1，线性贝兹曲线只是一条两点之间的直线。这条线由下式给出：<br><code>B(t) = P0 + (P1 - P0) * t = (1 - t) * P0 + t * P1, t ∈ [0, 1]</code><br>且其等同于线性插值。</p>
-<h3 id="二次方公式">二次方公式</h3><p>二次方贝兹曲线的路径由给定点P0、P1、P2的函数B（t）追踪：<br><code>B(t) = (1 - t)^2 * P0 + 2t * (1 - t) * P1 + t^2 * P2, t ∈ [0,1]</code><br>TrueType字型就运用了以贝兹样条组成的二次贝兹曲线。</p>
-<p><a href="http://baike.baidu.com/view/60154.htm#3">百度百科 详细资料</a></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/03/30/Android-Animation-贝塞尔曲线之美/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1000,7 +994,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">92</span>
+              <span class="site-state-item-count">94</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1008,7 +1002,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1017,7 +1011,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">71</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

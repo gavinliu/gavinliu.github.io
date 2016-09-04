@@ -4,6 +4,64 @@
   
     
     <entry>
+      <title><![CDATA[iOS - 安装GBA4iOS的2种方法]]></title>
+      <url>http://gavinliu.cn/2016/09/04/iOS-%E5%AE%89%E8%A3%85GBA4iOS%E7%9A%842%E7%A7%8D%E6%96%B9%E6%B3%95/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>最近想玩玩GBA上的口袋妖怪，发现<code>GBA4iOS</code>这个开源项目，由于模拟器存在法律问题，这款软件并没有在 AppStore 上架，所以需要一点手段才可以安装。</p>
+</blockquote>
+<p>官网：<a href="http://www.gba4iosapp.com/" target="_blank" rel="external">http://www.gba4iosapp.com/</a></p>
+<p>不建议玩家使用国内的XX助手来安装这个游戏，更不建议大家在电脑或者手机里装这些助手，安全问题大家都懂的，我这里提供两种方法，一种只需要在手机上即可完成，一种是使用xcode编译源码安装。</p>
+<a id="more"></a>
+<h2 id="手机安装">手机安装</h2><h3 id="Safari_打开_GBA4iOS_官网">Safari 打开 <code>GBA4iOS</code> 官网</h3><p>点击下载，安装</p>
+<p><img src="/images/2016.09.04 - iOS-安装GBA4iOS的2种方法4.jpg" alt=""></p>
+<p><img src="/images/2016.09.04 - iOS-安装GBA4iOS的2种方法12.jpg" alt=""></p>
+<h3 id="下载失败，把系统时间调至2012年的某一天">下载失败，把系统时间调至2012年的某一天</h3><p><img src="/images/2016.09.04 - iOS-安装GBA4iOS的2种方法6.jpg" alt=""></p>
+<h3 id="继续安装">继续安装</h3><p><img src="/images/2016.09.04 - iOS-安装GBA4iOS的2种方法7.jpg" alt=""></p>
+<p>很遗憾，安装完后打不开，我们需要授权</p>
+<p><img src="/images/2016.09.04 - iOS-安装GBA4iOS的2种方法5.jpg" alt=""></p>
+<h3 id="授权">授权</h3><p>设置&gt;通用&gt;设备管理&gt;ChniaVID(Beijing) Technology</p>
+<p><img src="/images/2016.09.04 - iOS-安装GBA4iOS的2种方法8.jpg" alt=""></p>
+<p><img src="/images/2016.09.04 - iOS-安装GBA4iOS的2种方法9.jpg" alt=""></p>
+<h3 id="授权失败，把系统时间设置为自动">授权失败，把系统时间设置为自动</h3><p><img src="/images/2016.09.04 - iOS-安装GBA4iOS的2种方法6.jpg" alt=""></p>
+<h3 id="再次授权">再次授权</h3><p>设置&gt;通用&gt;设备管理&gt;ChniaVID(Beijing) Technology</p>
+<p>这个时候就能授权成功啦</p>
+<h3 id="再次把系统时间调至2012年的某一天">再次把系统时间调至2012年的某一天</h3><p>然后就可以愉快的玩耍啦</p>
+<h3 id="注意事项">注意事项</h3><p>这种方法有个弊端，每次玩的时候都得把时间往前调，才可以玩。</p>
+<h2 id="编译安装">编译安装</h2><p>由于是开源项目，所以编译安装才是正道，现在真机调试已经不需要花99$注册开发者，如果你有一台Mac，就可以进行下一步。</p>
+<h3 id="下载源码">下载源码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://bitbucket.org/rileytestut/gba4ios.git GBA4iOS</span><br></pre></td></tr></table></figure>
+<h3 id="安装_cocoapods">安装 cocoapods</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ~ pod --version</span><br><span class="line"><span class="number">1.0</span>.<span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>安装方法自行Google，不是本文的重点，我安装的目前最新版本，1.0.1。</p>
+<h3 id="修改_Podfile">修改 Podfile</h3><p>安装完，cocoapods后执行<code>pod install</code>，会出现错误，原因是pod版本太高，不支持之前一些语法了，所以先把Podfile修改成下面的内容，注意：可能官方会更新各个第三方库，下面的版本应该替换成原文件里面指定的版本。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="string">'https://github.com/CocoaPods/Specs.git'</span></span><br><span class="line"></span><br><span class="line">platform :ios, <span class="string">"9.0"</span></span><br><span class="line"></span><br><span class="line">target <span class="string">'GBA4iOS'</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">    pod <span class="string">'RSTWebViewController'</span>, :git =&gt; <span class="string">'https://github.com/rileytestut/RSTWebViewController-Legacy.git'</span></span><br><span class="line">    pod <span class="string">"AFNetworking"</span>, <span class="string">"~&gt; 2.4"</span></span><br><span class="line">    pod <span class="string">"PSPDFTextView"</span>, :git =&gt; <span class="string">'https://github.com/steipete/PSPDFTextView.git'</span></span><br><span class="line">    pod <span class="string">"Dropbox-iOS-SDK"</span>, <span class="string">"~&gt; 1.3.13"</span></span><br><span class="line">    pod <span class="string">"CrashlyticsFramework"</span>, <span class="string">"~&gt; 2.1.0"</span></span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">target <span class="string">'GBA4iOS-Simulator'</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">    pod <span class="string">'RSTWebViewController'</span>, :git =&gt; <span class="string">'https://github.com/rileytestut/RSTWebViewController-Legacy.git'</span></span><br><span class="line">    pod <span class="string">"AFNetworking"</span>, <span class="string">"~&gt; 2.4"</span></span><br><span class="line">    pod <span class="string">"PSPDFTextView"</span>, :git =&gt; <span class="string">'https://github.com/steipete/PSPDFTextView.git'</span></span><br><span class="line">    pod <span class="string">"Dropbox-iOS-SDK"</span>, <span class="string">"~&gt; 1.3.13"</span></span><br><span class="line">    pod <span class="string">"CrashlyticsFramework"</span>, <span class="string">"~&gt; 2.1.0"</span></span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<h3 id="执行_pod_install">执行 pod install</h3><p>这一步是下载依赖项目，根据你的网速，耐心等待。</p>
+<h3 id="编译源码">编译源码</h3><h4 id="双击_GBA4iOS-xcworkspace_打开_xocde">双击 <code>GBA4iOS.xcworkspace</code> 打开 xocde</h4><h4 id="修改配置信息">修改配置信息</h4><p>修改 <code>Bundle Identifier</code> xxx.xxx.GBA4iOS 即可</p>
+<p><img src="/images/2016.09.04 - iOS-安装GBA4iOS的2种方法1.png" alt=""></p>
+<h4 id="报错处理">报错处理</h4><p>不出意外会报下面的错误</p>
+<p><img src="/images/2016.09.04 - iOS-安装GBA4iOS的2种方法2.png" alt=""></p>
+<p>删掉 libPods.a 即可</p>
+<p><img src="/images/2016.09.04 - iOS-安装GBA4iOS的2种方法3.png" alt=""></p>
+<h4 id="插上手机，安装到手机">插上手机，安装到手机</h4><h2 id="愉快的玩耍">愉快的玩耍</h2><p><img src="/images/2016.09.04 - iOS-安装GBA4iOS的2种方法10.jpg" alt=""></p>
+<p><img src="/images/2016.09.04 - iOS-安装GBA4iOS的2种方法11.jpg" alt=""></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[数学小记 - 1.索引]]></title>
+      <url>http://gavinliu.cn/2016/08/20/%E6%95%B0%E5%AD%A6%E5%B0%8F%E8%AE%B0-1-%E7%B4%A2%E5%BC%95/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>玩算法的码农，打拼靠蓝条，数学能力影响蓝条最大值，外语影响回蓝，经验等于穿透；<br>  非算法的码农，打拼靠血条，体质加生命，精神影响回血，经验等于破甲。</p>
+</blockquote>
+<p>不甘心做一名普通程序员，毕业两年，数学早已还给老师，打算从头把数学捡回来。</p>
+<a id="more"></a>
+<h2 id="程序领域的运用">程序领域的运用</h2><h3 id="大数据">大数据</h3><p>数据挖掘</p>
+<h3 id="多媒体">多媒体</h3><p>图像：美颜，瘦脸，识别等<br>音频：双麦克风降噪等<br>视频：识别视频内容（鉴黄？）等</p>
+<h3 id="机器学习/深度学习">机器学习/深度学习</h3><h2 id="学习目录：">学习目录：</h2><ul>
+<li>基础篇：1. 数学中0的逻辑</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android - Nougat(7.0) 创建通知栏快捷设置]]></title>
       <url>http://gavinliu.cn/2016/08/04/Android-Nougat-7-%E5%88%9B%E5%BB%BA%E9%80%9A%E7%9F%A5%E6%A0%8F%E7%9A%84%E5%BF%AB%E6%8D%B7%E8%AE%BE%E7%BD%AE/</url>
       <content type="html"><![CDATA[<p><img src="/images/2016.08.04 - Android-Androd7-创建通知栏的快捷设置1.png" alt=""></p>
@@ -579,12 +637,13 @@
 <h2 id="Atom">Atom</h2><p>主要用来写博客，配合<code>Script</code>插件也快速对简单的算法，想法实现，而不用打开繁重的IDE。</p>
 <h2 id="Bartender">Bartender</h2><p>整理状态栏图标</p>
 <h2 id="IntelliJ_IDEA">IntelliJ IDEA</h2><p>Android：<code>Android Studio</code>，Python：<code>PyCharm CE</code></p>
-<h2 id="iTerm">iTerm</h2><p>替代原生的终端</p>
+<h2 id="iTerm2">iTerm2</h2><p>替代原生的终端</p>
 <h2 id="Manico">Manico</h2><p>程序启动/切换快捷键，基本上替代了Dock和<code>CMD + Tab</code></p>
 <h2 id="Shadowsocks">Shadowsocks</h2><p>一张国外的飞机票</p>
 <h2 id="SourceTree">SourceTree</h2><p>Code Review</p>
 <h1 id="Linux">Linux</h1><h2 id="gitg">gitg</h2><p>Code Review</p>
 <h2 id="Meld">Meld</h2><p>文件比较</p>
+<h2 id="Guake_Terminal">Guake Terminal</h2><p>快捷键呼出终端</p>
 ]]></content>
     </entry>
     

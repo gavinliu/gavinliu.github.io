@@ -310,6 +310,257 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/12/Android-实现图片圆角显示的几种方式/" itemprop="url">
+                  Android - 实现图片圆角显示的几种方式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-12T20:40:24+08:00" content="2016-04-12">
+              2016-04-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/12/Android-实现图片圆角显示的几种方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/12/Android-实现图片圆角显示的几种方式/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在实际开发中我们经常会对图片进行圆角处理，这里做一个小总结，文章结尾还有一个不到100行实现的，支持圆形，圆角和TransitionDrawable的<code>ImageView</code>。</p>
+<p>图片的圆角显示，从实现方法上讲分为两种做法：</p>
+<ol>
+<li>在图片上做</li>
+<li>在控件上做</li>
+</ol>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/12/Android-实现图片圆角显示的几种方式/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/04/09/Android-基于MediaSession的音乐播放流程/" itemprop="url">
+                  Android - 基于MediaSession的音乐播放流程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-04-09T16:54:25+08:00" content="2016-04-09">
+              2016-04-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/04/09/Android-基于MediaSession的音乐播放流程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/09/Android-基于MediaSession的音乐播放流程/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="概述">概述</h2><p>Android 5.0(Lolippop)更新了新的<code>媒体播放API</code>和<code>媒体类型通知</code>，使用最新的API可以让系统界面能够读取你的媒体播放并提取和显示专辑封面。比如在Lolippop上，播放音乐时锁屏界面背景会变成专辑封面，并且还有播放控制按钮。</p>
+<p>Lolippop之前是使用<code>RemoteControlClient</code>来实现跨界面的播放，新版被 <strong><strong><code>MediaSession</code></strong></strong> 所替代，并且提供了一系列用于处理传输控件和媒体按钮的回调方法，可以让你的媒体播放在<code>Android TV</code>或<code>Wear</code>平台上运行。</p>
+<p>实际测试Lolippop的锁屏兼容了<code>RemoteControlClient</code>和<code>MediaSession</code>两种方式，都可以在锁屏控制媒体播放并提取和显示专辑封面。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/09/Android-基于MediaSession的音乐播放流程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/29/Android-在平坦的道路上曲折前行-插件式开发/" itemprop="url">
                   Android - 在平坦的道路上曲折前行-插件式开发
                 </a>
@@ -669,254 +920,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/02/28/Android-开源项目：OpenGpad-电脑键盘当手机游戏手柄/" itemprop="url">
-                  Android - 开源项目:OpenGpad(电脑键盘当手游手柄)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-02-28T12:43:17+08:00" content="2016-02-28">
-              2016-02-28
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/02/28/Android-开源项目：OpenGpad-电脑键盘当手机游戏手柄/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/28/Android-开源项目：OpenGpad-电脑键盘当手机游戏手柄/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这是个基于测试框架(<a href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/">UiAutomator</a>)做的一款：使用电脑键盘玩手机游戏的软件。</p>
-<h2 id="初衷">初衷</h2><p>本职工作是做Android开发，电脑环境为Linux Mint，没有好的娱乐方式，手机也是长时间插在电脑上的，所以就寻思着，用电脑键盘当手柄，控制手机玩游戏，于是就有了这个项目。</p>
-<h2 id="体验视频">体验视频</h2><iframe height=400 width=620 src="http://player.youku.com/embed/XMTQ4OTQzMjU4NA==" frameborder=0 allowfullscreen></iframe>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/02/28/Android-开源项目：OpenGpad-电脑键盘当手机游戏手柄/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/" itemprop="url">
-                  Android - 测试框架之 UI Testing - 实现多点触控事件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-02-23T12:37:25+08:00" content="2016-02-23">
-              2016-02-23
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><code>UiAutomator</code>已经现有的的API没有提高多点触控的方法，但是我们可以通过注入多点事件的方式来实现。</p>
-<h2 id="Android_TouchEvent_Flow">Android TouchEvent Flow</h2><p>一个基本的单点事件流</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MotionEvent.ACTION_DOWN</span><br><span class="line">MotionEvent.ACTION_MOVE</span><br><span class="line">MotionEvent.ACTION_UP</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -962,7 +965,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">92</span>
+              <span class="site-state-item-count">94</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -970,7 +973,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -979,7 +982,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">71</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

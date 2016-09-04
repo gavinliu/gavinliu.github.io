@@ -310,6 +310,255 @@
             
               
                 
+                <a class="post-title-link" href="/2015/02/02/Gradle-学习笔记-2-编译Java工程/" itemprop="url">
+                  Gradle - 学习笔记(2) - 编译Java工程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-02-02T22:16:05+08:00" content="2015-02-02">
+              2015-02-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Gradle-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Gradle Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/02/02/Gradle-学习笔记-2-编译Java工程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/02/02/Gradle-学习笔记-2-编译Java工程/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>上一篇了解了下基本的Gradle脚本, 现在来编译一个Java工程<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line">apply plugin: <span class="string">'eclipse'</span></span><br><span class="line">jar &#123;</span><br><span class="line">    manifest &#123;</span><br><span class="line">        attributes <span class="string">'Main-Class'</span>: <span class="string">'Your MainClass'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">sourceSets</span> &#123;</span><br><span class="line">    main &#123;</span><br><span class="line">        java &#123;</span><br><span class="line">            srcDir <span class="string">'src'</span></span><br><span class="line">        &#125;</span><br><span class="line">        resources &#123;</span><br><span class="line">            srcDir <span class="string">'res'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>apply plugin</code> 增加插件, 由于我是用的eclipse工程就使用的eclipse插件,你也可以选择idea插件来编译idea的工程.<br><code>jar</code> 可以指定 生成的jar里面的参数<br><code>dependencies</code> 声明依赖<br><code>sourceSet</code> 可以指定源码的路径</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/01/22/Gradle---学习笔记(1)---Task/" itemprop="url">
+                  Gradle - 学习笔记(1) - Task
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-01-22T14:43:11+08:00" content="2015-01-22">
+              2015-01-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Gradle-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Gradle Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/01/22/Gradle---学习笔记(1)---Task/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/22/Gradle---学习笔记(1)---Task/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>新建一个文件夹, 在里面编辑 build.gradle<br><figure class="highlight gradle"><figcaption><span>doLast</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">task</span> hello &#123;</span><br><span class="line">    <span class="keyword">doLast</span> &#123;</span><br><span class="line">        <span class="keyword">println</span> <span class="string">'Hello world!'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight gradle"><figcaption><span>doLast的简化写法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">task</span> hello &lt;&lt; &#123;</span><br><span class="line">    <span class="keyword">println</span> <span class="string">'Hello world!'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight"><figcaption><span>Use String Lower&Upper</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">task string &#60;&#60; &#123;&#10;    String someString = &#34;mY_nAme&#34;&#10;    println &#34;Original: &#34; + someString&#10;    println &#34;Lower case: &#34; + someString.toLowerCase()&#10;    println &#34;Upper case: &#34; + someString.toUpperCase()&#10;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
+<hr>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/01/20/Android---Lollipop自定义Activity转换/" itemprop="url">
                   Android - Lollipop自定义Activity过渡动画
                 </a>
@@ -685,292 +934,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/01/16/Android---ToolBar初体验/" itemprop="url">
-                  Android - Toolbar初体验
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-01-16T14:57:01+08:00" content="2015-01-16">
-              2015-01-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/01/16/Android---ToolBar初体验/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/16/Android---ToolBar初体验/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="一、概述">一、概述</h2><p>配合Android L的发布，Google还更新了Appcombat V7库，新加入了代替现有ActionBar机制的控件——Toolbar，不像以前ActionBar是frameworks封装好提供接口调用的一套应用界面组成部分，它牵涉的东西很多，而Toolbar只是一个控件，和LinearLayout一样可以装载view的容器控件，所以它定制性非常强灵活度非常高，但它又加入了实现现有ActionBar功能的逻辑，感觉非重强大。接下来，我们一起来看看这个新生代Toolbar的使用方法。</p>
-<h2 id="二、使用总概">二、使用总概</h2><p>Toolbar在Appcombat V7库是一个公开的控件，位于android.support.v7.widget包中，继承自ViewGroup，所以我们可以像使用普通的容器控件一样使用Toolbar，并主动调用相关方法实现ActionBar的功能。但是，Google是希望在Appcombat V7库中使用Toolbar来代替现有ActionBar的实现，所以肯定不会仅仅提供个控件就好了，Appcombat V7还把Toolbar封装进默认的Activity中。在新建工程时，创建向导会默认导入Appcombat V7库，自动创建的Activity也会继承自对Toolbar封装过的ActionBarActivity，创建工程后立刻运行应用，此时已是Toolbar实现了ActionBar的功能。</p>
-<figure class="highlight"><figcaption><span>导入Appcombat V7库:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile 'com.android.support:appcompat-v7:21.0.3'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="android-support-v7-widget-ActionBarActivity">android.support.v7.widget.ActionBarActivity</h3><ul>
-<li>Actionbar</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ActionBar actionBar = getSupportActionBar();</span><br><span class="line">actionBar.setTitle(<span class="string">"Title"</span>);</span><br><span class="line">actionBar.setSubtitle(<span class="string">"subtitle"</span>);</span><br><span class="line">actionBar.setLogo(R.drawable.ic_launcher);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Toolbar</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Toolbar toolbar = (Toolbar) findViewById(R.id.action_bar);</span><br><span class="line">toolbar.setTitle(<span class="string">"Title"</span>);</span><br><span class="line">toolbar.setSubtitle(<span class="string">"subtitle"</span>);</span><br><span class="line">toolbar.setLogo(R.drawable.ic_launcher);</span><br></pre></td></tr></table></figure>
-<p>SupportActionBar是由Toolbar实现，而Toolbar又是公开的，所以上面两种方式的等价的。</p>
-<h3 id="自行指定Toolbar">自行指定Toolbar</h3>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/01/16/Android---ToolBar初体验/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/01/07/Flyme互联网产品的错误示范/" itemprop="url">
-                  Flyme互联网产品的错误示范
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-01-07T11:24:49+08:00" content="2015-01-07">
-              2015-01-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
-                    <span itemprop="name">刘说八道</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/01/07/Flyme互联网产品的错误示范/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/07/Flyme互联网产品的错误示范/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="账户系统">账户系统</h3><ul>
-<li><p>Flyme账户 <strong>缺少用户属性</strong><br>Flyme账户只在云服务中作为登录验证使用，在Flyme4之前连昵称和头像都没有，除了这两点之外也没有其他个性化的设置。</p>
-</li>
-<li><p>Flyme账户 <strong>缺失用户关系</strong><br>Flyme账户至Flyme系统出世就一直存在，到现在发展到Flyme4了，用户与用户之间的联系还是没有，要知道互联网产品最需要的就是通过用户关系强化用户对软件的黏性。</p>
-</li>
-</ul>
-<h3 id="互联网进程操之过急">互联网进程操之过急</h3><ul>
-<li><p>Flyme应用中心 <strong>过度拆分化</strong><br>Flyme3的<code>应用中心</code>，在Flyme4中拆分成三个<code>应用中心</code> <code>游戏中心</code> <code>个性化</code>，把原本不多的流量活生生的分发到三个地方。</p>
-</li>
-<li><p>Flyme基础应用 <strong>过渡互联网化</strong><br>引以为傲的<code>音乐播放器</code> <code>视频播放器</code> 沦为 <strong>音乐商店附带播放功能</strong>和<strong>在线视频附带本地播放</strong></p>
-</li>
-</ul>
-<h3 id="产品思路">产品思路</h3><ul>
-<li><p>应用中心(APP)，游戏中心(游戏)，个性化(主题)<br>原应用中心中的三大元素拆分成三个APP这个做法是正确，但是不应该是当前这样拆，目前主题拆分出来是没有问题的，问题存在于应用中心和游戏中心上。<br>当前的应用中心和游戏中心的功能几乎是一模一样的，就是为用户提供下载服务，然而游戏其实也是应用，现在硬生生的才分成两个App，有必要吗？！那你可能会说我意思不应该有游戏中心这个App呢？当然不是！游戏中心要做的是<strong>玩家和玩家</strong>的互动，<strong>玩家和游戏商</strong>的互动，玩家需要个漂亮的个人页面展示游戏成就等等，这才是游戏中心应该做的事情。</p>
-</li>
-<li><p>音乐<br>音乐播放器作为Flyme最有亮点的App之一，软件的信息架构却一昧的像应用中心这种以推荐为导向的软件构靠拢，<strong>用户打开音乐听歌的需求远远大于寻找歌曲的需求</strong>，那么对于音乐来说个人歌单，歌曲列表对于用户才是重要的，在线推荐这些在软件的信息架构上可以稍微靠后一点，应该有不少用户会抱怨每次打开音乐听歌步骤是如此繁琐吧。</p>
-</li>
-<li><p>视频<br>以前视频播放器也是Flyme里很有特色的软件，Flyme3的本地视频 深色的背景 着实有点影院的感觉，在Flyme 4上本地被弱化得只有一个Pager了。<br>对于Flyme的视频发展上，在线视频可以提出来单独做一个产品线类似于(Youtube)，而视频则专注本地 界面做得精致点 有点iMovie的样子就差不多，同时也可以加入视频编辑功能，也是很有买点的。</p>
-</li>
-</ul>
-<h3 id="Apple_和_Google">Apple 和 Google</h3><blockquote>
-<p>Apple<br><code>App Store</code>提供软件购买下载, <code>iTunes Store</code>提供内容购买下载。<br>通过 <code>音乐</code> <code>视频</code> <code>iBooks</code> 这些软件专注消费内容，使用内容。</p>
-</blockquote>
-<hr>
-<blockquote>
-<p>Google<br><code>Play 商店</code>集合了软件和内容所有购买下载。<br>通过 <code>Play音乐</code> <code>Play电影</code> 一大堆这样的 <strong><code>Play X</code></strong> 这些软件专注消费内容，使用内容。</p>
-</blockquote>
-<p>可以看出国外对于内容消费比较成熟，会把内容当成商品买，回到国内，还没有消费内容的习惯来说，把各个内容的获取分配到各个应用中的做法是比较符合国情的，但是不对的地方是，对于音乐来说要找准用户的痛点，市面上好的播放器真的很少。</p>
-<h3 id="后记：战略发展">后记：战略发展</h3><p>Flyme账户系统以及其他互联网产品应该独立化，应该完全使用原生SDK开发，使之可以装在其他Android手机上，这样对于Flyme适配不过来的手机，可以提供Flyme服务的刷机包，而Flyme的设计也尽量追随谷歌的设计规范，这样有利于应用软件的开发和推广。</p>
-<p>迄今为止，Flyme只适配了有限的几款机型，并且PatchRom也没有完成的情况下，如果推出一个Flyme服务的刷机包，让其他Android用户能体验到Flyme的云服务，体验到Flyme优秀的基础应用，这样也能达到发展潜在用户的目的，这应该也是Google不管你怎么改Android，只要内置Google服务就行的原因吧。</p>
-<p>当年小米通过MIUI占领市场，而如今采用Flyme服务的方式来占领其他Android手机也不乏是个好点子，突然觉得这也是个不错的创业的项目。</p>
-<hr>
-<p>最后更新：2015.01.21 00:40</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1016,7 +979,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">92</span>
+              <span class="site-state-item-count">94</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1024,7 +987,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1033,7 +996,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">71</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

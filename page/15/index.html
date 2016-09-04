@@ -310,6 +310,226 @@
             
               
                 
+                <a class="post-title-link" href="/2013/08/03/Tomcat-Mac下的乱码问题/" itemprop="url">
+                  Mac OS X - Tomcat 乱码问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-08-03T17:14:28+08:00" content="2013-08-03">
+              2013-08-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/08/03/Tomcat-Mac下的乱码问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/08/03/Tomcat-Mac下的乱码问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>Myeclipse 启动Tomcat 控制台乱码：<br>window -&gt; Preference -&gt; myeclipse -&gt; servers -&gt; tomcat -&gt; tomcat7.0 -&gt; JDK -&gt; optional java VM arguments :加入 -Dfile.encoding=GBK</li>
+<li>接受数据乱码，设置字符集什么都不管用时：<br>修改Tomcat的server.xml</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"8080"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span></span><br><span class="line">               <span class="attribute">connectionTimeout</span>=<span class="value">"20000"</span></span><br><span class="line">               <span class="attribute">redirectPort</span>=<span class="value">"8443"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"8080"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span></span><br><span class="line">               <span class="attribute">connectionTimeout</span>=<span class="value">"20000"</span></span><br><span class="line">               <span class="attribute">redirectPort</span>=<span class="value">"8443"</span> <span class="attribute">URIEncoding</span>=<span class="value">"UTF-8"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2013/08/02/Myeclipse-支持Retina显示屏/" itemprop="url">
+                  Myeclipse - 支持Retina显示屏
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-08-02T17:04:20+08:00" content="2013-08-02">
+              2013-08-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/08/02/Myeclipse-支持Retina显示屏/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/08/02/Myeclipse-支持Retina显示屏/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>英文原文：<a href="http://zxzjim.wordpress.com/2012/11/13/how-to-crack-myeclipse-10-6-in-macosx/" target="_blank" rel="external">http://zxzjim.wordpress.com/2012/11/13/how-to-crack-myeclipse-10-6-in-macosx/</a></p>
+<p>结合我修改的方式，稍加修改。</p>
+<ol>
+<li>找到文件：/Applications/MyEclipse/MyEclipse 10.app/Contents/Profile/myeclipse.app/Contents/Info.plist</li>
+<li>打开该文件，添加一个boolean属性：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">key</span>&gt;</span>NSHighResolutionCapable<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">true</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下面是重点，网上找的很多教程是修改好，重启myeclipse就可以了，我试了下 不行，或许是人品问题，然后换了下面这个方法，成功了。</p>
+<ol>
+<li>找个文件：/Applications/MyEclipse/MyEclipse 10.app/Contents/Profile/myeclipse.app</li>
+<li>复制 粘贴 得到 myeclipse.app 副本</li>
+<li>删除 myeclipse.app</li>
+<li>重命名 myeclipse.app 副本 -&gt; myeclipse.app<br>OK！现在打开 myeclipse.app 即可享受到 Retina 编程~~</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2013/07/03/Android-JNI-NDKHelloWorld/" itemprop="url">
                   Android - JNI.NDKHelloWorld
                 </a>
@@ -669,252 +889,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2013/04/27/Android-【Battery-FM】/" itemprop="url">
-                  Android:【Battery.FM】
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-04-27T21:38:35+08:00" content="2013-04-27">
-              2013-04-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/个人作品/" itemprop="url" rel="index">
-                    <span itemprop="name">个人作品</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2013/04/27/Android-【Battery-FM】/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/27/Android-【Battery-FM】/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Battery.FM  魅族风的界面，魅族风的图标、没错这就是最魅族的电池软件！</p>
-<p>Battery.FM 1.0 功能：<br>1.电池信息折线图<br>2.满电提示</p>
-<p><a href="http://bbs.meizu.cn/thread-4433210-1-1.html">http://bbs.meizu.cn/thread-4433210-1-1.html</a></p>
-<p><img src="/images/2013.04.27 - Android-【Battery-FM】1.png" alt="images">
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2013/04/27/Android-【Battery-FM】/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/" itemprop="url">
-                  Java - 通过优酷网视频播放网址解析出Mp4格式的单个文件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-04-22T21:01:59+08:00" content="2013-04-22">
-              2013-04-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Java Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html" target="_blank" rel="external">http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html</a> 简单粗暴，贴出解析代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正则表达式去除视频id</span></span><br><span class="line">String path = <span class="string">"http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html"</span>;</span><br><span class="line">Pattern p = Pattern.compile(<span class="string">".*id_(\\w+)\\.html"</span>);</span><br><span class="line">Matcher m = p.matcher(path);</span><br><span class="line">String id = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">if</span> (m.find()) &#123;</span><br><span class="line">	id = m.group(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 解析部分</span></span><br><span class="line">String s = <span class="string">"https://openapi.youku.com/v2/videos/files.json?client_id=513edb6cf9833ca7&amp;client_secret=eaf151ffdbf1383d934ab4cb91250fa6&amp;type=play&amp;video_id="</span>;</span><br><span class="line"><span class="comment">// 这里为HTTP获取得到Response，自己去实现</span></span><br><span class="line">String json = HttpUtil.changeInputStream(HttpUtil.getInputStream(s + id));</span><br><span class="line"><span class="comment">// 解析Json</span></span><br><span class="line">JSONObject object = <span class="keyword">new</span> JSONObject(json);</span><br><span class="line">object = object.getJSONObject(<span class="string">"files"</span>);</span><br><span class="line">object = object.getJSONObject(<span class="string">"3gphd"</span>);</span><br><span class="line">object = object.getJSONArray(<span class="string">"segs"</span>).getJSONObject(<span class="number">0</span>);</span><br><span class="line">String url = object.getString(<span class="string">"url"</span>);</span><br><span class="line">System.out.println(url);</span><br></pre></td></tr></table></figure></p>
-<p>最后输出：<br><a href="http://180.96.38.43/youku/65738D58CD431813202EE93924/0300200100523B433B57D707A71947923FEF7E-8BE5-FC18-E182-7B619D650F21.mp4" target="_blank" rel="external">http://180.96.38.43/youku/65738D58CD431813202EE93924/0300200100523B433B57D707A71947923FEF7E-8BE5-FC18-E182-7B619D650F21.mp4</a><br>注意这个链接是有时效性的！获取出来就尽快使用。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -960,7 +934,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">92</span>
+              <span class="site-state-item-count">94</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -968,7 +942,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -977,7 +951,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">71</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
