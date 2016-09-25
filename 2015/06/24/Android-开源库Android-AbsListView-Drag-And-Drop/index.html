@@ -102,6 +102,7 @@
 <meta name="twitter:title" content="Android - 开源库Android-AbsListView-Drag-And-Drop">
 <meta name="twitter:description" content="概述魅族的滑动选择和拖拽删除是很棒的交互, 但是Flyme5上去掉了这一特性, 魅族源码中实现滑动选择是在ListView源码中修改的, 这样也是最好的方式, 我花了点时间使用了些黑科技继承ListView的方式实现, 这样可以在任何Android手机上使用这种交互方式.
 看看效果原生ActionMode">
+<meta name="twitter:image" content="http://gavinliu.cn/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop1.gif">
 
 
 
@@ -385,17 +386,17 @@
       
 
       
-        <h2 id="概述">概述</h2><p>魅族的滑动选择和拖拽删除是很棒的交互, 但是Flyme5上去掉了这一特性, 魅族源码中实现滑动选择是在ListView源码中修改的, 这样也是最好的方式, 我花了点时间使用了些黑科技继承ListView的方式实现, 这样可以在任何Android手机上使用这种交互方式.</p>
-<h2 id="看看效果">看看效果</h2><h3 id="原生ActionMode">原生ActionMode</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop1.gif" alt=""></p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>魅族的滑动选择和拖拽删除是很棒的交互, 但是Flyme5上去掉了这一特性, 魅族源码中实现滑动选择是在ListView源码中修改的, 这样也是最好的方式, 我花了点时间使用了些黑科技继承ListView的方式实现, 这样可以在任何Android手机上使用这种交互方式.</p>
+<h2 id="看看效果"><a href="#看看效果" class="headerlink" title="看看效果"></a>看看效果</h2><h3 id="原生ActionMode"><a href="#原生ActionMode" class="headerlink" title="原生ActionMode"></a>原生ActionMode</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop1.gif" alt=""></p>
 <a id="more"></a>
-<h3 id="自定义SelectionAttacher">自定义SelectionAttacher</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop2.gif" alt=""></p>
-<h3 id="滑动选择">滑动选择</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop3.gif" alt=""></p>
-<h2 id="实现原理">实现原理</h2><ol>
+<h3 id="自定义SelectionAttacher"><a href="#自定义SelectionAttacher" class="headerlink" title="自定义SelectionAttacher"></a>自定义SelectionAttacher</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop2.gif" alt=""></p>
+<h3 id="滑动选择"><a href="#滑动选择" class="headerlink" title="滑动选择"></a>滑动选择</h3><p><img src="/images/2015.06.24 - Android-开源库Android-AbsListView-Drag-And-Drop3.gif" alt=""></p>
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><ol>
 <li>Drag,Drop的实现方式<br>这里是使用弹窗的方式实现: 长按的时候获取当前item的视图并转换成一张图片, 同时弹一个悬浮窗, 把这个图片作为悬浮窗的背景, 然后跟着手指移动, 如果手指移动到Menu的区域则改变颜色, 此时放下,则回调Drop方法.<br>注: 这里需要指出的是悬浮窗的弹出方式是, 先弹了一个全屏的Layout, 真正可见的悬浮窗是该Layout的子视图, 这样做的目的是优化动画效果, 如果不这样做, 悬浮窗滑动到边缘会有视图绘制掉帧的情况(计算器悬浮窗就有这个问题)</li>
 <li>多选模式的自定义SelectionAttacher<br>由于是继承于ListView, 为了扩展一些功能, 就没有使用原生的ActionMode和原生的多选模式, 使用CHOICE_MODE_MULTIPLE来模拟了CHOICE_MODE_MULTIPLE_MODAL .<br>这里SelectionAttacher包含HeaderTransformer和FooterTransformer支持自定义, 可以实现Flyme5.0的交互.Transformer添加到Activity的DecorView中.</li>
 <li>滑动选择<br>滑动选择是实现Google I/O 2015发布的Photos的交互, 实现起来也很简单, 就是多选长按滑动后, 去选中滑动掠过的item. 自定义Layout 重写setActivated方法, 来实现缩放动画</li>
 </ol>
-<h2 id="代码">代码</h2><p><a href="https://github.com/gavinliu/Android-AbsListView-Drag-And-Drop" target="_blank" rel="external">https://github.com/gavinliu/Android-AbsListView-Drag-And-Drop</a></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p><a href="https://github.com/gavinliu/Android-AbsListView-Drag-And-Drop" target="_blank" rel="external">https://github.com/gavinliu/Android-AbsListView-Drag-And-Drop</a></p>
 
       
     </div>
@@ -529,7 +530,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -546,7 +547,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

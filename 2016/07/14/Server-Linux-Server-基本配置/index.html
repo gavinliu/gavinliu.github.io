@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="服务器,环境搭建," />
+  <meta name="keywords" content="环境搭建,服务器," />
 
 
 
@@ -391,7 +391,7 @@
       
 
       
-        <h2 id="开启SSH">开启SSH</h2><p>使用SSH免密登录</p>
+        <h2 id="开启SSH"><a href="#开启SSH" class="headerlink" title="开启SSH"></a>开启SSH</h2><p>使用SSH免密登录</p>
 <p>本机：</p>
 <ol>
 <li>使用<code>ssh-keygen</code>生成SSH公钥</li>
@@ -401,16 +401,16 @@
 <p>服务器：</p>
 <ol>
 <li><p>新建文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /root/.ssh</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mkdir /root/.ssh</div></pre></td></tr></table></figure>
 </li>
 <li><p>写入本机的SSH公钥</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /root/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /root/.ssh/authorized_keys</div></pre></td></tr></table></figure>
 </li>
 <li><p>关闭密码登录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line">找到 PasswordAuthentication yes</span><br><span class="line">改成 PasswordAuthentication no</span><br><span class="line"></span><br><span class="line">service sshd restart</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">vim /etc/ssh/sshd_config</div><div class="line"></div><div class="line">找到 PasswordAuthentication yes</div><div class="line">改成 PasswordAuthentication no</div><div class="line"></div><div class="line">service sshd restart</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>测试：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh root@<span class="number">192.168</span>.<span class="number">1.2</span></span><br></pre></td></tr></table></figure></p>
+<p>测试：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh root@192.168.1.2</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -432,9 +432,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/服务器/" rel="tag">#服务器</a>
-          
             <a href="/tags/环境搭建/" rel="tag">#环境搭建</a>
+          
+            <a href="/tags/服务器/" rel="tag">#服务器</a>
           
         </div>
       
@@ -544,7 +544,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -561,7 +561,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

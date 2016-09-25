@@ -383,7 +383,7 @@
 
       
         <p><a href="/2013/07/03/Android-JNI-NDKHelloWorld/">Andoid - JNI.NDKHelloWorld</a></p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile fileTree(<span class="string">dir:</span> <span class="string">"$buildDir/native-libs"</span>, <span class="string">include:</span> <span class="string">'native-libs.jar'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">task nativeLibsToJar(<span class="string">type:</span> Zip, <span class="string">description:</span> <span class="string">'create a jar archive of the native libs'</span>) &#123;</span><br><span class="line">    destinationDir file(<span class="string">"$buildDir/native-libs"</span>)</span><br><span class="line">    baseName <span class="string">'native-libs'</span></span><br><span class="line">    extension <span class="string">'jar'</span></span><br><span class="line">    from fileTree(<span class="string">dir:</span> <span class="string">'libs'</span>, <span class="string">include:</span> <span class="string">'**/*.so'</span>)</span><br><span class="line">    into <span class="string">'lib/'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">tasks.withType(JavaCompile) &#123;</span><br><span class="line">    compileTask -&gt; compileTask.dependsOn(nativeLibsToJar)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile fileTree(<span class="string">dir:</span> <span class="string">"$buildDir/native-libs"</span>, <span class="string">include:</span> <span class="string">'native-libs.jar'</span>)</div><div class="line">&#125;</div><div class="line"></div><div class="line">task nativeLibsToJar(<span class="string">type:</span> Zip, <span class="string">description:</span> <span class="string">'create a jar archive of the native libs'</span>) &#123;</div><div class="line">    destinationDir file(<span class="string">"$buildDir/native-libs"</span>)</div><div class="line">    baseName <span class="string">'native-libs'</span></div><div class="line">    extension <span class="string">'jar'</span></div><div class="line">    from fileTree(<span class="string">dir:</span> <span class="string">'libs'</span>, <span class="string">include:</span> <span class="string">'**/*.so'</span>)</div><div class="line">    into <span class="string">'lib/'</span></div><div class="line">&#125;</div><div class="line"></div><div class="line">tasks.withType(JavaCompile) &#123;</div><div class="line">    compileTask -&gt; compileTask.dependsOn(nativeLibsToJar)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -517,7 +517,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -534,7 +534,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

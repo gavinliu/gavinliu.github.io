@@ -86,19 +86,25 @@
 
 
 
-<meta name="description" content="定义四个分页变量1234int pageNow     //表示第几页   该变量由用户决定int pageSize    //表示每一页显示几条记录 由程序指定(也可由用户定制)int pageCont    //表示共有多少页 该变量是计算出来的int rowCont     //表示共有多少条记录   该变量是查询数据库得到
-分页算法.确定rowCont的值1234pst = con.pre">
+<meta name="description" content="##定义四个分页变量
+1234int pageNow     //表示第几页   该变量由用户决定int pageSize    //表示每一页显示几条记录 由程序指定(也可由用户定制)int pageCont    //表示共有多少页 该变量是计算出来的int rowCont     //表示共有多少条记录   该变量是查询数据库得到
+##分页算法.确定rowCont的值
+1234pst = c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java.Web - 分页技术">
 <meta property="og:url" content="http://gavinliu.cn/2012/03/25/JavaWeb---分页技术/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description" content="定义四个分页变量1234int pageNow     //表示第几页   该变量由用户决定int pageSize    //表示每一页显示几条记录 由程序指定(也可由用户定制)int pageCont    //表示共有多少页 该变量是计算出来的int rowCont     //表示共有多少条记录   该变量是查询数据库得到
-分页算法.确定rowCont的值1234pst = con.pre">
+<meta property="og:description" content="##定义四个分页变量
+1234int pageNow     //表示第几页   该变量由用户决定int pageSize    //表示每一页显示几条记录 由程序指定(也可由用户定制)int pageCont    //表示共有多少页 该变量是计算出来的int rowCont     //表示共有多少条记录   该变量是查询数据库得到
+##分页算法.确定rowCont的值
+1234pst = c">
 <meta property="og:updated_time" content="2015-04-13T14:55:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java.Web - 分页技术">
-<meta name="twitter:description" content="定义四个分页变量1234int pageNow     //表示第几页   该变量由用户决定int pageSize    //表示每一页显示几条记录 由程序指定(也可由用户定制)int pageCont    //表示共有多少页 该变量是计算出来的int rowCont     //表示共有多少条记录   该变量是查询数据库得到
-分页算法.确定rowCont的值1234pst = con.pre">
+<meta name="twitter:description" content="##定义四个分页变量
+1234int pageNow     //表示第几页   该变量由用户决定int pageSize    //表示每一页显示几条记录 由程序指定(也可由用户定制)int pageCont    //表示共有多少页 该变量是计算出来的int rowCont     //表示共有多少条记录   该变量是查询数据库得到
+##分页算法.确定rowCont的值
+1234pst = c">
 
 
 
@@ -382,34 +388,37 @@
       
 
       
-        <h2 id="定义四个分页变量">定义四个分页变量</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> pageNow     <span class="comment">//表示第几页   该变量由用户决定</span></span><br><span class="line"><span class="keyword">int</span> pageSize    <span class="comment">//表示每一页显示几条记录 由程序指定(也可由用户定制)</span></span><br><span class="line"><span class="keyword">int</span> pageCont    <span class="comment">//表示共有多少页 该变量是计算出来的</span></span><br><span class="line"><span class="keyword">int</span> rowCont     <span class="comment">//表示共有多少条记录   该变量是查询数据库得到</span></span><br></pre></td></tr></table></figure>
-<h2 id="分页算法-确定rowCont的值">分页算法.确定rowCont的值</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pst = con.prepareStatement(<span class="string">"select count(*) form users"</span>);</span><br><span class="line">rst = pst.executeQuery();</span><br><span class="line">rst.next();</span><br><span class="line">rowCont = rst.getInt(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="分页算法-确定pageCont的值">分页算法.确定pageCont的值</h2><ul>
+        <p>##定义四个分页变量</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> pageNow     <span class="comment">//表示第几页   该变量由用户决定</span></div><div class="line"><span class="keyword">int</span> pageSize    <span class="comment">//表示每一页显示几条记录 由程序指定(也可由用户定制)</span></div><div class="line"><span class="keyword">int</span> pageCont    <span class="comment">//表示共有多少页 该变量是计算出来的</span></div><div class="line"><span class="keyword">int</span> rowCont     <span class="comment">//表示共有多少条记录   该变量是查询数据库得到</span></div></pre></td></tr></table></figure>
+<p>##分页算法.确定rowCont的值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">pst = con.prepareStatement(<span class="string">"select count(*) form users"</span>);</div><div class="line">rst = pst.executeQuery();</div><div class="line">rst.next();</div><div class="line">rowCont = rst.getInt(<span class="number">1</span>);</div></pre></td></tr></table></figure>
+<p>##分页算法.确定pageCont的值</p>
+<ul>
 <li>二逼青年算法</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (rowCont % pageSize == <span class="number">0</span>) &#123;</span><br><span class="line">    pageCont = rowCont / pageSize;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    pageCont = rowCont / pageSize + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (rowCont % pageSize == <span class="number">0</span>) &#123;</div><div class="line">    pageCont = rowCont / pageSize;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    pageCont = rowCont / pageSize + <span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>普通青年算法（等价与上面那个算法）</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pageCont = rowCont % pageSize == <span class="number">0</span> ? rowCont / pageSize : rowCont / pageSize + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pageCont = rowCont % pageSize == <span class="number">0</span> ? rowCont / pageSize : rowCont / pageSize + <span class="number">1</span>;</div></pre></td></tr></table></figure>
 <ul>
 <li>文艺青年算法</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pageCont = (rowCont - <span class="number">1</span>)/pageSize + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pageCont = (rowCont - <span class="number">1</span>)/pageSize + <span class="number">1</span>;</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="分页算法-SQLServer数据库查询">分页算法.SQLServer数据库查询</h2><!-- more -->
+<p>##分页算法.SQLServer数据库查询<br><!-- more --></p>
 <ul>
 <li>利用Not In和SELECT TOP分页</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> TOP pageSize *</span><br><span class="line"><span class="keyword">FROM</span> table1</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">id</span> <span class="keyword">NOT</span> <span class="keyword">IN</span></span><br><span class="line">          (</span><br><span class="line">          <span class="keyword">SELECT</span> TOP  (pageSize*(pageNow-<span class="number">1</span>)) <span class="keyword">id</span> <span class="keyword">FROM</span> table1 <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span></span><br><span class="line">          )</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> TOP pageSize *</div><div class="line"><span class="keyword">FROM</span> table1</div><div class="line"><span class="keyword">WHERE</span> <span class="keyword">id</span> <span class="keyword">NOT</span> <span class="keyword">IN</span></div><div class="line">          (</div><div class="line">          <span class="keyword">SELECT</span> TOP  (pageSize*(pageNow<span class="number">-1</span>)) <span class="keyword">id</span> <span class="keyword">FROM</span> table1 <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span></div><div class="line">          )</div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span></div></pre></td></tr></table></figure>
 <ul>
 <li>利用ID大于多少和SELECT TOP分页</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> TOP pageSize *</span><br><span class="line"><span class="keyword">FROM</span> table1</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">id</span> &gt;</span><br><span class="line">          (</span><br><span class="line">          <span class="keyword">SELECT</span> <span class="keyword">ISNULL</span>(<span class="keyword">MAX</span>(<span class="keyword">id</span>),<span class="number">0</span>) </span><br><span class="line">          <span class="keyword">FROM</span> </span><br><span class="line">                (</span><br><span class="line">                <span class="keyword">SELECT</span> TOP  (pageSize*(pageNow-<span class="number">1</span>))  <span class="keyword">id</span> <span class="keyword">FROM</span> table1 <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span></span><br><span class="line">                ) A</span><br><span class="line">          )</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> TOP pageSize *</div><div class="line"><span class="keyword">FROM</span> table1</div><div class="line"><span class="keyword">WHERE</span> <span class="keyword">id</span> &gt;</div><div class="line">          (</div><div class="line">          <span class="keyword">SELECT</span> <span class="keyword">ISNULL</span>(<span class="keyword">MAX</span>(<span class="keyword">id</span>),<span class="number">0</span>) </div><div class="line">          <span class="keyword">FROM</span> </div><div class="line">                (</div><div class="line">                <span class="keyword">SELECT</span> TOP  (pageSize*(pageNow<span class="number">-1</span>))  <span class="keyword">id</span> <span class="keyword">FROM</span> table1 <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span></div><div class="line">                ) A</div><div class="line">          )</div><div class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span></div></pre></td></tr></table></figure>
 <ul>
 <li>经测试这个效率较高</li>
 </ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">SELECT</span> TOP pageSize* </span><br><span class="line"><span class="keyword">FROM</span> </span><br><span class="line">        (</span><br><span class="line">        <span class="keyword">SELECT</span> ROW_NUMBER() <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span>) <span class="keyword">AS</span> RowNumber,* <span class="keyword">FROM</span> table1</span><br><span class="line">        ) A</span><br><span class="line"><span class="keyword">WHERE</span> RowNumber &gt; pageSize*(pageNow-<span class="number">1</span>)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">SELECT</span> TOP pageSize* </div><div class="line"><span class="keyword">FROM</span> </div><div class="line">        (</div><div class="line">        <span class="keyword">SELECT</span> ROW_NUMBER() <span class="keyword">OVER</span> (<span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">id</span>) <span class="keyword">AS</span> RowNumber,* <span class="keyword">FROM</span> table1</div><div class="line">        ) A</div><div class="line"><span class="keyword">WHERE</span> RowNumber &gt; pageSize*(pageNow<span class="number">-1</span>)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -541,7 +550,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -558,7 +567,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -614,7 +623,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义四个分页变量"><span class="nav-number">1.</span> <span class="nav-text">定义四个分页变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分页算法-确定rowCont的值"><span class="nav-number">2.</span> <span class="nav-text">分页算法.确定rowCont的值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分页算法-确定pageCont的值"><span class="nav-number">3.</span> <span class="nav-text">分页算法.确定pageCont的值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分页算法-SQLServer数据库查询"><span class="nav-number">4.</span> <span class="nav-text">分页算法.SQLServer数据库查询</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

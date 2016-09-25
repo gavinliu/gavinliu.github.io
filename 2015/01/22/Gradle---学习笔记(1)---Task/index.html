@@ -388,14 +388,14 @@ doLast的简化写法123task hello &amp;lt;&amp;lt; &amp;#123;    prin">
       
 
       
-        <p>新建一个文件夹, 在里面编辑 build.gradle<br><figure class="highlight gradle"><figcaption><span>doLast</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">task</span> hello &#123;</span><br><span class="line">    <span class="keyword">doLast</span> &#123;</span><br><span class="line">        <span class="keyword">println</span> <span class="string">'Hello world!'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
+        <p>新建一个文件夹, 在里面编辑 build.gradle<br><figure class="highlight gradle"><figcaption><span>doLast</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">task</span> hello &#123;</div><div class="line">    <span class="keyword">doLast</span> &#123;</div><div class="line">        <span class="keyword">println</span> <span class="string">'Hello world!'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gradle -q build</div><div class="line">Hello world!</div></pre></td></tr></table></figure>
 <hr>
-<figure class="highlight gradle"><figcaption><span>doLast的简化写法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">task</span> hello &lt;&lt; &#123;</span><br><span class="line">    <span class="keyword">println</span> <span class="string">'Hello world!'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
+<figure class="highlight gradle"><figcaption><span>doLast的简化写法</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">task</span> hello &lt;&lt; &#123;</div><div class="line">    <span class="keyword">println</span> <span class="string">'Hello world!'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gradle -q build</div><div class="line">Hello world!</div></pre></td></tr></table></figure>
 <hr>
-<figure class="highlight"><figcaption><span>Use String Lower&Upper</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">task string &#60;&#60; &#123;&#10;    String someString = &#34;mY_nAme&#34;&#10;    println &#34;Original: &#34; + someString&#10;    println &#34;Lower case: &#34; + someString.toLowerCase()&#10;    println &#34;Upper case: &#34; + someString.toUpperCase()&#10;&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>Use String Lower&Upper</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">task string &lt;&lt; &#123;</div><div class="line">    String someString = &quot;mY_nAme&quot;</div><div class="line">    println &quot;Original: &quot; + someString</div><div class="line">    println &quot;Lower case: &quot; + someString.toLowerCase()</div><div class="line">    println &quot;Upper case: &quot; + someString.toUpperCase()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gradle -q build</div><div class="line">Hello world!</div></pre></td></tr></table></figure>
 <hr>
 
       
@@ -528,7 +528,7 @@ doLast的简化写法123task hello &amp;lt;&amp;lt; &amp;#123;    prin">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -545,7 +545,7 @@ doLast的简化写法123task hello &amp;lt;&amp;lt; &amp;#123;    prin">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -86,15 +86,12 @@
 
 
 
-<meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gavin.Liu">
 <meta property="og:url" content="http://gavinliu.cn/page/2/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gavin.Liu">
-<meta name="twitter:description">
 
 
 
@@ -149,7 +146,7 @@
   
 
   <div class="container one-collumn sidebar-position-left 
-  
+   page-home 
  ">
     <div class="headband"></div>
 
@@ -310,6 +307,130 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/14/Server-nginx-基本配置/" itemprop="url">
+                  Server - nginx 基本配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-14T11:24:50+08:00" content="2016-07-14">
+              2016-07-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Server-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Server Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/14/Server-nginx-基本配置/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/14/Server-nginx-基本配置/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt install nginx</div></pre></td></tr></table></figure>
+<p>安装完成后配置文件在 <code>/etc/nginx/conf.d/</code></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="安全配置：访问限制"><a href="#安全配置：访问限制" class="headerlink" title="安全配置：访问限制"></a>安全配置：访问限制</h3><p>修改后可以阻止ip和未配置的域名访问主机</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/14/Server-nginx-基本配置/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/14/Server-Linux-Server-基本配置/" itemprop="url">
                   Server - Linux Server 基本配置
                 </a>
@@ -379,7 +500,7 @@
 
       
         
-          <h2 id="开启SSH">开启SSH</h2><p>使用SSH免密登录</p>
+          <h2 id="开启SSH"><a href="#开启SSH" class="headerlink" title="开启SSH"></a>开启SSH</h2><p>使用SSH免密登录</p>
 <p>本机：</p>
 <ol>
 <li>使用<code>ssh-keygen</code>生成SSH公钥</li>
@@ -506,7 +627,7 @@
 
       
         
-          <h2 id="前言">前言</h2><blockquote>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>Java 没有指针；Java 自带内存回收机制，不用管理内存。<br>这大概是很多不负责任的大学老师教给同学们的错误概念。</p>
 </blockquote>
 <p>虽然Java虚拟机有一套内存回收机制，但是我们写程序仍然需要注意内存管理，并不是传说中的只申请不释放，内存和性能是程序永恒的话题，Android开发中卡顿往往都是由于内存的问题。</p>
@@ -632,11 +753,11 @@
 
       
         
-          <h1 id="常规的加密算法">常规的加密算法</h1><h2 id="传统密码学">传统密码学</h2><ul>
+          <h1 id="常规的加密算法"><a href="#常规的加密算法" class="headerlink" title="常规的加密算法"></a>常规的加密算法</h1><h2 id="传统密码学"><a href="#传统密码学" class="headerlink" title="传统密码学"></a>传统密码学</h2><ul>
 <li>字符替换</li>
 </ul>
 <p>特点：算法保密</p>
-<h2 id="公钥密码学">公钥密码学</h2><ul>
+<h2 id="公钥密码学"><a href="#公钥密码学" class="headerlink" title="公钥密码学"></a>公钥密码学</h2><ul>
 <li><p>对称加密算法：DES，AES</p>
 </li>
 <li><p>非对称加密算法：RSA</p>
@@ -793,130 +914,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/04/15/Git-使用Repo管理你的Git项目/" itemprop="url">
-                  Git - 使用Repo管理你的Git项目
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-15T11:19:48+08:00" content="2016-04-15">
-              2016-04-15
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Git-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Git Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/04/15/Git-使用Repo管理你的Git项目/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/15/Git-使用Repo管理你的Git项目/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="git-repo">git-repo</h2><p><code>git-repo</code>是Google推出的管理<strong>多个git项目</strong>的工具，主要被运用在Android系统源码的管理上。</p>
-<p>国内访问不了Google，repo版本可以选择Github上的优化版本：<a href="https://github.com/esrlabs/git-repo">git-repo</a></p>
-<h3 id="安装">安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl https://raw.githubusercontent.com/esrlabs/git-repo/stable/repo &gt; ~/bin/repo</span><br><span class="line">chmod a+x ~/bin/repo</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/04/15/Git-使用Repo管理你的Git项目/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -962,7 +959,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -979,7 +976,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

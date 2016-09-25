@@ -86,15 +86,12 @@
 
 
 
-<meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gavin.Liu">
-<meta property="og:url" content="http://gavinliu.cn/tags/Python/index.html">
+<meta property="og:url" content="http://gavinliu.cn/tags/python/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gavin.Liu">
-<meta name="twitter:description">
 
 
 
@@ -115,9 +112,9 @@
 
 
 
-  <link rel="canonical" href="http://gavinliu.cn/tags/Python/"/>
+  <link rel="canonical" href="http://gavinliu.cn/tags/python/"/>
 
-  <title> 标签: Python | Gavin.Liu </title>
+  <title> 标签: python | Gavin.Liu </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -289,7 +286,7 @@
   <div id="posts" class="posts-collapse">
     <div class="collection-title">
       <h2 >
-        Python
+        python
         <small>标签</small>
       </h2>
     </div>
@@ -302,37 +299,9 @@
 
       <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/01/17/Python-Mac下PyCharm-PyQt5环境搭建/" itemprop="url">
+            <a class="post-title-link" href="/2016/08/01/开发环境搭建-各种代理-加速配置/" itemprop="url">
               
-                <span itemprop="name">Python - Mac下PyCharm&PyQt5环境搭建</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-01-17T15:07:07+08:00"
-              content="2016-01-17" >
-          01-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/01/16/Python-Mac下PyQt5环境搭建/" itemprop="url">
-              
-                <span itemprop="name">Python - Mac下PyQt5环境搭建</span>
+                <span itemprop="name">开发环境搭建 - 各种代理/加速配置</span>
               
             </a>
         
@@ -340,37 +309,9 @@
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
-              datetime="2016-01-16T23:54:27+08:00"
-              content="2016-01-16" >
-          01-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2015/12/17/Python-Mac的环境搭建/" itemprop="url">
-              
-                <span itemprop="name">Python - Mac的环境搭建</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2015-12-17T21:34:38+08:00"
-              content="2015-12-17" >
-          12-17
+              datetime="2016-08-01T23:39:57+08:00"
+              content="2016-08-01" >
+          08-01
         </time>
       </div>
 
@@ -420,7 +361,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -437,7 +378,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -741,6 +682,62 @@
                 str += "</ul>";
                 if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
                 if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+</body>
+</html>
+fa fa-search fa-5x" /></div>' }
                 $resultContent.innerHTML = str;
             });
             proceedsearch();

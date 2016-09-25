@@ -86,15 +86,12 @@
 
 
 
-<meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gavin.Liu">
 <meta property="og:url" content="http://gavinliu.cn/page/15/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gavin.Liu">
-<meta name="twitter:description">
 
 
 
@@ -149,7 +146,7 @@
   
 
   <div class="container one-collumn sidebar-position-left 
-  
+   page-home 
  ">
     <div class="headband"></div>
 
@@ -310,6 +307,108 @@
             
               
                 
+                <a class="post-title-link" href="/2013/08/04/Mysql-Mac下的乱码问题/" itemprop="url">
+                  Mysql - Mac下的乱码问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-08-04T17:16:43+08:00" content="2013-08-04">
+              2013-08-04
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/08/04/Mysql-Mac下的乱码问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/08/04/Mysql-Mac下的乱码问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Windows 下，安装mysql 时会有一系列配置，mac下一键就安装好了，需要配置下字符编码，不然JDBC存中文数据会乱码的。<br>解决办法：<br>拷贝 /usr/local/mysql/support-files 下的任意一个*.cnf文件到 /etc/my.cnf<br>编辑my.cnf<br>[client] 后面添加<br>default-character-set = utf8<br>[mysqld] 后面添加<br>default-storage-engine = INNODB<br>character-set-server = utf8<br>collation-server = utf8_general_ci</p>
+<p>可能会出现my.cnf里面没有[client] 或者[mysqld]，自己添加一个就行了</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2013/08/03/Tomcat-Mac下的乱码问题/" itemprop="url">
                   Mac OS X - Tomcat 乱码问题
                 </a>
@@ -365,8 +464,8 @@
 <li>Myeclipse 启动Tomcat 控制台乱码：<br>window -&gt; Preference -&gt; myeclipse -&gt; servers -&gt; tomcat -&gt; tomcat7.0 -&gt; JDK -&gt; optional java VM arguments :加入 -Dfile.encoding=GBK</li>
 <li>接受数据乱码，设置字符集什么都不管用时：<br>修改Tomcat的server.xml</li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"8080"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span></span><br><span class="line">               <span class="attribute">connectionTimeout</span>=<span class="value">"20000"</span></span><br><span class="line">               <span class="attribute">redirectPort</span>=<span class="value">"8443"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"8080"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span></span><br><span class="line">               <span class="attribute">connectionTimeout</span>=<span class="value">"20000"</span></span><br><span class="line">               <span class="attribute">redirectPort</span>=<span class="value">"8443"</span> <span class="attribute">URIEncoding</span>=<span class="value">"UTF-8"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></div><div class="line">               <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></div><div class="line">               <span class="attr">redirectPort</span>=<span class="string">"8443"</span>/&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></div><div class="line">               <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></div><div class="line">               <span class="attr">redirectPort</span>=<span class="string">"8443"</span> <span class="attr">URIEncoding</span>=<span class="string">"UTF-8"</span> /&gt;</div></pre></td></tr></table></figure>
 
           
         
@@ -473,7 +572,7 @@
 <li>找到文件：/Applications/MyEclipse/MyEclipse 10.app/Contents/Profile/myeclipse.app/Contents/Info.plist</li>
 <li>打开该文件，添加一个boolean属性：</li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">key</span>&gt;</span>NSHighResolutionCapable<span class="tag">&lt;/<span class="title">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">true</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>NSHighResolutionCapable<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">true</span>/&gt;</span></div></pre></td></tr></table></figure>
 <p>下面是重点，网上找的很多教程是修改好，重启myeclipse就可以了，我试了下 不行，或许是人品问题，然后换了下面这个方法，成功了。</p>
 <ol>
 <li>找个文件：/Applications/MyEclipse/MyEclipse 10.app/Contents/Profile/myeclipse.app</li>
@@ -734,132 +833,10 @@
 <p>有了Telescop，你可以提前一周发布一个Event，你的朋友们都能看到，因为你也能看到朋友们的Event，所以你也可以安排一个合适的时间去游泳。你朋友们看你打算去游泳，他想和你一起去，他就可以点击 参加 按钮，这时候他就会拥有这个Event 到时间会提醒他，这时候你能知道，谁谁谁也会参加，你们也可以在上面讨论，更加方便有效的组织互动。如果软件和游泳馆合作，你们还能直接买票。</p>
 </blockquote>
 <p>上面简单举了两个例子，其实应用范围还很广，公共频道里面可以有更多丰富的内容 电视台的节目，NBA的比赛等等等等</p>
-<p>——————↓↓创意的重点↓↓——————<br><strong>现在你有没有发现 我的社交软件里面的元素是【面向未来】的？！是的，我们不关心过去，我们只在乎未来！</strong><br><strong>现有的社交平台QQ空间，人人网，微博等等 都是在说我【过去】做了什么，我【现在】在做什么，而我们是在说我【未来】会做什么，有着【跨时代】意义！</strong><br>——————↑↑↑↑↑↑↑↑↑↑↑↑↑↑——————</p>
+<p>————↓↓创意的重点↓↓————<br><strong>现在你有没有发现 我的社交软件里面的元素是【面向未来】的？！是的，我们不关心过去，我们只在乎未来！</strong><br><strong>现有的社交平台QQ空间，人人网，微博等等 都是在说我【过去】做了什么，我【现在】在做什么，而我们是在说我【未来】会做什么，有着【跨时代】意义！</strong><br>————↑↑↑↑↑↑↑↑↑↑↑↑↑↑————</p>
 <p>Telescop α-beta版<br><img src="/images/2013.06.20 - Android-【Telescop】-社交日历1.jpg" alt="images">
           <div class="post-more-link text-center">
             <a class="btn" href="/2013/06/20/Android-【Telescop】-社交日历/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2013/05/22/Android-【美中宜和】-医院外包/" itemprop="url">
-                  Android:【美中宜和】(医院)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-05-22T21:43:32+08:00" content="2013-05-22">
-              2013-05-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/个人作品/" itemprop="url" rel="index">
-                    <span itemprop="name">个人作品</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2013/05/22/Android-【美中宜和】-医院外包/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/05/22/Android-【美中宜和】-医院外包/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>整个软件包含 新闻 自助服务 系统信息 关于我们 联系我们 五个模块。<br>热点新闻带图，轮播效果，下拉刷新、到列表底部加载更多，系统信息模块使用的是极光推动(www.jpush.cn)；<br>美中宜和介绍：<a href="http://www.amcare.com.cn">http://www.amcare.com.cn</a><br><img src="/images/2013.05.22 - Android-【美中宜和】-医院外包1.png" alt="images">
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2013/05/22/Android-【美中宜和】-医院外包/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -934,7 +911,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -951,7 +928,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

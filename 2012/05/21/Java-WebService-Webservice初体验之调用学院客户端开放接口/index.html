@@ -103,6 +103,7 @@
 <meta name="twitter:title" content="Java.WebService - Webservice初体验之调用学院客户端开放接口">
 <meta name="twitter:description" content="这是学院客户端的开放API http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx调用webservice首先要使用wsimport从服务器生成Java接口，wsimport，应该就是webService import 的简写wsimport这个东西其实就是JDK的bin里面，你配置好java环境变量就能使用，OK，现在开始、
 第一步：使用wsimport获取Jav">
+<meta name="twitter:image" content="http://gavinliu.cn/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口1.png">
 
 
 
@@ -387,7 +388,7 @@
 
       
         <p>这是学院客户端的开放API <a href="http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx" target="_blank" rel="external">http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx</a><br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口1.png" alt="开放API"><br>调用webservice首先要使用wsimport从服务器生成Java接口，wsimport，应该就是webService import 的简写<br>wsimport这个东西其实就是JDK的bin里面，你配置好java环境变量就能使用，OK，现在开始、</p>
-<p>第一步：使用wsimport获取Java接口<br>1.在D盘新建一个文件夹，命名为 api<br>2.在命令行运行wsimport -d D://api -keep -verbose <a href="http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx?WSDL" target="_blank" rel="external">http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx?WSDL</a><br>然后在api目录下，会生成如下文件<br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口2.png" alt="开放API"><br>第二步：把获取到的java代码导入eclipse工程<br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口3.png" alt="开放API"><br>OpenAAASoap就是提供接口的API<br>OpenAAA是一个继承至Service 的一个服务类，这个类有个 getOpenAAASoap()方法，可以获取OpenAAASoap实例<br><a id="more"></a><br>最后：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">OpenAAA aaa = <span class="keyword">new</span> OpenAAA();</span><br><span class="line">OpenAAASoap aaaSoap = aaa.getOpenAAASoap();</span><br></pre></td></tr></table></figure></p>
+<p>第一步：使用wsimport获取Java接口<br>1.在D盘新建一个文件夹，命名为 api<br>2.在命令行运行wsimport -d D://api -keep -verbose <a href="http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx?WSDL" target="_blank" rel="external">http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx?WSDL</a><br>然后在api目录下，会生成如下文件<br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口2.png" alt="开放API"><br>第二步：把获取到的java代码导入eclipse工程<br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口3.png" alt="开放API"><br>OpenAAASoap就是提供接口的API<br>OpenAAA是一个继承至Service 的一个服务类，这个类有个 getOpenAAASoap()方法，可以获取OpenAAASoap实例<br><a id="more"></a><br>最后：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">OpenAAA aaa = <span class="keyword">new</span> OpenAAA();</div><div class="line">OpenAAASoap aaaSoap = aaa.getOpenAAASoap();</div></pre></td></tr></table></figure></p>
 <p>使用 aaaSoap 就可以访问 webservice 提供的API了.</p>
 <p>简单吧，调用webService，就是如此的简单。</p>
 <p>最后，爆一下我做的 客户端<br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口4.png" alt="开放API"></p>
@@ -524,7 +525,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -541,7 +542,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

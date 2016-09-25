@@ -109,6 +109,7 @@ http://downloads.ope">
 配置源Y1使用的是 mt7620a 这枚cpu，我们需要使用 mt7620a 的源
 openwrt官方源：
 http://downloads.ope">
+<meta name="twitter:image" content="http://gavinliu.cn/images/2015.10.09 - Newifi-Mini-Y1-动手玩-2-opkg1.png">
 
 
 
@@ -373,9 +374,9 @@ http://downloads.ope">
       
 
       
-        <h2 id="opkg_?">opkg ?</h2><p>opkg是openwrt里的软件包管理器，类似Mac下的brew、Ubuntu下的apt-get等，命令位于<code>/bin/opkg</code></p>
+        <h2 id="opkg"><a href="#opkg" class="headerlink" title="opkg ?"></a>opkg ?</h2><p>opkg是openwrt里的软件包管理器，类似Mac下的brew、Ubuntu下的apt-get等，命令位于<code>/bin/opkg</code></p>
 <p>由于openwrt是嵌入式系统，硬件复杂，我们需要把opkg的源和Newifi Mini(Y1)的硬件相匹配。</p>
-<h2 id="配置源">配置源</h2><p>Y1使用的是 mt7620a 这枚cpu，我们需要使用 mt7620a 的源</p>
+<h2 id="配置源"><a href="#配置源" class="headerlink" title="配置源"></a>配置源</h2><p>Y1使用的是 mt7620a 这枚cpu，我们需要使用 mt7620a 的源</p>
 <p>openwrt官方源：</p>
 <p><a href="http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/" target="_blank" rel="external">http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/</a><br><a href="http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/" target="_blank" rel="external">http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/</a></p>
 <blockquote>
@@ -386,12 +387,12 @@ http://downloads.ope">
 <ul>
 <li><code>ssh</code>连接到路由器后使用<code>vi</code>修改配置文件</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/opkg.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/opkg.conf</div></pre></td></tr></table></figure>
 <ul>
 <li>管理页面：OpenWrt 系统-&gt;软件包-&gt;配置；小云OS 高级设置-&gt;系统-&gt;软件包-&gt;配置</li>
 </ul>
-<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-2-opkg1.png" alt=""><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dest root /&#10;dest ram /tmp&#10;lists_dir ext /var/opkg-lists&#10;option overlay_root /overlay&#10;&#10;arch ralink 1&#10;arch all 2&#10;arch ramips_24kec 3&#10;&#10;src/gz barrier_breaker_base http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/base&#10;src/gz barrier_breaker_luci http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/luci&#10;src/gz barrier_breaker_management http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/management&#10;src/gz barrier_breaker_oldpackages http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/oldpackages&#10;src/gz barrier_breaker_packages http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/packages&#10;src/gz barrier_breaker_routing http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/routing&#10;src/gz barrier_breaker_telephony http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/telephony&#10;&#10;src/gz openwrt_dist http://openwrt-dist.thankgfw.ml/releases/ramips/packages&#10;src/gz openwrt_dist_luci http://openwrt-dist.thankgfw.ml/releases/luci/packages</span><br></pre></td></tr></table></figure></p>
-<h2 id="使用_opkg_命令">使用 opkg 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#25171;&#21360;&#24110;&#21161;&#10;opkg -h&#10;&#10;# &#26356;&#26032;&#36164;&#28304;&#21015;&#34920;&#10;opkg update&#10;&#10;# &#21015;&#20986;&#24050;&#23433;&#35013;&#30340;&#21253;&#10;opkg list&#10;&#10;# &#25628;&#32034;&#21253;&#10;opkg search ddns&#10;&#10;# &#23433;&#35013;&#36719;&#20214;&#65292;&#20197;&#23433;&#35013;curl&#21644;wget&#20026;&#20363;&#10;opkg install curl&#10;# &#23433;&#35013;&#26412;&#22320;&#36719;&#20214;&#21253;&#10;opkg install /tmp/wget_1.16-1_ramips_24kec.ipk&#10;&#10;# &#31227;&#38500;&#36719;&#20214;&#10;opkg remove wget</span><br></pre></td></tr></table></figure>
+<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-2-opkg1.png" alt=""><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">dest root /</div><div class="line">dest ram /tmp</div><div class="line">lists_dir ext /var/opkg-lists</div><div class="line">option overlay_root /overlay</div><div class="line"></div><div class="line">arch ralink 1</div><div class="line">arch all 2</div><div class="line">arch ramips_24kec 3</div><div class="line"></div><div class="line">src/gz barrier_breaker_base http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/base</div><div class="line">src/gz barrier_breaker_luci http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/luci</div><div class="line">src/gz barrier_breaker_management http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/management</div><div class="line">src/gz barrier_breaker_oldpackages http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/oldpackages</div><div class="line">src/gz barrier_breaker_packages http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/packages</div><div class="line">src/gz barrier_breaker_routing http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/routing</div><div class="line">src/gz barrier_breaker_telephony http://mirrors.ustc.edu.cn/openwrt/barrier_breaker/14.07/ramips/mt7620a/packages/telephony</div><div class="line"></div><div class="line">src/gz openwrt_dist http://openwrt-dist.thankgfw.ml/releases/ramips/packages</div><div class="line">src/gz openwrt_dist_luci http://openwrt-dist.thankgfw.ml/releases/luci/packages</div></pre></td></tr></table></figure></p>
+<h2 id="使用-opkg-命令"><a href="#使用-opkg-命令" class="headerlink" title="使用 opkg 命令"></a>使用 opkg 命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"># 打印帮助</div><div class="line">opkg -h</div><div class="line"></div><div class="line"># 更新资源列表</div><div class="line">opkg update</div><div class="line"></div><div class="line"># 列出已安装的包</div><div class="line">opkg list</div><div class="line"></div><div class="line"># 搜索包</div><div class="line">opkg search ddns</div><div class="line"></div><div class="line"># 安装软件，以安装curl和wget为例</div><div class="line">opkg install curl</div><div class="line"># 安装本地软件包</div><div class="line">opkg install /tmp/wget_1.16-1_ramips_24kec.ipk</div><div class="line"></div><div class="line"># 移除软件</div><div class="line">opkg remove wget</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -523,7 +524,7 @@ http://downloads.ope">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -540,7 +541,7 @@ http://downloads.ope">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -596,7 +597,7 @@ http://downloads.ope">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#opkg_?"><span class="nav-number">1.</span> <span class="nav-text">opkg ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置源"><span class="nav-number">2.</span> <span class="nav-text">配置源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用_opkg_命令"><span class="nav-number">3.</span> <span class="nav-text">使用 opkg 命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#opkg"><span class="nav-number">1.</span> <span class="nav-text">opkg ?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置源"><span class="nav-number">2.</span> <span class="nav-text">配置源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-opkg-命令"><span class="nav-number">3.</span> <span class="nav-text">使用 opkg 命令</span></a></li></ol></div>
             
           </div>
         </section>

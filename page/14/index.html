@@ -86,15 +86,12 @@
 
 
 
-<meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gavin.Liu">
 <meta property="og:url" content="http://gavinliu.cn/page/14/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gavin.Liu">
-<meta name="twitter:description">
 
 
 
@@ -149,7 +146,7 @@
   
 
   <div class="container one-collumn sidebar-position-left 
-  
+   page-home 
  ">
     <div class="headband"></div>
 
@@ -310,6 +307,128 @@
             
               
                 
+                <a class="post-title-link" href="/2014/03/18/Android---使用Loader进行数据加载/" itemprop="url">
+                  Android - 使用Loader进行数据加载
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-03-18T19:05:33+08:00" content="2014-03-18">
+              2014-03-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/03/18/Android---使用Loader进行数据加载/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/03/18/Android---使用Loader进行数据加载/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Android3.0 开始提出Loader和LoaderManager的概念，通过LoaderManager类可以很轻松的从Fragment或Activity 中进行异步加载数据。<br>这和AsyncTask很类似，但是AsyncTask没有LoaderManager的统一管理，并且不方便实现MVC的开发模式，对于和UI相关的数据加载就不要使用AsyncTask使用Loader最佳！<br>官方示例：<br><a href="http://developer.android.com/reference/android/app/LoaderManager.html" target="_blank" rel="external">http://developer.android.com/reference/android/app/LoaderManager.html</a><br><a href="http://developer.android.com/reference/android/content/AsyncTaskLoader.html" target="_blank" rel="external">http://developer.android.com/reference/android/content/AsyncTaskLoader.html</a><br>当然我们实际开发中，需要自己去实现一个更加酷的Loader，来满足我们的开发需要。</p>
+<p>BaseDataLoader.java  – 一个基础Loader，提取于AsyncTaskLoader.html的示例代码，并做了自己的处理。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.gavinliu.loader;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.AsyncTaskLoader;</div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 这是一个基础的数据加载Loader</div><div class="line"> * </div><div class="line"> * <span class="doctag">@author</span> Gavinliu</div><div class="line"> * <span class="doctag">@param</span> &lt;T&gt;</div><div class="line"> * </div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseDataLoader</span>&lt;<span class="title">T</span>&gt; <span class="keyword">extends</span> <span class="title">AsyncTaskLoader</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> T mData;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BaseDataLoader</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Handles a request to start the Loader.</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStartLoading</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (mData != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="comment">// If we currently have a result available, deliver it</span></div><div class="line">            <span class="comment">// immediately.</span></div><div class="line">            deliverResult(mData);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        registerObserver();</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (takeContentChanged() || mData == <span class="keyword">null</span> || isConfigChanged()) &#123;</div><div class="line">            <span class="comment">// If the data has changed since the last time it was loaded</span></div><div class="line">            <span class="comment">// or is not currently available, start a load.</span></div><div class="line">            forceLoad();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Called when there is new data to deliver to the client. The super class</div><div class="line">     * will take care of delivering it; the implementation here just adds a</div><div class="line">     * little more logic.</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deliverResult</span><span class="params">(T data)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (isReset()) &#123;</div><div class="line">            <span class="comment">// An async query came in while the loader is stopped. We</span></div><div class="line">            <span class="comment">// don't need the result.</span></div><div class="line">            <span class="keyword">if</span> (mData != <span class="keyword">null</span>) &#123;</div><div class="line">                onReleaseResources(mData);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        T oldApps = mData;</div><div class="line">        mData = data;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (isStarted()) &#123;</div><div class="line">            <span class="comment">// If the Loader is currently started, we can immediately</span></div><div class="line">            <span class="comment">// deliver its results.</span></div><div class="line">            <span class="keyword">super</span>.deliverResult(data);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// At this point we can release the resources associated with</span></div><div class="line">        <span class="comment">// 'oldApps' if needed; now that the new result is delivered we</span></div><div class="line">        <span class="comment">// know that it is no longer in use.</span></div><div class="line">        <span class="keyword">if</span> (oldApps != <span class="keyword">null</span>) &#123;</div><div class="line">            onReleaseResources(oldApps);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Handles a request to stop the Loader.</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStopLoading</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// Attempt to cancel the current load task if possible.</span></div><div class="line">        cancelLoad();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Handles a request to cancel a load.</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCanceled</span><span class="params">(T data)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCanceled(data);</div><div class="line"></div><div class="line">        <span class="comment">// At this point we can release the resources associated with 'apps'</span></div><div class="line">        <span class="comment">// if needed.</span></div><div class="line">        onReleaseResources(data);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Handles a request to completely reset the Loader.</div><div class="line">     */</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onReset</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onReset();</div><div class="line"></div><div class="line">        <span class="comment">// Ensure the loader is stopped</span></div><div class="line">        onStopLoading();</div><div class="line"></div><div class="line">        <span class="comment">// At this point we can release the resources associated with 'apps'</span></div><div class="line">        <span class="comment">// if needed.</span></div><div class="line">        <span class="keyword">if</span> (mData != <span class="keyword">null</span>) &#123;</div><div class="line">            onReleaseResources(mData);</div><div class="line">            mData = <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        unregisterObserver();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">isConfigChanged</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">registerObserver</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">unregisterObserver</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onReleaseResources</span><span class="params">(T mData)</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>MainActivity.java – 使用示例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.gavinliu.loader;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.app.Activity;</div><div class="line"><span class="keyword">import</span> android.app.LoaderManager.LoaderCallbacks;</div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.content.Loader;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">LoaderCallbacks</span>&lt;<span class="title">String</span>&gt; </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">        getLoaderManager().initLoader(<span class="number">0</span>, <span class="keyword">null</span>, <span class="keyword">this</span>);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Loader&lt;String&gt; <span class="title">onCreateLoader</span><span class="params">(<span class="keyword">int</span> id, Bundle args)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"onCreateLoader"</span>);</div><div class="line">        mLoader = <span class="keyword">new</span> MyLoader(getApplicationContext());</div><div class="line">        <span class="keyword">return</span> mLoader;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoadFinished</span><span class="params">(Loader&lt;String&gt; loader, String data)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"onLoadFinished"</span>);</div><div class="line">        System.out.println(<span class="string">"-----&gt;"</span> + data);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLoaderReset</span><span class="params">(Loader&lt;String&gt; loader)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"onLoaderReset"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> MyLoader mLoader;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">MyLoader</span> <span class="keyword">extends</span> <span class="title">BaseDataLoader</span>&lt;<span class="title">String</span>&gt; </span>&#123;</div><div class="line">        String mData;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyLoader</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>(context);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">loadInBackground</span><span class="params">()</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"LoadInBackground"</span>);</div><div class="line">            <span class="keyword">return</span> <span class="string">"Load Success"</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2014/03/08/总结这段时间的面试经验/" itemprop="url">
                   总结这段时间的面试经验
                 </a>
@@ -380,10 +499,11 @@
       
         
           <p>2014.02.17-2014.02.28 这两周一直在面试，找工作，前前后后面试了十多家公司。<br>当然绝大多数都是成都的小型创业公司，一般创业公司多为直接面试，好一点的公司或者对技术比较看中的公司会有笔试。<br>大牛看到勿喷，本文仅仅作为我的一点点经验，应该能代表百分之五十的软件专业毕业生吧。       </p>
-<h2 id="一、准备工作">一、准备工作</h2><h3 id="简历">简历</h3><p>1.网投平台一般有简历模板，这个要尽量填满，填完之后预览，看哪里要修改的，修改需要突出显示的。(比如说我就把我的博客信息，直接填在专业描述里面，因为这样可以显示在最前面)<br>2.邮件投简历，需要你自己做一个简历文档，找模板，注意最后最好导出成PDF格式，不要用Doc。<br>3.通知面试最好备一份纸质简历，有些公司可能不会把你发给他的简历打印出来。  </p>
-<h3 id="笔试">笔试</h3><p>1.临时抱佛脚吧，直接上网找笔试题，然后做，一般找个两三套就够了。<br>2.Java主要知识点:线程同步，异常处理，集合(Collection的那些子类，Arraylist和LinkedList的不同)，多态性，final, finally, finalize的不同。      </p>
-<h3 id="面试">面试</h3><p>1.有笔试，可能会对你笔试内容做个询问。<br>2.会让你介绍你做过的项目。<br>3.基本上所有公司都有问Android Listview的优化，Bitmap的处理，网络异步通讯。        </p>
-<h2 id="二、面试经历">二、面试经历</h2>
+<p>##一、准备工作</p>
+<p>###简历<br>1.网投平台一般有简历模板，这个要尽量填满，填完之后预览，看哪里要修改的，修改需要突出显示的。(比如说我就把我的博客信息，直接填在专业描述里面，因为这样可以显示在最前面)<br>2.邮件投简历，需要你自己做一个简历文档，找模板，注意最后最好导出成PDF格式，不要用Doc。<br>3.通知面试最好备一份纸质简历，有些公司可能不会把你发给他的简历打印出来。  </p>
+<p>###笔试<br>1.临时抱佛脚吧，直接上网找笔试题，然后做，一般找个两三套就够了。<br>2.Java主要知识点:线程同步，异常处理，集合(Collection的那些子类，Arraylist和LinkedList的不同)，多态性，final, finally, finalize的不同。      </p>
+<p>###面试<br>1.有笔试，可能会对你笔试内容做个询问。<br>2.会让你介绍你做过的项目。<br>3.基本上所有公司都有问Android Listview的优化，Bitmap的处理，网络异步通讯。        </p>
+<p>##二、面试经历<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/03/08/总结这段时间的面试经验/#more" rel="contents">
               阅读全文 &raquo;
@@ -505,8 +625,8 @@
 
       
         
-          <h2 id="什么是比特币？">什么是比特币？</h2><p>比特币（英语：Bitcoin，简写：BTC，货币符号：฿）是一种用户自治的、全球通用的加密电子货币。<br>它是产生和流通是基于非对称加密算法，P2P对等网络和分布式数据库的平台上，开发的交易和账户管理的操作系统。</p>
-<h2 id="什么是对称加密算法？">什么是对称加密算法？</h2><p>1.A要向B发送信息，A和B要事先商量一个密钥，各保存一份。<br>2.A要给B发送信息时，A用密钥加密，发个B。<br>3.B拿到密文，用密钥解密。<br>4.反之亦然。<br>这就是对称加密算法，只有一份密钥，安全性依赖于密钥，泄漏密钥就意味着任何人都可以对他们发送或接收的消息解密，所以密钥的保密性对通信性至关重要。
+          <p>##什么是比特币？<br>比特币（英语：Bitcoin，简写：BTC，货币符号：฿）是一种用户自治的、全球通用的加密电子货币。<br>它是产生和流通是基于非对称加密算法，P2P对等网络和分布式数据库的平台上，开发的交易和账户管理的操作系统。</p>
+<p>##什么是对称加密算法？<br>1.A要向B发送信息，A和B要事先商量一个密钥，各保存一份。<br>2.A要给B发送信息时，A用密钥加密，发个B。<br>3.B拿到密文，用密钥解密。<br>4.反之亦然。<br>这就是对称加密算法，只有一份密钥，安全性依赖于密钥，泄漏密钥就意味着任何人都可以对他们发送或接收的消息解密，所以密钥的保密性对通信性至关重要。
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/01/06/比特币里面的技术知识/#more" rel="contents">
               阅读全文 &raquo;
@@ -629,7 +749,7 @@
       
         
           <p>又到12月31日，这一年做项目，参比赛，找工作，不知不觉就稀里糊涂就过去了，最后这几个小时，还是做个总结。   </p>
-<h3 id="项目篇">项目篇</h3><p>今年初第一次实习工作，拿着工资回家过年，第一次在父母面前证明了我学的知识，不是白学的。<br>结果却告知一个‘噩耗’，“既然你能赚钱了，那以后生活费自理…”(请问这是亲妈么？)<br>好吧，我把这当成是对我的锻炼，很庆幸，一年过去了，我活了过来，也没问家里要一分钱，并且还买了Macbook，换了手机。算是初步实现了经济独立了吧！<br>其实这个也要感谢，各路朋友介绍项目，不我然活不到今天，感谢感谢！       </p>
+<p>###项目篇<br>今年初第一次实习工作，拿着工资回家过年，第一次在父母面前证明了我学的知识，不是白学的。<br>结果却告知一个‘噩耗’，“既然你能赚钱了，那以后生活费自理…”(请问这是亲妈么？)<br>好吧，我把这当成是对我的锻炼，很庆幸，一年过去了，我活了过来，也没问家里要一分钱，并且还买了Macbook，换了手机。算是初步实现了经济独立了吧！<br>其实这个也要感谢，各路朋友介绍项目，不我然活不到今天，感谢感谢！       </p>
 <p>这一年做了不少项目<br>    某电视机顶盒 后台维护系统<br>    某电视机顶盒 REST Web服务<br>    某知名医院 Android客户端<br>    某音乐传媒公司的彩铃服务 Android客户端<br>    某美容美发平台 Android客户端+REST Webservice<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2013/12/31/2013-The-End/#more" rel="contents">
@@ -782,108 +902,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2013/08/04/Mysql-Mac下的乱码问题/" itemprop="url">
-                  Mysql - Mac下的乱码问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-08-04T17:16:43+08:00" content="2013-08-04">
-              2013-08-04
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2013/08/04/Mysql-Mac下的乱码问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/08/04/Mysql-Mac下的乱码问题/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Windows 下，安装mysql 时会有一系列配置，mac下一键就安装好了，需要配置下字符编码，不然JDBC存中文数据会乱码的。<br>解决办法：<br>拷贝 /usr/local/mysql/support-files 下的任意一个*.cnf文件到 /etc/my.cnf<br>编辑my.cnf<br>[client] 后面添加<br>default-character-set = utf8<br>[mysqld] 后面添加<br>default-storage-engine = INNODB<br>character-set-server = utf8<br>collation-server = utf8_general_ci</p>
-<p>可能会出现my.cnf里面没有[client] 或者[mysqld]，自己添加一个就行了</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -929,7 +947,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -946,7 +964,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

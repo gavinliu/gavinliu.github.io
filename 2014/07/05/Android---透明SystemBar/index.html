@@ -87,20 +87,21 @@
 
 
 <meta name="description" content="最近国内的手机ROM(MIUI, Flyme等)都升级了Android 4.4，预测下半年国内APP 会有很多使用Android4.4特性。Android 4.4可以支持StatusBar和NavigationBar透明了，记录一下相关代码。
-透明StatusBar和NavigationBar12345Window win = getWindow();WindowManager.LayoutPar">
+###透明StatusBar和NavigationBar12345Window win = getWindow();WindowManager.Layout">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android - 透明SystemBar">
 <meta property="og:url" content="http://gavinliu.cn/2014/07/05/Android---透明SystemBar/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
 <meta property="og:description" content="最近国内的手机ROM(MIUI, Flyme等)都升级了Android 4.4，预测下半年国内APP 会有很多使用Android4.4特性。Android 4.4可以支持StatusBar和NavigationBar透明了，记录一下相关代码。
-透明StatusBar和NavigationBar12345Window win = getWindow();WindowManager.LayoutPar">
+###透明StatusBar和NavigationBar12345Window win = getWindow();WindowManager.Layout">
 <meta property="og:image" content="http://gavinliu.cn/images/2014.07.05 - Android---透明SystemBar-1.jpg">
 <meta property="og:image" content="http://gavinliu.cn/images/2014.07.05 - Android---透明SystemBar-2.png">
 <meta property="og:updated_time" content="2015-04-13T14:55:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android - 透明SystemBar">
 <meta name="twitter:description" content="最近国内的手机ROM(MIUI, Flyme等)都升级了Android 4.4，预测下半年国内APP 会有很多使用Android4.4特性。Android 4.4可以支持StatusBar和NavigationBar透明了，记录一下相关代码。
-透明StatusBar和NavigationBar12345Window win = getWindow();WindowManager.LayoutPar">
+###透明StatusBar和NavigationBar12345Window win = getWindow();WindowManager.Layout">
+<meta name="twitter:image" content="http://gavinliu.cn/images/2014.07.05 - Android---透明SystemBar-1.jpg">
 
 
 
@@ -385,10 +386,10 @@
 
       
         <p>最近国内的手机ROM(MIUI, Flyme等)都升级了Android 4.4，预测下半年国内APP 会有很多使用Android4.4特性。<br>Android 4.4可以支持StatusBar和NavigationBar透明了，记录一下相关代码。</p>
-<h3 id="透明StatusBar和NavigationBar">透明StatusBar和NavigationBar</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Window win = getWindow();</span><br><span class="line">WindowManager.LayoutParams winParams = win.getAttributes();</span><br><span class="line">winParams.flags |= WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;</span><br><span class="line">winParams.flags |= WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;</span><br><span class="line">win.setAttributes(winParams);</span><br></pre></td></tr></table></figure>
-<p>或者<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"Translucent.SystemBar"</span> <span class="attribute">parent</span>=<span class="value">"@android:style/Theme.Holo.Light"</span>&gt;</span><span class="css"></span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:windowTranslucentStatus"</span>&gt;<span class="tag">true</span>&lt;/<span class="tag">item</span>&gt;</span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:windowTranslucentNavigation"</span>&gt;<span class="tag">true</span>&lt;/<span class="tag">item</span>&gt;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>###透明StatusBar和NavigationBar<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Window win = getWindow();</div><div class="line">WindowManager.LayoutParams winParams = win.getAttributes();</div><div class="line">winParams.flags |= WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;</div><div class="line">winParams.flags |= WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;</div><div class="line">win.setAttributes(winParams);</div></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"Translucent.SystemBar"</span> <span class="attr">parent</span>=<span class="string">"@android:style/Theme.Holo.Light"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowTranslucentStatus"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowTranslucentNavigation"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h3 id="透明ActionBar(MEIZU_SmartBar)_—————_style-xml">透明ActionBar(MEIZU SmartBar) ————— style.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">resources</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"AppBaseTheme"</span> <span class="attribute">parent</span>=<span class="value">"android:style/Theme.DeviceDefault.Light"</span>&gt;</span><span class="css"></span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"AppTheme"</span> <span class="attribute">parent</span>=<span class="value">"AppBaseTheme"</span>&gt;</span><span class="css"></span><br><span class="line">        &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:actionBarStyle"</span>&gt;<span class="at_rule">@<span class="keyword">style/ActionBar&lt;/item&gt;</span></span><br><span class="line">    </span></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"ActionBar"</span> <span class="attribute">parent</span>=<span class="value">"android:Widget.DeviceDefault.Light.ActionBar"</span>&gt;</span><span class="css"><span class="at_rule"></span><br><span class="line">        &lt;item name=<span class="string">"android:background"</span>&gt;@color/translucent_background&lt;/item&gt;  (color = #<span class="number">000000</span>)</span><br><span class="line">        &lt;item name=<span class="string">"android:backgroundSplit"</span>&gt;@color/translucent_background&lt;/item&gt;</span><br><span class="line">    </span></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>###透明ActionBar(MEIZU SmartBar) ———- style.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppBaseTheme"</span> <span class="attr">parent</span>=<span class="string">"android:style/Theme.DeviceDefault.Light"</span>&gt;</span><span class="undefined"></span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"AppBaseTheme"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:actionBarStyle"</span>&gt;</span>@style/ActionBar<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"ActionBar"</span> <span class="attr">parent</span>=<span class="string">"android:Widget.DeviceDefault.Light.ActionBar"</span>&gt;</span><span class="xml"></span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:background"</span>&gt;</span>@color/translucent_background<span class="tag">&lt;/<span class="name">item</span>&gt;</span>  (color = #000000)</div><div class="line">        <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:backgroundSplit"</span>&gt;</span>@color/translucent_background<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>代码：<a href="https://github.com/gavinliu/TransparentSystemBar" target="_blank" rel="external">https://github.com/gavinliu/TransparentSystemBar</a></p>
 <p><img src="/images/2014.07.05 - Android---透明SystemBar-1.jpg" alt="MX3"><br><img src="/images/2014.07.05 - Android---透明SystemBar-2.png" alt="MOTO X"></p>
 
@@ -522,7 +523,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -539,7 +540,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -595,7 +596,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#透明StatusBar和NavigationBar"><span class="nav-number">1.</span> <span class="nav-text">透明StatusBar和NavigationBar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#透明ActionBar(MEIZU_SmartBar)_—————_style-xml"><span class="nav-number">2.</span> <span class="nav-text">透明ActionBar(MEIZU SmartBar) ————— style.xml</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

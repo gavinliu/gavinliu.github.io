@@ -86,15 +86,12 @@
 
 
 
-<meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gavin.Liu">
 <meta property="og:url" content="http://gavinliu.cn/page/4/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gavin.Liu">
-<meta name="twitter:description">
 
 
 
@@ -149,7 +146,7 @@
   
 
   <div class="container one-collumn sidebar-position-left 
-  
+   page-home 
  ">
     <div class="headband"></div>
 
@@ -310,6 +307,131 @@
             
               
                 
+                <a class="post-title-link" href="/2016/02/29/Android-实用代码片段-3/" itemprop="url">
+                  Android - 实用代码片段(3)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-02-29T20:05:33+08:00" content="2016-02-29">
+              2016-02-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/02/29/Android-实用代码片段-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/29/Android-实用代码片段-3/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <ul>
+<li>在View Layout完成后获取 控件大小</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> TextView tv = (TextView) findViewById(R.id.myTextView);</div><div class="line">ViewTreeObserver vto = tv.getViewTreeObserver();</div><div class="line">vto.addOnGlobalLayoutListener(<span class="keyword">new</span> OnGlobalLayoutListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGlobalLayout</span><span class="params">()</span> </span>&#123;</div><div class="line">        Toast.makeText(MyActivity.<span class="keyword">this</span>, tv.getWidth() + <span class="string">" x "</span> + tv.getHeight(), Toast.LENGTH_LONG).show();</div><div class="line">        tv.getViewTreeObserver().removeGlobalOnLayoutListener(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/02/29/Android-实用代码片段-3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/02/28/Android-开源项目：OpenGpad-电脑键盘当手机游戏手柄/" itemprop="url">
                   Android - 开源项目:OpenGpad(电脑键盘当手游手柄)
                 </a>
@@ -380,8 +502,8 @@
       
         
           <p>这是个基于测试框架(<a href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/">UiAutomator</a>)做的一款：使用电脑键盘玩手机游戏的软件。</p>
-<h2 id="初衷">初衷</h2><p>本职工作是做Android开发，电脑环境为Linux Mint，没有好的娱乐方式，手机也是长时间插在电脑上的，所以就寻思着，用电脑键盘当手柄，控制手机玩游戏，于是就有了这个项目。</p>
-<h2 id="体验视频">体验视频</h2><iframe height=400 width=620 src="http://player.youku.com/embed/XMTQ4OTQzMjU4NA==" frameborder=0 allowfullscreen></iframe>
+<h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><p>本职工作是做Android开发，电脑环境为Linux Mint，没有好的娱乐方式，手机也是长时间插在电脑上的，所以就寻思着，用电脑键盘当手柄，控制手机玩游戏，于是就有了这个项目。</p>
+<h2 id="体验视频"><a href="#体验视频" class="headerlink" title="体验视频"></a>体验视频</h2><iframe height=400 width=620 src="http://player.youku.com/embed/XMTQ4OTQzMjU4NA==" frameborder=0 allowfullscreen></iframe>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/02/28/Android-开源项目：OpenGpad-电脑键盘当手机游戏手柄/#more" rel="contents">
               阅读全文 &raquo;
@@ -504,8 +626,8 @@
       
         
           <p><code>UiAutomator</code>已经现有的的API没有提高多点触控的方法，但是我们可以通过注入多点事件的方式来实现。</p>
-<h2 id="Android_TouchEvent_Flow">Android TouchEvent Flow</h2><p>一个基本的单点事件流</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MotionEvent.ACTION_DOWN</span><br><span class="line">MotionEvent.ACTION_MOVE</span><br><span class="line">MotionEvent.ACTION_UP</span><br></pre></td></tr></table></figure>
+<h2 id="Android-TouchEvent-Flow"><a href="#Android-TouchEvent-Flow" class="headerlink" title="Android TouchEvent Flow"></a>Android TouchEvent Flow</h2><p>一个基本的单点事件流</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MotionEvent.ACTION_DOWN</div><div class="line">MotionEvent.ACTION_MOVE</div><div class="line">MotionEvent.ACTION_UP</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/#more" rel="contents">
               阅读全文 &raquo;
@@ -628,7 +750,7 @@
       
         
           <p>PC端的XX助手和手机App的通讯原理:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 把PC端8000端口的数据, 转发到Android端的9000端口上.</span></span><br><span class="line">adb forward tcp:<span class="number">8000</span> tcp:<span class="number">9000</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 把PC端8000端口的数据, 转发到Android端的9000端口上.</span></div><div class="line">adb forward tcp:8000 tcp:9000</div></pre></td></tr></table></figure>
 <blockquote>
 <p><a href="/2012/04/08/JavaWeb---转向-转发-随笔/">什么是转发? </a></p>
 </blockquote>
@@ -791,136 +913,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/16/Python-Mac下PyQt5环境搭建/" itemprop="url">
-                  Python - Mac下PyQt5环境搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-01-16T23:54:27+08:00" content="2016-01-16">
-              2016-01-16
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Python Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/16/Python-Mac下PyQt5环境搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/16/Python-Mac下PyQt5环境搭建/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>一直想写一些桌面软件，公司电脑是Ubuntu，个人电脑是Mac，Windows又是用户量最多的，想来想去使用跨平台的开发工具来写才是唯一的选择。</p>
-<p>最终选择使用PyQt，把Python的便利和Qt的兼容完美结合。</p>
-<p>所需软件：</p>
-<ol>
-<li>Python3</li>
-<li><a href="http://download.qt.io/official_releases/qt/5.5/5.5.1/">Qt5</a></li>
-<li><a href="https://www.riverbankcomputing.com/software/sip/download">SIP</a></li>
-<li><a href="https://www.riverbankcomputing.com/software/pyqt/download5">PyQt5</a></li>
-</ol>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/16/Python-Mac下PyQt5环境搭建/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -966,7 +958,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -983,7 +975,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

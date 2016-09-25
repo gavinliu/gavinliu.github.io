@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java,Java.Web," />
+  <meta name="keywords" content="Java.Web,Java," />
 
 
 
@@ -379,7 +379,7 @@
       
 
       
-        <p><a href="http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html" target="_blank" rel="external">http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html</a> 简单粗暴，贴出解析代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正则表达式去除视频id</span></span><br><span class="line">String path = <span class="string">"http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html"</span>;</span><br><span class="line">Pattern p = Pattern.compile(<span class="string">".*id_(\\w+)\\.html"</span>);</span><br><span class="line">Matcher m = p.matcher(path);</span><br><span class="line">String id = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">if</span> (m.find()) &#123;</span><br><span class="line">	id = m.group(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 解析部分</span></span><br><span class="line">String s = <span class="string">"https://openapi.youku.com/v2/videos/files.json?client_id=513edb6cf9833ca7&amp;client_secret=eaf151ffdbf1383d934ab4cb91250fa6&amp;type=play&amp;video_id="</span>;</span><br><span class="line"><span class="comment">// 这里为HTTP获取得到Response，自己去实现</span></span><br><span class="line">String json = HttpUtil.changeInputStream(HttpUtil.getInputStream(s + id));</span><br><span class="line"><span class="comment">// 解析Json</span></span><br><span class="line">JSONObject object = <span class="keyword">new</span> JSONObject(json);</span><br><span class="line">object = object.getJSONObject(<span class="string">"files"</span>);</span><br><span class="line">object = object.getJSONObject(<span class="string">"3gphd"</span>);</span><br><span class="line">object = object.getJSONArray(<span class="string">"segs"</span>).getJSONObject(<span class="number">0</span>);</span><br><span class="line">String url = object.getString(<span class="string">"url"</span>);</span><br><span class="line">System.out.println(url);</span><br></pre></td></tr></table></figure></p>
+        <p><a href="http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html" target="_blank" rel="external">http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html</a> 简单粗暴，贴出解析代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 正则表达式去除视频id</span></div><div class="line">String path = <span class="string">"http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html"</span>;</div><div class="line">Pattern p = Pattern.compile(<span class="string">".*id_(\\w+)\\.html"</span>);</div><div class="line">Matcher m = p.matcher(path);</div><div class="line">String id = <span class="string">""</span>;</div><div class="line"><span class="keyword">if</span> (m.find()) &#123;</div><div class="line">	id = m.group(<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 解析部分</span></div><div class="line">String s = <span class="string">"https://openapi.youku.com/v2/videos/files.json?client_id=513edb6cf9833ca7&amp;client_secret=eaf151ffdbf1383d934ab4cb91250fa6&amp;type=play&amp;video_id="</span>;</div><div class="line"><span class="comment">// 这里为HTTP获取得到Response，自己去实现</span></div><div class="line">String json = HttpUtil.changeInputStream(HttpUtil.getInputStream(s + id));</div><div class="line"><span class="comment">// 解析Json</span></div><div class="line">JSONObject object = <span class="keyword">new</span> JSONObject(json);</div><div class="line">object = object.getJSONObject(<span class="string">"files"</span>);</div><div class="line">object = object.getJSONObject(<span class="string">"3gphd"</span>);</div><div class="line">object = object.getJSONArray(<span class="string">"segs"</span>).getJSONObject(<span class="number">0</span>);</div><div class="line">String url = object.getString(<span class="string">"url"</span>);</div><div class="line">System.out.println(url);</div></pre></td></tr></table></figure></p>
 <p>最后输出：<br><a href="http://180.96.38.43/youku/65738D58CD431813202EE93924/0300200100523B433B57D707A71947923FEF7E-8BE5-FC18-E182-7B619D650F21.mp4" target="_blank" rel="external">http://180.96.38.43/youku/65738D58CD431813202EE93924/0300200100523B433B57D707A71947923FEF7E-8BE5-FC18-E182-7B619D650F21.mp4</a><br>注意这个链接是有时效性的！获取出来就尽快使用。</p>
 
       
@@ -402,9 +402,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag">#Java</a>
-          
             <a href="/tags/Java-Web/" rel="tag">#Java.Web</a>
+          
+            <a href="/tags/Java/" rel="tag">#Java</a>
           
         </div>
       
@@ -514,7 +514,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -531,7 +531,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

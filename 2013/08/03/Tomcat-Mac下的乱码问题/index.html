@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Mac,Tomcat,乱码,环境搭建," />
+  <meta name="keywords" content="Mac,环境搭建,乱码,Tomcat," />
 
 
 
@@ -87,18 +87,18 @@
 
 
 <meta name="description" content="Myeclipse 启动Tomcat 控制台乱码：window -&amp;gt; Preference -&amp;gt; myeclipse -&amp;gt; servers -&amp;gt; tomcat -&amp;gt; tomcat7.0 -&amp;gt; JDK -&amp;gt; optional java VM arguments :加入 -Dfile.encoding=GBK
-接受数据乱码，设置字符集什么都不管用时：修改To">
+接受数据乱码，设置字符集什么都不管用时：修改T">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mac OS X - Tomcat 乱码问题">
 <meta property="og:url" content="http://gavinliu.cn/2013/08/03/Tomcat-Mac下的乱码问题/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
 <meta property="og:description" content="Myeclipse 启动Tomcat 控制台乱码：window -&amp;gt; Preference -&amp;gt; myeclipse -&amp;gt; servers -&amp;gt; tomcat -&amp;gt; tomcat7.0 -&amp;gt; JDK -&amp;gt; optional java VM arguments :加入 -Dfile.encoding=GBK
-接受数据乱码，设置字符集什么都不管用时：修改To">
+接受数据乱码，设置字符集什么都不管用时：修改T">
 <meta property="og:updated_time" content="2016-01-17T07:22:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac OS X - Tomcat 乱码问题">
 <meta name="twitter:description" content="Myeclipse 启动Tomcat 控制台乱码：window -&amp;gt; Preference -&amp;gt; myeclipse -&amp;gt; servers -&amp;gt; tomcat -&amp;gt; tomcat7.0 -&amp;gt; JDK -&amp;gt; optional java VM arguments :加入 -Dfile.encoding=GBK
-接受数据乱码，设置字符集什么都不管用时：修改To">
+接受数据乱码，设置字符集什么都不管用时：修改T">
 
 
 
@@ -367,8 +367,8 @@
 <li>Myeclipse 启动Tomcat 控制台乱码：<br>window -&gt; Preference -&gt; myeclipse -&gt; servers -&gt; tomcat -&gt; tomcat7.0 -&gt; JDK -&gt; optional java VM arguments :加入 -Dfile.encoding=GBK</li>
 <li>接受数据乱码，设置字符集什么都不管用时：<br>修改Tomcat的server.xml</li>
 </ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"8080"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span></span><br><span class="line">               <span class="attribute">connectionTimeout</span>=<span class="value">"20000"</span></span><br><span class="line">               <span class="attribute">redirectPort</span>=<span class="value">"8443"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">Connector</span> <span class="attribute">port</span>=<span class="value">"8080"</span> <span class="attribute">protocol</span>=<span class="value">"HTTP/1.1"</span></span><br><span class="line">               <span class="attribute">connectionTimeout</span>=<span class="value">"20000"</span></span><br><span class="line">               <span class="attribute">redirectPort</span>=<span class="value">"8443"</span> <span class="attribute">URIEncoding</span>=<span class="value">"UTF-8"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></div><div class="line">               <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></div><div class="line">               <span class="attr">redirectPort</span>=<span class="string">"8443"</span>/&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></div><div class="line">               <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></div><div class="line">               <span class="attr">redirectPort</span>=<span class="string">"8443"</span> <span class="attr">URIEncoding</span>=<span class="string">"UTF-8"</span> /&gt;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -392,11 +392,11 @@
           
             <a href="/tags/Mac/" rel="tag">#Mac</a>
           
-            <a href="/tags/Tomcat/" rel="tag">#Tomcat</a>
+            <a href="/tags/环境搭建/" rel="tag">#环境搭建</a>
           
             <a href="/tags/乱码/" rel="tag">#乱码</a>
           
-            <a href="/tags/环境搭建/" rel="tag">#环境搭建</a>
+            <a href="/tags/Tomcat/" rel="tag">#Tomcat</a>
           
         </div>
       
@@ -506,7 +506,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -523,7 +523,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

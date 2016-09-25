@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="按位运算,编程技巧," />
+  <meta name="keywords" content="编程技巧,按位运算," />
 
 
 
@@ -382,27 +382,27 @@ android.app.ActionBar1234public static final int DISPLAY_USE_LOGO = 0x1;public s
       
 
       
-        <h2 id="概述">概述</h2><p>在编程过程中发现有很多源码里面会定义1,2,4,8等这样的常量,比如说Android的ActionBar关于显示的常量:</p>
-<figure class="highlight java"><figcaption><span>android.app.ActionBar</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_USE_LOGO = <span class="number">0x1</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_SHOW_HOME = <span class="number">0x2</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_HOME_AS_UP = <span class="number">0x4</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_SHOW_TITLE = <span class="number">0x8</span>;</span><br></pre></td></tr></table></figure>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在编程过程中发现有很多源码里面会定义1,2,4,8等这样的常量,比如说Android的ActionBar关于显示的常量:</p>
+<figure class="highlight java"><figcaption><span>android.app.ActionBar</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_USE_LOGO = <span class="number">0x1</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_SHOW_HOME = <span class="number">0x2</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_HOME_AS_UP = <span class="number">0x4</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_SHOW_TITLE = <span class="number">0x8</span>;</div></pre></td></tr></table></figure>
 <p>为什么会这样设计呢?下面告诉你. <a id="more"></a></p>
-<h2 id="使用按位运算操作1,2,4,8">使用按位运算操作1,2,4,8</h2><ul>
+<h2 id="使用按位运算操作1-2-4-8"><a href="#使用按位运算操作1-2-4-8" class="headerlink" title="使用按位运算操作1,2,4,8"></a>使用按位运算操作1,2,4,8</h2><ul>
 <li>使用<code>按位或(|)</code> <strong>叠加参数</strong></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getActionBar().setDisplayOptions(ActionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_HOME);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getActionBar().setDisplayOptions(ActionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_HOME);</div></pre></td></tr></table></figure>
 <p>这里 <code>ActionBar.DISPLAY_USE_LOGO | ActionBar.DISPLAY_SHOW_HOME</code>的值为3, 所以<code>DISPLAY_HOME_AS_UP</code>不能为3, 值为4是个不错的选择. 一般来说我们程序中会使用2的n次幂来作为相关常量的值,如 1,2,4,8,32,64…</p>
 <ul>
 <li>使用<code>按位与(&amp;)</code> <strong>检查是否包含</strong></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasOption</span><span class="params">(<span class="keyword">int</span> option)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ((mDisplayOptions &amp; option) != <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasOption</span><span class="params">(<span class="keyword">int</span> option)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> ((mDisplayOptions &amp; option) != <span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>使用<code>按位异或(^)</code> <strong>删除某个值</strong></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">removeOption</span><span class="params">(<span class="keyword">int</span> option)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (hasOption(option)) &#123;</span><br><span class="line">        mDisplayOptions = mDisplayOptions ^ option;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">removeOption</span><span class="params">(<span class="keyword">int</span> option)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (hasOption(option)) &#123;</div><div class="line">        mDisplayOptions = mDisplayOptions ^ option;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li>使用<code>按位异或(&amp;)</code>+<code>按位取反(~)</code> <strong>也可删除某个值</strong></li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">removeOption</span><span class="params">(<span class="keyword">int</span> option)</span> </span>&#123;</span><br><span class="line">    mDisplayOptions = mDisplayOptions &amp; (~option);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="总结">总结</h2><p>学计算机基础的时候,老师也没有介绍按位的用法. 工作中才发现其中的神奇之处, 是不是很神奇呢? 在你的程序中也用上这样的设计吧~~</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">removeOption</span><span class="params">(<span class="keyword">int</span> option)</span> </span>&#123;</div><div class="line">    mDisplayOptions = mDisplayOptions &amp; (~option);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>学计算机基础的时候,老师也没有介绍按位的用法. 工作中才发现其中的神奇之处, 是不是很神奇呢? 在你的程序中也用上这样的设计吧~~</p>
 
       
     </div>
@@ -424,9 +424,9 @@ android.app.ActionBar1234public static final int DISPLAY_USE_LOGO = 0x1;public s
       
         <div class="post-tags">
           
-            <a href="/tags/按位运算/" rel="tag">#按位运算</a>
-          
             <a href="/tags/编程技巧/" rel="tag">#编程技巧</a>
+          
+            <a href="/tags/按位运算/" rel="tag">#按位运算</a>
           
         </div>
       
@@ -536,7 +536,7 @@ android.app.ActionBar1234public static final int DISPLAY_USE_LOGO = 0x1;public s
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -553,7 +553,7 @@ android.app.ActionBar1234public static final int DISPLAY_USE_LOGO = 0x1;public s
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -609,7 +609,7 @@ android.app.ActionBar1234public static final int DISPLAY_USE_LOGO = 0x1;public s
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用按位运算操作1,2,4,8"><span class="nav-number">2.</span> <span class="nav-text">使用按位运算操作1,2,4,8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用按位运算操作1-2-4-8"><span class="nav-number">2.</span> <span class="nav-text">使用按位运算操作1,2,4,8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
         </section>

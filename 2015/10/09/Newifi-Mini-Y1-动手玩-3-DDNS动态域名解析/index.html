@@ -134,6 +134,7 @@
 安装 ddns-scripts 和 luci-app-ddns
 
 安装完成即可在 服务中找到动态DNS页面">
+<meta name="twitter:image" content="http://gavinliu.cn/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析1.png">
 
 
 
@@ -398,7 +399,7 @@
       
 
       
-        <h2 id="安装_ddns">安装 ddns</h2><p>Openwrt系统应该是预装了ddns，小云OS没有预装ddns，我们可以通过opkg装上ddns</p>
+        <h2 id="安装-ddns"><a href="#安装-ddns" class="headerlink" title="安装 ddns"></a>安装 ddns</h2><p>Openwrt系统应该是预装了ddns，小云OS没有预装ddns，我们可以通过opkg装上ddns</p>
 <ul>
 <li><p>配置 opkg<br>  可参考 <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/">Newifi Mini(Y1) 动手玩(2) - opkg</a></p>
 </li>
@@ -410,30 +411,30 @@
 <li>安装 <code>ddns-scripts</code> 和 <code>luci-app-ddns</code></li>
 </ul>
 <p>安装完成即可在 服务中找到动态DNS页面 <a id="more"></a></p>
-<h2 id="启动_ddns">启动 ddns</h2><p>系统 -&gt; 启动项 -&gt; 启动<code>ddns</code></p>
+<h2 id="启动-ddns"><a href="#启动-ddns" class="headerlink" title="启动 ddns"></a>启动 ddns</h2><p>系统 -&gt; 启动项 -&gt; 启动<code>ddns</code></p>
 <p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析2.png" alt=""></p>
-<h2 id="配置_ddns">配置 ddns</h2><ul>
+<h2 id="配置-ddns"><a href="#配置-ddns" class="headerlink" title="配置 ddns"></a>配置 ddns</h2><ul>
 <li>我们需要选择一个 ddns 服务商，这里推荐 3322.org (<a href="http://www.pubyun.com/" target="_blank" rel="external">http://www.pubyun.com/</a> )，注册后创建一个动态域名。</li>
 <li>后台配置<br><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析3.png" alt=""></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#20027;&#26426;&#21517;&#65306;&#21363;&#21018;&#21018;&#21019;&#24314;&#30340;&#21160;&#24577;&#22495;&#21517;&#10;&#29992;&#25143;&#21517;&#65306;3322.org &#29992;&#25143;&#21517;&#10;&#23494;&#30721;&#65306;3322.org &#23494;&#30721;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">主机名：即刚刚创建的动态域名</div><div class="line">用户名：3322.org 用户名</div><div class="line">密码：3322.org 密码</div></pre></td></tr></table></figure>
 <ul>
 <li>重启路由器</li>
 </ul>
-<h2 id="自定义域名">自定义域名</h2><p>使用 3322 的二级域名当然不能满足我们的要求，要如何实现自定义域名呢？</p>
+<h2 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h2><p>使用 3322 的二级域名当然不能满足我们的要求，要如何实现自定义域名呢？</p>
 <ul>
 <li>注册域名</li>
 <li>在你的DNS服务商添加一个<code>CNAME</code>映射到<code>动态域名</code>中</li>
 </ul>
 <p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析4.png" alt=""></p>
-<h2 id="常见问题">常见问题</h2><h3 id="为什么完成上面步骤还是不能使用自定义域名访问呢？">为什么完成上面步骤还是不能使用自定义域名访问呢？</h3><ol>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="为什么完成上面步骤还是不能使用自定义域名访问呢？"><a href="#为什么完成上面步骤还是不能使用自定义域名访问呢？" class="headerlink" title="为什么完成上面步骤还是不能使用自定义域名访问呢？"></a>为什么完成上面步骤还是不能使用自定义域名访问呢？</h3><ol>
 <li>检查防火墙设置<br><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-3-DDNS动态域名解析5.png" alt="配置成此图即可"></li>
 <li>检查IP端口是否被关闭<br> 使用 <a href="http://tool.chinaz.com/port" target="_blank" rel="external">端口扫描</a> 查看80端口是否被关闭，如果关闭，我们可以换个端口</li>
 </ol>
-<figure class="highlight sh"><figcaption><span>vi/etc/config/dropbear</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原始数据</span></span><br><span class="line">config uhttpd <span class="string">'main'</span></span><br><span class="line">    list listen_http <span class="string">'0.0.0.0:80'</span></span><br><span class="line">    list listen_http <span class="string">'[::]:80'</span></span><br><span class="line">    ...</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改为</span></span><br><span class="line">config uhttpd <span class="string">'main'</span></span><br><span class="line">    list listen_http <span class="string">'0.0.0.0:8080'</span></span><br><span class="line">    list listen_http <span class="string">'[::]:8080'</span></span><br><span class="line">    ...</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><figcaption><span>vi/etc/config/dropbear</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 原始数据</span></div><div class="line">config uhttpd <span class="string">'main'</span></div><div class="line">    list listen_http <span class="string">'0.0.0.0:80'</span></div><div class="line">    list listen_http <span class="string">'[::]:80'</span></div><div class="line">    ...</div><div class="line">    ...</div><div class="line"></div><div class="line"><span class="comment"># 修改为</span></div><div class="line">config uhttpd <span class="string">'main'</span></div><div class="line">    list listen_http <span class="string">'0.0.0.0:8080'</span></div><div class="line">    list listen_http <span class="string">'[::]:8080'</span></div><div class="line">    ...</div><div class="line">    ...</div></pre></td></tr></table></figure>
 <pre><code>修改保存后，重启uhttpd服务
-</code></pre><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/uhttpd restart</span><br></pre></td></tr></table></figure>
-<h3 id="安全问题">安全问题</h3><p>路由器密码不要使用弱密码，如果路由器被黑客入侵，密码安全就没有保障了。ssh应该关闭密码登录使用密钥登录。</p>
+</code></pre><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/uhttpd restart</div></pre></td></tr></table></figure>
+<h3 id="安全问题"><a href="#安全问题" class="headerlink" title="安全问题"></a>安全问题</h3><p>路由器密码不要使用弱密码，如果路由器被黑客入侵，密码安全就没有保障了。ssh应该关闭密码登录使用密钥登录。</p>
 
       
     </div>
@@ -565,7 +566,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -582,7 +583,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -638,7 +639,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装_ddns"><span class="nav-number">1.</span> <span class="nav-text">安装 ddns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动_ddns"><span class="nav-number">2.</span> <span class="nav-text">启动 ddns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置_ddns"><span class="nav-number">3.</span> <span class="nav-text">配置 ddns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义域名"><span class="nav-number">4.</span> <span class="nav-text">自定义域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number">5.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么完成上面步骤还是不能使用自定义域名访问呢？"><span class="nav-number">5.1.</span> <span class="nav-text">为什么完成上面步骤还是不能使用自定义域名访问呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全问题"><span class="nav-number">5.2.</span> <span class="nav-text">安全问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-ddns"><span class="nav-number">1.</span> <span class="nav-text">安装 ddns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动-ddns"><span class="nav-number">2.</span> <span class="nav-text">启动 ddns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置-ddns"><span class="nav-number">3.</span> <span class="nav-text">配置 ddns</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义域名"><span class="nav-number">4.</span> <span class="nav-text">自定义域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题"><span class="nav-number">5.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么完成上面步骤还是不能使用自定义域名访问呢？"><span class="nav-number">5.1.</span> <span class="nav-text">为什么完成上面步骤还是不能使用自定义域名访问呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全问题"><span class="nav-number">5.2.</span> <span class="nav-text">安全问题</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

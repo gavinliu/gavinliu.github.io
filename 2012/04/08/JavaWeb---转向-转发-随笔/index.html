@@ -86,31 +86,31 @@
 
 
 
-<meta name="description" content="一、页面转向页面转向可以调用函数：1response.sendRedirect(&quot;xx.jsp&quot;);
+<meta name="description" content="##一、页面转向页面转向可以调用函数：1response.sendRedirect(&quot;xx.jsp&quot;);
 
 页面转向时request和response的信息都丢失了，它是重新发起一个定向请求，和原先的没有关系了.
 由于它是新的定向请求，所以效率不高。页面转向可以用在同一个应用中，也可以用在不同应用中。也就是说redirect可以转到外部系统。
 
-1234response.sendRedirect(&quot;x">
+1234response.sendRedirect(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java.Web - 转向 转发 随笔">
 <meta property="og:url" content="http://gavinliu.cn/2012/04/08/JavaWeb---转向-转发-随笔/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description" content="一、页面转向页面转向可以调用函数：1response.sendRedirect(&quot;xx.jsp&quot;);
+<meta property="og:description" content="##一、页面转向页面转向可以调用函数：1response.sendRedirect(&quot;xx.jsp&quot;);
 
 页面转向时request和response的信息都丢失了，它是重新发起一个定向请求，和原先的没有关系了.
 由于它是新的定向请求，所以效率不高。页面转向可以用在同一个应用中，也可以用在不同应用中。也就是说redirect可以转到外部系统。
 
-1234response.sendRedirect(&quot;x">
+1234response.sendRedirect(">
 <meta property="og:updated_time" content="2015-04-13T14:55:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java.Web - 转向 转发 随笔">
-<meta name="twitter:description" content="一、页面转向页面转向可以调用函数：1response.sendRedirect(&quot;xx.jsp&quot;);
+<meta name="twitter:description" content="##一、页面转向页面转向可以调用函数：1response.sendRedirect(&quot;xx.jsp&quot;);
 
 页面转向时request和response的信息都丢失了，它是重新发起一个定向请求，和原先的没有关系了.
 由于它是新的定向请求，所以效率不高。页面转向可以用在同一个应用中，也可以用在不同应用中。也就是说redirect可以转到外部系统。
 
-1234response.sendRedirect(&quot;x">
+1234response.sendRedirect(">
 
 
 
@@ -394,13 +394,13 @@
       
 
       
-        <h2 id="一、页面转向">一、页面转向</h2><p>页面转向可以调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);</span><br></pre></td></tr></table></figure></p>
+        <p>##一、页面转向<br>页面转向可以调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);</div></pre></td></tr></table></figure></p>
 <ul>
 <li>页面转向时request和response的信息都丢失了，它是重新发起一个定向请求，和原先的没有关系了.</li>
 <li>由于它是新的定向请求，所以效率不高。页面转向可以用在同一个应用中，也可以用在不同应用中。也就是说redirect可以转到外部系统。</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);  </span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">response.setStatus(<span class="number">302</span>);</span><br><span class="line">response.setHeader(<span class="string">"Location"</span>,<span class="string">"xx.jsp"</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="二、页面转发">二、页面转发</h2><p>页面转发调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestDispatcher(<span class="string">"xx.jsp"</span>).forward(request,response);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);  </div><div class="line"><span class="comment">// 等同于</span></div><div class="line">response.setStatus(<span class="number">302</span>);</div><div class="line">response.setHeader(<span class="string">"Location"</span>,<span class="string">"xx.jsp"</span>);</div></pre></td></tr></table></figure>
+<p>##二、页面转发<br>页面转发调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">request.getRequestDispatcher(<span class="string">"xx.jsp"</span>).forward(request,response);</div></pre></td></tr></table></figure></p>
 <ul>
 <li>页面转发效率高，同时request中的对象还可以在下一页面使用</li>
 <li><p>注：转发不能转发到本web服务器以外的地址</p>
@@ -408,7 +408,7 @@
 <li><p>转发：指一个web资源收到客户端请求，通知服务器去调用另外一个web资源进行处理。</p>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取username 的值</span></span><br><span class="line">String u = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line"><span class="comment">// 设置request的属性</span></span><br><span class="line">request.setAttribute(<span class="string">"username"</span>,u);</span><br><span class="line"><span class="comment">// 使用转发的方法，把 request,response对象转发个下一个页面</span></span><br><span class="line"><span class="comment">// 所以下一个页面和上一个页面用的是同一个  request,response对象 ，可以获取相应的值</span></span><br><span class="line">request.getRequestDispatcher(<span class="string">"/servlet2"</span>).forward(request,response);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取username 的值</span></div><div class="line">String u = request.getParameter(<span class="string">"username"</span>);</div><div class="line"><span class="comment">// 设置request的属性</span></div><div class="line">request.setAttribute(<span class="string">"username"</span>,u);</div><div class="line"><span class="comment">// 使用转发的方法，把 request,response对象转发个下一个页面</span></div><div class="line"><span class="comment">// 所以下一个页面和上一个页面用的是同一个  request,response对象 ，可以获取相应的值</span></div><div class="line">request.getRequestDispatcher(<span class="string">"/servlet2"</span>).forward(request,response);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -540,7 +540,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -557,7 +557,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -613,7 +613,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、页面转向"><span class="nav-number">1.</span> <span class="nav-text">一、页面转向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、页面转发"><span class="nav-number">2.</span> <span class="nav-text">二、页面转发</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

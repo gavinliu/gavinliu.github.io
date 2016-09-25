@@ -86,15 +86,12 @@
 
 
 
-<meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gavin.Liu">
 <meta property="og:url" content="http://gavinliu.cn/page/9/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gavin.Liu">
-<meta name="twitter:description">
 
 
 
@@ -149,7 +146,7 @@
   
 
   <div class="container one-collumn sidebar-position-left 
-  
+   page-home 
  ">
     <div class="headband"></div>
 
@@ -310,6 +307,130 @@
             
               
                 
+                <a class="post-title-link" href="/2015/05/12/编程技巧-神奇的1-2-4-8和按位运算符/" itemprop="url">
+                  编程技巧 - 神奇的1,2,4,8和按位运算符
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-05-12T16:05:39+08:00" content="2015-05-12">
+              2015-05-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/编程技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">编程技巧</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/12/编程技巧-神奇的1-2-4-8和按位运算符/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/12/编程技巧-神奇的1-2-4-8和按位运算符/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在编程过程中发现有很多源码里面会定义1,2,4,8等这样的常量,比如说Android的ActionBar关于显示的常量:</p>
+<figure class="highlight java"><figcaption><span>android.app.ActionBar</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_USE_LOGO = <span class="number">0x1</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_SHOW_HOME = <span class="number">0x2</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_HOME_AS_UP = <span class="number">0x4</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DISPLAY_SHOW_TITLE = <span class="number">0x8</span>;</div></pre></td></tr></table></figure>
+<p>为什么会这样设计呢?下面告诉你.
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/12/编程技巧-神奇的1-2-4-8和按位运算符/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/05/08/Android-开源库EventCast/" itemprop="url">
                   Android - 开源库EventCast
                 </a>
@@ -379,7 +500,7 @@
 
       
         
-          <h2 id="概述">概述</h2><p><a href="https://github.com/gavinliu/EventCast">EventCast</a>是一个事件分发的开源库, GitHub中也有很多类似的库, 比如<a href="https://github.com/greenrobot/EventBus">EventBus</a>, <a href="https://github.com/square/otto">otto</a>, <a href="https://github.com/bboyfeiyu/AndroidEventBus">AndroidEventBus</a>, 但是还是觉得自己写的比较顺手, 所以产生了EventCast. </p>
+          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p><a href="https://github.com/gavinliu/EventCast">EventCast</a>是一个事件分发的开源库, GitHub中也有很多类似的库, 比如<a href="https://github.com/greenrobot/EventBus">EventBus</a>, <a href="https://github.com/square/otto">otto</a>, <a href="https://github.com/bboyfeiyu/AndroidEventBus">AndroidEventBus</a>, 但是还是觉得自己写的比较顺手, 所以产生了EventCast. </p>
 <p><code>AndroidEventBus</code>是<code>EventBus</code>和<code>otto</code>合并的产物, <code>EventCast</code>也借鉴<code>AndroidEventBus</code>些代码, 和他们不同的是:</p>
 <ol>
 <li>支持多参数传递</li>
@@ -506,8 +627,8 @@
 
       
         
-          <p>1.手动设置横竖屏<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);</span><br></pre></td></tr></table></figure></p>
-<p>2.暂时性设置隐藏StatusBar,点击屏幕后会再次出现,可用于全屏播放视频的时候.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">View.setSystemUiVisibility(<span class="keyword">int</span> visibility)</span><br></pre></td></tr></table></figure></p>
+          <p>1.手动设置横竖屏<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getActivity().setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);</div></pre></td></tr></table></figure></p>
+<p>2.暂时性设置隐藏StatusBar,点击屏幕后会再次出现,可用于全屏播放视频的时候.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">View.setSystemUiVisibility(<span class="keyword">int</span> visibility)</div></pre></td></tr></table></figure></p>
 <ol>
 <li>View.SYSTEM_UI_FLAG_VISIBLE：显示状态栏，Activity不全屏显示(恢复到有状态的正常情况)。</li>
 <li>View.INVISIBLE：隐藏状态栏，同时Activity会伸展全屏显示。</li>
@@ -759,11 +880,11 @@
 
       
         
-          <h2 id="简介">简介</h2><blockquote>
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
 <p>An annotation is a form of metadata, that can be added to Java source code. Classes, methods, variables, parameters and packages may be annotated. Annotations have no direct effect on the operation of the code they annotate.</p>
 </blockquote>
 <p>能够添加到 Java 源代码的语法元数据。类、方法、变量、参数、包都可以被注解，可用来将信息元数据与程序元素进行关联。Annotation 中文常译为“注解”。</p>
-<h3 id="Meta_Annotation（元注解）">Meta Annotation（元注解）</h3><table>
+<h3 id="Meta-Annotation（元注解）"><a href="#Meta-Annotation（元注解）" class="headerlink" title="Meta Annotation（元注解）"></a>Meta Annotation（元注解）</h3><table>
 <thead>
 <tr>
 <th>创建新注解时需要的注解</th>
@@ -791,135 +912,6 @@
 </table>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/04/12/Java-Annotation-使用注解让你的程序更高级/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/" itemprop="url">
-                  Android - 高仿Morning Routine中的PagerIndicator之动画实现
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-04-09T22:40:01+08:00" content="2015-04-09">
-              2015-04-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><a href="/2015/03/30/Android-Animation-贝塞尔曲线之美/#一种ViewPager指示器的实现">Android - Animation 贝塞尔曲线之美</a>中提到了PagerIndicator的绘制，这篇博客继续分析下动画应该如何实现。</p>
-<h2 id="Property_Animation_分析">Property Animation 分析</h2><p>顾名思义，要实现属性动画，首先要对属性进行分析，然后对动画做分析。</p>
-<h3 id="属性分析">属性分析</h3><blockquote>
-<p>在这个PagerIndicator动画中，我们可以看出有两个圆，就有圆的<code>坐标点</code>和<code>半径</code>这两个属性，还有颜色的变化，所以<code>颜色</code>也是个属性。</p>
-</blockquote>
-<h3 id="动画分析">动画分析</h3><blockquote>
-<p>在这个PagerIndicator动画中，我们可以知道两个圆的动画起点和终点都是一样的，要实现这样一前一后的效果，肯定一个圆是加速，一个圆是减速，所以我们要使用的<code>AccelerateInterpolator</code>和<code>DecelerateInterpolator</code>这两个插值器。</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -994,7 +986,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1011,7 +1003,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

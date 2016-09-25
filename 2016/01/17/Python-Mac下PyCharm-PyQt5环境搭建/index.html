@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Mac,PyCharm,PyQt5,Python,环境搭建," />
+  <meta name="keywords" content="Mac,环境搭建,Python,PyQt5,PyCharm," />
 
 
 
@@ -116,6 +116,7 @@ PyCharm">
 
 PyQt5
 PyCharm">
+<meta name="twitter:image" content="http://gavinliu.cn/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建1.png">
 
 
 
@@ -406,8 +407,8 @@ PyCharm">
 <li><a href="http://www.jetbrains.com/pycharm/download/" target="_blank" rel="external">PyCharm</a></li>
 </ol>
 <a id="more"></a>
-<h2 id="PyQt5">PyQt5</h2><p>首先需要提前装好PyQt5，可参考：<a href="/2016/01/16/Python-Mac下PyQt5环境搭建/">Python - Mac下PyQt5环境搭建</a></p>
-<h2 id="PyCharm">PyCharm</h2><h3 id="配置_QtDesigner">配置 QtDesigner</h3><p>这是个Qt的界面可视化工具，可以很方便的设计UI，所见即所得。Designer的位置<code>Qt-5.5.1/5.5/clang_64/bin/Designer.app</code>，我们可以在PyCharm中配置Designer的路径，这样就可以在PyCharm中快速启动Designer了。</p>
+<h2 id="PyQt5"><a href="#PyQt5" class="headerlink" title="PyQt5"></a>PyQt5</h2><p>首先需要提前装好PyQt5，可参考：<a href="/2016/01/16/Python-Mac下PyQt5环境搭建/">Python - Mac下PyQt5环境搭建</a></p>
+<h2 id="PyCharm"><a href="#PyCharm" class="headerlink" title="PyCharm"></a>PyCharm</h2><h3 id="配置-QtDesigner"><a href="#配置-QtDesigner" class="headerlink" title="配置 QtDesigner"></a>配置 QtDesigner</h3><p>这是个Qt的界面可视化工具，可以很方便的设计UI，所见即所得。Designer的位置<code>Qt-5.5.1/5.5/clang_64/bin/Designer.app</code>，我们可以在PyCharm中配置Designer的路径，这样就可以在PyCharm中快速启动Designer了。</p>
 <ol>
 <li>打开 PyCharm 的设置</li>
 <li>找到 Tools -&gt; External Tools</li>
@@ -415,28 +416,28 @@ PyCharm">
 <li>配置如下图</li>
 </ol>
 <p><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建2.png" alt=""></p>
-<h3 id="配置_PyUIC">配置 PyUIC</h3><p>这个工具可以把Qt Designer的UI文件，转换成Py文件，这是个命令行工具。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.</span><br></pre></td></tr></table></figure>
+<h3 id="配置-PyUIC"><a href="#配置-PyUIC" class="headerlink" title="配置 PyUIC"></a>配置 PyUIC</h3><p>这个工具可以把Qt Designer的UI文件，转换成Py文件，这是个命令行工具。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python -m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.</div></pre></td></tr></table></figure>
 <ol>
 <li>打开 PyCharm 的设置</li>
 <li>找到 Tools -&gt; External Tools</li>
 <li>点击 + -&gt; Create Tool</li>
 <li><p>Parameters：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.</div></pre></td></tr></table></figure>
 </li>
 <li><p>配置如下图</p>
 </li>
 </ol>
 <p><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建3.png" alt=""></p>
-<h3 id="使用">使用</h3><p>右键菜单中选择 External Tools 即可</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>右键菜单中选择 External Tools 即可</p>
 <p><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建4.png" alt=""></p>
-<h2 id="使用_QtDesigner_做一个窗体程序">使用 QtDesigner 做一个窗体程序</h2><h3 id="打开QtDesigner">打开QtDesigner</h3><p>设计一个最简单的窗体，放置一个Lable控件</p>
+<h2 id="使用-QtDesigner-做一个窗体程序"><a href="#使用-QtDesigner-做一个窗体程序" class="headerlink" title="使用 QtDesigner 做一个窗体程序"></a>使用 QtDesigner 做一个窗体程序</h2><h3 id="打开QtDesigner"><a href="#打开QtDesigner" class="headerlink" title="打开QtDesigner"></a>打开QtDesigner</h3><p>设计一个最简单的窗体，放置一个Lable控件</p>
 <p><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建5.png" alt=""></p>
-<h3 id="转换成_Py">转换成 Py</h3><p><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建6.png" alt=""><br><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建7.png" alt=""></p>
+<h3 id="转换成-Py"><a href="#转换成-Py" class="headerlink" title="转换成 Py"></a>转换成 Py</h3><p><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建6.png" alt=""><br><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建7.png" alt=""></p>
 <p>HelloWorld.ui -&gt; HelloWorld.py</p>
-<figure class="highlight python"><figcaption><span>HelloWorld.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Form implementation generated from reading ui file 'HelloWorld.ui'</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Created by: PyQt5 UI code generator 5.5.1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># WARNING! All changes made in this file will be lost!</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PyQt5 <span class="keyword">import</span> QtCore, QtGui, QtWidgets</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ui_MainWindow</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setupUi</span><span class="params">(self, MainWindow)</span>:</span></span><br><span class="line">        MainWindow.setObjectName(<span class="string">"MainWindow"</span>)</span><br><span class="line">        MainWindow.resize(<span class="number">640</span>, <span class="number">480</span>)</span><br><span class="line">        self.centralwidget = QtWidgets.QWidget(MainWindow)</span><br><span class="line">        self.centralwidget.setObjectName(<span class="string">"centralwidget"</span>)</span><br><span class="line">        self.label = QtWidgets.QLabel(self.centralwidget)</span><br><span class="line">        self.label.setGeometry(QtCore.QRect(<span class="number">260</span>, <span class="number">180</span>, <span class="number">81</span>, <span class="number">21</span>))</span><br><span class="line">        self.label.setObjectName(<span class="string">"label"</span>)</span><br><span class="line">        MainWindow.setCentralWidget(self.centralwidget)</span><br><span class="line">        self.menubar = QtWidgets.QMenuBar(MainWindow)</span><br><span class="line">        self.menubar.setGeometry(QtCore.QRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">640</span>, <span class="number">22</span>))</span><br><span class="line">        self.menubar.setObjectName(<span class="string">"menubar"</span>)</span><br><span class="line">        MainWindow.setMenuBar(self.menubar)</span><br><span class="line"></span><br><span class="line">        self.retranslateUi(MainWindow)</span><br><span class="line">        QtCore.QMetaObject.connectSlotsByName(MainWindow)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">retranslateUi</span><span class="params">(self, MainWindow)</span>:</span></span><br><span class="line">        _translate = QtCore.QCoreApplication.translate</span><br><span class="line">        MainWindow.setWindowTitle(_translate(<span class="string">"MainWindow"</span>, <span class="string">"MainWindow"</span>))</span><br><span class="line">        self.label.setText(_translate(<span class="string">"MainWindow"</span>, <span class="string">"Hello, World"</span>))</span><br></pre></td></tr></table></figure>
-<h3 id="编写_main-py">编写 main.py</h3><figure class="highlight python"><figcaption><span>main.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> HelloWorld</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QApplication, QMainWindow</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app = QApplication(sys.argv)</span><br><span class="line">    MainWindow = QMainWindow()</span><br><span class="line"></span><br><span class="line">    ui = HelloWorld.Ui_MainWindow()</span><br><span class="line">    ui.setupUi(MainWindow)</span><br><span class="line"></span><br><span class="line">    MainWindow.show()</span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
-<h3 id="运行">运行</h3><p><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建8.png" alt=""></p>
+<figure class="highlight python"><figcaption><span>HelloWorld.py</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="comment"># Form implementation generated from reading ui file 'HelloWorld.ui'</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Created by: PyQt5 UI code generator 5.5.1</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># WARNING! All changes made in this file will be lost!</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> PyQt5 <span class="keyword">import</span> QtCore, QtGui, QtWidgets</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ui_MainWindow</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">setupUi</span><span class="params">(self, MainWindow)</span>:</span></div><div class="line">        MainWindow.setObjectName(<span class="string">"MainWindow"</span>)</div><div class="line">        MainWindow.resize(<span class="number">640</span>, <span class="number">480</span>)</div><div class="line">        self.centralwidget = QtWidgets.QWidget(MainWindow)</div><div class="line">        self.centralwidget.setObjectName(<span class="string">"centralwidget"</span>)</div><div class="line">        self.label = QtWidgets.QLabel(self.centralwidget)</div><div class="line">        self.label.setGeometry(QtCore.QRect(<span class="number">260</span>, <span class="number">180</span>, <span class="number">81</span>, <span class="number">21</span>))</div><div class="line">        self.label.setObjectName(<span class="string">"label"</span>)</div><div class="line">        MainWindow.setCentralWidget(self.centralwidget)</div><div class="line">        self.menubar = QtWidgets.QMenuBar(MainWindow)</div><div class="line">        self.menubar.setGeometry(QtCore.QRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">640</span>, <span class="number">22</span>))</div><div class="line">        self.menubar.setObjectName(<span class="string">"menubar"</span>)</div><div class="line">        MainWindow.setMenuBar(self.menubar)</div><div class="line"></div><div class="line">        self.retranslateUi(MainWindow)</div><div class="line">        QtCore.QMetaObject.connectSlotsByName(MainWindow)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">retranslateUi</span><span class="params">(self, MainWindow)</span>:</span></div><div class="line">        _translate = QtCore.QCoreApplication.translate</div><div class="line">        MainWindow.setWindowTitle(_translate(<span class="string">"MainWindow"</span>, <span class="string">"MainWindow"</span>))</div><div class="line">        self.label.setText(_translate(<span class="string">"MainWindow"</span>, <span class="string">"Hello, World"</span>))</div></pre></td></tr></table></figure>
+<h3 id="编写-main-py"><a href="#编写-main-py" class="headerlink" title="编写 main.py"></a>编写 main.py</h3><figure class="highlight python"><figcaption><span>main.py</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">import</span> HelloWorld</div><div class="line"></div><div class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QApplication, QMainWindow</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    app = QApplication(sys.argv)</div><div class="line">    MainWindow = QMainWindow()</div><div class="line"></div><div class="line">    ui = HelloWorld.Ui_MainWindow()</div><div class="line">    ui.setupUi(MainWindow)</div><div class="line"></div><div class="line">    MainWindow.show()</div><div class="line">    sys.exit(app.exec_())</div></pre></td></tr></table></figure>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p><img src="/images/2016.01.17 - Python-Mac下PyCharm-PyQt5环境搭建8.png" alt=""></p>
 
       
     </div>
@@ -460,13 +461,13 @@ PyCharm">
           
             <a href="/tags/Mac/" rel="tag">#Mac</a>
           
-            <a href="/tags/PyCharm/" rel="tag">#PyCharm</a>
-          
-            <a href="/tags/PyQt5/" rel="tag">#PyQt5</a>
+            <a href="/tags/环境搭建/" rel="tag">#环境搭建</a>
           
             <a href="/tags/Python/" rel="tag">#Python</a>
           
-            <a href="/tags/环境搭建/" rel="tag">#环境搭建</a>
+            <a href="/tags/PyQt5/" rel="tag">#PyQt5</a>
+          
+            <a href="/tags/PyCharm/" rel="tag">#PyCharm</a>
           
         </div>
       
@@ -576,7 +577,7 @@ PyCharm">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -593,7 +594,7 @@ PyCharm">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -649,7 +650,7 @@ PyCharm">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PyQt5"><span class="nav-number">1.</span> <span class="nav-text">PyQt5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PyCharm"><span class="nav-number">2.</span> <span class="nav-text">PyCharm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置_QtDesigner"><span class="nav-number">2.1.</span> <span class="nav-text">配置 QtDesigner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置_PyUIC"><span class="nav-number">2.2.</span> <span class="nav-text">配置 PyUIC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.3.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用_QtDesigner_做一个窗体程序"><span class="nav-number">3.</span> <span class="nav-text">使用 QtDesigner 做一个窗体程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开QtDesigner"><span class="nav-number">3.1.</span> <span class="nav-text">打开QtDesigner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换成_Py"><span class="nav-number">3.2.</span> <span class="nav-text">转换成 Py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写_main-py"><span class="nav-number">3.3.</span> <span class="nav-text">编写 main.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-number">3.4.</span> <span class="nav-text">运行</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PyQt5"><span class="nav-number">1.</span> <span class="nav-text">PyQt5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PyCharm"><span class="nav-number">2.</span> <span class="nav-text">PyCharm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-QtDesigner"><span class="nav-number">2.1.</span> <span class="nav-text">配置 QtDesigner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置-PyUIC"><span class="nav-number">2.2.</span> <span class="nav-text">配置 PyUIC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">2.3.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-QtDesigner-做一个窗体程序"><span class="nav-number">3.</span> <span class="nav-text">使用 QtDesigner 做一个窗体程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开QtDesigner"><span class="nav-number">3.1.</span> <span class="nav-text">打开QtDesigner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换成-Py"><span class="nav-number">3.2.</span> <span class="nav-text">转换成 Py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写-main-py"><span class="nav-number">3.3.</span> <span class="nav-text">编写 main.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-number">3.4.</span> <span class="nav-text">运行</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

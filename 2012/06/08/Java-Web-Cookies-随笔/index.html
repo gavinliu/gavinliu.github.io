@@ -86,16 +86,16 @@
 
 
 
-<meta name="description" content="Cookie1234567891011121314// 创建cookie(name, value)Cookie cookie = new Cookie(&quot;username&quot;,&quot;admin&quot;);// 设置cookie生命周期(如果没有设置，则关闭浏览器cookie消失)cookie.setMaxAge(3200);// 把cookie信息回写个浏览器response.addCookie(cookie">
+<meta name="description" content="Cookie1234567891011121314// 创建cookie(name, value)Cookie cookie = new Cookie(&quot;username&quot;,&quot;admin&quot;);// 设置cookie生命周期(如果没有设置，则关闭浏览器cookie消失)cookie.setMaxAge(3200);// 把cookie信息回写个浏览器response.addCookie(cooki">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java.Web - Cookies 随笔">
 <meta property="og:url" content="http://gavinliu.cn/2012/06/08/Java-Web-Cookies-随笔/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description" content="Cookie1234567891011121314// 创建cookie(name, value)Cookie cookie = new Cookie(&quot;username&quot;,&quot;admin&quot;);// 设置cookie生命周期(如果没有设置，则关闭浏览器cookie消失)cookie.setMaxAge(3200);// 把cookie信息回写个浏览器response.addCookie(cookie">
+<meta property="og:description" content="Cookie1234567891011121314// 创建cookie(name, value)Cookie cookie = new Cookie(&quot;username&quot;,&quot;admin&quot;);// 设置cookie生命周期(如果没有设置，则关闭浏览器cookie消失)cookie.setMaxAge(3200);// 把cookie信息回写个浏览器response.addCookie(cooki">
 <meta property="og:updated_time" content="2015-04-13T14:55:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java.Web - Cookies 随笔">
-<meta name="twitter:description" content="Cookie1234567891011121314// 创建cookie(name, value)Cookie cookie = new Cookie(&quot;username&quot;,&quot;admin&quot;);// 设置cookie生命周期(如果没有设置，则关闭浏览器cookie消失)cookie.setMaxAge(3200);// 把cookie信息回写个浏览器response.addCookie(cookie">
+<meta name="twitter:description" content="Cookie1234567891011121314// 创建cookie(name, value)Cookie cookie = new Cookie(&quot;username&quot;,&quot;admin&quot;);// 设置cookie生命周期(如果没有设置，则关闭浏览器cookie消失)cookie.setMaxAge(3200);// 把cookie信息回写个浏览器response.addCookie(cooki">
 
 
 
@@ -380,11 +380,11 @@
 
       
         <ul>
-<li><h2 id="Cookie">Cookie</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建cookie(name, value)</span></span><br><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"username"</span>,<span class="string">"admin"</span>);</span><br><span class="line"><span class="comment">// 设置cookie生命周期(如果没有设置，则关闭浏览器cookie消失)</span></span><br><span class="line">cookie.setMaxAge(<span class="number">3200</span>);</span><br><span class="line"><span class="comment">// 把cookie信息回写个浏览器</span></span><br><span class="line">response.addCookie(cookie);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取cookie</span></span><br><span class="line"><span class="comment">// 获取所有cookie</span></span><br><span class="line">Cookie cookies[] = <span class="keyword">new</span> request.getCookies();</span><br><span class="line"><span class="comment">// 筛选</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; cookies.length; i++)&#123;</span><br><span class="line">    Cookie cookie = cookies[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 创建cookie(name, value)</span></div><div class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"username"</span>,<span class="string">"admin"</span>);</div><div class="line"><span class="comment">// 设置cookie生命周期(如果没有设置，则关闭浏览器cookie消失)</span></div><div class="line">cookie.setMaxAge(<span class="number">3200</span>);</div><div class="line"><span class="comment">// 把cookie信息回写个浏览器</span></div><div class="line">response.addCookie(cookie);</div><div class="line"></div><div class="line"><span class="comment">// 读取cookie</span></div><div class="line"><span class="comment">// 获取所有cookie</span></div><div class="line">Cookie cookies[] = <span class="keyword">new</span> request.getCookies();</div><div class="line"><span class="comment">// 筛选</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; cookies.length; i++)&#123;</div><div class="line">    Cookie cookie = cookies[i];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
-<li><h2 id="Cookie存放中文，把中文转成base64码">Cookie存放中文，把中文转成base64码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String username = java.net.URLEncoder.encode(<span class="string">"刘云龙"</span>,<span class="string">"UTF-8"</span>);</span><br><span class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"username"</span>,username);</span><br><span class="line">cookie.setMaxAge(<span class="number">3200</span>);</span><br><span class="line">response.addCookie(cookie);</span><br></pre></td></tr></table></figure>
+<li><h2 id="Cookie存放中文，把中文转成base64码"><a href="#Cookie存放中文，把中文转成base64码" class="headerlink" title="Cookie存放中文，把中文转成base64码"></a>Cookie存放中文，把中文转成base64码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">String username = java.net.URLEncoder.encode(<span class="string">"刘云龙"</span>,<span class="string">"UTF-8"</span>);</div><div class="line">Cookie cookie = <span class="keyword">new</span> Cookie(<span class="string">"username"</span>,username);</div><div class="line">cookie.setMaxAge(<span class="number">3200</span>);</div><div class="line">response.addCookie(cookie);</div></pre></td></tr></table></figure>
 </li>
-<li><h2 id="Cookie读取中文，把base64码转成中文">Cookie读取中文，把base64码转成中文</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String username = java.net.URLDecoder.decode(cookie.getValue(),<span class="string">"UTF-8"</span>);</span><br></pre></td></tr></table></figure>
+<li><h2 id="Cookie读取中文，把base64码转成中文"><a href="#Cookie读取中文，把base64码转成中文" class="headerlink" title="Cookie读取中文，把base64码转成中文"></a>Cookie读取中文，把base64码转成中文</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String username = java.net.URLDecoder.decode(cookie.getValue(),<span class="string">"UTF-8"</span>);</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>1.如果cookie重名了，会被替换<br>2.cookie是明文存放，得加密存放</p>
@@ -520,7 +520,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -537,7 +537,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

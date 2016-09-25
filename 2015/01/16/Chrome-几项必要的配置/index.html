@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Chrome,环境搭建," />
+  <meta name="keywords" content="环境搭建,Chrome," />
 
 
 
@@ -369,21 +369,21 @@ manifest.json的内容如下
       
 
       
-        <h2 id="自定义Css">自定义Css</h2><ol>
+        <h2 id="自定义Css"><a href="#自定义Css" class="headerlink" title="自定义Css"></a>自定义Css</h2><ol>
 <li>新建一个文件夹，比如Custom CSS，包含Custom.css和manifest.json两个文件</li>
 <li><p>manifest.json的内容如下</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   "<span class="attribute">content_scripts</span>": <span class="value">[ &#123;</span><br><span class="line">      "<span class="attribute">css</span>": <span class="value">[<span class="string">"Custom.css"</span>]</span>,</span><br><span class="line">      "<span class="attribute">all_frames</span>": <span class="value"><span class="literal">true</span></span>,</span><br><span class="line">      "<span class="attribute">matches</span>": <span class="value">[ <span class="string">"http://*/*"</span>, <span class="string">"https://*/*"</span> ]</span><br><span class="line">   </span>&#125; ]</span>,</span><br><span class="line">   "<span class="attribute">description</span>": <span class="value"><span class="string">"Custom.css"</span></span>,</span><br><span class="line">   "<span class="attribute">name</span>": <span class="value"><span class="string">"Custom CSS"</span></span>,</span><br><span class="line">   "<span class="attribute">version</span>": <span class="value"><span class="string">"1.0"</span></span>,</span><br><span class="line">   "<span class="attribute">manifest_version</span>": <span class="value"><span class="number">2</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">   <span class="attr">"content_scripts"</span>: [ &#123;</div><div class="line">      <span class="attr">"css"</span>: [<span class="string">"Custom.css"</span>],</div><div class="line">      <span class="attr">"all_frames"</span>: <span class="literal">true</span>,</div><div class="line">      <span class="attr">"matches"</span>: [ <span class="string">"http://*/*"</span>, <span class="string">"https://*/*"</span> ]</div><div class="line">   &#125; ],</div><div class="line">   <span class="attr">"description"</span>: <span class="string">"Custom.css"</span>,</div><div class="line">   <span class="attr">"name"</span>: <span class="string">"Custom CSS"</span>,</div><div class="line">   <span class="attr">"version"</span>: <span class="string">"1.0"</span>,</div><div class="line">   <span class="attr">"manifest_version"</span>: <span class="number">2</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 <li><p>打开Chrome的扩展管理，选择打包扩展程序，扩展程序根目录选择Custom CSS文件夹，私有密匙文件不用管，然后选择打包扩展程序，生成Custom CSS.crx和Custom CSS.pem。</p>
 </li>
 <li>将Custom CSS.crx拖入扩展管理安装即可。</li>
 </ol>
-<h2 id="chrome://flags/">chrome://flags/</h2><ol>
+<h2 id="chrome-flags"><a href="#chrome-flags" class="headerlink" title="chrome://flags/"></a>chrome://flags/</h2><ol>
 <li>overlay-scrollbars : 使用自动收起的滚动条，不占用额外空间(全平台)</li>
 <li>enable-smooth-scrolling : 像Mac和手机一样平滑滚动(仅Linux可用)</li>
 <li>enable-download-resumption : 恢复下载</li>
 </ol>
-<h2 id="取消Flash_P2P上传功能">取消Flash P2P上传功能</h2><blockquote>
+<h2 id="取消Flash-P2P上传功能"><a href="#取消Flash-P2P上传功能" class="headerlink" title="取消Flash P2P上传功能"></a>取消Flash P2P上传功能</h2><blockquote>
 <p>国内的视频网站大都会P2P上传，往往会把上传带宽吃满，导致网络卡顿，可以把这个功能禁用掉</p>
 </blockquote>
 <ol>
@@ -413,9 +413,9 @@ manifest.json的内容如下
       
         <div class="post-tags">
           
-            <a href="/tags/Chrome/" rel="tag">#Chrome</a>
-          
             <a href="/tags/环境搭建/" rel="tag">#环境搭建</a>
+          
+            <a href="/tags/Chrome/" rel="tag">#Chrome</a>
           
         </div>
       
@@ -525,7 +525,7 @@ manifest.json的内容如下
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -542,7 +542,7 @@ manifest.json的内容如下
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -598,7 +598,7 @@ manifest.json的内容如下
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义Css"><span class="nav-number">1.</span> <span class="nav-text">自定义Css</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chrome://flags/"><span class="nav-number">2.</span> <span class="nav-text">chrome://flags/</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消Flash_P2P上传功能"><span class="nav-number">3.</span> <span class="nav-text">取消Flash P2P上传功能</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义Css"><span class="nav-number">1.</span> <span class="nav-text">自定义Css</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chrome-flags"><span class="nav-number">2.</span> <span class="nav-text">chrome://flags/</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取消Flash-P2P上传功能"><span class="nav-number">3.</span> <span class="nav-text">取消Flash P2P上传功能</span></a></li></ol></div>
             
           </div>
         </section>

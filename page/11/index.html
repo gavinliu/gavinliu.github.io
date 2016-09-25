@@ -86,15 +86,12 @@
 
 
 
-<meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gavin.Liu">
 <meta property="og:url" content="http://gavinliu.cn/page/11/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gavin.Liu">
-<meta name="twitter:description">
 
 
 
@@ -149,7 +146,7 @@
   
 
   <div class="container one-collumn sidebar-position-left 
-  
+   page-home 
  ">
     <div class="headband"></div>
 
@@ -310,6 +307,129 @@
             
               
                 
+                <a class="post-title-link" href="/2015/03/01/Android-Animation-基础扫盲/" itemprop="url">
+                  Android - Animation 基础扫盲
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-03-01T14:37:17+08:00" content="2015-03-01">
+              2015-03-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/03/01/Android-Animation-基础扫盲/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/01/Android-Animation-基础扫盲/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>原文：<a href="http://developer.android.com/guide/topics/graphics/index.html">http://developer.android.com/guide/topics/graphics/index.html</a><br>转载：<a href="http://www.cnblogs.com/angeldevil/archive/2011/12/02/2271096.html">http://www.cnblogs.com/angeldevil/archive/2011/12/02/2271096.html</a></p>
+<p>Android 3.0以前，支持两种动画模式 <code>Tween Animation</code> <code>Frame Animation</code>，在Android3.0中又引入了一个新的动画系统：<code>Property Animation</code>，这三种动画模式在新的SDK中被称为<code>Property Animation</code> <code>View Animation</code> <code>Drawable Animation</code>。 可通过NineOldAndroids项目在3.0之前的系统中使用<code>Property Animation</code>。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/03/01/Android-Animation-基础扫盲/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/02/02/Gradle-学习笔记-2-编译Java工程/" itemprop="url">
                   Gradle - 学习笔记(2) - 编译Java工程
                 </a>
@@ -380,7 +500,7 @@
       
         
           
-            <p>上一篇了解了下基本的Gradle脚本, 现在来编译一个Java工程<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">apply plugin: <span class="string">'java'</span></span><br><span class="line">apply plugin: <span class="string">'eclipse'</span></span><br><span class="line">jar &#123;</span><br><span class="line">    manifest &#123;</span><br><span class="line">        attributes <span class="string">'Main-Class'</span>: <span class="string">'Your MainClass'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    <span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">sourceSets</span> &#123;</span><br><span class="line">    main &#123;</span><br><span class="line">        java &#123;</span><br><span class="line">            srcDir <span class="string">'src'</span></span><br><span class="line">        &#125;</span><br><span class="line">        resources &#123;</span><br><span class="line">            srcDir <span class="string">'res'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <p>上一篇了解了下基本的Gradle脚本, 现在来编译一个Java工程<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">apply plugin: <span class="string">'java'</span></div><div class="line">apply plugin: <span class="string">'eclipse'</span></div><div class="line">jar &#123;</div><div class="line">    manifest &#123;</div><div class="line">        attributes <span class="string">'Main-Class'</span>: <span class="string">'Your MainClass'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">dependencies</span> &#123;</div><div class="line">    <span class="keyword">compile</span> <span class="keyword">fileTree</span>(dir: <span class="string">'libs'</span>, <span class="keyword">include</span>: [<span class="string">'*.jar'</span>])</div><div class="line">&#125;</div><div class="line"><span class="keyword">sourceSets</span> &#123;</div><div class="line">    main &#123;</div><div class="line">        java &#123;</div><div class="line">            srcDir <span class="string">'src'</span></div><div class="line">        &#125;</div><div class="line">        resources &#123;</div><div class="line">            srcDir <span class="string">'res'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><code>apply plugin</code> 增加插件, 由于我是用的eclipse工程就使用的eclipse插件,你也可以选择idea插件来编译idea的工程.<br><code>jar</code> 可以指定 生成的jar里面的参数<br><code>dependencies</code> 声明依赖<br><code>sourceSet</code> 可以指定源码的路径</p>
 
           
@@ -501,14 +621,14 @@
       
         
           
-            <p>新建一个文件夹, 在里面编辑 build.gradle<br><figure class="highlight gradle"><figcaption><span>doLast</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">task</span> hello &#123;</span><br><span class="line">    <span class="keyword">doLast</span> &#123;</span><br><span class="line">        <span class="keyword">println</span> <span class="string">'Hello world!'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
+            <p>新建一个文件夹, 在里面编辑 build.gradle<br><figure class="highlight gradle"><figcaption><span>doLast</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">task</span> hello &#123;</div><div class="line">    <span class="keyword">doLast</span> &#123;</div><div class="line">        <span class="keyword">println</span> <span class="string">'Hello world!'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gradle -q build</div><div class="line">Hello world!</div></pre></td></tr></table></figure>
 <hr>
-<figure class="highlight gradle"><figcaption><span>doLast的简化写法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">task</span> hello &lt;&lt; &#123;</span><br><span class="line">    <span class="keyword">println</span> <span class="string">'Hello world!'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
+<figure class="highlight gradle"><figcaption><span>doLast的简化写法</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">task</span> hello &lt;&lt; &#123;</div><div class="line">    <span class="keyword">println</span> <span class="string">'Hello world!'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gradle -q build</div><div class="line">Hello world!</div></pre></td></tr></table></figure>
 <hr>
-<figure class="highlight"><figcaption><span>Use String Lower&Upper</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">task string &#60;&#60; &#123;&#10;    String someString = &#34;mY_nAme&#34;&#10;    println &#34;Original: &#34; + someString&#10;    println &#34;Lower case: &#34; + someString.toLowerCase()&#10;    println &#34;Upper case: &#34; + someString.toUpperCase()&#10;&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>Use String Lower&Upper</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">task string &lt;&lt; &#123;</div><div class="line">    String someString = &quot;mY_nAme&quot;</div><div class="line">    println &quot;Original: &quot; + someString</div><div class="line">    println &quot;Lower case: &quot; + someString.toLowerCase()</div><div class="line">    println &quot;Upper case: &quot; + someString.toUpperCase()</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ gradle -q build</div><div class="line">Hello world!</div></pre></td></tr></table></figure>
 <hr>
 
           
@@ -630,29 +750,29 @@
         
           <p>Lollipop 中提供了Activitiy Transition可很方便的在两个Activity实现流畅的过渡效果, 可用来替代Activity Animation.</p>
 <ul>
-<li><h2 id="界面进入退出的过渡动画">界面进入退出的过渡动画</h2>Explode - 爆炸效果, 从界面中心向四周分散<br>Slide - 滑动效果, 从界面边缘滑动 通过Gravity配置上下左右<br>Fade - 渐变效果, 通过Visibility配置淡入淡出</li>
+<li>##界面进入退出的过渡动画<br>Explode - 爆炸效果, 从界面中心向四周分散<br>Slide - 滑动效果, 从界面边缘滑动 通过Gravity配置上下左右<br>Fade - 渐变效果, 通过Visibility配置淡入淡出</li>
 </ul>
 <p>上面三个类都在<code>android.transition</code>中, 你可以使用<code>Java</code> <code>XML</code> 两种方式来使用它</p>
 <ul>
 <li>Java</li>
 </ul>
-<figure class="highlight java"><figcaption><span>Activity</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);</span><br><span class="line">getWindow().setExitTransition(<span class="keyword">new</span> Explode());</span><br><span class="line">getWindow().setEnterTransition(<span class="keyword">new</span> Explode());</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>Activity</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);</div><div class="line">getWindow().setExitTransition(<span class="keyword">new</span> Explode());</div><div class="line">getWindow().setEnterTransition(<span class="keyword">new</span> Explode());</div></pre></td></tr></table></figure>
 <ul>
 <li>XML</li>
 </ul>
-<figure class="highlight xml"><figcaption><span>res/values/style.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">style</span> <span class="attribute">name</span>=<span class="value">"AppBase"</span> <span class="attribute">parent</span>=<span class="value">"android:Theme.Material"</span>&gt;</span><span class="css"></span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:windowContentTransitions"</span>&gt;<span class="tag">true</span>&lt;/<span class="tag">item</span>&gt;</span><br><span class="line">    &lt;<span class="tag">item</span> <span class="tag">name</span>="<span class="tag">android</span><span class="pseudo">:windowExitTransition"</span>&gt;<span class="at_rule">@<span class="keyword">transition/explode&lt;/item&gt;</span></span><br><span class="line">    &lt;item name=<span class="string">"android:windowEnterTransition"</span>&gt;@transition/explode&lt;/item&gt;</span><br><span class="line"></span></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight xml"><figcaption><span>res/transition/explode.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">explode</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><figcaption><span>res/values/style.xml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppBase"</span> <span class="attr">parent</span>=<span class="string">"android:Theme.Material"</span>&gt;</span><span class="xml"></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowContentTransitions"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowExitTransition"</span>&gt;</span>@transition/explode<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowEnterTransition"</span>&gt;</span>@transition/explode<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><figcaption><span>res/transition/explode.xml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">explode</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>/&gt;</span></div></pre></td></tr></table></figure>
 <ul>
 <li>同时也是支持动画合集</li>
 </ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">transitionSet</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">explode</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">transitionSet</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TransitionSet set = <span class="keyword">new</span> TransitionSet();</span><br><span class="line">set.addTransition(<span class="keyword">new</span> Explode());</span><br><span class="line">getWindow().setEnterTransition(set);</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">transitionSet</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">explode</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">transitionSet</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">TransitionSet set = <span class="keyword">new</span> TransitionSet();</div><div class="line">set.addTransition(<span class="keyword">new</span> Explode());</div><div class="line">getWindow().setEnterTransition(set);</div></pre></td></tr></table></figure>
 <ul>
 <li>使用Transition跳转Activity</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">intent.setClass(<span class="keyword">this</span>, TransitionDetilActivity.class);</span><br><span class="line">startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(<span class="keyword">this</span>).toBundle());</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">intent.setClass(<span class="keyword">this</span>, TransitionDetilActivity.class);</div><div class="line">startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(<span class="keyword">this</span>).toBundle());</div></pre></td></tr></table></figure>
 <ul>
-<li><h2 id="共享元素的过渡动画">共享元素的过渡动画</h2>changeBounds - 视图布局边界变化<br>changeClipBounds - 视图剪切边界变化<br>changeTransform - 视图缩放和旋转变化<br>changeImageTransform - 图片尺寸和缩放变化</li>
+<li>##共享元素的过渡动画<br>changeBounds - 视图布局边界变化<br>changeClipBounds - 视图剪切边界变化<br>changeTransform - 视图缩放和旋转变化<br>changeImageTransform - 图片尺寸和缩放变化</li>
 </ul>
 <p>上面四个类也是在<code>android.transition</code>中, 使用方法和上面大同小异<br>
           <div class="post-more-link text-center">
@@ -776,138 +896,15 @@
 
       
         
-          <h2 id="一、概述">一、概述</h2><p>Android 5.0支持了矢量图，采用SVG的方式</p>
-<h2 id="二、使用总概">二、使用总概</h2><p><img src="/images/2015.01.19 - Android---VectorDrawable&amp;AnimatedVectorDrawable1.png" alt="VectorDrawable"></p>
+          <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>Android 5.0支持了矢量图，采用SVG的方式</p>
+<p>##二、使用总概<br><img src="/images/2015.01.19 - Android---VectorDrawable&amp;AnimatedVectorDrawable1.png" alt="VectorDrawable"></p>
 <p><img src="/images/2015.01.19 - Android---VectorDrawable&amp;AnimatedVectorDrawable2.png" alt="AnimatedVectorDrawable"></p>
-<h3 id="1-VectorDrawable">1.VectorDrawable</h3><figure class="highlight xml"><figcaption><span>res/drawable/heart.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">vector</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span><br><span class="line">    <span class="attribute">android:height</span>=<span class="value">"256dp"</span></span><br><span class="line">    <span class="attribute">android:width</span>=<span class="value">"256dp"</span></span><br><span class="line">    <span class="attribute">android:viewportWidth</span>=<span class="value">"32"</span></span><br><span class="line">    <span class="attribute">android:viewportHeight</span>=<span class="value">"32"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="title">path</span> <span class="attribute">android:fillColor</span>=<span class="value">"#8fff"</span></span><br><span class="line">      <span class="attribute">android:pathData</span>=<span class="value">"M20.5,9.5 c-1.955,0,-3.83,1.268,-4.5,3 c-0.67,-1.732,-2.547,-3,-4.5,-3 C8.957,9.5,7,11.432,7,14 c0,3.53,3.793,6.257,9,11.5 c5.207,-5.242,9,-7.97,9,-11.5 C25,11.432,23.043,9.5,20.5,9.5z"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">vector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>###1.VectorDrawable<br><figure class="highlight xml"><figcaption><span>res/drawable/heart.xml</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">vector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:height</span>=<span class="string">"256dp"</span></div><div class="line">    <span class="attr">android:width</span>=<span class="string">"256dp"</span></div><div class="line">    <span class="attr">android:viewportWidth</span>=<span class="string">"32"</span></div><div class="line">    <span class="attr">android:viewportHeight</span>=<span class="string">"32"</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">android:fillColor</span>=<span class="string">"#8fff"</span></div><div class="line">      <span class="attr">android:pathData</span>=<span class="string">"M20.5,9.5 c-1.955,0,-3.83,1.268,-4.5,3 c-0.67,-1.732,-2.547,-3,-4.5,-3 C8.957,9.5,7,11.432,7,14 c0,3.53,3.793,6.257,9,11.5 c5.207,-5.242,9,-7.97,9,-11.5 C25,11.432,23.043,9.5,20.5,9.5z"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">vector</span>&gt;</span></div></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/01/16/Chrome-几项必要的配置/" itemprop="url">
-                  Chrome 几项必要的配置
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-01-16T15:00:08+08:00" content="2015-01-16">
-              2015-01-16
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/01/16/Chrome-几项必要的配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/16/Chrome-几项必要的配置/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="自定义Css">自定义Css</h2><ol>
-<li>新建一个文件夹，比如Custom CSS，包含Custom.css和manifest.json两个文件</li>
-<li><p>manifest.json的内容如下</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   "<span class="attribute">content_scripts</span>": <span class="value">[ &#123;</span><br><span class="line">      "<span class="attribute">css</span>": <span class="value">[<span class="string">"Custom.css"</span>]</span>,</span><br><span class="line">      "<span class="attribute">all_frames</span>": <span class="value"><span class="literal">true</span></span>,</span><br><span class="line">      "<span class="attribute">matches</span>": <span class="value">[ <span class="string">"http://*/*"</span>, <span class="string">"https://*/*"</span> ]</span><br><span class="line">   </span>&#125; ]</span>,</span><br><span class="line">   "<span class="attribute">description</span>": <span class="value"><span class="string">"Custom.css"</span></span>,</span><br><span class="line">   "<span class="attribute">name</span>": <span class="value"><span class="string">"Custom CSS"</span></span>,</span><br><span class="line">   "<span class="attribute">version</span>": <span class="value"><span class="string">"1.0"</span></span>,</span><br><span class="line">   "<span class="attribute">manifest_version</span>": <span class="value"><span class="number">2</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打开Chrome的扩展管理，选择打包扩展程序，扩展程序根目录选择Custom CSS文件夹，私有密匙文件不用管，然后选择打包扩展程序，生成Custom CSS.crx和Custom CSS.pem。</p>
-</li>
-<li>将Custom CSS.crx拖入扩展管理安装即可。</li>
-</ol>
-<h2 id="chrome://flags/">chrome://flags/</h2><ol>
-<li>overlay-scrollbars : 使用自动收起的滚动条，不占用额外空间(全平台)</li>
-<li>enable-smooth-scrolling : 像Mac和手机一样平滑滚动(仅Linux可用)</li>
-<li>enable-download-resumption : 恢复下载</li>
-</ol>
-<h2 id="取消Flash_P2P上传功能">取消Flash P2P上传功能</h2><blockquote>
-<p>国内的视频网站大都会P2P上传，往往会把上传带宽吃满，导致网络卡顿，可以把这个功能禁用掉</p>
-</blockquote>
-<ol>
-<li>打开<code>/Users/{}/Library/Application Support/Google/Chrome/Default/Pepper Data/Shockwave Flash</code> 目录</li>
-<li>在下面创建一个System的新目录，然后在里面创建一个mms.cfg文件</li>
-<li>写入 RTMFPP2PDisable=1</li>
-<li>保存，然后重启Chrome</li>
-</ol>
-
-          
         
       
     </div>
@@ -979,7 +976,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">94</span>
+              <span class="site-state-item-count">95</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -996,7 +993,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">71</span>
+                <span class="site-state-item-count">72</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
