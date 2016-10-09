@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="Gavin.Liu">
 <meta property="og:description" content="在自定义View中，大家都知道用下面的方式读取自定义属性
 1234567public class MyView &amp;#123;    public MyView(Context ctx, AttributeSet attrs) &amp;#123;        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.myvi">
-<meta property="og:updated_time" content="2016-09-25T14:22:13.000Z">
+<meta property="og:updated_time" content="2016-10-09T15:40:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android - 自定义View冷知识之读取系统属性(android命名空间)">
 <meta name="twitter:description" content="在自定义View中，大家都知道用下面的方式读取自定义属性
@@ -230,16 +230,6 @@
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-bookmark">
-          <a href="/bookmark" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br />
-            
-            书签
           </a>
         </li>
       
@@ -385,9 +375,10 @@
         <p>在自定义View中，大家都知道用下面的方式读取自定义属性</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyView</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyView</span><span class="params">(Context ctx, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.myview);</div><div class="line">        array.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>那么我们要怎么读取 <code>android</code> 命名空间下的属性呢？</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"100dp"</span> /&gt;</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>很容易想到的是去，既然自定义的样式在 <code>R.styleable</code> 这个包下面，那么系统的应该在 <code>android.R.styleable</code> ？ 很可惜，并没有这样的资源。</p>
-<h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p><code>R.styleable.myview</code> 其实是一个数组</p>
+<p>很容易想到的是，既然自定义的样式在 <code>R.styleable</code> 这个包下面，那么系统的应该在 <code>android.R.styleable</code> ？ 很可惜，并没有这样的资源。</p>
+<h3 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h3><p>通过读取自定义属性的代码可知 <code>R.styleable.myview</code> 其实是一个数组</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">declare-styleable</span> <span class="attr">name</span>=<span class="string">"myview"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"xx"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">declare-styleable</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>所以可以自己声明一个 styleable，把系统的属性组合起来</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span>[] styleable = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;</div><div class="line">    android.R.attr.layout_width,  <span class="comment">// index 0</span></div><div class="line">    android.R.attr.layout_height,  <span class="comment">// 1</span></div><div class="line">    android.R.attr.layout_margin,  <span class="comment">// 2</span></div><div class="line">    android.R.attr.padding  <span class="comment">// 3</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">TypedArray array = context.obtainStyledAttributes(attrs, styleable);</div><div class="line"><span class="keyword">int</span> n = array.getIndexCount();</div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</div><div class="line">    <span class="keyword">int</span> index = array.getIndex(i);</div><div class="line">    <span class="keyword">int</span> value = array.getDimensionPixelSize(index, <span class="number">0</span>);</div><div class="line">&#125;</div><div class="line">array.close();</div></pre></td></tr></table></figure>
@@ -395,7 +386,7 @@
 <h3 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h3><p>在自定义属性中添加属性，命名成 <code>android:xxx</code>，与系统重名，类型不用指定。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">declare-styleable</span> <span class="attr">name</span>=<span class="string">"myview"</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"android:layout_width"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"android:layout_height"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"android:layout_margin"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"android:padding"</span>/&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">declare-styleable</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.myview);</div><div class="line"><span class="keyword">int</span> width = array.getDimensionPixelSize(R.styleable.myview_android_layout_width, <span class="number">0</span>);</div><div class="line">array.close();</div></pre></td></tr></table></figure>
-<p>其实这样就可以读取到对应的值，与声明系统共用一个，但是读取并不冲突，强力推荐。</p>
+<p>其实这样就可以读取到对应的值，与声明系统共用一个，但是读取并不冲突，<strong>强力推荐</strong>。</p>
 
       
     </div>
@@ -435,6 +426,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/09/28/Android-自定义View冷知识之动态替换layout-xml中的View/" rel="prev" title="Android - 自定义View冷知识之动态替换layout.xml中的View">
+                Android - 自定义View冷知识之动态替换layout.xml中的View <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -525,7 +520,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">95</span>
+              <span class="site-state-item-count">96</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

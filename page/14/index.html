@@ -228,16 +228,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-bookmark">
-          <a href="/bookmark" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br />
-            
-            书签
-          </a>
-        </li>
-      
 
       
         <li class="menu-item menu-item-search">
@@ -285,6 +275,130 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/03/25/Android---让控件变得可拖拽/" itemprop="url">
+                  Android - 让控件变得可拖拽
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-03-25T18:48:00+08:00" content="2014-03-25">
+              2014-03-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/03/25/Android---让控件变得可拖拽/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/03/25/Android---让控件变得可拖拽/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>其实要实现拖拽的控件是非常简单的事情，和让控件支持点击一样简单！我们只需要实现<code>onDragEvent()</code> <code>dispatchDragEvent()</code> <code>setOnDragListener()</code>即可，是不是和触摸事件的回调差不多呢？(<code>onTouchEvent()</code> <code>dispatchTouchEvent()</code> <code>setOnTouchListener()</code>)</p>
+<p>我们可以通过<code>View.startDarg(ClipData data, DragShadowBuilder shadowBuilder, Object myLocalState, int flags)</code>来开始拖拽。<br>这里需要我们传入一个DragShadowBuilder对象，DragShadow就是拖拽阴影，会在你拖动的时候显示出来，<br>所以DragShadowBuilder有一个传View的构造函数-new DragShadowBuilder(View)。</p>
+<p><img src="/images/2014.03.25 - Android---让控件变得可拖拽.gif" alt="Drag"><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/03/25/Android---让控件变得可拖拽/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -782,131 +896,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2013/11/27/梦境/" itemprop="url">
-                  梦境
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-11-27T13:58:54+08:00" content="2013-11-27">
-              2013-11-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
-                    <span itemprop="name">刘说八道</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2013/11/27/梦境/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/11/27/梦境/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>X：去追那个女孩子吧，那是你的爱情！<br>Y：爱情？你是在说笑吗？难道你要我抛下家的责任和同伴的重托去追寻那随时会随风而散留下我孤独一人的爱情吗？！<br>X：始终都得有个替代不是么？难道就这样一辈子和自己的精神在一起？这样我们的孩子不一样会怪罪我们吗？<br>Y：逝去的一切都将以另外的方式又回到未来的另一个点…爱情也会，况且这不是爱情，或者说只是因为周遭太热闹反而更显寂寞罢了。<br>X：就这样和我在一起一辈子？没有人牵手，没有人拥抱，没有人亲吻，只会有淡淡的关心，这样的生活 是孤独的，你不会喜欢的。<br>Y：现实与梦的区别在于梦不被他人认同。可是认同与不认同又有什么关系？一人生，一人死，路上遇见很多人，都无法走过一生,可是自己却可以，如果只是需要的话，那么一个人也没什么不好。<br>X：记得你说爱情是如死寂一般的黑色，我却觉得更像是夜空。像是夜的羽翼铺洒在空中拥抱了你我，轻抚你我的眼眸使你我安眠，也悄悄溜进你我的生命将爱情渲染，世人总认为爱情是彩色的，却毫不知万般缤纷交错之下的正是这夜色…<br>Y：于是我们就在此夜色月光下澈之时，一起散步、聊天、思考…忽然间也像是情侣、朋友、同伴…<br>X：于是我们正是在此时此刻，一起牵手、拥抱、自顾自的疯狂…书写了回忆，赶走了寂寞。<br>Y：可是你，我也同样也明白命运所指的未来，也明白家庭的责任，也明白同伴的托付。<br>X：所以依然劝阻你，为了这镜花水月般的思绪而坠落于自身所建的牢笼，同样是侮辱了时间和我。<br>Y：会孤独吗？<br>X：他们不是在吗？<br>Y：会痛苦吗？<br>X：不是有我吗？<br>Y：那还有什么我会惧怕的？<br>X：是啊，应该是没有什么需要惧怕的了，所以，不需要。<br>Y：如果有人会在电话里叫我一声亲爱的，那该多幸福？<br>X：我不是一直都叫着‘龙’吗？<br>Y：可是你叫了也只有我听见了呢。<br>X：是只有你能听见我的声音，但是我也没打算叫别人呢，不是吗？亦或是你只是为了虚荣？<br>Y：好，我明白了，我会记住的，我还有些事，我要去忙了，先起来了。<br>X：照顾好自己就好，不要去管其他人，因为你就算你做了好事我也看不见，我只会看到你的悲伤和疲惫…  </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/19/">19</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -947,7 +941,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">95</span>
+              <span class="site-state-item-count">96</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
