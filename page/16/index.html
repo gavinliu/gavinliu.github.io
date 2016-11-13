@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android, Java.Web, " />
@@ -79,19 +79,22 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.2" />
 
 
 
 
 
 
+<meta name="description" content="刘云龙的程序世界">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gavin.Liu">
 <meta property="og:url" content="http://gavinliu.cn/page/16/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
+<meta property="og:description" content="刘云龙的程序世界">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gavin.Liu">
+<meta name="twitter:description" content="刘云龙的程序世界">
 
 
 
@@ -103,7 +106,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: '0',
       author: '博主'
     }
   };
@@ -114,10 +117,11 @@
 
   <link rel="canonical" href="http://gavinliu.cn/page/16/"/>
 
+
   <title> Gavin.Liu </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -150,7 +154,7 @@
  ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -182,8 +186,6 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
             首页
           </a>
         </li>
@@ -191,8 +193,6 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -202,8 +202,6 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
             分类
           </a>
         </li>
@@ -211,8 +209,6 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -222,8 +218,6 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
             关于
           </a>
         </li>
@@ -232,10 +226,8 @@
       
         <li class="menu-item menu-item-search">
           
-            <a href="#" class="st-search-show-outputs">
+            <a href="javascript:;" class="st-search-show-outputs">
           
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -285,7 +277,347 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2013/08/03/Tomcat-Mac下的乱码问题/" itemprop="url">
+                  Mac OS X - Tomcat 乱码问题
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-08-03T17:14:28+08:00" content="2013-08-03">
+              2013-08-03
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/08/03/Tomcat-Mac下的乱码问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/08/03/Tomcat-Mac下的乱码问题/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>Myeclipse 启动Tomcat 控制台乱码：<br>window -&gt; Preference -&gt; myeclipse -&gt; servers -&gt; tomcat -&gt; tomcat7.0 -&gt; JDK -&gt; optional java VM arguments :加入 -Dfile.encoding=GBK</li>
+<li>接受数据乱码，设置字符集什么都不管用时：<br>修改Tomcat的server.xml</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></div><div class="line">               <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></div><div class="line">               <span class="attr">redirectPort</span>=<span class="string">"8443"</span>/&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">"8080"</span> <span class="attr">protocol</span>=<span class="string">"HTTP/1.1"</span></span></div><div class="line">               <span class="attr">connectionTimeout</span>=<span class="string">"20000"</span></div><div class="line">               <span class="attr">redirectPort</span>=<span class="string">"8443"</span> <span class="attr">URIEncoding</span>=<span class="string">"UTF-8"</span> /&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2013/08/02/Myeclipse-支持Retina显示屏/" itemprop="url">
+                  Myeclipse - 支持Retina显示屏
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-08-02T17:04:20+08:00" content="2013-08-02">
+              2013-08-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/08/02/Myeclipse-支持Retina显示屏/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/08/02/Myeclipse-支持Retina显示屏/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>英文原文：<a href="http://zxzjim.wordpress.com/2012/11/13/how-to-crack-myeclipse-10-6-in-macosx/" target="_blank" rel="external">http://zxzjim.wordpress.com/2012/11/13/how-to-crack-myeclipse-10-6-in-macosx/</a></p>
+<p>结合我修改的方式，稍加修改。</p>
+<ol>
+<li>找到文件：/Applications/MyEclipse/MyEclipse 10.app/Contents/Profile/myeclipse.app/Contents/Info.plist</li>
+<li>打开该文件，添加一个boolean属性：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>NSHighResolutionCapable<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">true</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>下面是重点，网上找的很多教程是修改好，重启myeclipse就可以了，我试了下 不行，或许是人品问题，然后换了下面这个方法，成功了。</p>
+<ol>
+<li>找个文件：/Applications/MyEclipse/MyEclipse 10.app/Contents/Profile/myeclipse.app</li>
+<li>复制 粘贴 得到 myeclipse.app 副本</li>
+<li>删除 myeclipse.app</li>
+<li>重命名 myeclipse.app 副本 -&gt; myeclipse.app<br>OK！现在打开 myeclipse.app 即可享受到 Retina 编程~~</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2013/07/03/Android-JNI-NDKHelloWorld/" itemprop="url">
+                  Android - JNI.NDKHelloWorld
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-07-03T14:22:38+08:00" content="2013-07-03">
+              2013-07-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/07/03/Android-JNI-NDKHelloWorld/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/07/03/Android-JNI-NDKHelloWorld/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://blog.csdn.net/lyl_studio/article/details/9238175" target="_blank" rel="external">JNI.NDKHelloWorld</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -423,7 +755,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -536,373 +868,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2013/04/27/Android-【Battery-FM】/" itemprop="url">
-                  Android:【Battery.FM】
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-04-27T21:38:35+08:00" content="2013-04-27">
-              2013-04-27
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/个人作品/" itemprop="url" rel="index">
-                    <span itemprop="name">个人作品</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2013/04/27/Android-【Battery-FM】/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/27/Android-【Battery-FM】/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Battery.FM  魅族风的界面，魅族风的图标、没错这就是最魅族的电池软件！</p>
-<p>Battery.FM 1.0 功能：<br>1.电池信息折线图<br>2.满电提示</p>
-<p><a href="http://bbs.meizu.cn/thread-4433210-1-1.html">http://bbs.meizu.cn/thread-4433210-1-1.html</a></p>
-<p><img src="/images/2013.04.27 - Android-【Battery-FM】1.png" alt="images">
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2013/04/27/Android-【Battery-FM】/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/" itemprop="url">
-                  Java - 通过优酷网视频播放网址解析出Mp4格式的单个文件
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-04-22T21:01:59+08:00" content="2013-04-22">
-              2013-04-22
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Java Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html" target="_blank" rel="external">http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html</a> 简单粗暴，贴出解析代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 正则表达式去除视频id</span></div><div class="line">String path = <span class="string">"http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html"</span>;</div><div class="line">Pattern p = Pattern.compile(<span class="string">".*id_(\\w+)\\.html"</span>);</div><div class="line">Matcher m = p.matcher(path);</div><div class="line">String id = <span class="string">""</span>;</div><div class="line"><span class="keyword">if</span> (m.find()) &#123;</div><div class="line">	id = m.group(<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">// 解析部分</span></div><div class="line">String s = <span class="string">"https://openapi.youku.com/v2/videos/files.json?client_id=513edb6cf9833ca7&amp;client_secret=eaf151ffdbf1383d934ab4cb91250fa6&amp;type=play&amp;video_id="</span>;</div><div class="line"><span class="comment">// 这里为HTTP获取得到Response，自己去实现</span></div><div class="line">String json = HttpUtil.changeInputStream(HttpUtil.getInputStream(s + id));</div><div class="line"><span class="comment">// 解析Json</span></div><div class="line">JSONObject object = <span class="keyword">new</span> JSONObject(json);</div><div class="line">object = object.getJSONObject(<span class="string">"files"</span>);</div><div class="line">object = object.getJSONObject(<span class="string">"3gphd"</span>);</div><div class="line">object = object.getJSONArray(<span class="string">"segs"</span>).getJSONObject(<span class="number">0</span>);</div><div class="line">String url = object.getString(<span class="string">"url"</span>);</div><div class="line">System.out.println(url);</div></pre></td></tr></table></figure></p>
-<p>最后输出：<br><a href="http://180.96.38.43/youku/65738D58CD431813202EE93924/0300200100523B433B57D707A71947923FEF7E-8BE5-FC18-E182-7B619D650F21.mp4" target="_blank" rel="external">http://180.96.38.43/youku/65738D58CD431813202EE93924/0300200100523B433B57D707A71947923FEF7E-8BE5-FC18-E182-7B619D650F21.mp4</a><br>注意这个链接是有时效性的！获取出来就尽快使用。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2013/04/08/Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串/" itemprop="url">
-                  Java - 抓取优酷网视频播放页面(使用jsoup解析html,正则表达式处理字符串)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2013-04-08T20:55:41+08:00" content="2013-04-08">
-              2013-04-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Java Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2013/04/08/Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/08/Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近在研究视频播放这块儿，然后打算做一款视频聚合类的软件，首先把优酷聚合搞定吧！<br>我们首先得把优酷网的视频播放页面的地址解析出来，由于优酷有很多拍客的视频，这些拍客的视频当然不是我们想要的，通过优酷网的页面分析，应该从优酷的节目列表页开始抓取，页面如下。<br><a href="http://www.youku.com/v_olist/c_96_a__s__g__r__lg__im__st__mt__tg__d_1_et_0_ag_0_fv_0_fl__fc__fe__o_7_p_1.html" target="_blank" rel="external">http://www.youku.com/v_olist/c_96_a__s__g__r__lg__im__st__mt__tg__d_1_et_0_ag_0_fv_0_fl__fc__fe__o_7_p_1.html</a><br>我们使用 jsoup 开发包进行 html 的解析，完整代码如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.gavin.video.down;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.util.regex.Matcher;</div><div class="line"><span class="keyword">import</span> java.util.regex.Pattern;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.jsoup.Jsoup;</div><div class="line"><span class="keyword">import</span> org.jsoup.nodes.Document;</div><div class="line"><span class="keyword">import</span> org.jsoup.nodes.Element;</div><div class="line"><span class="keyword">import</span> org.jsoup.select.Elements;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DownYouku</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		String ss = <span class="string">"http://www.youku.com/v_olist/c_96_a__s__g__r__lg__im__st__mt__tg__d_1_et_0_ag_0_fv_0_fl__fc__fe__o_7_p_1.html"</span>;</div><div class="line">		<span class="keyword">new</span> DownYouku().downMovie(ss);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">downMovie</span><span class="params">(String str)</span> </span>&#123;</div><div class="line">		String homeurl = <span class="string">""</span>;</div><div class="line">		String page = <span class="string">""</span>;</div><div class="line">		String suf = <span class="string">""</span>;</div><div class="line">		<span class="comment">// 正则表达式处理 解析地址</span></div><div class="line">		Pattern p_url = Pattern.compile(<span class="string">"(.*)(\\d)(\\.html)"</span>);</div><div class="line">		Matcher m_url = p_url.matcher(str);</div><div class="line">		<span class="keyword">if</span> (m_url.find()) &#123;</div><div class="line">			homeurl = m_url.group(<span class="number">1</span>);</div><div class="line">			page = m_url.group(<span class="number">2</span>);</div><div class="line">			suf = m_url.group(<span class="number">3</span>);</div><div class="line">		&#125;</div><div class="line">		<span class="comment">// 循环抓取</span></div><div class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = Integer.parseInt(page); i &lt;= <span class="number">30</span>; i++) &#123;</div><div class="line">			String path = homeurl + i + suf;</div><div class="line">			Document doc1 = <span class="keyword">null</span>;</div><div class="line">			<span class="keyword">try</span> &#123;</div><div class="line">				doc1 = Jsoup.connect(path).get();</div><div class="line">			&#125; <span class="keyword">catch</span> (IOException e2) &#123;</div><div class="line">				System.out.println(<span class="string">"&gt;&gt;&gt;&gt;&gt;&gt;IO 错误 1"</span>);</div><div class="line">				<span class="keyword">continue</span>;</div><div class="line">			&#125;</div><div class="line">			Element listofficial = doc1.getElementById(<span class="string">"listofficial"</span>);</div><div class="line">			Elements p_pvs = listofficial.getElementsByTag(<span class="string">"ul"</span>);</div><div class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">40</span>; j++) &#123;</div><div class="line">				Element p_pv = p_pvs.get(j);</div><div class="line">				String a = p_pv.getElementsByTag(<span class="string">"a"</span>).attr(<span class="string">"href"</span>);</div><div class="line">				String title = p_pv.getElementsByTag(<span class="string">"a"</span>).attr(<span class="string">"title"</span>);</div><div class="line">				Document doc2 = <span class="keyword">null</span>;</div><div class="line">				<span class="keyword">try</span> &#123;</div><div class="line">					doc2 = Jsoup.connect(a).get();</div><div class="line">				&#125; <span class="keyword">catch</span> (IOException e1) &#123;</div><div class="line">					System.out.println(<span class="string">"&gt;&gt;&gt;&gt;&gt;&gt;IO 错误 2"</span>);</div><div class="line">					<span class="keyword">continue</span>;</div><div class="line">				&#125;</div><div class="line">				Element showInfo = doc2.getElementById(<span class="string">"showInfo"</span>);</div><div class="line">				Element baseinfo = showInfo.getElementsByClass(<span class="string">"baseinfo"</span>).get(<span class="number">0</span>);</div><div class="line">				Elements link = baseinfo.getElementsByClass(<span class="string">"link"</span>);</div><div class="line">				Element url_a = <span class="keyword">null</span>;</div><div class="line">				<span class="keyword">if</span> (link.size() &gt; <span class="number">0</span>) &#123;</div><div class="line">					url_a = link.get(<span class="number">0</span>).getElementsByTag(<span class="string">"a"</span>).get(<span class="number">0</span>);</div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					System.out.println(title + <span class="string">" : "</span> + <span class="string">"无视频链接"</span>);</div><div class="line">					<span class="keyword">continue</span>;</div><div class="line">				&#125;</div><div class="line">				String url = url_a.attr(<span class="string">"href"</span>);</div><div class="line">				System.out.print(url + <span class="string">"\t\t"</span>);</div><div class="line">				System.out.println(title);</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>抓取结果：<br><img src="/images/2013.04.08 - Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串.png" alt="image"><br>内容就提取了这么两项，其他的内容 照着优酷的 html dom 很容易就提取出来了。<br>ok！现在我们有了，视频的播放地址，下篇博文讲讲怎么通过这个地址，来解析出视频的真实地址，然后在移动设备上播放。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -938,17 +903,17 @@
       
 
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
                alt="Gavin Liu" />
           <p class="site-author-name" itemprop="name">Gavin Liu</p>
-          <p class="site-description motion-element" itemprop="description"></p>
+          <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">99</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -965,7 +930,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1037,7 +1002,7 @@
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
@@ -1091,49 +1056,49 @@
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
 
 
 
@@ -1158,6 +1123,8 @@
 
   
     
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
@@ -1205,35 +1172,32 @@
             var $resultContent = document.getElementById(content_id);
             $input.addEventListener('input', function(){
                 var matchcounts = 0;
-                var str='<ul class=\"search-result-list\">';                
+                var str='<ul class=\"search-result-list\">';
                 var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
                 $resultContent.innerHTML = "";
                 if (this.value.trim().length > 1) {
                 // perform local searching
                 datas.forEach(function(data) {
-                    var isMatch = true;
+                    var isMatch = false;
                     var content_index = [];
                     var data_title = data.title.trim().toLowerCase();
                     var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = data.url;
+                    var data_url = decodeURIComponent(data.url);
                     var index_title = -1;
                     var index_content = -1;
                     var first_occur = -1;
                     // only match artiles with not empty titles and contents
-                    if(data_title != '' && data_content != '') {
+                    if(data_title != '') {
                         keywords.forEach(function(keyword, i) {
                             index_title = data_title.indexOf(keyword);
                             index_content = data_content.indexOf(keyword);
-                            if( index_title < 0 && index_content < 0 ){
-                                isMatch = false;
-                            } else {
-                                if (index_content < 0) {
-                                    index_content = 0;
-                                }
-                                if (i == 0) {
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
                                     first_occur = index_content;
                                 }
-                            }
+                            } 
+							
                         });
                     }
                     // show search results
@@ -1260,7 +1224,7 @@
                                 var regS = new RegExp(keyword, "gi");
                                 match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
                             });
-                            
+
                             str += "<p class=\"search-result\">" + match_content +"...</p>"
                         }
                         str += "</li>";
@@ -1276,7 +1240,7 @@
     });}
 
     // handle and trigger popup window;
-    $('.popup-trigger').mousedown(function(e) {
+    $('.popup-trigger').click(function(e) {
       e.stopPropagation();
       if (isfetched == false) {
         searchFunc(path, 'local-search-input', 'local-search-result');
@@ -1295,6 +1259,7 @@
       e.stopPropagation();
     });
   </script>
+
 
   
   <script type="text/x-mathjax-config">
@@ -1321,6 +1286,9 @@
   
 
   
+
+  
+
 
 </body>
 </html>

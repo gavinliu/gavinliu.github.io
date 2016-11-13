@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gavinliu.cn/"/>
-  <updated>2016-10-09T15:36:10.000Z</updated>
+  <updated>2016-11-13T05:02:49.000Z</updated>
   <id>http://gavinliu.cn/</id>
   
   <author>
@@ -14,6 +14,171 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android - 移植StackBlur for Glide &amp; AS 2.2 CMakeLists 的使用</title>
+    <link href="http://gavinliu.cn/2016/11/05/Android-%E7%A7%BB%E6%A4%8DStackBlur-for-Glide-AS-2-2-CMakeLists%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>http://gavinliu.cn/2016/11/05/Android-移植StackBlur-for-Glide-AS-2-2-CMakeLists的使用/</id>
+    <published>2016-11-05T07:27:41.000Z</published>
+    <updated>2016-11-13T05:02:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>StackBlur 是一个快速高斯模糊算法，原作者是由 <a href="http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html" target="_blank" rel="external">Mario Klingemann</a> 开发的Javascript版本。<a href="http://vitiy.info/stackblur-algorithm-multi-threaded-blur-for-cpp/" target="_blank" rel="external">Victor Laskin</a> 实现了一个C++多线程版本，Android上我们基于 <code>Victor Laskin</code> 的版本进行JNI移植。<br>  这个算法应用非常广泛 iOS 上 Camera+ 也是用的这套算法，还有CUDA版本等…</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="移植"><a href="#移植" class="headerlink" title="移植"></a>移植</h2><p>这里我们可以直接借用 <a href="https://github.com/kikoso/android-stackblur" target="_blank" rel="external">android-stackblur</a> 的代码，注意这个版本并不支持带透明度的图片，且不要使用多线程来处理图片。</p>
+<h3 id="CMakeLists"><a href="#CMakeLists" class="headerlink" title="CMakeLists"></a>CMakeLists</h3><p><code>Android Studio</code> 2.2以上的版本支持使用CMake来编译JNI了，具体操作可以参考官方文档</p>
+<p><a href="https://developer.android.com/studio/projects/add-native-code.html" target="_blank" rel="external">https://developer.android.com/studio/projects/add-native-code.html</a></p>
+<p>流程没什么难点，官网上有的就不再赘述，对于没有接触过<code>CMake</code>的人来说，编写 CMakeLists 文件是很懵逼的事情，想要完整学完CMake，学习曲线还是蛮陡峭的，下面就是移植后的 CMakeLists 文件。以后自己编写其他的 CMakeLists 参照例子依葫芦画瓢即可。</p>
+<figure class="highlight cmake"><figcaption><span>CMakeLists.txt</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Sets the minimum version of CMake required to build the native</span></div><div class="line"><span class="comment"># library. You should either keep the default value or only pass a</span></div><div class="line"><span class="comment"># value of 3.4.0 or lower.</span></div><div class="line"></div><div class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.4</span>.<span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="keyword">add_library</span>( StackBlur</div><div class="line"></div><div class="line">             SHARED</div><div class="line"></div><div class="line">             src/main/cpp/StackBlur.c )</div><div class="line"></div><div class="line"><span class="comment"># 从ndk中寻找库，StackBlur.c 使用了这些库所以需要找出来。</span></div><div class="line"><span class="comment"># 下面的代码的含义是找到 log 库，命名为 log-lib</span></div><div class="line"><span class="keyword">find_library</span>( log-lib</div><div class="line">              log )</div><div class="line"></div><div class="line"><span class="keyword">find_library</span>( m-lib</div><div class="line">              m )</div><div class="line"></div><div class="line"><span class="keyword">find_library</span>( jnigraphics-lib</div><div class="line">              jnigraphics )</div><div class="line"></div><div class="line"><span class="keyword">target_link_libraries</span>( StackBlur</div><div class="line">                       <span class="variable">$&#123;log-lib&#125;</span></div><div class="line">                       <span class="variable">$&#123;m-lib&#125;</span></div><div class="line">                       <span class="variable">$&#123;jnigraphics-lib&#125;</span> )</div></pre></td></tr></table></figure>
+<h3 id="集成-glide"><a href="#集成-glide" class="headerlink" title="集成 glide"></a>集成 glide</h3><p><a href="https://github.com/bumptech/glide" target="_blank" rel="external">glide</a> 是一个优秀的图片加载库，具有强大的可扩展性，对于图片的处理Gilde使用 Transformation 进行图片的转换功能，我们就只需要实现一个模糊功能的 Transformation 即可。</p>
+<figure class="highlight java"><figcaption><span>GlideStackBlur.java</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlideStackBlur</span> <span class="keyword">extends</span> <span class="title">BitmapTransformation</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> TintColorGenerator mTintColorGenerator;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GlideStackBlur</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GlideStackBlur</span><span class="params">(Context context, TintColorGenerator tintColorGenerator)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">        mTintColorGenerator = tintColorGenerator;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> Bitmap <span class="title">transform</span><span class="params">(BitmapPool pool, Bitmap toTransform, <span class="keyword">int</span> outWidth, <span class="keyword">int</span> outHeight)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (toTransform != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">long</span> startTime = System.currentTimeMillis();</div><div class="line"></div><div class="line">            BlurUtils blurManager = <span class="keyword">new</span> BlurUtils(toTransform);</div><div class="line">            Bitmap blur = blurManager.process(<span class="number">40</span>);</div><div class="line"></div><div class="line">            <span class="keyword">final</span> Bitmap result = Bitmap.createBitmap(blur.getWidth(), blur.getHeight(), Bitmap.Config.ARGB_8888);</div><div class="line">            Canvas canvas = <span class="keyword">new</span> Canvas(result);</div><div class="line">            Paint paint = <span class="keyword">new</span> Paint();</div><div class="line">            paint.setAntiAlias(<span class="keyword">true</span>);</div><div class="line">            paint.setFilterBitmap(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">            canvas.drawBitmap(blur, <span class="number">0</span>, <span class="number">0</span>, paint);</div><div class="line"></div><div class="line">            blurManager.recycle();</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (BuildConfig.DEBUG) &#123;</div><div class="line">                Log.d(<span class="string">"GlideStackBlur"</span>, outWidth + <span class="string">","</span> + outHeight + <span class="string">"  Time: "</span> + (System.currentTimeMillis() - startTime));</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">return</span> result;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        String id = <span class="string">"cn.gavinliu.android.lib.glide.stackblur.GlideStackBlur"</span>;</div><div class="line">        <span class="keyword">if</span> (mTintColorGenerator != <span class="keyword">null</span>) &#123;</div><div class="line">            id += mTintColorGenerator.getId();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> id;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Glide.with(<span class="keyword">this</span>).load(url)</div><div class="line">        .transform(<span class="keyword">new</span> GlideStackBlur(<span class="keyword">this</span>))</div><div class="line">        .into(imageView);</div></pre></td></tr></table></figure>
+<h3 id="扩展染色功能"><a href="#扩展染色功能" class="headerlink" title="扩展染色功能"></a>扩展染色功能</h3><p>使用 ColorFilter 功能可以在图片上在叠加一个颜色。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"><span class="keyword">if</span> (mTintColorGenerator != <span class="keyword">null</span>) &#123;</div><div class="line">    <span class="keyword">int</span> color = mTintColorGenerator.generate(toTransform);</div><div class="line">    PorterDuffColorFilter colorFilter = <span class="keyword">new</span> PorterDuffColorFilter((color), PorterDuff.Mode.SRC_OVER);</div><div class="line">    paint.setColorFilter(colorFilter);</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Glide.with(<span class="keyword">this</span>).load(url)</div><div class="line">        .transform(<span class="keyword">new</span> GlideStackBlur(<span class="keyword">this</span>, <span class="keyword">new</span> TintColorGenerator() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">generate</span><span class="params">(Bitmap bitmap)</span> </span>&#123;</div><div class="line">                <span class="comment">// You can generate dynamic color</span></div><div class="line">                <span class="keyword">return</span> <span class="number">0x803F51B5</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="string">".TintColorGenerator"</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;))</div><div class="line">        .into(imageView);</div></pre></td></tr></table></figure>
+<p><img src="/images/2016.11.05 - Android-移植StackBlur-for-Glide-AS-2-0-CMakeLists的使用1.png" alt=""></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/gavinliu/glide-stackblur" target="_blank" rel="external">https://github.com/gavinliu/glide-stackblur</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;StackBlur 是一个快速高斯模糊算法，原作者是由 &lt;a href=&quot;http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html&quot;&gt;Mario Klingemann&lt;/a&gt; 开发的Javascript版本。&lt;a href=&quot;http://vitiy.info/stackblur-algorithm-multi-threaded-blur-for-cpp/&quot;&gt;Victor Laskin&lt;/a&gt; 实现了一个C++多线程版本，Android上我们基于 &lt;code&gt;Victor Laskin&lt;/code&gt; 的版本进行JNI移植。&lt;br&gt;  这个算法应用非常广泛 iOS 上 Camera+ 也是用的这套算法，还有CUDA版本等…&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="Android studio 2.2" scheme="http://gavinliu.cn/tags/Android-studio-2-2/"/>
+    
+      <category term="CMakeLists" scheme="http://gavinliu.cn/tags/CMakeLists/"/>
+    
+      <category term="StackBlur" scheme="http://gavinliu.cn/tags/StackBlur/"/>
+    
+      <category term="Glide" scheme="http://gavinliu.cn/tags/Glide/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android - ShapedImageView 之 边框 &amp; 自定义 Path 实现</title>
+    <link href="http://gavinliu.cn/2016/10/30/Android-ShapedImageView%E4%B9%8B-%E8%BE%B9%E6%A1%86-%E8%87%AA%E5%AE%9A%E4%B9%89Path%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://gavinliu.cn/2016/10/30/Android-ShapedImageView之-边框-自定义Path实现/</id>
+    <published>2016-10-30T07:31:05.000Z</published>
+    <updated>2016-11-12T16:00:58.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>在 <a href="/2016/04/12/Android-实现图片圆角显示的几种方式/">Android-实现图片圆角显示的几种方式</a> 我分享了一个不到100行代码实现的圆角ImageView，后面根据需求增加了，边框和自定义Path。这篇文章就是来分享具体是怎样实现的。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h2><p><img src="/images/2016.10.30 - Android-ShapedImageView之-边框-自定义Path实现1.gif" alt=""></p>
+<p>先放一张动图，应该就能明白其中的原理了。</p>
+<p>以圆形为例：</p>
+<ol>
+<li>首先绘制一张全尺寸矩形，颜色为边框的颜色；</li>
+<li>再画一个小一点的圆形，把第一步的图层掏空，这个圆形小多少就是边框的宽度；</li>
+<li>最后画一个正常大小的圆形，把多余的都扣掉。</li>
+</ol>
+<p>扣图都是使用的 <code>Xfermodes</code> 具体到</p>
+<ul>
+<li>步骤2，PorterDuff.Mode.DST_OUT：去交集，显示下层</li>
+<li>步骤3，PorterDuff.Mode.DST_IN：取交集，显示下层。</li>
+</ul>
+<p>核心代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">mStrokePaint.setXfermode(<span class="keyword">null</span>);</div><div class="line">canvas.drawBitmap(mStrokeBitmap, <span class="number">0</span>, <span class="number">0</span>, mStrokePaint);</div><div class="line">canvas.translate(mStrokeWidth, mStrokeWidth);</div><div class="line">mStrokePaint.setXfermode(<span class="keyword">new</span> PorterDuffXfermode(PorterDuff.Mode.DST_OUT));</div><div class="line">mStrokeShape.draw(canvas, mStrokePaint);</div><div class="line">mPaint.setXfermode(<span class="keyword">new</span> PorterDuffXfermode(PorterDuff.Mode.DST_IN));</div><div class="line">mShape.draw(canvas, mPaint);</div></pre></td></tr></table></figure>
+<h2 id="自定义Path"><a href="#自定义Path" class="headerlink" title="自定义Path"></a>自定义Path</h2><p>这个功能是源于公司项目需要，基于这个可以实现很多意想不到的效果，如下图</p>
+<ol>
+<li>掏空的专辑封面</li>
+<li>电影券，优惠券</li>
+</ol>
+<p><img src="/images/2016.10.30 - Android-ShapedImageView之-边框-自定义Path实现2.png" alt=""></p>
+<p>原理还是 <code>Xfermodes</code> 的扣图功能，区别就是把接口暴露出来，就可以自定义啦。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>广告时间到啦，这么好的库要怎么使用呢？</p>
+<p><a href="https://github.com/gavinliu/ShapedImageView" target="_blank" rel="external">ShapedImageView</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">compile &apos;cn.gavinliu.android.lib:ShapedImageView:0.8.2&apos;</div></pre></td></tr></table></figure>
+<h3 id="Circle"><a href="#Circle" class="headerlink" title="Circle"></a>Circle</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;cn.gavinliu.android.lib.shapedimageview.ShapedImageView</div><div class="line">    ...</div><div class="line">    app:shape_mode=<span class="string">"circle"</span></div><div class="line"></div><div class="line">    app:stroke_color=<span class="string">"#009688"</span></div><div class="line">    app:stroke_width=<span class="string">"3dp"</span> /&gt;</div></pre></td></tr></table></figure>
+<h3 id="Round-Rect"><a href="#Round-Rect" class="headerlink" title="Round Rect"></a>Round Rect</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;cn.gavinliu.android.lib.shapedimageview.ShapedImageView</div><div class="line">    ...</div><div class="line">    app:shape_mode=<span class="string">"round_rect"</span></div><div class="line">    app:round_radius=<span class="string">"20dp"</span></div><div class="line"></div><div class="line">    app:stroke_color=<span class="string">"#009688"</span></div><div class="line">    app:stroke_width=<span class="string">"3dp"</span> /&gt;</div></pre></td></tr></table></figure>
+<h3 id="PathExtension"><a href="#PathExtension" class="headerlink" title="PathExtension"></a>PathExtension</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">image1.setExtension(<span class="keyword">new</span> CDPathExtension());</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CDPathExtension</span> <span class="keyword">implements</span> <span class="title">ShapedImageView</span>.<span class="title">PathExtension</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLayout</span><span class="params">(Path path, <span class="keyword">int</span> width, <span class="keyword">int</span> height)</span> </span>&#123;</div><div class="line">        path.reset();</div><div class="line">        path.addCircle(width / <span class="number">2</span>, height / <span class="number">2</span>, width / <span class="number">8</span>, Path.Direction.CW);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;在 &lt;a href=&quot;/2016/04/12/Android-实现图片圆角显示的几种方式/&quot;&gt;Android-实现图片圆角显示的几种方式&lt;/a&gt; 我分享了一个不到100行代码实现的圆角ImageView，后面根据需求增加了，边框和自定义Path。这篇文章就是来分享具体是怎样实现的。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+      <category term="ShapedImageView" scheme="http://gavinliu.cn/tags/ShapedImageView/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android - 应用内实现锤子科技的一小步：Simple One step</title>
+    <link href="http://gavinliu.cn/2016/10/19/Android-Simple-One-step-%E5%BA%94%E7%94%A8%E5%86%85%E5%AE%9E%E7%8E%B0%E9%94%A4%E5%AD%90%E7%A7%91%E6%8A%80%E7%9A%84%E4%B8%80%E5%B0%8F%E6%AD%A5/"/>
+    <id>http://gavinliu.cn/2016/10/19/Android-Simple-One-step-应用内实现锤子科技的一小步/</id>
+    <published>2016-10-19T14:16:40.000Z</published>
+    <updated>2016-11-12T16:51:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>锤子发布会吹得天花乱坠的 <code>One step</code> 到底是个什么东西？开源的意义又在于什么？ 这篇文章让我们一探究竟，并实现一个简易版的 <code>One step</code> 。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="什么是-One-Step"><a href="#什么是-One-Step" class="headerlink" title="什么是 One Step"></a>什么是 One Step</h2><p><a href="http://www.smartisan.com/os/#/os-3" target="_blank" rel="external">官网</a>的解释是：</p>
+<blockquote>
+<p>通过拖拽完成将信息发送至应用或联系人的动作，节省了在不同应用之间切换的诸多步骤，第一次打通了手持设备中应用间的边界</p>
+</blockquote>
+<p>将信息发送至应用或联系人，这个就是 Android 的分享模块，所以发布会的演示案例是拿iPhone做对比，因为锤子只是换了个交互方式，发布会演示的功能在其他 Android 系统上都能用，当然啦这个交互是值得肯定的。</p>
+<blockquote>
+<p>BTW： <code>第一次打通了手持设备中应用间的边界</code> 这个会不会违反广告法？</p>
+</blockquote>
+<h2 id="如何实现分享？"><a href="#如何实现分享？" class="headerlink" title="如何实现分享？"></a>如何实现分享？</h2><p>都说这个是Android的一个模块，当然是看 Android 官网的课程啦</p>
+<p><a href="https://developer.android.com/training/building-content-sharing.html" target="_blank" rel="external">https://developer.android.com/training/building-content-sharing.html</a></p>
+<h2 id="如何实现拖拽动作呢？"><a href="#如何实现拖拽动作呢？" class="headerlink" title="如何实现拖拽动作呢？"></a>如何实现拖拽动作呢？</h2><p>大概有两种方式：</p>
+<ol>
+<li>Android 原生的 Drag and Drop API</li>
+<li>通过悬浮窗模拟</li>
+</ol>
+<h3 id="Drag-and-Drop-API"><a href="#Drag-and-Drop-API" class="headerlink" title="Drag and Drop API"></a>Drag and Drop API</h3><p>用原生API有个好处是，自带一个 <code>ClipData</code> 可以很方便的把数据从一个控件扔给另一个控件。<br>不好的一点是弹起和放下没有动画，切弹起的视觉也效果不太好，不管你在什么控件的什么位置出发拖拽，控件都会弹到你手指中心，而不是直接在原位弹起。</p>
+<p>可参考：</p>
+<ul>
+<li><a href="/2014/03/25/Android---让控件变得可拖拽/">Android - 让控件变得可拖拽</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/23066211" target="_blank" rel="external">用 Drag and Drop API 实现锤子 “One Step”</a></li>
+</ul>
+<h3 id="悬浮窗实现-Drag-and-Drop"><a href="#悬浮窗实现-Drag-and-Drop" class="headerlink" title="悬浮窗实现 Drag and Drop"></a>悬浮窗实现 Drag and Drop</h3><p>使用悬浮窗实现可以实现动画效果，且直接在控件原位弹起，交互体验会更好。</p>
+<p><img src="/images/2016.10.19 - Android-Simple-One-step-应用内实现锤子科技的一小步1.gif" alt=""></p>
+<p>项目源码：<a href="https://github.com/gavinliu/SimpleOneStep" target="_blank" rel="external">SimpleOneStep</a></p>
+<hr>
+<p>上面两种方式都有源码，感兴趣的开发者可以参考参考，其实可以看出并没有什么高大上的黑科技。不过要把整个流程打通还是需要不少工作的，毕竟从一个Demo到一个产品，中间的坑还是蛮多的，所以还是期待锤子的官方开源吧。</p>
+<h2 id="关于开源"><a href="#关于开源" class="headerlink" title="关于开源"></a>关于开源</h2><p>其实小米是最早开源项目的手机厂商，安卓开发早期小米开源了不少项目小米便签，小米文件管理器，小米指南针，不过后来开源的就比较少了，希望锤子这次能做个榜样，让更多的手机厂商为行业做出贡献。</p>
+<ul>
+<li><a href="http://www.micode.net/portal.php" target="_blank" rel="external">MiCode</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;锤子发布会吹得天花乱坠的 &lt;code&gt;One step&lt;/code&gt; 到底是个什么东西？开源的意义又在于什么？ 这篇文章让我们一探究竟，并实现一个简易版的 &lt;code&gt;One step&lt;/code&gt; 。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>Android - 自定义View冷知识之动态替换layout.xml中的View</title>
@@ -587,7 +752,7 @@
     <link href="http://gavinliu.cn/2016/04/15/Git-%E4%BD%BF%E7%94%A8Repo%E7%AE%A1%E7%90%86%E4%BD%A0%E7%9A%84Git%E9%A1%B9%E7%9B%AE/"/>
     <id>http://gavinliu.cn/2016/04/15/Git-使用Repo管理你的Git项目/</id>
     <published>2016-04-15T03:19:48.000Z</published>
-    <updated>2016-04-18T13:51:03.000Z</updated>
+    <updated>2016-11-12T17:01:52.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="git-repo"><a href="#git-repo" class="headerlink" title="git-repo"></a>git-repo</h2><p><code>git-repo</code>是Google推出的管理<strong>多个git项目</strong>的工具，主要被运用在Android系统源码的管理上。</p>
 <p>国内访问不了Google，repo版本可以选择Github上的优化版本：<a href="https://github.com/esrlabs/git-repo" target="_blank" rel="external">git-repo</a></p>
@@ -622,8 +787,6 @@
       <category term="git" scheme="http://gavinliu.cn/tags/git/"/>
     
       <category term="repo" scheme="http://gavinliu.cn/tags/repo/"/>
-    
-      <category term="git-repo" scheme="http://gavinliu.cn/tags/git-repo/"/>
     
   </entry>
   
@@ -916,126 +1079,6 @@
       <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
     
       <category term="实用主义" scheme="http://gavinliu.cn/tags/%E5%AE%9E%E7%94%A8%E4%B8%BB%E4%B9%89/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android - 开源项目:OpenGpad(电脑键盘当手游手柄)</title>
-    <link href="http://gavinliu.cn/2016/02/28/Android-%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%EF%BC%9AOpenGpad-%E7%94%B5%E8%84%91%E9%94%AE%E7%9B%98%E5%BD%93%E6%89%8B%E6%9C%BA%E6%B8%B8%E6%88%8F%E6%89%8B%E6%9F%84/"/>
-    <id>http://gavinliu.cn/2016/02/28/Android-开源项目：OpenGpad-电脑键盘当手机游戏手柄/</id>
-    <published>2016-02-28T04:43:17.000Z</published>
-    <updated>2016-04-09T08:51:40.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是个基于测试框架(<a href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/">UiAutomator</a>)做的一款：使用电脑键盘玩手机游戏的软件。</p>
-<h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><p>本职工作是做Android开发，电脑环境为Linux Mint，没有好的娱乐方式，手机也是长时间插在电脑上的，所以就寻思着，用电脑键盘当手柄，控制手机玩游戏，于是就有了这个项目。</p>
-<h2 id="体验视频"><a href="#体验视频" class="headerlink" title="体验视频"></a>体验视频</h2><iframe height="400" width="620" src="http://player.youku.com/embed/XMTQ4OTQzMjU4NA==" frameborder="0" allowfullscreen></iframe>
-
-<a id="more"></a>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>PC通过adb命令启动一个<code>UiAutomator</code>测试用例，测试用例死循环等待接受指令，接受到指令后，根据指令对手机进行操作，操作手机采取注入屏幕点击事件的方式，这样做的好处是，可以支持所有手机软件。</p>
-<h2 id="OpenSource"><a href="#OpenSource" class="headerlink" title="OpenSource"></a>OpenSource</h2><p><a href="https://github.com/gavinliu/OpenGpad" target="_blank" rel="external">OpenGpad</a>：项目介绍，用于发布版本。<br><a href="https://github.com/gavinliu/OpenGpad-PyQT" target="_blank" rel="external">OpenGpad-PyQT</a>：PC端控制程序。<br><a href="https://github.com/gavinliu/OpenGpad-Android" target="_blank" rel="external">OpenGpad-Android</a>：Android辅助程序 用于编辑映射规则。</p>
-<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><p><a href="/2016/01/19/Android-adb-forward实现PC和Android的Socket通讯/">Android - adb forward实现PC和App的Socket通讯</a><br><a href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/">Android - 测试框架之 UI Testing - UiAutomator</a><br><a href="/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/">Android - 测试框架之 UI Testing - 实现多点触控事件</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这是个基于测试框架(&lt;a href=&quot;/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/&quot;&gt;UiAutomator&lt;/a&gt;)做的一款：使用电脑键盘玩手机游戏的软件。&lt;/p&gt;
-&lt;h2 id=&quot;初衷&quot;&gt;&lt;a href=&quot;#初衷&quot; class=&quot;headerlink&quot; title=&quot;初衷&quot;&gt;&lt;/a&gt;初衷&lt;/h2&gt;&lt;p&gt;本职工作是做Android开发，电脑环境为Linux Mint，没有好的娱乐方式，手机也是长时间插在电脑上的，所以就寻思着，用电脑键盘当手柄，控制手机玩游戏，于是就有了这个项目。&lt;/p&gt;
-&lt;h2 id=&quot;体验视频&quot;&gt;&lt;a href=&quot;#体验视频&quot; class=&quot;headerlink&quot; title=&quot;体验视频&quot;&gt;&lt;/a&gt;体验视频&lt;/h2&gt;&lt;iframe height=400 width=620 src=&quot;http://player.youku.com/embed/XMTQ4OTQzMjU4NA==&quot; frameborder=0 allowfullscreen&gt;&lt;/iframe&gt;
-    
-    </summary>
-    
-      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Android - 测试框架之 UI Testing - 实现多点触控事件</title>
-    <link href="http://gavinliu.cn/2016/02/23/Android-%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E4%B9%8B-UI-Testing-%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%82%B9%E8%A7%A6%E6%8E%A7%E4%BA%8B%E4%BB%B6/"/>
-    <id>http://gavinliu.cn/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/</id>
-    <published>2016-02-23T04:37:25.000Z</published>
-    <updated>2016-04-09T08:51:40.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><code>UiAutomator</code>已经现有的的API没有提高多点触控的方法，但是我们可以通过注入多点事件的方式来实现。</p>
-<h2 id="Android-TouchEvent-Flow"><a href="#Android-TouchEvent-Flow" class="headerlink" title="Android TouchEvent Flow"></a>Android TouchEvent Flow</h2><p>一个基本的单点事件流</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MotionEvent.ACTION_DOWN</div><div class="line">MotionEvent.ACTION_MOVE</div><div class="line">MotionEvent.ACTION_UP</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>如果加上多点事件，基本的事件流是这样的：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">MotionEvent.ACTION_DOWN</div><div class="line">MotionEvent.ACTION_POINTER_DOWN</div><div class="line">MotionEvent.ACTION_MOVE</div><div class="line">MotionEvent.ACTION_POINTER_UP</div><div class="line">MotionEvent.ACTION_UP</div></pre></td></tr></table></figure>
-<p>需要明白的点：</p>
-<blockquote>
-<p>无论多点还是单点，正常的事件流是以<code>ACTION_DOWN</code>开始 <code>ACTION_UP</code>结束。</p>
-<p>对于多点事件来说，当你第一个手指点击屏幕触发<code>ACTION_DOWN</code>，后面的手指按压触发<code>ACTION_POINTER_DOWN</code>，然后进过<code>ACTION_MOVE</code>，<code>ACTION_POINTER_UP</code>，最终到达<code>ACTION_UP</code>。</p>
-<p>事件注入有个原则是：<br>1.<code>ACTION_POINTER_UP</code>和<code>ACTION_UP</code>的点是<code>ACTION_MOVE</code>后的最后那个点；<br>2.<code>ACTION_POINTER_UP</code>与<code>ACTION_UP</code>的点和<code>ACTION_POINTER_DOWN</code>与<code>ACTION_DOWN</code>的点应该一一对应的；<br>3.先<code>DOWN</code>的点应该后<code>UP</code></p>
-</blockquote>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="UiAutomator：事件注入入口"><a href="#UiAutomator：事件注入入口" class="headerlink" title="UiAutomator：事件注入入口"></a>UiAutomator：事件注入入口</h3><p><code>UiAutomator</code>：测试框架已经为我们准备好了相关的方法。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Instrumentation mInstrumentation = InstrumentationRegistry.getInstrumentation();</div><div class="line">UiAutomation mUiAutomation = mInstrumentation.getUiAutomation();</div><div class="line"></div><div class="line"><span class="comment">// 这就是注入事件的方法</span></div><div class="line">mUiAutomation.injectInputEvent(InputEvent event, <span class="keyword">boolean</span> sync)</div></pre></td></tr></table></figure>
-<h3 id="MotionEvent：相关类和方法"><a href="#MotionEvent：相关类和方法" class="headerlink" title="MotionEvent：相关类和方法"></a>MotionEvent：相关类和方法</h3><p><code>MotionEvent.PointerCoords</code>：Point坐标传输对象，有点像的<a href="http://baike.baidu.com/item/DTO/16016821" target="_blank" rel="external">DTO</a>意思，里面包含了位置，大小，压力等属性，<br><code>MotionEvent.PointerProperties</code>：Point属性传输对象，有点像的<a href="http://baike.baidu.com/item/DTO/16016821" target="_blank" rel="external">DTO</a>意思，里面包含了ID，TYPE：区分是鼠标，手指等等不同设备的Pointer<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">MotionEvent.obtain(<span class="keyword">long</span> downTime, <span class="keyword">long</span> eventTime,</div><div class="line">            <span class="keyword">int</span> action, <span class="keyword">int</span> pointerCount, PointerProperties[] pointerProperties,</div><div class="line">            PointerCoords[] pointerCoords, <span class="keyword">int</span> metaState, <span class="keyword">int</span> buttonState,</div><div class="line">            <span class="keyword">float</span> xPrecision, <span class="keyword">float</span> yPrecision, <span class="keyword">int</span> deviceId,</div><div class="line">            <span class="keyword">int</span> edgeFlags, <span class="keyword">int</span> source, <span class="keyword">int</span> flags)</div></pre></td></tr></table></figure></p>
-<p>我们使用这个方法来创建一个MotionEvent，用于事件的注入。</p>
-<h3 id="详细代码"><a href="#详细代码" class="headerlink" title="详细代码"></a>详细代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="comment">// 伪代码</span></div><div class="line">    <span class="comment">// 创建一个二维数组</span></div><div class="line">    <span class="comment">// [[PointerCoords，...], [PointerCoords, ..], [PointerCoords, ..], ...]</span></div><div class="line">    <span class="comment">// 二维数组的第一个点，为DOWN点，后面的为MOVE点，最后一个就是UP点。</span></div><div class="line"></div><div class="line">    injectMultiTouch([[PointerCoords，...],[PointerCoords，...]]);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> PointerCoords <span class="title">createPoint</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</div><div class="line">    PointerCoords pointerCoords = <span class="keyword">new</span> PointerCoords();</div><div class="line">    pointerCoords.x = x;</div><div class="line">    pointerCoords.y = y;</div><div class="line">    pointerCoords.pressure = <span class="number">1</span>;</div><div class="line">    pointerCoords.size = <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> pointerCoords;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 这里的参数是个二维数组，一维代表点的个度，二维代表点的移动位置</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">injectMultiTouch</span><span class="params">(PointerCoords[]... touches)</span> </span>&#123;</div><div class="line">    <span class="keyword">boolean</span> ret = <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">if</span> (touches.length &lt; <span class="number">2</span>) &#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(<span class="string">"Must provide coordinates for at least 2 pointers"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> maxSteps = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; touches.length; x++)</div><div class="line">        maxSteps = (maxSteps &lt; touches[x].length) ? touches[x].length : maxSteps;</div><div class="line"></div><div class="line">    PointerProperties[] properties = <span class="keyword">new</span> PointerProperties[touches.length];</div><div class="line">    PointerCoords[] pointerCoords = <span class="keyword">new</span> PointerCoords[touches.length];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; touches.length; x++) &#123;</div><div class="line">        MotionEvent.PointerProperties prop = <span class="keyword">new</span> MotionEvent.PointerProperties();</div><div class="line">        prop.id = x;</div><div class="line">        prop.toolType = MotionEvent.TOOL_TYPE_FINGER;</div><div class="line">        properties[x] = prop;</div><div class="line"></div><div class="line">        pointerCoords[x] = touches[x][<span class="number">0</span>];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">long</span> downTime = SystemClock.uptimeMillis();</div><div class="line">    MotionEvent event;</div><div class="line">    event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, <span class="number">1</span>,</div><div class="line">            properties, pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</div><div class="line">    ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>; x &lt; touches.length; x++) &#123;</div><div class="line">        event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(),</div><div class="line">            getPointerAction(MotionEvent.ACTION_POINTER_DOWN, x), x + <span class="number">1</span>, properties,</div><div class="line">            pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</div><div class="line">        ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; maxSteps - <span class="number">1</span>; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; touches.length; x++) &#123;</div><div class="line">            <span class="keyword">if</span> (touches[x].length &gt; i)</div><div class="line">                pointerCoords[x] = touches[x][i];</div><div class="line">            <span class="keyword">else</span></div><div class="line">                pointerCoords[x] = touches[x][touches[x].length - <span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(),</div><div class="line">                MotionEvent.ACTION_MOVE, touches.length, properties, pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>,</div><div class="line">                <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</div><div class="line"></div><div class="line">        ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</div><div class="line">        SystemClock.sleep(<span class="number">5</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; touches.length; x++)</div><div class="line">        pointerCoords[x] = touches[x][touches[x].length - <span class="number">1</span>];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>; x &lt; touches.length; x++) &#123;</div><div class="line">        event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(),</div><div class="line">                getPointerAction(MotionEvent.ACTION_POINTER_UP, x), x + <span class="number">1</span>, properties,</div><div class="line">                pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</div><div class="line">        ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    event = MotionEvent.obtain(downTime, SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, <span class="number">1</span>,</div><div class="line">                properties, pointerCoords, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, InputDevice.SOURCE_TOUCHSCREEN, <span class="number">0</span>);</div><div class="line">    ret &amp;= mUiAutomation.injectInputEvent(event, <span class="keyword">true</span>);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> ret;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="相关项目"><a href="#相关项目" class="headerlink" title="相关项目"></a>相关项目</h2><p>可参考<a href="https://github.com/gavinliu/OpenGpad-Android" target="_blank" rel="external">OpenGpad-Android</a>：基于测试框架做的使用PC键盘玩儿手机游戏的软件。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;code&gt;UiAutomator&lt;/code&gt;已经现有的的API没有提高多点触控的方法，但是我们可以通过注入多点事件的方式来实现。&lt;/p&gt;
-&lt;h2 id=&quot;Android-TouchEvent-Flow&quot;&gt;&lt;a href=&quot;#Android-TouchEvent-Flow&quot; class=&quot;headerlink&quot; title=&quot;Android TouchEvent Flow&quot;&gt;&lt;/a&gt;Android TouchEvent Flow&lt;/h2&gt;&lt;p&gt;一个基本的单点事件流&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;MotionEvent.ACTION_DOWN&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;MotionEvent.ACTION_MOVE&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;MotionEvent.ACTION_UP&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
-    
-    
-      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
-    
-      <category term="Android测试框架" scheme="http://gavinliu.cn/tags/Android%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/"/>
-    
-      <category term="UiAutomator" scheme="http://gavinliu.cn/tags/UiAutomator/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android - adb forward实现PC和App的Socket通讯</title>
-    <link href="http://gavinliu.cn/2016/01/19/Android-adb-forward%E5%AE%9E%E7%8E%B0PC%E5%92%8CAndroid%E7%9A%84Socket%E9%80%9A%E8%AE%AF/"/>
-    <id>http://gavinliu.cn/2016/01/19/Android-adb-forward实现PC和Android的Socket通讯/</id>
-    <published>2016-01-19T09:52:26.000Z</published>
-    <updated>2016-01-19T13:20:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>PC端的XX助手和手机App的通讯原理:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 把PC端8000端口的数据, 转发到Android端的9000端口上.</span></div><div class="line">adb forward tcp:8000 tcp:9000</div></pre></td></tr></table></figure>
-<blockquote>
-<p><a href="/2012/04/08/JavaWeb---转向-转发-随笔/">什么是转发? </a></p>
-</blockquote>
-<p>执行命令后, PC端的8000端口会被 <code>adb</code> 监听, 这个时候我们只需要往8000端口写数据, 这个数据就会发送到手机端的9000端口上.</p>
-<a id="more"></a>
-<h2 id="PC端程序"><a href="#PC端程序" class="headerlink" title="PC端程序"></a>PC端程序</h2><p>把输入内容发送给8000端口</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PCClient</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        System.out.println(<span class="string">"任意字符, 回车键发送Toast"</span>);</div><div class="line">        Scanner scanner = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">            String msg = scanner.next();</div><div class="line">            sendToast(msg);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sendToast</span><span class="params">(String msg)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        Socket socket = <span class="keyword">new</span> Socket(<span class="string">"127.0.0.1"</span>, <span class="number">8000</span>);</div><div class="line">        DataInputStream dis = <span class="keyword">new</span> DataInputStream(socket.getInputStream());</div><div class="line">        DataOutputStream dos = <span class="keyword">new</span> DataOutputStream(socket.getOutputStream());</div><div class="line">        dos.writeUTF(msg);</div><div class="line">        socket.close();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="Android端程序"><a href="#Android端程序" class="headerlink" title="Android端程序"></a>Android端程序</h2><p>监听9000端口, 把收到的数据, Toast在屏幕上</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"ServerThread"</span>;</div><div class="line"></div><div class="line">    ServerThread serverThread;</div><div class="line"></div><div class="line">    Handler handler = <span class="keyword">new</span> Handler() &#123;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">            Toast.makeText(getApplicationContext(), msg.getData().getString(<span class="string">"MSG"</span>, <span class="string">"Toast"</span>), Toast.LENGTH_SHORT).show();</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        serverThread = <span class="keyword">new</span> ServerThread();</div><div class="line">        serverThread.start();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDestroy();</div><div class="line">        serverThread.setIsLoop(<span class="keyword">false</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">ServerThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">boolean</span> isLoop = <span class="keyword">true</span>;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setIsLoop</span><span class="params">(<span class="keyword">boolean</span> isLoop)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.isLoop = isLoop;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            Log.d(TAG, <span class="string">"running"</span>);</div><div class="line"></div><div class="line">            ServerSocket serverSocket = <span class="keyword">null</span>;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                serverSocket = <span class="keyword">new</span> ServerSocket(<span class="number">9000</span>);</div><div class="line"></div><div class="line">                <span class="keyword">while</span> (isLoop) &#123;</div><div class="line">                    Socket socket = serverSocket.accept();</div><div class="line"></div><div class="line">                    Log.d(TAG, <span class="string">"accept"</span>);</div><div class="line"></div><div class="line">                    DataInputStream inputStream = <span class="keyword">new</span> DataInputStream(socket.getInputStream());</div><div class="line">                    DataOutputStream outputStream = <span class="keyword">new</span> DataOutputStream(socket.getOutputStream());</div><div class="line"></div><div class="line">                    String msg = inputStream.readUTF();</div><div class="line"></div><div class="line">                    Message message = Message.obtain();</div><div class="line">                    Bundle bundle = <span class="keyword">new</span> Bundle();</div><div class="line">                    bundle.putString(<span class="string">"MSG"</span>, msg);</div><div class="line">                    message.setData(bundle);</div><div class="line">                    handler.sendMessage(message);</div><div class="line"></div><div class="line">                    socket.close();</div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125; <span class="keyword">finally</span> &#123;</div><div class="line">                Log.d(TAG, <span class="string">"destory"</span>);</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (serverSocket != <span class="keyword">null</span>) &#123;</div><div class="line">                    <span class="keyword">try</span> &#123;</div><div class="line">                        serverSocket.close();</div><div class="line">                    &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                        e.printStackTrace();</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h2><p><img src="/images/2016.01.19 - Android-adb-forward实现PC和Android的Socket通讯1.gif" alt=""></p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/gavinliu/Android-Pc-Socket-Connection" target="_blank" rel="external">Android-Pc-Socket-Connection</a></p>
-<h2 id="实际开发中的问题"><a href="#实际开发中的问题" class="headerlink" title="实际开发中的问题"></a>实际开发中的问题</h2><p>１. Android端的程序 有可能被干掉<br>２. <code>adb forward</code> 有可能会被干掉</p>
-<p>由于连接不稳定性，判断真正连接成功的方法，只有轮询收发握手数据包：<br>C发送一个数据包，等待S回复；C如果收到了S的回复包，说明连通。<br>如果接收超时，则认为没有连通，在没有连通的情况下，需要重新建立Socket，并Connect()，然后再尝试握手。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;PC端的XX助手和手机App的通讯原理:&lt;/p&gt;
-&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# 把PC端8000端口的数据, 转发到Android端的9000端口上.&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;adb forward tcp:8000 tcp:9000&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;/2012/04/08/JavaWeb---转向-转发-随笔/&quot;&gt;什么是转发? &lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;执行命令后, PC端的8000端口会被 &lt;code&gt;adb&lt;/code&gt; 监听, 这个时候我们只需要往8000端口写数据, 这个数据就会发送到手机端的9000端口上.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
-    
-    
-      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
-    
-      <category term="Socket" scheme="http://gavinliu.cn/tags/Socket/"/>
     
   </entry>
   

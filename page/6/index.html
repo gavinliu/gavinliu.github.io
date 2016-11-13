@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android, Java.Web, " />
@@ -79,19 +79,22 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.2" />
 
 
 
 
 
 
+<meta name="description" content="刘云龙的程序世界">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gavin.Liu">
 <meta property="og:url" content="http://gavinliu.cn/page/6/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
+<meta property="og:description" content="刘云龙的程序世界">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gavin.Liu">
+<meta name="twitter:description" content="刘云龙的程序世界">
 
 
 
@@ -103,7 +106,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: '0',
       author: '博主'
     }
   };
@@ -114,10 +117,11 @@
 
   <link rel="canonical" href="http://gavinliu.cn/page/6/"/>
 
+
   <title> Gavin.Liu </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -150,7 +154,7 @@
  ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -182,8 +186,6 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
             首页
           </a>
         </li>
@@ -191,8 +193,6 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -202,8 +202,6 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
             分类
           </a>
         </li>
@@ -211,8 +209,6 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -222,8 +218,6 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
             关于
           </a>
         </li>
@@ -232,10 +226,8 @@
       
         <li class="menu-item menu-item-search">
           
-            <a href="#" class="st-search-show-outputs">
+            <a href="javascript:;" class="st-search-show-outputs">
           
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -285,7 +277,378 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/10/我的电脑环境-工作流/" itemprop="url">
+                  我的电脑环境&工作流
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-10T20:51:53+08:00" content="2016-01-10">
+              2016-01-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
+                    <span itemprop="name">刘说八道</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/10/我的电脑环境-工作流/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/10/我的电脑环境-工作流/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>工欲善其事，必先利其器</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/10/我的电脑环境-工作流/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/09/幻想被时代选中了/" itemprop="url">
+                  幻想被时代选中了
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-09T21:00:53+08:00" content="2016-01-09">
+              2016-01-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
+                    <span itemprop="name">刘说八道</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/09/幻想被时代选中了/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/09/幻想被时代选中了/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p>老罗就像青春期的我们，常常幻想被时代选中了，但真正经历过才发现，很多当年觉得别人白痴的选择，其实都是基于自己不知道的角度的一种妥协。<br>  <div style="text-align:right">– FView测评结语</div></p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/09/幻想被时代选中了/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/" itemprop="url">
+                  Android - 测试框架之 UI Testing - UiAutomator
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-01-02T00:34:13+08:00" content="2016-01-02">
+              2016-01-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <blockquote>
+<p><code>UiAutomator</code>和<code>Espresso</code>最大的不同是<strong>支持多个App</strong>，所以<code>UiAutomator</code>是所有Android测试工程师的必备技能。</p>
+</blockquote>
+<p><code>UiAutomator</code>2.0版本依赖了<code>Instrumentation</code>使得<code>UiAutomator 2</code>可以轻松的拿到Activity的Context，就可以像写Android应用程序一样，实现很多功能。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -409,7 +772,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -526,371 +889,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/23/Android-测试框架概述/" itemprop="url">
-                  Android - 测试框架概述
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-23T19:33:35+08:00" content="2015-12-23">
-              2015-12-23
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/23/Android-测试框架概述/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/23/Android-测试框架概述/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Android-Testing-简介"><a href="#Android-Testing-简介" class="headerlink" title="Android Testing 简介"></a>Android Testing 简介</h2><p>早前Android测试框架只是Android测试工程师的工具，<code>Android Studio</code>不知从什么版本开始, 新建项目后就会默认生成<code>androidTest</code>目录, 可以看出Google在大力推广Android测试框架, 希望开发人员也多写单元测试, 以编写高品质的App.</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/23/Android-测试框架概述/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/19/Swift-重点汇总/" itemprop="url">
-                  Swift - 重点汇总
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-19T22:30:01+08:00" content="2015-12-19">
-              2015-12-19
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Swift-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Swift Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/19/Swift-重点汇总/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/19/Swift-重点汇总/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>笔记整理中…</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/12/17/Python-Mac的环境搭建/" itemprop="url">
-                  Python - Mac的环境搭建
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-12-17T21:34:38+08:00" content="2015-12-17">
-              2015-12-17
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Python-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Python Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/12/17/Python-Mac的环境搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/17/Python-Mac的环境搭建/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <pre><code>Python 作为胶水语言, 是每个程序员必备的工具语言. 学习吧, 少年!
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/12/17/Python-Mac的环境搭建/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -926,17 +924,17 @@
       
 
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
                alt="Gavin Liu" />
           <p class="site-author-name" itemprop="name">Gavin Liu</p>
-          <p class="site-description motion-element" itemprop="description"></p>
+          <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">99</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -953,7 +951,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1025,7 +1023,7 @@
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
@@ -1079,49 +1077,49 @@
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
 
 
 
@@ -1146,6 +1144,8 @@
 
   
     
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
@@ -1193,35 +1193,32 @@
             var $resultContent = document.getElementById(content_id);
             $input.addEventListener('input', function(){
                 var matchcounts = 0;
-                var str='<ul class=\"search-result-list\">';                
+                var str='<ul class=\"search-result-list\">';
                 var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
                 $resultContent.innerHTML = "";
                 if (this.value.trim().length > 1) {
                 // perform local searching
                 datas.forEach(function(data) {
-                    var isMatch = true;
+                    var isMatch = false;
                     var content_index = [];
                     var data_title = data.title.trim().toLowerCase();
                     var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = data.url;
+                    var data_url = decodeURIComponent(data.url);
                     var index_title = -1;
                     var index_content = -1;
                     var first_occur = -1;
                     // only match artiles with not empty titles and contents
-                    if(data_title != '' && data_content != '') {
+                    if(data_title != '') {
                         keywords.forEach(function(keyword, i) {
                             index_title = data_title.indexOf(keyword);
                             index_content = data_content.indexOf(keyword);
-                            if( index_title < 0 && index_content < 0 ){
-                                isMatch = false;
-                            } else {
-                                if (index_content < 0) {
-                                    index_content = 0;
-                                }
-                                if (i == 0) {
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
                                     first_occur = index_content;
                                 }
-                            }
+                            } 
+							
                         });
                     }
                     // show search results
@@ -1248,7 +1245,7 @@
                                 var regS = new RegExp(keyword, "gi");
                                 match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
                             });
-                            
+
                             str += "<p class=\"search-result\">" + match_content +"...</p>"
                         }
                         str += "</li>";
@@ -1264,7 +1261,7 @@
     });}
 
     // handle and trigger popup window;
-    $('.popup-trigger').mousedown(function(e) {
+    $('.popup-trigger').click(function(e) {
       e.stopPropagation();
       if (isfetched == false) {
         searchFunc(path, 'local-search-input', 'local-search-result');
@@ -1283,6 +1280,7 @@
       e.stopPropagation();
     });
   </script>
+
 
   
   <script type="text/x-mathjax-config">
@@ -1309,6 +1307,9 @@
   
 
   
+
+  
+
 
 </body>
 </html>

@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android, Java.Web, " />
@@ -79,20 +79,23 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.2" />
 
 
 
 
 
 
+<meta name="description" content="刘云龙的程序世界">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tags">
 <meta property="og:url" content="http://gavinliu.cn/tags/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
+<meta property="og:description" content="刘云龙的程序世界">
 <meta property="og:updated_time" content="2016-01-02T05:44:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tags">
+<meta name="twitter:description" content="刘云龙的程序世界">
 
 
 
@@ -104,7 +107,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: '0',
       author: '博主'
     }
   };
@@ -115,6 +118,7 @@
 
   <link rel="canonical" href="http://gavinliu.cn/tags/"/>
 
+
   <title>
   
 
@@ -124,7 +128,7 @@
 </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -155,7 +159,7 @@
   <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -187,8 +191,6 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
             首页
           </a>
         </li>
@@ -196,8 +198,6 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -207,8 +207,6 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
             分类
           </a>
         </li>
@@ -216,8 +214,6 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -227,8 +223,6 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
             关于
           </a>
         </li>
@@ -237,10 +231,8 @@
       
         <li class="menu-item menu-item-search">
           
-            <a href="#" class="st-search-show-outputs">
+            <a href="javascript:;" class="st-search-show-outputs">
           
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -285,10 +277,10 @@
     
       <div class="tag-cloud">
         <div class="tag-cloud-title">
-            目前共计 72 个标签
+            目前共计 76 个标签
         </div>
         <div class="tag-cloud-tags">
-          <a href="/tags/Android/" style="font-size: 30px; color: #111">Android</a> <a href="/tags/Android测试框架/" style="font-size: 19.71px; color: #7c7c7c">Android测试框架</a> <a href="/tags/Animation/" style="font-size: 22.29px; color: #616161">Animation</a> <a href="/tags/Annotation/" style="font-size: 12px; color: #ccc">Annotation</a> <a href="/tags/Choreographer/" style="font-size: 12px; color: #ccc">Choreographer</a> <a href="/tags/Chrome/" style="font-size: 12px; color: #ccc">Chrome</a> <a href="/tags/Deep-Learning/" style="font-size: 12px; color: #ccc">Deep Learning</a> <a href="/tags/Drag-And-Drop/" style="font-size: 12px; color: #ccc">Drag.And.Drop</a> <a href="/tags/Espresso/" style="font-size: 12px; color: #ccc">Espresso</a> <a href="/tags/EventCast/" style="font-size: 12px; color: #ccc">EventCast</a> <a href="/tags/Facebook/" style="font-size: 12px; color: #ccc">Facebook</a> <a href="/tags/Flyme/" style="font-size: 12px; color: #ccc">Flyme</a> <a href="/tags/Future/" style="font-size: 12px; color: #ccc">Future</a> <a href="/tags/GBA4iOS/" style="font-size: 12px; color: #ccc">GBA4iOS</a> <a href="/tags/Gradle/" style="font-size: 17.14px; color: #979797">Gradle</a> <a href="/tags/JNI/" style="font-size: 14.57px; color: #b1b1b1">JNI</a> <a href="/tags/Java/" style="font-size: 17.14px; color: #979797">Java</a> <a href="/tags/Java-Web/" style="font-size: 27.43px; color: #2c2c2c">Java.Web</a> <a href="/tags/ListView/" style="font-size: 12px; color: #ccc">ListView</a> <a href="/tags/Lollipop/" style="font-size: 17.14px; color: #979797">Lollipop</a> <a href="/tags/Mac/" style="font-size: 22.29px; color: #616161">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 12px; color: #ccc">Machine Learning</a> <a href="/tags/Material-Design/" style="font-size: 17.14px; color: #979797">Material.Design</a> <a href="/tags/Morning-Routine/" style="font-size: 12px; color: #ccc">Morning.Routine</a> <a href="/tags/Myeclipse/" style="font-size: 12px; color: #ccc">Myeclipse</a> <a href="/tags/Mysql/" style="font-size: 12px; color: #ccc">Mysql</a> <a href="/tags/Nougat/" style="font-size: 12px; color: #ccc">Nougat</a> <a href="/tags/PagerIndicator/" style="font-size: 12px; color: #ccc">PagerIndicator</a> <a href="/tags/Project-Butter/" style="font-size: 12px; color: #ccc">Project.Butter</a> <a href="/tags/PyCharm/" style="font-size: 12px; color: #ccc">PyCharm</a> <a href="/tags/PyQt5/" style="font-size: 14.57px; color: #b1b1b1">PyQt5</a> <a href="/tags/Python/" style="font-size: 17.14px; color: #979797">Python</a> <a href="/tags/Qt5/" style="font-size: 12px; color: #ccc">Qt5</a> <a href="/tags/QuickSettings/" style="font-size: 12px; color: #ccc">QuickSettings</a> <a href="/tags/Socket/" style="font-size: 12px; color: #ccc">Socket</a> <a href="/tags/Swift/" style="font-size: 12px; color: #ccc">Swift</a> <a href="/tags/Tile/" style="font-size: 12px; color: #ccc">Tile</a> <a href="/tags/TileService/" style="font-size: 12px; color: #ccc">TileService</a> <a href="/tags/Tomcat/" style="font-size: 12px; color: #ccc">Tomcat</a> <a href="/tags/UiAutomator/" style="font-size: 14.57px; color: #b1b1b1">UiAutomator</a> <a href="/tags/View/" style="font-size: 14.57px; color: #b1b1b1">View</a> <a href="/tags/WebService/" style="font-size: 12px; color: #ccc">WebService</a> <a href="/tags/Xware/" style="font-size: 12px; color: #ccc">Xware</a> <a href="/tags/cocoapods/" style="font-size: 12px; color: #ccc">cocoapods</a> <a href="/tags/git/" style="font-size: 12px; color: #ccc">git</a> <a href="/tags/git-repo/" style="font-size: 12px; color: #ccc">git-repo</a> <a href="/tags/gradle/" style="font-size: 12px; color: #ccc">gradle</a> <a href="/tags/maven/" style="font-size: 12px; color: #ccc">maven</a> <a href="/tags/nginx/" style="font-size: 12px; color: #ccc">nginx</a> <a href="/tags/python/" style="font-size: 12px; color: #ccc">python</a> <a href="/tags/repo/" style="font-size: 12px; color: #ccc">repo</a> <a href="/tags/ruby/" style="font-size: 12px; color: #ccc">ruby</a> <a href="/tags/三角函数/" style="font-size: 12px; color: #ccc">三角函数</a> <a href="/tags/乱码/" style="font-size: 14.57px; color: #b1b1b1">乱码</a> <a href="/tags/人人都是产品经理/" style="font-size: 14.57px; color: #b1b1b1">人人都是产品经理</a> <a href="/tags/内存管理/" style="font-size: 12px; color: #ccc">内存管理</a> <a href="/tags/加密算法/" style="font-size: 12px; color: #ccc">加密算法</a> <a href="/tags/多线程/" style="font-size: 12px; color: #ccc">多线程</a> <a href="/tags/实用主义/" style="font-size: 17.14px; color: #979797">实用主义</a> <a href="/tags/年终总结/" style="font-size: 17.14px; color: #979797">年终总结</a> <a href="/tags/按位运算/" style="font-size: 12px; color: #ccc">按位运算</a> <a href="/tags/数学/" style="font-size: 12px; color: #ccc">数学</a> <a href="/tags/服务器/" style="font-size: 14.57px; color: #b1b1b1">服务器</a> <a href="/tags/机器学习/" style="font-size: 12px; color: #ccc">机器学习</a> <a href="/tags/比特币-Bitcoin/" style="font-size: 12px; color: #ccc">比特币(Bitcoin)</a> <a href="/tags/浮想联翩/" style="font-size: 12px; color: #ccc">浮想联翩</a> <a href="/tags/环境搭建/" style="font-size: 24.86px; color: #464646">环境搭建</a> <a href="/tags/编程技巧/" style="font-size: 12px; color: #ccc">编程技巧</a> <a href="/tags/贝赛尔曲线/" style="font-size: 12px; color: #ccc">贝赛尔曲线</a> <a href="/tags/路由器/" style="font-size: 17.14px; color: #979797">路由器</a> <a href="/tags/面试经验/" style="font-size: 12px; color: #ccc">面试经验</a> <a href="/tags/音乐播放器/" style="font-size: 12px; color: #ccc">音乐播放器</a>
+          <a href="/tags/Android/" style="font-size: 30px; color: #111">Android</a> <a href="/tags/Android-studio-2-2/" style="font-size: 12px; color: #ccc">Android studio 2.2</a> <a href="/tags/Android测试框架/" style="font-size: 19.71px; color: #7c7c7c">Android测试框架</a> <a href="/tags/Animation/" style="font-size: 22.29px; color: #616161">Animation</a> <a href="/tags/Annotation/" style="font-size: 12px; color: #ccc">Annotation</a> <a href="/tags/CMakeLists/" style="font-size: 12px; color: #ccc">CMakeLists</a> <a href="/tags/Choreographer/" style="font-size: 12px; color: #ccc">Choreographer</a> <a href="/tags/Chrome/" style="font-size: 12px; color: #ccc">Chrome</a> <a href="/tags/Deep-Learning/" style="font-size: 12px; color: #ccc">Deep Learning</a> <a href="/tags/Drag-And-Drop/" style="font-size: 12px; color: #ccc">Drag.And.Drop</a> <a href="/tags/Espresso/" style="font-size: 12px; color: #ccc">Espresso</a> <a href="/tags/EventCast/" style="font-size: 12px; color: #ccc">EventCast</a> <a href="/tags/Facebook/" style="font-size: 12px; color: #ccc">Facebook</a> <a href="/tags/Flyme/" style="font-size: 12px; color: #ccc">Flyme</a> <a href="/tags/Future/" style="font-size: 12px; color: #ccc">Future</a> <a href="/tags/GBA4iOS/" style="font-size: 12px; color: #ccc">GBA4iOS</a> <a href="/tags/Glide/" style="font-size: 12px; color: #ccc">Glide</a> <a href="/tags/Gradle/" style="font-size: 17.14px; color: #979797">Gradle</a> <a href="/tags/JNI/" style="font-size: 14.57px; color: #b1b1b1">JNI</a> <a href="/tags/Java/" style="font-size: 17.14px; color: #979797">Java</a> <a href="/tags/Java-Web/" style="font-size: 27.43px; color: #2c2c2c">Java.Web</a> <a href="/tags/ListView/" style="font-size: 12px; color: #ccc">ListView</a> <a href="/tags/Lollipop/" style="font-size: 17.14px; color: #979797">Lollipop</a> <a href="/tags/Mac/" style="font-size: 22.29px; color: #616161">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 12px; color: #ccc">Machine Learning</a> <a href="/tags/Material-Design/" style="font-size: 17.14px; color: #979797">Material.Design</a> <a href="/tags/Morning-Routine/" style="font-size: 12px; color: #ccc">Morning.Routine</a> <a href="/tags/Myeclipse/" style="font-size: 12px; color: #ccc">Myeclipse</a> <a href="/tags/Mysql/" style="font-size: 12px; color: #ccc">Mysql</a> <a href="/tags/Nougat/" style="font-size: 12px; color: #ccc">Nougat</a> <a href="/tags/PagerIndicator/" style="font-size: 12px; color: #ccc">PagerIndicator</a> <a href="/tags/Project-Butter/" style="font-size: 12px; color: #ccc">Project.Butter</a> <a href="/tags/PyCharm/" style="font-size: 12px; color: #ccc">PyCharm</a> <a href="/tags/PyQt5/" style="font-size: 14.57px; color: #b1b1b1">PyQt5</a> <a href="/tags/Python/" style="font-size: 17.14px; color: #979797">Python</a> <a href="/tags/Qt5/" style="font-size: 12px; color: #ccc">Qt5</a> <a href="/tags/QuickSettings/" style="font-size: 12px; color: #ccc">QuickSettings</a> <a href="/tags/ShapedImageView/" style="font-size: 12px; color: #ccc">ShapedImageView</a> <a href="/tags/Socket/" style="font-size: 12px; color: #ccc">Socket</a> <a href="/tags/StackBlur/" style="font-size: 12px; color: #ccc">StackBlur</a> <a href="/tags/Swift/" style="font-size: 12px; color: #ccc">Swift</a> <a href="/tags/Tile/" style="font-size: 12px; color: #ccc">Tile</a> <a href="/tags/TileService/" style="font-size: 12px; color: #ccc">TileService</a> <a href="/tags/Tomcat/" style="font-size: 12px; color: #ccc">Tomcat</a> <a href="/tags/UiAutomator/" style="font-size: 14.57px; color: #b1b1b1">UiAutomator</a> <a href="/tags/View/" style="font-size: 14.57px; color: #b1b1b1">View</a> <a href="/tags/WebService/" style="font-size: 12px; color: #ccc">WebService</a> <a href="/tags/Xware/" style="font-size: 12px; color: #ccc">Xware</a> <a href="/tags/cocoapods/" style="font-size: 12px; color: #ccc">cocoapods</a> <a href="/tags/git/" style="font-size: 12px; color: #ccc">git</a> <a href="/tags/gradle/" style="font-size: 12px; color: #ccc">gradle</a> <a href="/tags/maven/" style="font-size: 12px; color: #ccc">maven</a> <a href="/tags/nginx/" style="font-size: 12px; color: #ccc">nginx</a> <a href="/tags/python/" style="font-size: 12px; color: #ccc">python</a> <a href="/tags/repo/" style="font-size: 12px; color: #ccc">repo</a> <a href="/tags/ruby/" style="font-size: 12px; color: #ccc">ruby</a> <a href="/tags/三角函数/" style="font-size: 12px; color: #ccc">三角函数</a> <a href="/tags/乱码/" style="font-size: 14.57px; color: #b1b1b1">乱码</a> <a href="/tags/人人都是产品经理/" style="font-size: 14.57px; color: #b1b1b1">人人都是产品经理</a> <a href="/tags/内存管理/" style="font-size: 12px; color: #ccc">内存管理</a> <a href="/tags/加密算法/" style="font-size: 12px; color: #ccc">加密算法</a> <a href="/tags/多线程/" style="font-size: 12px; color: #ccc">多线程</a> <a href="/tags/实用主义/" style="font-size: 17.14px; color: #979797">实用主义</a> <a href="/tags/年终总结/" style="font-size: 17.14px; color: #979797">年终总结</a> <a href="/tags/按位运算/" style="font-size: 12px; color: #ccc">按位运算</a> <a href="/tags/数学/" style="font-size: 12px; color: #ccc">数学</a> <a href="/tags/服务器/" style="font-size: 14.57px; color: #b1b1b1">服务器</a> <a href="/tags/机器学习/" style="font-size: 12px; color: #ccc">机器学习</a> <a href="/tags/比特币-Bitcoin/" style="font-size: 12px; color: #ccc">比特币(Bitcoin)</a> <a href="/tags/浮想联翩/" style="font-size: 12px; color: #ccc">浮想联翩</a> <a href="/tags/环境搭建/" style="font-size: 24.86px; color: #464646">环境搭建</a> <a href="/tags/编程技巧/" style="font-size: 12px; color: #ccc">编程技巧</a> <a href="/tags/贝赛尔曲线/" style="font-size: 12px; color: #ccc">贝赛尔曲线</a> <a href="/tags/路由器/" style="font-size: 17.14px; color: #979797">路由器</a> <a href="/tags/面试经验/" style="font-size: 12px; color: #ccc">面试经验</a> <a href="/tags/音乐播放器/" style="font-size: 12px; color: #ccc">音乐播放器</a>
         </div>
       </div>
     
@@ -321,17 +313,17 @@
       
 
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
                alt="Gavin Liu" />
           <p class="site-author-name" itemprop="name">Gavin Liu</p>
-          <p class="site-description motion-element" itemprop="description"></p>
+          <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">99</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -348,7 +340,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -420,7 +412,7 @@
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
@@ -474,49 +466,49 @@
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
 
 
 
@@ -541,6 +533,8 @@
 
   
     
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
@@ -588,35 +582,32 @@
             var $resultContent = document.getElementById(content_id);
             $input.addEventListener('input', function(){
                 var matchcounts = 0;
-                var str='<ul class=\"search-result-list\">';                
+                var str='<ul class=\"search-result-list\">';
                 var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
                 $resultContent.innerHTML = "";
                 if (this.value.trim().length > 1) {
                 // perform local searching
                 datas.forEach(function(data) {
-                    var isMatch = true;
+                    var isMatch = false;
                     var content_index = [];
                     var data_title = data.title.trim().toLowerCase();
                     var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = data.url;
+                    var data_url = decodeURIComponent(data.url);
                     var index_title = -1;
                     var index_content = -1;
                     var first_occur = -1;
                     // only match artiles with not empty titles and contents
-                    if(data_title != '' && data_content != '') {
+                    if(data_title != '') {
                         keywords.forEach(function(keyword, i) {
                             index_title = data_title.indexOf(keyword);
                             index_content = data_content.indexOf(keyword);
-                            if( index_title < 0 && index_content < 0 ){
-                                isMatch = false;
-                            } else {
-                                if (index_content < 0) {
-                                    index_content = 0;
-                                }
-                                if (i == 0) {
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
                                     first_occur = index_content;
                                 }
-                            }
+                            } 
+							
                         });
                     }
                     // show search results
@@ -643,7 +634,7 @@
                                 var regS = new RegExp(keyword, "gi");
                                 match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
                             });
-                            
+
                             str += "<p class=\"search-result\">" + match_content +"...</p>"
                         }
                         str += "</li>";
@@ -659,7 +650,7 @@
     });}
 
     // handle and trigger popup window;
-    $('.popup-trigger').mousedown(function(e) {
+    $('.popup-trigger').click(function(e) {
       e.stopPropagation();
       if (isfetched == false) {
         searchFunc(path, 'local-search-input', 'local-search-result');
@@ -678,6 +669,7 @@
       e.stopPropagation();
     });
   </script>
+
 
   
   <script type="text/x-mathjax-config">
@@ -704,6 +696,9 @@
   
 
   
+
+  
+
 
 </body>
 </html>

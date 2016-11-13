@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android, Java.Web, " />
@@ -79,19 +79,22 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.2" />
 
 
 
 
 
 
+<meta name="description" content="刘云龙的程序世界">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gavin.Liu">
 <meta property="og:url" content="http://gavinliu.cn/page/7/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
+<meta property="og:description" content="刘云龙的程序世界">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gavin.Liu">
+<meta name="twitter:description" content="刘云龙的程序世界">
 
 
 
@@ -103,7 +106,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: '0',
       author: '博主'
     }
   };
@@ -114,10 +117,11 @@
 
   <link rel="canonical" href="http://gavinliu.cn/page/7/"/>
 
+
   <title> Gavin.Liu </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -150,7 +154,7 @@
  ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -182,8 +186,6 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
             首页
           </a>
         </li>
@@ -191,8 +193,6 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -202,8 +202,6 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
             分类
           </a>
         </li>
@@ -211,8 +209,6 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -222,8 +218,6 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
             关于
           </a>
         </li>
@@ -232,10 +226,8 @@
       
         <li class="menu-item menu-item-search">
           
-            <a href="#" class="st-search-show-outputs">
+            <a href="javascript:;" class="st-search-show-outputs">
           
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -285,7 +277,372 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/23/Android-测试框架概述/" itemprop="url">
+                  Android - 测试框架概述
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-23T19:33:35+08:00" content="2015-12-23">
+              2015-12-23
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/23/Android-测试框架概述/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/23/Android-测试框架概述/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Android-Testing-简介"><a href="#Android-Testing-简介" class="headerlink" title="Android Testing 简介"></a>Android Testing 简介</h2><p>早前Android测试框架只是Android测试工程师的工具，<code>Android Studio</code>不知从什么版本开始, 新建项目后就会默认生成<code>androidTest</code>目录, 可以看出Google在大力推广Android测试框架, 希望开发人员也多写单元测试, 以编写高品质的App.</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/23/Android-测试框架概述/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/19/Swift-重点汇总/" itemprop="url">
+                  Swift - 重点汇总
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-19T22:30:01+08:00" content="2015-12-19">
+              2015-12-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Swift-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Swift Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/19/Swift-重点汇总/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/19/Swift-重点汇总/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>笔记整理中…</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/17/Python-Mac的环境搭建/" itemprop="url">
+                  Python - Mac的环境搭建
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-12-17T21:34:38+08:00" content="2015-12-17">
+              2015-12-17
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Python-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Python Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/12/17/Python-Mac的环境搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/17/Python-Mac的环境搭建/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <pre><code>Python 作为胶水语言, 是每个程序员必备的工具语言. 学习吧, 少年!
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/17/Python-Mac的环境搭建/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -414,7 +771,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -519,388 +876,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/" itemprop="url">
-                  Newifi Mini(Y1) 动手玩(2) - opkg
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-09T20:55:36+08:00" content="2015-10-09">
-              2015-10-09
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="opkg"><a href="#opkg" class="headerlink" title="opkg ?"></a>opkg ?</h2><p>opkg是openwrt里的软件包管理器，类似Mac下的brew、Ubuntu下的apt-get等，命令位于<code>/bin/opkg</code></p>
-<p>由于openwrt是嵌入式系统，硬件复杂，我们需要把opkg的源和Newifi Mini(Y1)的硬件相匹配。</p>
-<h2 id="配置源"><a href="#配置源" class="headerlink" title="配置源"></a>配置源</h2><p>Y1使用的是 mt7620a 这枚cpu，我们需要使用 mt7620a 的源</p>
-<p>openwrt官方源：</p>
-<p><a href="http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/">http://downloads.openwrt.org/barrier_breaker/14.07/ramips/mt7620a/</a><br><a href="http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/">http://downloads.openwrt.org/chaos_calmer/15.05/ramips/mt7620a/</a></p>
-<blockquote>
-<p>需要说明的是 PandoraBox 和 小云OS 都是基于 <code>openwrt 14.07</code> 开发的</p>
-</blockquote>
-<p>由于众所周知的原因直接访问openwrt.org是非常慢，我们可以使用代理 <code>mirrors.ustc.edu.cn</code> 或者 <code>downloads.openwrt.org.cn</code></p>
-<p>两种方式：</p>
-<ul>
-<li><code>ssh</code>连接到路由器后使用<code>vi</code>修改配置文件</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/opkg.conf</div></pre></td></tr></table></figure>
-<ul>
-<li>管理页面：OpenWrt 系统-&gt;软件包-&gt;配置；小云OS 高级设置-&gt;系统-&gt;软件包-&gt;配置</li>
-</ul>
-<p><img src="/images/2015.10.09 - Newifi-Mini-Y1-动手玩-2-opkg1.png" alt="">
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/10/09/Newifi-Mini-Y1-动手玩-2-opkg/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/09/Newifi-Mini-Y1-动手玩-1-刷机/" itemprop="url">
-                  Newifi Mini(Y1) 动手玩(1) - 刷机
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-10-09T10:36:17+08:00" content="2015-10-09">
-              2015-10-09
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/10/09/Newifi-Mini-Y1-动手玩-1-刷机/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/Newifi-Mini-Y1-动手玩-1-刷机/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Newifi 本身就带有一个不死uBoot，所以可以很方便的刷机，这也是我为什么没有买极路由的原因。</p>
-<p>刚刚买回来的Newifi是<code>如意云 1.0</code>的系统，这个系统很难用，建议买回来刷 <code>小云OS 2.0</code> 或者 <code>OpenWrt</code> 或者 <code>PandoraBox</code></p>
-<p>官方固件下载地址：<a href="http://www.newbd.com/topic/download/index.html" target="_blank" rel="external">http://www.newbd.com/topic/download/index.html</a><br>OpenWrt下载地址：<a href="http://downloads.openwrt.org/chaos_calmer/15.05-rc2/ramips/mt7620/" target="_blank" rel="external">http://downloads.openwrt.org/chaos_calmer/15.05-rc2/ramips/mt7620/</a><br>PandoraBox下载地址：<a href="http://downloads.openwrt.org.cn/PandoraBox/Lenovo-Y1_RY-1S/firmware/stable/" target="_blank" rel="external">http://downloads.openwrt.org.cn/PandoraBox/Lenovo-Y1_RY-1S/firmware/stable/</a></p>
-<h2 id="uBoot-刷机"><a href="#uBoot-刷机" class="headerlink" title="uBoot 刷机"></a>uBoot 刷机</h2><ol>
-<li>修改电脑IP为192.168.1.10</li>
-<li>路由器通电，然后拔掉，然后点击reset键，然后通电</li>
-<li>电脑网线链接路由器Wan口</li>
-<li>电脑浏览器访问192.168.1.1</li>
-<li>上传固件，点击恢复</li>
-<li>路由器升级重启后，把电脑IP修改为自动获取即可</li>
-</ol>
-<p>官方固件路由器IP是：192.168.99.1，OpenWrt和PandoraBox是：192.168.1.1</p>
-<h2 id="三个系统的区别"><a href="#三个系统的区别" class="headerlink" title="三个系统的区别"></a>三个系统的区别</h2><ol>
-<li>OpenWrt 最纯净</li>
-<li>PandoraBox 基于OpenWrt做了本地优化</li>
-<li>小云OS 2.0 官方系统，基于OpenWrt做了本地优化，支持手机客户端等。</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/08/12/Android-多屏适配实践/" itemprop="url">
-                  Android - 多屏适配实践
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-08-12T19:59:01+08:00" content="2015-08-12">
-              2015-08-12
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/08/12/Android-多屏适配实践/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/12/Android-多屏适配实践/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>Android开发中面对这么多机型，这么多大小不一的手机屏幕，需要寻求一种高效的多屏适配方案，本文只针对不支持转屏的应用。</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>一般来说应用的适配可分一下几个内容：</p>
-<ol>
-<li>系统组件(Actionbar，Dialog， Pupupmenu…)</li>
-<li>控件块区(View的大小，间距)</li>
-<li>图文相关(文字大小，图片)</li>
-</ol>
-<h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><ol>
-<li>系统组件：使用相关Compat库+自定义View的方式</li>
-<li>控件块区：控件的位置大小，使用dp + 百分比缩放的方式</li>
-<li>图文相关：文子大小使用sp，或者根据需要使用百分比缩放</li>
-</ol>
-<h1 id="适配细节"><a href="#适配细节" class="headerlink" title="适配细节"></a>适配细节</h1><h2 id="一、Android原生dp"><a href="#一、Android原生dp" class="headerlink" title="一、Android原生dp"></a>一、Android原生dp</h2><h2 id="二、百分比缩放"><a href="#二、百分比缩放" class="headerlink" title="二、百分比缩放"></a>二、百分比缩放</h2><h3 id="已知库"><a href="#已知库" class="headerlink" title="已知库"></a>已知库</h3><ol>
-<li><p>android-percent-support-lib<br> 宽高只能和父容器的宽高对应比例。</p>
-</li>
-<li><p>android-percent-support-lib-<br> 基于上面扩展，实现可以分别选择占父容器的比例。</p>
-</li>
-</ol>
-<p>然而对于这样的在布局文件中直接定义百分比的方式，存在两大问题</p>
-<ol>
-<li>计算麻烦<br> 视觉给你标注图肯定都是标的真实的长度，百分比还得自己计算。</li>
-<li>精度丢失<br> 如果效果图的父容器宽是1080px，子View的宽是38px，占3.3333~%，1080 * 3% = 32；1080 * 3.3% = 35 无论取什么值，连视觉的设计样本都会偏移像素。</li>
-</ol>
-<h3 id="最终方案"><a href="#最终方案" class="headerlink" title="最终方案"></a>最终方案</h3>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/08/12/Android-多屏适配实践/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -936,17 +911,17 @@
       
 
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
                alt="Gavin Liu" />
           <p class="site-author-name" itemprop="name">Gavin Liu</p>
-          <p class="site-description motion-element" itemprop="description"></p>
+          <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">99</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -963,7 +938,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1035,7 +1010,7 @@
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
@@ -1089,49 +1064,49 @@
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
 
 
 
@@ -1156,6 +1131,8 @@
 
   
     
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
@@ -1203,35 +1180,32 @@
             var $resultContent = document.getElementById(content_id);
             $input.addEventListener('input', function(){
                 var matchcounts = 0;
-                var str='<ul class=\"search-result-list\">';                
+                var str='<ul class=\"search-result-list\">';
                 var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
                 $resultContent.innerHTML = "";
                 if (this.value.trim().length > 1) {
                 // perform local searching
                 datas.forEach(function(data) {
-                    var isMatch = true;
+                    var isMatch = false;
                     var content_index = [];
                     var data_title = data.title.trim().toLowerCase();
                     var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = data.url;
+                    var data_url = decodeURIComponent(data.url);
                     var index_title = -1;
                     var index_content = -1;
                     var first_occur = -1;
                     // only match artiles with not empty titles and contents
-                    if(data_title != '' && data_content != '') {
+                    if(data_title != '') {
                         keywords.forEach(function(keyword, i) {
                             index_title = data_title.indexOf(keyword);
                             index_content = data_content.indexOf(keyword);
-                            if( index_title < 0 && index_content < 0 ){
-                                isMatch = false;
-                            } else {
-                                if (index_content < 0) {
-                                    index_content = 0;
-                                }
-                                if (i == 0) {
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
                                     first_occur = index_content;
                                 }
-                            }
+                            } 
+							
                         });
                     }
                     // show search results
@@ -1258,7 +1232,7 @@
                                 var regS = new RegExp(keyword, "gi");
                                 match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
                             });
-                            
+
                             str += "<p class=\"search-result\">" + match_content +"...</p>"
                         }
                         str += "</li>";
@@ -1274,7 +1248,7 @@
     });}
 
     // handle and trigger popup window;
-    $('.popup-trigger').mousedown(function(e) {
+    $('.popup-trigger').click(function(e) {
       e.stopPropagation();
       if (isfetched == false) {
         searchFunc(path, 'local-search-input', 'local-search-result');
@@ -1293,6 +1267,7 @@
       e.stopPropagation();
     });
   </script>
+
 
   
   <script type="text/x-mathjax-config">
@@ -1319,6 +1294,9 @@
   
 
   
+
+  
+
 
 </body>
 </html>

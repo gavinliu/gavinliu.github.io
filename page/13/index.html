@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android, Java.Web, " />
@@ -79,19 +79,22 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.2" />
 
 
 
 
 
 
+<meta name="description" content="刘云龙的程序世界">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Gavin.Liu">
 <meta property="og:url" content="http://gavinliu.cn/page/13/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
+<meta property="og:description" content="刘云龙的程序世界">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gavin.Liu">
+<meta name="twitter:description" content="刘云龙的程序世界">
 
 
 
@@ -103,7 +106,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 0,
+      userId: '0',
       author: '博主'
     }
   };
@@ -114,10 +117,11 @@
 
   <link rel="canonical" href="http://gavinliu.cn/page/13/"/>
 
+
   <title> Gavin.Liu </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -150,7 +154,7 @@
  ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
@@ -182,8 +186,6 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
             首页
           </a>
         </li>
@@ -191,8 +193,6 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -202,8 +202,6 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
             分类
           </a>
         </li>
@@ -211,8 +209,6 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -222,8 +218,6 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
             关于
           </a>
         </li>
@@ -232,10 +226,8 @@
       
         <li class="menu-item menu-item-search">
           
-            <a href="#" class="st-search-show-outputs">
+            <a href="javascript:;" class="st-search-show-outputs">
           
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -285,7 +277,430 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/01/16/Android---ToolBar初体验/" itemprop="url">
+                  Android - Toolbar初体验
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-01-16T14:57:01+08:00" content="2015-01-16">
+              2015-01-16
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/01/16/Android---ToolBar初体验/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/16/Android---ToolBar初体验/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>##一、概述<br>配合Android L的发布，Google还更新了Appcombat V7库，新加入了代替现有ActionBar机制的控件——Toolbar，不像以前ActionBar是frameworks封装好提供接口调用的一套应用界面组成部分，它牵涉的东西很多，而Toolbar只是一个控件，和LinearLayout一样可以装载view的容器控件，所以它定制性非常强灵活度非常高，但它又加入了实现现有ActionBar功能的逻辑，感觉非重强大。接下来，我们一起来看看这个新生代Toolbar的使用方法。</p>
+<p>##二、使用总概<br>Toolbar在Appcombat V7库是一个公开的控件，位于android.support.v7.widget包中，继承自ViewGroup，所以我们可以像使用普通的容器控件一样使用Toolbar，并主动调用相关方法实现ActionBar的功能。但是，Google是希望在Appcombat V7库中使用Toolbar来代替现有ActionBar的实现，所以肯定不会仅仅提供个控件就好了，Appcombat V7还把Toolbar封装进默认的Activity中。在新建工程时，创建向导会默认导入Appcombat V7库，自动创建的Activity也会继承自对Toolbar封装过的ActionBarActivity，创建工程后立刻运行应用，此时已是Toolbar实现了ActionBar的功能。</p>
+<figure class="highlight"><figcaption><span>导入Appcombat V7库:</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile 'com.android.support:appcompat-v7:21.0.3'</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###android.support.v7.widget.ActionBarActivity</p>
+<ul>
+<li>Actionbar</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ActionBar actionBar = getSupportActionBar();</div><div class="line">actionBar.setTitle(<span class="string">"Title"</span>);</div><div class="line">actionBar.setSubtitle(<span class="string">"subtitle"</span>);</div><div class="line">actionBar.setLogo(R.drawable.ic_launcher);</div></pre></td></tr></table></figure>
+<ul>
+<li>Toolbar</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Toolbar toolbar = (Toolbar) findViewById(R.id.action_bar);</div><div class="line">toolbar.setTitle(<span class="string">"Title"</span>);</div><div class="line">toolbar.setSubtitle(<span class="string">"subtitle"</span>);</div><div class="line">toolbar.setLogo(R.drawable.ic_launcher);</div></pre></td></tr></table></figure>
+<p>SupportActionBar是由Toolbar实现，而Toolbar又是公开的，所以上面两种方式的等价的。</p>
+<p>###自行指定Toolbar<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/01/16/Android---ToolBar初体验/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/01/07/Flyme互联网产品的错误示范/" itemprop="url">
+                  Flyme互联网产品的错误示范
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-01-07T11:24:49+08:00" content="2015-01-07">
+              2015-01-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
+                    <span itemprop="name">刘说八道</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/01/07/Flyme互联网产品的错误示范/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/01/07/Flyme互联网产品的错误示范/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="账户系统"><a href="#账户系统" class="headerlink" title="账户系统"></a>账户系统</h3><ul>
+<li><p>Flyme账户 <strong>缺少用户属性</strong><br>Flyme账户只在云服务中作为登录验证使用，在Flyme4之前连昵称和头像都没有，除了这两点之外也没有其他个性化的设置。</p>
+</li>
+<li><p>Flyme账户 <strong>缺失用户关系</strong><br>Flyme账户至Flyme系统出世就一直存在，到现在发展到Flyme4了，用户与用户之间的联系还是没有，要知道互联网产品最需要的就是通过用户关系强化用户对软件的黏性。</p>
+</li>
+</ul>
+<h3 id="互联网进程操之过急"><a href="#互联网进程操之过急" class="headerlink" title="互联网进程操之过急"></a>互联网进程操之过急</h3><ul>
+<li><p>Flyme应用中心 <strong>过度拆分化</strong><br>Flyme3的<code>应用中心</code>，在Flyme4中拆分成三个<code>应用中心</code> <code>游戏中心</code> <code>个性化</code>，把原本不多的流量活生生的分发到三个地方。</p>
+</li>
+<li><p>Flyme基础应用 <strong>过渡互联网化</strong><br>引以为傲的<code>音乐播放器</code> <code>视频播放器</code> 沦为 <strong>音乐商店附带播放功能</strong>和<strong>在线视频附带本地播放</strong></p>
+</li>
+</ul>
+<h3 id="产品思路"><a href="#产品思路" class="headerlink" title="产品思路"></a>产品思路</h3><ul>
+<li><p>应用中心(APP)，游戏中心(游戏)，个性化(主题)<br>原应用中心中的三大元素拆分成三个APP这个做法是正确，但是不应该是当前这样拆，目前主题拆分出来是没有问题的，问题存在于应用中心和游戏中心上。<br>当前的应用中心和游戏中心的功能几乎是一模一样的，就是为用户提供下载服务，然而游戏其实也是应用，现在硬生生的才分成两个App，有必要吗？！那你可能会说我意思不应该有游戏中心这个App呢？当然不是！游戏中心要做的是<strong>玩家和玩家</strong>的互动，<strong>玩家和游戏商</strong>的互动，玩家需要个漂亮的个人页面展示游戏成就等等，这才是游戏中心应该做的事情。</p>
+</li>
+<li><p>音乐<br>音乐播放器作为Flyme最有亮点的App之一，软件的信息架构却一昧的像应用中心这种以推荐为导向的软件构靠拢，<strong>用户打开音乐听歌的需求远远大于寻找歌曲的需求</strong>，那么对于音乐来说个人歌单，歌曲列表对于用户才是重要的，在线推荐这些在软件的信息架构上可以稍微靠后一点，应该有不少用户会抱怨每次打开音乐听歌步骤是如此繁琐吧。</p>
+</li>
+<li><p>视频<br>以前视频播放器也是Flyme里很有特色的软件，Flyme3的本地视频 深色的背景 着实有点影院的感觉，在Flyme 4上本地被弱化得只有一个Pager了。<br>对于Flyme的视频发展上，在线视频可以提出来单独做一个产品线类似于(Youtube)，而视频则专注本地 界面做得精致点 有点iMovie的样子就差不多，同时也可以加入视频编辑功能，也是很有买点的。</p>
+</li>
+</ul>
+<h3 id="Apple-和-Google"><a href="#Apple-和-Google" class="headerlink" title="Apple 和 Google"></a>Apple 和 Google</h3><blockquote>
+<p>Apple<br><code>App Store</code>提供软件购买下载, <code>iTunes Store</code>提供内容购买下载。<br>通过 <code>音乐</code> <code>视频</code> <code>iBooks</code> 这些软件专注消费内容，使用内容。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Google<br><code>Play 商店</code>集合了软件和内容所有购买下载。<br>通过 <code>Play音乐</code> <code>Play电影</code> 一大堆这样的 <strong><code>Play X</code></strong> 这些软件专注消费内容，使用内容。</p>
+</blockquote>
+<p>可以看出国外对于内容消费比较成熟，会把内容当成商品买，回到国内，还没有消费内容的习惯来说，把各个内容的获取分配到各个应用中的做法是比较符合国情的，但是不对的地方是，对于音乐来说要找准用户的痛点，市面上好的播放器真的很少。</p>
+<h3 id="后记：战略发展"><a href="#后记：战略发展" class="headerlink" title="后记：战略发展"></a>后记：战略发展</h3><p>Flyme账户系统以及其他互联网产品应该独立化，应该完全使用原生SDK开发，使之可以装在其他Android手机上，这样对于Flyme适配不过来的手机，可以提供Flyme服务的刷机包，而Flyme的设计也尽量追随谷歌的设计规范，这样有利于应用软件的开发和推广。</p>
+<p>迄今为止，Flyme只适配了有限的几款机型，并且PatchRom也没有完成的情况下，如果推出一个Flyme服务的刷机包，让其他Android用户能体验到Flyme的云服务，体验到Flyme优秀的基础应用，这样也能达到发展潜在用户的目的，这应该也是Google不管你怎么改Android，只要内置Google服务就行的原因吧。</p>
+<p>当年小米通过MIUI占领市场，而如今采用Flyme服务的方式来占领其他Android手机也不乏是个好点子，突然觉得这也是个不错的创业的项目。</p>
+<hr>
+<p>最后更新：2015.01.21 00:40</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/12/31/2014-The-End/" itemprop="url">
+                  2014 The End
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-12-31T21:45:25+08:00" content="2014-12-31">
+              2014-12-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/刘说八道/" itemprop="url" rel="index">
+                    <span itemprop="name">刘说八道</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/12/31/2014-The-End/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/12/31/2014-The-End/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>###【2014的匆匆而过】<br>这一年毕业了，这一年工作了；<br>这一年去了珠海，去了深圳，去了澳门，去了北京；<br>这一年去了魅族，做了职业码农，码畜，码XX。    </p>
+<p>一直想找一份<code>Remote Working</code>的工作，也在为此而努力，对目前的状态不是很满意，全在加班，没有时间学习新的知识，很怕这种没有进步的日子，七月份入职，前三个月九九六的加班，后三个月没有九九六，但也是一周六天班。      </p>
+<p>###【2015的学习目标】</p>
+<ul>
+<li>英语 (Remote Working 很重要的一点)</li>
+<li>深入<code>Android 动画</code> <code>自定义控件</code></li>
+<li>学习下<code>OpenGL</code></li>
+<li>空闲时间写写<code>iOS</code>或者<code>Cocos2d</code></li>
+<li>空闲时间学学<code>QT</code></li>
+</ul>
+<p>###【2015的独立项目】</p>
+<ul>
+<li>Formater (一款MP3封面管理软件)</li>
+<li>Listen (一款优雅的本地音乐播放器)</li>
+</ul>
+<p>2014是幸运的一年，去了一直很想去魅族科技，感谢老大对我的赏识，因为魅族也认识了一群很牛逼的人，魅族是一家说大不大说小也不小的公司，公司成立十年，创业却刚刚开始，希望能趁着创业之际，好好充实自己，实现<code>Remote Working</code>的梦想。</p>
+<p>Bye，年终总结，明年再见…</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -411,7 +826,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
 
     
       <header class="post-header">
@@ -526,394 +941,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/07/06/Android---变色SystemBar/" itemprop="url">
-                  Android - 变色SystemBar
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-07-06T18:33:20+08:00" content="2014-07-06">
-              2014-07-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/07/06/Android---变色SystemBar/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/07/06/Android---变色SystemBar/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ul>
-<li>方案一：<ol>
-<li>透明SystemBar </li>
-<li>界面使用FrameLayout 在顶部底部位置添加和高度SystemBar的高度相等的View</li>
-</ol>
-</li>
-<li>方案二：<ol>
-<li>透明SystemBar</li>
-<li>​使用<a href="http://blog.csdn.net/luoshengyang/article/details/8245546" target="_blank" rel="external"><code>DecorView</code></a>，它继承于FrameLayout，在<code>DecorView</code>顶部和底部各加一个视图</li>
-</ol>
-</li>
-<li>两者方案的不同：<ol>
-<li>方案一，颜色条是在Layout里面；方案二，颜色条是在<code>DecorView</code>里面。</li>
-<li>两者视图层级不一样，使用方案一需要在每一个Layout文件中添加颜色条。</li>
-</ol>
-</li>
-</ul>
-<p>Github上有开源的工具类采用的<code>方案二</code>，代码请参见：<a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="external"><code>SystemBarTint</code></a></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/07/05/Android---透明SystemBar/" itemprop="url">
-                  Android - 透明SystemBar
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-07-05T19:01:33+08:00" content="2014-07-05">
-              2014-07-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/07/05/Android---透明SystemBar/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/07/05/Android---透明SystemBar/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>最近国内的手机ROM(MIUI, Flyme等)都升级了Android 4.4，预测下半年国内APP 会有很多使用Android4.4特性。<br>Android 4.4可以支持StatusBar和NavigationBar透明了，记录一下相关代码。</p>
-<p>###透明StatusBar和NavigationBar<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Window win = getWindow();</div><div class="line">WindowManager.LayoutParams winParams = win.getAttributes();</div><div class="line">winParams.flags |= WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;</div><div class="line">winParams.flags |= WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;</div><div class="line">win.setAttributes(winParams);</div></pre></td></tr></table></figure></p>
-<p>或者<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"Translucent.SystemBar"</span> <span class="attr">parent</span>=<span class="string">"@android:style/Theme.Holo.Light"</span>&gt;</span><span class="xml"></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowTranslucentStatus"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowTranslucentNavigation"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/07/05/Android---透明SystemBar/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/04/25/Android--安卓开发中最佳单例模式实现/" itemprop="url">
-                  Android - 安卓开发中最佳单例模式实现
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-04-25T11:18:43+08:00" content="2014-04-25">
-              2014-04-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/04/25/Android--安卓开发中最佳单例模式实现/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/25/Android--安卓开发中最佳单例模式实现/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>###做开发的朋友肯定对单例模式不陌生，大概有下面两种实现方式。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton instance = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">if</span>(instance == <span class="keyword">null</span>)&#123;</div><div class="line">            instance = <span class="keyword">new</span> Singleton();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">public class Singleton&#123;</div><div class="line"></div><div class="line">    private static Singleton instance=new Singleton();</div><div class="line">    </div><div class="line">    private Singleton()&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    public static Singletonget Instance()&#123;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line">```&lt;!-- more --&gt;</div><div class="line">###但是在我们Android中，经常会使用到Context的引用，于是你写下下面这种单例</div><div class="line"></div><div class="line">```java</div><div class="line">public class Singleton&#123;</div><div class="line"></div><div class="line">    private static Singleton instance = null;</div><div class="line"></div><div class="line">    private Singleton(Context ctx)&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    // Context 参数</div><div class="line">    public static synchronized Singleton getInstance(Context ctx)&#123;</div><div class="line">        if(instance == null)&#123;</div><div class="line">            instance = new Singleton(ctx);</div><div class="line">        &#125;</div><div class="line">        return instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>每次获取单例的时候都要传入一个Context对象，如果我们要在纯Java类下使用，岂不是就歇菜了？</li>
-<li>所以正确的单例模式应该是这样的，以PreferenceUtils为例</li>
-<li>我们只需要在Application里面调用createInstance(Context ctx)，在其他地方使用的时候只需要getInstance()即可</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.gavinliu.formater.util;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Map.Entry;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.ContentValues;</div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.content.SharedPreferences;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PreferenceUtils</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> PreferenceUtils util;</div><div class="line">    <span class="keyword">private</span> SharedPreferences mPreference;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">createInstance</span><span class="params">(Context ctx)</span> </span>&#123;</div><div class="line">        util = <span class="keyword">new</span> PreferenceUtils(ctx);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PreferenceUtils <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> util;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">PreferenceUtils</span><span class="params">(Context ctx)</span> </span>&#123;</div><div class="line">        mPreference = ctx.getApplicationContext().getSharedPreferences(ctx.getPackageName() + <span class="string">"_preferences"</span>, Context.MODE_PRIVATE);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">putString</span><span class="params">(String key, String value)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mPreference.edit().putString(key, value).commit();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">putInt</span><span class="params">(String key, <span class="keyword">int</span> value)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mPreference.edit().putInt(key, value).commit();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">putBoolean</span><span class="params">(String key, <span class="keyword">boolean</span> value)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mPreference.edit().putBoolean(key, value).commit();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">putValues</span><span class="params">(ContentValues values)</span> </span>&#123;</div><div class="line">        SharedPreferences.Editor editor = mPreference.edit();</div><div class="line">        <span class="keyword">for</span> (Entry&lt;String, Object&gt; value : values.valueSet()) &#123;</div><div class="line">            editor.putString(value.getKey(), value.getValue().toString());</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> editor.commit();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getString</span><span class="params">(String key)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> getString(key, <span class="string">""</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getString</span><span class="params">(String key, String defValue)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mPreference.getString(key, defValue);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getInt</span><span class="params">(String key)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> getInt(key, -<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getInt</span><span class="params">(String key, <span class="keyword">int</span> defValue)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mPreference.getInt(key, defValue);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">getBoolean</span><span class="params">(String key)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> getBoolean(key, <span class="keyword">false</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">getBoolean</span><span class="params">(String key, <span class="keyword">boolean</span> defValue)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mPreference.getBoolean(key, defValue);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -949,17 +976,17 @@
       
 
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
                alt="Gavin Liu" />
           <p class="site-author-name" itemprop="name">Gavin Liu</p>
-          <p class="site-description motion-element" itemprop="description"></p>
+          <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">96</span>
+              <span class="site-state-item-count">99</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -976,7 +1003,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">72</span>
+                <span class="site-state-item-count">76</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1048,7 +1075,7 @@
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
@@ -1102,49 +1129,49 @@
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+
+
+
+  
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
 
 
 
@@ -1169,6 +1196,8 @@
 
   
     
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
@@ -1216,35 +1245,32 @@
             var $resultContent = document.getElementById(content_id);
             $input.addEventListener('input', function(){
                 var matchcounts = 0;
-                var str='<ul class=\"search-result-list\">';                
+                var str='<ul class=\"search-result-list\">';
                 var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
                 $resultContent.innerHTML = "";
                 if (this.value.trim().length > 1) {
                 // perform local searching
                 datas.forEach(function(data) {
-                    var isMatch = true;
+                    var isMatch = false;
                     var content_index = [];
                     var data_title = data.title.trim().toLowerCase();
                     var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = data.url;
+                    var data_url = decodeURIComponent(data.url);
                     var index_title = -1;
                     var index_content = -1;
                     var first_occur = -1;
                     // only match artiles with not empty titles and contents
-                    if(data_title != '' && data_content != '') {
+                    if(data_title != '') {
                         keywords.forEach(function(keyword, i) {
                             index_title = data_title.indexOf(keyword);
                             index_content = data_content.indexOf(keyword);
-                            if( index_title < 0 && index_content < 0 ){
-                                isMatch = false;
-                            } else {
-                                if (index_content < 0) {
-                                    index_content = 0;
-                                }
-                                if (i == 0) {
+                            if( index_title >= 0 || index_content >= 0 ){
+                                isMatch = true;
+								if (i == 0) {
                                     first_occur = index_content;
                                 }
-                            }
+                            } 
+							
                         });
                     }
                     // show search results
@@ -1271,7 +1297,7 @@
                                 var regS = new RegExp(keyword, "gi");
                                 match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
                             });
-                            
+
                             str += "<p class=\"search-result\">" + match_content +"...</p>"
                         }
                         str += "</li>";
@@ -1287,7 +1313,7 @@
     });}
 
     // handle and trigger popup window;
-    $('.popup-trigger').mousedown(function(e) {
+    $('.popup-trigger').click(function(e) {
       e.stopPropagation();
       if (isfetched == false) {
         searchFunc(path, 'local-search-input', 'local-search-result');
@@ -1306,6 +1332,7 @@
       e.stopPropagation();
     });
   </script>
+
 
   
   <script type="text/x-mathjax-config">
@@ -1332,6 +1359,9 @@
   
 
   
+
+  
+
 
 </body>
 </html>
