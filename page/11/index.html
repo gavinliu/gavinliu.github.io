@@ -289,6 +289,135 @@
             
               
                 
+                <a class="post-title-link" href="/2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/" itemprop="url">
+                  Android - 高仿Morning Routine中的PagerIndicator之动画实现
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-04-09T22:40:01+08:00" content="2015-04-09">
+              2015-04-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="/2015/03/30/Android-Animation-贝塞尔曲线之美/#一种ViewPager指示器的实现">Android - Animation 贝塞尔曲线之美</a>中提到了PagerIndicator的绘制，这篇博客继续分析下动画应该如何实现。</p>
+<h2 id="Property-Animation-分析"><a href="#Property-Animation-分析" class="headerlink" title="Property Animation 分析"></a>Property Animation 分析</h2><p>顾名思义，要实现属性动画，首先要对属性进行分析，然后对动画做分析。</p>
+<h3 id="属性分析"><a href="#属性分析" class="headerlink" title="属性分析"></a>属性分析</h3><blockquote>
+<p>在这个PagerIndicator动画中，我们可以看出有两个圆，就有圆的<code>坐标点</code>和<code>半径</code>这两个属性，还有颜色的变化，所以<code>颜色</code>也是个属性。</p>
+</blockquote>
+<h3 id="动画分析"><a href="#动画分析" class="headerlink" title="动画分析"></a>动画分析</h3><blockquote>
+<p>在这个PagerIndicator动画中，我们可以知道两个圆的动画起点和终点都是一样的，要实现这样一前一后的效果，肯定一个圆是加速，一个圆是减速，所以我们要使用的<code>AccelerateInterpolator</code>和<code>DecelerateInterpolator</code>这两个插值器。</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/04/01/Android-Animation-Facebook开源动画框架/" itemprop="url">
                   Android - Animation Facebook开源动画框架
                 </a>
@@ -779,129 +908,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/03/01/Android-Animation-基础扫盲/" itemprop="url">
-                  Android - Animation 基础扫盲
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2015-03-01T14:37:17+08:00" content="2015-03-01">
-              2015-03-01
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2015/03/01/Android-Animation-基础扫盲/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/03/01/Android-Animation-基础扫盲/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>原文：<a href="http://developer.android.com/guide/topics/graphics/index.html">http://developer.android.com/guide/topics/graphics/index.html</a><br>转载：<a href="http://www.cnblogs.com/angeldevil/archive/2011/12/02/2271096.html">http://www.cnblogs.com/angeldevil/archive/2011/12/02/2271096.html</a></p>
-<p>Android 3.0以前，支持两种动画模式 <code>Tween Animation</code> <code>Frame Animation</code>，在Android3.0中又引入了一个新的动画系统：<code>Property Animation</code>，这三种动画模式在新的SDK中被称为<code>Property Animation</code> <code>View Animation</code> <code>Drawable Animation</code>。 可通过NineOldAndroids项目在3.0之前的系统中使用<code>Property Animation</code>。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2015/03/01/Android-Animation-基础扫盲/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -947,7 +953,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">99</span>
+              <span class="site-state-item-count">100</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -964,7 +970,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">76</span>
+                <span class="site-state-item-count">78</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

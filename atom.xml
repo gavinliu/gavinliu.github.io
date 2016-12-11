@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gavinliu.cn/"/>
-  <updated>2016-11-13T05:02:49.000Z</updated>
+  <updated>2016-12-11T05:01:45.000Z</updated>
   <id>http://gavinliu.cn/</id>
   
   <author>
@@ -14,6 +14,87 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习 - 数学理论：迭代法统一论</title>
+    <link href="http://gavinliu.cn/2016/12/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%95%B0%E5%AD%A6%E7%90%86%E8%AE%BA%EF%BC%9A%E8%BF%AD%E4%BB%A3%E6%B3%95%E7%BB%9F%E4%B8%80%E8%AE%BA/"/>
+    <id>http://gavinliu.cn/2016/12/11/机器学习-数学理论：迭代法统一论/</id>
+    <published>2016-12-11T04:49:53.000Z</published>
+    <updated>2016-12-11T05:01:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>迭代法，其实是计算机软件中很常用的方法，机器学习中的工程运用也用到了<code>迭代法</code>，这篇学习笔记 主要是理清 <code>梯度下降法</code> 的背后的数学基本原理。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="必备的数学知识"><a href="#必备的数学知识" class="headerlink" title="必备的数学知识"></a>必备的数学知识</h2><h3 id="导数和梯度"><a href="#导数和梯度" class="headerlink" title="导数和梯度"></a>导数和梯度</h3><p>多元函数求导，实际上就是梯度。</p>
+<ul>
+<li>一阶导数和梯度</li>
+</ul>
+<blockquote>
+<p>例：<br>f(x) = x^2 -&gt; f’(x) = 2<br>Z = x^2 + y^2 求梯度就等于  Z’ = [2x, 2y]</p>
+</blockquote>
+<p>注：一元函数求导数 <code>f&#39;(x)</code>，在多元函数就是对每个变量求偏导，然后写成列向量。梯度都是向量的形式。</p>
+<ul>
+<li>二阶导数和Hessian 矩阵</li>
+</ul>
+<blockquote>
+<p>例：<br>Z’ = [2x, 2y] 求 Z’’<br>可以看成 2x ， 2y 是个独立的函数，再分别求偏导。<br>(2x)’ &gt; [2, 0] ; (2y)’ &gt; [0, 2]<br>最终等于一个矩阵：<br>| 2, 0 |<br>| 0, 2 |</p>
+</blockquote>
+<p>这个矩阵就叫 Hessian 矩阵，它是一个对称矩阵。</p>
+<h3 id="二次型"><a href="#二次型" class="headerlink" title="二次型"></a>二次型</h3><p>f(x) = x1^2 + x2^2 + x3^2 的 二次型为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">             [1, 0, 0] [x1]</div><div class="line">[x1, x2, x3] [0, 1, 0] [x2]</div><div class="line">             [0, 0, 0] [x3]</div></pre></td></tr></table></figure>
+<p>二次型的通俗意义就是判定举证的正负。</p>
+<p>例如 x√2x | x != 0，那么就肯定大于 0的，同理：xTAx。</p>
+<h4 id="最小二乘"><a href="#最小二乘" class="headerlink" title="最小二乘"></a>最小二乘</h4><p>||Ax - b||^2</p>
+<p>其实就是二范数的平方。</p>
+<h3 id="泰勒级数展开"><a href="#泰勒级数展开" class="headerlink" title="泰勒级数展开"></a>泰勒级数展开</h3><p>一元的情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f(xk + δ) ≈ f(xk) + f&apos;(xk)δ + f&apos;&apos;(xk)δ^2/2!</div></pre></td></tr></table></figure>
+<p>向量的情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">f(xk + δ) ≈ f(xk) + f&apos;(xk)δ + f&apos;&apos;(xk)δ^2/2!</div><div class="line">f(xk + δ) ≈ f(xk) + gT(xk)δ + gTH(xk)δ^2/2!</div><div class="line">因为二阶导数其实就是 Hessian 矩阵</div></pre></td></tr></table></figure>
+<h4 id="极值"><a href="#极值" class="headerlink" title="极值"></a>极值</h4><p>其实就是要让 f(xk + δ) &gt; f(xk)，进一步推导  </p>
+<p>f(xk) + f’(xk)δ &gt; f(xk) 其实就是要 f’(xk)δ &gt;= 0</p>
+<p>向量的情况的话就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f(xk + δ) ≈ f(xk) + gT(xk)δ + gTH(xk)δ^2/2!</div></pre></td></tr></table></figure>
+<p>让 <code>梯度</code> = 0，然后 <code>Hessian 矩阵</code> &gt; 0，这个时候就是最小值</p>
+<p>用一元情况举例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">y = x^2 极值就是让 y&apos; = 2x = 0 那么就是 x=0 的时候。</div></pre></td></tr></table></figure>
+<h2 id="迭代法"><a href="#迭代法" class="headerlink" title="迭代法"></a>迭代法</h2><ol>
+<li>计数 k = 0</li>
+<li>寻求搜索方向 dk</li>
+<li>f(xk + ak*dk) ak &gt;= 0, X(k+1) = Xk + ak + dK</li>
+<li>如果 ||dk|| &lt; s，就停止搜索，解出 X(k+1)，否则 loop 步骤2 。</li>
+</ol>
+<p>其中 s 是根据经验得出来的一个比较小的值，10e－5 之类的。</p>
+<h3 id="dk-如何取值？"><a href="#dk-如何取值？" class="headerlink" title="dk 如何取值？"></a>dk 如何取值？</h3><h4 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h4><p><code>dk = -g(xk)</code></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f(xk + dk) ≈ f(xk) + gT(xk)*dk</div></pre></td></tr></table></figure>
+<p>要让  f(xk + dk) &gt; f(xk) , 那么就是要让 <code>gT(xk)*dk</code> 为负数，且为最大负数。那么 dk 就应该等于 -g(xk)</p>
+<blockquote>
+<p>向量夹角，a * b = aTb = |a||b|cos(θ)</p>
+</blockquote>
+<h4 id="牛顿法"><a href="#牛顿法" class="headerlink" title="牛顿法"></a>牛顿法</h4><p><code>dk = -H^-1(xk)*g(xk)</code></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">f(xk + dk) ≈ f(xk) + gT(xk)*dk + gTH(xk)*dk^2/2!</div><div class="line"></div><div class="line">g(xk) + H(xk)*dk = 0</div><div class="line"></div><div class="line">dk = -H^-1(xk)*g(xk)</div></pre></td></tr></table></figure>
+<h2 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h2><h3 id="专业词汇"><a href="#专业词汇" class="headerlink" title="专业词汇"></a>专业词汇</h3><p>Contour(等值线)<br>Gradient vector(梯度)<br>Hessian 矩阵</p>
+<h3 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h3><p><a href="http://baike.baidu.com/link?url=0sj9Ob3skPmzcW8EfU91Dnf2jtss_lbKbGRA7qxIsaVrevtkMVL5lWGa3lun1AZR" target="_blank" rel="external">微积分-导数</a><br><a href="http://baike.baidu.com/link?url=xASiuLFtYXYB1Yxp8Iy3RAKtb4U3oumkCbPOOGaYrJTdFycFZZSrrxZQD6U4twiynisv_bU4vCo6aPGzWLI4q69sDetWcjwklbl1jn-vP7b6hbf0kaUVkwqgc68_g-xi" target="_blank" rel="external">线代-二次型</a><br><a href="http://baike.baidu.com/link?url=QPmhOZjuC4KpSWXXjwE7aIJlHWErhxNy1Edo9QYVbTmZBG-9HUqY2fb91peg7WtJvFyydu-7asikK8j-0PLCH2792cJU2b53fKrYY3IDlBSwmGSnEJk1omFKdWyk9DG0" target="_blank" rel="external">矩阵-二范数</a><br><a href="http://baike.baidu.com/link?url=ULEwgeALRWiQ08XoE3QiN0vkJwxDm9a3F59KUiTHKsTm0lpWHOQqCnBG44ZBMo_cQ38uP5hGX9kWwxg65UT2YgADxKjcFANTEwdvUwjmGrJhiOVpt7_yx-3kbzdluJTH" target="_blank" rel="external">泰勒公式</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;迭代法，其实是计算机软件中很常用的方法，机器学习中的工程运用也用到了&lt;code&gt;迭代法&lt;/code&gt;，这篇学习笔记 主要是理清 &lt;code&gt;梯度下降法&lt;/code&gt; 的背后的数学基本原理。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="机器学习" scheme="http://gavinliu.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="泰勒级数展开" scheme="http://gavinliu.cn/tags/%E6%B3%B0%E5%8B%92%E7%BA%A7%E6%95%B0%E5%B1%95%E5%BC%80/"/>
+    
+      <category term="梯度下降" scheme="http://gavinliu.cn/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/"/>
+    
+  </entry>
   
   <entry>
     <title>Android - 移植StackBlur for Glide &amp; AS 2.2 CMakeLists 的使用</title>
@@ -1027,58 +1108,6 @@
       <category term="Machine Learning" scheme="http://gavinliu.cn/tags/Machine-Learning/"/>
     
       <category term="Deep Learning" scheme="http://gavinliu.cn/tags/Deep-Learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android - 实用代码片段(3)</title>
-    <link href="http://gavinliu.cn/2016/02/29/Android-%E5%AE%9E%E7%94%A8%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5-3/"/>
-    <id>http://gavinliu.cn/2016/02/29/Android-实用代码片段-3/</id>
-    <published>2016-02-29T12:05:33.000Z</published>
-    <updated>2016-02-28T13:36:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>在View Layout完成后获取 控件大小</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> TextView tv = (TextView) findViewById(R.id.myTextView);</div><div class="line">ViewTreeObserver vto = tv.getViewTreeObserver();</div><div class="line">vto.addOnGlobalLayoutListener(<span class="keyword">new</span> OnGlobalLayoutListener() &#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGlobalLayout</span><span class="params">()</span> </span>&#123;</div><div class="line">        Toast.makeText(MyActivity.<span class="keyword">this</span>, tv.getWidth() + <span class="string">" x "</span> + tv.getHeight(), Toast.LENGTH_LONG).show();</div><div class="line">        tv.getViewTreeObserver().removeGlobalOnLayoutListener(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<ul>
-<li>关键帧插值器</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">calculateValue</span><span class="params">(<span class="keyword">float</span>[] values, <span class="keyword">float</span> time, <span class="keyword">float</span> def)</span> </span>&#123;</div><div class="line">    	<span class="keyword">float</span> value = def;</div><div class="line">        <span class="keyword">if</span> (values != <span class="keyword">null</span> &amp;&amp; values.length &gt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">float</span> segment = <span class="number">1.0f</span> / (<span class="keyword">float</span>)(values.length - <span class="number">1</span>);</div><div class="line">            <span class="keyword">int</span> index = (<span class="keyword">int</span>)(time / segment);</div><div class="line">            <span class="keyword">if</span> (index &gt;= values.length - <span class="number">1</span>) &#123;</div><div class="line">            	value = values[values.length - <span class="number">1</span>];</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">            	<span class="keyword">float</span> extra = time - segment * (<span class="keyword">float</span>)index;</div><div class="line">            	value = values[index] + (values[index + <span class="number">1</span>] - values[index]) * extra / segment;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    <span class="keyword">return</span> value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>给图片叠加渐变</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addShadow</span><span class="params">(Bitmap bitmap, <span class="keyword">int</span> color)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span>[] colors = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;</div><div class="line">            color &amp; <span class="number">0x00FFFFFF</span>,</div><div class="line">            color &amp; <span class="number">0x0AFFFFFF</span>,</div><div class="line">            color &amp; <span class="number">0x33FFFFFF</span>,</div><div class="line">            color &amp; <span class="number">0x66FFFFFF</span>,</div><div class="line">            color &amp; <span class="number">0x99FFFFFF</span>,</div><div class="line">            color &amp; <span class="number">0xCCFFFFFF</span>,</div><div class="line">            color</div><div class="line">    &#125;;</div><div class="line">    GradientDrawable gradientDrawable = <span class="keyword">new</span> GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, colors);</div><div class="line">    gradientDrawable.setGradientType(GradientDrawable.LINEAR_GRADIENT);</div><div class="line">    Rect rect = <span class="keyword">new</span> Rect(<span class="number">0</span>, <span class="number">0</span>, bitmap.getWidth(), bitmap.getHeight());</div><div class="line">    gradientDrawable.setBounds(rect);</div><div class="line">    gradientDrawable.setLevel(<span class="number">8</span>);</div><div class="line">    Canvas canvass = <span class="keyword">new</span> Canvas(bitmap);</div><div class="line">    gradientDrawable.draw(canvass);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>ListView 或者 GridView 去除滑动特性 (即固定高度)</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">    heightMeasureSpec = MeasureSpec.makeMeasureSpec(Integer.MAX_VALUE &gt;&gt; <span class="number">2</span>, MeasureSpec.AT_MOST);</div><div class="line">    <span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>获取系统长按时间，自定义View会用到</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getSystemLongPressTime</div></pre></td></tr></table></figure>
-<ul>
-<li>判断设备是否有网</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isOnline</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">    ConnectivityManager connMgr = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);</div><div class="line">    NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();</div><div class="line">    <span class="keyword">return</span> (networkInfo != <span class="keyword">null</span> &amp;&amp; networkInfo.isConnected());</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;ul&gt;
-&lt;li&gt;在View Layout完成后获取 控件大小&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;final&lt;/span&gt; TextView tv = (TextView) findViewById(R.id.myTextView);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;ViewTreeObserver vto = tv.getViewTreeObserver();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vto.addOnGlobalLayoutListener(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; OnGlobalLayoutListener() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;meta&quot;&gt;@Override&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;onGlobalLayout&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        Toast.makeText(MyActivity.&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;, tv.getWidth() + &lt;span class=&quot;string&quot;&gt;&quot; x &quot;&lt;/span&gt; + tv.getHeight(), Toast.LENGTH_LONG).show();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        tv.getViewTreeObserver().removeGlobalOnLayoutListener(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
-    
-    
-      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
-    
-      <category term="实用主义" scheme="http://gavinliu.cn/tags/%E5%AE%9E%E7%94%A8%E4%B8%BB%E4%B9%89/"/>
     
   </entry>
   

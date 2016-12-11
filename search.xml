@@ -4,6 +4,67 @@
   
     
     <entry>
+      <title><![CDATA[机器学习 - 数学理论：迭代法统一论]]></title>
+      <url>http://gavinliu.cn/2016/12/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%95%B0%E5%AD%A6%E7%90%86%E8%AE%BA%EF%BC%9A%E8%BF%AD%E4%BB%A3%E6%B3%95%E7%BB%9F%E4%B8%80%E8%AE%BA/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>迭代法，其实是计算机软件中很常用的方法，机器学习中的工程运用也用到了<code>迭代法</code>，这篇学习笔记 主要是理清 <code>梯度下降法</code> 的背后的数学基本原理。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="必备的数学知识"><a href="#必备的数学知识" class="headerlink" title="必备的数学知识"></a>必备的数学知识</h2><h3 id="导数和梯度"><a href="#导数和梯度" class="headerlink" title="导数和梯度"></a>导数和梯度</h3><p>多元函数求导，实际上就是梯度。</p>
+<ul>
+<li>一阶导数和梯度</li>
+</ul>
+<blockquote>
+<p>例：<br>f(x) = x^2 -&gt; f’(x) = 2<br>Z = x^2 + y^2 求梯度就等于  Z’ = [2x, 2y]</p>
+</blockquote>
+<p>注：一元函数求导数 <code>f&#39;(x)</code>，在多元函数就是对每个变量求偏导，然后写成列向量。梯度都是向量的形式。</p>
+<ul>
+<li>二阶导数和Hessian 矩阵</li>
+</ul>
+<blockquote>
+<p>例：<br>Z’ = [2x, 2y] 求 Z’’<br>可以看成 2x ， 2y 是个独立的函数，再分别求偏导。<br>(2x)’ &gt; [2, 0] ; (2y)’ &gt; [0, 2]<br>最终等于一个矩阵：<br>| 2, 0 |<br>| 0, 2 |</p>
+</blockquote>
+<p>这个矩阵就叫 Hessian 矩阵，它是一个对称矩阵。</p>
+<h3 id="二次型"><a href="#二次型" class="headerlink" title="二次型"></a>二次型</h3><p>f(x) = x1^2 + x2^2 + x3^2 的 二次型为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">             [1, 0, 0] [x1]</div><div class="line">[x1, x2, x3] [0, 1, 0] [x2]</div><div class="line">             [0, 0, 0] [x3]</div></pre></td></tr></table></figure>
+<p>二次型的通俗意义就是判定举证的正负。</p>
+<p>例如 x√2x | x != 0，那么就肯定大于 0的，同理：xTAx。</p>
+<h4 id="最小二乘"><a href="#最小二乘" class="headerlink" title="最小二乘"></a>最小二乘</h4><p>||Ax - b||^2</p>
+<p>其实就是二范数的平方。</p>
+<h3 id="泰勒级数展开"><a href="#泰勒级数展开" class="headerlink" title="泰勒级数展开"></a>泰勒级数展开</h3><p>一元的情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f(xk + δ) ≈ f(xk) + f&apos;(xk)δ + f&apos;&apos;(xk)δ^2/2!</div></pre></td></tr></table></figure>
+<p>向量的情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">f(xk + δ) ≈ f(xk) + f&apos;(xk)δ + f&apos;&apos;(xk)δ^2/2!</div><div class="line">f(xk + δ) ≈ f(xk) + gT(xk)δ + gTH(xk)δ^2/2!</div><div class="line">因为二阶导数其实就是 Hessian 矩阵</div></pre></td></tr></table></figure>
+<h4 id="极值"><a href="#极值" class="headerlink" title="极值"></a>极值</h4><p>其实就是要让 f(xk + δ) &gt; f(xk)，进一步推导  </p>
+<p>f(xk) + f’(xk)δ &gt; f(xk) 其实就是要 f’(xk)δ &gt;= 0</p>
+<p>向量的情况的话就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f(xk + δ) ≈ f(xk) + gT(xk)δ + gTH(xk)δ^2/2!</div></pre></td></tr></table></figure>
+<p>让 <code>梯度</code> = 0，然后 <code>Hessian 矩阵</code> &gt; 0，这个时候就是最小值</p>
+<p>用一元情况举例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">y = x^2 极值就是让 y&apos; = 2x = 0 那么就是 x=0 的时候。</div></pre></td></tr></table></figure>
+<h2 id="迭代法"><a href="#迭代法" class="headerlink" title="迭代法"></a>迭代法</h2><ol>
+<li>计数 k = 0</li>
+<li>寻求搜索方向 dk</li>
+<li>f(xk + ak*dk) ak &gt;= 0, X(k+1) = Xk + ak + dK</li>
+<li>如果 ||dk|| &lt; s，就停止搜索，解出 X(k+1)，否则 loop 步骤2 。</li>
+</ol>
+<p>其中 s 是根据经验得出来的一个比较小的值，10e－5 之类的。</p>
+<h3 id="dk-如何取值？"><a href="#dk-如何取值？" class="headerlink" title="dk 如何取值？"></a>dk 如何取值？</h3><h4 id="梯度下降法"><a href="#梯度下降法" class="headerlink" title="梯度下降法"></a>梯度下降法</h4><p><code>dk = -g(xk)</code></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">f(xk + dk) ≈ f(xk) + gT(xk)*dk</div></pre></td></tr></table></figure>
+<p>要让  f(xk + dk) &gt; f(xk) , 那么就是要让 <code>gT(xk)*dk</code> 为负数，且为最大负数。那么 dk 就应该等于 -g(xk)</p>
+<blockquote>
+<p>向量夹角，a * b = aTb = |a||b|cos(θ)</p>
+</blockquote>
+<h4 id="牛顿法"><a href="#牛顿法" class="headerlink" title="牛顿法"></a>牛顿法</h4><p><code>dk = -H^-1(xk)*g(xk)</code></p>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">f(xk + dk) ≈ f(xk) + gT(xk)*dk + gTH(xk)*dk^2/2!</div><div class="line"></div><div class="line">g(xk) + H(xk)*dk = 0</div><div class="line"></div><div class="line">dk = -H^-1(xk)*g(xk)</div></pre></td></tr></table></figure>
+<h2 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h2><h3 id="专业词汇"><a href="#专业词汇" class="headerlink" title="专业词汇"></a>专业词汇</h3><p>Contour(等值线)<br>Gradient vector(梯度)<br>Hessian 矩阵</p>
+<h3 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h3><p><a href="http://baike.baidu.com/link?url=0sj9Ob3skPmzcW8EfU91Dnf2jtss_lbKbGRA7qxIsaVrevtkMVL5lWGa3lun1AZR" target="_blank" rel="external">微积分-导数</a><br><a href="http://baike.baidu.com/link?url=xASiuLFtYXYB1Yxp8Iy3RAKtb4U3oumkCbPOOGaYrJTdFycFZZSrrxZQD6U4twiynisv_bU4vCo6aPGzWLI4q69sDetWcjwklbl1jn-vP7b6hbf0kaUVkwqgc68_g-xi" target="_blank" rel="external">线代-二次型</a><br><a href="http://baike.baidu.com/link?url=QPmhOZjuC4KpSWXXjwE7aIJlHWErhxNy1Edo9QYVbTmZBG-9HUqY2fb91peg7WtJvFyydu-7asikK8j-0PLCH2792cJU2b53fKrYY3IDlBSwmGSnEJk1omFKdWyk9DG0" target="_blank" rel="external">矩阵-二范数</a><br><a href="http://baike.baidu.com/link?url=ULEwgeALRWiQ08XoE3QiN0vkJwxDm9a3F59KUiTHKsTm0lpWHOQqCnBG44ZBMo_cQ38uP5hGX9kWwxg65UT2YgADxKjcFANTEwdvUwjmGrJhiOVpt7_yx-3kbzdluJTH" target="_blank" rel="external">泰勒公式</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Android - 移植StackBlur for Glide & AS 2.2 CMakeLists 的使用]]></title>
       <url>http://gavinliu.cn/2016/11/05/Android-%E7%A7%BB%E6%A4%8DStackBlur-for-Glide-AS-2-2-CMakeLists%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
       <content type="html"><![CDATA[<blockquote>
