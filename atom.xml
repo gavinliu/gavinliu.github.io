@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gavinliu.cn/"/>
-  <updated>2016-12-11T05:01:45.000Z</updated>
+  <updated>2016-12-15T14:30:09.000Z</updated>
   <id>http://gavinliu.cn/</id>
   
   <author>
@@ -14,6 +14,86 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Cocos2d-js - 解决跨域问题的3种办法</title>
+    <link href="http://gavinliu.cn/2016/12/14/Cocos2d-js-%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
+    <id>http://gavinliu.cn/2016/12/14/Cocos2d-js-跨域问题解决办法/</id>
+    <published>2016-12-14T09:07:11.000Z</published>
+    <updated>2016-12-15T14:30:09.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>年末项目组要搞个周年庆活动，需要上一个html5的小游戏，由于我有写过 Cocos2d-x，就打算用js版本做个网页小游戏，遇到了经典的ajax跨域的问题。还试出来一些奇淫绝技。</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="/images/2016.12.14 - Cocos2d-js-跨域问题解决办法.png" alt=""></p>
+<h3 id="Ajax-跨域"><a href="#Ajax-跨域" class="headerlink" title="Ajax 跨域"></a>Ajax 跨域</h3><p>跨域不外乎一下几种情况，是由于安全问题，浏览器不允许js跨域访问。</p>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>结果</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://a.b.com/image.png" target="_blank" rel="external">http://a.b.com/image.png</a></td>
+<td>成功</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://a.b.com/res/a.png" target="_blank" rel="external">http://a.b.com/res/a.png</a></td>
+<td>成功</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://a.b.com/res/b.png" target="_blank" rel="external">https://a.b.com/res/b.png</a></td>
+<td>失败</td>
+<td>协议不同</td>
+</tr>
+<tr>
+<td><a href="http://a.b.com:8080/res/b.png" target="_blank" rel="external">http://a.b.com:8080/res/b.png</a></td>
+<td>失败</td>
+<td>端口不同</td>
+</tr>
+<tr>
+<td><a href="http://g.b.com/res/c.png" target="_blank" rel="external">http://g.b.com/res/c.png</a></td>
+<td>失败</td>
+<td>主机名不同</td>
+</tr>
+</tbody>
+</table>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="服务器转发"><a href="#服务器转发" class="headerlink" title="服务器转发"></a>服务器转发</h4><p>既然跨域不能访问，那么可以把自己的服务器做个跳板，先访问自己服务器，然后再转发到目标资源。</p>
+<h4 id="配置跨域支持"><a href="#配置跨域支持" class="headerlink" title="配置跨域支持"></a>配置跨域支持</h4><p>配置跨域资源的服务器返回的http头信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin: [你的域名] 或者通配成 * 表示允许任何域，跨域访问。</div></pre></td></tr></table></figure>
+<ul>
+<li>图片在CDN的话，比如七牛，公开数据，默认就是支持跨域的</li>
+<li>自建的静态文件服务器的话，需要自己查询一下，如何配置<code>http header</code></li>
+</ul>
+<figure class="highlight php"><figcaption><span>php代码</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">header(<span class="string">'Access-Control-Allow-Origin: *'</span>);</div></pre></td></tr></table></figure>
+<h4 id="奇淫绝技"><a href="#奇淫绝技" class="headerlink" title="奇淫绝技"></a>奇淫绝技</h4><p>先在页面上写一个 <code>&lt;img&gt;</code> 标签，把图片下载下来，下载完成后隐藏 <code>&lt;img&gt;</code> ，然后在 <code>Cocos2d-js</code> 中读取。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://172.17.132.113:8081/image_pack.png"</span> <span class="attr">onload</span>=<span class="string">"load(this)"</span>/&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">    function load(image) &#123;</div><div class="line">        console.log("image load finish");</div><div class="line">        image.style.display = "none";</div><div class="line">    &#125;</div><div class="line">    var res = ["http://172.17.132.113:8081/image_pack.plist", "http://172.17.132.113:8081//image_pack.png"];</div><div class="line">    cc.loader.load(res, function () &#123;</div><div class="line">        cc.spriteFrameCache.addSpriteFrames(res[0], res[1]);</div><div class="line">        that.initScene();</div><div class="line">    &#125;);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;年末项目组要搞个周年庆活动，需要上一个html5的小游戏，由于我有写过 Cocos2d-x，就打算用js版本做个网页小游戏，遇到了经典的ajax跨域的问题。还试出来一些奇淫绝技。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Cocos2d-js" scheme="http://gavinliu.cn/categories/Cocos2d-js/"/>
+    
+    
+      <category term="Cocos2d" scheme="http://gavinliu.cn/tags/Cocos2d/"/>
+    
+      <category term="Access-Control-Allow-Origin" scheme="http://gavinliu.cn/tags/Access-Control-Allow-Origin/"/>
+    
+      <category term="跨域" scheme="http://gavinliu.cn/tags/%E8%B7%A8%E5%9F%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>机器学习 - 数学理论：迭代法统一论</title>
@@ -1048,66 +1128,6 @@
     
     
       <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习 - 1.索引</title>
-    <link href="http://gavinliu.cn/2016/03/20/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-1-%E7%B4%A2%E5%BC%95/"/>
-    <id>http://gavinliu.cn/2016/03/20/机器学习-1-索引/</id>
-    <published>2016-03-20T08:39:54.000Z</published>
-    <updated>2016-04-12T14:31:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>前阵子李世石对战AlphaGo着实让深度学习火了一把，AlphaGo 4:1 赢了比赛，确实牛逼，再不学习学习就落伍了，开这篇博客写写学习笔记。</p>
-<h2 id="机器学习-or-深度学习"><a href="#机器学习-or-深度学习" class="headerlink" title="机器学习 or 深度学习"></a>机器学习 or 深度学习</h2><p>这两个是包含的关系，深度学习属于机器学习的更深入的研究。</p>
-<p>学习的概念：针对经验E (experience) 和一系列的任务 T (tasks) 和一定表现的衡量 P，如果随之经验E的积累，针对定义好的任务T可以提高表现P，就说计算机具有学习能力。</p>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>训练集，测试集，特征值，监督学习，非监督学习，半监督学习，分类，回归</p>
-<a id="more"></a>
-<ul>
-<li>训练集(training set/data)/训练样例（training examples): 用来进行训练，也就是产生模型或者算法的数据集</li>
-<li>测试集(testing set/data)/测试样例(testing examples)：用来专门进行测试已经学习好的模型或者算法的数据集</li>
-<li>特征向量(features/feature vector)：属性的集合，通常用一个向量来表示，附属于一个实例</li>
-<li>标记(label): 实例类别的标记</li>
-<li>正例(positive example)</li>
-<li>反例(negative example)</li>
-</ul>
-<ul>
-<li>有监督学习(supervised learning)：训练集有类别标记(class label)</li>
-<li>无监督学习(unsupervised learning)：无类别标记(class label)</li>
-<li>半监督学习（semi-supervised learning)：有类别标记的训练集 + 无标记的训练集</li>
-</ul>
-<ul>
-<li>分类(classification): 目标标记为类别型数据(category)</li>
-<li>回归(regression): 目标标记为连续性数值(continuous numeric value)</li>
-</ul>
-<h2 id="机器学习步骤框架"><a href="#机器学习步骤框架" class="headerlink" title="机器学习步骤框架"></a>机器学习步骤框架</h2><ol>
-<li>把数据拆分为训练集和测试集</li>
-<li>用训练集和训练集的特征向量来训练算法</li>
-<li>用学习来的算法运用在测试集上来评估算法 （可能要设计到调整参数（parameter tuning), 用验证集（validation set）</li>
-</ol>
-<h2 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h2><ul>
-<li><a href="https://www.coursera.org/learn/machine-learning" target="_blank" rel="external">https://www.coursera.org/learn/machine-learning</a></li>
-<li><a href="https://www.coursera.org/specializations/machine-learning" target="_blank" rel="external">https://www.coursera.org/specializations/machine-learning</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;前阵子李世石对战AlphaGo着实让深度学习火了一把，AlphaGo 4:1 赢了比赛，确实牛逼，再不学习学习就落伍了，开这篇博客写写学习笔记。&lt;/p&gt;
-&lt;h2 id=&quot;机器学习-or-深度学习&quot;&gt;&lt;a href=&quot;#机器学习-or-深度学习&quot; class=&quot;headerlink&quot; title=&quot;机器学习 or 深度学习&quot;&gt;&lt;/a&gt;机器学习 or 深度学习&lt;/h2&gt;&lt;p&gt;这两个是包含的关系，深度学习属于机器学习的更深入的研究。&lt;/p&gt;
-&lt;p&gt;学习的概念：针对经验E (experience) 和一系列的任务 T (tasks) 和一定表现的衡量 P，如果随之经验E的积累，针对定义好的任务T可以提高表现P，就说计算机具有学习能力。&lt;/p&gt;
-&lt;h2 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot; class=&quot;headerlink&quot; title=&quot;基本概念&quot;&gt;&lt;/a&gt;基本概念&lt;/h2&gt;&lt;p&gt;训练集，测试集，特征值，监督学习，非监督学习，半监督学习，分类，回归&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://gavinliu.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="机器学习" scheme="http://gavinliu.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-      <category term="Machine Learning" scheme="http://gavinliu.cn/tags/Machine-Learning/"/>
-    
-      <category term="Deep Learning" scheme="http://gavinliu.cn/tags/Deep-Learning/"/>
     
   </entry>
   

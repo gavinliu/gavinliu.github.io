@@ -4,6 +4,64 @@
   
     
     <entry>
+      <title><![CDATA[Cocos2d-js - 解决跨域问题的3种办法]]></title>
+      <url>http://gavinliu.cn/2016/12/14/Cocos2d-js-%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>年末项目组要搞个周年庆活动，需要上一个html5的小游戏，由于我有写过 Cocos2d-x，就打算用js版本做个网页小游戏，遇到了经典的ajax跨域的问题。还试出来一些奇淫绝技。</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="/images/2016.12.14 - Cocos2d-js-跨域问题解决办法.png" alt=""></p>
+<h3 id="Ajax-跨域"><a href="#Ajax-跨域" class="headerlink" title="Ajax 跨域"></a>Ajax 跨域</h3><p>跨域不外乎一下几种情况，是由于安全问题，浏览器不允许js跨域访问。</p>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>结果</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://a.b.com/image.png" target="_blank" rel="external">http://a.b.com/image.png</a></td>
+<td>成功</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="http://a.b.com/res/a.png" target="_blank" rel="external">http://a.b.com/res/a.png</a></td>
+<td>成功</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://a.b.com/res/b.png" target="_blank" rel="external">https://a.b.com/res/b.png</a></td>
+<td>失败</td>
+<td>协议不同</td>
+</tr>
+<tr>
+<td><a href="http://a.b.com:8080/res/b.png" target="_blank" rel="external">http://a.b.com:8080/res/b.png</a></td>
+<td>失败</td>
+<td>端口不同</td>
+</tr>
+<tr>
+<td><a href="http://g.b.com/res/c.png" target="_blank" rel="external">http://g.b.com/res/c.png</a></td>
+<td>失败</td>
+<td>主机名不同</td>
+</tr>
+</tbody>
+</table>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="服务器转发"><a href="#服务器转发" class="headerlink" title="服务器转发"></a>服务器转发</h4><p>既然跨域不能访问，那么可以把自己的服务器做个跳板，先访问自己服务器，然后再转发到目标资源。</p>
+<h4 id="配置跨域支持"><a href="#配置跨域支持" class="headerlink" title="配置跨域支持"></a>配置跨域支持</h4><p>配置跨域资源的服务器返回的http头信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Access-Control-Allow-Origin: [你的域名] 或者通配成 * 表示允许任何域，跨域访问。</div></pre></td></tr></table></figure>
+<ul>
+<li>图片在CDN的话，比如七牛，公开数据，默认就是支持跨域的</li>
+<li>自建的静态文件服务器的话，需要自己查询一下，如何配置<code>http header</code></li>
+</ul>
+<figure class="highlight php"><figcaption><span>php代码</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">header(<span class="string">'Access-Control-Allow-Origin: *'</span>);</div></pre></td></tr></table></figure>
+<h4 id="奇淫绝技"><a href="#奇淫绝技" class="headerlink" title="奇淫绝技"></a>奇淫绝技</h4><p>先在页面上写一个 <code>&lt;img&gt;</code> 标签，把图片下载下来，下载完成后隐藏 <code>&lt;img&gt;</code> ，然后在 <code>Cocos2d-js</code> 中读取。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"http://172.17.132.113:8081/image_pack.png"</span> <span class="attr">onload</span>=<span class="string">"load(this)"</span>/&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">    function load(image) &#123;</div><div class="line">        console.log("image load finish");</div><div class="line">        image.style.display = "none";</div><div class="line">    &#125;</div><div class="line">    var res = ["http://172.17.132.113:8081/image_pack.plist", "http://172.17.132.113:8081//image_pack.png"];</div><div class="line">    cc.loader.load(res, function () &#123;</div><div class="line">        cc.spriteFrameCache.addSpriteFrames(res[0], res[1]);</div><div class="line">        that.initScene();</div><div class="line">    &#125;);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[机器学习 - 数学理论：迭代法统一论]]></title>
       <url>http://gavinliu.cn/2016/12/11/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%95%B0%E5%AD%A6%E7%90%86%E8%AE%BA%EF%BC%9A%E8%BF%AD%E4%BB%A3%E6%B3%95%E7%BB%9F%E4%B8%80%E8%AE%BA/</url>
       <content type="html"><![CDATA[<blockquote>

@@ -289,6 +289,132 @@
             
               
                 
+                <a class="post-title-link" href="/2014/11/26/Android---实用代码片段(1)/" itemprop="url">
+                  Android - 实用代码片段(1)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-11-26T16:25:09+08:00" content="2014-11-26">
+              2014-11-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Notes</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/11/26/Android---实用代码片段(1)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/11/26/Android---实用代码片段(1)/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1.ColorFilter 修改图片颜色，滤镜<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Drawable <span class="title">filtDrawable</span><span class="params">(Drawable drawable, <span class="keyword">int</span> color)</span> </span>&#123;</div><div class="line">    ColorFilter filter = <span class="keyword">new</span> LightingColorFilter(<span class="number">0</span>, color);</div><div class="line">    drawable.setColorFilter(filter);</div><div class="line">    <span class="keyword">return</span> drawable;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>相关文章 <a href="http://www.cnblogs.com/fuxiuyuan/archive/2012/04/14/2447545.html">http://www.cnblogs.com/fuxiuyuan/archive/2012/04/14/2447545.html</a> </p>
+<p>2.获取StatusBar高度<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">getStatusBarHeight</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">    Resources resources = activity.getResources();</div><div class="line">    <span class="keyword">int</span> status_bar_height_id = resources.getIdentifier(<span class="string">"status_bar_height"</span>, <span class="string">"dimen"</span>, <span class="string">"android"</span>);</div><div class="line">    <span class="keyword">return</span> resources.getDimension(status_bar_height_id);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>3.获取ActionBar的视图<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">findActionBarContainer</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> id = activity.getResources().getIdentifier(<span class="string">"action_bar_container"</span>, <span class="string">"id"</span>, <span class="string">"android"</span>);</div><div class="line">    <span class="keyword">return</span> activity.findViewById(id);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">findSplitActionBar</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> id = activity.getResources().getIdentifier(<span class="string">"split_action_bar"</span>, <span class="string">"id"</span>, <span class="string">"android"</span>);</div><div class="line">    <span class="keyword">return</span> activity.findViewById(id);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>4.计算文字大小绘制需要的宽高<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Rect rect = <span class="keyword">new</span> Rect();</div><div class="line">mPaint.getTextBounds(text, <span class="number">0</span>, text.length(), rect);</div><div class="line">rect.width();</div><div class="line">rect.height()；</div></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/11/26/Android---实用代码片段(1)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2014/07/22/Android---换种思路代替ViewHolder/" itemprop="url">
                   Android - 换种思路代替ViewHolder
                 </a>
@@ -780,135 +906,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="//schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/03/25/Android---让控件变得可拖拽/" itemprop="url">
-                  Android - 让控件变得可拖拽
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-03-25T18:48:00+08:00" content="2014-03-25">
-              2014-03-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/03/25/Android---让控件变得可拖拽/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/03/25/Android---让控件变得可拖拽/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>其实要实现拖拽的控件是非常简单的事情，和让控件支持点击一样简单！我们只需要实现<code>onDragEvent()</code> <code>dispatchDragEvent()</code> <code>setOnDragListener()</code>即可，是不是和触摸事件的回调差不多呢？(<code>onTouchEvent()</code> <code>dispatchTouchEvent()</code> <code>setOnTouchListener()</code>)</p>
-<p>我们可以通过<code>View.startDarg(ClipData data, DragShadowBuilder shadowBuilder, Object myLocalState, int flags)</code>来开始拖拽。<br>这里需要我们传入一个DragShadowBuilder对象，DragShadow就是拖拽阴影，会在你拖动的时候显示出来，<br>所以DragShadowBuilder有一个传View的构造函数-new DragShadowBuilder(View)。</p>
-<p><img src="/images/2014.03.25 - Android---让控件变得可拖拽.gif" alt="Drag"><br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/03/25/Android---让控件变得可拖拽/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -949,7 +951,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">100</span>
+              <span class="site-state-item-count">101</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -957,7 +959,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -966,7 +968,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">78</span>
+                <span class="site-state-item-count">81</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
