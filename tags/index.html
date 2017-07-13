@@ -2,19 +2,20 @@
 
 
 
-  
 
-
-<html class="theme-next pisces use-motion">
+<html class="theme-next muse" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
 
 
 
@@ -63,12 +64,12 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android, Java.Web, " />
+  <meta name="keywords" content="Android, Java.Web, iOS, macOS" />
 
 
 
@@ -79,7 +80,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.0.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.0" />
 
 
 
@@ -99,38 +100,50 @@
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
-    motion: true,
+    motion: false,
     duoshuo: {
       userId: '0',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://gavinliu.cn/tags/"/>
+
+
+
 
 
   <title>
   
 
   
-    标签 | Gavin.Liu
+    Tags | Gavin.Liu
   
 </title>
 </head>
 
-<body itemscope itemtype="//schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
+
+
 
 
 
@@ -138,7 +151,7 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?2842c9eadd6d87f89c3ebdba92f18bcb";
+      hm.src = "https://hm.baidu.com/hm.js?2842c9eadd6d87f89c3ebdba92f18bcb";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
@@ -151,34 +164,40 @@
 
 
 
+
+
   
   
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="//schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">Gavin.Liu</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gavin.Liu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Focus on Mobile Develop</h1>
+      
   </div>
-  <p class="site-subtitle">Focus on Mobile Develop</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
@@ -191,6 +210,8 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
             首页
           </a>
         </li>
@@ -198,6 +219,8 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -207,6 +230,8 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
             分类
           </a>
         </li>
@@ -214,6 +239,8 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -223,45 +250,21 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
             关于
           </a>
         </li>
       
 
       
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="st-search-show-outputs">
-          
-            
-            搜索
-          </a>
-        </li>
-      
     </ul>
   
 
   
-    <div class="site-search">
-      
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', 'eQz6W_tYqnDPxdE5SqsU','2.0.0');
-</script>
-
-
-
-    </div>
-  
 </nav>
+
+
 
  </div>
     </header>
@@ -273,14 +276,22 @@
             
 
   <div id="posts" class="posts-expand">
+  <header class="post-header">
+
+	<h2 class="post-title" itemprop="name headline">Tags</h2>
+
+
+
+</header>
+
     
     
       <div class="tag-cloud">
         <div class="tag-cloud-title">
-            目前共计 81 个标签
+            目前共计 95 个标签
         </div>
         <div class="tag-cloud-tags">
-          <a href="/tags/Access-Control-Allow-Origin/" style="font-size: 12px; color: #ccc">Access-Control-Allow-Origin</a> <a href="/tags/Android/" style="font-size: 30px; color: #111">Android</a> <a href="/tags/Android-studio-2-2/" style="font-size: 12px; color: #ccc">Android studio 2.2</a> <a href="/tags/Android测试框架/" style="font-size: 19.71px; color: #7c7c7c">Android测试框架</a> <a href="/tags/Animation/" style="font-size: 22.29px; color: #616161">Animation</a> <a href="/tags/Annotation/" style="font-size: 12px; color: #ccc">Annotation</a> <a href="/tags/CMakeLists/" style="font-size: 12px; color: #ccc">CMakeLists</a> <a href="/tags/Choreographer/" style="font-size: 12px; color: #ccc">Choreographer</a> <a href="/tags/Chrome/" style="font-size: 12px; color: #ccc">Chrome</a> <a href="/tags/Cocos2d/" style="font-size: 12px; color: #ccc">Cocos2d</a> <a href="/tags/Deep-Learning/" style="font-size: 12px; color: #ccc">Deep Learning</a> <a href="/tags/Drag-And-Drop/" style="font-size: 12px; color: #ccc">Drag.And.Drop</a> <a href="/tags/Espresso/" style="font-size: 12px; color: #ccc">Espresso</a> <a href="/tags/EventCast/" style="font-size: 12px; color: #ccc">EventCast</a> <a href="/tags/Facebook/" style="font-size: 12px; color: #ccc">Facebook</a> <a href="/tags/Flyme/" style="font-size: 12px; color: #ccc">Flyme</a> <a href="/tags/Future/" style="font-size: 12px; color: #ccc">Future</a> <a href="/tags/GBA4iOS/" style="font-size: 12px; color: #ccc">GBA4iOS</a> <a href="/tags/Glide/" style="font-size: 12px; color: #ccc">Glide</a> <a href="/tags/Gradle/" style="font-size: 17.14px; color: #979797">Gradle</a> <a href="/tags/JNI/" style="font-size: 14.57px; color: #b1b1b1">JNI</a> <a href="/tags/Java/" style="font-size: 17.14px; color: #979797">Java</a> <a href="/tags/Java-Web/" style="font-size: 27.43px; color: #2c2c2c">Java.Web</a> <a href="/tags/ListView/" style="font-size: 12px; color: #ccc">ListView</a> <a href="/tags/Lollipop/" style="font-size: 17.14px; color: #979797">Lollipop</a> <a href="/tags/Mac/" style="font-size: 22.29px; color: #616161">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 12px; color: #ccc">Machine Learning</a> <a href="/tags/Material-Design/" style="font-size: 17.14px; color: #979797">Material.Design</a> <a href="/tags/Morning-Routine/" style="font-size: 12px; color: #ccc">Morning.Routine</a> <a href="/tags/Myeclipse/" style="font-size: 12px; color: #ccc">Myeclipse</a> <a href="/tags/Mysql/" style="font-size: 12px; color: #ccc">Mysql</a> <a href="/tags/Nougat/" style="font-size: 12px; color: #ccc">Nougat</a> <a href="/tags/PagerIndicator/" style="font-size: 12px; color: #ccc">PagerIndicator</a> <a href="/tags/Project-Butter/" style="font-size: 12px; color: #ccc">Project.Butter</a> <a href="/tags/PyCharm/" style="font-size: 12px; color: #ccc">PyCharm</a> <a href="/tags/PyQt5/" style="font-size: 14.57px; color: #b1b1b1">PyQt5</a> <a href="/tags/Python/" style="font-size: 17.14px; color: #979797">Python</a> <a href="/tags/Qt5/" style="font-size: 12px; color: #ccc">Qt5</a> <a href="/tags/QuickSettings/" style="font-size: 12px; color: #ccc">QuickSettings</a> <a href="/tags/ShapedImageView/" style="font-size: 12px; color: #ccc">ShapedImageView</a> <a href="/tags/Socket/" style="font-size: 12px; color: #ccc">Socket</a> <a href="/tags/StackBlur/" style="font-size: 12px; color: #ccc">StackBlur</a> <a href="/tags/Swift/" style="font-size: 12px; color: #ccc">Swift</a> <a href="/tags/Tile/" style="font-size: 12px; color: #ccc">Tile</a> <a href="/tags/TileService/" style="font-size: 12px; color: #ccc">TileService</a> <a href="/tags/Tomcat/" style="font-size: 12px; color: #ccc">Tomcat</a> <a href="/tags/UiAutomator/" style="font-size: 14.57px; color: #b1b1b1">UiAutomator</a> <a href="/tags/View/" style="font-size: 14.57px; color: #b1b1b1">View</a> <a href="/tags/WebService/" style="font-size: 12px; color: #ccc">WebService</a> <a href="/tags/Xware/" style="font-size: 12px; color: #ccc">Xware</a> <a href="/tags/cocoapods/" style="font-size: 12px; color: #ccc">cocoapods</a> <a href="/tags/git/" style="font-size: 12px; color: #ccc">git</a> <a href="/tags/gradle/" style="font-size: 12px; color: #ccc">gradle</a> <a href="/tags/maven/" style="font-size: 12px; color: #ccc">maven</a> <a href="/tags/nginx/" style="font-size: 12px; color: #ccc">nginx</a> <a href="/tags/python/" style="font-size: 12px; color: #ccc">python</a> <a href="/tags/repo/" style="font-size: 12px; color: #ccc">repo</a> <a href="/tags/ruby/" style="font-size: 12px; color: #ccc">ruby</a> <a href="/tags/三角函数/" style="font-size: 12px; color: #ccc">三角函数</a> <a href="/tags/乱码/" style="font-size: 14.57px; color: #b1b1b1">乱码</a> <a href="/tags/人人都是产品经理/" style="font-size: 14.57px; color: #b1b1b1">人人都是产品经理</a> <a href="/tags/内存管理/" style="font-size: 12px; color: #ccc">内存管理</a> <a href="/tags/加密算法/" style="font-size: 12px; color: #ccc">加密算法</a> <a href="/tags/多线程/" style="font-size: 12px; color: #ccc">多线程</a> <a href="/tags/实用主义/" style="font-size: 17.14px; color: #979797">实用主义</a> <a href="/tags/年终总结/" style="font-size: 17.14px; color: #979797">年终总结</a> <a href="/tags/按位运算/" style="font-size: 12px; color: #ccc">按位运算</a> <a href="/tags/数学/" style="font-size: 12px; color: #ccc">数学</a> <a href="/tags/服务器/" style="font-size: 14.57px; color: #b1b1b1">服务器</a> <a href="/tags/机器学习/" style="font-size: 12px; color: #ccc">机器学习</a> <a href="/tags/梯度下降/" style="font-size: 12px; color: #ccc">梯度下降</a> <a href="/tags/比特币-Bitcoin/" style="font-size: 12px; color: #ccc">比特币(Bitcoin)</a> <a href="/tags/泰勒级数展开/" style="font-size: 12px; color: #ccc">泰勒级数展开</a> <a href="/tags/浮想联翩/" style="font-size: 12px; color: #ccc">浮想联翩</a> <a href="/tags/环境搭建/" style="font-size: 24.86px; color: #464646">环境搭建</a> <a href="/tags/编程技巧/" style="font-size: 12px; color: #ccc">编程技巧</a> <a href="/tags/贝赛尔曲线/" style="font-size: 12px; color: #ccc">贝赛尔曲线</a> <a href="/tags/跨域/" style="font-size: 12px; color: #ccc">跨域</a> <a href="/tags/路由器/" style="font-size: 17.14px; color: #979797">路由器</a> <a href="/tags/面试经验/" style="font-size: 12px; color: #ccc">面试经验</a> <a href="/tags/音乐播放器/" style="font-size: 12px; color: #ccc">音乐播放器</a>
+          <a href="/tags/Access-Control-Allow-Origin/" style="font-size: 12px; color: #ccc">Access-Control-Allow-Origin</a> <a href="/tags/Android/" style="font-size: 30px; color: #111">Android</a> <a href="/tags/Android-Studio/" style="font-size: 16.5px; color: #9d9d9d">Android Studio</a> <a href="/tags/Android测试框架/" style="font-size: 18.75px; color: #868686">Android测试框架</a> <a href="/tags/Animation/" style="font-size: 21px; color: #6f6f6f">Animation</a> <a href="/tags/Annotation/" style="font-size: 12px; color: #ccc">Annotation</a> <a href="/tags/C/" style="font-size: 12px; color: #ccc">C</a> <a href="/tags/C/" style="font-size: 12px; color: #ccc">C++</a> <a href="/tags/CMakeLists/" style="font-size: 14.25px; color: #b5b5b5">CMakeLists</a> <a href="/tags/Choreographer/" style="font-size: 12px; color: #ccc">Choreographer</a> <a href="/tags/Chrome/" style="font-size: 12px; color: #ccc">Chrome</a> <a href="/tags/Cocos2d/" style="font-size: 12px; color: #ccc">Cocos2d</a> <a href="/tags/Deep-Learning/" style="font-size: 12px; color: #ccc">Deep Learning</a> <a href="/tags/Drag-And-Drop/" style="font-size: 12px; color: #ccc">Drag.And.Drop</a> <a href="/tags/Espresso/" style="font-size: 12px; color: #ccc">Espresso</a> <a href="/tags/EventCast/" style="font-size: 12px; color: #ccc">EventCast</a> <a href="/tags/FFmpeg/" style="font-size: 18.75px; color: #868686">FFmpeg</a> <a href="/tags/Facebook/" style="font-size: 12px; color: #ccc">Facebook</a> <a href="/tags/Flyme/" style="font-size: 12px; color: #ccc">Flyme</a> <a href="/tags/Future/" style="font-size: 12px; color: #ccc">Future</a> <a href="/tags/GBA4iOS/" style="font-size: 12px; color: #ccc">GBA4iOS</a> <a href="/tags/Glide/" style="font-size: 12px; color: #ccc">Glide</a> <a href="/tags/Gradle/" style="font-size: 18.75px; color: #868686">Gradle</a> <a href="/tags/IntelliJ-idea/" style="font-size: 12px; color: #ccc">IntelliJ idea</a> <a href="/tags/JNI/" style="font-size: 18.75px; color: #868686">JNI</a> <a href="/tags/Java/" style="font-size: 16.5px; color: #9d9d9d">Java</a> <a href="/tags/Java-Web/" style="font-size: 27.75px; color: #282828">Java.Web</a> <a href="/tags/ListView/" style="font-size: 12px; color: #ccc">ListView</a> <a href="/tags/Lollipop/" style="font-size: 16.5px; color: #9d9d9d">Lollipop</a> <a href="/tags/Mac/" style="font-size: 23.25px; color: #575757">Mac</a> <a href="/tags/Machine-Learning/" style="font-size: 12px; color: #ccc">Machine Learning</a> <a href="/tags/Material-Design/" style="font-size: 16.5px; color: #9d9d9d">Material.Design</a> <a href="/tags/Morning-Routine/" style="font-size: 12px; color: #ccc">Morning.Routine</a> <a href="/tags/Myeclipse/" style="font-size: 12px; color: #ccc">Myeclipse</a> <a href="/tags/Mysql/" style="font-size: 12px; color: #ccc">Mysql</a> <a href="/tags/Nougat/" style="font-size: 12px; color: #ccc">Nougat</a> <a href="/tags/PagerIndicator/" style="font-size: 12px; color: #ccc">PagerIndicator</a> <a href="/tags/Project-Butter/" style="font-size: 12px; color: #ccc">Project.Butter</a> <a href="/tags/PyCharm/" style="font-size: 12px; color: #ccc">PyCharm</a> <a href="/tags/PyQt5/" style="font-size: 14.25px; color: #b5b5b5">PyQt5</a> <a href="/tags/Python/" style="font-size: 16.5px; color: #9d9d9d">Python</a> <a href="/tags/Qt5/" style="font-size: 12px; color: #ccc">Qt5</a> <a href="/tags/QuickSettings/" style="font-size: 12px; color: #ccc">QuickSettings</a> <a href="/tags/RxJava2/" style="font-size: 16.5px; color: #9d9d9d">RxJava2</a> <a href="/tags/ShapedImageView/" style="font-size: 12px; color: #ccc">ShapedImageView</a> <a href="/tags/Socket/" style="font-size: 12px; color: #ccc">Socket</a> <a href="/tags/StackBlur/" style="font-size: 12px; color: #ccc">StackBlur</a> <a href="/tags/Swift/" style="font-size: 12px; color: #ccc">Swift</a> <a href="/tags/Tile/" style="font-size: 12px; color: #ccc">Tile</a> <a href="/tags/TileService/" style="font-size: 12px; color: #ccc">TileService</a> <a href="/tags/Tomcat/" style="font-size: 12px; color: #ccc">Tomcat</a> <a href="/tags/UiAutomator/" style="font-size: 14.25px; color: #b5b5b5">UiAutomator</a> <a href="/tags/View/" style="font-size: 14.25px; color: #b5b5b5">View</a> <a href="/tags/WebService/" style="font-size: 12px; color: #ccc">WebService</a> <a href="/tags/Xware/" style="font-size: 12px; color: #ccc">Xware</a> <a href="/tags/bsdiff/" style="font-size: 12px; color: #ccc">bsdiff</a> <a href="/tags/bspatch/" style="font-size: 12px; color: #ccc">bspatch</a> <a href="/tags/cocoapods/" style="font-size: 12px; color: #ccc">cocoapods</a> <a href="/tags/git/" style="font-size: 12px; color: #ccc">git</a> <a href="/tags/gradle/" style="font-size: 12px; color: #ccc">gradle</a> <a href="/tags/maven/" style="font-size: 12px; color: #ccc">maven</a> <a href="/tags/nginx/" style="font-size: 12px; color: #ccc">nginx</a> <a href="/tags/python/" style="font-size: 12px; color: #ccc">python</a> <a href="/tags/repo/" style="font-size: 12px; color: #ccc">repo</a> <a href="/tags/ruby/" style="font-size: 12px; color: #ccc">ruby</a> <a href="/tags/similar-image/" style="font-size: 12px; color: #ccc">similar image</a> <a href="/tags/三角函数/" style="font-size: 12px; color: #ccc">三角函数</a> <a href="/tags/乱码/" style="font-size: 14.25px; color: #b5b5b5">乱码</a> <a href="/tags/人人都是产品经理/" style="font-size: 14.25px; color: #b5b5b5">人人都是产品经理</a> <a href="/tags/内存管理/" style="font-size: 12px; color: #ccc">内存管理</a> <a href="/tags/利其器/" style="font-size: 12px; color: #ccc">利其器</a> <a href="/tags/加密算法/" style="font-size: 12px; color: #ccc">加密算法</a> <a href="/tags/响应式编程/" style="font-size: 12px; color: #ccc">响应式编程</a> <a href="/tags/多线程/" style="font-size: 12px; color: #ccc">多线程</a> <a href="/tags/实用主义/" style="font-size: 16.5px; color: #9d9d9d">实用主义</a> <a href="/tags/年终总结/" style="font-size: 18.75px; color: #868686">年终总结</a> <a href="/tags/抽奖/" style="font-size: 12px; color: #ccc">抽奖</a> <a href="/tags/按位运算/" style="font-size: 12px; color: #ccc">按位运算</a> <a href="/tags/数学/" style="font-size: 12px; color: #ccc">数学</a> <a href="/tags/服务器/" style="font-size: 16.5px; color: #9d9d9d">服务器</a> <a href="/tags/机器学习/" style="font-size: 12px; color: #ccc">机器学习</a> <a href="/tags/梯度下降/" style="font-size: 14.25px; color: #b5b5b5">梯度下降</a> <a href="/tags/比特币-Bitcoin/" style="font-size: 12px; color: #ccc">比特币(Bitcoin)</a> <a href="/tags/泰勒级数展开/" style="font-size: 12px; color: #ccc">泰勒级数展开</a> <a href="/tags/浮想联翩/" style="font-size: 12px; color: #ccc">浮想联翩</a> <a href="/tags/环境搭建/" style="font-size: 25.5px; color: #404040">环境搭建</a> <a href="/tags/相似图片/" style="font-size: 12px; color: #ccc">相似图片</a> <a href="/tags/简单线性回归/" style="font-size: 12px; color: #ccc">简单线性回归</a> <a href="/tags/算法/" style="font-size: 12px; color: #ccc">算法</a> <a href="/tags/编程技巧/" style="font-size: 12px; color: #ccc">编程技巧</a> <a href="/tags/贝赛尔曲线/" style="font-size: 12px; color: #ccc">贝赛尔曲线</a> <a href="/tags/跨域/" style="font-size: 12px; color: #ccc">跨域</a> <a href="/tags/路由器/" style="font-size: 16.5px; color: #9d9d9d">路由器</a> <a href="/tags/面试经验/" style="font-size: 12px; color: #ccc">面试经验</a> <a href="/tags/音乐播放器/" style="font-size: 12px; color: #ccc">音乐播放器</a>
         </div>
       </div>
     
@@ -312,35 +323,44 @@
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="//schema.org/Person">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
                alt="Gavin Liu" />
           <p class="site-author-name" itemprop="name">Gavin Liu</p>
-          <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">101</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
 
           
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">121</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
-                <span class="site-state-item-count">16</span>
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
           
 
           
+            
+            
             <div class="site-state-item site-state-tags">
-              <a href="/tags">
-                <span class="site-state-item-count">81</span>
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">95</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -387,7 +407,12 @@
         
         
 
+        
+
+
       </section>
+
+      
 
       
 
@@ -404,12 +429,13 @@
         <div class="copyright" >
   
   &copy;  2012 - 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
 </div>
+
 
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
@@ -418,31 +444,32 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Muse
   </a>
 </div>
 
+
         
-
 <div class="busuanzi-count">
-
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
 
   
-  
 </div>
-
 
 
         
       </div>
     </footer>
 
-    <div class="back-to-top">
-      <i class="fa fa-arrow-up"></i>
-    </div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
 
   
@@ -462,6 +489,9 @@
 
 
   
+
+
+
 
 
 
@@ -487,210 +517,64 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
 
 
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.2"></script>
-
-
 
   
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.2"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
   
 
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"gavinliu"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
 
   
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
-  
 
+
+
+
+	
 
 
 
 
 
   
-  
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length == 0) {
-       search_path = "search.xml";
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    function proceedsearch() {
-      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
-      $('.popup').toggle();
-
-    }
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-    'use strict';
-    $.ajax({
-        url: path,
-        dataType: "xml",
-        async: true,
-        success: function( xmlResponse ) {
-            // get the contents from search data
-            isfetched = true;
-            $('.popup').detach().appendTo('.header-inner');
-            var datas = $( "entry", xmlResponse ).map(function() {
-                return {
-                    title: $( "title", this ).text(),
-                    content: $("content",this).text(),
-                    url: $( "url" , this).text()
-                };
-            }).get();
-            var $input = document.getElementById(search_id);
-            var $resultContent = document.getElementById(content_id);
-            $input.addEventListener('input', function(){
-                var matchcounts = 0;
-                var str='<ul class=\"search-result-list\">';
-                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                $resultContent.innerHTML = "";
-                if (this.value.trim().length > 1) {
-                // perform local searching
-                datas.forEach(function(data) {
-                    var isMatch = false;
-                    var content_index = [];
-                    var data_title = data.title.trim().toLowerCase();
-                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                    var data_url = decodeURIComponent(data.url);
-                    var index_title = -1;
-                    var index_content = -1;
-                    var first_occur = -1;
-                    // only match artiles with not empty titles and contents
-                    if(data_title != '') {
-                        keywords.forEach(function(keyword, i) {
-                            index_title = data_title.indexOf(keyword);
-                            index_content = data_content.indexOf(keyword);
-                            if( index_title >= 0 || index_content >= 0 ){
-                                isMatch = true;
-								if (i == 0) {
-                                    first_occur = index_content;
-                                }
-                            } 
-							
-                        });
-                    }
-                    // show search results
-                    if (isMatch) {
-                        matchcounts += 1;
-                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
-                        var content = data.content.trim().replace(/<[^>]+>/g,"");
-                        if (first_occur >= 0) {
-                            // cut out 100 characters
-                            var start = first_occur - 20;
-                            var end = first_occur + 80;
-                            if(start < 0){
-                                start = 0;
-                            }
-                            if(start == 0){
-                                end = 50;
-                            }
-                            if(end > content.length){
-                                end = content.length;
-                            }
-                            var match_content = content.substring(start, end);
-                            // highlight all keywords
-                            keywords.forEach(function(keyword){
-                                var regS = new RegExp(keyword, "gi");
-                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
-                            });
-
-                            str += "<p class=\"search-result\">" + match_content +"...</p>"
-                        }
-                        str += "</li>";
-                    }
-                })};
-                str += "</ul>";
-                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
-                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
-                $resultContent.innerHTML = str;
-            });
-            proceedsearch();
-        }
-    });}
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched == false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "7a2a9330beed45c0bbe0eed8c8852c02",
+        target: "cloud-tie-wrapper"
       };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
 
-    });
 
-    $('.popup-btn-close').click(function(e){
-      $('.popup').hide();
-      $(".popoverlay").remove();
-      $('body').css('overflow', '');
-    });
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-  </script>
+
+
+
+
+
+
 
 
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-  </script>
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
-  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
 
 
   
@@ -698,7 +582,30 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
 
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
 
 </body>
 </html>
