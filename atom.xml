@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gavinliu.cn/"/>
-  <updated>2017-07-13T01:40:49.000Z</updated>
+  <updated>2017-08-07T12:39:30.000Z</updated>
   <id>http://gavinliu.cn/</id>
   
   <author>
@@ -14,6 +14,44 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android - Support Library (1)</title>
+    <link href="http://gavinliu.cn/2017/07/18/Android-Support-Library-1/"/>
+    <id>http://gavinliu.cn/2017/07/18/Android-Support-Library-1/</id>
+    <published>2017-07-18T08:18:24.000Z</published>
+    <updated>2017-08-07T12:39:30.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在魅族的时候各种控件都是自定义的，对 <code>Support Library</code> 的移植有专门的组负责，对于 <code>Support Library</code> 的学习也只是写写 Demo 那种程度，离职之后开发很多东西需要亲力亲为了，需要大量使用到 <code>Support Library</code>，所以写个系列，挨个介绍 <code>Support Library</code>，同时作为学习笔记。</p>
+<a id="more"></a>
+<h2 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── animated-vector-drawable</div><div class="line">├── appcompat-v7</div><div class="line">├── cardview-v7</div><div class="line">├── customtabs</div><div class="line">├── design</div><div class="line">├── exifinterface</div><div class="line">├── gridlayout-v7</div><div class="line">├── instantvideo</div><div class="line">├── leanback-v17</div><div class="line">├── mediarouter-v7</div><div class="line">├── multidex</div><div class="line">├── multidex-instrumentation</div><div class="line">├── palette-v7</div><div class="line">├── percent</div><div class="line">├── preference-leanback-v17</div><div class="line">├── preference-v14</div><div class="line">├── preference-v7</div><div class="line">├── recommendation</div><div class="line">├── recyclerview-v7</div><div class="line">├── support-annotations</div><div class="line">├── support-compat</div><div class="line">├── support-core-ui</div><div class="line">├── support-core-utils</div><div class="line">├── support-dynamic-animation</div><div class="line">├── support-fragment</div><div class="line">├── support-media-compat</div><div class="line">├── support-tv-provider</div><div class="line">├── support-v13</div><div class="line">├── support-v4</div><div class="line">├── support-vector-drawable</div><div class="line">├── test</div><div class="line">├── transition</div><div class="line">└── wearable</div></pre></td></tr></table></figure>
+<h2 id="v4-支持库"><a href="#v4-支持库" class="headerlink" title="v4 支持库"></a>v4 支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:support-*:24.2.0</div></pre></td></tr></table></figure>
+<h2 id="Dalvik-可执行文件分包支持库"><a href="#Dalvik-可执行文件分包支持库" class="headerlink" title="Dalvik 可执行文件分包支持库"></a>Dalvik 可执行文件分包支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:multidex:1.0.0</div></pre></td></tr></table></figure>
+<h2 id="v7-支持库"><a href="#v7-支持库" class="headerlink" title="v7 支持库"></a>v7 支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:*-v7:24.2.0</div></pre></td></tr></table></figure>
+<h2 id="v8-renderscript-支持库"><a href="#v8-renderscript-支持库" class="headerlink" title="v8 renderscript 支持库"></a>v8 renderscript 支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">defaultConfig &#123;</div><div class="line">    renderscriptTargetApi 18</div><div class="line">    renderscriptSupportModeEnabled true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="v13-支持库"><a href="#v13-支持库" class="headerlink" title="v13 支持库"></a>v13 支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:support-v13:24.2.0</div></pre></td></tr></table></figure>
+<h2 id="v14-Preference-支持库"><a href="#v14-Preference-支持库" class="headerlink" title="v14 Preference 支持库"></a>v14 Preference 支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:preference-v14:24.2.0</div></pre></td></tr></table></figure>
+<h2 id="适用于电视的-v17-Preference-支持库"><a href="#适用于电视的-v17-Preference-支持库" class="headerlink" title="适用于电视的 v17 Preference 支持库"></a>适用于电视的 v17 Preference 支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:preference-leanback-v17:24.2.0</div></pre></td></tr></table></figure>
+<h2 id="v17-Leanback-库"><a href="#v17-Leanback-库" class="headerlink" title="v17 Leanback 库"></a>v17 Leanback 库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:preference-leanback-v17:24.2.0</div></pre></td></tr></table></figure>
+<h2 id="注解支持库"><a href="#注解支持库" class="headerlink" title="注解支持库"></a>注解支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:support-annotations:24.2.0</div></pre></td></tr></table></figure>
+<h2 id="设计支持库"><a href="#设计支持库" class="headerlink" title="设计支持库"></a>设计支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:design:24.2.0</div></pre></td></tr></table></figure>
+<h2 id="自定义标签页支持库"><a href="#自定义标签页支持库" class="headerlink" title="自定义标签页支持库"></a>自定义标签页支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:customtabs:24.2.0</div></pre></td></tr></table></figure>
+<h2 id="百分比支持库"><a href="#百分比支持库" class="headerlink" title="百分比支持库"></a>百分比支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:percent:24.2.0</div></pre></td></tr></table></figure>
+<h2 id="适用于电视的应用建议支持库"><a href="#适用于电视的应用建议支持库" class="headerlink" title="适用于电视的应用建议支持库"></a>适用于电视的应用建议支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:recommendation:24.2.0</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;在魅族的时候各种控件都是自定义的，对 &lt;code&gt;Support Library&lt;/code&gt; 的移植有专门的组负责，对于 &lt;code&gt;Support Library&lt;/code&gt; 的学习也只是写写 Demo 那种程度，离职之后开发很多东西需要亲力亲为了，需要大量使用到 &lt;code&gt;Support Library&lt;/code&gt;，所以写个系列，挨个介绍 &lt;code&gt;Support Library&lt;/code&gt;，同时作为学习笔记。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Android Notes" scheme="http://gavinliu.cn/categories/Android-Notes/"/>
+    
+    
+      <category term="Android" scheme="http://gavinliu.cn/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>RxJava2 - onError 在 Monkey Test 下 crash 解决方案</title>
@@ -77,7 +115,7 @@
     <link href="http://gavinliu.cn/2017/05/12/Android-Android-Studio-%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%95%B4%E7%90%86/"/>
     <id>http://gavinliu.cn/2017/05/12/Android-Android-Studio-快捷键整理/</id>
     <published>2017-05-12T06:35:18.000Z</published>
-    <updated>2017-05-21T13:46:29.000Z</updated>
+    <updated>2017-07-13T06:07:40.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>本文介绍的快捷键，和别的文章不同的是，不会直接给你快捷键，而是给你对应快捷键的英文名称，因为 <code>intellij idea</code> 提供了不少别的 <code>ide</code> 的快捷键映射，不同的人的选择可能会不一样，这时候直接记快捷键肯定不适用，知道每个操作对应的英文名更有意义。</p>
@@ -97,7 +135,8 @@
 <li>生成try-catch</li>
 </ol>
 <h3 id="删除行：Editor-Actions-gt-Delete-Line"><a href="#删除行：Editor-Actions-gt-Delete-Line" class="headerlink" title="删除行：Editor Actions &gt; Delete Line"></a>删除行：Editor Actions &gt; Delete Line</h3><h3 id="发号司令：Help-gt-Find-Action…"><a href="#发号司令：Help-gt-Find-Action…" class="headerlink" title="发号司令：Help &gt; Find Action…"></a>发号司令：Help &gt; Find Action…</h3><p>这个非常有用，如果你能记得上面功能对应的英文名称，但是不记得快捷键，你就可以用这个直接查找并执行。</p>
-<h2 id="实用技巧"><a href="#实用技巧" class="headerlink" title="实用技巧"></a>实用技巧</h2>]]></content>
+<h2 id="实用技巧"><a href="#实用技巧" class="headerlink" title="实用技巧"></a>实用技巧</h2><h3 id="Live-Templates"><a href="#Live-Templates" class="headerlink" title="Live Templates"></a>Live Templates</h3><h4 id="单例模板"><a href="#单例模板" class="headerlink" title="单例模板"></a>单例模板</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">private static $className$ sInstance;</div><div class="line"></div><div class="line">public static $className$ getInstance() &#123;</div><div class="line">    if (sInstance == null) &#123;</div><div class="line">        synchronized ($className$.class) &#123;</div><div class="line">            if (sInstance == null) sInstance = new $className$();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return sInstance;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
     
     <summary type="html">
     
@@ -1259,103 +1298,6 @@
     
     
       <category term="环境搭建" scheme="http://gavinliu.cn/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>机器学习 - 一元简单线性回归与梯度下降</title>
-    <link href="http://gavinliu.cn/2016/12/15/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%AE%80%E5%8D%95%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B9%8B%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/"/>
-    <id>http://gavinliu.cn/2016/12/15/机器学习-简单线性回归之梯度下降/</id>
-    <published>2016-12-15T07:22:30.000Z</published>
-    <updated>2017-02-15T17:46:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>回归问题主要是用来预测，比如说你有一组【面积-房价】的数据，这些数据是离散的，通过线性回归，可以找到一个函数尽可能的表述你的数据，从而来预测房价。</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h2><p>线性回归属于监督学习，因此方法和监督学习应该是一样的，先给定一个训练集，根据这个训练集学习出一个线性函数。</p>
-<hr>
-<p>要通过已知的 <code>y - x</code> 的数据，求得一个 <code>y = kx + b</code> 的式子。</p>
-<p>通常为了方便计算并不会直接定义 <code>y = kx + b</code> ，而是定义成 令 x0 = 1：</p>
-<p>$$ y = \theta _0 x _0 + \theta _1 x _1 $$</p>
-<p>求两个 θ 的值，就等价于求 k 和 b。</p>
-<p>那么上面的式子，转换成矩阵的写法就成了：</p>
-<p>$$ y = \theta ^ T x $$</p>
-<p>θ 和 x 都为矩阵，变成矩阵的形式方便程序的编写。</p>
-<hr>
-<p>我们如何判断求得的 <code>y = kx + b</code> 和真实的数据的拟合程度的好坏？</p>
-<p>可以通过方差的方式，求 <code>y&#39; - y</code> 的方差。</p>
-<p>$$<br>J({\theta _ 0 - \theta _ n}) = \frac{1}{2m} \sum _{i = 1} ^ m (h _ {\theta}(x ^ i) - y ^ i) ^2<br>$$</p>
-<p>如果我们把 J 的值尽可能的缩到最小，就说明求得的函数拟合程度好。</p>
-<hr>
-<p>如何让 J 满满变小呢？答案就是梯度下降。</p>
-<h2 id="梯度下降"><a href="#梯度下降" class="headerlink" title="梯度下降"></a>梯度下降</h2><p>在上一篇中有提到如何求梯度 <a href="/2016/12/11/机器学习-数学理论：迭代法统一论/">机器学习 - 数学理论：迭代法统一论</a> 。</p>
-<p>这里最终求 θ 的公式为：</p>
-<p>$$<br>\theta _1 := \alpha \frac {d} {d\theta _1}J({\theta _ 1})<br>$$</p>
-<p>α为步长，即梯度下降的步长，通常我们不希望步长太大，一般取 0.01。</p>
-<p><img src="/images/2016.12.15 - 机器学习-简单线性回归之梯度下降0.png" alt=""></p>
-<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p>我现在有一组数据如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1,1</div><div class="line">2,2</div></pre></td></tr></table></figure>
-<p>当然我们凭肉眼看就能知道这个函数是 <code>y = x</code>，实际场景中肯定不可能这样，我们为了方便演示。</p>
-<p><img src="/images/2016.12.15 - 机器学习-简单线性回归之梯度下降1.png" alt=""></p>
-<p>下面我们用代码的方式 让程序一步一步找到 一条合适的函数来拟合 给出的两个点。</p>
-<hr>
-<p>令 x0 = 1，有方程：</p>
-<p>$$ y = \theta _0 x _0 + \theta _1 x _1 $$<br>$$ y = \theta ^ T x $$</p>
-<p>生成 x0 x1 的矩阵</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">| 1，1 |</div><div class="line">| 1，2 |</div></pre></td></tr></table></figure>
-<p>生成 θ0 θ1 的矩阵，因为未知，从 0，0好了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">| 0 |</div><div class="line">| 0 |</div></pre></td></tr></table></figure>
-<p>带入方程可得到 y’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">| 0 |</div><div class="line">| 0 |</div></pre></td></tr></table></figure></p>
-<p>梯度下降：</p>
-<p>$$<br>\theta _1 := \alpha \frac {d} {d\theta _1}J({\theta _ 1})<br>$$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 这里 θ x y 都是矩阵</div><div class="line"></div><div class="line">θ = θ - 0.001 * x * (y&apos; - y) / m</div><div class="line"></div><div class="line">y&apos; - y ：</div><div class="line"></div><div class="line">| 0 |   | 1 |   | -1 |</div><div class="line">      -       =</div><div class="line">| 0 |   | 2 |   | -2 |</div><div class="line"></div><div class="line">θ ：</div><div class="line"></div><div class="line">| 0 |   | 1，1 |   | -1 |       | 1.5 |            | 0.015 |</div><div class="line">      -          *        / 2 =         * 0.001 =</div><div class="line">| 0 |   | 1，2 |   | -2 |       | 2.5 |            | 0.025 |</div></pre></td></tr></table></figure>
-<p>这个时候我们第一次求得</p>
-<p>$$<br>\theta _ 0 = 0.015 , \theta _ 1 = 0.025<br>$$</p>
-<p>也就是：</p>
-<p>$$ y = 0.015 + 0.025 x $$</p>
-<p><img src="/images/2016.12.15 - 机器学习-简单线性回归之梯度下降2.png" alt=""></p>
-<p>这条函数，离目标貌似还有点远，没有关系，我们继续循环梯度下降。</p>
-<hr>
-<p>重复一遍梯度下降：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">| 0.029475 |</div><div class="line">| 0.04915 |</div></pre></td></tr></table></figure>
-<p>$$ y = 0.029475 + 0.04915 x $$</p>
-<p><img src="/images/2016.12.15 - 机器学习-简单线性回归之梯度下降3.png" alt=""></p>
-<p>可以看到第二次得到的函数，斜率明显变高，正面我们的算法是正确的。</p>
-<hr>
-<p>执行10遍梯度下降：</p>
-<p>$$ y = 0.12841063 + 0.21504377 x $$</p>
-<p><img src="/images/2016.12.15 - 机器学习-简单线性回归之梯度下降4.png" alt=""></p>
-<hr>
-<p>执行100遍梯度下降：</p>
-<p>$$ y = 0.40206094 + 0.72092479 x $$</p>
-<p><img src="/images/2016.12.15 - 机器学习-简单线性回归之梯度下降5.png" alt=""></p>
-<hr>
-<p>执行5000遍梯度下降：</p>
-<p>$$ y = 0.01163775 + 0.99280747 x $$</p>
-<p><img src="/images/2016.12.15 - 机器学习-简单线性回归之梯度下降6.png" alt=""></p>
-<hr>
-<p>此时我们注意到执行5000次后，得到的方程，虽然不是 y = x 但是已经无限接近了。</p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight plain"><figcaption><span>data.txt</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1,1</div><div class="line">2,2</div></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">data = np.loadtxt(<span class="string">'data.txt'</span>, delimiter=<span class="string">','</span>)</div><div class="line"></div><div class="line">X = np.c_[np.ones(data.shape[<span class="number">0</span>]), data[:, <span class="number">0</span>]]</div><div class="line">y = np.c_[data[:, <span class="number">1</span>]]</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradientDescent</span><span class="params">(X, y, theta=[[<span class="number">0</span>], [<span class="number">0</span>]], alpha=<span class="number">0.01</span>, num_iters=<span class="number">100</span>)</span>:</span></div><div class="line">    m = y.size</div><div class="line"></div><div class="line">    <span class="keyword">for</span> iter <span class="keyword">in</span> np.arange(num_iters):</div><div class="line">        h = X.dot(theta)</div><div class="line">        theta = theta - alpha * (<span class="number">1.0</span> / m) * (X.T.dot(h - y))</div><div class="line"></div><div class="line">    <span class="keyword">return</span> theta</div><div class="line"></div><div class="line"></div><div class="line">theta = gradientDescent(X, y)</div><div class="line"></div><div class="line">print(theta)</div></pre></td></tr></table></figure>
-<h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><p><a href="http://www.jianshu.com/p/fcd220697182" target="_blank" rel="external">一元线性回归的细节</a></p>
-<p><a href="http://blog.csdn.net/xiazdong/article/details/7950084" target="_blank" rel="external">机器学习入门：线性回归及梯度下降</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;回归问题主要是用来预测，比如说你有一组【面积-房价】的数据，这些数据是离散的，通过线性回归，可以找到一个函数尽可能的表述你的数据，从而来预测房价。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="机器学习" scheme="http://gavinliu.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="梯度下降" scheme="http://gavinliu.cn/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/"/>
-    
-      <category term="简单线性回归" scheme="http://gavinliu.cn/tags/%E7%AE%80%E5%8D%95%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/"/>
     
   </entry>
   

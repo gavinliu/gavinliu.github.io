@@ -280,6 +280,163 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/04/08/JavaWeb---转向-转发-随笔/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2012/04/08/JavaWeb---转向-转发-随笔/" itemprop="url">
+                  Java.Web - 转向 转发 随笔
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-04-08T10:22:08+08:00">
+                2012-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Java.Web Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、页面转向"><a href="#一、页面转向" class="headerlink" title="一、页面转向"></a>一、页面转向</h2><p>页面转向可以调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);</div></pre></td></tr></table></figure></p>
+<ul>
+<li>页面转向时request和response的信息都丢失了，它是重新发起一个定向请求，和原先的没有关系了.</li>
+<li>由于它是新的定向请求，所以效率不高。页面转向可以用在同一个应用中，也可以用在不同应用中。也就是说redirect可以转到外部系统。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);  </div><div class="line"><span class="comment">// 等同于</span></div><div class="line">response.setStatus(<span class="number">302</span>);</div><div class="line">response.setHeader(<span class="string">"Location"</span>,<span class="string">"xx.jsp"</span>);</div></pre></td></tr></table></figure>
+<h2 id="二、页面转发"><a href="#二、页面转发" class="headerlink" title="二、页面转发"></a>二、页面转发</h2><p>页面转发调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">request.getRequestDispatcher(<span class="string">"xx.jsp"</span>).forward(request,response);</div></pre></td></tr></table></figure></p>
+<ul>
+<li>页面转发效率高，同时request中的对象还可以在下一页面使用</li>
+<li><p>注：转发不能转发到本web服务器以外的地址</p>
+</li>
+<li><p>转发：指一个web资源收到客户端请求，通知服务器去调用另外一个web资源进行处理。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取username 的值</span></div><div class="line">String u = request.getParameter(<span class="string">"username"</span>);</div><div class="line"><span class="comment">// 设置request的属性</span></div><div class="line">request.setAttribute(<span class="string">"username"</span>,u);</div><div class="line"><span class="comment">// 使用转发的方法，把 request,response对象转发个下一个页面</span></div><div class="line"><span class="comment">// 所以下一个页面和上一个页面用的是同一个  request,response对象 ，可以获取相应的值</span></div><div class="line">request.getRequestDispatcher(<span class="string">"/servlet2"</span>).forward(request,response);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/04/01/JavaWeb---Servlet-随笔/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -896,154 +1053,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/03/14/JavaWeb---Response、Request-随笔/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin.Liu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2012/03/14/JavaWeb---Response、Request-随笔/" itemprop="url">
-                  Java.Web - Response、Request 随笔
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-03-14T17:08:54+08:00">
-                2012-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Java.Web Notes</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>getWriter();和getOutputStream();的使用<br>区别：</p>
-<ol>
-<li>getWriter(); 用于向客户机回送字符数据</li>
-<li>getOutputStream(); 返回对象，可以回送字符数据，也可以回送字节数据(二进制数据)<br> OutputStream os = response.getOutputSteam();<br> os.writ(“hello”.getBytes());<br>如何选择：<br>如果你传送的是字符数据，则使用 getWriter(); 或者说 使用PrintWriter 对象，这样效率高；<br>如果是回送字节数据(birary date) 只能使用 OutputStream();<br>这两个流不能同时使用！</li>
-</ol>
-<p>请求相关API<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">request.getRequestURL().toString(); <span class="comment">//获得URL  http://lyl.com:8080/UsersManger/download.do</span></div><div class="line">request.getRequestURL(); <span class="comment">//获得URI  /UsersManger/download.do</span></div><div class="line">request.getQueryString(); <span class="comment">//获得所传参数‘?’后面的内容  username=lyl&amp;password=123</span></div><div class="line">request.getRemoteAddr(); <span class="comment">//获得客户机的IP</span></div><div class="line">request.getRemoteHost(); <span class="comment">//获得客户机的完整主机名</span></div><div class="line">request.getRemotePort(); <span class="comment">//获得客户机所使用的网络端口</span></div><div class="line">request.getLocalPort(); <span class="comment">//获得WEB服务器所使用的网络端口</span></div><div class="line">request.getLocalAddr(); <span class="comment">//获得WEB服务器的IP</span></div><div class="line">request.getLocalName(); <span class="comment">//获得WEB服务器主机名</span></div><div class="line">request.getParameter(<span class="string">""</span>); <span class="comment">// 获得用户提交的数据,根据name 属性获取</span></div></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1093,7 +1102,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">121</span>
+                <span class="site-state-item-count">122</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

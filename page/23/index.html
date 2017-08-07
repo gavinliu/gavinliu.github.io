@@ -280,6 +280,154 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/" itemprop="url">
+                  Java.WebService - Webservice初体验之调用学院客户端开放接口
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-05-21T20:32:02+08:00">
+                2012-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Java.Web Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这是学院客户端的开放API <a href="http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx">http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx</a><br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口1.png" alt="开放API"><br>调用webservice首先要使用wsimport从服务器生成Java接口，wsimport，应该就是webService import 的简写<br>wsimport这个东西其实就是JDK的bin里面，你配置好java环境变量就能使用，OK，现在开始、</p>
+<p>第一步：使用wsimport获取Java接口<br>1.在D盘新建一个文件夹，命名为 api<br>2.在命令行运行wsimport -d D://api -keep -verbose <a href="http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx?WSDL">http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx?WSDL</a><br>然后在api目录下，会生成如下文件<br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口2.png" alt="开放API"><br>第二步：把获取到的java代码导入eclipse工程<br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口3.png" alt="开放API"><br>OpenAAASoap就是提供接口的API<br>OpenAAA是一个继承至Service 的一个服务类，这个类有个 getOpenAAASoap()方法，可以获取OpenAAASoap实例<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/05/15/Java-Web-Http协议初步接触/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -884,163 +1032,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/04/08/JavaWeb---转向-转发-随笔/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin.Liu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2012/04/08/JavaWeb---转向-转发-随笔/" itemprop="url">
-                  Java.Web - 转向 转发 随笔
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-04-08T10:22:08+08:00">
-                2012-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java-Web-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Java.Web Notes</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="一、页面转向"><a href="#一、页面转向" class="headerlink" title="一、页面转向"></a>一、页面转向</h2><p>页面转向可以调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);</div></pre></td></tr></table></figure></p>
-<ul>
-<li>页面转向时request和response的信息都丢失了，它是重新发起一个定向请求，和原先的没有关系了.</li>
-<li>由于它是新的定向请求，所以效率不高。页面转向可以用在同一个应用中，也可以用在不同应用中。也就是说redirect可以转到外部系统。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);  </div><div class="line"><span class="comment">// 等同于</span></div><div class="line">response.setStatus(<span class="number">302</span>);</div><div class="line">response.setHeader(<span class="string">"Location"</span>,<span class="string">"xx.jsp"</span>);</div></pre></td></tr></table></figure>
-<h2 id="二、页面转发"><a href="#二、页面转发" class="headerlink" title="二、页面转发"></a>二、页面转发</h2><p>页面转发调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">request.getRequestDispatcher(<span class="string">"xx.jsp"</span>).forward(request,response);</div></pre></td></tr></table></figure></p>
-<ul>
-<li>页面转发效率高，同时request中的对象还可以在下一页面使用</li>
-<li><p>注：转发不能转发到本web服务器以外的地址</p>
-</li>
-<li><p>转发：指一个web资源收到客户端请求，通知服务器去调用另外一个web资源进行处理。</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取username 的值</span></div><div class="line">String u = request.getParameter(<span class="string">"username"</span>);</div><div class="line"><span class="comment">// 设置request的属性</span></div><div class="line">request.setAttribute(<span class="string">"username"</span>,u);</div><div class="line"><span class="comment">// 使用转发的方法，把 request,response对象转发个下一个页面</span></div><div class="line"><span class="comment">// 所以下一个页面和上一个页面用的是同一个  request,response对象 ，可以获取相应的值</span></div><div class="line">request.getRequestDispatcher(<span class="string">"/servlet2"</span>).forward(request,response);</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1090,7 +1081,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">121</span>
+                <span class="site-state-item-count">122</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

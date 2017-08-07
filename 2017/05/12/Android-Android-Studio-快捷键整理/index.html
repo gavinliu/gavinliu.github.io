@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://gavinliu.cn/2017/05/12/Android-Android-Studio-快捷键整理/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
 <meta property="og:description" content="本文介绍的快捷键，和别的文章不同的是，不会直接给你快捷键，而是给你对应快捷键的英文名称，因为 intellij idea 提供了不少别的 ide 的快捷键映射，不同的人的选择可能会不一样，这时候直接记快捷键肯定不适用，知道每个操作对应的英文名更有意义。">
-<meta property="og:updated_time" content="2017-05-21T13:46:29.000Z">
+<meta property="og:updated_time" content="2017-07-13T06:07:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android - 利其器之Android Studio快捷键整理">
 <meta name="twitter:description" content="本文介绍的快捷键，和别的文章不同的是，不会直接给你快捷键，而是给你对应快捷键的英文名称，因为 intellij idea 提供了不少别的 ide 的快捷键映射，不同的人的选择可能会不一样，这时候直接记快捷键肯定不适用，知道每个操作对应的英文名更有意义。">
@@ -406,7 +406,8 @@
 <li>生成try-catch</li>
 </ol>
 <h3 id="删除行：Editor-Actions-gt-Delete-Line"><a href="#删除行：Editor-Actions-gt-Delete-Line" class="headerlink" title="删除行：Editor Actions &gt; Delete Line"></a>删除行：Editor Actions &gt; Delete Line</h3><h3 id="发号司令：Help-gt-Find-Action…"><a href="#发号司令：Help-gt-Find-Action…" class="headerlink" title="发号司令：Help &gt; Find Action…"></a>发号司令：Help &gt; Find Action…</h3><p>这个非常有用，如果你能记得上面功能对应的英文名称，但是不记得快捷键，你就可以用这个直接查找并执行。</p>
-<h2 id="实用技巧"><a href="#实用技巧" class="headerlink" title="实用技巧"></a>实用技巧</h2>
+<h2 id="实用技巧"><a href="#实用技巧" class="headerlink" title="实用技巧"></a>实用技巧</h2><h3 id="Live-Templates"><a href="#Live-Templates" class="headerlink" title="Live Templates"></a>Live Templates</h3><h4 id="单例模板"><a href="#单例模板" class="headerlink" title="单例模板"></a>单例模板</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">private static $className$ sInstance;</div><div class="line"></div><div class="line">public static $className$ getInstance() &#123;</div><div class="line">    if (sInstance == null) &#123;</div><div class="line">        synchronized ($className$.class) &#123;</div><div class="line">            if (sInstance == null) sInstance = new $className$();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return sInstance;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -543,7 +544,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">121</span>
+                <span class="site-state-item-count">122</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -627,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用快捷键"><span class="nav-number">1.</span> <span class="nav-text">常用快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化代码：Code-gt-Reformat-code"><span class="nav-number">1.1.</span> <span class="nav-text">格式化代码：Code > Reformat code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除多余Import：Code-gt-Optimize-Imports"><span class="nav-number">1.2.</span> <span class="nav-text">清除多余Import：Code > Optimize Imports</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换Tab：Other-gt-Switcher"><span class="nav-number">1.3.</span> <span class="nav-text">切换Tab：Other > Switcher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成代码：Code-gt-Generate…"><span class="nav-number">1.4.</span> <span class="nav-text">生成代码：Code > Generate…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修复错误：Other-gt-Show-Intention-Actions"><span class="nav-number">1.5.</span> <span class="nav-text">修复错误：Other > Show Intention Actions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除行：Editor-Actions-gt-Delete-Line"><span class="nav-number">1.6.</span> <span class="nav-text">删除行：Editor Actions > Delete Line</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发号司令：Help-gt-Find-Action…"><span class="nav-number">1.7.</span> <span class="nav-text">发号司令：Help > Find Action…</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实用技巧"><span class="nav-number">2.</span> <span class="nav-text">实用技巧</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用快捷键"><span class="nav-number">1.</span> <span class="nav-text">常用快捷键</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#格式化代码：Code-gt-Reformat-code"><span class="nav-number">1.1.</span> <span class="nav-text">格式化代码：Code > Reformat code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#清除多余Import：Code-gt-Optimize-Imports"><span class="nav-number">1.2.</span> <span class="nav-text">清除多余Import：Code > Optimize Imports</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换Tab：Other-gt-Switcher"><span class="nav-number">1.3.</span> <span class="nav-text">切换Tab：Other > Switcher</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成代码：Code-gt-Generate…"><span class="nav-number">1.4.</span> <span class="nav-text">生成代码：Code > Generate…</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修复错误：Other-gt-Show-Intention-Actions"><span class="nav-number">1.5.</span> <span class="nav-text">修复错误：Other > Show Intention Actions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除行：Editor-Actions-gt-Delete-Line"><span class="nav-number">1.6.</span> <span class="nav-text">删除行：Editor Actions > Delete Line</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#发号司令：Help-gt-Find-Action…"><span class="nav-number">1.7.</span> <span class="nav-text">发号司令：Help > Find Action…</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实用技巧"><span class="nav-number">2.</span> <span class="nav-text">实用技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Live-Templates"><span class="nav-number">2.1.</span> <span class="nav-text">Live Templates</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单例模板"><span class="nav-number">2.1.1.</span> <span class="nav-text">单例模板</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
