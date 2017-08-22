@@ -1,0 +1,836 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next muse" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android, Java.Web, iOS, macOS" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Gavin.Liu" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Android 8.0 今天正式发布了，你还在用哪个版本呢？  言归正传，本次更新了不少内容，这篇为你介绍如何创建 通知渠道 &amp;amp; 通知角标">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android - 吃奥利奥系列(1) Notification">
+<meta property="og:url" content="http://gavinliu.cn/2017/08/22/Android-吃奥利奥系列-1-Notification/index.html">
+<meta property="og:site_name" content="Gavin.Liu">
+<meta property="og:description" content="Android 8.0 今天正式发布了，你还在用哪个版本呢？  言归正传，本次更新了不少内容，这篇为你介绍如何创建 通知渠道 &amp;amp; 通知角标">
+<meta property="og:image" content="http://gavinliu.cn/images/2017.08.22 - Android-吃奥利奥系列-1-Notification1.jpg">
+<meta property="og:image" content="http://gavinliu.cn/images/2017.08.22 - Android-吃奥利奥系列-1-Notification2.jpg">
+<meta property="og:image" content="http://gavinliu.cn/images/2017.08.22 - Android-吃奥利奥系列-1-Notification3.png">
+<meta property="og:updated_time" content="2017-08-22T12:29:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android - 吃奥利奥系列(1) Notification">
+<meta name="twitter:description" content="Android 8.0 今天正式发布了，你还在用哪个版本呢？  言归正传，本次更新了不少内容，这篇为你介绍如何创建 通知渠道 &amp;amp; 通知角标">
+<meta name="twitter:image" content="http://gavinliu.cn/images/2017.08.22 - Android-吃奥利奥系列-1-Notification1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://gavinliu.cn/2017/08/22/Android-吃奥利奥系列-1-Notification/"/>
+
+
+
+
+
+  <title> Android - 吃奥利奥系列(1) Notification | Gavin.Liu </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?2842c9eadd6d87f89c3ebdba92f18bcb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gavin.Liu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">Focus on Mobile Develop</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2017/08/22/Android-吃奥利奥系列-1-Notification/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android - 吃奥利奥系列(1) Notification
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-22T15:42:21+08:00">
+                2017-08-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/08/22/Android-吃奥利奥系列-1-Notification/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>Android 8.0 今天正式发布了，你还在用哪个版本呢？<br>  言归正传，本次更新了不少内容，这篇为你介绍如何创建 通知渠道 &amp; 通知角标</p>
+</blockquote>
+<a id="more"></a>
+<p>如果你开启了 <code>NotificationChannel</code> 则在 Android 8.0 的设置中，可以看到这样的内容：</p>
+<p><img src="/images/2017.08.22 - Android-吃奥利奥系列-1-Notification1.jpg" alt=""></p>
+<p>可以看出 <code>NotificationChannel</code> 其实是把 <code>Notification</code> 分了个类别，设置不同优先级，开关之类的。如果你的 app 适配了的话，用户可以关掉不喜欢的通知，以提高用户体验。</p>
+<h2 id="创建-NotificationChannel"><a href="#创建-NotificationChannel" class="headerlink" title="创建 NotificationChannel"></a>创建 NotificationChannel</h2><p>通过 NotificationManager 的 createNotificationChannel 方法来创建 NotificationChannel 。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createNotificationChannel</span><span class="params">(String id, String name, <span class="keyword">int</span> importance, String desc)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (mNotificationManager.getNotificationChannel(id) != <span class="keyword">null</span>) <span class="keyword">return</span>;</div><div class="line"></div><div class="line">        NotificationChannel notificationChannel = <span class="keyword">new</span> NotificationChannel(id, name, importance);</div><div class="line">        notificationChannel.enableLights(<span class="keyword">true</span>);</div><div class="line">        notificationChannel.enableVibration(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">        notificationChannel.setLightColor(Color.RED);</div><div class="line">        notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);</div><div class="line">        notificationChannel.setShowBadge(<span class="keyword">true</span>);</div><div class="line">        notificationChannel.setBypassDnd(<span class="keyword">true</span>);</div><div class="line">        notificationChannel.setVibrationPattern(<span class="keyword">new</span> <span class="keyword">long</span>[]&#123;<span class="number">100</span>, <span class="number">200</span>, <span class="number">300</span>, <span class="number">400</span>&#125;);</div><div class="line">        notificationChannel.setDescription(desc);</div><div class="line"></div><div class="line">        mNotificationManager.createNotificationChannel(notificationChannel);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<p>NotificationChannel 的方法列表：</p>
+<ul>
+<li>getId() — 获取 ChannleId</li>
+<li>enableLights() — 开启指示灯，如果设备有的话。</li>
+<li>setLightColor() — 设置指示灯颜色</li>
+<li>enableVibration() — 开启震动</li>
+<li>setVibrationPattern() — 设置震动频率</li>
+<li>setImportance() — 设置频道重要性</li>
+<li>getImportance() — 获取频道重要性</li>
+<li>setSound() — 设置声音</li>
+<li>getSound() — 获取声音</li>
+<li>setGroup() — 设置 ChannleGroup</li>
+<li>getGroup() — 得到 ChannleGroup</li>
+<li>setBypassDnd() — 设置绕过免打扰模式</li>
+<li>canBypassDnd() — 检测是否绕过免打扰模式</li>
+<li>getName() — 获取名称</li>
+<li>setLockScreenVisibility() — 设置是否应在锁定屏幕上显示此频道的通知</li>
+<li>getLockscreenVisibility() — 检测是否应在锁定屏幕上显示此频道的通知</li>
+<li>setShowBadge() 设置是否显示角标</li>
+<li>canShowBadge() — 检测是否显示角标</li>
+</ul>
+<h3 id="setImportance-重要程度"><a href="#setImportance-重要程度" class="headerlink" title="setImportance 重要程度"></a>setImportance 重要程度</h3><p>越高，提示权限就越高，最高的支持发出声音&amp;悬浮通知。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> IMPORTANCE_DEFAULT = <span class="number">3</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> IMPORTANCE_HIGH = <span class="number">4</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> IMPORTANCE_LOW = <span class="number">2</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> IMPORTANCE_MAX = <span class="number">5</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> IMPORTANCE_MIN = <span class="number">1</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> IMPORTANCE_NONE = <span class="number">0</span>;</div><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> IMPORTANCE_UNSPECIFIED = -<span class="number">1000</span>;</div></pre></td></tr></table></figure>
+<h2 id="删除-NotificationChannel"><a href="#删除-NotificationChannel" class="headerlink" title="删除 NotificationChannel"></a>删除 NotificationChannel</h2><p>通过 NotificationManager 的 deleteNotificationChannel 方法来删除 NotificationChannel 。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mNotificationManager.deleteNotificationChannel(chatChannelId);</div></pre></td></tr></table></figure>
+<h2 id="发出通知"><a href="#发出通知" class="headerlink" title="发出通知"></a>发出通知</h2><p>只需要设置一个 ChannelId 即可发布到对应的 Channel 上，需要注意的是 NotificationChannel 一定要先创建才行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Notification.Builder builder = <span class="keyword">new</span> Notification.Builder(<span class="keyword">this</span>, chatChannelId);</div><div class="line">builder.setSmallIcon(R.mipmap.ic_launcher)</div><div class="line">        .setContentTitle(<span class="string">"Gavin"</span>)</div><div class="line">        .setContentText(<span class="string">"Today released Android 8.0 version of its name is Oreo"</span>)</div><div class="line">        .setAutoCancel(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">Intent resultIntent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, MainActivity.class);</div><div class="line">TaskStackBuilder stackBuilder = TaskStackBuilder.create(<span class="keyword">this</span>);</div><div class="line">stackBuilder.addParentStack(MainActivity.class);</div><div class="line">stackBuilder.addNextIntent(resultIntent);</div><div class="line">PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(<span class="number">0</span>, PendingIntent.FLAG_UPDATE_CURRENT);</div><div class="line">builder.setContentIntent(resultPendingIntent);</div><div class="line"></div><div class="line">mNotificationManager.notify((<span class="keyword">int</span>) System.currentTimeMillis(), builder.build());</div></pre></td></tr></table></figure>
+<h2 id="显示角标"><a href="#显示角标" class="headerlink" title="显示角标"></a>显示角标</h2><p>首先要开启允许使用通知圆点，这个是用户可以取消的，如果你要显示一定要代码中保证是开启状态。</p>
+<h3 id="NotificationChannel-开启角标"><a href="#NotificationChannel-开启角标" class="headerlink" title="NotificationChannel 开启角标"></a>NotificationChannel 开启角标</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">notificationChannel.setShowBadge(<span class="keyword">true</span>);</div></pre></td></tr></table></figure>
+<h3 id="Notification-设置角标样式"><a href="#Notification-设置角标样式" class="headerlink" title="Notification 设置角标样式"></a>Notification 设置角标样式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">new Notification.Builder(this, chatChannelId).setBadgeIconType(BADGE_ICON_SMALL)</div></pre></td></tr></table></figure>
+<h3 id="Notification-设置角标计数"><a href="#Notification-设置角标计数" class="headerlink" title="Notification 设置角标计数"></a>Notification 设置角标计数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">new</span> Notification.Builder(<span class="keyword">this</span>, chatChannelId).setNumber(<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<p><img src="/images/2017.08.22 - Android-吃奥利奥系列-1-Notification2.jpg" alt=""></p>
+<h2 id="跳转到设置"><a href="#跳转到设置" class="headerlink" title="跳转到设置"></a>跳转到设置</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS);</div><div class="line">intent.putExtra(Settings.EXTRA_CHANNEL_ID, chatChannelId);</div><div class="line">intent.putExtra(Settings.EXTRA_APP_PACKAGE, getPackageName());</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
+<h2 id="使用-NotificationChannleGroup"><a href="#使用-NotificationChannleGroup" class="headerlink" title="使用 NotificationChannleGroup"></a>使用 NotificationChannleGroup</h2><p>如果你的通知渠道比较多，那么久可以考虑使用 <code>NotificationChannleGroup</code> 来管理一下</p>
+<h3 id="创建-NotificationChannleGroup"><a href="#创建-NotificationChannleGroup" class="headerlink" title="创建 NotificationChannleGroup"></a>创建 NotificationChannleGroup</h3><p>和创建 NotificationChannle 类似</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mNotificationManager.createNotificationChannelGroup(<span class="keyword">new</span> NotificationChannelGroup(groupId, groupName));</div></pre></td></tr></table></figure>
+<h3 id="NotificationChannle-绑定-groupId"><a href="#NotificationChannle-绑定-groupId" class="headerlink" title="NotificationChannle 绑定 groupId"></a>NotificationChannle 绑定 groupId</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">notificationChannel.setGroup(groupId);</div></pre></td></tr></table></figure>
+<p><img src="/images/2017.08.22 - Android-吃奥利奥系列-1-Notification3.png" alt=""></p>
+<h3 id="删除-NotificationChannleGroup"><a href="#删除-NotificationChannleGroup" class="headerlink" title="删除 NotificationChannleGroup"></a>删除 NotificationChannleGroup</h3><p>可以批量删除该 Group 下的所有 Channel</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mNotificationManager.deleteNotificationChannelGroup(groupId2);</div></pre></td></tr></table></figure>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/gavinliu/EatOreo/blob/master/app/src/main/java/cn/gavinliu/eat/oreo/notification/NotificationActivity.java" target="_blank" rel="external">https://github.com/gavinliu/EatOreo/blob/master/app/src/main/java/cn/gavinliu/eat/oreo/notification/NotificationActivity.java</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="Gavin Liu wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的二维码，订阅我的微信公众号！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/18/Android-Support-Library-1/" rel="next" title="Android - Support Library (1)">
+                <i class="fa fa-chevron-left"></i> Android - Support Library (1)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
+               alt="Gavin Liu" />
+          <p class="site-author-name" itemprop="name">Gavin Liu</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">123</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">96</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/gavinliu" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/512315128" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建-NotificationChannel"><span class="nav-number">1.</span> <span class="nav-text">创建 NotificationChannel</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#setImportance-重要程度"><span class="nav-number">1.1.</span> <span class="nav-text">setImportance 重要程度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除-NotificationChannel"><span class="nav-number">2.</span> <span class="nav-text">删除 NotificationChannel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发出通知"><span class="nav-number">3.</span> <span class="nav-text">发出通知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示角标"><span class="nav-number">4.</span> <span class="nav-text">显示角标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NotificationChannel-开启角标"><span class="nav-number">4.1.</span> <span class="nav-text">NotificationChannel 开启角标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notification-设置角标样式"><span class="nav-number">4.2.</span> <span class="nav-text">Notification 设置角标样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Notification-设置角标计数"><span class="nav-number">4.3.</span> <span class="nav-text">Notification 设置角标计数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳转到设置"><span class="nav-number">5.</span> <span class="nav-text">跳转到设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-NotificationChannleGroup"><span class="nav-number">6.</span> <span class="nav-text">使用 NotificationChannleGroup</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-NotificationChannleGroup"><span class="nav-number">6.1.</span> <span class="nav-text">创建 NotificationChannleGroup</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NotificationChannle-绑定-groupId"><span class="nav-number">6.2.</span> <span class="nav-text">NotificationChannle 绑定 groupId</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-NotificationChannleGroup"><span class="nav-number">6.3.</span> <span class="nav-text">删除 NotificationChannleGroup</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码"><span class="nav-number">7.</span> <span class="nav-text">源码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2012 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "7a2a9330beed45c0bbe0eed8c8852c02",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+</body>
+</html>

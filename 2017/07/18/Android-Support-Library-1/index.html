@@ -69,7 +69,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android," />
+  <meta name="keywords" content="Android,SupportLibrary," />
 
 
 
@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://gavinliu.cn/2017/07/18/Android-Support-Library-1/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
 <meta property="og:description" content="概述在魅族的时候各种控件都是自定义的，对 Support Library 的移植有专门的组负责，对于 Support Library 的学习也只是写写 Demo 那种程度，离职之后开发很多东西需要亲力亲为了，需要大量使用到 Support Library，所以写个系列，挨个介绍 Support Library，同时作为学习笔记。">
-<meta property="og:updated_time" content="2017-08-07T12:39:30.000Z">
+<meta property="og:updated_time" content="2017-08-08T06:36:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android - Support Library (1)">
 <meta name="twitter:description" content="概述在魅族的时候各种控件都是自定义的，对 Support Library 的移植有专门的组负责，对于 Support Library 的学习也只是写写 Demo 那种程度，离职之后开发很多东西需要亲力亲为了，需要大量使用到 Support Library，所以写个系列，挨个介绍 Support Library，同时作为学习笔记。">
@@ -391,19 +391,21 @@
         <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>在魅族的时候各种控件都是自定义的，对 <code>Support Library</code> 的移植有专门的组负责，对于 <code>Support Library</code> 的学习也只是写写 Demo 那种程度，离职之后开发很多东西需要亲力亲为了，需要大量使用到 <code>Support Library</code>，所以写个系列，挨个介绍 <code>Support Library</code>，同时作为学习笔记。</p>
 <a id="more"></a>
 <h2 id="关系"><a href="#关系" class="headerlink" title="关系"></a>关系</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── animated-vector-drawable</div><div class="line">├── appcompat-v7</div><div class="line">├── cardview-v7</div><div class="line">├── customtabs</div><div class="line">├── design</div><div class="line">├── exifinterface</div><div class="line">├── gridlayout-v7</div><div class="line">├── instantvideo</div><div class="line">├── leanback-v17</div><div class="line">├── mediarouter-v7</div><div class="line">├── multidex</div><div class="line">├── multidex-instrumentation</div><div class="line">├── palette-v7</div><div class="line">├── percent</div><div class="line">├── preference-leanback-v17</div><div class="line">├── preference-v14</div><div class="line">├── preference-v7</div><div class="line">├── recommendation</div><div class="line">├── recyclerview-v7</div><div class="line">├── support-annotations</div><div class="line">├── support-compat</div><div class="line">├── support-core-ui</div><div class="line">├── support-core-utils</div><div class="line">├── support-dynamic-animation</div><div class="line">├── support-fragment</div><div class="line">├── support-media-compat</div><div class="line">├── support-tv-provider</div><div class="line">├── support-v13</div><div class="line">├── support-v4</div><div class="line">├── support-vector-drawable</div><div class="line">├── test</div><div class="line">├── transition</div><div class="line">└── wearable</div></pre></td></tr></table></figure>
-<h2 id="v4-支持库"><a href="#v4-支持库" class="headerlink" title="v4 支持库"></a>v4 支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:support-*:24.2.0</div></pre></td></tr></table></figure>
-<h2 id="Dalvik-可执行文件分包支持库"><a href="#Dalvik-可执行文件分包支持库" class="headerlink" title="Dalvik 可执行文件分包支持库"></a>Dalvik 可执行文件分包支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:multidex:1.0.0</div></pre></td></tr></table></figure>
-<h2 id="v7-支持库"><a href="#v7-支持库" class="headerlink" title="v7 支持库"></a>v7 支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:*-v7:24.2.0</div></pre></td></tr></table></figure>
-<h2 id="v8-renderscript-支持库"><a href="#v8-renderscript-支持库" class="headerlink" title="v8 renderscript 支持库"></a>v8 renderscript 支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">defaultConfig &#123;</div><div class="line">    renderscriptTargetApi 18</div><div class="line">    renderscriptSupportModeEnabled true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="v13-支持库"><a href="#v13-支持库" class="headerlink" title="v13 支持库"></a>v13 支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:support-v13:24.2.0</div></pre></td></tr></table></figure>
-<h2 id="v14-Preference-支持库"><a href="#v14-Preference-支持库" class="headerlink" title="v14 Preference 支持库"></a>v14 Preference 支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:preference-v14:24.2.0</div></pre></td></tr></table></figure>
-<h2 id="适用于电视的-v17-Preference-支持库"><a href="#适用于电视的-v17-Preference-支持库" class="headerlink" title="适用于电视的 v17 Preference 支持库"></a>适用于电视的 v17 Preference 支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:preference-leanback-v17:24.2.0</div></pre></td></tr></table></figure>
-<h2 id="v17-Leanback-库"><a href="#v17-Leanback-库" class="headerlink" title="v17 Leanback 库"></a>v17 Leanback 库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:preference-leanback-v17:24.2.0</div></pre></td></tr></table></figure>
-<h2 id="注解支持库"><a href="#注解支持库" class="headerlink" title="注解支持库"></a>注解支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:support-annotations:24.2.0</div></pre></td></tr></table></figure>
-<h2 id="设计支持库"><a href="#设计支持库" class="headerlink" title="设计支持库"></a>设计支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:design:24.2.0</div></pre></td></tr></table></figure>
-<h2 id="自定义标签页支持库"><a href="#自定义标签页支持库" class="headerlink" title="自定义标签页支持库"></a>自定义标签页支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:customtabs:24.2.0</div></pre></td></tr></table></figure>
-<h2 id="百分比支持库"><a href="#百分比支持库" class="headerlink" title="百分比支持库"></a>百分比支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:percent:24.2.0</div></pre></td></tr></table></figure>
-<h2 id="适用于电视的应用建议支持库"><a href="#适用于电视的应用建议支持库" class="headerlink" title="适用于电视的应用建议支持库"></a>适用于电视的应用建议支持库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:recommendation:24.2.0</div></pre></td></tr></table></figure>
+<h3 id="v4-支持库"><a href="#v4-支持库" class="headerlink" title="v4 支持库"></a>v4 支持库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:support-*:24.2.0</div></pre></td></tr></table></figure>
+<h3 id="Dalvik-可执行文件分包支持库"><a href="#Dalvik-可执行文件分包支持库" class="headerlink" title="Dalvik 可执行文件分包支持库"></a>Dalvik 可执行文件分包支持库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:multidex:1.0.0</div></pre></td></tr></table></figure>
+<h3 id="v7-支持库"><a href="#v7-支持库" class="headerlink" title="v7 支持库"></a>v7 支持库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:*-v7:24.2.0</div></pre></td></tr></table></figure>
+<h3 id="v8-renderscript-支持库"><a href="#v8-renderscript-支持库" class="headerlink" title="v8 renderscript 支持库"></a>v8 renderscript 支持库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">defaultConfig &#123;</div><div class="line">    renderscriptTargetApi 18</div><div class="line">    renderscriptSupportModeEnabled true</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="v13-支持库"><a href="#v13-支持库" class="headerlink" title="v13 支持库"></a>v13 支持库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:support-v13:24.2.0</div></pre></td></tr></table></figure>
+<h3 id="v14-Preference-支持库"><a href="#v14-Preference-支持库" class="headerlink" title="v14 Preference 支持库"></a>v14 Preference 支持库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:preference-v14:24.2.0</div></pre></td></tr></table></figure>
+<h3 id="适用于电视的-v17-Preference-支持库"><a href="#适用于电视的-v17-Preference-支持库" class="headerlink" title="适用于电视的 v17 Preference 支持库"></a>适用于电视的 v17 Preference 支持库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:preference-leanback-v17:24.2.0</div></pre></td></tr></table></figure>
+<h3 id="v17-Leanback-库"><a href="#v17-Leanback-库" class="headerlink" title="v17 Leanback 库"></a>v17 Leanback 库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:preference-leanback-v17:24.2.0</div></pre></td></tr></table></figure>
+<h3 id="注解支持库"><a href="#注解支持库" class="headerlink" title="注解支持库"></a>注解支持库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:support-annotations:24.2.0</div></pre></td></tr></table></figure>
+<h3 id="设计支持库"><a href="#设计支持库" class="headerlink" title="设计支持库"></a>设计支持库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:design:24.2.0</div></pre></td></tr></table></figure>
+<h3 id="自定义标签页支持库"><a href="#自定义标签页支持库" class="headerlink" title="自定义标签页支持库"></a>自定义标签页支持库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:customtabs:24.2.0</div></pre></td></tr></table></figure>
+<h3 id="百分比支持库"><a href="#百分比支持库" class="headerlink" title="百分比支持库"></a>百分比支持库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:percent:24.2.0</div></pre></td></tr></table></figure>
+<h3 id="适用于电视的应用建议支持库"><a href="#适用于电视的应用建议支持库" class="headerlink" title="适用于电视的应用建议支持库"></a>适用于电视的应用建议支持库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">com.android.support:recommendation:24.2.0</div></pre></td></tr></table></figure>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>通过 SDK manager，滚动到末尾，选择 Android Support Repository，安装即可。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>以上这大概就是目前所有的 Support 支持库了，后面的文章打算一一介绍，敬请期待。</p>
 
       
     </div>
@@ -440,6 +442,8 @@
           
             <a href="/tags/Android/" rel="tag"># Android</a>
           
+            <a href="/tags/SupportLibrary/" rel="tag"># SupportLibrary</a>
+          
         </div>
       
 
@@ -460,6 +464,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/22/Android-吃奥利奥系列-1-Notification/" rel="prev" title="Android - 吃奥利奥系列(1) Notification">
+                Android - 吃奥利奥系列(1) Notification <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -533,7 +541,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">122</span>
+                <span class="site-state-item-count">123</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -555,7 +563,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">95</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -617,7 +625,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系"><span class="nav-number">2.</span> <span class="nav-text">关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v4-支持库"><span class="nav-number">3.</span> <span class="nav-text">v4 支持库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dalvik-可执行文件分包支持库"><span class="nav-number">4.</span> <span class="nav-text">Dalvik 可执行文件分包支持库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v7-支持库"><span class="nav-number">5.</span> <span class="nav-text">v7 支持库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v8-renderscript-支持库"><span class="nav-number">6.</span> <span class="nav-text">v8 renderscript 支持库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v13-支持库"><span class="nav-number">7.</span> <span class="nav-text">v13 支持库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v14-Preference-支持库"><span class="nav-number">8.</span> <span class="nav-text">v14 Preference 支持库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#适用于电视的-v17-Preference-支持库"><span class="nav-number">9.</span> <span class="nav-text">适用于电视的 v17 Preference 支持库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v17-Leanback-库"><span class="nav-number">10.</span> <span class="nav-text">v17 Leanback 库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注解支持库"><span class="nav-number">11.</span> <span class="nav-text">注解支持库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设计支持库"><span class="nav-number">12.</span> <span class="nav-text">设计支持库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义标签页支持库"><span class="nav-number">13.</span> <span class="nav-text">自定义标签页支持库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#百分比支持库"><span class="nav-number">14.</span> <span class="nav-text">百分比支持库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#适用于电视的应用建议支持库"><span class="nav-number">15.</span> <span class="nav-text">适用于电视的应用建议支持库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关系"><span class="nav-number">2.</span> <span class="nav-text">关系</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#v4-支持库"><span class="nav-number">2.1.</span> <span class="nav-text">v4 支持库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dalvik-可执行文件分包支持库"><span class="nav-number">2.2.</span> <span class="nav-text">Dalvik 可执行文件分包支持库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v7-支持库"><span class="nav-number">2.3.</span> <span class="nav-text">v7 支持库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v8-renderscript-支持库"><span class="nav-number">2.4.</span> <span class="nav-text">v8 renderscript 支持库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v13-支持库"><span class="nav-number">2.5.</span> <span class="nav-text">v13 支持库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v14-Preference-支持库"><span class="nav-number">2.6.</span> <span class="nav-text">v14 Preference 支持库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用于电视的-v17-Preference-支持库"><span class="nav-number">2.7.</span> <span class="nav-text">适用于电视的 v17 Preference 支持库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v17-Leanback-库"><span class="nav-number">2.8.</span> <span class="nav-text">v17 Leanback 库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注解支持库"><span class="nav-number">2.9.</span> <span class="nav-text">注解支持库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计支持库"><span class="nav-number">2.10.</span> <span class="nav-text">设计支持库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义标签页支持库"><span class="nav-number">2.11.</span> <span class="nav-text">自定义标签页支持库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#百分比支持库"><span class="nav-number">2.12.</span> <span class="nav-text">百分比支持库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用于电视的应用建议支持库"><span class="nav-number">2.13.</span> <span class="nav-text">适用于电视的应用建议支持库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">4.</span> <span class="nav-text">结语</span></a></li></ol></div>
             
 
           </div>
