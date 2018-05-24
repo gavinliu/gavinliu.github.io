@@ -1,18 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
+  
 
-<html class="theme-next muse" lang="zh-Hans">
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -66,7 +76,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="GBA4iOS,cocoapods," />
@@ -80,46 +90,39 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
 
 
 
-<meta name="description" content="最近想玩玩GBA上的口袋妖怪，发现GBA4iOS这个开源项目，由于模拟器存在法律问题，这款软件并没有在 AppStore 上架，所以需要一点手段才可以安装。
-
-官网：http://www.gba4iosapp.com/
-不建议玩家使用国内的XX助手来安装这个游戏，更不建议大家在电脑或者手机里装这些助手，安全问题大家都懂的，我这里提供两种方法，一种只需要在手机上即可完成，一种是使用xcode编译源">
+<meta name="description" content="最近想玩玩GBA上的口袋妖怪，发现GBA4iOS这个开源项目，由于模拟器存在法律问题，这款软件并没有在 AppStore 上架，所以需要一点手段才可以安装。  官网：http://www.gba4iosapp.com/ 不建议玩家使用国内的XX助手来安装这个游戏，更不建议大家在电脑或者手机里装这些助手，安全问题大家都懂的，我这里提供两种方法，一种只需要在手机上即可完成，一种是使用xcode编译源">
+<meta name="keywords" content="GBA4iOS,cocoapods">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS - 安装GBA4iOS的2种方法">
 <meta property="og:url" content="http://gavinliu.cn/2016/09/04/iOS-安装GBA4iOS的2种方法/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description" content="最近想玩玩GBA上的口袋妖怪，发现GBA4iOS这个开源项目，由于模拟器存在法律问题，这款软件并没有在 AppStore 上架，所以需要一点手段才可以安装。
-
-官网：http://www.gba4iosapp.com/
-不建议玩家使用国内的XX助手来安装这个游戏，更不建议大家在电脑或者手机里装这些助手，安全问题大家都懂的，我这里提供两种方法，一种只需要在手机上即可完成，一种是使用xcode编译源">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04 - iOS-安装GBA4iOS的2种方法4.jpg">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04 - iOS-安装GBA4iOS的2种方法12.jpg">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04 - iOS-安装GBA4iOS的2种方法6.jpg">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04 - iOS-安装GBA4iOS的2种方法7.jpg">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04 - iOS-安装GBA4iOS的2种方法5.jpg">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04 - iOS-安装GBA4iOS的2种方法8.jpg">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04 - iOS-安装GBA4iOS的2种方法9.jpg">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04 - iOS-安装GBA4iOS的2种方法6.jpg">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04 - iOS-安装GBA4iOS的2种方法1.png">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04 - iOS-安装GBA4iOS的2种方法2.png">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04 - iOS-安装GBA4iOS的2种方法3.png">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04 - iOS-安装GBA4iOS的2种方法10.jpg">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04 - iOS-安装GBA4iOS的2种方法11.jpg">
+<meta property="og:description" content="最近想玩玩GBA上的口袋妖怪，发现GBA4iOS这个开源项目，由于模拟器存在法律问题，这款软件并没有在 AppStore 上架，所以需要一点手段才可以安装。  官网：http://www.gba4iosapp.com/ 不建议玩家使用国内的XX助手来安装这个游戏，更不建议大家在电脑或者手机里装这些助手，安全问题大家都懂的，我这里提供两种方法，一种只需要在手机上即可完成，一种是使用xcode编译源">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04%20-%20iOS-安装GBA4iOS的2种方法4.jpg">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04%20-%20iOS-安装GBA4iOS的2种方法12.jpg">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04%20-%20iOS-安装GBA4iOS的2种方法6.jpg">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04%20-%20iOS-安装GBA4iOS的2种方法7.jpg">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04%20-%20iOS-安装GBA4iOS的2种方法5.jpg">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04%20-%20iOS-安装GBA4iOS的2种方法8.jpg">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04%20-%20iOS-安装GBA4iOS的2种方法9.jpg">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04%20-%20iOS-安装GBA4iOS的2种方法6.jpg">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04%20-%20iOS-安装GBA4iOS的2种方法1.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04%20-%20iOS-安装GBA4iOS的2种方法2.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04%20-%20iOS-安装GBA4iOS的2种方法3.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04%20-%20iOS-安装GBA4iOS的2种方法10.jpg">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.09.04%20-%20iOS-安装GBA4iOS的2种方法11.jpg">
 <meta property="og:updated_time" content="2017-01-12T12:03:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS - 安装GBA4iOS的2种方法">
-<meta name="twitter:description" content="最近想玩玩GBA上的口袋妖怪，发现GBA4iOS这个开源项目，由于模拟器存在法律问题，这款软件并没有在 AppStore 上架，所以需要一点手段才可以安装。
-
-官网：http://www.gba4iosapp.com/
-不建议玩家使用国内的XX助手来安装这个游戏，更不建议大家在电脑或者手机里装这些助手，安全问题大家都懂的，我这里提供两种方法，一种只需要在手机上即可完成，一种是使用xcode编译源">
-<meta name="twitter:image" content="http://gavinliu.cn/images/2016.09.04 - iOS-安装GBA4iOS的2种方法4.jpg">
+<meta name="twitter:description" content="最近想玩玩GBA上的口袋妖怪，发现GBA4iOS这个开源项目，由于模拟器存在法律问题，这款软件并没有在 AppStore 上架，所以需要一点手段才可以安装。  官网：http://www.gba4iosapp.com/ 不建议玩家使用国内的XX助手来安装这个游戏，更不建议大家在电脑或者手机里装这些助手，安全问题大家都懂的，我这里提供两种方法，一种只需要在手机上即可完成，一种是使用xcode编译源">
+<meta name="twitter:image" content="http://gavinliu.cn/images/2016.09.04%20-%20iOS-安装GBA4iOS的2种方法4.jpg">
 
 
 
@@ -127,10 +130,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -153,11 +158,7 @@
 
 
 
-  <title> iOS - 安装GBA4iOS的2种方法 | Gavin.Liu </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>iOS - 安装GBA4iOS的2种方法 | Gavin.Liu</title>
   
 
 
@@ -177,18 +178,16 @@
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -204,7 +203,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description">Focus on Mobile Develop</h1>
+        <p class="site-subtitle">Focus on Mobile Develop</p>
       
   </div>
 
@@ -235,7 +234,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -244,18 +243,8 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -264,8 +253,18 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -275,9 +274,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -301,13 +334,17 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2016/09/04/iOS-安装GBA4iOS的2种方法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gavin Liu">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -319,14 +356,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                iOS - 安装GBA4iOS的2种方法
-              
-            
-          </h2>
+          <h1 class="post-title" itemprop="name headline">iOS - 安装GBA4iOS的2种方法</h1>
         
 
         <div class="post-meta">
@@ -374,16 +404,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a class="cloud-tie-join-count" href="/2016/09/04/iOS-安装GBA4iOS的2种方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -391,7 +411,7 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -404,7 +424,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -414,7 +436,7 @@
         <blockquote>
 <p>最近想玩玩GBA上的口袋妖怪，发现<code>GBA4iOS</code>这个开源项目，由于模拟器存在法律问题，这款软件并没有在 AppStore 上架，所以需要一点手段才可以安装。</p>
 </blockquote>
-<p>官网：<a href="http://www.gba4iosapp.com/" target="_blank" rel="external">http://www.gba4iosapp.com/</a></p>
+<p>官网：<a href="http://www.gba4iosapp.com/" target="_blank" rel="noopener">http://www.gba4iosapp.com/</a></p>
 <p>不建议玩家使用国内的XX助手来安装这个游戏，更不建议大家在电脑或者手机里装这些助手，安全问题大家都懂的，我这里提供两种方法，一种只需要在手机上即可完成，一种是使用xcode编译源码安装。</p>
 <a id="more"></a>
 <h2 id="手机安装"><a href="#手机安装" class="headerlink" title="手机安装"></a>手机安装</h2><h3 id="Safari-打开-GBA4iOS-官网"><a href="#Safari-打开-GBA4iOS-官网" class="headerlink" title="Safari 打开 GBA4iOS 官网"></a>Safari 打开 <code>GBA4iOS</code> 官网</h3><p>点击下载，安装</p>
@@ -433,11 +455,11 @@
 <h3 id="再次把系统时间调至2012年的某一天"><a href="#再次把系统时间调至2012年的某一天" class="headerlink" title="再次把系统时间调至2012年的某一天"></a>再次把系统时间调至2012年的某一天</h3><p>然后就可以愉快的玩耍啦</p>
 <h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>这种方法有个弊端，每次玩的时候都得把时间往前调，才可以玩。</p>
 <h2 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h2><p>由于是开源项目，所以编译安装才是正道，现在真机调试已经不需要花99$注册开发者，如果你有一台Mac，就可以进行下一步。</p>
-<h3 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">clone</span> https://bitbucket.org/rileytestut/gba4ios.git GBA4iOS</div></pre></td></tr></table></figure>
-<h3 id="安装-cocoapods"><a href="#安装-cocoapods" class="headerlink" title="安装 cocoapods"></a>安装 cocoapods</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ~ pod --version</div><div class="line">1.0.1</div></pre></td></tr></table></figure>
+<h3 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://bitbucket.org/rileytestut/gba4ios.git GBA4iOS</span><br></pre></td></tr></table></figure>
+<h3 id="安装-cocoapods"><a href="#安装-cocoapods" class="headerlink" title="安装 cocoapods"></a>安装 cocoapods</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ~ pod --version</span><br><span class="line">1.0.1</span><br></pre></td></tr></table></figure>
 <p>安装方法自行Google，不是本文的重点，我安装的目前最新版本，1.0.1。</p>
 <h3 id="修改-Podfile"><a href="#修改-Podfile" class="headerlink" title="修改 Podfile"></a>修改 Podfile</h3><p>安装完，cocoapods后执行<code>pod install</code>，会出现错误，原因是pod版本太高，不支持之前一些语法了，所以先把Podfile修改成下面的内容，注意：可能官方会更新各个第三方库，下面的版本应该替换成原文件里面指定的版本。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">source</span> <span class="string">'https://github.com/CocoaPods/Specs.git'</span></div><div class="line"></div><div class="line">platform :ios, <span class="string">"9.0"</span></div><div class="line"></div><div class="line">target <span class="string">'GBA4iOS'</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">    pod <span class="string">'RSTWebViewController'</span>, :git =&gt; <span class="string">'https://github.com/rileytestut/RSTWebViewController-Legacy.git'</span></div><div class="line">    pod <span class="string">"AFNetworking"</span>, <span class="string">"~&gt; 2.4"</span></div><div class="line">    pod <span class="string">"PSPDFTextView"</span>, :git =&gt; <span class="string">'https://github.com/steipete/PSPDFTextView.git'</span></div><div class="line">    pod <span class="string">"Dropbox-iOS-SDK"</span>, <span class="string">"~&gt; 1.3.13"</span></div><div class="line">    pod <span class="string">"CrashlyticsFramework"</span>, <span class="string">"~&gt; 2.1.0"</span></div><div class="line"></div><div class="line">end</div><div class="line"></div><div class="line">target <span class="string">'GBA4iOS-Simulator'</span> <span class="keyword">do</span></div><div class="line"></div><div class="line">    pod <span class="string">'RSTWebViewController'</span>, :git =&gt; <span class="string">'https://github.com/rileytestut/RSTWebViewController-Legacy.git'</span></div><div class="line">    pod <span class="string">"AFNetworking"</span>, <span class="string">"~&gt; 2.4"</span></div><div class="line">    pod <span class="string">"PSPDFTextView"</span>, :git =&gt; <span class="string">'https://github.com/steipete/PSPDFTextView.git'</span></div><div class="line">    pod <span class="string">"Dropbox-iOS-SDK"</span>, <span class="string">"~&gt; 1.3.13"</span></div><div class="line">    pod <span class="string">"CrashlyticsFramework"</span>, <span class="string">"~&gt; 2.1.0"</span></div><div class="line"></div><div class="line">end</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="string">'https://github.com/CocoaPods/Specs.git'</span></span><br><span class="line"></span><br><span class="line">platform :ios, <span class="string">"9.0"</span></span><br><span class="line"></span><br><span class="line">target <span class="string">'GBA4iOS'</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">    pod <span class="string">'RSTWebViewController'</span>, :git =&gt; <span class="string">'https://github.com/rileytestut/RSTWebViewController-Legacy.git'</span></span><br><span class="line">    pod <span class="string">"AFNetworking"</span>, <span class="string">"~&gt; 2.4"</span></span><br><span class="line">    pod <span class="string">"PSPDFTextView"</span>, :git =&gt; <span class="string">'https://github.com/steipete/PSPDFTextView.git'</span></span><br><span class="line">    pod <span class="string">"Dropbox-iOS-SDK"</span>, <span class="string">"~&gt; 1.3.13"</span></span><br><span class="line">    pod <span class="string">"CrashlyticsFramework"</span>, <span class="string">"~&gt; 2.1.0"</span></span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">target <span class="string">'GBA4iOS-Simulator'</span> <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">    pod <span class="string">'RSTWebViewController'</span>, :git =&gt; <span class="string">'https://github.com/rileytestut/RSTWebViewController-Legacy.git'</span></span><br><span class="line">    pod <span class="string">"AFNetworking"</span>, <span class="string">"~&gt; 2.4"</span></span><br><span class="line">    pod <span class="string">"PSPDFTextView"</span>, :git =&gt; <span class="string">'https://github.com/steipete/PSPDFTextView.git'</span></span><br><span class="line">    pod <span class="string">"Dropbox-iOS-SDK"</span>, <span class="string">"~&gt; 1.3.13"</span></span><br><span class="line">    pod <span class="string">"CrashlyticsFramework"</span>, <span class="string">"~&gt; 2.1.0"</span></span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 <h3 id="执行-pod-install"><a href="#执行-pod-install" class="headerlink" title="执行 pod install"></a>执行 pod install</h3><p>这一步是下载依赖项目，根据你的网速，耐心等待。</p>
 <h3 id="编译源码"><a href="#编译源码" class="headerlink" title="编译源码"></a>编译源码</h3><h4 id="双击-GBA4iOS-xcworkspace-打开-xocde"><a href="#双击-GBA4iOS-xcworkspace-打开-xocde" class="headerlink" title="双击 GBA4iOS.xcworkspace 打开 xocde"></a>双击 <code>GBA4iOS.xcworkspace</code> 打开 xocde</h4><h4 id="修改配置信息"><a href="#修改配置信息" class="headerlink" title="修改配置信息"></a>修改配置信息</h4><p>修改 <code>Bundle Identifier</code> xxx.xxx.GBA4iOS 即可</p>
 <p><img src="/images/2016.09.04 - iOS-安装GBA4iOS的2种方法1.png" alt=""></p>
@@ -450,32 +472,23 @@
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
     <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="Gavin Liu wechat" style="width: 200px; max-width: 100%;"/>
     <div>欢迎您扫一扫上面的二维码，订阅我的微信公众号！</div>
 </div>
 
+      </div>
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -489,7 +502,7 @@
       
 
       
-        
+      
       
 
       
@@ -517,6 +530,10 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -534,8 +551,6 @@
           
   <div class="comments" id="comments">
     
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-    
   </div>
 
 
@@ -552,6 +567,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -569,20 +585,19 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
-               alt="Gavin Liu" />
-          <p class="site-author-name" itemprop="name">Gavin Liu</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-           
+          
+            <p class="site-author-name" itemprop="name">Gavin Liu</p>
+            <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
         </div>
+
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">123</span>
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">122</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -604,7 +619,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">97</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -629,7 +644,9 @@
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                    
+                      GitHub
+                    
                 </a>
               </span>
             
@@ -638,7 +655,9 @@
                   
                     <i class="fa fa-fw fa-weibo"></i>
                   
-                  Weibo
+                    
+                      Weibo
+                    
                 </a>
               </span>
             
@@ -688,25 +707,22 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2012 - 
-  <span itemprop="copyrightYear">2017</span>
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
 
 
         
@@ -714,9 +730,27 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
 
   
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
 </div>
+
+
+
+
+
+
 
 
         
@@ -755,6 +789,12 @@
 
 
 
+
+
+
+
+
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -777,25 +817,36 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -814,32 +865,344 @@
 
 
   
-    
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "7a2a9330beed45c0bbe0eed8c8852c02",
-        target: "cloud-tie-wrapper"
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
       };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
   
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
 
   
 
@@ -865,9 +1228,11 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
+
+  
 
   
 

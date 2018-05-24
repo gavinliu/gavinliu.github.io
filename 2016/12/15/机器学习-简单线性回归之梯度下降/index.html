@@ -1,18 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
+  
 
-<html class="theme-next muse" lang="zh-Hans">
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -66,7 +76,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="梯度下降,简单线性回归," />
@@ -80,7 +90,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -88,23 +98,25 @@
 
 
 <meta name="description" content="回归问题主要是用来预测，比如说你有一组【面积-房价】的数据，这些数据是离散的，通过线性回归，可以找到一个函数尽可能的表述你的数据，从而来预测房价。">
+<meta name="keywords" content="梯度下降,简单线性回归">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习 - 一元简单线性回归与梯度下降">
 <meta property="og:url" content="http://gavinliu.cn/2016/12/15/机器学习-简单线性回归之梯度下降/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
 <meta property="og:description" content="回归问题主要是用来预测，比如说你有一组【面积-房价】的数据，这些数据是离散的，通过线性回归，可以找到一个函数尽可能的表述你的数据，从而来预测房价。">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.12.15 - 机器学习-简单线性回归之梯度下降0.png">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.12.15 - 机器学习-简单线性回归之梯度下降1.png">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.12.15 - 机器学习-简单线性回归之梯度下降2.png">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.12.15 - 机器学习-简单线性回归之梯度下降3.png">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.12.15 - 机器学习-简单线性回归之梯度下降4.png">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.12.15 - 机器学习-简单线性回归之梯度下降5.png">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.12.15 - 机器学习-简单线性回归之梯度下降6.png">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.12.15%20-%20机器学习-简单线性回归之梯度下降0.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.12.15%20-%20机器学习-简单线性回归之梯度下降1.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.12.15%20-%20机器学习-简单线性回归之梯度下降2.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.12.15%20-%20机器学习-简单线性回归之梯度下降3.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.12.15%20-%20机器学习-简单线性回归之梯度下降4.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.12.15%20-%20机器学习-简单线性回归之梯度下降5.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.12.15%20-%20机器学习-简单线性回归之梯度下降6.png">
 <meta property="og:updated_time" content="2017-02-15T17:46:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习 - 一元简单线性回归与梯度下降">
 <meta name="twitter:description" content="回归问题主要是用来预测，比如说你有一组【面积-房价】的数据，这些数据是离散的，通过线性回归，可以找到一个函数尽可能的表述你的数据，从而来预测房价。">
-<meta name="twitter:image" content="http://gavinliu.cn/images/2016.12.15 - 机器学习-简单线性回归之梯度下降0.png">
+<meta name="twitter:image" content="http://gavinliu.cn/images/2016.12.15%20-%20机器学习-简单线性回归之梯度下降0.png">
 
 
 
@@ -112,10 +124,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -138,11 +152,7 @@
 
 
 
-  <title> 机器学习 - 一元简单线性回归与梯度下降 | Gavin.Liu </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>机器学习 - 一元简单线性回归与梯度下降 | Gavin.Liu</title>
   
 
 
@@ -162,18 +172,16 @@
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -189,7 +197,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description">Focus on Mobile Develop</h1>
+        <p class="site-subtitle">Focus on Mobile Develop</p>
       
   </div>
 
@@ -220,7 +228,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -229,18 +237,8 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -249,8 +247,18 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -260,9 +268,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -286,13 +328,17 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2016/12/15/机器学习-简单线性回归之梯度下降/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gavin Liu">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -304,14 +350,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                机器学习 - 一元简单线性回归与梯度下降
-              
-            
-          </h2>
+          <h1 class="post-title" itemprop="name headline">机器学习 - 一元简单线性回归与梯度下降</h1>
         
 
         <div class="post-meta">
@@ -359,16 +398,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a class="cloud-tie-join-count" href="/2016/12/15/机器学习-简单线性回归之梯度下降/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -376,7 +405,7 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -389,7 +418,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -422,7 +453,7 @@
 <p>α为步长，即梯度下降的步长，通常我们不希望步长太大，一般取 0.01。</p>
 <p><img src="/images/2016.12.15 - 机器学习-简单线性回归之梯度下降0.png" alt=""></p>
 <h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p>我现在有一组数据如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1,1</div><div class="line">2,2</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1,1</span><br><span class="line">2,2</span><br></pre></td></tr></table></figure>
 <p>当然我们凭肉眼看就能知道这个函数是 <code>y = x</code>，实际场景中肯定不可能这样，我们为了方便演示。</p>
 <p><img src="/images/2016.12.15 - 机器学习-简单线性回归之梯度下降1.png" alt=""></p>
 <p>下面我们用代码的方式 让程序一步一步找到 一条合适的函数来拟合 给出的两个点。</p>
@@ -430,13 +461,13 @@
 <p>令 x0 = 1，有方程：</p>
 <p>$$ y = \theta _0 x _0 + \theta _1 x _1 $$<br>$$ y = \theta ^ T x $$</p>
 <p>生成 x0 x1 的矩阵</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">| 1，1 |</div><div class="line">| 1，2 |</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">| 1，1 |</span><br><span class="line">| 1，2 |</span><br></pre></td></tr></table></figure>
 <p>生成 θ0 θ1 的矩阵，因为未知，从 0，0好了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">| 0 |</div><div class="line">| 0 |</div></pre></td></tr></table></figure>
-<p>带入方程可得到 y’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">| 0 |</div><div class="line">| 0 |</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">| 0 |</span><br><span class="line">| 0 |</span><br></pre></td></tr></table></figure>
+<p>带入方程可得到 y’<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">| 0 |</span><br><span class="line">| 0 |</span><br></pre></td></tr></table></figure></p>
 <p>梯度下降：</p>
 <p>$$<br>\theta _1 := \alpha \frac {d} {d\theta _1}J({\theta _ 1})<br>$$</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">// 这里 θ x y 都是矩阵</div><div class="line"></div><div class="line">θ = θ - 0.001 * x * (y&apos; - y) / m</div><div class="line"></div><div class="line">y&apos; - y ：</div><div class="line"></div><div class="line">| 0 |   | 1 |   | -1 |</div><div class="line">      -       =</div><div class="line">| 0 |   | 2 |   | -2 |</div><div class="line"></div><div class="line">θ ：</div><div class="line"></div><div class="line">| 0 |   | 1，1 |   | -1 |       | 1.5 |            | 0.015 |</div><div class="line">      -          *        / 2 =         * 0.001 =</div><div class="line">| 0 |   | 1，2 |   | -2 |       | 2.5 |            | 0.025 |</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 这里 θ x y 都是矩阵</span><br><span class="line"></span><br><span class="line">θ = θ - 0.001 * x * (y&apos; - y) / m</span><br><span class="line"></span><br><span class="line">y&apos; - y ：</span><br><span class="line"></span><br><span class="line">| 0 |   | 1 |   | -1 |</span><br><span class="line">      -       =</span><br><span class="line">| 0 |   | 2 |   | -2 |</span><br><span class="line"></span><br><span class="line">θ ：</span><br><span class="line"></span><br><span class="line">| 0 |   | 1，1 |   | -1 |       | 1.5 |            | 0.015 |</span><br><span class="line">      -          *        / 2 =         * 0.001 =</span><br><span class="line">| 0 |   | 1，2 |   | -2 |       | 2.5 |            | 0.025 |</span><br></pre></td></tr></table></figure>
 <p>这个时候我们第一次求得</p>
 <p>$$<br>\theta _ 0 = 0.015 , \theta _ 1 = 0.025<br>$$</p>
 <p>也就是：</p>
@@ -445,7 +476,7 @@
 <p>这条函数，离目标貌似还有点远，没有关系，我们继续循环梯度下降。</p>
 <hr>
 <p>重复一遍梯度下降：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">| 0.029475 |</div><div class="line">| 0.04915 |</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">| 0.029475 |</span><br><span class="line">| 0.04915 |</span><br></pre></td></tr></table></figure>
 <p>$$ y = 0.029475 + 0.04915 x $$</p>
 <p><img src="/images/2016.12.15 - 机器学习-简单线性回归之梯度下降3.png" alt=""></p>
 <p>可以看到第二次得到的函数，斜率明显变高，正面我们的算法是正确的。</p>
@@ -463,39 +494,30 @@
 <p><img src="/images/2016.12.15 - 机器学习-简单线性回归之梯度下降6.png" alt=""></p>
 <hr>
 <p>此时我们注意到执行5000次后，得到的方程，虽然不是 y = x 但是已经无限接近了。</p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight plain"><figcaption><span>data.txt</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1,1</div><div class="line">2,2</div></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"></div><div class="line">data = np.loadtxt(<span class="string">'data.txt'</span>, delimiter=<span class="string">','</span>)</div><div class="line"></div><div class="line">X = np.c_[np.ones(data.shape[<span class="number">0</span>]), data[:, <span class="number">0</span>]]</div><div class="line">y = np.c_[data[:, <span class="number">1</span>]]</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradientDescent</span><span class="params">(X, y, theta=[[<span class="number">0</span>], [<span class="number">0</span>]], alpha=<span class="number">0.01</span>, num_iters=<span class="number">100</span>)</span>:</span></div><div class="line">    m = y.size</div><div class="line"></div><div class="line">    <span class="keyword">for</span> iter <span class="keyword">in</span> np.arange(num_iters):</div><div class="line">        h = X.dot(theta)</div><div class="line">        theta = theta - alpha * (<span class="number">1.0</span> / m) * (X.T.dot(h - y))</div><div class="line"></div><div class="line">    <span class="keyword">return</span> theta</div><div class="line"></div><div class="line"></div><div class="line">theta = gradientDescent(X, y)</div><div class="line"></div><div class="line">print(theta)</div></pre></td></tr></table></figure>
-<h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><p><a href="http://www.jianshu.com/p/fcd220697182" target="_blank" rel="external">一元线性回归的细节</a></p>
-<p><a href="http://blog.csdn.net/xiazdong/article/details/7950084" target="_blank" rel="external">机器学习入门：线性回归及梯度下降</a></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight plain"><figcaption><span>data.txt</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1,1</span><br><span class="line">2,2</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">data = np.loadtxt(<span class="string">'data.txt'</span>, delimiter=<span class="string">','</span>)</span><br><span class="line"></span><br><span class="line">X = np.c_[np.ones(data.shape[<span class="number">0</span>]), data[:, <span class="number">0</span>]]</span><br><span class="line">y = np.c_[data[:, <span class="number">1</span>]]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradientDescent</span><span class="params">(X, y, theta=[[<span class="number">0</span>], [<span class="number">0</span>]], alpha=<span class="number">0.01</span>, num_iters=<span class="number">100</span>)</span>:</span></span><br><span class="line">    m = y.size</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> iter <span class="keyword">in</span> np.arange(num_iters):</span><br><span class="line">        h = X.dot(theta)</span><br><span class="line">        theta = theta - alpha * (<span class="number">1.0</span> / m) * (X.T.dot(h - y))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> theta</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">theta = gradientDescent(X, y)</span><br><span class="line"></span><br><span class="line">print(theta)</span><br></pre></td></tr></table></figure>
+<h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><p><a href="http://www.jianshu.com/p/fcd220697182" target="_blank" rel="noopener">一元线性回归的细节</a></p>
+<p><a href="http://blog.csdn.net/xiazdong/article/details/7950084" target="_blank" rel="noopener">机器学习入门：线性回归及梯度下降</a></p>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
     <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="Gavin Liu wechat" style="width: 200px; max-width: 100%;"/>
     <div>欢迎您扫一扫上面的二维码，订阅我的微信公众号！</div>
 </div>
 
+      </div>
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -509,7 +531,7 @@
       
 
       
-        
+      
       
 
       
@@ -537,6 +559,10 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -554,8 +580,6 @@
           
   <div class="comments" id="comments">
     
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-    
   </div>
 
 
@@ -572,6 +596,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -589,20 +614,19 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
-               alt="Gavin Liu" />
-          <p class="site-author-name" itemprop="name">Gavin Liu</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-           
+          
+            <p class="site-author-name" itemprop="name">Gavin Liu</p>
+            <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
         </div>
+
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">123</span>
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">122</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -624,7 +648,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">97</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -649,7 +673,9 @@
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                    
+                      GitHub
+                    
                 </a>
               </span>
             
@@ -658,7 +684,9 @@
                   
                     <i class="fa fa-fw fa-weibo"></i>
                   
-                  Weibo
+                    
+                      Weibo
+                    
                 </a>
               </span>
             
@@ -708,25 +736,22 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2012 - 
-  <span itemprop="copyrightYear">2017</span>
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
 
 
         
@@ -734,9 +759,27 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
 
   
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
 </div>
+
+
+
+
+
+
 
 
         
@@ -775,6 +818,12 @@
 
 
 
+
+
+
+
+
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -797,25 +846,36 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -834,32 +894,344 @@
 
 
   
-    
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "7a2a9330beed45c0bbe0eed8c8852c02",
-        target: "cloud-tie-wrapper"
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
       };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
   
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
 
   
 
@@ -885,9 +1257,11 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
+
+  
 
   
 

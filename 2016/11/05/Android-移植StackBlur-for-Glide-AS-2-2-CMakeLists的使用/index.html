@@ -1,18 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
+  
 
-<html class="theme-next muse" lang="zh-Hans">
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -66,7 +76,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android,Android Studio,CMakeLists,StackBlur,Glide," />
@@ -80,7 +90,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -88,17 +98,19 @@
 
 
 <meta name="description" content="StackBlur 是一个快速高斯模糊算法，原作者是由 Mario Klingemann 开发的Javascript版本。Victor Laskin 实现了一个C++多线程版本，Android上我们基于 Victor Laskin 的版本进行JNI移植。  这个算法应用非常广泛 iOS 上 Camera+ 也是用的这套算法，还有CUDA版本等…">
+<meta name="keywords" content="Android,Android Studio,CMakeLists,StackBlur,Glide">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android - 移植StackBlur for Glide & AS 2.2 CMakeLists 的使用">
+<meta property="og:title" content="Android - 移植StackBlur for Glide &amp; AS 2.2 CMakeLists 的使用">
 <meta property="og:url" content="http://gavinliu.cn/2016/11/05/Android-移植StackBlur-for-Glide-AS-2-2-CMakeLists的使用/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
 <meta property="og:description" content="StackBlur 是一个快速高斯模糊算法，原作者是由 Mario Klingemann 开发的Javascript版本。Victor Laskin 实现了一个C++多线程版本，Android上我们基于 Victor Laskin 的版本进行JNI移植。  这个算法应用非常广泛 iOS 上 Camera+ 也是用的这套算法，还有CUDA版本等…">
-<meta property="og:image" content="http://gavinliu.cn/images/2016.11.05 - Android-移植StackBlur-for-Glide-AS-2-0-CMakeLists的使用1.png">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://gavinliu.cn/images/2016.11.05%20-%20Android-移植StackBlur-for-Glide-AS-2-0-CMakeLists的使用1.png">
 <meta property="og:updated_time" content="2017-03-24T16:24:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android - 移植StackBlur for Glide & AS 2.2 CMakeLists 的使用">
+<meta name="twitter:title" content="Android - 移植StackBlur for Glide &amp; AS 2.2 CMakeLists 的使用">
 <meta name="twitter:description" content="StackBlur 是一个快速高斯模糊算法，原作者是由 Mario Klingemann 开发的Javascript版本。Victor Laskin 实现了一个C++多线程版本，Android上我们基于 Victor Laskin 的版本进行JNI移植。  这个算法应用非常广泛 iOS 上 Camera+ 也是用的这套算法，还有CUDA版本等…">
-<meta name="twitter:image" content="http://gavinliu.cn/images/2016.11.05 - Android-移植StackBlur-for-Glide-AS-2-0-CMakeLists的使用1.png">
+<meta name="twitter:image" content="http://gavinliu.cn/images/2016.11.05%20-%20Android-移植StackBlur-for-Glide-AS-2-0-CMakeLists的使用1.png">
 
 
 
@@ -106,10 +118,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -132,11 +146,7 @@
 
 
 
-  <title> Android - 移植StackBlur for Glide & AS 2.2 CMakeLists 的使用 | Gavin.Liu </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>Android - 移植StackBlur for Glide & AS 2.2 CMakeLists 的使用 | Gavin.Liu</title>
   
 
 
@@ -156,18 +166,16 @@
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -183,7 +191,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description">Focus on Mobile Develop</h1>
+        <p class="site-subtitle">Focus on Mobile Develop</p>
       
   </div>
 
@@ -214,7 +222,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -223,18 +231,8 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -243,8 +241,18 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -254,9 +262,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -280,13 +322,17 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2016/11/05/Android-移植StackBlur-for-Glide-AS-2-2-CMakeLists的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gavin Liu">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -298,14 +344,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                Android - 移植StackBlur for Glide & AS 2.2 CMakeLists 的使用
-              
-            
-          </h2>
+          <h1 class="post-title" itemprop="name headline">Android - 移植StackBlur for Glide & AS 2.2 CMakeLists 的使用</h1>
         
 
         <div class="post-meta">
@@ -353,16 +392,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a class="cloud-tie-join-count" href="/2016/11/05/Android-移植StackBlur-for-Glide-AS-2-2-CMakeLists的使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -370,7 +399,7 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -383,7 +412,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -391,51 +422,42 @@
 
       
         <blockquote>
-<p>StackBlur 是一个快速高斯模糊算法，原作者是由 <a href="http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html" target="_blank" rel="external">Mario Klingemann</a> 开发的Javascript版本。<a href="http://vitiy.info/stackblur-algorithm-multi-threaded-blur-for-cpp/" target="_blank" rel="external">Victor Laskin</a> 实现了一个C++多线程版本，Android上我们基于 <code>Victor Laskin</code> 的版本进行JNI移植。<br>  这个算法应用非常广泛 iOS 上 Camera+ 也是用的这套算法，还有CUDA版本等…</p>
+<p>StackBlur 是一个快速高斯模糊算法，原作者是由 <a href="http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html" target="_blank" rel="noopener">Mario Klingemann</a> 开发的Javascript版本。<a href="http://vitiy.info/stackblur-algorithm-multi-threaded-blur-for-cpp/" target="_blank" rel="noopener">Victor Laskin</a> 实现了一个C++多线程版本，Android上我们基于 <code>Victor Laskin</code> 的版本进行JNI移植。<br>  这个算法应用非常广泛 iOS 上 Camera+ 也是用的这套算法，还有CUDA版本等…</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="移植"><a href="#移植" class="headerlink" title="移植"></a>移植</h2><p>这里我们可以直接借用 <a href="https://github.com/kikoso/android-stackblur" target="_blank" rel="external">android-stackblur</a> 的代码，注意这个版本并不支持带透明度的图片，且不要使用多线程来处理图片。</p>
+<h2 id="移植"><a href="#移植" class="headerlink" title="移植"></a>移植</h2><p>这里我们可以直接借用 <a href="https://github.com/kikoso/android-stackblur" target="_blank" rel="noopener">android-stackblur</a> 的代码，注意这个版本并不支持带透明度的图片，且不要使用多线程来处理图片。</p>
 <h3 id="CMakeLists"><a href="#CMakeLists" class="headerlink" title="CMakeLists"></a>CMakeLists</h3><p><code>Android Studio</code> 2.2以上的版本支持使用CMake来编译JNI了，具体操作可以参考官方文档</p>
-<p><a href="https://developer.android.com/studio/projects/add-native-code.html" target="_blank" rel="external">https://developer.android.com/studio/projects/add-native-code.html</a></p>
+<p><a href="https://developer.android.com/studio/projects/add-native-code.html" target="_blank" rel="noopener">https://developer.android.com/studio/projects/add-native-code.html</a></p>
 <p>流程没什么难点，官网上有的就不再赘述，对于没有接触过<code>CMake</code>的人来说，编写 CMakeLists 文件是很懵逼的事情，想要完整学完CMake，学习曲线还是蛮陡峭的，下面就是移植后的 CMakeLists 文件。以后自己编写其他的 CMakeLists 参照例子依葫芦画瓢即可。</p>
-<figure class="highlight cmake"><figcaption><span>CMakeLists.txt</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Sets the minimum version of CMake required to build the native</span></div><div class="line"><span class="comment"># library. You should either keep the default value or only pass a</span></div><div class="line"><span class="comment"># value of 3.4.0 or lower.</span></div><div class="line"></div><div class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.4</span>.<span class="number">1</span>)</div><div class="line"></div><div class="line"><span class="keyword">add_library</span>( StackBlur</div><div class="line"></div><div class="line">             SHARED</div><div class="line"></div><div class="line">             src/main/cpp/StackBlur.c )</div><div class="line"></div><div class="line"><span class="comment"># 从ndk中寻找库，StackBlur.c 使用了这些库所以需要找出来。</span></div><div class="line"><span class="comment"># 下面的代码的含义是找到 log 库，命名为 log-lib</span></div><div class="line"><span class="keyword">find_library</span>( log-lib</div><div class="line">              log )</div><div class="line"></div><div class="line"><span class="keyword">find_library</span>( m-lib</div><div class="line">              m )</div><div class="line"></div><div class="line"><span class="keyword">find_library</span>( jnigraphics-lib</div><div class="line">              jnigraphics )</div><div class="line"></div><div class="line"><span class="keyword">target_link_libraries</span>( StackBlur</div><div class="line">                       <span class="variable">$&#123;log-lib&#125;</span></div><div class="line">                       <span class="variable">$&#123;m-lib&#125;</span></div><div class="line">                       <span class="variable">$&#123;jnigraphics-lib&#125;</span> )</div></pre></td></tr></table></figure>
-<h3 id="集成-glide"><a href="#集成-glide" class="headerlink" title="集成 glide"></a>集成 glide</h3><p><a href="https://github.com/bumptech/glide" target="_blank" rel="external">glide</a> 是一个优秀的图片加载库，具有强大的可扩展性，对于图片的处理Gilde使用 Transformation 进行图片的转换功能，我们就只需要实现一个模糊功能的 Transformation 即可。</p>
-<figure class="highlight java"><figcaption><span>GlideStackBlur.java</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlideStackBlur</span> <span class="keyword">extends</span> <span class="title">BitmapTransformation</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> TintColorGenerator mTintColorGenerator;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GlideStackBlur</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GlideStackBlur</span><span class="params">(Context context, TintColorGenerator tintColorGenerator)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context);</div><div class="line">        mTintColorGenerator = tintColorGenerator;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> Bitmap <span class="title">transform</span><span class="params">(BitmapPool pool, Bitmap toTransform, <span class="keyword">int</span> outWidth, <span class="keyword">int</span> outHeight)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (toTransform != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">long</span> startTime = System.currentTimeMillis();</div><div class="line"></div><div class="line">            BlurUtils blurManager = <span class="keyword">new</span> BlurUtils(toTransform);</div><div class="line">            Bitmap blur = blurManager.process(<span class="number">40</span>);</div><div class="line"></div><div class="line">            <span class="keyword">final</span> Bitmap result = Bitmap.createBitmap(blur.getWidth(), blur.getHeight(), Bitmap.Config.ARGB_8888);</div><div class="line">            Canvas canvas = <span class="keyword">new</span> Canvas(result);</div><div class="line">            Paint paint = <span class="keyword">new</span> Paint();</div><div class="line">            paint.setAntiAlias(<span class="keyword">true</span>);</div><div class="line">            paint.setFilterBitmap(<span class="keyword">true</span>);</div><div class="line"></div><div class="line">            canvas.drawBitmap(blur, <span class="number">0</span>, <span class="number">0</span>, paint);</div><div class="line"></div><div class="line">            blurManager.recycle();</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (BuildConfig.DEBUG) &#123;</div><div class="line">                Log.d(<span class="string">"GlideStackBlur"</span>, outWidth + <span class="string">","</span> + outHeight + <span class="string">"  Time: "</span> + (System.currentTimeMillis() - startTime));</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">return</span> result;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        String id = <span class="string">"cn.gavinliu.android.lib.glide.stackblur.GlideStackBlur"</span>;</div><div class="line">        <span class="keyword">if</span> (mTintColorGenerator != <span class="keyword">null</span>) &#123;</div><div class="line">            id += mTintColorGenerator.getId();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> id;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Glide.with(<span class="keyword">this</span>).load(url)</div><div class="line">        .transform(<span class="keyword">new</span> GlideStackBlur(<span class="keyword">this</span>))</div><div class="line">        .into(imageView);</div></pre></td></tr></table></figure>
+<figure class="highlight cmake"><figcaption><span>CMakeLists.txt</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Sets the minimum version of CMake required to build the native</span></span><br><span class="line"><span class="comment"># library. You should either keep the default value or only pass a</span></span><br><span class="line"><span class="comment"># value of 3.4.0 or lower.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.4</span>.<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_library</span>( StackBlur</span><br><span class="line"></span><br><span class="line">             SHARED</span><br><span class="line"></span><br><span class="line">             src/main/cpp/StackBlur.c )</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从ndk中寻找库，StackBlur.c 使用了这些库所以需要找出来。</span></span><br><span class="line"><span class="comment"># 下面的代码的含义是找到 log 库，命名为 log-lib</span></span><br><span class="line"><span class="keyword">find_library</span>( log-lib</span><br><span class="line">              log )</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_library</span>( m-lib</span><br><span class="line">              m )</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_library</span>( jnigraphics-lib</span><br><span class="line">              jnigraphics )</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>( StackBlur</span><br><span class="line">                       <span class="variable">$&#123;log-lib&#125;</span></span><br><span class="line">                       <span class="variable">$&#123;m-lib&#125;</span></span><br><span class="line">                       <span class="variable">$&#123;jnigraphics-lib&#125;</span> )</span><br></pre></td></tr></table></figure>
+<h3 id="集成-glide"><a href="#集成-glide" class="headerlink" title="集成 glide"></a>集成 glide</h3><p><a href="https://github.com/bumptech/glide" target="_blank" rel="noopener">glide</a> 是一个优秀的图片加载库，具有强大的可扩展性，对于图片的处理Gilde使用 Transformation 进行图片的转换功能，我们就只需要实现一个模糊功能的 Transformation 即可。</p>
+<figure class="highlight java"><figcaption><span>GlideStackBlur.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GlideStackBlur</span> <span class="keyword">extends</span> <span class="title">BitmapTransformation</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> TintColorGenerator mTintColorGenerator;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GlideStackBlur</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">GlideStackBlur</span><span class="params">(Context context, TintColorGenerator tintColorGenerator)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">        mTintColorGenerator = tintColorGenerator;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Bitmap <span class="title">transform</span><span class="params">(BitmapPool pool, Bitmap toTransform, <span class="keyword">int</span> outWidth, <span class="keyword">int</span> outHeight)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (toTransform != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">long</span> startTime = System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">            BlurUtils blurManager = <span class="keyword">new</span> BlurUtils(toTransform);</span><br><span class="line">            Bitmap blur = blurManager.process(<span class="number">40</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">final</span> Bitmap result = Bitmap.createBitmap(blur.getWidth(), blur.getHeight(), Bitmap.Config.ARGB_8888);</span><br><span class="line">            Canvas canvas = <span class="keyword">new</span> Canvas(result);</span><br><span class="line">            Paint paint = <span class="keyword">new</span> Paint();</span><br><span class="line">            paint.setAntiAlias(<span class="keyword">true</span>);</span><br><span class="line">            paint.setFilterBitmap(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">            canvas.drawBitmap(blur, <span class="number">0</span>, <span class="number">0</span>, paint);</span><br><span class="line"></span><br><span class="line">            blurManager.recycle();</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (BuildConfig.DEBUG) &#123;</span><br><span class="line">                Log.d(<span class="string">"GlideStackBlur"</span>, outWidth + <span class="string">","</span> + outHeight + <span class="string">"  Time: "</span> + (System.currentTimeMillis() - startTime));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> result;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String id = <span class="string">"cn.gavinliu.android.lib.glide.stackblur.GlideStackBlur"</span>;</span><br><span class="line">        <span class="keyword">if</span> (mTintColorGenerator != <span class="keyword">null</span>) &#123;</span><br><span class="line">            id += mTintColorGenerator.getId();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(<span class="keyword">this</span>).load(url)</span><br><span class="line">        .transform(<span class="keyword">new</span> GlideStackBlur(<span class="keyword">this</span>))</span><br><span class="line">        .into(imageView);</span><br></pre></td></tr></table></figure>
 <h3 id="扩展染色功能"><a href="#扩展染色功能" class="headerlink" title="扩展染色功能"></a>扩展染色功能</h3><p>使用 ColorFilter 功能可以在图片上在叠加一个颜色。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"><span class="keyword">if</span> (mTintColorGenerator != <span class="keyword">null</span>) &#123;</div><div class="line">    <span class="keyword">int</span> color = mTintColorGenerator.generate(toTransform);</div><div class="line">    PorterDuffColorFilter colorFilter = <span class="keyword">new</span> PorterDuffColorFilter((color), PorterDuff.Mode.SRC_OVER);</div><div class="line">    paint.setColorFilter(colorFilter);</div><div class="line">&#125;</div><div class="line">...</div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Glide.with(<span class="keyword">this</span>).load(url)</div><div class="line">        .transform(<span class="keyword">new</span> GlideStackBlur(<span class="keyword">this</span>, <span class="keyword">new</span> TintColorGenerator() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">generate</span><span class="params">(Bitmap bitmap)</span> </span>&#123;</div><div class="line">                <span class="comment">// You can generate dynamic color</span></div><div class="line">                <span class="keyword">return</span> <span class="number">0x803F51B5</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="string">".TintColorGenerator"</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;))</div><div class="line">        .into(imageView);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">if</span> (mTintColorGenerator != <span class="keyword">null</span>) &#123;</span><br><span class="line">    <span class="keyword">int</span> color = mTintColorGenerator.generate(toTransform);</span><br><span class="line">    PorterDuffColorFilter colorFilter = <span class="keyword">new</span> PorterDuffColorFilter((color), PorterDuff.Mode.SRC_OVER);</span><br><span class="line">    paint.setColorFilter(colorFilter);</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Glide.with(<span class="keyword">this</span>).load(url)</span><br><span class="line">        .transform(<span class="keyword">new</span> GlideStackBlur(<span class="keyword">this</span>, <span class="keyword">new</span> TintColorGenerator() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">generate</span><span class="params">(Bitmap bitmap)</span> </span>&#123;</span><br><span class="line">                <span class="comment">// You can generate dynamic color</span></span><br><span class="line">                <span class="keyword">return</span> <span class="number">0x803F51B5</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">".TintColorGenerator"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;))</span><br><span class="line">        .into(imageView);</span><br></pre></td></tr></table></figure>
 <p><img src="/images/2016.11.05 - Android-移植StackBlur-for-Glide-AS-2-0-CMakeLists的使用1.png" alt=""></p>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/gavinliu/glide-stackblur" target="_blank" rel="external">https://github.com/gavinliu/glide-stackblur</a></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p><a href="https://github.com/gavinliu/glide-stackblur" target="_blank" rel="noopener">https://github.com/gavinliu/glide-stackblur</a></p>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
     <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="Gavin Liu wechat" style="width: 200px; max-width: 100%;"/>
     <div>欢迎您扫一扫上面的二维码，订阅我的微信公众号！</div>
 </div>
 
+      </div>
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -455,7 +477,7 @@
       
 
       
-        
+      
       
 
       
@@ -483,6 +505,10 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -500,8 +526,6 @@
           
   <div class="comments" id="comments">
     
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-    
   </div>
 
 
@@ -518,6 +542,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -535,20 +560,19 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
-               alt="Gavin Liu" />
-          <p class="site-author-name" itemprop="name">Gavin Liu</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-           
+          
+            <p class="site-author-name" itemprop="name">Gavin Liu</p>
+            <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
         </div>
+
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">123</span>
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">122</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -570,7 +594,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">97</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -595,7 +619,9 @@
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                    
+                      GitHub
+                    
                 </a>
               </span>
             
@@ -604,7 +630,9 @@
                   
                     <i class="fa fa-fw fa-weibo"></i>
                   
-                  Weibo
+                    
+                      Weibo
+                    
                 </a>
               </span>
             
@@ -654,25 +682,22 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2012 - 
-  <span itemprop="copyrightYear">2017</span>
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
 
 
         
@@ -680,9 +705,27 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
 
   
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
 </div>
+
+
+
+
+
+
 
 
         
@@ -721,6 +764,12 @@
 
 
 
+
+
+
+
+
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -743,25 +792,36 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -780,32 +840,344 @@
 
 
   
-    
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "7a2a9330beed45c0bbe0eed8c8852c02",
-        target: "cloud-tie-wrapper"
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
       };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
   
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
 
   
 
@@ -831,9 +1203,11 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
+
+  
 
   
 

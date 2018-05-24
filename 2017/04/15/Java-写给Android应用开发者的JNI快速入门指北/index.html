@@ -1,18 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
+  
 
-<html class="theme-next muse" lang="zh-Hans">
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -66,7 +76,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android,JNI," />
@@ -80,7 +90,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -88,11 +98,13 @@
 
 
 <meta name="description" content="Java Native Interface(Java本地接口) 简称 JNI，是一种编程框架，使得 JVM 中的 Java程序 可以调用本地应用/或库，也可以被其他程序调用。其过程可以不负责任的理解成 Java 的反射，因为代码逻辑和反射调用很像。">
+<meta name="keywords" content="Android,JNI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java - 写给Android应用开发者的JNI快速入门指北">
 <meta property="og:url" content="http://gavinliu.cn/2017/04/15/Java-写给Android应用开发者的JNI快速入门指北/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
 <meta property="og:description" content="Java Native Interface(Java本地接口) 简称 JNI，是一种编程框架，使得 JVM 中的 Java程序 可以调用本地应用/或库，也可以被其他程序调用。其过程可以不负责任的理解成 Java 的反射，因为代码逻辑和反射调用很像。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-05-21T13:46:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java - 写给Android应用开发者的JNI快速入门指北">
@@ -104,10 +116,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -130,11 +144,7 @@
 
 
 
-  <title> Java - 写给Android应用开发者的JNI快速入门指北 | Gavin.Liu </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>Java - 写给Android应用开发者的JNI快速入门指北 | Gavin.Liu</title>
   
 
 
@@ -154,18 +164,16 @@
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -181,7 +189,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description">Focus on Mobile Develop</h1>
+        <p class="site-subtitle">Focus on Mobile Develop</p>
       
   </div>
 
@@ -212,7 +220,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -221,18 +229,8 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -241,8 +239,18 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -252,9 +260,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -278,13 +320,17 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2017/04/15/Java-写给Android应用开发者的JNI快速入门指北/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gavin Liu">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -296,14 +342,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                Java - 写给Android应用开发者的JNI快速入门指北
-              
-            
-          </h2>
+          <h1 class="post-title" itemprop="name headline">Java - 写给Android应用开发者的JNI快速入门指北</h1>
         
 
         <div class="post-meta">
@@ -351,16 +390,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a class="cloud-tie-join-count" href="/2017/04/15/Java-写给Android应用开发者的JNI快速入门指北/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -368,7 +397,7 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -381,7 +410,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -392,7 +423,7 @@
 <p>Java Native Interface(Java本地接口) 简称 JNI，是一种编程框架，使得 JVM 中的 Java程序 可以调用本地应用/或库，也可以被其他程序调用。其过程可以不负责任的理解成 Java 的反射，因为代码逻辑和反射调用很像。</p>
 </blockquote>
 <a id="more"></a>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>本文所有涉及的所有源码：<a href="https://github.com/gavinliu/Study-JNI" target="_blank" rel="external">https://github.com/gavinliu/Study-JNI</a></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>本文所有涉及的所有源码：<a href="https://github.com/gavinliu/Study-JNI" target="_blank" rel="noopener">https://github.com/gavinliu/Study-JNI</a></p>
 <table>
 <thead>
 <tr>
@@ -407,14 +438,14 @@
 </tr>
 </tbody>
 </table>
-<h2 id="HelloStringFromC"><a href="#HelloStringFromC" class="headerlink" title="HelloStringFromC"></a>HelloStringFromC</h2><h3 id="在java中编写native方法"><a href="#在java中编写native方法" class="headerlink" title="在java中编写native方法"></a>在java中编写native方法</h3><figure class="highlight java"><figcaption><span>HelloStringFromC.java</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloStringFromC</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title">helloStringFromC</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="生成jni头文件"><a href="#生成jni头文件" class="headerlink" title="生成jni头文件"></a>生成jni头文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">javac -jni HelloStringFromC</div></pre></td></tr></table></figure>
+<h2 id="HelloStringFromC"><a href="#HelloStringFromC" class="headerlink" title="HelloStringFromC"></a>HelloStringFromC</h2><h3 id="在java中编写native方法"><a href="#在java中编写native方法" class="headerlink" title="在java中编写native方法"></a>在java中编写native方法</h3><figure class="highlight java"><figcaption><span>HelloStringFromC.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloStringFromC</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title">helloStringFromC</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="生成jni头文件"><a href="#生成jni头文件" class="headerlink" title="生成jni头文件"></a>生成jni头文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac -jni HelloStringFromC</span><br></pre></td></tr></table></figure>
 <p>将会生成 <code>HelloStringFromC.h</code></p>
-<figure class="highlight c"><figcaption><span>HelloStringFromC.h</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* DO NOT EDIT THIS FILE - it is machine generated */</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;jni.h&gt;</span></span></div><div class="line"><span class="comment">/* Header for class HelloStringFromC */</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _Included_HelloStringFromC</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> _Included_HelloStringFromC</span></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"><span class="comment">/*</span></div><div class="line"> * Class:     HelloStringFromC</div><div class="line"> * Method:    helloStringFromC</div><div class="line"> * Signature: ()Ljava/lang/String;</div><div class="line"> */</div><div class="line"><span class="function">JNIEXPORT jstring JNICALL <span class="title">Java_HelloStringFromC_helloStringFromC</span></span></div><div class="line">  <span class="params">(JNIEnv *, jclass)</span>;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></div><div class="line">&#125;</div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div></pre></td></tr></table></figure>
-<h3 id="编写native代码"><a href="#编写native代码" class="headerlink" title="编写native代码"></a>编写native代码</h3><figure class="highlight c"><figcaption><span>HelloStringFromC.c</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"HelloStringFromC.h"</span></span></div><div class="line"></div><div class="line"><span class="function">JNIEXPORT jstring JNICALL <span class="title">Java_HelloStringFromC_helloStringFromC</span><span class="params">(JNIEnv* env, jclass cls)</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> (*env)-&gt;NewStringUTF(env, <span class="string">"Hello"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="编译so库"><a href="#编译so库" class="headerlink" title="编译so库"></a>编译so库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gcc HelloStringFromC.c <span class="_">-f</span>PIC -shared -o libhelloString.so</div></pre></td></tr></table></figure>
-<h3 id="java调用"><a href="#java调用" class="headerlink" title="java调用"></a>java调用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloStringFromC</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title">helloStringFromC</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(helloStringFromC());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        System.load(<span class="string">"/Users/gavin/Workspace/Study-JNI/01.HelloStringFromC/libhelloString.so"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; Hello</div></pre></td></tr></table></figure>
+<figure class="highlight c"><figcaption><span>HelloStringFromC.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* DO NOT EDIT THIS FILE - it is machine generated */</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;jni.h&gt;</span></span></span><br><span class="line"><span class="comment">/* Header for class HelloStringFromC */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _Included_HelloStringFromC</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _Included_HelloStringFromC</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Class:     HelloStringFromC</span></span><br><span class="line"><span class="comment"> * Method:    helloStringFromC</span></span><br><span class="line"><span class="comment"> * Signature: ()Ljava/lang/String;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">JNIEXPORT jstring JNICALL Java_HelloStringFromC_helloStringFromC</span><br><span class="line">  (JNIEnv *, jclass);</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __cplusplus</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="编写native代码"><a href="#编写native代码" class="headerlink" title="编写native代码"></a>编写native代码</h3><figure class="highlight c"><figcaption><span>HelloStringFromC.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"HelloStringFromC.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">JNIEXPORT jstring JNICALL <span class="title">Java_HelloStringFromC_helloStringFromC</span><span class="params">(JNIEnv* env, jclass cls)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (*env)-&gt;NewStringUTF(env, <span class="string">"Hello"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="编译so库"><a href="#编译so库" class="headerlink" title="编译so库"></a>编译so库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc HelloStringFromC.c -fPIC -shared -o libhelloString.so</span><br></pre></td></tr></table></figure>
+<h3 id="java调用"><a href="#java调用" class="headerlink" title="java调用"></a>java调用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloStringFromC</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title">helloStringFromC</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(helloStringFromC());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.load(<span class="string">"/Users/gavin/Workspace/Study-JNI/01.HelloStringFromC/libhelloString.so"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Hello</span><br></pre></td></tr></table></figure>
 <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><table>
 <thead>
 <tr>
@@ -538,7 +569,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="JNIEnv"><a href="#JNIEnv" class="headerlink" title="JNIEnv"></a>JNIEnv</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> JNINativeInterface_;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">const</span> <span class="keyword">struct</span> JNINativeInterface_ *JNIEnv;</div></pre></td></tr></table></figure>
+<h3 id="JNIEnv"><a href="#JNIEnv" class="headerlink" title="JNIEnv"></a>JNIEnv</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">JNINativeInterface_</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">JNINativeInterface_</span> *<span class="title">JNIEnv</span>;</span></span><br></pre></td></tr></table></figure>
 <p><code>JNIEnv</code> 其实是 <code>JNINativeInterface_</code> 的指针别名，这个结构是C和Java交互的关键类，提供了C数据类型和JNI数据类型的互相转换和C调用Java的相关方法等。</p>
 <h2 id="Java-调-C"><a href="#Java-调-C" class="headerlink" title="Java 调 C"></a>Java 调 C</h2><p>Java调C的套路：</p>
 <ol>
@@ -548,64 +579,55 @@
 <li>编译生成 so 动态链接库</li>
 <li>在Java中使用动态链接库</li>
 </ol>
-<h3 id="静态调用"><a href="#静态调用" class="headerlink" title="静态调用"></a>静态调用</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> native String <span class="title">getFullName</span><span class="params">(String firstName)</span></span>;</div><div class="line"><span class="comment">// ==&gt;</span></div><div class="line"><span class="function">JNIEXPORT jstring JNICALL <span class="title">Java_CallC_getFullName</span></span></div><div class="line">  <span class="params">(JNIEnv *, jclass, jstring)</span>;</div></pre></td></tr></table></figure>
+<h3 id="静态调用"><a href="#静态调用" class="headerlink" title="静态调用"></a>静态调用</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> native String <span class="title">getFullName</span><span class="params">(String firstName)</span></span>;</span><br><span class="line"><span class="comment">// ==&gt;</span></span><br><span class="line">JNIEXPORT jstring JNICALL Java_CallC_getFullName</span><br><span class="line">  (JNIEnv *, jclass, jstring);</span><br></pre></td></tr></table></figure>
 <p>静态调用生成的JNI方法，第二个参数为 jclass，代表Java中 CallC.class 这个对象。</p>
-<h3 id="对象调用"><a href="#对象调用" class="headerlink" title="对象调用"></a>对象调用</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> native String <span class="title">getFirstName</span><span class="params">(String[] fullName)</span></span>;</div><div class="line"><span class="comment">// ==&gt;</span></div><div class="line"><span class="function">JNIEXPORT jstring JNICALL <span class="title">Java_CallC_getFirstName</span></span></div><div class="line">  <span class="params">(JNIEnv *, jobject, jobjectArray)</span>;</div></pre></td></tr></table></figure>
+<h3 id="对象调用"><a href="#对象调用" class="headerlink" title="对象调用"></a>对象调用</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> native String <span class="title">getFirstName</span><span class="params">(String[] fullName)</span></span>;</span><br><span class="line"><span class="comment">// ==&gt;</span></span><br><span class="line">JNIEXPORT jstring JNICALL Java_CallC_getFirstName</span><br><span class="line">  (JNIEnv *, jobject, jobjectArray);</span><br></pre></td></tr></table></figure>
 <p>对象调用生成的JNI方法，第二个参数为 jobject，代表Java中 CallC 这个对象。</p>
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ol>
 <li>Java 调 C 传入一个字符串，返回拼接后的新字符串</li>
 <li>Java 调 C 传入一个字符串数组，返回数组第一个元素</li>
 </ol>
-<figure class="highlight c"><figcaption><span>CallC.c</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"CallC.h"</span></span></div><div class="line"></div><div class="line"><span class="function">JNIEXPORT jstring JNICALL <span class="title">Java_CallC_getFullName</span></span></div><div class="line"><span class="params">(JNIEnv* env, jclass jcl, jstring firstName)</span> &#123;</div><div class="line">    <span class="comment">// jstring -&gt; char*</span></div><div class="line">    <span class="keyword">const</span> <span class="keyword">char</span>* fn = (*env)-&gt;GetStringUTFChars(env, firstName, JNI_FALSE);</div><div class="line">    <span class="keyword">const</span> <span class="keyword">char</span>* ln = <span class="string">" Liu"</span>;</div><div class="line"></div><div class="line">    <span class="keyword">char</span> src[<span class="number">50</span>], dest[<span class="number">50</span>];</div><div class="line">    <span class="built_in">strcpy</span>(src,  ln);</div><div class="line">    <span class="built_in">strcpy</span>(dest, fn);</div><div class="line">    <span class="comment">// C的拼接字符串</span></div><div class="line">    <span class="built_in">strcat</span>(dest, src);</div><div class="line">    <span class="keyword">return</span> (*env)-&gt;NewStringUTF(env, dest);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function">JNIEXPORT jstring JNICALL <span class="title">Java_CallC_getFirstName</span></span></div><div class="line"><span class="params">(JNIEnv* env, jobject jobj, jobjectArray fullName)</span> &#123;</div><div class="line">    <span class="comment">// 从 对象数组中获取元素</span></div><div class="line">    jstring elm = (jstring) (*env)-&gt;GetObjectArrayElement(env, fullName, <span class="number">0</span>);</div><div class="line">    <span class="keyword">return</span> elm;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><figcaption><span>CallC.java</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CallC</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title">getFullName</span><span class="params">(String firstName)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">getFirstName</span><span class="params">(String[] fullName)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(getFullName(<span class="string">"Gavin"</span>));</div><div class="line"></div><div class="line">        String[] fullName = &#123;<span class="string">"Gavin"</span>, <span class="string">"Liu"</span>&#125;;</div><div class="line"></div><div class="line">        System.out.println(<span class="keyword">new</span> CallC().getFirstName(fullName));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        System.load(<span class="string">"/Users/gavin/Workspace/Study-JNI/02.Java2C/libcallC.so"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; Gavin Liu</div><div class="line">&gt; Gavin</div></pre></td></tr></table></figure>
+<figure class="highlight c"><figcaption><span>CallC.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"CallC.h"</span></span></span><br><span class="line"></span><br><span class="line">JNIEXPORT jstring JNICALL Java_CallC_getFullName</span><br><span class="line">(JNIEnv* env, jclass jcl, jstring firstName) &#123;</span><br><span class="line">    <span class="comment">// jstring -&gt; char*</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span>* fn = (*env)-&gt;GetStringUTFChars(env, firstName, JNI_FALSE);</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span>* ln = <span class="string">" Liu"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> src[<span class="number">50</span>], dest[<span class="number">50</span>];</span><br><span class="line">    <span class="built_in">strcpy</span>(src,  ln);</span><br><span class="line">    <span class="built_in">strcpy</span>(dest, fn);</span><br><span class="line">    <span class="comment">// C的拼接字符串</span></span><br><span class="line">    <span class="built_in">strcat</span>(dest, src);</span><br><span class="line">    <span class="keyword">return</span> (*env)-&gt;NewStringUTF(env, dest);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JNIEXPORT jstring JNICALL Java_CallC_getFirstName</span><br><span class="line">(JNIEnv* env, jobject jobj, jobjectArray fullName) &#123;</span><br><span class="line">    <span class="comment">// 从 对象数组中获取元素</span></span><br><span class="line">    jstring elm = (jstring) (*env)-&gt;GetObjectArrayElement(env, fullName, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> elm;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>CallC.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CallC</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title">getFullName</span><span class="params">(String firstName)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">getFirstName</span><span class="params">(String[] fullName)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(getFullName(<span class="string">"Gavin"</span>));</span><br><span class="line"></span><br><span class="line">        String[] fullName = &#123;<span class="string">"Gavin"</span>, <span class="string">"Liu"</span>&#125;;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="keyword">new</span> CallC().getFirstName(fullName));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.load(<span class="string">"/Users/gavin/Workspace/Study-JNI/02.Java2C/libcallC.so"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; Gavin Liu</span><br><span class="line">&gt; Gavin</span><br></pre></td></tr></table></figure>
 <h2 id="C-调-Java"><a href="#C-调-Java" class="headerlink" title="C 调 Java"></a>C 调 Java</h2><p>C调Java的套路：</p>
 <ol>
 <li>获取 FieldID 或者 MethedID</li>
 <li>通过 ID 可以 GET|SET Field，和调用 Methed</li>
 </ol>
 <p>其中第一步需要用到 Field 和 Methed 签名，可以用 <code>javap</code> 命令获取：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">javap -s -p CallJava</div><div class="line"></div><div class="line">Compiled from &quot;CallJava.java&quot;</div><div class="line">public class CallJava &#123;</div><div class="line">  public java.lang.String firstName;</div><div class="line">    descriptor: Ljava/lang/String;</div><div class="line">  public CallJava();</div><div class="line">    descriptor: ()V</div><div class="line"></div><div class="line">  public native java.lang.String changeName();</div><div class="line">    descriptor: ()Ljava/lang/String;</div><div class="line"></div><div class="line">  public native java.lang.String sayHiFromC();</div><div class="line">    descriptor: ()Ljava/lang/String;</div><div class="line"></div><div class="line">  public static void main(java.lang.String[]);</div><div class="line">    descriptor: ([Ljava/lang/String;)V</div><div class="line"></div><div class="line">  public void sayHiFromJava();</div><div class="line">    descriptor: ()V</div><div class="line"></div><div class="line">  static &#123;&#125;;</div><div class="line">    descriptor: ()V</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">javap -s -p CallJava</span><br><span class="line"></span><br><span class="line">Compiled from &quot;CallJava.java&quot;</span><br><span class="line">public class CallJava &#123;</span><br><span class="line">  public java.lang.String firstName;</span><br><span class="line">    descriptor: Ljava/lang/String;</span><br><span class="line">  public CallJava();</span><br><span class="line">    descriptor: ()V</span><br><span class="line"></span><br><span class="line">  public native java.lang.String changeName();</span><br><span class="line">    descriptor: ()Ljava/lang/String;</span><br><span class="line"></span><br><span class="line">  public native java.lang.String sayHiFromC();</span><br><span class="line">    descriptor: ()Ljava/lang/String;</span><br><span class="line"></span><br><span class="line">  public static void main(java.lang.String[]);</span><br><span class="line">    descriptor: ([Ljava/lang/String;)V</span><br><span class="line"></span><br><span class="line">  public void sayHiFromJava();</span><br><span class="line">    descriptor: ()V</span><br><span class="line"></span><br><span class="line">  static &#123;&#125;;</span><br><span class="line">    descriptor: ()V</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><ol>
 <li>C 改变 Java 中的成员变量</li>
 <li>C 调用 Java 方法</li>
 </ol>
-<figure class="highlight c"><figcaption><span>CallJava.c</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"CallJava.h"</span></span></div><div class="line"></div><div class="line"><span class="function">JNIEXPORT jstring JNICALL <span class="title">Java_CallJava_changeName</span></span></div><div class="line"> <span class="params">(JNIEnv * env, jobject obj)</span> &#123;</div><div class="line">     <span class="comment">// 获取 jclass</span></div><div class="line">     jclass cls = (*env)-&gt;GetObjectClass(env, obj);</div><div class="line">     <span class="comment">// 获取 fieldID</span></div><div class="line">     jfieldID firstNameID = (*env)-&gt;GetFieldID(env, cls, <span class="string">"firstName"</span>, <span class="string">"Ljava/lang/String;"</span>);</div><div class="line">     <span class="comment">// 获取 属性</span></div><div class="line">     jstring firstName = (*env)-&gt;GetObjectField(env, obj, firstNameID);</div><div class="line"></div><div class="line">     <span class="comment">// 拼接新字符串</span></div><div class="line">     <span class="keyword">const</span> <span class="keyword">char</span>* str = (*env)-&gt;GetStringUTFChars(env, firstName, JNI_FALSE);</div><div class="line">     <span class="keyword">char</span> src[<span class="number">50</span>] = <span class="string">"super "</span>;</div><div class="line">     <span class="built_in">strcat</span>(src, str);</div><div class="line"></div><div class="line">     <span class="comment">// 设置 属性</span></div><div class="line">     jstring newName = (*env)-&gt;NewStringUTF(env, src);</div><div class="line">     (*env)-&gt;SetObjectField(env, obj, firstNameID, newName);</div><div class="line"></div><div class="line">     <span class="keyword">return</span> newName;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function">JNIEXPORT <span class="keyword">void</span> JNICALL <span class="title">Java_CallJava_sayHiFromC</span></span></div><div class="line"><span class="params">(JNIEnv * env, jobject obj)</span> &#123;</div><div class="line">    <span class="comment">// 获取 jclass</span></div><div class="line">    jclass cls = (*env)-&gt;GetObjectClass(env, obj);</div><div class="line">    <span class="comment">// 获取 methodID</span></div><div class="line">    jmethodID methodID = (*env)-&gt;GetMethodID(env, cls, <span class="string">"sayHiFromJava"</span>, <span class="string">"()V"</span>);</div><div class="line">    <span class="comment">// 调用方法</span></div><div class="line">    (*env)-&gt;CallVoidMethod(env, obj, methodID);</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, <span class="string">"sayHiFromC"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight java"><figcaption><span>CallJava.java</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CallJava</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        System.load(<span class="string">"/Users/gavin/Workspace/Study-JNI/03.C2Java/libcallJava.so"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">changeName</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">sayHiFromC</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> String firstName = <span class="string">"Gavin"</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        CallJava c = <span class="keyword">new</span> CallJava();</div><div class="line">        System.out.println(<span class="string">"c.firstName \t"</span> + c.firstName);</div><div class="line">        System.out.println(<span class="string">"c.changeName() \t"</span> + c.changeName());</div><div class="line">        System.out.println(<span class="string">"c.firstName \t"</span> + c.firstName);</div><div class="line"></div><div class="line">        c.sayHiFromC();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHiFromJava</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"sayHiFromJava"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">c.firstName 	Gavin</div><div class="line">c.changeName() 	super Gavin</div><div class="line">c.firstName 	super Gavin</div><div class="line">sayHiFromJava</div><div class="line">sayHiFromC</div></pre></td></tr></table></figure>
+<figure class="highlight c"><figcaption><span>CallJava.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"CallJava.h"</span></span></span><br><span class="line"></span><br><span class="line">JNIEXPORT jstring JNICALL Java_CallJava_changeName</span><br><span class="line"> (JNIEnv * env, jobject obj) &#123;</span><br><span class="line">     <span class="comment">// 获取 jclass</span></span><br><span class="line">     jclass cls = (*env)-&gt;GetObjectClass(env, obj);</span><br><span class="line">     <span class="comment">// 获取 fieldID</span></span><br><span class="line">     jfieldID firstNameID = (*env)-&gt;GetFieldID(env, cls, <span class="string">"firstName"</span>, <span class="string">"Ljava/lang/String;"</span>);</span><br><span class="line">     <span class="comment">// 获取 属性</span></span><br><span class="line">     jstring firstName = (*env)-&gt;GetObjectField(env, obj, firstNameID);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 拼接新字符串</span></span><br><span class="line">     <span class="keyword">const</span> <span class="keyword">char</span>* str = (*env)-&gt;GetStringUTFChars(env, firstName, JNI_FALSE);</span><br><span class="line">     <span class="keyword">char</span> src[<span class="number">50</span>] = <span class="string">"super "</span>;</span><br><span class="line">     <span class="built_in">strcat</span>(src, str);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 设置 属性</span></span><br><span class="line">     jstring newName = (*env)-&gt;NewStringUTF(env, src);</span><br><span class="line">     (*env)-&gt;SetObjectField(env, obj, firstNameID, newName);</span><br><span class="line"></span><br><span class="line">     <span class="keyword">return</span> newName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JNIEXPORT <span class="keyword">void</span> JNICALL Java_CallJava_sayHiFromC</span><br><span class="line">(JNIEnv * env, jobject obj) &#123;</span><br><span class="line">    <span class="comment">// 获取 jclass</span></span><br><span class="line">    jclass cls = (*env)-&gt;GetObjectClass(env, obj);</span><br><span class="line">    <span class="comment">// 获取 methodID</span></span><br><span class="line">    jmethodID methodID = (*env)-&gt;GetMethodID(env, cls, <span class="string">"sayHiFromJava"</span>, <span class="string">"()V"</span>);</span><br><span class="line">    <span class="comment">// 调用方法</span></span><br><span class="line">    (*env)-&gt;CallVoidMethod(env, obj, methodID);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, <span class="string">"sayHiFromC"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><figcaption><span>CallJava.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CallJava</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.load(<span class="string">"/Users/gavin/Workspace/Study-JNI/03.C2Java/libcallJava.so"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">changeName</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title">sayHiFromC</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String firstName = <span class="string">"Gavin"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        CallJava c = <span class="keyword">new</span> CallJava();</span><br><span class="line">        System.out.println(<span class="string">"c.firstName \t"</span> + c.firstName);</span><br><span class="line">        System.out.println(<span class="string">"c.changeName() \t"</span> + c.changeName());</span><br><span class="line">        System.out.println(<span class="string">"c.firstName \t"</span> + c.firstName);</span><br><span class="line"></span><br><span class="line">        c.sayHiFromC();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHiFromJava</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"sayHiFromJava"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">c.firstName 	Gavin</span><br><span class="line">c.changeName() 	super Gavin</span><br><span class="line">c.firstName 	super Gavin</span><br><span class="line">sayHiFromJava</span><br><span class="line">sayHiFromC</span><br></pre></td></tr></table></figure>
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p><code>JNIEnv</code> 中还有很多方法，就不作一一介绍，掌握了其套路，代码就很容易写了，比如说调用方法是<code>CallVoidMethod</code>，调用静态方法就是<code>CallStaticVoidMethod</code>。</p>
 <h2 id="C-amp-C-的一些不同"><a href="#C-amp-C-的一些不同" class="headerlink" title="C &amp; C++ 的一些不同"></a>C &amp; C++ 的一些不同</h2><h3 id="JNIEnv-对象不一样"><a href="#JNIEnv-对象不一样" class="headerlink" title="JNIEnv 对象不一样"></a>JNIEnv 对象不一样</h3><p>在C中：<code>JNIEnv*</code> 是一个二级指针，所以是使用 <code>(*env)-&gt;</code><br>在C++中：<code>JNIEnv*</code> 是一个一级指针，则是使用 <code>env-&gt;</code></p>
 <h3 id="引用类型不一样"><a href="#引用类型不一样" class="headerlink" title="引用类型不一样"></a>引用类型不一样</h3><p>在C中：是使用结构体实现<br>在C++中：是使用对象实现</p>
-<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><p><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html" target="_blank" rel="external">http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html</a></p>
+<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><p><a href="http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html" target="_blank" rel="noopener">http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html</a></p>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
     <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="Gavin Liu wechat" style="width: 200px; max-width: 100%;"/>
     <div>欢迎您扫一扫上面的二维码，订阅我的微信公众号！</div>
 </div>
 
+      </div>
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -619,7 +641,7 @@
       
 
       
-        
+      
       
 
       
@@ -647,6 +669,10 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -664,8 +690,6 @@
           
   <div class="comments" id="comments">
     
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-    
   </div>
 
 
@@ -682,6 +706,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -699,20 +724,19 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
-               alt="Gavin Liu" />
-          <p class="site-author-name" itemprop="name">Gavin Liu</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-           
+          
+            <p class="site-author-name" itemprop="name">Gavin Liu</p>
+            <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
         </div>
+
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">123</span>
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">122</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -734,7 +758,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">97</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -759,7 +783,9 @@
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                    
+                      GitHub
+                    
                 </a>
               </span>
             
@@ -768,7 +794,9 @@
                   
                     <i class="fa fa-fw fa-weibo"></i>
                   
-                  Weibo
+                    
+                      Weibo
+                    
                 </a>
               </span>
             
@@ -796,7 +824,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#源码"><span class="nav-number">1.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HelloStringFromC"><span class="nav-number">2.</span> <span class="nav-text">HelloStringFromC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在java中编写native方法"><span class="nav-number">2.1.</span> <span class="nav-text">在java中编写native方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成jni头文件"><span class="nav-number">2.2.</span> <span class="nav-text">生成jni头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写native代码"><span class="nav-number">2.3.</span> <span class="nav-text">编写native代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译so库"><span class="nav-number">2.4.</span> <span class="nav-text">编译so库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java调用"><span class="nav-number">2.5.</span> <span class="nav-text">java调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">3.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型"><span class="nav-number">3.1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">3.2.</span> <span class="nav-text">引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组类型"><span class="nav-number">3.3.</span> <span class="nav-text">数组类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JNIEnv"><span class="nav-number">3.4.</span> <span class="nav-text">JNIEnv</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-调-C"><span class="nav-number">4.</span> <span class="nav-text">Java 调 C</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态调用"><span class="nav-number">4.1.</span> <span class="nav-text">静态调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象调用"><span class="nav-number">4.2.</span> <span class="nav-text">对象调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-number">4.3.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-调-Java"><span class="nav-number">5.</span> <span class="nav-text">C 调 Java</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-1"><span class="nav-number">5.1.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">5.2.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-amp-C-的一些不同"><span class="nav-number">6.</span> <span class="nav-text">C & C++ 的一些不同</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JNIEnv-对象不一样"><span class="nav-number">6.1.</span> <span class="nav-text">JNIEnv 对象不一样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型不一样"><span class="nav-number">6.2.</span> <span class="nav-text">引用类型不一样</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#官方文档"><span class="nav-number">7.</span> <span class="nav-text">官方文档</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#源码"><span class="nav-number">1.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HelloStringFromC"><span class="nav-number">2.</span> <span class="nav-text">HelloStringFromC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在java中编写native方法"><span class="nav-number">2.1.</span> <span class="nav-text">在java中编写native方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成jni头文件"><span class="nav-number">2.2.</span> <span class="nav-text">生成jni头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写native代码"><span class="nav-number">2.3.</span> <span class="nav-text">编写native代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译so库"><span class="nav-number">2.4.</span> <span class="nav-text">编译so库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java调用"><span class="nav-number">2.5.</span> <span class="nav-text">java调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">3.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型"><span class="nav-number">3.1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">3.2.</span> <span class="nav-text">引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组类型"><span class="nav-number">3.3.</span> <span class="nav-text">数组类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JNIEnv"><span class="nav-number">3.4.</span> <span class="nav-text">JNIEnv</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-调-C"><span class="nav-number">4.</span> <span class="nav-text">Java 调 C</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#静态调用"><span class="nav-number">4.1.</span> <span class="nav-text">静态调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象调用"><span class="nav-number">4.2.</span> <span class="nav-text">对象调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例"><span class="nav-number">4.3.</span> <span class="nav-text">示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-调-Java"><span class="nav-number">5.</span> <span class="nav-text">C 调 Java</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例-1"><span class="nav-number">5.1.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">5.2.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-amp-C-的一些不同"><span class="nav-number">6.</span> <span class="nav-text">C &amp; C++ 的一些不同</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JNIEnv-对象不一样"><span class="nav-number">6.1.</span> <span class="nav-text">JNIEnv 对象不一样</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型不一样"><span class="nav-number">6.2.</span> <span class="nav-text">引用类型不一样</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#官方文档"><span class="nav-number">7.</span> <span class="nav-text">官方文档</span></a></li></ol></div>
             
 
           </div>
@@ -818,25 +846,22 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2012 - 
-  <span itemprop="copyrightYear">2017</span>
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
 
 
         
@@ -844,9 +869,27 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
 
   
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
 </div>
+
+
+
+
+
+
 
 
         
@@ -885,6 +928,12 @@
 
 
 
+
+
+
+
+
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -907,25 +956,36 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -944,32 +1004,344 @@
 
 
   
-    
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "7a2a9330beed45c0bbe0eed8c8852c02",
-        target: "cloud-tie-wrapper"
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
       };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
   
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
 
   
 
@@ -995,9 +1367,11 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
+
+  
 
   
 

@@ -1,18 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
+  
 
-<html class="theme-next muse" lang="zh-Hans">
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -66,7 +76,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android,JNI,bsdiff,bspatch," />
@@ -80,7 +90,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -88,11 +98,13 @@
 
 
 <meta name="description" content="增量更新技术源于 Android 4.1 Google Play 引入的一项技术，以实现apk升级节约2/3的流量。Google 把这个功能叫做 Smart App Updates。">
+<meta name="keywords" content="Android,JNI,bsdiff,bspatch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android - JNI移植 bspatch 实现增量更新功能">
 <meta property="og:url" content="http://gavinliu.cn/2017/04/25/JNI移植-bspatch-实现增量更新功能/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
 <meta property="og:description" content="增量更新技术源于 Android 4.1 Google Play 引入的一项技术，以实现apk升级节约2/3的流量。Google 把这个功能叫做 Smart App Updates。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20160424124454898?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 <meta property="og:updated_time" content="2017-05-21T13:46:29.000Z">
 <meta name="twitter:card" content="summary">
@@ -106,10 +118,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -132,11 +146,7 @@
 
 
 
-  <title> Android - JNI移植 bspatch 实现增量更新功能 | Gavin.Liu </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>Android - JNI移植 bspatch 实现增量更新功能 | Gavin.Liu</title>
   
 
 
@@ -156,18 +166,16 @@
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -183,7 +191,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description">Focus on Mobile Develop</h1>
+        <p class="site-subtitle">Focus on Mobile Develop</p>
       
   </div>
 
@@ -214,7 +222,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -223,18 +231,8 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -243,8 +241,18 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -254,9 +262,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -280,13 +322,17 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2017/04/25/JNI移植-bspatch-实现增量更新功能/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gavin Liu">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -298,14 +344,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                Android - JNI移植 bspatch 实现增量更新功能
-              
-            
-          </h2>
+          <h1 class="post-title" itemprop="name headline">Android - JNI移植 bspatch 实现增量更新功能</h1>
         
 
         <div class="post-meta">
@@ -353,16 +392,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a class="cloud-tie-join-count" href="/2017/04/25/JNI移植-bspatch-实现增量更新功能/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -370,7 +399,7 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -383,7 +412,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -400,26 +431,26 @@
 <p><code>bsdiff</code>：用于拆分<br><code>bapatch</code>：用于合并       </p>
 <p>在 Ubuntu 和 Mac 上这两个工具都可以在包管理中安装。    </p>
 <p>Ubuntu：     </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install bsdiff</div><div class="line">sudo apt-get install bspatch</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install bsdiff</span><br><span class="line">sudo apt-get install bspatch</span><br></pre></td></tr></table></figure>
 <p>Mac：        </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew install bsdiff</div><div class="line">brew install bspatch</div></pre></td></tr></table></figure>
-<p>当然我们也需要源码，因为最终合并的操作是在客户端完成的：<a href="http://www.daemonology.net/bsdiff/" target="_blank" rel="external">http://www.daemonology.net/bsdiff/</a>      </p>
-<p>bsdiff 用到了 bzip2 这个库：<a href="http://www.bzip.org/downloads.html" target="_blank" rel="external">http://www.bzip.org/downloads.html</a>     </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install bsdiff</span><br><span class="line">brew install bspatch</span><br></pre></td></tr></table></figure>
+<p>当然我们也需要源码，因为最终合并的操作是在客户端完成的：<a href="http://www.daemonology.net/bsdiff/" target="_blank" rel="noopener">http://www.daemonology.net/bsdiff/</a>      </p>
+<p>bsdiff 用到了 bzip2 这个库：<a href="http://www.bzip.org/downloads.html" target="_blank" rel="noopener">http://www.bzip.org/downloads.html</a>     </p>
 <h3 id="初体验"><a href="#初体验" class="headerlink" title="初体验"></a>初体验</h3><p>在电脑上安装了 <code>bsdiff</code> 和 <code>bspatch</code>，可以立马来体验一下，因为这个工具是基于二进制的，所以根本不挑文件格式，我这里直接拿我本机的两张图片来测试，且这两张图是毫无关系的两张。    </p>
 <p>两个工具的参数都是：old file，new file，patch file。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">➜  <span class="built_in">test</span> tree</div><div class="line">.</div><div class="line">├── image1.png</div><div class="line">└── image2.png</div><div class="line"></div><div class="line"><span class="comment"># 差分生成补丁文件：image1-image2.p</span></div><div class="line">➜  <span class="built_in">test</span> bsdiff image1.png image2.png image1-image2.p</div><div class="line">➜  <span class="built_in">test</span> tree</div><div class="line">.</div><div class="line">├── image1-image2.p</div><div class="line">├── image1.png</div><div class="line">└── image2.png</div><div class="line"></div><div class="line"><span class="comment"># 合并补丁 生成 image2-new.png</span></div><div class="line">➜  <span class="built_in">test</span> bspatch image1.png image2-new.png image1-image2.p</div><div class="line">➜  <span class="built_in">test</span> tree</div><div class="line">.</div><div class="line">├── image1-image2.p</div><div class="line">├── image1.png</div><div class="line">├── image2-new.png</div><div class="line">└── image2.png</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">➜  <span class="built_in">test</span> tree</span><br><span class="line">.</span><br><span class="line">├── image1.png</span><br><span class="line">└── image2.png</span><br><span class="line"></span><br><span class="line"><span class="comment"># 差分生成补丁文件：image1-image2.p</span></span><br><span class="line">➜  <span class="built_in">test</span> bsdiff image1.png image2.png image1-image2.p</span><br><span class="line">➜  <span class="built_in">test</span> tree</span><br><span class="line">.</span><br><span class="line">├── image1-image2.p</span><br><span class="line">├── image1.png</span><br><span class="line">└── image2.png</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并补丁 生成 image2-new.png</span></span><br><span class="line">➜  <span class="built_in">test</span> bspatch image1.png image2-new.png image1-image2.p</span><br><span class="line">➜  <span class="built_in">test</span> tree</span><br><span class="line">.</span><br><span class="line">├── image1-image2.p</span><br><span class="line">├── image1.png</span><br><span class="line">├── image2-new.png</span><br><span class="line">└── image2.png</span><br></pre></td></tr></table></figure>
 <p>这个时候我们检查一下 <code>image2.png</code> 和 <code>image2-new.png</code> 的 MD5 值。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">➜  <span class="built_in">test</span> md5 image2.png</div><div class="line">MD5 (image2.png) = 04cb578da2c3eb671c1bb08a813d4fac</div><div class="line"></div><div class="line">➜  <span class="built_in">test</span> md5 image2-new.png</div><div class="line">MD5 (image2-new.png) = 04cb578da2c3eb671c1bb08a813d4fac</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">➜  <span class="built_in">test</span> md5 image2.png</span><br><span class="line">MD5 (image2.png) = 04cb578da2c3eb671c1bb08a813d4fac</span><br><span class="line"></span><br><span class="line">➜  <span class="built_in">test</span> md5 image2-new.png</span><br><span class="line">MD5 (image2-new.png) = 04cb578da2c3eb671c1bb08a813d4fac</span><br></pre></td></tr></table></figure>
 <p>很神奇吧，两个文件MD5一模一样，说明就是同一个文件，这就是增量更新实现方案，站在巨人的肩膀上很轻松就实现了。   </p>
 <h3 id="移植-Android"><a href="#移植-Android" class="headerlink" title="移植 Android"></a>移植 Android</h3><p>其实就把 <code>bsdiff</code> 和 <code>bzlib2</code> 两个库用 ndk 编译，然后 jni 调用即可。</p>
-<h4 id="新建一个C项目"><a href="#新建一个C项目" class="headerlink" title="新建一个C项目"></a>新建一个C项目</h4><p>具体参见官方文档：<a href="https://developer.android.com/studio/projects/add-native-code.html#create-cmake-script" target="_blank" rel="external">向您的项目添加 C 和 C++ 代码</a>   </p>
+<h4 id="新建一个C项目"><a href="#新建一个C项目" class="headerlink" title="新建一个C项目"></a>新建一个C项目</h4><p>具体参见官方文档：<a href="https://developer.android.com/studio/projects/add-native-code.html#create-cmake-script" target="_blank" rel="noopener">向您的项目添加 C 和 C++ 代码</a>   </p>
 <h4 id="拷贝-bsdiff-和-bzip2-库"><a href="#拷贝-bsdiff-和-bzip2-库" class="headerlink" title="拷贝 bsdiff 和 bzip2 库"></a>拷贝 bsdiff 和 bzip2 库</h4><p>将相关库文件拷贝至 <code>cpp</code> 目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">➜  cpp git:(master) ✗ tree -L 2</div><div class="line">.</div><div class="line">├── bsdiff</div><div class="line">│   ├── bsdiff.c</div><div class="line">│   └── bspatch.c</div><div class="line">├── bzip2</div><div class="line">│   ├── blocksort.c</div><div class="line">│   ├── bzlib.c</div><div class="line">│   ├── bzlib.h</div><div class="line">│   ├── bzlib_private.h</div><div class="line">│   ├── compress.c</div><div class="line">│   ├── crctable.c</div><div class="line">│   ├── decompress.c</div><div class="line">│   ├── huffman.c</div><div class="line">│   └── randtable.c</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">➜  cpp git:(master) ✗ tree -L 2</span><br><span class="line">.</span><br><span class="line">├── bsdiff</span><br><span class="line">│   ├── bsdiff.c</span><br><span class="line">│   └── bspatch.c</span><br><span class="line">├── bzip2</span><br><span class="line">│   ├── blocksort.c</span><br><span class="line">│   ├── bzlib.c</span><br><span class="line">│   ├── bzlib.h</span><br><span class="line">│   ├── bzlib_private.h</span><br><span class="line">│   ├── compress.c</span><br><span class="line">│   ├── crctable.c</span><br><span class="line">│   ├── decompress.c</span><br><span class="line">│   ├── huffman.c</span><br><span class="line">│   └── randtable.c</span><br></pre></td></tr></table></figure>
 <h4 id="编写-jni"><a href="#编写-jni" class="headerlink" title="编写 jni"></a>编写 jni</h4><p>jni基础相关内容参见之前的文章：<a href="/2017/04/15/Java-写给Android应用开发者的JNI快速入门指北/">Java-写给Android应用开发者的JNI快速入门指北</a>    </p>
 <p>我们这里通过直接调用 <code>bspatch</code> main 函数的方式来实现合并查分包的功能。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">#include &quot;cn_quickits_patch_library_BsPatch.h&quot;</div><div class="line"></div><div class="line">#include &lt;android/log.h&gt;</div><div class="line"></div><div class="line">#include &quot;bzip2/blocksort.c&quot;</div><div class="line">#include &quot;bzip2/bzlib.c&quot;</div><div class="line">#include &quot;bzip2/compress.c&quot;</div><div class="line">#include &quot;bzip2/crctable.c&quot;</div><div class="line">#include &quot;bzip2/decompress.c&quot;</div><div class="line">#include &quot;bzip2/huffman.c&quot;</div><div class="line">#include &quot;bzip2/randtable.c&quot;</div><div class="line"></div><div class="line">#include &quot;bsdiff/bspatch.c&quot;</div><div class="line"></div><div class="line">#define LOG_TAG &quot;QPatch&quot;</div><div class="line">#define LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)</div><div class="line"></div><div class="line">JNIEXPORT void JNICALL Java_cn_quickits_patch_library_BsPatch_bspatch</div><div class="line">        (JNIEnv *env, jclass clz, jstring oldFile, jstring newFile, jstring patchFile) &#123;</div><div class="line">    int argc = 4;</div><div class="line"></div><div class="line">    char *oldfile = (char *) (*env)-&gt;GetStringUTFChars(env, oldFile, NULL);</div><div class="line">    char *newfile = (char *) (*env)-&gt;GetStringUTFChars(env, newFile, NULL);</div><div class="line">    char *patchfile = (char *) (*env)-&gt;GetStringUTFChars(env, patchFile, NULL);</div><div class="line"></div><div class="line">    char *argv[4];</div><div class="line">    argv[0] = &quot;bspatch&quot;;</div><div class="line">    argv[1] = oldfile;</div><div class="line">    argv[2] = newfile;</div><div class="line">    argv[3] = patchfile;</div><div class="line"></div><div class="line">    bspatch_main(argc, argv);</div><div class="line"></div><div class="line">    (*env)-&gt;ReleaseStringUTFChars(env, oldFile, oldfile);</div><div class="line">    (*env)-&gt;ReleaseStringUTFChars(env, newFile, newfile);</div><div class="line">    (*env)-&gt;ReleaseStringUTFChars(env, patchFile, patchfile);</div><div class="line"></div><div class="line">    LOGD(&quot;%s&quot;, &quot;finish&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="java-调用"><a href="#java-调用" class="headerlink" title="java 调用"></a>java 调用</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">QPatch.patch(oldFile, newFile, patchFile);</div></pre></td></tr></table></figure>
-<h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><p><a href="https://github.com/gavinliu/QPatch" target="_blank" rel="external">https://github.com/gavinliu/QPatch</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;cn_quickits_patch_library_BsPatch.h&quot;</span><br><span class="line"></span><br><span class="line">#include &lt;android/log.h&gt;</span><br><span class="line"></span><br><span class="line">#include &quot;bzip2/blocksort.c&quot;</span><br><span class="line">#include &quot;bzip2/bzlib.c&quot;</span><br><span class="line">#include &quot;bzip2/compress.c&quot;</span><br><span class="line">#include &quot;bzip2/crctable.c&quot;</span><br><span class="line">#include &quot;bzip2/decompress.c&quot;</span><br><span class="line">#include &quot;bzip2/huffman.c&quot;</span><br><span class="line">#include &quot;bzip2/randtable.c&quot;</span><br><span class="line"></span><br><span class="line">#include &quot;bsdiff/bspatch.c&quot;</span><br><span class="line"></span><br><span class="line">#define LOG_TAG &quot;QPatch&quot;</span><br><span class="line">#define LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)</span><br><span class="line"></span><br><span class="line">JNIEXPORT void JNICALL Java_cn_quickits_patch_library_BsPatch_bspatch</span><br><span class="line">        (JNIEnv *env, jclass clz, jstring oldFile, jstring newFile, jstring patchFile) &#123;</span><br><span class="line">    int argc = 4;</span><br><span class="line"></span><br><span class="line">    char *oldfile = (char *) (*env)-&gt;GetStringUTFChars(env, oldFile, NULL);</span><br><span class="line">    char *newfile = (char *) (*env)-&gt;GetStringUTFChars(env, newFile, NULL);</span><br><span class="line">    char *patchfile = (char *) (*env)-&gt;GetStringUTFChars(env, patchFile, NULL);</span><br><span class="line"></span><br><span class="line">    char *argv[4];</span><br><span class="line">    argv[0] = &quot;bspatch&quot;;</span><br><span class="line">    argv[1] = oldfile;</span><br><span class="line">    argv[2] = newfile;</span><br><span class="line">    argv[3] = patchfile;</span><br><span class="line"></span><br><span class="line">    bspatch_main(argc, argv);</span><br><span class="line"></span><br><span class="line">    (*env)-&gt;ReleaseStringUTFChars(env, oldFile, oldfile);</span><br><span class="line">    (*env)-&gt;ReleaseStringUTFChars(env, newFile, newfile);</span><br><span class="line">    (*env)-&gt;ReleaseStringUTFChars(env, patchFile, patchfile);</span><br><span class="line"></span><br><span class="line">    LOGD(&quot;%s&quot;, &quot;finish&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="java-调用"><a href="#java-调用" class="headerlink" title="java 调用"></a>java 调用</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QPatch.patch(oldFile, newFile, patchFile);</span><br></pre></td></tr></table></figure>
+<h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><p><a href="https://github.com/gavinliu/QPatch" target="_blank" rel="noopener">https://github.com/gavinliu/QPatch</a></p>
 <h3 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h3><p>尽可能多的利用old文件中已有的内容，尽可能少的加入新的内容来构建new文件，通常的做法是对old文件和new文件做子字符串匹配或使用hash技术，提取公共部分，将new文件中剩余的部分打包成patch包，在Patch阶段中，用copy和insert两个基本操作即可将old文件和patch包合成new文件。</p>
 <p><img src="http://img.blog.csdn.net/20160424124454898?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
 <ol>
@@ -427,45 +458,36 @@
 <li>对比两个文件，产生 <code>不同部分</code> 和 <code>新增部分</code>；</li>
 <li>将 <code>不同部分</code> 和 <code>新增部分</code> 以及相应的控制字用 zip 压缩成一个 patch 包。</li>
 </ol>
-<p>参考：<a href="http://blog.csdn.net/add_ada/article/details/51232889" target="_blank" rel="external">BSDiff算法学习笔记</a></p>
+<p>参考：<a href="http://blog.csdn.net/add_ada/article/details/51232889" target="_blank" rel="noopener">BSDiff算法学习笔记</a></p>
 <h2 id="更多资料"><a href="#更多资料" class="headerlink" title="更多资料"></a>更多资料</h2><ul>
-<li><a href="https://my.oschina.net/liucundong/blog/160436" target="_blank" rel="external">Android App 增量更新实例（Smart App Updates）</a></li>
-<li><a href="http://www.daemonology.net/bsdiff/" target="_blank" rel="external">bsdiff</a></li>
+<li><a href="https://my.oschina.net/liucundong/blog/160436" target="_blank" rel="noopener">Android App 增量更新实例（Smart App Updates）</a></li>
+<li><a href="http://www.daemonology.net/bsdiff/" target="_blank" rel="noopener">bsdiff</a></li>
 </ul>
 <p>由于 <code>bsdiff</code> 效率不是很高，于是乎出现了下面两种方案，由于篇幅原因就不做介绍了。</p>
 <ul>
-<li><a href="http://blog.csdn.net/housisong/article/details/9003013" target="_blank" rel="external">HDiffPatch</a></li>
-<li><a href="https://gist.github.com/9468305/fa8f1307ea4738225fca" target="_blank" rel="external">crsync-基于rsync rolling算法的文件增量更新</a></li>
+<li><a href="http://blog.csdn.net/housisong/article/details/9003013" target="_blank" rel="noopener">HDiffPatch</a></li>
+<li><a href="https://gist.github.com/9468305/fa8f1307ea4738225fca" target="_blank" rel="noopener">crsync-基于rsync rolling算法的文件增量更新</a></li>
 </ul>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
     <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="Gavin Liu wechat" style="width: 200px; max-width: 100%;"/>
     <div>欢迎您扫一扫上面的二维码，订阅我的微信公众号！</div>
 </div>
 
+      </div>
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -483,7 +505,7 @@
       
 
       
-        
+      
       
 
       
@@ -511,6 +533,10 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -528,8 +554,6 @@
           
   <div class="comments" id="comments">
     
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-    
   </div>
 
 
@@ -546,6 +570,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -563,20 +588,19 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
-               alt="Gavin Liu" />
-          <p class="site-author-name" itemprop="name">Gavin Liu</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-           
+          
+            <p class="site-author-name" itemprop="name">Gavin Liu</p>
+            <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
         </div>
+
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">123</span>
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">122</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -598,7 +622,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">97</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -623,7 +647,9 @@
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                    
+                      GitHub
+                    
                 </a>
               </span>
             
@@ -632,7 +658,9 @@
                   
                     <i class="fa fa-fw fa-weibo"></i>
                   
-                  Weibo
+                    
+                      Weibo
+                    
                 </a>
               </span>
             
@@ -682,25 +710,22 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2012 - 
-  <span itemprop="copyrightYear">2017</span>
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
 
 
         
@@ -708,9 +733,27 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
 
   
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
 </div>
+
+
+
+
+
+
 
 
         
@@ -749,6 +792,12 @@
 
 
 
+
+
+
+
+
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -771,25 +820,36 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -808,32 +868,344 @@
 
 
   
-    
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "7a2a9330beed45c0bbe0eed8c8852c02",
-        target: "cloud-tie-wrapper"
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
       };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
   
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
 
   
 
@@ -859,9 +1231,11 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
+
+  
 
   
 

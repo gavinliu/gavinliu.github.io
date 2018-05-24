@@ -1,18 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
+  
 
-<html class="theme-next muse" lang="zh-Hans">
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -66,7 +76,7 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android,Android Studio,CMakeLists,FFmpeg," />
@@ -80,7 +90,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
 
 
 
@@ -88,18 +98,20 @@
 
 
 <meta name="description" content="AndroidStudio 2.2 开始支持 CMake 编译，网上的文章清一色都是 ndk-build，记录一下我用CMake搭建环境的过程。">
+<meta name="keywords" content="Android,Android Studio,CMakeLists,FFmpeg">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android - FFmpeg & Mac & AndroidStudio & CMake 环境搭建">
+<meta property="og:title" content="Android - FFmpeg &amp; Mac &amp; AndroidStudio &amp; CMake 环境搭建">
 <meta property="og:url" content="http://gavinliu.cn/2017/03/05/Android-FFmpeg-Mac-AndroidStudio-CMake-环境搭建/index.html">
 <meta property="og:site_name" content="Gavin.Liu">
 <meta property="og:description" content="AndroidStudio 2.2 开始支持 CMake 编译，网上的文章清一色都是 ndk-build，记录一下我用CMake搭建环境的过程。">
-<meta property="og:image" content="http://gavinliu.cn/images/2017.03.05 - Android-Mac-FFmpeg-AndroidStudio-CMake-环境搭建1.png">
-<meta property="og:image" content="http://gavinliu.cn/images/2017.03.05 - Android-Mac-FFmpeg-AndroidStudio-CMake-环境搭建2.png">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://gavinliu.cn/images/2017.03.05%20-%20Android-Mac-FFmpeg-AndroidStudio-CMake-环境搭建1.png">
+<meta property="og:image" content="http://gavinliu.cn/images/2017.03.05%20-%20Android-Mac-FFmpeg-AndroidStudio-CMake-环境搭建2.png">
 <meta property="og:updated_time" content="2017-03-24T16:24:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android - FFmpeg & Mac & AndroidStudio & CMake 环境搭建">
+<meta name="twitter:title" content="Android - FFmpeg &amp; Mac &amp; AndroidStudio &amp; CMake 环境搭建">
 <meta name="twitter:description" content="AndroidStudio 2.2 开始支持 CMake 编译，网上的文章清一色都是 ndk-build，记录一下我用CMake搭建环境的过程。">
-<meta name="twitter:image" content="http://gavinliu.cn/images/2017.03.05 - Android-Mac-FFmpeg-AndroidStudio-CMake-环境搭建1.png">
+<meta name="twitter:image" content="http://gavinliu.cn/images/2017.03.05%20-%20Android-Mac-FFmpeg-AndroidStudio-CMake-环境搭建1.png">
 
 
 
@@ -107,10 +119,12 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
-    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    scheme: 'Gemini',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -133,11 +147,7 @@
 
 
 
-  <title> Android - FFmpeg & Mac & AndroidStudio & CMake 环境搭建 | Gavin.Liu </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>Android - FFmpeg & Mac & AndroidStudio & CMake 环境搭建 | Gavin.Liu</title>
   
 
 
@@ -157,18 +167,16 @@
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -184,7 +192,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description">Focus on Mobile Develop</h1>
+        <p class="site-subtitle">Focus on Mobile Develop</p>
       
   </div>
 
@@ -215,7 +223,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -224,18 +232,8 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -244,8 +242,18 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+          <a href="/about/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
@@ -255,9 +263,43 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -281,13 +323,17 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2017/03/05/Android-FFmpeg-Mac-AndroidStudio-CMake-环境搭建/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gavin Liu">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -299,14 +345,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                Android - FFmpeg & Mac & AndroidStudio & CMake 环境搭建
-              
-            
-          </h2>
+          <h1 class="post-title" itemprop="name headline">Android - FFmpeg & Mac & AndroidStudio & CMake 环境搭建</h1>
         
 
         <div class="post-meta">
@@ -354,16 +393,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a class="cloud-tie-join-count" href="/2017/03/05/Android-FFmpeg-Mac-AndroidStudio-CMake-环境搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -371,7 +400,7 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
@@ -384,7 +413,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -401,76 +432,67 @@
 <li>NDK 13.1.*</li>
 <li>FFmpeg 3.2.*</li>
 </ul>
-<h2 id="下载-FFmpeg-源码"><a href="#下载-FFmpeg-源码" class="headerlink" title="下载 FFmpeg 源码"></a>下载 FFmpeg 源码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://git.ffmpeg.org/ffmpeg.git</div></pre></td></tr></table></figure>
+<h2 id="下载-FFmpeg-源码"><a href="#下载-FFmpeg-源码" class="headerlink" title="下载 FFmpeg 源码"></a>下载 FFmpeg 源码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://git.ffmpeg.org/ffmpeg.git</span><br></pre></td></tr></table></figure>
 <p>切换到 3.2 分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b 3.2 remotes/origin/release/3.2</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b 3.2 remotes/origin/release/3.2</span><br></pre></td></tr></table></figure>
 <p>当然你也可以去去官网下载压缩包。</p>
 <h2 id="编译-FFmpeg-for-Android"><a href="#编译-FFmpeg-for-Android" class="headerlink" title="编译 FFmpeg for Android"></a>编译 FFmpeg for Android</h2><h3 id="修改-FFmpeg-的-configure"><a href="#修改-FFmpeg-的-configure" class="headerlink" title="修改 FFmpeg 的 configure"></a>修改 FFmpeg 的 configure</h3><p>打开 configure 文件，找到：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SLIBNAME_WITH_MAJOR=&apos;$(SLIBNAME).$(LIBMAJOR)&apos;  </div><div class="line">LIB_INSTALL_EXTRA_CMD=&apos;$$(RANLIB)&quot;$(LIBDIR)/$(LIBNAME)&quot;&apos;  </div><div class="line">SLIB_INSTALL_NAME=&apos;$(SLIBNAME_WITH_VERSION)&apos;  </div><div class="line">SLIB_INSTALL_LINKS=&apos;$(SLIBNAME_WITH_MAJOR)$(SLIBNAME)&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SLIBNAME_WITH_MAJOR=&apos;$(SLIBNAME).$(LIBMAJOR)&apos;  </span><br><span class="line">LIB_INSTALL_EXTRA_CMD=&apos;$$(RANLIB)&quot;$(LIBDIR)/$(LIBNAME)&quot;&apos;  </span><br><span class="line">SLIB_INSTALL_NAME=&apos;$(SLIBNAME_WITH_VERSION)&apos;  </span><br><span class="line">SLIB_INSTALL_LINKS=&apos;$(SLIBNAME_WITH_MAJOR)$(SLIBNAME)&apos;</span><br></pre></td></tr></table></figure>
 <p>替换成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SLIBNAME_WITH_MAJOR=&apos;$(SLIBPREF)$(FULLNAME)-$(LIBMAJOR)$(SLIBSUF)&apos;  </div><div class="line">LIB_INSTALL_EXTRA_CMD=&apos;$$(RANLIB)&quot;$(LIBDIR)/$(LIBNAME)&quot;&apos;  </div><div class="line">SLIB_INSTALL_NAME=&apos;$(SLIBNAME_WITH_MAJOR)&apos;  </div><div class="line">SLIB_INSTALL_LINKS=&apos;$(SLIBNAME)&apos;</div></pre></td></tr></table></figure>
-<h3 id="编写-Android-编译脚本"><a href="#编写-Android-编译脚本" class="headerlink" title="编写 Android 编译脚本"></a>编写 Android 编译脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line">NDK=/Users/gavin/Develop/android-sdk/ndk-bundle</div><div class="line">SYSROOT=<span class="variable">$NDK</span>/platforms/android-15/arch-arm/</div><div class="line">TOOLCHAIN=<span class="variable">$NDK</span>/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64</div><div class="line"></div><div class="line">CPU=arm</div><div class="line"></div><div class="line">PREFIX=$(<span class="built_in">pwd</span>)/android/<span class="variable">$CPU</span></div><div class="line"></div><div class="line">ADDI_CFLAGS=<span class="string">"-marm"</span></div><div class="line"></div><div class="line"><span class="keyword">function</span> build_one</div><div class="line">&#123;</div><div class="line">./configure \</div><div class="line"> --prefix=<span class="variable">$PREFIX</span> \</div><div class="line"> --enable-shared \</div><div class="line"> --disable-static \</div><div class="line"> --disable-doc \</div><div class="line"> --disable-ffmpeg \</div><div class="line"> --disable-ffplay \</div><div class="line"> --disable-ffprobe \</div><div class="line"> --disable-ffserver \</div><div class="line"> --disable-avdevice \</div><div class="line"> --disable-doc \</div><div class="line"> --disable-symver \</div><div class="line"> --cross-prefix=<span class="variable">$TOOLCHAIN</span>/bin/arm-linux-androideabi- \</div><div class="line"> --target-os=linux \</div><div class="line"> --arch=arm \</div><div class="line"> --enable-cross-compile \</div><div class="line"> --sysroot=<span class="variable">$SYSROOT</span> \</div><div class="line"> --extra-cflags=<span class="string">"-Os -fpic <span class="variable">$ADDI_CFLAGS</span>"</span> \</div><div class="line"> --extra-ldflags=<span class="string">"<span class="variable">$ADDI_LDFLAGS</span>"</span> \</div><div class="line"> <span class="variable">$ADDITIONAL_CONFIGURE_FLAG</span></div><div class="line">make clean</div><div class="line">make</div><div class="line">make install</div><div class="line">&#125;</div><div class="line"></div><div class="line">build_one</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SLIBNAME_WITH_MAJOR=&apos;$(SLIBPREF)$(FULLNAME)-$(LIBMAJOR)$(SLIBSUF)&apos;  </span><br><span class="line">LIB_INSTALL_EXTRA_CMD=&apos;$$(RANLIB)&quot;$(LIBDIR)/$(LIBNAME)&quot;&apos;  </span><br><span class="line">SLIB_INSTALL_NAME=&apos;$(SLIBNAME_WITH_MAJOR)&apos;  </span><br><span class="line">SLIB_INSTALL_LINKS=&apos;$(SLIBNAME)&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="编写-Android-编译脚本"><a href="#编写-Android-编译脚本" class="headerlink" title="编写 Android 编译脚本"></a>编写 Android 编译脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">NDK=/Users/gavin/Develop/android-sdk/ndk-bundle</span><br><span class="line">SYSROOT=<span class="variable">$NDK</span>/platforms/android-15/arch-arm/</span><br><span class="line">TOOLCHAIN=<span class="variable">$NDK</span>/toolchains/arm-linux-androideabi-4.9/prebuilt/darwin-x86_64</span><br><span class="line"></span><br><span class="line">CPU=arm</span><br><span class="line"></span><br><span class="line">PREFIX=$(<span class="built_in">pwd</span>)/android/<span class="variable">$CPU</span></span><br><span class="line"></span><br><span class="line">ADDI_CFLAGS=<span class="string">"-marm"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> build_one</span><br><span class="line">&#123;</span><br><span class="line">./configure \</span><br><span class="line"> --prefix=<span class="variable">$PREFIX</span> \</span><br><span class="line"> --<span class="built_in">enable</span>-shared \</span><br><span class="line"> --<span class="built_in">disable</span>-static \</span><br><span class="line"> --<span class="built_in">disable</span>-doc \</span><br><span class="line"> --<span class="built_in">disable</span>-ffmpeg \</span><br><span class="line"> --<span class="built_in">disable</span>-ffplay \</span><br><span class="line"> --<span class="built_in">disable</span>-ffprobe \</span><br><span class="line"> --<span class="built_in">disable</span>-ffserver \</span><br><span class="line"> --<span class="built_in">disable</span>-avdevice \</span><br><span class="line"> --<span class="built_in">disable</span>-doc \</span><br><span class="line"> --<span class="built_in">disable</span>-symver \</span><br><span class="line"> --cross-prefix=<span class="variable">$TOOLCHAIN</span>/bin/arm-linux-androideabi- \</span><br><span class="line"> --target-os=linux \</span><br><span class="line"> --arch=arm \</span><br><span class="line"> --<span class="built_in">enable</span>-cross-compile \</span><br><span class="line"> --sysroot=<span class="variable">$SYSROOT</span> \</span><br><span class="line"> --extra-cflags=<span class="string">"-Os -fpic <span class="variable">$ADDI_CFLAGS</span>"</span> \</span><br><span class="line"> --extra-ldflags=<span class="string">"<span class="variable">$ADDI_LDFLAGS</span>"</span> \</span><br><span class="line"> <span class="variable">$ADDITIONAL_CONFIGURE_FLAG</span></span><br><span class="line">make clean</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">build_one</span><br></pre></td></tr></table></figure>
 <p>前三行自行更换成自己的 NDK 路径即可，<code>PREFIX</code> 就是最终编译输出地址，根据情况也可以修改。</p>
 <p>保存文件到 <code>FFmpeg</code> 根目录为 <code>build_android.sh</code>，<code>chmod +x build_android.sh</code> 赋予执行权限。</p>
 <h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>执行脚本进行编译。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./build_android.sh</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./build_android.sh</span><br></pre></td></tr></table></figure>
 <hr>
 <p>小憩一会儿，编译完成。</p>
 <p>进入 PREFIX 目录：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">── include</div><div class="line">│   ├── libavcodec</div><div class="line">│   ├── libavfilter</div><div class="line">│   ├── libavformat</div><div class="line">│   ├── libavutil</div><div class="line">│   ├── libswresample</div><div class="line">│   └── libswscale</div><div class="line">└── lib</div><div class="line">    ├── libavcodec-57.so</div><div class="line">    ├── libavfilter-6.so</div><div class="line">    ├── libavformat-57.so</div><div class="line">    ├── libavutil-55.so</div><div class="line">    ├── libswresample-2.so</div><div class="line">    ├── libswscale-4.so</div><div class="line">    └── pkgconfig</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">── include</span><br><span class="line">│   ├── libavcodec</span><br><span class="line">│   ├── libavfilter</span><br><span class="line">│   ├── libavformat</span><br><span class="line">│   ├── libavutil</span><br><span class="line">│   ├── libswresample</span><br><span class="line">│   └── libswscale</span><br><span class="line">└── lib</span><br><span class="line">    ├── libavcodec-57.so</span><br><span class="line">    ├── libavfilter-6.so</span><br><span class="line">    ├── libavformat-57.so</span><br><span class="line">    ├── libavutil-55.so</span><br><span class="line">    ├── libswresample-2.so</span><br><span class="line">    ├── libswscale-4.so</span><br><span class="line">    └── pkgconfig</span><br></pre></td></tr></table></figure>
 <p>我们需要的 so 和头文件都有啦。</p>
 <h2 id="导入-Android-工程"><a href="#导入-Android-工程" class="headerlink" title="导入 Android 工程"></a>导入 Android 工程</h2><p>对于如何开始一个 C++ 项目，官方已经有中文文档了：</p>
-<p><a href="https://developer.android.google.cn/studio/projects/add-native-code.html" target="_blank" rel="external">https://developer.android.google.cn/studio/projects/add-native-code.html</a></p>
+<p><a href="https://developer.android.google.cn/studio/projects/add-native-code.html" target="_blank" rel="noopener">https://developer.android.google.cn/studio/projects/add-native-code.html</a></p>
 <p>官网有的东西不赘述，再次声明学什么东西优先看 <strong>官方文档，官方文档，官方文档</strong>，并且Google dev现在已经有很多中文资源了。</p>
 <h3 id="新建一个-C-C-工程"><a href="#新建一个-C-C-工程" class="headerlink" title="新建一个 C/C++ 工程"></a>新建一个 C/C++ 工程</h3><p><img src="/images/2017.03.05 - Android-Mac-FFmpeg-AndroidStudio-CMake-环境搭建1.png" alt=""></p>
 <p>勾选 Include C++ Support 即可得到一个基于CMake的模板工程。</p>
 <h3 id="拷贝-so-和-incude-文件到-libs"><a href="#拷贝-so-和-incude-文件到-libs" class="headerlink" title="拷贝 so 和 incude 文件到 libs"></a>拷贝 so 和 incude 文件到 libs</h3><p>因为我们只编译了 arm 版本的 so，所以需要把 so 拷到 armeabi-v7a 目录下，完整路径如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">├── build.gradle</div><div class="line">├── libs</div><div class="line">│   ├── armeabi-v7a</div><div class="line">│   │   ├── libavcodec-57.so</div><div class="line">│   │   ├── libavfilter-6.so</div><div class="line">│   │   ├── libavformat-57.so</div><div class="line">│   │   ├── libavutil-55.so</div><div class="line">│   │   ├── libswresample-2.so</div><div class="line">│   │   └── libswscale-4.so</div><div class="line">│   └── include</div><div class="line">│       ├── libavcodec</div><div class="line">│       ├── libavfilter</div><div class="line">│       ├── libavformat</div><div class="line">│       ├── libavutil</div><div class="line">│       ├── libswresample</div><div class="line">│       └── libswscale</div><div class="line">├── proguard-rules.pro</div><div class="line">└── src</div><div class="line">    └── main</div><div class="line">        ├── AndroidManifest.xml</div><div class="line">        ├── cpp</div><div class="line">        ├── java</div><div class="line">        └── res</div></pre></td></tr></table></figure>
-<h3 id="指定-jniLibs-路径"><a href="#指定-jniLibs-路径" class="headerlink" title="指定 jniLibs 路径"></a>指定 jniLibs 路径</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    ...</div><div class="line">    <span class="keyword">sourceSets</span> &#123;</div><div class="line">        main &#123;</div><div class="line">            jniLibs.srcDirs = [<span class="string">'libs'</span>]</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">├── build.gradle</span><br><span class="line">├── libs</span><br><span class="line">│   ├── armeabi-v7a</span><br><span class="line">│   │   ├── libavcodec-57.so</span><br><span class="line">│   │   ├── libavfilter-6.so</span><br><span class="line">│   │   ├── libavformat-57.so</span><br><span class="line">│   │   ├── libavutil-55.so</span><br><span class="line">│   │   ├── libswresample-2.so</span><br><span class="line">│   │   └── libswscale-4.so</span><br><span class="line">│   └── include</span><br><span class="line">│       ├── libavcodec</span><br><span class="line">│       ├── libavfilter</span><br><span class="line">│       ├── libavformat</span><br><span class="line">│       ├── libavutil</span><br><span class="line">│       ├── libswresample</span><br><span class="line">│       └── libswscale</span><br><span class="line">├── proguard-rules.pro</span><br><span class="line">└── src</span><br><span class="line">    └── main</span><br><span class="line">        ├── AndroidManifest.xml</span><br><span class="line">        ├── cpp</span><br><span class="line">        ├── java</span><br><span class="line">        └── res</span><br></pre></td></tr></table></figure>
+<h3 id="指定-jniLibs-路径"><a href="#指定-jniLibs-路径" class="headerlink" title="指定 jniLibs 路径"></a>指定 jniLibs 路径</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">sourceSets</span> &#123;</span><br><span class="line">        main &#123;</span><br><span class="line">            jniLibs.srcDirs = [<span class="string">'libs'</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="指定-abiFilters"><a href="#指定-abiFilters" class="headerlink" title="指定 abiFilters"></a>指定 abiFilters</h3><p>因为 so 只有 armeabi-v7a 的，所以我们还需要指定一下 abi 为 armeabi-v7a</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    ...</div><div class="line">    defaultConfig &#123;</div><div class="line">      ...</div><div class="line">      ndk &#123;</div><div class="line">          abiFilters <span class="string">'armeabi-v7a'</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="编写-CMakeLists"><a href="#编写-CMakeLists" class="headerlink" title="编写 CMakeLists"></a>编写 CMakeLists</h3><p>脚本怎么写，有什么讲究其实官方文档已经很清楚了：<br><a href="https://developer.android.google.cn/studio/projects/add-native-code.html#create-cmake-script" target="_blank" rel="external">创建 CMake 构建脚本</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div></pre></td><td class="code"><pre><div class="line"># For more information about using CMake with Android Studio, read the</div><div class="line"># documentation: https://d.android.com/studio/projects/add-native-code.html</div><div class="line"></div><div class="line"># Sets the minimum version of CMake required to build the native library.</div><div class="line"></div><div class="line">cmake_minimum_required(VERSION 3.4.1)</div><div class="line"></div><div class="line"># Creates and names a library, sets it as either STATIC</div><div class="line"># or SHARED, and provides the relative paths to its source code.</div><div class="line"># You can define multiple libraries, and CMake builds them for you.</div><div class="line"># Gradle automatically packages shared libraries with your APK.</div><div class="line"></div><div class="line">add_library( # Sets the name of the library.</div><div class="line">             native-lib</div><div class="line"></div><div class="line">             # Sets the library as a shared library.</div><div class="line">             SHARED</div><div class="line"></div><div class="line">             # Provides a relative path to your source file(s).</div><div class="line">             src/main/cpp/native-lib.cpp )</div><div class="line"></div><div class="line">add_library( avcodec-57</div><div class="line">             SHARED</div><div class="line">             IMPORTED )</div><div class="line">set_target_properties( avcodec-57</div><div class="line">                       PROPERTIES IMPORTED_LOCATION</div><div class="line">                       ../../../../libs/armeabi-v7a/libavcodec-57.so )</div><div class="line"></div><div class="line">add_library( avfilter-6</div><div class="line">             SHARED</div><div class="line">             IMPORTED )</div><div class="line">set_target_properties( avfilter-6</div><div class="line">                       PROPERTIES IMPORTED_LOCATION</div><div class="line">                       ../../../../libs/armeabi-v7a/libavfilter-6.so )</div><div class="line"></div><div class="line">add_library( avformat-57</div><div class="line">             SHARED</div><div class="line">             IMPORTED )</div><div class="line">set_target_properties( avformat-57</div><div class="line">                       PROPERTIES IMPORTED_LOCATION</div><div class="line">                       ../../../../libs/armeabi-v7a/libavformat-57.so )</div><div class="line"></div><div class="line">add_library( avutil-55</div><div class="line">             SHARED</div><div class="line">             IMPORTED )</div><div class="line">set_target_properties( avutil-55</div><div class="line">                       PROPERTIES IMPORTED_LOCATION</div><div class="line">                       ../../../../libs/armeabi-v7a/libavutil-55.so )</div><div class="line"></div><div class="line">add_library( swresample-2</div><div class="line">             SHARED</div><div class="line">             IMPORTED )</div><div class="line">set_target_properties( swresample-2</div><div class="line">                       PROPERTIES IMPORTED_LOCATION</div><div class="line">                       ../../../../libs/armeabi-v7a/libswresample-2.so )</div><div class="line"></div><div class="line">add_library( swscale-4</div><div class="line">             SHARED</div><div class="line">             IMPORTED )</div><div class="line">set_target_properties( swscale-4</div><div class="line">                       PROPERTIES IMPORTED_LOCATION</div><div class="line">                       ../../../../libs/armeabi-v7a/libswscale-4.so )</div><div class="line"></div><div class="line"></div><div class="line">include_directories( libs/include )</div><div class="line"></div><div class="line">find_library( # Sets the name of the path variable.</div><div class="line">              log-lib</div><div class="line"></div><div class="line">              # Specifies the name of the NDK library that</div><div class="line">              # you want CMake to locate.</div><div class="line">              log )</div><div class="line"></div><div class="line"># Specifies libraries CMake should link to your target library. You</div><div class="line"># can link multiple libraries, such as libraries you define in this</div><div class="line"># build script, prebuilt third-party libraries, or system libraries.</div><div class="line"></div><div class="line">target_link_libraries( # Specifies the target library.</div><div class="line">                       native-lib</div><div class="line"></div><div class="line">                       avcodec-57</div><div class="line"></div><div class="line">                       avfilter-6</div><div class="line"></div><div class="line">                       avformat-57</div><div class="line"></div><div class="line">                       avutil-55</div><div class="line"></div><div class="line">                       swresample-2</div><div class="line"></div><div class="line">                       swscale-4</div><div class="line"></div><div class="line">                       # Links the target library to the log library</div><div class="line">                       # included in the NDK.</div><div class="line">                       $&#123;log-lib&#125; )</div></pre></td></tr></table></figure>
-<h3 id="Java-引入-so-库"><a href="#Java-引入-so-库" class="headerlink" title="Java 引入 so 库"></a>Java 引入 so 库</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> &#123;</div><div class="line">    System.loadLibrary(<span class="string">"native-lib"</span>);</div><div class="line"></div><div class="line">    System.loadLibrary(<span class="string">"avcodec-57"</span>);</div><div class="line">    System.loadLibrary(<span class="string">"avfilter-6"</span>);</div><div class="line">    System.loadLibrary(<span class="string">"avformat-57"</span>);</div><div class="line">    System.loadLibrary(<span class="string">"avutil-55"</span>);</div><div class="line">    System.loadLibrary(<span class="string">"swresample-2"</span>);</div><div class="line">    System.loadLibrary(<span class="string">"swscale-4"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    defaultConfig &#123;</span><br><span class="line">      ...</span><br><span class="line">      ndk &#123;</span><br><span class="line">          abiFilters <span class="string">'armeabi-v7a'</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="编写-CMakeLists"><a href="#编写-CMakeLists" class="headerlink" title="编写 CMakeLists"></a>编写 CMakeLists</h3><p>脚本怎么写，有什么讲究其实官方文档已经很清楚了：<br><a href="https://developer.android.google.cn/studio/projects/add-native-code.html#create-cmake-script" target="_blank" rel="noopener">创建 CMake 构建脚本</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"># For more information about using CMake with Android Studio, read the</span><br><span class="line"># documentation: https://d.android.com/studio/projects/add-native-code.html</span><br><span class="line"></span><br><span class="line"># Sets the minimum version of CMake required to build the native library.</span><br><span class="line"></span><br><span class="line">cmake_minimum_required(VERSION 3.4.1)</span><br><span class="line"></span><br><span class="line"># Creates and names a library, sets it as either STATIC</span><br><span class="line"># or SHARED, and provides the relative paths to its source code.</span><br><span class="line"># You can define multiple libraries, and CMake builds them for you.</span><br><span class="line"># Gradle automatically packages shared libraries with your APK.</span><br><span class="line"></span><br><span class="line">add_library( # Sets the name of the library.</span><br><span class="line">             native-lib</span><br><span class="line"></span><br><span class="line">             # Sets the library as a shared library.</span><br><span class="line">             SHARED</span><br><span class="line"></span><br><span class="line">             # Provides a relative path to your source file(s).</span><br><span class="line">             src/main/cpp/native-lib.cpp )</span><br><span class="line"></span><br><span class="line">add_library( avcodec-57</span><br><span class="line">             SHARED</span><br><span class="line">             IMPORTED )</span><br><span class="line">set_target_properties( avcodec-57</span><br><span class="line">                       PROPERTIES IMPORTED_LOCATION</span><br><span class="line">                       ../../../../libs/armeabi-v7a/libavcodec-57.so )</span><br><span class="line"></span><br><span class="line">add_library( avfilter-6</span><br><span class="line">             SHARED</span><br><span class="line">             IMPORTED )</span><br><span class="line">set_target_properties( avfilter-6</span><br><span class="line">                       PROPERTIES IMPORTED_LOCATION</span><br><span class="line">                       ../../../../libs/armeabi-v7a/libavfilter-6.so )</span><br><span class="line"></span><br><span class="line">add_library( avformat-57</span><br><span class="line">             SHARED</span><br><span class="line">             IMPORTED )</span><br><span class="line">set_target_properties( avformat-57</span><br><span class="line">                       PROPERTIES IMPORTED_LOCATION</span><br><span class="line">                       ../../../../libs/armeabi-v7a/libavformat-57.so )</span><br><span class="line"></span><br><span class="line">add_library( avutil-55</span><br><span class="line">             SHARED</span><br><span class="line">             IMPORTED )</span><br><span class="line">set_target_properties( avutil-55</span><br><span class="line">                       PROPERTIES IMPORTED_LOCATION</span><br><span class="line">                       ../../../../libs/armeabi-v7a/libavutil-55.so )</span><br><span class="line"></span><br><span class="line">add_library( swresample-2</span><br><span class="line">             SHARED</span><br><span class="line">             IMPORTED )</span><br><span class="line">set_target_properties( swresample-2</span><br><span class="line">                       PROPERTIES IMPORTED_LOCATION</span><br><span class="line">                       ../../../../libs/armeabi-v7a/libswresample-2.so )</span><br><span class="line"></span><br><span class="line">add_library( swscale-4</span><br><span class="line">             SHARED</span><br><span class="line">             IMPORTED )</span><br><span class="line">set_target_properties( swscale-4</span><br><span class="line">                       PROPERTIES IMPORTED_LOCATION</span><br><span class="line">                       ../../../../libs/armeabi-v7a/libswscale-4.so )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">include_directories( libs/include )</span><br><span class="line"></span><br><span class="line">find_library( # Sets the name of the path variable.</span><br><span class="line">              log-lib</span><br><span class="line"></span><br><span class="line">              # Specifies the name of the NDK library that</span><br><span class="line">              # you want CMake to locate.</span><br><span class="line">              log )</span><br><span class="line"></span><br><span class="line"># Specifies libraries CMake should link to your target library. You</span><br><span class="line"># can link multiple libraries, such as libraries you define in this</span><br><span class="line"># build script, prebuilt third-party libraries, or system libraries.</span><br><span class="line"></span><br><span class="line">target_link_libraries( # Specifies the target library.</span><br><span class="line">                       native-lib</span><br><span class="line"></span><br><span class="line">                       avcodec-57</span><br><span class="line"></span><br><span class="line">                       avfilter-6</span><br><span class="line"></span><br><span class="line">                       avformat-57</span><br><span class="line"></span><br><span class="line">                       avutil-55</span><br><span class="line"></span><br><span class="line">                       swresample-2</span><br><span class="line"></span><br><span class="line">                       swscale-4</span><br><span class="line"></span><br><span class="line">                       # Links the target library to the log library</span><br><span class="line">                       # included in the NDK.</span><br><span class="line">                       $&#123;log-lib&#125; )</span><br></pre></td></tr></table></figure>
+<h3 id="Java-引入-so-库"><a href="#Java-引入-so-库" class="headerlink" title="Java 引入 so 库"></a>Java 引入 so 库</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> &#123;</span><br><span class="line">    System.loadLibrary(<span class="string">"native-lib"</span>);</span><br><span class="line"></span><br><span class="line">    System.loadLibrary(<span class="string">"avcodec-57"</span>);</span><br><span class="line">    System.loadLibrary(<span class="string">"avfilter-6"</span>);</span><br><span class="line">    System.loadLibrary(<span class="string">"avformat-57"</span>);</span><br><span class="line">    System.loadLibrary(<span class="string">"avutil-55"</span>);</span><br><span class="line">    System.loadLibrary(<span class="string">"swresample-2"</span>);</span><br><span class="line">    System.loadLibrary(<span class="string">"swscale-4"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="运行测试一下"><a href="#运行测试一下" class="headerlink" title="运行测试一下"></a>运行测试一下</h3><p>如果成功运行不报错的话，就证明一切没有问题。</p>
 <hr>
-<h3 id="编写-FFmpeg-测试代码"><a href="#编写-FFmpeg-测试代码" class="headerlink" title="编写 FFmpeg 测试代码"></a>编写 FFmpeg 测试代码</h3><h4 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"cn.gavinliu.android.ffmpeg.MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/button"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">            <span class="attr">android:onClick</span>=<span class="string">"protocol"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"Protocol"</span></div><div class="line">            <span class="attr">android:textAllCaps</span>=<span class="string">"false"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/button2"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">            <span class="attr">android:onClick</span>=<span class="string">"filter"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"Filter"</span></div><div class="line">            <span class="attr">android:textAllCaps</span>=<span class="string">"false"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/button3"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">            <span class="attr">android:onClick</span>=<span class="string">"format"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"Format"</span></div><div class="line">            <span class="attr">android:textAllCaps</span>=<span class="string">"false"</span> /&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/button4"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">            <span class="attr">android:onClick</span>=<span class="string">"codec"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"Codec"</span></div><div class="line">            <span class="attr">android:textAllCaps</span>=<span class="string">"false"</span> /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ScrollView</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/sample_text"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:scrollbars</span>=<span class="string">"vertical"</span></div><div class="line">            <span class="attr">android:text</span>=<span class="string">"Hello World!"</span> /&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">ScrollView</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.gavinliu.android.ffmpeg;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.widget.TextView;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// Used to load the 'native-lib' library on application startup.</span></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        System.loadLibrary(<span class="string">"native-lib"</span>);</div><div class="line"></div><div class="line">        System.loadLibrary(<span class="string">"avcodec-57"</span>);</div><div class="line">        System.loadLibrary(<span class="string">"avfilter-6"</span>);</div><div class="line">        System.loadLibrary(<span class="string">"avformat-57"</span>);</div><div class="line">        System.loadLibrary(<span class="string">"avutil-55"</span>);</div><div class="line">        System.loadLibrary(<span class="string">"swresample-2"</span>);</div><div class="line">        System.loadLibrary(<span class="string">"swscale-4"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> TextView tv;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">        <span class="comment">// Example of a call to a native method</span></div><div class="line">        tv = (TextView) findViewById(R.id.sample_text);</div><div class="line">        tv.setText(stringFromJNI());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">protocol</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">        tv.setText(urlprotocolinfo());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">filter</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">        tv.setText(avformatinfo());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">format</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">        tv.setText(avfilterinfo());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">codec</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">        tv.setText(avcodecinfo());</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * A native method that is implemented by the 'native-lib' native library,</div><div class="line">     * which is packaged with this application.</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">stringFromJNI</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">avformatinfo</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">urlprotocolinfo</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">avcodecinfo</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">avfilterinfo</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;jni.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;libavcodec/avcodec.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;libavformat/avformat.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;libavfilter/avfilter.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function">JNIEXPORT jstring JNICALL</span></div><div class="line"><span class="title">Java_cn_gavinliu_android_ffmpeg_MainActivity_stringFromJNI</span><span class="params">(</span></div><div class="line">        JNIEnv *env,</div><div class="line">        jobject <span class="comment">/* this */</span>) &#123;</div><div class="line"></div><div class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> hello = <span class="string">"Hello from C++"</span>;</div><div class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(hello.c_str());</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">JNIEXPORT jstring JNICALL</span></div><div class="line"><span class="title">Java_cn_gavinliu_android_ffmpeg_MainActivity_avformatinfo</span><span class="params">(</span></div><div class="line">        JNIEnv *env,</div><div class="line">        jobject <span class="comment">/* this */</span>) &#123;</div><div class="line">    <span class="keyword">char</span> info[<span class="number">40000</span>] = &#123;<span class="number">0</span>&#125;;</div><div class="line"></div><div class="line">    av_register_all();</div><div class="line"></div><div class="line">    AVInputFormat *if_temp = av_iformat_next(<span class="literal">NULL</span>);</div><div class="line">    AVOutputFormat *of_temp = av_oformat_next(<span class="literal">NULL</span>);</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (if_temp != <span class="literal">NULL</span>) &#123;</div><div class="line">        <span class="built_in">sprintf</span>(info, <span class="string">"%sInput: %s\n"</span>, info, if_temp-&gt;name);</div><div class="line">        if_temp = if_temp-&gt;next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (of_temp != <span class="literal">NULL</span>) &#123;</div><div class="line">        <span class="built_in">sprintf</span>(info, <span class="string">"%sOutput: %s\n"</span>, info, of_temp-&gt;name);</div><div class="line">        of_temp = of_temp-&gt;next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(info);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">JNIEXPORT jstring JNICALL</span></div><div class="line"><span class="title">Java_cn_gavinliu_android_ffmpeg_MainActivity_urlprotocolinfo</span><span class="params">(</span></div><div class="line">        JNIEnv *env,</div><div class="line">        jobject <span class="comment">/* this */</span>) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">char</span> info[<span class="number">40000</span>] = &#123;<span class="number">0</span>&#125;;</div><div class="line">    av_register_all();</div><div class="line"></div><div class="line">    <span class="keyword">struct</span> URLProtocol *pup = <span class="literal">NULL</span>;</div><div class="line"></div><div class="line">    <span class="keyword">struct</span> URLProtocol **p_temp = &amp;pup;</div><div class="line">    avio_enum_protocols((<span class="keyword">void</span> **) p_temp, <span class="number">0</span>);</div><div class="line"></div><div class="line">    <span class="keyword">while</span> ((*p_temp) != <span class="literal">NULL</span>) &#123;</div><div class="line">        <span class="built_in">sprintf</span>(info, <span class="string">"%sInput: %s\n"</span>, info, avio_enum_protocols((<span class="keyword">void</span> **) p_temp, <span class="number">0</span>));</div><div class="line">    &#125;</div><div class="line">    pup = <span class="literal">NULL</span>;</div><div class="line">    avio_enum_protocols((<span class="keyword">void</span> **) p_temp, <span class="number">1</span>);</div><div class="line">    <span class="keyword">while</span> ((*p_temp) != <span class="literal">NULL</span>) &#123;</div><div class="line">        <span class="built_in">sprintf</span>(info, <span class="string">"%sInput: %s\n"</span>, info, avio_enum_protocols((<span class="keyword">void</span> **) p_temp, <span class="number">1</span>));</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(info);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">JNIEXPORT jstring JNICALL</span></div><div class="line"><span class="title">Java_cn_gavinliu_android_ffmpeg_MainActivity_avcodecinfo</span><span class="params">(</span></div><div class="line">        JNIEnv *env,</div><div class="line">        jobject <span class="comment">/* this */</span>) &#123;</div><div class="line"></div><div class="line">    <span class="keyword">char</span> info[<span class="number">40000</span>] = &#123;<span class="number">0</span>&#125;;</div><div class="line"></div><div class="line">    av_register_all();</div><div class="line"></div><div class="line">    AVCodec *c_temp = av_codec_next(<span class="literal">NULL</span>);</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (c_temp != <span class="literal">NULL</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (c_temp-&gt;decode != <span class="literal">NULL</span>) &#123;</div><div class="line">            <span class="built_in">sprintf</span>(info, <span class="string">"%sdecode:"</span>, info);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="built_in">sprintf</span>(info, <span class="string">"%sencode:"</span>, info);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">switch</span> (c_temp-&gt;type) &#123;</div><div class="line">            <span class="keyword">case</span> AVMEDIA_TYPE_VIDEO:</div><div class="line">                <span class="built_in">sprintf</span>(info, <span class="string">"%s(video):"</span>, info);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> AVMEDIA_TYPE_AUDIO:</div><div class="line">                <span class="built_in">sprintf</span>(info, <span class="string">"%s(audio):"</span>, info);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="built_in">sprintf</span>(info, <span class="string">"%s(other):"</span>, info);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">sprintf</span>(info, <span class="string">"%s[%10s]\n"</span>, info, c_temp-&gt;name);</div><div class="line">        c_temp = c_temp-&gt;next;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(info);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function">JNIEXPORT jstring JNICALL</span></div><div class="line"><span class="title">Java_cn_gavinliu_android_ffmpeg_MainActivity_avfilterinfo</span><span class="params">(JNIEnv *env, jobject <span class="comment">/* this */</span>)</span> &#123;</div><div class="line"></div><div class="line">    <span class="keyword">char</span> info[<span class="number">40000</span>] = &#123;<span class="number">0</span>&#125;;</div><div class="line">    avfilter_register_all();</div><div class="line"></div><div class="line">    AVFilter *f_temp = (AVFilter *) avfilter_next(<span class="literal">NULL</span>);</div><div class="line">    <span class="keyword">while</span> (f_temp != <span class="literal">NULL</span>) &#123;</div><div class="line">        <span class="built_in">sprintf</span>(info, <span class="string">"%s%s\n"</span>, info, f_temp-&gt;name);</div><div class="line">        f_temp = f_temp-&gt;next;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(info);</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="编写-FFmpeg-测试代码"><a href="#编写-FFmpeg-测试代码" class="headerlink" title="编写 FFmpeg 测试代码"></a>编写 FFmpeg 测试代码</h3><h4 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">tools:context</span>=<span class="string">"cn.gavinliu.android.ffmpeg.MainActivity"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/button"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:onClick</span>=<span class="string">"protocol"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"Protocol"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:textAllCaps</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/button2"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:onClick</span>=<span class="string">"filter"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"Filter"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:textAllCaps</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/button3"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:onClick</span>=<span class="string">"format"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"Format"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:textAllCaps</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/button4"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:onClick</span>=<span class="string">"codec"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"Codec"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:textAllCaps</span>=<span class="string">"false"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">ScrollView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/sample_text"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:scrollbars</span>=<span class="string">"vertical"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"Hello World!"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ScrollView</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.gavinliu.android.ffmpeg;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Used to load the 'native-lib' library on application startup.</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.loadLibrary(<span class="string">"native-lib"</span>);</span><br><span class="line"></span><br><span class="line">        System.loadLibrary(<span class="string">"avcodec-57"</span>);</span><br><span class="line">        System.loadLibrary(<span class="string">"avfilter-6"</span>);</span><br><span class="line">        System.loadLibrary(<span class="string">"avformat-57"</span>);</span><br><span class="line">        System.loadLibrary(<span class="string">"avutil-55"</span>);</span><br><span class="line">        System.loadLibrary(<span class="string">"swresample-2"</span>);</span><br><span class="line">        System.loadLibrary(<span class="string">"swscale-4"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> TextView tv;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Example of a call to a native method</span></span><br><span class="line">        tv = (TextView) findViewById(R.id.sample_text);</span><br><span class="line">        tv.setText(stringFromJNI());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">protocol</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        tv.setText(urlprotocolinfo());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">filter</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        tv.setText(avformatinfo());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">format</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        tv.setText(avfilterinfo());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">codec</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        tv.setText(avcodecinfo());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * A native method that is implemented by the 'native-lib' native library,</span></span><br><span class="line"><span class="comment">     * which is packaged with this application.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">stringFromJNI</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">avformatinfo</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">urlprotocolinfo</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">avcodecinfo</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">native</span> String <span class="title">avfilterinfo</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;jni.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;libavcodec/avcodec.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;libavformat/avformat.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;libavfilter/avfilter.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_cn_gavinliu_android_ffmpeg_MainActivity_stringFromJNI(</span><br><span class="line">        JNIEnv *env,</span><br><span class="line">        jobject <span class="comment">/* this */</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">string</span> hello = <span class="string">"Hello from C++"</span>;</span><br><span class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(hello.c_str());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_cn_gavinliu_android_ffmpeg_MainActivity_avformatinfo(</span><br><span class="line">        JNIEnv *env,</span><br><span class="line">        jobject <span class="comment">/* this */</span>) &#123;</span><br><span class="line">    <span class="keyword">char</span> info[<span class="number">40000</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">    av_register_all();</span><br><span class="line"></span><br><span class="line">    AVInputFormat *if_temp = av_iformat_next(<span class="literal">NULL</span>);</span><br><span class="line">    AVOutputFormat *of_temp = av_oformat_next(<span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (if_temp != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">sprintf</span>(info, <span class="string">"%sInput: %s\n"</span>, info, if_temp-&gt;name);</span><br><span class="line">        if_temp = if_temp-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (of_temp != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">sprintf</span>(info, <span class="string">"%sOutput: %s\n"</span>, info, of_temp-&gt;name);</span><br><span class="line">        of_temp = of_temp-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(info);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_cn_gavinliu_android_ffmpeg_MainActivity_urlprotocolinfo(</span><br><span class="line">        JNIEnv *env,</span><br><span class="line">        jobject <span class="comment">/* this */</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> info[<span class="number">40000</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    av_register_all();</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">URLProtocol</span> *<span class="title">pup</span> = <span class="title">NULL</span>;</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">URLProtocol</span> **<span class="title">p_temp</span> = &amp;<span class="title">pup</span>;</span></span><br><span class="line">    avio_enum_protocols((<span class="keyword">void</span> **) p_temp, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ((*p_temp) != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">sprintf</span>(info, <span class="string">"%sInput: %s\n"</span>, info, avio_enum_protocols((<span class="keyword">void</span> **) p_temp, <span class="number">0</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    pup = <span class="literal">NULL</span>;</span><br><span class="line">    avio_enum_protocols((<span class="keyword">void</span> **) p_temp, <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">while</span> ((*p_temp) != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">sprintf</span>(info, <span class="string">"%sInput: %s\n"</span>, info, avio_enum_protocols((<span class="keyword">void</span> **) p_temp, <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(info);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_cn_gavinliu_android_ffmpeg_MainActivity_avcodecinfo(</span><br><span class="line">        JNIEnv *env,</span><br><span class="line">        jobject <span class="comment">/* this */</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> info[<span class="number">40000</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">    av_register_all();</span><br><span class="line"></span><br><span class="line">    AVCodec *c_temp = av_codec_next(<span class="literal">NULL</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (c_temp != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (c_temp-&gt;decode != <span class="literal">NULL</span>) &#123;</span><br><span class="line">            <span class="built_in">sprintf</span>(info, <span class="string">"%sdecode:"</span>, info);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">sprintf</span>(info, <span class="string">"%sencode:"</span>, info);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">switch</span> (c_temp-&gt;type) &#123;</span><br><span class="line">            <span class="keyword">case</span> AVMEDIA_TYPE_VIDEO:</span><br><span class="line">                <span class="built_in">sprintf</span>(info, <span class="string">"%s(video):"</span>, info);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> AVMEDIA_TYPE_AUDIO:</span><br><span class="line">                <span class="built_in">sprintf</span>(info, <span class="string">"%s(audio):"</span>, info);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="built_in">sprintf</span>(info, <span class="string">"%s(other):"</span>, info);</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sprintf</span>(info, <span class="string">"%s[%10s]\n"</span>, info, c_temp-&gt;name);</span><br><span class="line">        c_temp = c_temp-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(info);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">JNIEXPORT jstring JNICALL</span><br><span class="line">Java_cn_gavinliu_android_ffmpeg_MainActivity_avfilterinfo(JNIEnv *env, jobject <span class="comment">/* this */</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">char</span> info[<span class="number">40000</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    avfilter_register_all();</span><br><span class="line"></span><br><span class="line">    AVFilter *f_temp = (AVFilter *) avfilter_next(<span class="literal">NULL</span>);</span><br><span class="line">    <span class="keyword">while</span> (f_temp != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">sprintf</span>(info, <span class="string">"%s%s\n"</span>, info, f_temp-&gt;name);</span><br><span class="line">        f_temp = f_temp-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> env-&gt;NewStringUTF(info);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><p><img src="/images/2017.03.05 - Android-Mac-FFmpeg-AndroidStudio-CMake-环境搭建2.png" alt=""></p>
 <h2 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h2><ul>
-<li><a href="http://blog.csdn.net/leixiaohua1020/article/details/47008825" target="_blank" rel="external">最简单的基于FFmpeg的移动端例子：Android HelloWorld</a></li>
-<li><a href="http://blog.csdn.net/column/details/ffmpeg-devel.html" target="_blank" rel="external">FFmpeg 教程</a></li>
+<li><a href="http://blog.csdn.net/leixiaohua1020/article/details/47008825" target="_blank" rel="noopener">最简单的基于FFmpeg的移动端例子：Android HelloWorld</a></li>
+<li><a href="http://blog.csdn.net/column/details/ffmpeg-devel.html" target="_blank" rel="noopener">FFmpeg 教程</a></li>
 </ul>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
-<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
     <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="Gavin Liu wechat" style="width: 200px; max-width: 100%;"/>
     <div>欢迎您扫一扫上面的二维码，订阅我的微信公众号！</div>
 </div>
 
+      </div>
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -488,7 +510,7 @@
       
 
       
-        
+      
       
 
       
@@ -516,6 +538,10 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -533,8 +559,6 @@
           
   <div class="comments" id="comments">
     
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-    
   </div>
 
 
@@ -551,6 +575,7 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
@@ -568,20 +593,19 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="http://cn.gravatar.com/avatar/416005f788646dde7837782e19c0b205?s=200"
-               alt="Gavin Liu" />
-          <p class="site-author-name" itemprop="name">Gavin Liu</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-           
+          
+            <p class="site-author-name" itemprop="name">Gavin Liu</p>
+            <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
         </div>
+
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">123</span>
+            
+              <a href="/archives/">
+            
+                <span class="site-state-item-count">122</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -603,7 +627,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">97</span>
+                <span class="site-state-item-count">96</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -628,7 +652,9 @@
                   
                     <i class="fa fa-fw fa-github"></i>
                   
-                  GitHub
+                    
+                      GitHub
+                    
                 </a>
               </span>
             
@@ -637,7 +663,9 @@
                   
                     <i class="fa fa-fw fa-weibo"></i>
                   
-                  Weibo
+                    
+                      Weibo
+                    
                 </a>
               </span>
             
@@ -687,25 +715,22 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy;  2012 - 
-  <span itemprop="copyrightYear">2017</span>
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
-  </a>
-</div>
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
 
 
         
@@ -713,9 +738,27 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
 
   
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
 </div>
+
+
+
+
+
+
 
 
         
@@ -754,6 +797,12 @@
 
 
 
+
+
+
+
+
+
   
   <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
@@ -776,25 +825,36 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
 
 
 
   
+  
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
@@ -813,32 +873,344 @@
 
 
   
-    
-    <script>
-      var cloudTieConfig = {
-        url: document.location.href, 
-        sourceId: "",
-        productKey: "7a2a9330beed45c0bbe0eed8c8852c02",
-        target: "cloud-tie-wrapper"
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
       };
-    </script>
-    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
   
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
 
   
 
@@ -864,9 +1236,11 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
+
+  
 
   
 
