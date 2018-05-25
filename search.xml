@@ -13,6 +13,18 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[Android - Support Library (1)]]></title>
+    <url>%2F2017%2F07%2F18%2FAndroid-Support-Library-1%2F</url>
+    <content type="text"><![CDATA[概述在魅族的时候各种控件都是自定义的，对 Support Library 的移植有专门的组负责，对于 Support Library 的学习也只是写写 Demo 那种程度，离职之后开发很多东西需要亲力亲为了，需要大量使用到 Support Library，所以写个系列，挨个介绍 Support Library，同时作为学习笔记。 关系12345678910111213141516171819202122232425262728293031323334.├── animated-vector-drawable├── appcompat-v7├── cardview-v7├── customtabs├── design├── exifinterface├── gridlayout-v7├── instantvideo├── leanback-v17├── mediarouter-v7├── multidex├── multidex-instrumentation├── palette-v7├── percent├── preference-leanback-v17├── preference-v14├── preference-v7├── recommendation├── recyclerview-v7├── support-annotations├── support-compat├── support-core-ui├── support-core-utils├── support-dynamic-animation├── support-fragment├── support-media-compat├── support-tv-provider├── support-v13├── support-v4├── support-vector-drawable├── test├── transition└── wearable v4 支持库1com.android.support:support-*:24.2.0 Dalvik 可执行文件分包支持库1com.android.support:multidex:1.0.0 v7 支持库1com.android.support:*-v7:24.2.0 v8 renderscript 支持库1234defaultConfig &#123; renderscriptTargetApi 18 renderscriptSupportModeEnabled true&#125; v13 支持库1com.android.support:support-v13:24.2.0 v14 Preference 支持库1com.android.support:preference-v14:24.2.0 适用于电视的 v17 Preference 支持库1com.android.support:preference-leanback-v17:24.2.0 v17 Leanback 库1com.android.support:preference-leanback-v17:24.2.0 注解支持库1com.android.support:support-annotations:24.2.0 设计支持库1com.android.support:design:24.2.0 自定义标签页支持库1com.android.support:customtabs:24.2.0 百分比支持库1com.android.support:percent:24.2.0 适用于电视的应用建议支持库1com.android.support:recommendation:24.2.0 安装通过 SDK manager，滚动到末尾，选择 Android Support Repository，安装即可。 结语以上这大概就是目前所有的 Support 支持库了，后面的文章打算一一介绍，敬请期待。]]></content>
+      <categories>
+        <category>Android Notes</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>SupportLibrary</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[RxJava2 - onError 在 Monkey Test 下 crash 解决方案]]></title>
     <url>%2F2017%2F05%2F22%2FRxJava2-onError-crash%2F</url>
     <content type="text"><![CDATA[RxJava2, 在 Monkey Testing 的时候，总会报一些错误，这些错误都是调用 onError 发生的，理论上说 onError 就是专门处理异常的不应该 crash 掉的，百思不得其解。 解决方案emitter 判断 isDisposed 后才传递异常1234567891011Observable.create(emitter -&gt; &#123; // ... try &#123; responsebody.string(); &#125; catch (InterruptedException ex) &#123; if (!emitter.isDisposed()) &#123; emitter.onError(ex); return; &#125; &#125;&#125;) 参考：https://github.com/ReactiveX/RxJava/issues/4863]]></content>

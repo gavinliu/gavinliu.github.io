@@ -2,15 +2,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -45,68 +57,30 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android, Java.Web, iOS, macOS" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple-touch-icon-next.png?v=6.3.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
 
 
-
-  <link rel="alternate" href="/atom.xml" title="Gavin.Liu" type="application/atom+xml" />
-
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
 
 
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.2" />
+  <link rel="mask-icon" href="/images/favicon-logo.svg?v=6.3.0" color="#222">
 
 
 
 
 
 
-<meta name="description" content="刘云龙的程序世界">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gavin.Liu">
-<meta property="og:url" content="http://gavinliu.cn/page/9/index.html">
-<meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description" content="刘云龙的程序世界">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gavin.Liu">
-<meta name="twitter:description" content="刘云龙的程序世界">
 
 
 
@@ -115,15 +89,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '5.1.2',
-    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -135,12 +107,38 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="刘云龙的程序世界">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gavin.Liu">
+<meta property="og:url" content="http://gavinliu.cn/page/9/index.html">
+<meta property="og:site_name" content="Gavin.Liu">
+<meta property="og:description" content="刘云龙的程序世界">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gavin.Liu">
+<meta name="twitter:description" content="刘云龙的程序世界">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Gavin.Liu" type="application/atom+xml" />
+
+
+
 
   <link rel="canonical" href="http://gavinliu.cn/page/9/"/>
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>Gavin.Liu</title>
   
@@ -149,22 +147,40 @@
 
 
 
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?2842c9eadd6d87f89c3ebdba92f18bcb";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -181,19 +197,21 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Gavin.Liu</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
-        <p class="site-subtitle">Focus on Mobile Develop</p>
+        <h1 class="site-subtitle" itemprop="description">Focus on Mobile Develop</h1>
       
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -201,112 +219,82 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
 
       
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
       
     </ul>
   
 
   
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
 
-
-
-    </div>
   
 </nav>
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -319,17 +307,19 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2016/03/29/Android-在平坦的道路上曲折前行-插件式开发/">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2015/01/22/Gradle---学习笔记(1)---Task/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -341,13 +331,23 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/03/29/Android-在平坦的道路上曲折前行-插件式开发/" itemprop="url">Android - 在平坦的道路上曲折前行-插件式开发</a></h1>
+                <a class="post-title-link" href="/2015/01/22/Gradle---学习笔记(1)---Task/" itemprop="url">
+                  Gradle - 学习笔记(1) - Task
+                </a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -355,13 +355,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-29T13:47:53+08:00">
-                2016-03-29
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2015-01-22 14:43:11" itemprop="dateCreated datePublished" datetime="2015-01-22T14:43:11+08:00">2015-01-22</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
             
           </span>
 
@@ -377,11 +394,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Gradle-Notes/" itemprop="url" rel="index"><span itemprop="name">Gradle Notes</span></a></span>
 
                 
                 
@@ -390,6 +403,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/01/22/Gradle---学习笔记(1)---Task/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/01/22/Gradle---学习笔记(1)---Task/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -416,25 +439,24 @@
 
       
         
-          <h2 id="为何要插件化"><a href="#为何要插件化" class="headerlink" title="为何要插件化?"></a>为何要插件化?</h2><p>谈到插件化，在Android环境下可能很多人会说”真邪恶”， “不要脸”，”TMD，自己主动更新，流氓软件！”。</p>
-<p>但业务越来越大的时候，会遇到些问题:</p>
-<ol>
-<li>模块越来越多，如何有效的组装各个模块，让不同部门更好的协作开发。</li>
-<li>软件包越来越大，如何更好的降低更新成本。</li>
-<li>如何支持高效的A/B Test，而不是发布不同的包出去。</li>
-<li>…</li>
-</ol>
-<p>这个时候似乎插件化是解决问题的最好方案，对于程序员来说，我们也是一直在想方设法的写<strong>高类聚低耦合</strong>的代码，插件化几乎成了不二之选。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/03/29/Android-在平坦的道路上曲折前行-插件式开发/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>新建一个文件夹, 在里面编辑 build.gradle<br><figure class="highlight gradle"><figcaption><span>doLast</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">task</span> hello &#123;</span><br><span class="line">    <span class="keyword">doLast</span> &#123;</span><br><span class="line">        <span class="keyword">println</span> <span class="string">'Hello world!'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight gradle"><figcaption><span>doLast的简化写法</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">task</span> hello &lt;&lt; &#123;</span><br><span class="line">    <span class="keyword">println</span> <span class="string">'Hello world!'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plain"><figcaption><span>Use String Lower&Upper</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">task string &lt;&lt; &#123;</span><br><span class="line">    String someString = &quot;mY_nAme&quot;</span><br><span class="line">    println &quot;Original: &quot; + someString</span><br><span class="line">    println &quot;Lower case: &quot; + someString.toLowerCase()</span><br><span class="line">    println &quot;Upper case: &quot; + someString.toUpperCase()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ gradle -q build</span><br><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
+<hr>
+
+          
         
       
     </div>
+
+    
+
     
     
     
@@ -473,17 +495,19 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2016/03/20/机器学习-1-索引/">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2015/01/20/Android---Lollipop自定义Activity转换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -495,13 +519,23 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/03/20/机器学习-1-索引/" itemprop="url">机器学习 - 1.索引</a></h1>
+                <a class="post-title-link" href="/2015/01/20/Android---Lollipop自定义Activity转换/" itemprop="url">
+                  Android - Lollipop自定义Activity过渡动画
+                </a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -509,13 +543,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-20T16:39:54+08:00">
-                2016-03-20
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2015-01-20 17:25:42" itemprop="dateCreated datePublished" datetime="2015-01-20T17:25:42+08:00">2015-01-20</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
             
           </span>
 
@@ -531,11 +582,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android-Notes/" itemprop="url" rel="index"><span itemprop="name">Android Notes</span></a></span>
 
                 
                 
@@ -544,6 +591,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/01/20/Android---Lollipop自定义Activity转换/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/01/20/Android---Lollipop自定义Activity转换/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -570,162 +627,36 @@
 
       
         
-          <p>前阵子李世石对战AlphaGo着实让深度学习火了一把，AlphaGo 4:1 赢了比赛，确实牛逼，再不学习学习就落伍了，开这篇博客写写学习笔记。</p>
-<h2 id="机器学习-or-深度学习"><a href="#机器学习-or-深度学习" class="headerlink" title="机器学习 or 深度学习"></a>机器学习 or 深度学习</h2><p>这两个是包含的关系，深度学习属于机器学习的更深入的研究。</p>
-<p>学习的概念：针对经验E (experience) 和一系列的任务 T (tasks) 和一定表现的衡量 P，如果随之经验E的积累，针对定义好的任务T可以提高表现P，就说计算机具有学习能力。</p>
-<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>训练集，测试集，特征值，监督学习，非监督学习，半监督学习，分类，回归</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/03/20/机器学习-1-索引/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2016/02/29/Android-实用代码片段-3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin.Liu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/02/29/Android-实用代码片段-3/" itemprop="url">Android - 实用代码片段(3)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-29T20:05:33+08:00">
-                2016-02-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ul>
-<li>在View Layout完成后获取 控件大小</li>
+          <p>Lollipop 中提供了Activitiy Transition可很方便的在两个Activity实现流畅的过渡效果, 可用来替代Activity Animation.</p>
+<ul>
+<li>##界面进入退出的过渡动画<br>Explode - 爆炸效果, 从界面中心向四周分散<br>Slide - 滑动效果, 从界面边缘滑动 通过Gravity配置上下左右<br>Fade - 渐变效果, 通过Visibility配置淡入淡出</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> TextView tv = (TextView) findViewById(R.id.myTextView);</span><br><span class="line">ViewTreeObserver vto = tv.getViewTreeObserver();</span><br><span class="line">vto.addOnGlobalLayoutListener(<span class="keyword">new</span> OnGlobalLayoutListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onGlobalLayout</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Toast.makeText(MyActivity.<span class="keyword">this</span>, tv.getWidth() + <span class="string">" x "</span> + tv.getHeight(), Toast.LENGTH_LONG).show();</span><br><span class="line">        tv.getViewTreeObserver().removeGlobalOnLayoutListener(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>上面三个类都在<code>android.transition</code>中, 你可以使用<code>Java</code> <code>XML</code> 两种方式来使用它</p>
+<ul>
+<li>Java</li>
+</ul>
+<figure class="highlight java"><figcaption><span>Activity</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);</span><br><span class="line">getWindow().setExitTransition(<span class="keyword">new</span> Explode());</span><br><span class="line">getWindow().setEnterTransition(<span class="keyword">new</span> Explode());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>XML</li>
+</ul>
+<figure class="highlight xml"><figcaption><span>res/values/style.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppBase"</span> <span class="attr">parent</span>=<span class="string">"android:Theme.Material"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowContentTransitions"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowExitTransition"</span>&gt;</span>@transition/explode<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:windowEnterTransition"</span>&gt;</span>@transition/explode<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><figcaption><span>res/transition/explode.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">explode</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>同时也是支持动画合集</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">transitionSet</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">explode</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">transitionSet</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TransitionSet set = <span class="keyword">new</span> TransitionSet();</span><br><span class="line">set.addTransition(<span class="keyword">new</span> Explode());</span><br><span class="line">getWindow().setEnterTransition(set);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用Transition跳转Activity</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent();</span><br><span class="line">intent.setClass(<span class="keyword">this</span>, TransitionDetilActivity.class);</span><br><span class="line">startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(<span class="keyword">this</span>).toBundle());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>##共享元素的过渡动画<br>changeBounds - 视图布局边界变化<br>changeClipBounds - 视图剪切边界变化<br>changeTransform - 视图缩放和旋转变化<br>changeImageTransform - 图片尺寸和缩放变化</li>
+</ul>
+<p>上面四个类也是在<code>android.transition</code>中, 使用方法和上面大同小异<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/02/29/Android-实用代码片段-3/#more" rel="contents">
+            <a class="btn" href="/2015/01/20/Android---Lollipop自定义Activity转换/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -733,6 +664,9 @@
         
       
     </div>
+
+    
+
     
     
     
@@ -771,17 +705,19 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2016/02/28/Android-开源项目：OpenGpad-电脑键盘当手机游戏手柄/">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -793,13 +729,23 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/02/28/Android-开源项目：OpenGpad-电脑键盘当手机游戏手柄/" itemprop="url">Android - 开源项目:OpenGpad(电脑键盘当手游手柄)</a></h1>
+                <a class="post-title-link" href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/" itemprop="url">
+                  Android - VectorDrawable & AnimatedVectorDrawable
+                </a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -807,13 +753,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-28T12:43:17+08:00">
-                2016-02-28
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2015-01-19 15:30:37" itemprop="dateCreated datePublished" datetime="2015-01-19T15:30:37+08:00">2015-01-19</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
             
           </span>
 
@@ -829,11 +792,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android-Notes/" itemprop="url" rel="index"><span itemprop="name">Android Notes</span></a></span>
 
                 
                 
@@ -842,6 +801,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -868,12 +837,13 @@
 
       
         
-          <p>这是个基于测试框架(<a href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/">UiAutomator</a>)做的一款：使用电脑键盘玩手机游戏的软件。</p>
-<h2 id="初衷"><a href="#初衷" class="headerlink" title="初衷"></a>初衷</h2><p>本职工作是做Android开发，电脑环境为Linux Mint，没有好的娱乐方式，手机也是长时间插在电脑上的，所以就寻思着，用电脑键盘当手柄，控制手机玩游戏，于是就有了这个项目。</p>
-<h2 id="体验视频"><a href="#体验视频" class="headerlink" title="体验视频"></a>体验视频</h2><iframe height="400" width="620" src="http://player.youku.com/embed/XMTQ4OTQzMjU4NA==" frameborder="0" allowfullscreen></iframe>
+          <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>Android 5.0支持了矢量图，采用SVG的方式</p>
+<h2 id="二、使用总概"><a href="#二、使用总概" class="headerlink" title="二、使用总概"></a>二、使用总概</h2><p><img src="/images/2015.01.19 - Android---VectorDrawable&amp;AnimatedVectorDrawable1.png" alt="VectorDrawable"></p>
+<p><img src="/images/2015.01.19 - Android---VectorDrawable&amp;AnimatedVectorDrawable2.png" alt="AnimatedVectorDrawable"></p>
+<h3 id="1-VectorDrawable"><a href="#1-VectorDrawable" class="headerlink" title="1.VectorDrawable"></a>1.VectorDrawable</h3><figure class="highlight xml"><figcaption><span>res/drawable/heart.xml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">vector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:height</span>=<span class="string">"256dp"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:width</span>=<span class="string">"256dp"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:viewportWidth</span>=<span class="string">"32"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:viewportHeight</span>=<span class="string">"32"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">android:fillColor</span>=<span class="string">"#8fff"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">android:pathData</span>=<span class="string">"M20.5,9.5 c-1.955,0,-3.83,1.268,-4.5,3 c-0.67,-1.732,-2.547,-3,-4.5,-3 C8.957,9.5,7,11.432,7,14 c0,3.53,3.793,6.257,9,11.5 c5.207,-5.242,9,-7.97,9,-11.5 C25,11.432,23.043,9.5,20.5,9.5z"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">vector</span>&gt;</span></span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/02/28/Android-开源项目：OpenGpad-电脑键盘当手机游戏手柄/#more" rel="contents">
+            <a class="btn" href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -881,6 +851,9 @@
         
       
     </div>
+
+    
+
     
     
     
@@ -919,17 +892,19 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2015/01/16/Chrome-几项必要的配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -941,13 +916,23 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/" itemprop="url">Android - 测试框架之 UI Testing - 实现多点触控事件</a></h1>
+                <a class="post-title-link" href="/2015/01/16/Chrome-几项必要的配置/" itemprop="url">
+                  Chrome 几项必要的配置
+                </a>
+              
+            
+          </h2>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -955,41 +940,46 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-23T12:37:25+08:00">
-                2016-02-23
-              </time>
+
+              
+                
+              
+
+              <time title="创建时间：2015-01-16 15:00:08" itemprop="dateCreated datePublished" datetime="2015-01-16T15:00:08+08:00">2015-01-16</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
             
           </span>
 
           
-            <span class="post-category" >
+
+          
             
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Notes</span>
-                  </a>
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
                 </span>
-
-                
-                
-              
-            </span>
-          
-
-          
+                <a href="/2015/01/16/Chrome-几项必要的配置/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/01/16/Chrome-几项必要的配置/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1016,12 +1006,224 @@
 
       
         
-          <p><code>UiAutomator</code>已经现有的的API没有提高多点触控的方法，但是我们可以通过注入多点事件的方式来实现。</p>
-<h2 id="Android-TouchEvent-Flow"><a href="#Android-TouchEvent-Flow" class="headerlink" title="Android TouchEvent Flow"></a>Android TouchEvent Flow</h2><p>一个基本的单点事件流</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MotionEvent.ACTION_DOWN</span><br><span class="line">MotionEvent.ACTION_MOVE</span><br><span class="line">MotionEvent.ACTION_UP</span><br></pre></td></tr></table></figure>
+          
+            <h2 id="自定义Css"><a href="#自定义Css" class="headerlink" title="自定义Css"></a>自定义Css</h2><ol>
+<li>新建一个文件夹，比如Custom CSS，包含Custom.css和manifest.json两个文件</li>
+<li><p>manifest.json的内容如下</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"content_scripts"</span>: [ &#123;</span><br><span class="line">      <span class="attr">"css"</span>: [<span class="string">"Custom.css"</span>],</span><br><span class="line">      <span class="attr">"all_frames"</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">"matches"</span>: [ <span class="string">"http://*/*"</span>, <span class="string">"https://*/*"</span> ]</span><br><span class="line">   &#125; ],</span><br><span class="line">   <span class="attr">"description"</span>: <span class="string">"Custom.css"</span>,</span><br><span class="line">   <span class="attr">"name"</span>: <span class="string">"Custom CSS"</span>,</span><br><span class="line">   <span class="attr">"version"</span>: <span class="string">"1.0"</span>,</span><br><span class="line">   <span class="attr">"manifest_version"</span>: <span class="number">2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开Chrome的扩展管理，选择打包扩展程序，扩展程序根目录选择Custom CSS文件夹，私有密匙文件不用管，然后选择打包扩展程序，生成Custom CSS.crx和Custom CSS.pem。</p>
+</li>
+<li>将Custom CSS.crx拖入扩展管理安装即可。</li>
+</ol>
+<h2 id="chrome-flags"><a href="#chrome-flags" class="headerlink" title="chrome://flags/"></a>chrome://flags/</h2><ol>
+<li>overlay-scrollbars : 使用自动收起的滚动条，不占用额外空间(全平台)</li>
+<li>enable-smooth-scrolling : 像Mac和手机一样平滑滚动(仅Linux可用)</li>
+<li>enable-download-resumption : 恢复下载</li>
+</ol>
+<h2 id="取消Flash-P2P上传功能"><a href="#取消Flash-P2P上传功能" class="headerlink" title="取消Flash P2P上传功能"></a>取消Flash P2P上传功能</h2><blockquote>
+<p>国内的视频网站大都会P2P上传，往往会把上传带宽吃满，导致网络卡顿，可以把这个功能禁用掉</p>
+</blockquote>
+<ol>
+<li>打开<code>/Users/{}/Library/Application Support/Google/Chrome/Default/Pepper Data/Shockwave Flash</code> 目录</li>
+<li>在下面创建一个System的新目录，然后在里面创建一个mms.cfg文件</li>
+<li>写入 RTMFPP2PDisable=1</li>
+<li>保存，然后重启Chrome</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2015/01/16/Android---ToolBar初体验/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/16/Android---ToolBar初体验/" itemprop="url">
+                  Android - Toolbar初体验
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-01-16 14:57:01" itemprop="dateCreated datePublished" datetime="2015-01-16T14:57:01+08:00">2015-01-16</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android-Notes/" itemprop="url" rel="index"><span itemprop="name">Android Notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/01/16/Android---ToolBar初体验/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/01/16/Android---ToolBar初体验/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="一、概述"><a href="#一、概述" class="headerlink" title="一、概述"></a>一、概述</h2><p>配合Android L的发布，Google还更新了Appcombat V7库，新加入了代替现有ActionBar机制的控件——Toolbar，不像以前ActionBar是frameworks封装好提供接口调用的一套应用界面组成部分，它牵涉的东西很多，而Toolbar只是一个控件，和LinearLayout一样可以装载view的容器控件，所以它定制性非常强灵活度非常高，但它又加入了实现现有ActionBar功能的逻辑，感觉非重强大。接下来，我们一起来看看这个新生代Toolbar的使用方法。</p>
+<h2 id="二、使用总概"><a href="#二、使用总概" class="headerlink" title="二、使用总概"></a>二、使用总概</h2><p>Toolbar在Appcombat V7库是一个公开的控件，位于android.support.v7.widget包中，继承自ViewGroup，所以我们可以像使用普通的容器控件一样使用Toolbar，并主动调用相关方法实现ActionBar的功能。但是，Google是希望在Appcombat V7库中使用Toolbar来代替现有ActionBar的实现，所以肯定不会仅仅提供个控件就好了，Appcombat V7还把Toolbar封装进默认的Activity中。在新建工程时，创建向导会默认导入Appcombat V7库，自动创建的Activity也会继承自对Toolbar封装过的ActionBarActivity，创建工程后立刻运行应用，此时已是Toolbar实现了ActionBar的功能。</p>
+<figure class="highlight"><figcaption><span>导入Appcombat V7库:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile 'com.android.support:appcompat-v7:21.0.3'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="android-support-v7-widget-ActionBarActivity"><a href="#android-support-v7-widget-ActionBarActivity" class="headerlink" title="android.support.v7.widget.ActionBarActivity"></a>android.support.v7.widget.ActionBarActivity</h3><ul>
+<li>Actionbar</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ActionBar actionBar = getSupportActionBar();</span><br><span class="line">actionBar.setTitle(<span class="string">"Title"</span>);</span><br><span class="line">actionBar.setSubtitle(<span class="string">"subtitle"</span>);</span><br><span class="line">actionBar.setLogo(R.drawable.ic_launcher);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Toolbar</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Toolbar toolbar = (Toolbar) findViewById(R.id.action_bar);</span><br><span class="line">toolbar.setTitle(<span class="string">"Title"</span>);</span><br><span class="line">toolbar.setSubtitle(<span class="string">"subtitle"</span>);</span><br><span class="line">toolbar.setLogo(R.drawable.ic_launcher);</span><br></pre></td></tr></table></figure>
+<p>SupportActionBar是由Toolbar实现，而Toolbar又是公开的，所以上面两种方式的等价的。</p>
+<h3 id="自行指定Toolbar"><a href="#自行指定Toolbar" class="headerlink" title="自行指定Toolbar"></a>自行指定Toolbar</h3>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/#more" rel="contents">
+            <a class="btn" href="/2015/01/16/Android---ToolBar初体验/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1029,6 +1231,986 @@
         
       
     </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2015/01/07/Flyme互联网产品的错误示范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/01/07/Flyme互联网产品的错误示范/" itemprop="url">
+                  Flyme互联网产品的错误示范
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-01-07 11:24:49" itemprop="dateCreated datePublished" datetime="2015-01-07T11:24:49+08:00">2015-01-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/刘说八道/" itemprop="url" rel="index"><span itemprop="name">刘说八道</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/01/07/Flyme互联网产品的错误示范/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/01/07/Flyme互联网产品的错误示范/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="账户系统"><a href="#账户系统" class="headerlink" title="账户系统"></a>账户系统</h3><ul>
+<li><p>Flyme账户 <strong>缺少用户属性</strong><br>Flyme账户只在云服务中作为登录验证使用，在Flyme4之前连昵称和头像都没有，除了这两点之外也没有其他个性化的设置。</p>
+</li>
+<li><p>Flyme账户 <strong>缺失用户关系</strong><br>Flyme账户至Flyme系统出世就一直存在，到现在发展到Flyme4了，用户与用户之间的联系还是没有，要知道互联网产品最需要的就是通过用户关系强化用户对软件的黏性。</p>
+</li>
+</ul>
+<h3 id="互联网进程操之过急"><a href="#互联网进程操之过急" class="headerlink" title="互联网进程操之过急"></a>互联网进程操之过急</h3><ul>
+<li><p>Flyme应用中心 <strong>过度拆分化</strong><br>Flyme3的<code>应用中心</code>，在Flyme4中拆分成三个<code>应用中心</code> <code>游戏中心</code> <code>个性化</code>，把原本不多的流量活生生的分发到三个地方。</p>
+</li>
+<li><p>Flyme基础应用 <strong>过渡互联网化</strong><br>引以为傲的<code>音乐播放器</code> <code>视频播放器</code> 沦为 <strong>音乐商店附带播放功能</strong>和<strong>在线视频附带本地播放</strong></p>
+</li>
+</ul>
+<h3 id="产品思路"><a href="#产品思路" class="headerlink" title="产品思路"></a>产品思路</h3><ul>
+<li><p>应用中心(APP)，游戏中心(游戏)，个性化(主题)<br>原应用中心中的三大元素拆分成三个APP这个做法是正确，但是不应该是当前这样拆，目前主题拆分出来是没有问题的，问题存在于应用中心和游戏中心上。<br>当前的应用中心和游戏中心的功能几乎是一模一样的，就是为用户提供下载服务，然而游戏其实也是应用，现在硬生生的才分成两个App，有必要吗？！那你可能会说我意思不应该有游戏中心这个App呢？当然不是！游戏中心要做的是<strong>玩家和玩家</strong>的互动，<strong>玩家和游戏商</strong>的互动，玩家需要个漂亮的个人页面展示游戏成就等等，这才是游戏中心应该做的事情。</p>
+</li>
+<li><p>音乐<br>音乐播放器作为Flyme最有亮点的App之一，软件的信息架构却一昧的像应用中心这种以推荐为导向的软件构靠拢，<strong>用户打开音乐听歌的需求远远大于寻找歌曲的需求</strong>，那么对于音乐来说个人歌单，歌曲列表对于用户才是重要的，在线推荐这些在软件的信息架构上可以稍微靠后一点，应该有不少用户会抱怨每次打开音乐听歌步骤是如此繁琐吧。</p>
+</li>
+<li><p>视频<br>以前视频播放器也是Flyme里很有特色的软件，Flyme3的本地视频 深色的背景 着实有点影院的感觉，在Flyme 4上本地被弱化得只有一个Pager了。<br>对于Flyme的视频发展上，在线视频可以提出来单独做一个产品线类似于(Youtube)，而视频则专注本地 界面做得精致点 有点iMovie的样子就差不多，同时也可以加入视频编辑功能，也是很有买点的。</p>
+</li>
+</ul>
+<h3 id="Apple-和-Google"><a href="#Apple-和-Google" class="headerlink" title="Apple 和 Google"></a>Apple 和 Google</h3><blockquote>
+<p>Apple<br><code>App Store</code>提供软件购买下载, <code>iTunes Store</code>提供内容购买下载。<br>通过 <code>音乐</code> <code>视频</code> <code>iBooks</code> 这些软件专注消费内容，使用内容。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>Google<br><code>Play 商店</code>集合了软件和内容所有购买下载。<br>通过 <code>Play音乐</code> <code>Play电影</code> 一大堆这样的 <strong><code>Play X</code></strong> 这些软件专注消费内容，使用内容。</p>
+</blockquote>
+<p>可以看出国外对于内容消费比较成熟，会把内容当成商品买，回到国内，还没有消费内容的习惯来说，把各个内容的获取分配到各个应用中的做法是比较符合国情的，但是不对的地方是，对于音乐来说要找准用户的痛点，市面上好的播放器真的很少。</p>
+<h3 id="后记：战略发展"><a href="#后记：战略发展" class="headerlink" title="后记：战略发展"></a>后记：战略发展</h3><p>Flyme账户系统以及其他互联网产品应该独立化，应该完全使用原生SDK开发，使之可以装在其他Android手机上，这样对于Flyme适配不过来的手机，可以提供Flyme服务的刷机包，而Flyme的设计也尽量追随谷歌的设计规范，这样有利于应用软件的开发和推广。</p>
+<p>迄今为止，Flyme只适配了有限的几款机型，并且PatchRom也没有完成的情况下，如果推出一个Flyme服务的刷机包，让其他Android用户能体验到Flyme的云服务，体验到Flyme优秀的基础应用，这样也能达到发展潜在用户的目的，这应该也是Google不管你怎么改Android，只要内置Google服务就行的原因吧。</p>
+<p>当年小米通过MIUI占领市场，而如今采用Flyme服务的方式来占领其他Android手机也不乏是个好点子，突然觉得这也是个不错的创业的项目。</p>
+<hr>
+<p>最后更新：2015.01.21 00:40</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2014/12/31/2014-The-End/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2014/12/31/2014-The-End/" itemprop="url">
+                  2014 The End
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-12-31 21:45:25" itemprop="dateCreated datePublished" datetime="2014-12-31T21:45:25+08:00">2014-12-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/刘说八道/" itemprop="url" rel="index"><span itemprop="name">刘说八道</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/12/31/2014-The-End/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2014/12/31/2014-The-End/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="【2014的匆匆而过】"><a href="#【2014的匆匆而过】" class="headerlink" title="【2014的匆匆而过】"></a>【2014的匆匆而过】</h3><p>这一年毕业了，这一年工作了；<br>这一年去了珠海，去了深圳，去了澳门，去了北京；<br>这一年去了魅族，做了职业码农，码畜，码XX。    </p>
+<p>一直想找一份<code>Remote Working</code>的工作，也在为此而努力，对目前的状态不是很满意，全在加班，没有时间学习新的知识，很怕这种没有进步的日子，七月份入职，前三个月九九六的加班，后三个月没有九九六，但也是一周六天班。      </p>
+<h3 id="【2015的学习目标】"><a href="#【2015的学习目标】" class="headerlink" title="【2015的学习目标】"></a>【2015的学习目标】</h3><ul>
+<li>英语 (Remote Working 很重要的一点)</li>
+<li>深入<code>Android 动画</code> <code>自定义控件</code></li>
+<li>学习下<code>OpenGL</code></li>
+<li>空闲时间写写<code>iOS</code>或者<code>Cocos2d</code></li>
+<li>空闲时间学学<code>QT</code></li>
+</ul>
+<h3 id="【2015的独立项目】"><a href="#【2015的独立项目】" class="headerlink" title="【2015的独立项目】"></a>【2015的独立项目】</h3><ul>
+<li>Formater (一款MP3封面管理软件)</li>
+<li>Listen (一款优雅的本地音乐播放器)</li>
+</ul>
+<p>2014是幸运的一年，去了一直很想去魅族科技，感谢老大对我的赏识，因为魅族也认识了一群很牛逼的人，魅族是一家说大不大说小也不小的公司，公司成立十年，创业却刚刚开始，希望能趁着创业之际，好好充实自己，实现<code>Remote Working</code>的梦想。</p>
+<p>Bye，年终总结，明年再见…</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2014/11/26/Android---实用代码片段(1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2014/11/26/Android---实用代码片段(1)/" itemprop="url">
+                  Android - 实用代码片段(1)
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-11-26 16:25:09" itemprop="dateCreated datePublished" datetime="2014-11-26T16:25:09+08:00">2014-11-26</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android-Notes/" itemprop="url" rel="index"><span itemprop="name">Android Notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/11/26/Android---实用代码片段(1)/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2014/11/26/Android---实用代码片段(1)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1.ColorFilter 修改图片颜色，滤镜<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Drawable <span class="title">filtDrawable</span><span class="params">(Drawable drawable, <span class="keyword">int</span> color)</span> </span>&#123;</span><br><span class="line">    ColorFilter filter = <span class="keyword">new</span> LightingColorFilter(<span class="number">0</span>, color);</span><br><span class="line">    drawable.setColorFilter(filter);</span><br><span class="line">    <span class="keyword">return</span> drawable;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>相关文章 <a href="http://www.cnblogs.com/fuxiuyuan/archive/2012/04/14/2447545.html" target="_blank" rel="noopener">http://www.cnblogs.com/fuxiuyuan/archive/2012/04/14/2447545.html</a></p>
+<p>2.获取StatusBar高度<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">getStatusBarHeight</span><span class="params">(Activity activity)</span> </span>&#123;</span><br><span class="line">    Resources resources = activity.getResources();</span><br><span class="line">    <span class="keyword">int</span> status_bar_height_id = resources.getIdentifier(<span class="string">"status_bar_height"</span>, <span class="string">"dimen"</span>, <span class="string">"android"</span>);</span><br><span class="line">    <span class="keyword">return</span> resources.getDimension(status_bar_height_id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.获取ActionBar的视图<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">findActionBarContainer</span><span class="params">(Activity activity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = activity.getResources().getIdentifier(<span class="string">"action_bar_container"</span>, <span class="string">"id"</span>, <span class="string">"android"</span>);</span><br><span class="line">    <span class="keyword">return</span> activity.findViewById(id);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">findSplitActionBar</span><span class="params">(Activity activity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = activity.getResources().getIdentifier(<span class="string">"split_action_bar"</span>, <span class="string">"id"</span>, <span class="string">"android"</span>);</span><br><span class="line">    <span class="keyword">return</span> activity.findViewById(id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>4.计算文字大小绘制需要的宽高<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Rect rect = <span class="keyword">new</span> Rect();</span><br><span class="line">mPaint.getTextBounds(text, <span class="number">0</span>, text.length(), rect);</span><br><span class="line">rect.width();</span><br><span class="line">rect.height()；</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/11/26/Android---实用代码片段(1)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2014/07/22/Android---换种思路代替ViewHolder/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2014/07/22/Android---换种思路代替ViewHolder/" itemprop="url">
+                  Android - 换种思路代替ViewHolder
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-07-22 19:13:10" itemprop="dateCreated datePublished" datetime="2014-07-22T19:13:10+08:00">2014-07-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android-Notes/" itemprop="url" rel="index"><span itemprop="name">Android Notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/07/22/Android---换种思路代替ViewHolder/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2014/07/22/Android---换种思路代替ViewHolder/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Android开发中绝大多少界面都是使用ListView来构建的，其中对Adapter的使用，从最开始没有任何优化，到后来的<code>ViewHolder</code> <code>getItemViewType</code>等等都在不断优化ListView的性能，使用ViewHolder是为了减少findView的次数，但是总觉得使用ViewHolder的方式不够优雅，于是我换了一种实现方式。</p>
+<p>1.把ListView的item封装成一个View，也就是说每个Item其实只有一个View，不过这个View里面由很多View组成<br>2.这个View向外暴露一些set方法，用来设置内部View的属性，然后在Adapter中使用封装好的View即可。</p>
+<p>代码如下：<br><figure class="highlight java"><figcaption><span>ListItemView.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.gavinliu.ex.tna;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.content.Context;</span><br><span class="line"><span class="keyword">import</span> android.graphics.drawable.Drawable;</span><br><span class="line"><span class="keyword">import</span> android.util.AttributeSet;</span><br><span class="line"><span class="keyword">import</span> android.view.LayoutInflater;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.widget.FrameLayout;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageView;</span><br><span class="line"><span class="keyword">import</span> android.widget.TextView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ListItemView</span> <span class="keyword">extends</span> <span class="title">FrameLayout</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ImageView mImageView;</span><br><span class="line">    <span class="keyword">private</span> TextView mTextView;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ListItemView</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context);</span><br><span class="line">        init(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ListItemView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs);</span><br><span class="line">        init(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ListItemView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(context, attrs, defStyle);</span><br><span class="line">        init(context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(Context context)</span> </span>&#123;</span><br><span class="line">        View v = LayoutInflater.from(context).inflate(R.layout.item, <span class="keyword">this</span>);</span><br><span class="line">        mImageView = (ImageView) v.findViewById(R.id.image);</span><br><span class="line">        mTextView = (TextView) v.findViewById(R.id.text);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTitle</span><span class="params">(String title)</span> </span>&#123;</span><br><span class="line">        mTextView.setText(title);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setImage</span><span class="params">(Drawable drawable)</span> </span>&#123;</span><br><span class="line">        mImageView.setImageDrawable(drawable);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/07/22/Android---换种思路代替ViewHolder/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2014/07/06/Android---变色SystemBar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2014/07/06/Android---变色SystemBar/" itemprop="url">
+                  Android - 变色SystemBar
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-07-06 18:33:20" itemprop="dateCreated datePublished" datetime="2014-07-06T18:33:20+08:00">2014-07-06</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android-Notes/" itemprop="url" rel="index"><span itemprop="name">Android Notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/07/06/Android---变色SystemBar/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2014/07/06/Android---变色SystemBar/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ul>
+<li>方案一：<ol>
+<li>透明SystemBar</li>
+<li>界面使用FrameLayout 在顶部底部位置添加和高度SystemBar的高度相等的View</li>
+</ol>
+</li>
+<li>方案二：<ol>
+<li>透明SystemBar</li>
+<li>​使用<a href="http://blog.csdn.net/luoshengyang/article/details/8245546" target="_blank" rel="noopener"><code>DecorView</code></a>，它继承于FrameLayout，在<code>DecorView</code>顶部和底部各加一个视图</li>
+</ol>
+</li>
+<li>两者方案的不同：<ol>
+<li>方案一，颜色条是在Layout里面；方案二，颜色条是在<code>DecorView</code>里面。</li>
+<li>两者视图层级不一样，使用方案一需要在每一个Layout文件中添加颜色条。</li>
+</ol>
+</li>
+</ul>
+<p>Github上有开源的工具类采用的<code>方案二</code>，代码请参见：<a href="https://github.com/jgilfelt/SystemBarTint" target="_blank" rel="noopener"><code>SystemBarTint</code></a></p>
+
+          
+        
+      
+    </div>
+
+    
+
     
     
     
@@ -1063,15 +2245,12 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -1094,96 +2273,332 @@
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          
-            <p class="site-author-name" itemprop="name">Gavin Liu</p>
-            <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
-        </div>
-
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <a href="/archives/">
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Gavin Liu" />
             
-                <span class="site-state-item-count">122</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">19</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">96</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
+              <p class="site-author-name" itemprop="name">Gavin Liu</p>
+              <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
           </div>
-        
 
-        <div class="links-of-author motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">123</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">97</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/gavinliu" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/512315128" target="_blank" title="Weibo" rel="external nofollow"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
           
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/gavinliu" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                    
-                      GitHub
-                    
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/512315128" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                    
-                      Weibo
-                    
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -1200,24 +2615,27 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
 
   
+
+  
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  
 
-  <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
+
+
+
+
+
+
 
 
         
@@ -1225,21 +2643,20 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
     </span>
   
 
   
-    <span class="site-pv">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
     </span>
   
 </div>
+
 
 
 
@@ -1257,6 +2674,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -1277,75 +2696,75 @@
 
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
-
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
   
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
 
 
 
@@ -1370,327 +2789,36 @@
 
 
 
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
   
-
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
     });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'oJwGI72q9VyxlMIYcaleJJlv-gzGzoHsz',
+        appKey: 'L4kHNED5133sLyhCXxFE7afW',
+        placeholder: 'Just go go',
+        avatar:'retro',
+        guest_info:guest,
+        pageSize:'10' || 10,
     });
   </script>
 
 
 
+  
+
+
+
 
 
   
@@ -1701,27 +2829,67 @@
 
   
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
 
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
+  
+  
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
         for (i=0; i < all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
         }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    });
+</script>
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
+
+  
+  
+
+  
+
+  
+
+  
 
   
 

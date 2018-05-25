@@ -2,15 +2,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next gemini use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-CN">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
 <meta name="theme-color" content="#222">
+
+
+
 
 
 
@@ -45,68 +57,30 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android, Java.Web, iOS, macOS" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple-touch-icon-next.png?v=6.3.0">
 
 
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
 
 
-
-  <link rel="alternate" href="/atom.xml" title="Gavin.Liu" type="application/atom+xml" />
-
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
 
 
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.png?v=5.1.2" />
+  <link rel="mask-icon" href="/images/favicon-logo.svg?v=6.3.0" color="#222">
 
 
 
 
 
 
-<meta name="description" content="刘云龙的程序世界">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gavin.Liu">
-<meta property="og:url" content="http://gavinliu.cn/categories/Android-Notes/index.html">
-<meta property="og:site_name" content="Gavin.Liu">
-<meta property="og:description" content="刘云龙的程序世界">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gavin.Liu">
-<meta name="twitter:description" content="刘云龙的程序世界">
 
 
 
@@ -115,15 +89,13 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '5.1.2',
-    sidebar: {"position":"left","display":"hide","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
+    fastclick: false,
+    lazyload: false,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -135,12 +107,38 @@
 </script>
 
 
+  
+
+
+
+
+  <meta name="description" content="刘云龙的程序世界">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gavin.Liu">
+<meta property="og:url" content="http://gavinliu.cn/categories/Android-Notes/index.html">
+<meta property="og:site_name" content="Gavin.Liu">
+<meta property="og:description" content="刘云龙的程序世界">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gavin.Liu">
+<meta name="twitter:description" content="刘云龙的程序世界">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Gavin.Liu" type="application/atom+xml" />
+
+
+
 
   <link rel="canonical" href="http://gavinliu.cn/categories/Android-Notes/"/>
 
 
 
-
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
   <title>分类: Android Notes | Gavin.Liu</title>
   
@@ -149,22 +147,40 @@
 
 
 
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?2842c9eadd6d87f89c3ebdba92f18bcb";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
 
 
 
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
@@ -180,19 +196,21 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Gavin.Liu</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
-        <p class="site-subtitle">Focus on Mobile Develop</p>
+        <h1 class="site-subtitle" itemprop="description">Focus on Mobile Develop</h1>
       
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -200,112 +218,104 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories menu-item-active">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
 
       
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
       
     </ul>
   
 
   
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="搜索..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
-  </div>
-  <div id="local-search-result"></div>
-</div>
 
-
-
-    </div>
   
 </nav>
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
+            
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+          
           <div id="content" class="content">
             
 
@@ -316,8 +326,8 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Android Notes<small>分类</small>
-        </h1>
+        <h2>Android Notes<small>分类</small>
+        </h2>
       </div>
 
       
@@ -326,7 +336,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2017/08/22/Android-吃奥利奥系列-1-Notification/" itemprop="url">
               
@@ -334,7 +344,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -354,7 +364,35 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
+        
+            <a class="post-title-link" href="/2017/07/18/Android-Support-Library-1/" itemprop="url">
+              
+                <span itemprop="name">Android - Support Library (1)</span>
+              
+            </a>
+        
+      </h3>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-07-18T16:18:24+08:00"
+              content="2017-07-18" >
+          07-18
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2017/05/12/Android-Android-Studio-快捷键整理/" itemprop="url">
               
@@ -362,7 +400,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -382,7 +420,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2017/04/25/JNI移植-bspatch-实现增量更新功能/" itemprop="url">
               
@@ -390,7 +428,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -410,7 +448,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2017/03/21/Android-FFmpeg-命令行运行方式2/" itemprop="url">
               
@@ -418,7 +456,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -438,7 +476,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2017/03/21/Android-FFmpeg-命令行运行方式1/" itemprop="url">
               
@@ -446,7 +484,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -466,7 +504,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2017/03/20/Android-一种相似图片搜索算法的实现/" itemprop="url">
               
@@ -474,7 +512,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -494,7 +532,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2017/03/14/Android-FFmpeg-编译成单so库/" itemprop="url">
               
@@ -502,7 +540,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -522,7 +560,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2017/03/05/Android-FFmpeg-Mac-AndroidStudio-CMake-环境搭建/" itemprop="url">
               
@@ -530,7 +568,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -550,7 +588,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2017/02/08/Android-Gradle-解决循环依赖问题/" itemprop="url">
               
@@ -558,7 +596,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -578,7 +616,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2017/02/07/Android-兼容-异常问题分类/" itemprop="url">
               
@@ -586,7 +624,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -606,7 +644,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/11/05/Android-移植StackBlur-for-Glide-AS-2-2-CMakeLists的使用/" itemprop="url">
               
@@ -614,7 +652,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -634,7 +672,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/10/30/Android-ShapedImageView之-边框-自定义Path实现/" itemprop="url">
               
@@ -642,7 +680,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -662,7 +700,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/10/19/Android-Simple-One-step-应用内实现锤子科技的一小步/" itemprop="url">
               
@@ -670,7 +708,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -690,7 +728,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/09/28/Android-自定义View冷知识之动态替换layout-xml中的View/" itemprop="url">
               
@@ -698,7 +736,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -718,7 +756,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/09/25/Android-自定义View冷知识之读取系统属性-android命名空间/" itemprop="url">
               
@@ -726,7 +764,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -746,7 +784,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/08/04/Android-Nougat-7-创建通知栏的快捷设置/" itemprop="url">
               
@@ -754,7 +792,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -774,7 +812,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/07/08/Android-编写优质程序从内存管理开始/" itemprop="url">
               
@@ -782,7 +820,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -802,7 +840,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/04/12/Android-实现图片圆角显示的几种方式/" itemprop="url">
               
@@ -810,7 +848,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -830,7 +868,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/04/09/Android-基于MediaSession的音乐播放流程/" itemprop="url">
               
@@ -838,7 +876,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -858,7 +896,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/03/29/Android-在平坦的道路上曲折前行-插件式开发/" itemprop="url">
               
@@ -866,7 +904,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -886,7 +924,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/02/29/Android-实用代码片段-3/" itemprop="url">
               
@@ -894,7 +932,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -914,7 +952,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/02/28/Android-开源项目：OpenGpad-电脑键盘当手机游戏手柄/" itemprop="url">
               
@@ -922,7 +960,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -942,7 +980,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/02/23/Android-测试框架之-UI-Testing-实现多点触控事件/" itemprop="url">
               
@@ -950,7 +988,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -970,7 +1008,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/01/19/Android-adb-forward实现PC和Android的Socket通讯/" itemprop="url">
               
@@ -978,7 +1016,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -998,7 +1036,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2016/01/02/Android-测试框架之-UI-Testing-UI-Automator/" itemprop="url">
               
@@ -1006,7 +1044,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1026,7 +1064,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/12/30/Android-测试框架之-UI-Testing-Espresso/" itemprop="url">
               
@@ -1034,7 +1072,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1054,7 +1092,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/12/23/Android-测试框架概述/" itemprop="url">
               
@@ -1062,7 +1100,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1082,7 +1120,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/08/12/Android-多屏适配实践/" itemprop="url">
               
@@ -1090,7 +1128,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1110,7 +1148,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/07/27/Android-图像处理/" itemprop="url">
               
@@ -1118,7 +1156,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1138,7 +1176,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/07/03/Android-JNI开发-Gradle的配置/" itemprop="url">
               
@@ -1146,7 +1184,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1166,7 +1204,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/06/24/Android-开源库Android-AbsListView-Drag-And-Drop/" itemprop="url">
               
@@ -1174,7 +1212,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1194,7 +1232,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/06/10/Android-ListView奇淫绝技/" itemprop="url">
               
@@ -1202,7 +1240,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1222,7 +1260,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/05/25/Android-Animation-次序之美/" itemprop="url">
               
@@ -1230,7 +1268,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1250,7 +1288,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/05/08/Android-开源库EventCast/" itemprop="url">
               
@@ -1258,7 +1296,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1278,7 +1316,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/05/03/Android-实用代码片段-2/" itemprop="url">
               
@@ -1286,7 +1324,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1306,7 +1344,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/04/15/Android-Project-Butter-黄油计划/" itemprop="url">
               
@@ -1314,7 +1352,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1334,7 +1372,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/04/09/Android-高仿Morning-Routine中的PagerIndicator之实现原理/" itemprop="url">
               
@@ -1342,7 +1380,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1362,7 +1400,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/04/01/Android-Animation-Facebook开源动画框架/" itemprop="url">
               
@@ -1370,7 +1408,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1390,7 +1428,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/03/30/Android-Animation-贝塞尔曲线之美/" itemprop="url">
               
@@ -1398,7 +1436,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1418,7 +1456,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/03/26/Android-Animation-三角函数之美/" itemprop="url">
               
@@ -1426,7 +1464,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1446,7 +1484,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/03/07/Android-Animation-LayoutTransition/" itemprop="url">
               
@@ -1454,7 +1492,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1474,7 +1512,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/03/01/Android-Animation-基础扫盲/" itemprop="url">
               
@@ -1482,7 +1520,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1502,7 +1540,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/01/20/Android---Lollipop自定义Activity转换/" itemprop="url">
               
@@ -1510,7 +1548,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1530,7 +1568,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/01/19/Android---VectorDrawable&AnimatedVectorDrawable/" itemprop="url">
               
@@ -1538,7 +1576,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1558,7 +1596,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2015/01/16/Android---ToolBar初体验/" itemprop="url">
               
@@ -1566,7 +1604,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1586,7 +1624,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2014/11/26/Android---实用代码片段(1)/" itemprop="url">
               
@@ -1594,7 +1632,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1614,7 +1652,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2014/07/22/Android---换种思路代替ViewHolder/" itemprop="url">
               
@@ -1622,7 +1660,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1642,7 +1680,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2014/07/06/Android---变色SystemBar/" itemprop="url">
               
@@ -1650,7 +1688,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1670,7 +1708,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2014/07/05/Android---透明SystemBar/" itemprop="url">
               
@@ -1678,7 +1716,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1698,7 +1736,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2014/04/25/Android--安卓开发中最佳单例模式实现/" itemprop="url">
               
@@ -1706,7 +1744,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1726,7 +1764,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2014/03/25/Android---让控件变得可拖拽/" itemprop="url">
               
@@ -1734,7 +1772,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1754,7 +1792,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2014/03/18/Android---使用Loader进行数据加载/" itemprop="url">
               
@@ -1762,7 +1800,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1782,7 +1820,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2013/07/03/Android-JNI-NDKHelloWorld/" itemprop="url">
               
@@ -1790,7 +1828,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1810,7 +1848,7 @@
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
 
-      <h2 class="post-title">
+      <h3 class="post-title">
         
             <a class="post-title-link" href="/2012/05/01/Andoid---上传文件实现方法/" itemprop="url">
               
@@ -1818,7 +1856,7 @@
               
             </a>
         
-      </h2>
+      </h3>
 
       <div class="post-meta">
         <time class="post-time" itemprop="dateCreated"
@@ -1847,9 +1885,6 @@
           </div>
           
 
-
-          
-
         </div>
         
           
@@ -1870,96 +1905,332 @@
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          
-            <p class="site-author-name" itemprop="name">Gavin Liu</p>
-            <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
-        </div>
-
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <a href="/archives/">
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Gavin Liu" />
             
-                <span class="site-state-item-count">122</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">19</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">96</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
+              <p class="site-author-name" itemprop="name">Gavin Liu</p>
+              <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
           </div>
-        
 
-        <div class="links-of-author motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">123</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">97</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/gavinliu" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/512315128" target="_blank" title="Weibo" rel="external nofollow"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
           
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/gavinliu" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                    
-                      GitHub
-                    
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/512315128" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                    
-                      Weibo
-                    
-                </a>
-              </span>
-            
           
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -1976,24 +2247,27 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
 
   
+
+  
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  
 
-  <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
+
+
+
+
+
+
 
 
         
@@ -2001,21 +2275,20 @@
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
     </span>
   
 
   
-    <span class="site-pv">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
     </span>
   
 </div>
+
 
 
 
@@ -2033,6 +2306,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -2053,75 +2328,75 @@
 
 
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
-
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
 
 
 
   
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
 
 
 
@@ -2146,327 +2421,36 @@
 
 
 
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
   
-
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
   <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
     });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'oJwGI72q9VyxlMIYcaleJJlv-gzGzoHsz',
+        appKey: 'L4kHNED5133sLyhCXxFE7afW',
+        placeholder: 'Just go go',
+        avatar:'retro',
+        guest_info:guest,
+        pageSize:'10' || 10,
     });
   </script>
 
 
 
+  
+
+
+
 
 
   
@@ -2477,27 +2461,45 @@
 
   
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
 
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
         for (i=0; i < all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
         }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    });
+</script>
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
+
+  
+  
+
+  
+
+  
+
+  
 
   
 

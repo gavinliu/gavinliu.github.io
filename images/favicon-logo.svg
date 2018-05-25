@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180px" height="180px" viewBox="0 0 180 180" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>favicon-logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="6" y="6" width="168" height="168"></rect>
+    </defs>
+    <g id="favicon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Rectangle">
+            <use fill="#E2E2E2" fill-rule="evenodd" xlink:href="#path-1"></use>
+            <rect stroke="#4D4D4D" stroke-width="10" x="11" y="11" width="158" height="158"></rect>
+        </g>
+        <text id="L" font-family="Menlo-Regular, Menlo" font-size="144" font-weight="normal" letter-spacing="0.719999969" fill="#4D4D4D">
+            <tspan x="46.2923438" y="140">L</tspan>
+        </text>
+    </g>
+</svg>
