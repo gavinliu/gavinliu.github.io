@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gavinliu.cn/"/>
-  <updated>2017-09-15T05:01:31.000Z</updated>
+  <updated>2018-05-29T03:21:05.908Z</updated>
   <id>http://gavinliu.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Server - UFW Linux上最简单的防火墙配置工具</title>
+    <link href="http://gavinliu.cn/2018/05/29/Server-UFW-Linux%E4%B8%8A%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E9%98%B2%E7%81%AB%E5%A2%99%E9%85%8D%E7%BD%AE%E5%B7%A5%E5%85%B7/"/>
+    <id>http://gavinliu.cn/2018/05/29/Server-UFW-Linux上最简单的防火墙配置工具/</id>
+    <published>2018-05-29T03:05:58.000Z</published>
+    <updated>2018-05-29T03:21:05.908Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>为了服务器的安全一般都会在 Linux 上配置防火墙，对于一般开发者而言来说想要搞懂 iptable 这些东西，要花不少时间。UFW 就是一款 Linux 管理防火墙规则的工具，通过简单的几行命令使防火墙配置变得非常简单。</p></blockquote><a id="more"></a><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ufw</span><br></pre></td></tr></table></figure><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight bash"><figcaption><span>开启/关闭</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw <span class="built_in">enable</span></span><br><span class="line">sudo ufw <span class="built_in">disable</span></span><br></pre></td></tr></table></figure><figure class="highlight bash"><figcaption><span>默认</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw default deny <span class="comment"># 默认都拒绝</span></span><br><span class="line">sudo ufw default allow <span class="comment"># 默认都通过</span></span><br></pre></td></tr></table></figure><figure class="highlight bash"><figcaption><span>配置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow smtp　<span class="comment">#允许访问本机 25/tcp (smtp)端口</span></span><br><span class="line">sudo ufw allow 22/tcp <span class="comment">#允许本机 22/tcp (ssh)端口</span></span><br><span class="line">sudo ufw allow 53 <span class="comment">#允许访问本机 53 端口(tcp/udp)</span></span><br><span class="line">sudo ufw allow from 192.168.1.100 <span class="comment">#允许此IP访问所有的本机端口</span></span><br><span class="line">sudo ufw deny smtp <span class="comment">#禁止访问本机 25/tcp (smtp)端口</span></span><br><span class="line">sudo ufw delete allow smtp <span class="comment">#删除某条规则</span></span><br></pre></td></tr></table></figure><figure class="highlight bash"><figcaption><span>查看防火墙状态</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://linux.cn/article-8087-1.html" target="_blank" rel="noopener">在 Ubuntu 中用 UFW 配置防火墙</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;为了服务器的安全一般都会在 Linux 上配置防火墙，对于一般开发者而言来说想要搞懂 iptable 这些东西，要花不少时间。UFW 就是一款 Linux 管理防火墙规则的工具，通过简单的几行命令使防火墙配置变得非常简单。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Server Notes" scheme="http://gavinliu.cn/categories/Server-Notes/"/>
+    
+    
+      <category term="Server" scheme="http://gavinliu.cn/tags/Server/"/>
+    
+  </entry>
   
   <entry>
     <title>Android - 吃奥利奥系列(1) Notification</title>
@@ -522,30 +546,6 @@
     
     
       <category term="年终总结" scheme="http://gavinliu.cn/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>编程技巧 - 一种抽奖算法的实现</title>
-    <link href="http://gavinliu.cn/2016/12/22/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7-%E4%B8%80%E7%A7%8D%E6%8A%BD%E5%A5%96%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://gavinliu.cn/2016/12/22/编程技巧-一种抽奖算法的实现/</id>
-    <published>2016-12-22T07:20:07.000Z</published>
-    <updated>2017-02-15T17:46:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>年末项目组需要做一个抽奖活动，奖品池有很多奖品，运营可以配置每个奖品的爆率，这篇文章给出一个简单的实现。</p></blockquote><a id="more"></a><h2 id="抽奖"><a href="#抽奖" class="headerlink" title="抽奖"></a>抽奖</h2><p>首先有个必要条件是，奖品池的奖品总概率不能超过1。</p><p>算法步骤：</p><ol><li>把所有奖品放在一个数组内；</li><li>把奖品的概率分配到0~1的区间内；</li><li>生成一个 0~1 的随机数；</li><li>如果随机数落在区间内，则中奖，反之亦然。</li></ol><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Lottery</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        List&lt;Prize&gt; prizes = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        prizes.add(<span class="keyword">new</span> Prize(<span class="number">0.00001</span>, <span class="string">"手机"</span>));</span><br><span class="line">        prizes.add(<span class="keyword">new</span> Prize(<span class="number">0.00000001</span>, <span class="string">"电脑"</span>));</span><br><span class="line"></span><br><span class="line">        printPrize(prizes);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10000000</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (doLottery(prizes)) count++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"中奖次数："</span> + count);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">doLottery</span><span class="params">(List&lt;Prize&gt; prizes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> num = Math.random();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (Prize p : prizes) &#123;</span><br><span class="line">            <span class="keyword">double</span> end = start + p.possibility;</span><br><span class="line">            <span class="keyword">if</span> (num &gt; start &amp;&amp; num &lt; end) &#123;</span><br><span class="line">                System.out.println(<span class="string">"  中奖："</span> + p.name + <span class="string">" "</span> + double2String(num));</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            start = end;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Prize</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> possibility;</span><br><span class="line"></span><br><span class="line">        String name;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="title">Prize</span><span class="params">(<span class="keyword">double</span> possibility, String name)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.possibility = possibility;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printPrize</span><span class="params">(List&lt;Prize&gt; prizes)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">double</span> start = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (Prize p : prizes) &#123;</span><br><span class="line">            <span class="keyword">double</span> end = start + p.possibility;</span><br><span class="line">            System.out.println(p.name + <span class="string">": [ "</span> + double2String(start) + <span class="string">" - "</span> + double2String(end) + <span class="string">" ]"</span>);</span><br><span class="line">            start = end;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">double2String</span><span class="params">(<span class="keyword">double</span> d)</span> </span>&#123;</span><br><span class="line">        DecimalFormat df = (DecimalFormat) NumberFormat.getInstance();</span><br><span class="line">        df.setMaximumFractionDigits(<span class="number">10</span>);</span><br><span class="line">        <span class="keyword">return</span> df.format(d);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>执行结果：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">手机: [ 0 - 0.0000001 ]</span><br><span class="line">电脑: [ 0.0000001 - 0.0000002 ]</span><br><span class="line">  中奖：电脑 0.0000001615</span><br><span class="line">  中奖：手机 0.0000000219</span><br><span class="line">中奖次数：2</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;年末项目组需要做一个抽奖活动，奖品池有很多奖品，运营可以配置每个奖品的爆率，这篇文章给出一个简单的实现。&lt;/p&gt;
-&lt;/blockquote&gt;
-    
-    </summary>
-    
-      <category term="编程技巧" scheme="http://gavinliu.cn/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
-    
-    
-      <category term="抽奖" scheme="http://gavinliu.cn/tags/%E6%8A%BD%E5%A5%96/"/>
     
   </entry>
   
