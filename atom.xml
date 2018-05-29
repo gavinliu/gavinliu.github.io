@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://gavinliu.cn/"/>
-  <updated>2018-05-29T03:21:05.908Z</updated>
+  <updated>2018-05-29T03:24:18.379Z</updated>
   <id>http://gavinliu.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://gavinliu.cn/2018/05/29/Server-UFW-Linux%E4%B8%8A%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E9%98%B2%E7%81%AB%E5%A2%99%E9%85%8D%E7%BD%AE%E5%B7%A5%E5%85%B7/"/>
     <id>http://gavinliu.cn/2018/05/29/Server-UFW-Linux上最简单的防火墙配置工具/</id>
     <published>2018-05-29T03:05:58.000Z</published>
-    <updated>2018-05-29T03:21:05.908Z</updated>
+    <updated>2018-05-29T03:24:18.379Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>为了服务器的安全一般都会在 Linux 上配置防火墙，对于一般开发者而言来说想要搞懂 iptable 这些东西，要花不少时间。UFW 就是一款 Linux 管理防火墙规则的工具，通过简单的几行命令使防火墙配置变得非常简单。</p></blockquote><a id="more"></a><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ufw</span><br></pre></td></tr></table></figure><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight bash"><figcaption><span>开启/关闭</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw <span class="built_in">enable</span></span><br><span class="line">sudo ufw <span class="built_in">disable</span></span><br></pre></td></tr></table></figure><figure class="highlight bash"><figcaption><span>默认</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw default deny <span class="comment"># 默认都拒绝</span></span><br><span class="line">sudo ufw default allow <span class="comment"># 默认都通过</span></span><br></pre></td></tr></table></figure><figure class="highlight bash"><figcaption><span>配置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow smtp　<span class="comment">#允许访问本机 25/tcp (smtp)端口</span></span><br><span class="line">sudo ufw allow 22/tcp <span class="comment">#允许本机 22/tcp (ssh)端口</span></span><br><span class="line">sudo ufw allow 53 <span class="comment">#允许访问本机 53 端口(tcp/udp)</span></span><br><span class="line">sudo ufw allow from 192.168.1.100 <span class="comment">#允许此IP访问所有的本机端口</span></span><br><span class="line">sudo ufw deny smtp <span class="comment">#禁止访问本机 25/tcp (smtp)端口</span></span><br><span class="line">sudo ufw delete allow smtp <span class="comment">#删除某条规则</span></span><br></pre></td></tr></table></figure><figure class="highlight bash"><figcaption><span>查看防火墙状态</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li><a href="https://linux.cn/article-8087-1.html" target="_blank" rel="noopener">在 Ubuntu 中用 UFW 配置防火墙</a></li></ul>]]></content>
     
@@ -36,7 +36,7 @@
       <category term="Server Notes" scheme="http://gavinliu.cn/categories/Server-Notes/"/>
     
     
-      <category term="Server" scheme="http://gavinliu.cn/tags/Server/"/>
+      <category term="服务器" scheme="http://gavinliu.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
