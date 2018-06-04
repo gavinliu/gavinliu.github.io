@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Android - 现代 Android 开发之旅 1.架构组件]]></title>
+    <url>%2F2018%2F06%2F04%2FAndroid-%E7%8E%B0%E4%BB%A3-Android-%E5%BC%80%E5%8F%91%E4%B9%8B%E6%97%85-1-%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[本系列文章默认读者已经熟悉基础的 Android 开发知识。如果你是一名刚刚学习 Android 的同学，不熟悉基础的开发知识，请先行学习基础内容。 什么是架构组件？架构组件是推出的用于构建高质量的应用程序框架，其中包含来大量的最佳实践。 为什么会推出架构组件？Android 应用程序比较复杂，包括了 Activity Fragment Service Content Provider Broadcast Receiver 等，在 Android 手机中应用程序会经常被打断，比如说：你要在微信要分享一个照片到朋友圈，微信会调起相机，这时就离开了微信，对于用户来说其实体验是完整的，而对于程序来说其实是割裂的。程序跳到相机后，相机也有可能会调起文件管理器，文件管理器又是另一个应用，此时如果一个电话打进来了，在挂断点后还需要继续回到分享照片的流程，此过程中可能还会遇到系统内存吃紧，还会被强制系统杀掉一些资源。 所以，Android 系统中应用程序间的跳转是很常见的，你的程序必须正确的处理这些流程，程序不可能像你理想中那样有序的运行，应用程序的生命周期不受你的控制，所以你不应该在与 Android 系统相关的组件中存储程序数据和状态。 而通常程序员都没有主动去处理这些，而是当程序崩溃、卡顿了才开始考虑数据和生命周期的关系。 于是 Google 就推出了架构组件组件，他可以让你更简洁的处理 Activity 的生命周期，数据恢复，减少内存泄漏的风险等。 架构组件的功能 Lifecycles 是一套可以感知 Activity Fragment 生命周期的框架，其中有三个概念： Lifecycle ：是一个对象，表示 Android 中的生命周期 LifecycleOwner ：是 Lifecycle 对外的一个接口，getLifecycle 方法可以用来获取 Lifecycle LifecycleObserver ：是一个接口，用来观察 Lifecycle LiveData 是一个可被观察的数据持有类，他也是能够感知生命周期的，因为内部实现了 LifecycleObserver Activity123LiveData&lt;User&gt;.observe(this, Observer &#123; user -&gt; textView.text = user?.name&#125;) 更新数据12LiveData&lt;User&gt;.setValue(user) // 主线程LiveData&lt;User&gt;.postValue(user) // 异步线程 这样更新数据后，LiveData 会自动刷新 UI ViewModel 主要作用是帮你保存引用的 UI 数据，防止因为配置变化导致 UI 数据丢失，比如旋转屏幕。 对于数据恢复 Activity#onSaveInstanceState 也是需要提的，onSaveInstanceState 比较适合存储小数据，ViewModel 适合存大数据，比如 onSaveInstanceState 存 UserId，ViewModel 存 User 对象。 另外这样也可以帮你把 Activity 的变量，数据，逻辑等抽离出来，让 ViewModel 保存所有 UI 数据，而 Activity 只负责 UI 的显示和交互。 当然如果 UI 很复杂，ViewModel 可能也会变得很臃肿，那么这个时候可以考虑新建一个 Presenter 类，专门处理数据，关于 Presenter 可以参考 MVP 架构。 Activity#onCreate ViewModel 示例123456789val chronometerViewModel = ViewModelProviders.of(this).get(ChronometerViewModel::class.java)if (chronometerViewModel.startTime == null) &#123;val startTime = SystemClock.elapsedRealtime()chronometerViewModel.startTime = startTimechronometer.base = startTime&#125; else &#123;chronometer.base = chronometerViewModel.startTime!!&#125; Room Google 自己的 SQLite ORM 框架，可以和 Rxjava LiveData 结合使用。 Paging New 分页组件，可以更轻松地在 RecyclerView 中逐渐加载数据。 Navigation New 简化了 Android 界面导航的实现。 WorkManager New 可以轻松指定可延迟的异步任务以及何时运行。 这些 API 可让创建任务并将其交给 WorkManager，以便立即或在适当的时间运行。 Data Binding 数据绑定库，可以实现修改数据后，然后自动更新 UI，从 生命周期组件 2.0 开始被默认引入，划入 Jetpack 架构组件的一部分。 总结主要大致介绍了 Lifecycles &amp; LiveData &amp; ViewModel， 这三个组件也被称为 生命周期感知组件 ，他们通常都是一起使用的。 并且从 Support-Library 26.1 开始 FragmentActivity 和 Fragment 都默认实现好了 LifecycleOwner 这些接口，引入 Support-Library 的同时也会包含 生命周期感知组件 。 所以如果想写一个靠谱的 Android App，使用 生命周期感知组件 是必不可少的。]]></content>
+      <categories>
+        <category>Android Notes</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Jetpack</tag>
+        <tag>现代 Android 开发之旅</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Android - 现代 Android 开发]]></title>
     <url>%2F2018%2F06%2F01%2FAndroid-%E7%8E%B0%E4%BB%A3-Android-%E5%BC%80%E5%8F%91%2F</url>
     <content type="text"><![CDATA[将近一年没写博客了，最近这一年写的东西有点杂，不像在魅族上班大把时间都花在 Android 上。这次借助 Google I/O，又好好刷了一波 Android 新知识点 时间线 2008 Android 1.0 发布，使用 eclipse 开发 2013 AndroidStudio 发布，五年时间过去了，终于有了属于 Android 自己的开发环境 2014 RecyclerView 发布，其高性能易扩展的特性，把 UI 开发带入了一个全新的世界，几乎所有界面都会用到它 2017 ConstraintLayout 发布，让 View 更好的组织起来，且有更好的性能，能简单实现联动效果 2017 Kotlin 正式成为官方开发语言，其空安全特性，各种语法糖等，对 Java 啰嗦语法说拜拜。 2017 ArchComponents 发布，这是一个官方版本的 Android 架构组件，包含了 ORM，生命周期管理等 2018 KTX，通过 Kotlin 扩展了系统 API，使调用更简单。 2018 Google I/O 把过去的发布的库都统一取了个名字 Jetpack，使用 Jetpack 开发 Android 应用程序就成了最佳选择了。如果不论你是刚学 Android 还是一名 Android 老鸟，都应该好好了解一下。 现代 Android 开发Layouts AbsoluteLayout 不建议使用 LinearLayout 可用, FrameLayout 可用，margin padding 用于填充是可以的，但是不要是用 margin padding 来控制位置，这样就相当于是 AbsoluteLayout GirdLayout 使用 RecyclerView 替代 RelativeLayout 使用 ConstraintLayout 替代 ConstraintLayout 推荐 AdapterViews ListView GirdView Gallery 全部弃用，使用 RecyclerView 替代，可以做到更好的动画和颗粒度更细的更新 FragmentsFragment 应该使用 support 包里面的，不要用 Android 包内的。 结合 ArchComponents: Navigation 控制 Fragment Activitys尽可能在每个入口使用单 Activity，然后使用 ArchComponents: Navigation 管理页面 架构架构应该根据情况选你喜欢的方式，架构没有绝对的好绝对的坏，推荐的架构参考 android-architecture 生命周期管理使用 ArchComponents: Lifecylce 数据整个 App 的数据管理，应该使用一个基本的抽象模式。 抽象出一个 Repository 接口，方便单元测试和设计缓存 数据分页使用 ArchComponents: Paging 图像VectorDrawable 几乎可以代替软件要用到所有的图标 网络首选 OkHttp ，毕竟 Android 系统的 URLConnection 都换成了 OKHttp 的实现 图片缓存Glide Picasso Fresco 三大框架，任选其一即可，首选 Glide 总结作为从 2012 年就开始学习 Android 开发的人，在 Android 上踩过不少坑，深知远古时代 Android 开发的痛苦。 Android 作为我的编程生涯中第一个系统学习过的 GUI 系统，现代 Android 开发将写成一个系列博客，总结开发经验，梳理知识点，主要会围绕 Jetpack 和 Material Design。]]></content>
@@ -10,6 +23,7 @@
       <tags>
         <tag>Android</tag>
         <tag>Jetpack</tag>
+        <tag>现代 Android 开发之旅</tag>
       </tags>
   </entry>
   <entry>

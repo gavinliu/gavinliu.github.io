@@ -315,6 +315,178 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2014/11/26/Android---实用代码片段(1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2014/11/26/Android---实用代码片段(1)/" itemprop="url">
+                  Android - 实用代码片段(1)
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-11-26 16:25:09" itemprop="dateCreated datePublished" datetime="2014-11-26T16:25:09+08:00">2014-11-26</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android-Notes/" itemprop="url" rel="index"><span itemprop="name">Android Notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/11/26/Android---实用代码片段(1)/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2014/11/26/Android---实用代码片段(1)/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>1.ColorFilter 修改图片颜色，滤镜<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Drawable <span class="title">filtDrawable</span><span class="params">(Drawable drawable, <span class="keyword">int</span> color)</span> </span>&#123;</span><br><span class="line">    ColorFilter filter = <span class="keyword">new</span> LightingColorFilter(<span class="number">0</span>, color);</span><br><span class="line">    drawable.setColorFilter(filter);</span><br><span class="line">    <span class="keyword">return</span> drawable;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>相关文章 <a href="http://www.cnblogs.com/fuxiuyuan/archive/2012/04/14/2447545.html" target="_blank" rel="noopener">http://www.cnblogs.com/fuxiuyuan/archive/2012/04/14/2447545.html</a></p>
+<p>2.获取StatusBar高度<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">float</span> <span class="title">getStatusBarHeight</span><span class="params">(Activity activity)</span> </span>&#123;</span><br><span class="line">    Resources resources = activity.getResources();</span><br><span class="line">    <span class="keyword">int</span> status_bar_height_id = resources.getIdentifier(<span class="string">"status_bar_height"</span>, <span class="string">"dimen"</span>, <span class="string">"android"</span>);</span><br><span class="line">    <span class="keyword">return</span> resources.getDimension(status_bar_height_id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>3.获取ActionBar的视图<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">findActionBarContainer</span><span class="params">(Activity activity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = activity.getResources().getIdentifier(<span class="string">"action_bar_container"</span>, <span class="string">"id"</span>, <span class="string">"android"</span>);</span><br><span class="line">    <span class="keyword">return</span> activity.findViewById(id);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> View <span class="title">findSplitActionBar</span><span class="params">(Activity activity)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id = activity.getResources().getIdentifier(<span class="string">"split_action_bar"</span>, <span class="string">"id"</span>, <span class="string">"android"</span>);</span><br><span class="line">    <span class="keyword">return</span> activity.findViewById(id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>4.计算文字大小绘制需要的宽高<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Rect rect = <span class="keyword">new</span> Rect();</span><br><span class="line">mPaint.getTextBounds(text, <span class="number">0</span>, text.length(), rect);</span><br><span class="line">rect.width();</span><br><span class="line">rect.height()；</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/11/26/Android---实用代码片段(1)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2014/07/22/Android---换种思路代替ViewHolder/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1837,170 +2009,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2013/11/27/梦境/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="刘云龙的程序世界">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin.Liu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2013/11/27/梦境/" itemprop="url">
-                  梦境
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2013-11-27 13:58:54" itemprop="dateCreated datePublished" datetime="2013-11-27T13:58:54+08:00">2013-11-27</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/刘说八道/" itemprop="url" rel="index"><span itemprop="name">刘说八道</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2013/11/27/梦境/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2013/11/27/梦境/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>X：去追那个女孩子吧，那是你的爱情！<br>Y：爱情？你是在说笑吗？难道你要我抛下家的责任和同伴的重托去追寻那随时会随风而散留下我孤独一人的爱情吗？！<br>X：始终都得有个替代不是么？难道就这样一辈子和自己的精神在一起？这样我们的孩子不一样会怪罪我们吗？<br>Y：逝去的一切都将以另外的方式又回到未来的另一个点…爱情也会，况且这不是爱情，或者说只是因为周遭太热闹反而更显寂寞罢了。<br>X：就这样和我在一起一辈子？没有人牵手，没有人拥抱，没有人亲吻，只会有淡淡的关心，这样的生活 是孤独的，你不会喜欢的。<br>Y：现实与梦的区别在于梦不被他人认同。可是认同与不认同又有什么关系？一人生，一人死，路上遇见很多人，都无法走过一生,可是自己却可以，如果只是需要的话，那么一个人也没什么不好。<br>X：记得你说爱情是如死寂一般的黑色，我却觉得更像是夜空。像是夜的羽翼铺洒在空中拥抱了你我，轻抚你我的眼眸使你我安眠，也悄悄溜进你我的生命将爱情渲染，世人总认为爱情是彩色的，却毫不知万般缤纷交错之下的正是这夜色…<br>Y：于是我们就在此夜色月光下澈之时，一起散步、聊天、思考…忽然间也像是情侣、朋友、同伴…<br>X：于是我们正是在此时此刻，一起牵手、拥抱、自顾自的疯狂…书写了回忆，赶走了寂寞。<br>Y：可是你，我也同样也明白命运所指的未来，也明白家庭的责任，也明白同伴的托付。<br>X：所以依然劝阻你，为了这镜花水月般的思绪而坠落于自身所建的牢笼，同样是侮辱了时间和我。<br>Y：会孤独吗？<br>X：他们不是在吗？<br>Y：会痛苦吗？<br>X：不是有我吗？<br>Y：那还有什么我会惧怕的？<br>X：是啊，应该是没有什么需要惧怕的了，所以，不需要。<br>Y：如果有人会在电话里叫我一声亲爱的，那该多幸福？<br>X：我不是一直都叫着‘龙’吗？<br>Y：可是你叫了也只有我听见了呢。<br>X：是只有你能听见我的声音，但是我也没打算叫别人呢，不是吗？亦或是你只是为了虚荣？<br>Y：好，我明白了，我会记住的，我还有些事，我要去忙了，先起来了。<br>X：照顾好自己就好，不要去管其他人，因为你就算你做了好事我也看不见，我只会看到你的悲伤和疲惫…  </p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2052,7 +2060,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">125</span>
+                    <span class="site-state-item-count">126</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2316,7 +2324,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">98</span>
+                      
+                    
+                    <span class="site-state-item-count">99</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
