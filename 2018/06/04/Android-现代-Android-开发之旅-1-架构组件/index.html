@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="Gavin.Liu">
 <meta property="og:description" content="本系列文章默认读者已经熟悉基础的 Android 开发知识。如果你是一名刚刚学习 Android 的同学，不熟悉基础的开发知识，请先行学习基础内容。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-04T14:19:00.380Z">
+<meta property="og:updated_time" content="2018-06-05T09:11:58.468Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android - 现代 Android 开发之旅 1.架构组件">
 <meta name="twitter:description" content="本系列文章默认读者已经熟悉基础的 Android 开发知识。如果你是一名刚刚学习 Android 的同学，不熟悉基础的开发知识，请先行学习基础内容。">
@@ -433,11 +433,11 @@
 <a id="more"></a>
 <h2 id="什么是架构组件？"><a href="#什么是架构组件？" class="headerlink" title="什么是架构组件？"></a>什么是架构组件？</h2><p>架构组件是推出的用于构建高质量的应用程序框架，其中包含来大量的最佳实践。</p>
 <h2 id="为什么会推出架构组件？"><a href="#为什么会推出架构组件？" class="headerlink" title="为什么会推出架构组件？"></a>为什么会推出架构组件？</h2><p><code>Android</code> 应用程序比较复杂，包括了 <code>Activity</code> <code>Fragment</code> <code>Service</code> <code>Content Provider</code> <code>Broadcast Receiver</code> 等，在 <code>Android</code> 手机中应用程序会经常被打断，比如说：你要在微信要分享一个照片到朋友圈，微信会调起相机，这时就离开了微信，对于用户来说其实体验是完整的，而对于程序来说其实是割裂的。程序跳到相机后，相机也有可能会调起文件管理器，文件管理器又是另一个应用，此时如果一个电话打进来了，在挂断点后还需要继续回到分享照片的流程，此过程中可能还会遇到系统内存吃紧，还会被强制系统杀掉一些资源。</p>
-<p>所以，<code>Android</code> 系统中应用程序间的跳转是很常见的，你的程序必须正确的处理这些流程，程序不可能像你理想中那样有序的运行，应用程序的生命周期不受你的控制，所以你不应该在与 <code>Android</code> 系统相关的组件中存储程序数据和状态。</p>
+<p><strong>所以，<code>Android</code> 系统中应用程序间的跳转是很常见的，你的程序必须正确的处理这些流程，程序不可能像你理想中那样有序的运行，应用程序的生命周期不受你的控制，所以你不应该在与 <code>Android</code> 系统相关的组件中存储程序数据和状态。</strong></p>
 <p>而通常程序员都没有主动去处理这些，而是当程序崩溃、卡顿了才开始考虑数据和生命周期的关系。</p>
 <p>于是 <code>Google</code> 就推出了架构组件组件，他可以让你更简洁的处理 <code>Activity</code> 的生命周期，数据恢复，减少内存泄漏的风险等。</p>
 <h2 id="架构组件的功能"><a href="#架构组件的功能" class="headerlink" title="架构组件的功能"></a>架构组件的功能</h2><ul>
-<li><p><code>Lifecycles</code></p>
+<li><p><code>Lifecycle-Aware</code></p>
 <p>是一套可以感知 Activity Fragment 生命周期的框架，其中有三个概念：</p>
 <ol>
 <li>Lifecycle ：是一个对象，表示 Android 中的生命周期</li>
@@ -470,13 +470,9 @@
 <li><p><code>WorkManager</code> <code>New</code></p>
 <p>可以轻松指定可延迟的异步任务以及何时运行。 这些 API 可让创建任务并将其交给 WorkManager，以便立即或在适当的时间运行。</p>
 </li>
-<li><p><code>Data Binding</code></p>
-<p>数据绑定库，可以实现修改数据后，然后自动更新 UI，从 <code>生命周期组件 2.0</code> 开始被默认引入，划入 <code>Jetpack</code> 架构组件的一部分。</p>
-</li>
 </ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>主要大致介绍了 <code>Lifecycles</code> &amp; <code>LiveData</code> &amp; <code>ViewModel</code>， 这三个组件也被称为 <code>生命周期感知组件</code> ，他们通常都是一起使用的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>主要大致介绍了 <code>Lifecycles</code> &amp; <code>LiveData</code> &amp; <code>ViewModel</code>，基于，他们通常都是一起使用的。</p>
 <p>并且从 <code>Support-Library 26.1</code> 开始 FragmentActivity 和 Fragment 都默认实现好了 LifecycleOwner 这些接口，引入 <code>Support-Library</code> 的同时也会包含 <code>生命周期感知组件</code> 。</p>
-<p>所以如果想写一个靠谱的 Android App，使用 <code>生命周期感知组件</code> 是必不可少的。</p>
 
       
     </div>
@@ -536,8 +532,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/01/Android-现代-Android-开发/" rel="next" title="Android - 现代 Android 开发">
-                <i class="fa fa-chevron-left"></i> Android - 现代 Android 开发
+              <a href="/2018/06/01/Android-现代-Android-开发/" rel="next" title="Android - 现代 Android 开发之旅">
+                <i class="fa fa-chevron-left"></i> Android - 现代 Android 开发之旅
               </a>
             
           </div>
