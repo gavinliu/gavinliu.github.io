@@ -315,6 +315,369 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/04/15/JavaWeb---ServletContext-随笔/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2012/04/15/JavaWeb---ServletContext-随笔/" itemprop="url">
+                  Java.Web - ServletContext 随笔
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2012-04-15 10:26:44" itemprop="dateCreated datePublished" datetime="2012-04-15T10:26:44+08:00">2012-04-15</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java-Web-Notes/" itemprop="url" rel="index"><span itemprop="name">Java.Web Notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2012/04/15/JavaWeb---ServletContext-随笔/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2012/04/15/JavaWeb---ServletContext-随笔/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Servlet容器在启动时会加载Web应用，并为 每个Web应用创建 唯一的 ServletContext 对象。<br>可以把ServletContext看成是一个Web应用的服务器端组件的共享内存。<br>ServletContext对象只在Web应用被关闭时才被销毁；不同的Web应用 ServletContext各自独立存在。</p>
+<h2 id="在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法"><a href="#在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法" class="headerlink" title="在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法:"></a>在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法:</h2><ul>
+<li>1）setAttribute(String name,Object object);//把一个对象和一个属性名绑定，将这个对象存储在ServletContext中；</li>
+<li>2）getAttribute(String name);//根据指定的属 性名返回所绑定的对象；</li>
+<li>3）removeAttribute(String name);//根据给定的属性名从ServletContext中删除相应的操作；</li>
+<li>4）getAttributeNames();//返回Enumeration对象，它包含了存储在ServletContext对象中的所有属性名</li>
+</ul>
+<h3 id="ServletContext-VS-Session"><a href="#ServletContext-VS-Session" class="headerlink" title="ServletContext VS Session"></a>ServletContext VS Session</h3><ul>
+<li>ServletContext和Session相同，都是存在服务器端的东西</li>
+<li>ServletContext和Session不同，ServletVontext是所有浏览器共享的， Session是一个浏览器对应一个session</li>
+</ul>
+<p>ServletContext 案例：1.公共聊天室缓存 2.聊天室的在线人数</p>
+<h2 id="ServletContext-实现转发：-和派发器是一样的"><a href="#ServletContext-实现转发：-和派发器是一样的" class="headerlink" title="ServletContext 实现转发：//和派发器是一样的"></a>ServletContext 实现转发：//和派发器是一样的</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.getServletContext().getRequestDispatcher(<span class="string">"/servlet2"</span>).forward(request,response);</span><br><span class="line"><span class="keyword">this</span>.getServletContext().getRequestDispatcher(<span class="string">"/servlet2"</span>).include(request, response);</span><br></pre></td></tr></table></figure>
+<p>注意：forward与include的区别</p>
+<ul>
+<li>forward方法是把请求的内容转发到另外的一个servlet.include是把另一个servlet处理过后的内容拿过来.</li>
+<li>forward方法调用后在响应中的没有提交的内容被自动消除。将请求转发给其他的Servlet后，由被调用的Servlet负责对请求做出响应，而原先Servlet的执行则终止</li>
+<li>include方法使原先的Servlet和转发到的Servlet都可以输出响应信息，即原先的Servlet还可以继续输出响应信息
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2012/04/15/JavaWeb---ServletContext-随笔/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/04/08/JavaWeb---转向-转发-随笔/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2012/04/08/JavaWeb---转向-转发-随笔/" itemprop="url">
+                  Java.Web - 转向 转发 随笔
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2012-04-08 10:22:08" itemprop="dateCreated datePublished" datetime="2012-04-08T10:22:08+08:00">2012-04-08</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java-Web-Notes/" itemprop="url" rel="index"><span itemprop="name">Java.Web Notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2012/04/08/JavaWeb---转向-转发-随笔/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2012/04/08/JavaWeb---转向-转发-随笔/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、页面转向"><a href="#一、页面转向" class="headerlink" title="一、页面转向"></a>一、页面转向</h2><p>页面转向可以调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>页面转向时request和response的信息都丢失了，它是重新发起一个定向请求，和原先的没有关系了.</li>
+<li>由于它是新的定向请求，所以效率不高。页面转向可以用在同一个应用中，也可以用在不同应用中。也就是说redirect可以转到外部系统。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);  </span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">response.setStatus(<span class="number">302</span>);</span><br><span class="line">response.setHeader(<span class="string">"Location"</span>,<span class="string">"xx.jsp"</span>);</span><br></pre></td></tr></table></figure>
+<h2 id="二、页面转发"><a href="#二、页面转发" class="headerlink" title="二、页面转发"></a>二、页面转发</h2><p>页面转发调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestDispatcher(<span class="string">"xx.jsp"</span>).forward(request,response);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>页面转发效率高，同时request中的对象还可以在下一页面使用</li>
+<li><p>注：转发不能转发到本web服务器以外的地址</p>
+</li>
+<li><p>转发：指一个web资源收到客户端请求，通知服务器去调用另外一个web资源进行处理。</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取username 的值</span></span><br><span class="line">String u = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line"><span class="comment">// 设置request的属性</span></span><br><span class="line">request.setAttribute(<span class="string">"username"</span>,u);</span><br><span class="line"><span class="comment">// 使用转发的方法，把 request,response对象转发个下一个页面</span></span><br><span class="line"><span class="comment">// 所以下一个页面和上一个页面用的是同一个  request,response对象 ，可以获取相应的值</span></span><br><span class="line">request.getRequestDispatcher(<span class="string">"/servlet2"</span>).forward(request,response);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/04/01/JavaWeb---Servlet-随笔/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1398,7 +1761,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">126</span>
+                    <span class="site-state-item-count">128</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1664,7 +2027,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">99</span>
+                      
+                    
+                    <span class="site-state-item-count">100</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1948,6 +2313,10 @@
 
   
   
+    
+      
+    
+      
     
       
     

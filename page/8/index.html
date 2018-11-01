@@ -315,6 +315,329 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2015/06/18/在Ubuntu中安装Xware迅雷远程下载/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/06/18/在Ubuntu中安装Xware迅雷远程下载/" itemprop="url">
+                  在Ubuntu中安装Xware迅雷远程下载
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-06-18 12:44:01" itemprop="dateCreated datePublished" datetime="2015-06-18T12:44:01+08:00">2015-06-18</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/06/18/在Ubuntu中安装Xware迅雷远程下载/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/06/18/在Ubuntu中安装Xware迅雷远程下载/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>公司的电脑平时一直处于开机状态, 压榨电脑的剩余价值, 网速又好, 寻思着弄成下载机, 迅雷给路由器做的版本叫Xware, 找了下发现有x86版本, 顺势装在Ubuntu上了.</p>
+<p><a href="http://pan.baidu.com/s/1dDEprRN" target="_blank" rel="noopener">Xware1.0.31 点击下载</a></p>
+<figure class="highlight bash"><figcaption><span>解压后有四个文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-rw-rw-rw- 1 gavin gavin 4.1M  8月 27  2014 EmbedThunderManager</span><br><span class="line">-rw-rw-rw- 1 gavin gavin  24K  8月 27  2014 ETMDaemon</span><br><span class="line">-rw-rw-rw- 1 gavin gavin 111K  8月 27  2014 portal</span><br><span class="line">-rw-rw-rw- 1 gavin gavin  23K  8月 27  2014 vod_httpserver</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>执行./portal</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">initing...</span><br><span class="line">try stopping xunlei service first...</span><br><span class="line">killall: ETMDaemon: no process killed</span><br><span class="line">killall: EmbedThunderManager: no process killed</span><br><span class="line">killall: vod_httpserver: no process killed</span><br><span class="line">setting xunlei runtime env...</span><br><span class="line">port: 9000 is usable.</span><br><span class="line"></span><br><span class="line">YOUR CONTROL PORT IS: 9000</span><br><span class="line"></span><br><span class="line">starting xunlei service...</span><br><span class="line">etm path: /home/gavin/Software/Xware1.0.31_x86_32_glibc</span><br><span class="line">execv: /home/gavin/Software/Xware1.0.31_x86_32_glibc/lib/ETMDaemon.</span><br><span class="line"></span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to 127.0.0.1:9000 (127.0.0.1:9000)</span><br><span class="line">the active key is not valid.</span><br><span class="line"></span><br><span class="line">try again...(has tried 1 time(s)).</span><br><span class="line">getting xunlei service info...</span><br><span class="line">Connecting to 127.0.0.1:9000 (127.0.0.1:9000)</span><br><span class="line"></span><br><span class="line">THE ACTIVE CODE IS: ******</span><br><span class="line"></span><br><span class="line">go to http://yuancheng.xunlei.com, <span class="built_in">bind</span> your device with the active code.</span><br><span class="line">finished.</span><br></pre></td></tr></table></figure>
+<p>把 ACTIVE CODE 填入 <a href="http://yuancheng.xunlei.com/" target="_blank" rel="noopener">http://yuancheng.xunlei.com/</a> 中, 就算完成了.</p>
+<p>完成上一步, 还有个问题, xware是针对嵌入式设备的, xware只会检测挂载到/media目录下可写的设备, 所以我们需要把本地的某个文件夹, 挂载到/media, 同时我们又不希望一插入U盘就被识别为xware可用目录, 于是我们还需要换一个用户专门用来启动xware.</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/06/18/在Ubuntu中安装Xware迅雷远程下载/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2015/06/10/Android-ListView奇淫绝技/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2015/06/10/Android-ListView奇淫绝技/" itemprop="url">
+                  Android - ListView 奇淫绝技
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-06-10 19:40:55" itemprop="dateCreated datePublished" datetime="2015-06-10T19:40:55+08:00">2015-06-10</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android-Notes/" itemprop="url" rel="index"><span itemprop="name">Android Notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2015/06/10/Android-ListView奇淫绝技/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/06/10/Android-ListView奇淫绝技/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>问题: 如果你遇到下面这样的界面会怎样实现呢?<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> ————————————</span><br><span class="line">|            |</span><br><span class="line">|            |</span><br><span class="line"> ————————————</span><br><span class="line"> —————  —————</span><br><span class="line">|     ||     |</span><br><span class="line"> —————  —————</span><br><span class="line"> ——   ——   ——</span><br><span class="line">|  | |  | |  |</span><br><span class="line"> ——   ——   ——</span><br><span class="line"> —————   ————</span><br><span class="line">|     | |    |</span><br><span class="line">|     |  ————</span><br><span class="line">|     |  ————</span><br><span class="line">|     | |    |</span><br><span class="line">|     |  ————</span><br><span class="line">|     |  ————</span><br><span class="line">|     | |    |</span><br><span class="line"> —————   ————</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/06/10/Android-ListView奇淫绝技/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2015/05/25/Android-Animation-次序之美/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1708,345 +2031,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2015/03/30/Android-Animation-贝塞尔曲线之美/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="刘云龙的程序世界">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin.Liu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/03/30/Android-Animation-贝塞尔曲线之美/" itemprop="url">
-                  Android - Animation 贝塞尔曲线之美
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-03-30 15:20:04" itemprop="dateCreated datePublished" datetime="2015-03-30T15:20:04+08:00">2015-03-30</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android-Notes/" itemprop="url" rel="index"><span itemprop="name">Android Notes</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/03/30/Android-Animation-贝塞尔曲线之美/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/03/30/Android-Animation-贝塞尔曲线之美/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>贝塞尔曲线于1962，由法国工程师皮埃尔·贝塞尔所广泛发表，他运用贝塞尔曲线来为汽车的主体进行设计。贝塞尔曲线最初由Paul de Casteljau于1959年运用de Casteljau演算法开发，以稳定数值的方法求出贝兹曲线。<br>在计算机图形学中贝赛尔曲线的运用也很广泛，Photoshop中的钢笔效果，Flash5的贝塞尔曲线工具，在软件GUI开发中一般也会提供对应的方法来实现贝赛尔曲线。</p>
-<h3 id="线性公式"><a href="#线性公式" class="headerlink" title="线性公式"></a>线性公式</h3><p>给定点P0、P1，线性贝兹曲线只是一条两点之间的直线。这条线由下式给出：<br><code>B(t) = P0 + (P1 - P0) * t = (1 - t) * P0 + t * P1, t ∈ [0, 1]</code><br>且其等同于线性插值。</p>
-<h3 id="二次方公式"><a href="#二次方公式" class="headerlink" title="二次方公式"></a>二次方公式</h3><p>二次方贝兹曲线的路径由给定点P0、P1、P2的函数B（t）追踪：<br><code>B(t) = (1 - t)^2 * P0 + 2t * (1 - t) * P1 + t^2 * P2, t ∈ [0,1]</code><br>TrueType字型就运用了以贝兹样条组成的二次贝兹曲线。</p>
-<p><a href="http://baike.baidu.com/view/60154.htm#3" target="_blank" rel="noopener">百度百科 详细资料</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/03/30/Android-Animation-贝塞尔曲线之美/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2015/03/26/Android-Animation-三角函数之美/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="刘云龙的程序世界">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin.Liu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2015/03/26/Android-Animation-三角函数之美/" itemprop="url">
-                  Android - Animation 三角函数之美
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2015-03-26 10:25:49" itemprop="dateCreated datePublished" datetime="2015-03-26T10:25:49+08:00">2015-03-26</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android-Notes/" itemprop="url" rel="index"><span itemprop="name">Android Notes</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2015/03/26/Android-Animation-三角函数之美/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2015/03/26/Android-Animation-三角函数之美/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>初中数学中的三角函数sin，cos…是超越函数一类函数，属于初等函数，通常用平面直角坐标系来定义三角函数，如下图。<br><img src="/images/2015.03.26 - Android-Animation-三角函数之美3.png" alt="sin(x)"><br>在中学中我们通常把sin(x)的x赋值为角度，比如sin(30°)=1/2，而在计算机语言中x通常是弧度，sin(π/6)=1/2。<br>完整的正弦函数是这样的 <code>y = a * sin(wx + b) + h</code> : a影响振幅，w影响周期，h影响y位置，b为初相。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/03/26/Android-Animation-三角函数之美/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2098,7 +2082,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">126</span>
+                    <span class="site-state-item-count">128</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2364,7 +2348,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">99</span>
+                      
+                    
+                    <span class="site-state-item-count">100</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

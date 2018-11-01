@@ -315,6 +315,336 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/" itemprop="url">
+                  Java - 通过优酷网视频播放网址解析出Mp4格式的单个文件
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2013-04-22 21:01:59" itemprop="dateCreated datePublished" datetime="2013-04-22T21:01:59+08:00">2013-04-22</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java-Notes/" itemprop="url" rel="index"><span itemprop="name">Java Notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2013/04/22/Java-通过优酷网视频播放网址解析出Mp4格式的单个文件/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html" target="_blank" rel="noopener">http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html</a> 简单粗暴，贴出解析代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正则表达式去除视频id</span></span><br><span class="line">String path = <span class="string">"http://v.youku.com/v_show/id_XNjExMTQ5OTIw.html"</span>;</span><br><span class="line">Pattern p = Pattern.compile(<span class="string">".*id_(\\w+)\\.html"</span>);</span><br><span class="line">Matcher m = p.matcher(path);</span><br><span class="line">String id = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">if</span> (m.find()) &#123;</span><br><span class="line">	id = m.group(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 解析部分</span></span><br><span class="line">String s = <span class="string">"https://openapi.youku.com/v2/videos/files.json?client_id=513edb6cf9833ca7&amp;client_secret=eaf151ffdbf1383d934ab4cb91250fa6&amp;type=play&amp;video_id="</span>;</span><br><span class="line"><span class="comment">// 这里为HTTP获取得到Response，自己去实现</span></span><br><span class="line">String json = HttpUtil.changeInputStream(HttpUtil.getInputStream(s + id));</span><br><span class="line"><span class="comment">// 解析Json</span></span><br><span class="line">JSONObject object = <span class="keyword">new</span> JSONObject(json);</span><br><span class="line">object = object.getJSONObject(<span class="string">"files"</span>);</span><br><span class="line">object = object.getJSONObject(<span class="string">"3gphd"</span>);</span><br><span class="line">object = object.getJSONArray(<span class="string">"segs"</span>).getJSONObject(<span class="number">0</span>);</span><br><span class="line">String url = object.getString(<span class="string">"url"</span>);</span><br><span class="line">System.out.println(url);</span><br></pre></td></tr></table></figure></p>
+<p>最后输出：<br><a href="http://180.96.38.43/youku/65738D58CD431813202EE93924/0300200100523B433B57D707A71947923FEF7E-8BE5-FC18-E182-7B619D650F21.mp4" target="_blank" rel="noopener">http://180.96.38.43/youku/65738D58CD431813202EE93924/0300200100523B433B57D707A71947923FEF7E-8BE5-FC18-E182-7B619D650F21.mp4</a><br>注意这个链接是有时效性的！获取出来就尽快使用。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2013/04/08/Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2013/04/08/Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串/" itemprop="url">
+                  Java - 抓取优酷网视频播放页面(使用jsoup解析html,正则表达式处理字符串)
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2013-04-08 20:55:41" itemprop="dateCreated datePublished" datetime="2013-04-08T20:55:41+08:00">2013-04-08</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java-Notes/" itemprop="url" rel="index"><span itemprop="name">Java Notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2013/04/08/Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2013/04/08/Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近在研究视频播放这块儿，然后打算做一款视频聚合类的软件，首先把优酷聚合搞定吧！<br>我们首先得把优酷网的视频播放页面的地址解析出来，由于优酷有很多拍客的视频，这些拍客的视频当然不是我们想要的，通过优酷网的页面分析，应该从优酷的节目列表页开始抓取，页面如下。<br><a href="http://www.youku.com/v_olist/c_96_a__s__g__r__lg__im__st__mt__tg__d_1_et_0_ag_0_fv_0_fl__fc__fe__o_7_p_1.html" target="_blank" rel="noopener">http://www.youku.com/v_olist/c_96_a__s__g__r__lg__im__st__mt__tg__d_1_et_0_ag_0_fv_0_fl__fc__fe__o_7_p_1.html</a><br>我们使用 jsoup 开发包进行 html 的解析，完整代码如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.gavin.video.down;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Matcher;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.jsoup.Jsoup;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Document;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Element;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.select.Elements;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DownYouku</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String ss = <span class="string">"http://www.youku.com/v_olist/c_96_a__s__g__r__lg__im__st__mt__tg__d_1_et_0_ag_0_fv_0_fl__fc__fe__o_7_p_1.html"</span>;</span><br><span class="line">		<span class="keyword">new</span> DownYouku().downMovie(ss);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">downMovie</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">		String homeurl = <span class="string">""</span>;</span><br><span class="line">		String page = <span class="string">""</span>;</span><br><span class="line">		String suf = <span class="string">""</span>;</span><br><span class="line">		<span class="comment">// 正则表达式处理 解析地址</span></span><br><span class="line">		Pattern p_url = Pattern.compile(<span class="string">"(.*)(\\d)(\\.html)"</span>);</span><br><span class="line">		Matcher m_url = p_url.matcher(str);</span><br><span class="line">		<span class="keyword">if</span> (m_url.find()) &#123;</span><br><span class="line">			homeurl = m_url.group(<span class="number">1</span>);</span><br><span class="line">			page = m_url.group(<span class="number">2</span>);</span><br><span class="line">			suf = m_url.group(<span class="number">3</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 循环抓取</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = Integer.parseInt(page); i &lt;= <span class="number">30</span>; i++) &#123;</span><br><span class="line">			String path = homeurl + i + suf;</span><br><span class="line">			Document doc1 = <span class="keyword">null</span>;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				doc1 = Jsoup.connect(path).get();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e2) &#123;</span><br><span class="line">				System.out.println(<span class="string">"&gt;&gt;&gt;&gt;&gt;&gt;IO 错误 1"</span>);</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			Element listofficial = doc1.getElementById(<span class="string">"listofficial"</span>);</span><br><span class="line">			Elements p_pvs = listofficial.getElementsByTag(<span class="string">"ul"</span>);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">40</span>; j++) &#123;</span><br><span class="line">				Element p_pv = p_pvs.get(j);</span><br><span class="line">				String a = p_pv.getElementsByTag(<span class="string">"a"</span>).attr(<span class="string">"href"</span>);</span><br><span class="line">				String title = p_pv.getElementsByTag(<span class="string">"a"</span>).attr(<span class="string">"title"</span>);</span><br><span class="line">				Document doc2 = <span class="keyword">null</span>;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					doc2 = Jsoup.connect(a).get();</span><br><span class="line">				&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">					System.out.println(<span class="string">"&gt;&gt;&gt;&gt;&gt;&gt;IO 错误 2"</span>);</span><br><span class="line">					<span class="keyword">continue</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				Element showInfo = doc2.getElementById(<span class="string">"showInfo"</span>);</span><br><span class="line">				Element baseinfo = showInfo.getElementsByClass(<span class="string">"baseinfo"</span>).get(<span class="number">0</span>);</span><br><span class="line">				Elements link = baseinfo.getElementsByClass(<span class="string">"link"</span>);</span><br><span class="line">				Element url_a = <span class="keyword">null</span>;</span><br><span class="line">				<span class="keyword">if</span> (link.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">					url_a = link.get(<span class="number">0</span>).getElementsByTag(<span class="string">"a"</span>).get(<span class="number">0</span>);</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">					System.out.println(title + <span class="string">" : "</span> + <span class="string">"无视频链接"</span>);</span><br><span class="line">					<span class="keyword">continue</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				String url = url_a.attr(<span class="string">"href"</span>);</span><br><span class="line">				System.out.print(url + <span class="string">"\t\t"</span>);</span><br><span class="line">				System.out.println(title);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>抓取结果：<br><img src="/images/2013.04.08 - Java-抓取优酷网视频播放页面-使用jsoup解析html-正则表达式处理字符串.png" alt="image"><br>内容就提取了这么两项，其他的内容 照着优酷的 html dom 很容易就提取出来了。<br>ok！现在我们有了，视频的播放地址，下篇博文讲讲怎么通过这个地址，来解析出视频的真实地址，然后在移动设备上播放。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/11/20/Android-【Pic-FM】/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1667,369 +1997,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/04/15/JavaWeb---ServletContext-随笔/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="刘云龙的程序世界">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin.Liu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2012/04/15/JavaWeb---ServletContext-随笔/" itemprop="url">
-                  Java.Web - ServletContext 随笔
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2012-04-15 10:26:44" itemprop="dateCreated datePublished" datetime="2012-04-15T10:26:44+08:00">2012-04-15</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java-Web-Notes/" itemprop="url" rel="index"><span itemprop="name">Java.Web Notes</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2012/04/15/JavaWeb---ServletContext-随笔/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2012/04/15/JavaWeb---ServletContext-随笔/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Servlet容器在启动时会加载Web应用，并为 每个Web应用创建 唯一的 ServletContext 对象。<br>可以把ServletContext看成是一个Web应用的服务器端组件的共享内存。<br>ServletContext对象只在Web应用被关闭时才被销毁；不同的Web应用 ServletContext各自独立存在。</p>
-<h2 id="在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法"><a href="#在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法" class="headerlink" title="在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法:"></a>在ServletContext中可以存放共享数据，它提供了4个读取或设置共享数据的方法:</h2><ul>
-<li>1）setAttribute(String name,Object object);//把一个对象和一个属性名绑定，将这个对象存储在ServletContext中；</li>
-<li>2）getAttribute(String name);//根据指定的属 性名返回所绑定的对象；</li>
-<li>3）removeAttribute(String name);//根据给定的属性名从ServletContext中删除相应的操作；</li>
-<li>4）getAttributeNames();//返回Enumeration对象，它包含了存储在ServletContext对象中的所有属性名</li>
-</ul>
-<h3 id="ServletContext-VS-Session"><a href="#ServletContext-VS-Session" class="headerlink" title="ServletContext VS Session"></a>ServletContext VS Session</h3><ul>
-<li>ServletContext和Session相同，都是存在服务器端的东西</li>
-<li>ServletContext和Session不同，ServletVontext是所有浏览器共享的， Session是一个浏览器对应一个session</li>
-</ul>
-<p>ServletContext 案例：1.公共聊天室缓存 2.聊天室的在线人数</p>
-<h2 id="ServletContext-实现转发：-和派发器是一样的"><a href="#ServletContext-实现转发：-和派发器是一样的" class="headerlink" title="ServletContext 实现转发：//和派发器是一样的"></a>ServletContext 实现转发：//和派发器是一样的</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.getServletContext().getRequestDispatcher(<span class="string">"/servlet2"</span>).forward(request,response);</span><br><span class="line"><span class="keyword">this</span>.getServletContext().getRequestDispatcher(<span class="string">"/servlet2"</span>).include(request, response);</span><br></pre></td></tr></table></figure>
-<p>注意：forward与include的区别</p>
-<ul>
-<li>forward方法是把请求的内容转发到另外的一个servlet.include是把另一个servlet处理过后的内容拿过来.</li>
-<li>forward方法调用后在响应中的没有提交的内容被自动消除。将请求转发给其他的Servlet后，由被调用的Servlet负责对请求做出响应，而原先Servlet的执行则终止</li>
-<li>include方法使原先的Servlet和转发到的Servlet都可以输出响应信息，即原先的Servlet还可以继续输出响应信息
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2012/04/15/JavaWeb---ServletContext-随笔/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/04/08/JavaWeb---转向-转发-随笔/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="刘云龙的程序世界">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin.Liu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2012/04/08/JavaWeb---转向-转发-随笔/" itemprop="url">
-                  Java.Web - 转向 转发 随笔
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2012-04-08 10:22:08" itemprop="dateCreated datePublished" datetime="2012-04-08T10:22:08+08:00">2012-04-08</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java-Web-Notes/" itemprop="url" rel="index"><span itemprop="name">Java.Web Notes</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2012/04/08/JavaWeb---转向-转发-随笔/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2012/04/08/JavaWeb---转向-转发-随笔/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="一、页面转向"><a href="#一、页面转向" class="headerlink" title="一、页面转向"></a>一、页面转向</h2><p>页面转向可以调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>页面转向时request和response的信息都丢失了，它是重新发起一个定向请求，和原先的没有关系了.</li>
-<li>由于它是新的定向请求，所以效率不高。页面转向可以用在同一个应用中，也可以用在不同应用中。也就是说redirect可以转到外部系统。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">response.sendRedirect(<span class="string">"xx.jsp"</span>);  </span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">response.setStatus(<span class="number">302</span>);</span><br><span class="line">response.setHeader(<span class="string">"Location"</span>,<span class="string">"xx.jsp"</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="二、页面转发"><a href="#二、页面转发" class="headerlink" title="二、页面转发"></a>二、页面转发</h2><p>页面转发调用函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.getRequestDispatcher(<span class="string">"xx.jsp"</span>).forward(request,response);</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>页面转发效率高，同时request中的对象还可以在下一页面使用</li>
-<li><p>注：转发不能转发到本web服务器以外的地址</p>
-</li>
-<li><p>转发：指一个web资源收到客户端请求，通知服务器去调用另外一个web资源进行处理。</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取username 的值</span></span><br><span class="line">String u = request.getParameter(<span class="string">"username"</span>);</span><br><span class="line"><span class="comment">// 设置request的属性</span></span><br><span class="line">request.setAttribute(<span class="string">"username"</span>,u);</span><br><span class="line"><span class="comment">// 使用转发的方法，把 request,response对象转发个下一个页面</span></span><br><span class="line"><span class="comment">// 所以下一个页面和上一个页面用的是同一个  request,response对象 ，可以获取相应的值</span></span><br><span class="line">request.getRequestDispatcher(<span class="string">"/servlet2"</span>).forward(request,response);</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2081,7 +2048,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">126</span>
+                    <span class="site-state-item-count">128</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2347,7 +2314,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">99</span>
+                      
+                    
+                    <span class="site-state-item-count">100</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
