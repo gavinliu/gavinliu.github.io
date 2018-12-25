@@ -26,6 +26,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -62,19 +69,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple-touch-icon-next.png?v=6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple-touch-icon-next.png?v=6.6.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
 
 
-  <link rel="mask-icon" href="/images/favicon-logo.svg?v=6.3.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon-logo.svg?v=6.6.0" color="#222">
 
 
 
@@ -89,7 +96,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '6.3.0',
+    version: '6.6.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     fastclick: false,
@@ -144,6 +151,17 @@
   <title>Gavin.Liu</title>
   
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131359476-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-131359476-1');
+</script>
 
 
 
@@ -231,40 +249,85 @@
         
           
           <li class="menu-item menu-item-home menu-item-active">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+
   </li>
 
       
@@ -334,9 +397,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/16/Android-Side-Project-Snapmod/" itemprop="url">
-                  Android - Snapmod 带壳截图
-                </a>
+                
+                <a href="/2018/07/16/Android-Side-Project-Snapmod/" class="post-title-link" itemprop="http://gavinliu.cn/index.html">Android - Snapmod 带壳截图</a>
               
             
           </h2>
@@ -364,6 +426,22 @@
               <time title="创建时间：2018-07-16 22:06:36" itemprop="dateCreated datePublished" datetime="2018-07-16T22:06:36+08:00">2018-07-16</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-01 14:14:12" itemprop="dateModified" datetime="2018-11-01T14:14:12+08:00">2018-11-01</time>
+              
             
           </span>
 
@@ -428,11 +506,13 @@
 <p>好久没有独立开发一款软件了，起因是最近换了 <code>小米 8</code>，一直有带壳截图的习惯，发现市面上的软件都太烂了，于是乎自己撸一个吧，顺便实践一下 <code>Material Design 2</code> 和 <code>Jetpack</code></p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/16/Android-Side-Project-Snapmod/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/16/Android-Side-Project-Snapmod/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -446,6 +526,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -504,9 +587,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/07/02/Android-现代-Android-开发之旅-Gitbook/" itemprop="url">
-                  Android - 现代 Android 开发之旅 Gitbook
-                </a>
+                
+                <a href="/2018/07/02/Android-现代-Android-开发之旅-Gitbook/" class="post-title-link" itemprop="http://gavinliu.cn/index.html">Android - 现代 Android 开发之旅 Gitbook</a>
               
             
           </h2>
@@ -534,6 +616,22 @@
               <time title="创建时间：2018-07-02 23:06:36" itemprop="dateCreated datePublished" datetime="2018-07-02T23:06:36+08:00">2018-07-02</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-01 13:53:54" itemprop="dateModified" datetime="2018-11-01T13:53:54+08:00">2018-11-01</time>
+              
             
           </span>
 
@@ -598,11 +696,13 @@
 <p>整个系列觉得很适合用 Gitbook 来整理，所以决定单开一个项目，详情见：<br>Github: <a href="https://github.com/gavinliu/A-tour-of-modern-Android-app-development" target="_blank" rel="noopener">A-tour-of-modern-Android-app-development</a><br>Gitbook: <a href="http://gavinliu.cn/A-tour-of-modern-Android-app-development/">现代 Android 开发之旅</a></p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/07/02/Android-现代-Android-开发之旅-Gitbook/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/07/02/Android-现代-Android-开发之旅-Gitbook/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -616,6 +716,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -674,9 +777,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/04/Android-现代-Android-开发之旅-1-架构组件/" itemprop="url">
-                  Android - 现代 Android 开发之旅 1.架构组件
-                </a>
+                
+                <a href="/2018/06/04/Android-现代-Android-开发之旅-1-架构组件/" class="post-title-link" itemprop="http://gavinliu.cn/index.html">Android - 现代 Android 开发之旅 1.架构组件</a>
               
             
           </h2>
@@ -704,6 +806,22 @@
               <time title="创建时间：2018-06-04 23:06:36" itemprop="dateCreated datePublished" datetime="2018-06-04T23:06:36+08:00">2018-06-04</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-01 12:02:22" itemprop="dateModified" datetime="2018-11-01T12:02:22+08:00">2018-11-01</time>
+              
             
           </span>
 
@@ -768,11 +886,13 @@
 <p>本系列文章默认读者已经熟悉基础的 Android 开发知识。如果你是一名刚刚学习 Android 的同学，不熟悉基础的开发知识，请先行学习基础内容。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/04/Android-现代-Android-开发之旅-1-架构组件/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/06/04/Android-现代-Android-开发之旅-1-架构组件/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -786,6 +906,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -844,9 +967,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/01/Android-现代-Android-开发/" itemprop="url">
-                  Android - 现代 Android 开发之旅
-                </a>
+                
+                <a href="/2018/06/01/Android-现代-Android-开发/" class="post-title-link" itemprop="http://gavinliu.cn/index.html">Android - 现代 Android 开发之旅</a>
               
             
           </h2>
@@ -874,6 +996,22 @@
               <time title="创建时间：2018-06-01 17:59:19" itemprop="dateCreated datePublished" datetime="2018-06-01T17:59:19+08:00">2018-06-01</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-01 12:02:11" itemprop="dateModified" datetime="2018-11-01T12:02:11+08:00">2018-11-01</time>
+              
             
           </span>
 
@@ -938,11 +1076,13 @@
 <p>将近一年没写博客了，最近这一年写的东西有点杂，不像在魅族上班大把时间都花在 Android 上。这次借助 Google I/O，又好好刷了一波 Android 新知识点</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/01/Android-现代-Android-开发/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/06/01/Android-现代-Android-开发/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -956,6 +1096,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -1014,9 +1157,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/05/29/Server-UFW-Linux上最简单的防火墙配置工具/" itemprop="url">
-                  Server - UFW Linux上最简单的防火墙配置工具
-                </a>
+                
+                <a href="/2018/05/29/Server-UFW-Linux上最简单的防火墙配置工具/" class="post-title-link" itemprop="http://gavinliu.cn/index.html">Server - UFW Linux上最简单的防火墙配置工具</a>
               
             
           </h2>
@@ -1044,6 +1186,22 @@
               <time title="创建时间：2018-05-29 11:05:58" itemprop="dateCreated datePublished" datetime="2018-05-29T11:05:58+08:00">2018-05-29</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-01 12:02:17" itemprop="dateModified" datetime="2018-11-01T12:02:17+08:00">2018-11-01</time>
+              
             
           </span>
 
@@ -1108,11 +1266,13 @@
 <p>为了服务器的安全一般都会在 Linux 上配置防火墙，对于一般开发者而言来说想要搞懂 iptable 这些东西，要花不少时间。UFW 就是一款 Linux 管理防火墙规则的工具，通过简单的几行命令使防火墙配置变得非常简单。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/29/Server-UFW-Linux上最简单的防火墙配置工具/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/05/29/Server-UFW-Linux上最简单的防火墙配置工具/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -1126,6 +1286,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -1184,9 +1347,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/22/Android-吃奥利奥系列-1-Notification/" itemprop="url">
-                  Android - 吃奥利奥系列(1) Notification
-                </a>
+                
+                <a href="/2017/08/22/Android-吃奥利奥系列-1-Notification/" class="post-title-link" itemprop="http://gavinliu.cn/index.html">Android - 吃奥利奥系列(1) Notification</a>
               
             
           </h2>
@@ -1214,6 +1376,22 @@
               <time title="创建时间：2017-08-22 15:42:21" itemprop="dateCreated datePublished" datetime="2017-08-22T15:42:21+08:00">2017-08-22</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-01 12:02:19" itemprop="dateModified" datetime="2018-11-01T12:02:19+08:00">2018-11-01</time>
+              
             
           </span>
 
@@ -1278,11 +1456,13 @@
 <p><code>Android 8.0</code> 今天正式发布了，你还在用哪个版本呢？<br>言归正传，本次更新了不少内容，这篇为你介绍如何创建 通知渠道 &amp; 通知角标</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/22/Android-吃奥利奥系列-1-Notification/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/08/22/Android-吃奥利奥系列-1-Notification/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -1296,6 +1476,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -1354,9 +1537,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/18/Android-Support-Library-1/" itemprop="url">
-                  Android - Support Library (1)
-                </a>
+                
+                <a href="/2017/07/18/Android-Support-Library-1/" class="post-title-link" itemprop="http://gavinliu.cn/index.html">Android - Support Library (1)</a>
               
             
           </h2>
@@ -1384,6 +1566,22 @@
               <time title="创建时间：2017-07-18 16:18:24" itemprop="dateCreated datePublished" datetime="2017-07-18T16:18:24+08:00">2017-07-18</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-01 12:03:34" itemprop="dateModified" datetime="2018-11-01T12:03:34+08:00">2018-11-01</time>
+              
             
           </span>
 
@@ -1448,11 +1646,13 @@
 <p>在魅族的时候各种控件都是自定义的，对 <code>Support Library</code> 的移植有专门的组负责，对于 <code>Support Library</code> 的学习也只是写写 Demo 那种程度，离职之后开发很多东西需要亲力亲为了，需要大量使用到 <code>Support Library</code>，所以写个系列，挨个介绍 <code>Support Library</code>，同时作为学习笔记。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/18/Android-Support-Library-1/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/07/18/Android-Support-Library-1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -1466,6 +1666,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -1524,9 +1727,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/22/RxJava2-onError-crash/" itemprop="url">
-                  RxJava2 - onError 在 Monkey Test 下 crash 解决方案
-                </a>
+                
+                <a href="/2017/05/22/RxJava2-onError-crash/" class="post-title-link" itemprop="http://gavinliu.cn/index.html">RxJava2 - onError 在 Monkey Test 下 crash 解决方案</a>
               
             
           </h2>
@@ -1554,6 +1756,22 @@
               <time title="创建时间：2017-05-22 11:23:17" itemprop="dateCreated datePublished" datetime="2017-05-22T11:23:17+08:00">2017-05-22</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-07-13 09:40:49" itemprop="dateModified" datetime="2017-07-13T09:40:49+08:00">2017-07-13</time>
+              
             
           </span>
 
@@ -1618,11 +1836,13 @@
 <p>RxJava2, 在 <code>Monkey Testing</code> 的时候，总会报一些错误，这些错误都是调用 onError 发生的，理论上说 onError 就是专门处理异常的不应该 crash 掉的，百思不得其解。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/22/RxJava2-onError-crash/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/05/22/RxJava2-onError-crash/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -1636,6 +1856,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -1694,9 +1917,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/21/MacOS-制作启动盘/" itemprop="url">
-                  MacOS - 制作启动盘
-                </a>
+                
+                <a href="/2017/05/21/MacOS-制作启动盘/" class="post-title-link" itemprop="http://gavinliu.cn/index.html">MacOS - 制作启动盘</a>
               
             
           </h2>
@@ -1724,6 +1946,22 @@
               <time title="创建时间：2017-05-21 21:55:55" itemprop="dateCreated datePublished" datetime="2017-05-21T21:55:55+08:00">2017-05-21</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-07-13 09:40:49" itemprop="dateModified" datetime="2017-07-13T09:40:49+08:00">2017-07-13</time>
+              
             
           </span>
 
@@ -1770,11 +2008,13 @@
 <p>使用安装文件中的 <code>createinstallmedia</code> 命令实现制作启动盘．</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/21/MacOS-制作启动盘/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/05/21/MacOS-制作启动盘/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -1788,6 +2028,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -1846,9 +2089,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/05/12/Android-Android-Studio-快捷键整理/" itemprop="url">
-                  Android - 利其器之Android Studio快捷键整理
-                </a>
+                
+                <a href="/2017/05/12/Android-Android-Studio-快捷键整理/" class="post-title-link" itemprop="http://gavinliu.cn/index.html">Android - 利其器之Android Studio快捷键整理</a>
               
             
           </h2>
@@ -1876,6 +2118,22 @@
               <time title="创建时间：2017-05-12 14:35:18" itemprop="dateCreated datePublished" datetime="2017-05-12T14:35:18+08:00">2017-05-12</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-09-15 10:55:08" itemprop="dateModified" datetime="2017-09-15T10:55:08+08:00">2017-09-15</time>
+              
             
           </span>
 
@@ -1940,11 +2198,13 @@
 <p>本文介绍的快捷键，和别的文章不同的是，不会直接给你快捷键，而是给你对应快捷键的英文名称，因为 <code>intellij idea</code> 提供了不少别的 <code>ide</code> 的快捷键映射，不同的人的选择可能会不一样，这时候直接记快捷键肯定不适用，知道每个操作对应的英文名更有意义。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/12/Android-Android-Studio-快捷键整理/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/05/12/Android-Android-Studio-快捷键整理/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -1958,6 +2218,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -2322,19 +2585,30 @@
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/gavinliu" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
                   
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/gavinliu" title="GitHub &rarr; https://github.com/gavinliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="http://weibo.com/512315128" target="_blank" title="Weibo" rel="external nofollow"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
                   
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/512315128" title="Weibo &rarr; http://weibo.com/512315128" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
                 </span>
               
             </div>
           
 
-          
           
 
           
@@ -2362,7 +2636,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2012 – <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -2374,11 +2648,7 @@
 </div>
 
 
-  
-
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
 
 
 
@@ -2386,14 +2656,14 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a></div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
 
 
 
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv" title="总访客量">
@@ -2430,7 +2700,10 @@
     
 
     
+	
+    
 
+    
   </div>
 
   
@@ -2466,6 +2739,8 @@
 
 
 
+  
+
 
 
   
@@ -2488,48 +2763,41 @@
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
-
-
-
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
-
-
-
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
   
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
-
 
 
   
 
 
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
 
-	
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
 
 
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
 
 
 
   
 
+  
 
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
 
 
 
@@ -2560,9 +2828,10 @@
         appId: 'oJwGI72q9VyxlMIYcaleJJlv-gzGzoHsz',
         appKey: 'L4kHNED5133sLyhCXxFE7afW',
         placeholder: '留下你的看法',
-        avatar:'retro',
-        guest_info:guest,
+        avatar:'mm',
+        meta:guest,
         pageSize:'10' || 10,
+        visitor: false
     });
   </script>
 
@@ -2581,6 +2850,8 @@
   
 
   
+
+  
   
 
   
@@ -2609,44 +2880,51 @@
   
 
   
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
     
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      },
-      TeX: {equationNumbers: { autoNumber: "AMS" }}
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
   
 
-
-  
   
 
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>

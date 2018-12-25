@@ -26,6 +26,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -62,19 +69,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple-touch-icon-next.png?v=6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple-touch-icon-next.png?v=6.6.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
 
 
-  <link rel="mask-icon" href="/images/favicon-logo.svg?v=6.3.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon-logo.svg?v=6.6.0" color="#222">
 
 
 
@@ -89,7 +96,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '6.3.0',
+    version: '6.6.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     fastclick: false,
@@ -144,6 +151,17 @@
   <title>Gavin.Liu</title>
   
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131359476-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-131359476-1');
+</script>
 
 
 
@@ -231,40 +249,85 @@
         
           
           <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+
   </li>
 
       
@@ -334,9 +397,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/02/08/Android-Gradle-解决循环依赖问题/" itemprop="url">
-                  Android - 解决 Gradle 循环依赖问题
-                </a>
+                
+                <a href="/2017/02/08/Android-Gradle-解决循环依赖问题/" class="post-title-link" itemprop="http://gavinliu.cn/page/3/index.html">Android - 解决 Gradle 循环依赖问题</a>
               
             
           </h2>
@@ -364,6 +426,22 @@
               <time title="创建时间：2017-02-08 16:06:16" itemprop="dateCreated datePublished" datetime="2017-02-08T16:06:16+08:00">2017-02-08</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-03-25 00:24:32" itemprop="dateModified" datetime="2017-03-25T00:24:32+08:00">2017-03-25</time>
+              
             
           </span>
 
@@ -428,11 +506,13 @@
 <p>随着项目越来越大，使用的第三方库也越来越多，难免有时候会库之间的依赖冲突问题，如何解决呢？</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/08/Android-Gradle-解决循环依赖问题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/02/08/Android-Gradle-解决循环依赖问题/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -446,6 +526,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -504,9 +587,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/02/07/Android-兼容-异常问题分类/" itemprop="url">
-                  Android - 兼容&异常问题分类
-                </a>
+                
+                <a href="/2017/02/07/Android-兼容-异常问题分类/" class="post-title-link" itemprop="http://gavinliu.cn/page/3/index.html">Android - 兼容&异常问题分类</a>
               
             
           </h2>
@@ -534,6 +616,22 @@
               <time title="创建时间：2017-02-07 11:23:09" itemprop="dateCreated datePublished" datetime="2017-02-07T11:23:09+08:00">2017-02-07</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-02-16 01:46:45" itemprop="dateModified" datetime="2017-02-16T01:46:45+08:00">2017-02-16</time>
+              
             
           </span>
 
@@ -598,11 +696,13 @@
 <p>Android 上经常会出现崩溃，停止响应的异常问题，这篇文章对这些问题进行一个分类，并给出对应的logcat关键词，方便以后排除问题。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/07/Android-兼容-异常问题分类/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/02/07/Android-兼容-异常问题分类/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -616,6 +716,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -674,9 +777,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/01/03/RxJava2-基础扫盲-响应式编程/" itemprop="url">
-                  RxJava2 - 基础扫盲&响应式编程
-                </a>
+                
+                <a href="/2017/01/03/RxJava2-基础扫盲-响应式编程/" class="post-title-link" itemprop="http://gavinliu.cn/page/3/index.html">RxJava2 - 基础扫盲&响应式编程</a>
               
             
           </h2>
@@ -704,6 +806,22 @@
               <time title="创建时间：2017-01-03 16:40:14" itemprop="dateCreated datePublished" datetime="2017-01-03T16:40:14+08:00">2017-01-03</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-02-16 01:46:48" itemprop="dateModified" datetime="2017-02-16T01:46:48+08:00">2017-02-16</time>
+              
             
           </span>
 
@@ -768,11 +886,13 @@
 <p>响应式编程是一种面向数据流和变化传播的编程范式，数据流就像一条河：它可以被观测，被过滤，被操作，或者为新的消费者与另外一条流合并为一条新的流。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/01/03/RxJava2-基础扫盲-响应式编程/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/01/03/RxJava2-基础扫盲-响应式编程/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -786,6 +906,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -844,9 +967,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/31/2016-The-end/" itemprop="url">
-                  2016 The end
-                </a>
+                
+                <a href="/2016/12/31/2016-The-end/" class="post-title-link" itemprop="http://gavinliu.cn/page/3/index.html">2016 The end</a>
               
             
           </h2>
@@ -874,6 +996,22 @@
               <time title="创建时间：2016-12-31 17:14:03" itemprop="dateCreated datePublished" datetime="2016-12-31T17:14:03+08:00">2016-12-31</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-02-16 01:46:45" itemprop="dateModified" datetime="2017-02-16T01:46:45+08:00">2017-02-16</time>
+              
             
           </span>
 
@@ -938,11 +1076,13 @@
 <p>轻轻的打一个哈欠<br>  慵懒的一阵风<br>  就将所有的聒噪埋进了过去<br>  还没等我缓过神来<br>  脚步却又踏进了另一个春天</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/31/2016-The-end/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/12/31/2016-The-end/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -956,6 +1096,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -1014,9 +1157,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/22/编程技巧-一种抽奖算法的实现/" itemprop="url">
-                  编程技巧 - 一种抽奖算法的实现
-                </a>
+                
+                <a href="/2016/12/22/编程技巧-一种抽奖算法的实现/" class="post-title-link" itemprop="http://gavinliu.cn/page/3/index.html">编程技巧 - 一种抽奖算法的实现</a>
               
             
           </h2>
@@ -1044,6 +1186,22 @@
               <time title="创建时间：2016-12-22 15:20:07" itemprop="dateCreated datePublished" datetime="2016-12-22T15:20:07+08:00">2016-12-22</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-02-16 01:46:45" itemprop="dateModified" datetime="2017-02-16T01:46:45+08:00">2017-02-16</time>
+              
             
           </span>
 
@@ -1108,11 +1266,13 @@
 <p>年末项目组需要做一个抽奖活动，奖品池有很多奖品，运营可以配置每个奖品的爆率，这篇文章给出一个简单的实现。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/22/编程技巧-一种抽奖算法的实现/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/12/22/编程技巧-一种抽奖算法的实现/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -1126,6 +1286,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -1184,9 +1347,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/20/我的工作流-Linux篇/" itemprop="url">
-                  我的工作流 - Linux篇
-                </a>
+                
+                <a href="/2016/12/20/我的工作流-Linux篇/" class="post-title-link" itemprop="http://gavinliu.cn/page/3/index.html">我的工作流 - Linux篇</a>
               
             
           </h2>
@@ -1214,6 +1376,22 @@
               <time title="创建时间：2016-12-20 16:05:37" itemprop="dateCreated datePublished" datetime="2016-12-20T16:05:37+08:00">2016-12-20</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-02-16 01:46:45" itemprop="dateModified" datetime="2017-02-16T01:46:45+08:00">2017-02-16</time>
+              
             
           </span>
 
@@ -1277,11 +1455,13 @@
           <p>系统：Linux Minit 18<br>主题：图标 Faenza；桌面 Numix-SX-Dark；窗口边框 Numix-Darker</p>
 <p><img src="/images/2016.12.20 - 我的工作流-Linux篇0.png" alt=""></p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/20/我的工作流-Linux篇/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/12/20/我的工作流-Linux篇/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -1295,6 +1475,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -1353,9 +1536,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/15/机器学习-简单线性回归之梯度下降/" itemprop="url">
-                  机器学习 - 一元简单线性回归与梯度下降
-                </a>
+                
+                <a href="/2016/12/15/机器学习-简单线性回归之梯度下降/" class="post-title-link" itemprop="http://gavinliu.cn/page/3/index.html">机器学习 - 一元简单线性回归与梯度下降</a>
               
             
           </h2>
@@ -1383,6 +1565,22 @@
               <time title="创建时间：2016-12-15 15:22:30" itemprop="dateCreated datePublished" datetime="2016-12-15T15:22:30+08:00">2016-12-15</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-02-16 01:46:45" itemprop="dateModified" datetime="2017-02-16T01:46:45+08:00">2017-02-16</time>
+              
             
           </span>
 
@@ -1447,11 +1645,13 @@
 <p>回归问题主要是用来预测，比如说你有一组【面积-房价】的数据，这些数据是离散的，通过线性回归，可以找到一个函数尽可能的表述你的数据，从而来预测房价。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/15/机器学习-简单线性回归之梯度下降/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/12/15/机器学习-简单线性回归之梯度下降/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -1465,6 +1665,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -1523,9 +1726,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/14/Cocos2d-js-跨域问题解决办法/" itemprop="url">
-                  Cocos2d-js - 解决跨域问题的3种办法
-                </a>
+                
+                <a href="/2016/12/14/Cocos2d-js-跨域问题解决办法/" class="post-title-link" itemprop="http://gavinliu.cn/page/3/index.html">Cocos2d-js - 解决跨域问题的3种办法</a>
               
             
           </h2>
@@ -1553,6 +1755,22 @@
               <time title="创建时间：2016-12-14 17:07:11" itemprop="dateCreated datePublished" datetime="2016-12-14T17:07:11+08:00">2016-12-14</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
             
           </span>
 
@@ -1617,11 +1835,13 @@
 <p>年末项目组要搞个周年庆活动，需要上一个html5的小游戏，由于我有写过 Cocos2d-x，就打算用js版本做个网页小游戏，遇到了经典的ajax跨域的问题。还试出来一些奇淫绝技。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/14/Cocos2d-js-跨域问题解决办法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/12/14/Cocos2d-js-跨域问题解决办法/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -1635,6 +1855,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -1693,9 +1916,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/12/11/机器学习-数学理论：迭代法统一论/" itemprop="url">
-                  机器学习 - 数学理论：迭代法统一论
-                </a>
+                
+                <a href="/2016/12/11/机器学习-数学理论：迭代法统一论/" class="post-title-link" itemprop="http://gavinliu.cn/page/3/index.html">机器学习 - 数学理论：迭代法统一论</a>
               
             
           </h2>
@@ -1723,6 +1945,22 @@
               <time title="创建时间：2016-12-11 12:49:53" itemprop="dateCreated datePublished" datetime="2016-12-11T12:49:53+08:00">2016-12-11</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
             
           </span>
 
@@ -1787,11 +2025,13 @@
 <p>迭代法，其实是计算机软件中很常用的方法，机器学习中的工程运用也用到了<code>迭代法</code>，这篇学习笔记 主要是理清 <code>梯度下降法</code> 的背后的数学基本原理。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/12/11/机器学习-数学理论：迭代法统一论/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/12/11/机器学习-数学理论：迭代法统一论/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -1805,6 +2045,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -1863,9 +2106,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/11/05/Android-移植StackBlur-for-Glide-AS-2-2-CMakeLists的使用/" itemprop="url">
-                  Android - 移植StackBlur for Glide & AS 2.2 CMakeLists 的使用
-                </a>
+                
+                <a href="/2016/11/05/Android-移植StackBlur-for-Glide-AS-2-2-CMakeLists的使用/" class="post-title-link" itemprop="http://gavinliu.cn/page/3/index.html">Android - 移植StackBlur for Glide & AS 2.2 CMakeLists 的使用</a>
               
             
           </h2>
@@ -1893,6 +2135,22 @@
               <time title="创建时间：2016-11-05 15:27:41" itemprop="dateCreated datePublished" datetime="2016-11-05T15:27:41+08:00">2016-11-05</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-03-25 00:24:32" itemprop="dateModified" datetime="2017-03-25T00:24:32+08:00">2017-03-25</time>
+              
             
           </span>
 
@@ -1957,11 +2215,13 @@
 <p>StackBlur 是一个快速高斯模糊算法，原作者是由 <a href="http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html" target="_blank" rel="noopener">Mario Klingemann</a> 开发的Javascript版本。<a href="http://vitiy.info/stackblur-algorithm-multi-threaded-blur-for-cpp/" target="_blank" rel="noopener">Victor Laskin</a> 实现了一个C++多线程版本，Android上我们基于 <code>Victor Laskin</code> 的版本进行JNI移植。<br>  这个算法应用非常广泛 iOS 上 Camera+ 也是用的这套算法，还有CUDA版本等…</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2016/11/05/Android-移植StackBlur-for-Glide-AS-2-2-CMakeLists的使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2016/11/05/Android-移植StackBlur-for-Glide-AS-2-2-CMakeLists的使用/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -1975,6 +2235,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -2339,19 +2602,30 @@
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/gavinliu" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
                   
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/gavinliu" title="GitHub &rarr; https://github.com/gavinliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="http://weibo.com/512315128" target="_blank" title="Weibo" rel="external nofollow"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
                   
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/512315128" title="Weibo &rarr; http://weibo.com/512315128" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
                 </span>
               
             </div>
           
 
-          
           
 
           
@@ -2379,7 +2653,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2012 – <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -2391,11 +2665,7 @@
 </div>
 
 
-  
-
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
 
 
 
@@ -2403,14 +2673,14 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a></div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
 
 
 
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv" title="总访客量">
@@ -2447,7 +2717,10 @@
     
 
     
+	
+    
 
+    
   </div>
 
   
@@ -2483,6 +2756,8 @@
 
 
 
+  
+
 
 
   
@@ -2505,48 +2780,41 @@
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
-
-
-
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
-
-
-
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
   
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
-
 
 
   
 
 
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
 
-	
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
 
 
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
 
 
 
   
 
+  
 
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
 
 
 
@@ -2577,9 +2845,10 @@
         appId: 'oJwGI72q9VyxlMIYcaleJJlv-gzGzoHsz',
         appKey: 'L4kHNED5133sLyhCXxFE7afW',
         placeholder: '留下你的看法',
-        avatar:'retro',
-        guest_info:guest,
+        avatar:'mm',
+        meta:guest,
         pageSize:'10' || 10,
+        visitor: false
     });
   </script>
 
@@ -2598,6 +2867,8 @@
   
 
   
+
+  
   
 
   
@@ -2626,44 +2897,51 @@
   
 
   
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
     
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      },
-      TeX: {equationNumbers: { autoNumber: "AMS" }}
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
   
 
-
-  
   
 
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>

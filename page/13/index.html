@@ -26,6 +26,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -62,19 +69,19 @@
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple-touch-icon-next.png?v=6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple-touch-icon-next.png?v=6.6.0">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
 
 
-  <link rel="mask-icon" href="/images/favicon-logo.svg?v=6.3.0" color="#222">
+  <link rel="mask-icon" href="/images/favicon-logo.svg?v=6.6.0" color="#222">
 
 
 
@@ -89,7 +96,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '6.3.0',
+    version: '6.6.0',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
     fastclick: false,
@@ -144,6 +151,17 @@
   <title>Gavin.Liu</title>
   
 
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131359476-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-131359476-1');
+</script>
 
 
 
@@ -231,40 +249,85 @@
         
           
           <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-categories">
-    <a href="/categories/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+
   </li>
         
         
         
           
           <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+
   </li>
 
       
@@ -334,9 +397,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2012/04/15/JavaWeb---ServletContext-随笔/" itemprop="url">
-                  Java.Web - ServletContext 随笔
-                </a>
+                
+                <a href="/2012/04/15/JavaWeb---ServletContext-随笔/" class="post-title-link" itemprop="http://gavinliu.cn/page/13/index.html">Java.Web - ServletContext 随笔</a>
               
             
           </h2>
@@ -364,6 +426,22 @@
               <time title="创建时间：2012-04-15 10:26:44" itemprop="dateCreated datePublished" datetime="2012-04-15T10:26:44+08:00">2012-04-15</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
             
           </span>
 
@@ -443,11 +521,13 @@
 <li>forward方法调用后在响应中的没有提交的内容被自动消除。将请求转发给其他的Servlet后，由被调用的Servlet负责对请求做出响应，而原先Servlet的执行则终止</li>
 <li>include方法使原先的Servlet和转发到的Servlet都可以输出响应信息，即原先的Servlet还可以继续输出响应信息
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2012/04/15/JavaWeb---ServletContext-随笔/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2012/04/15/JavaWeb---ServletContext-随笔/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -461,6 +541,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -519,9 +602,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2012/04/08/JavaWeb---转向-转发-随笔/" itemprop="url">
-                  Java.Web - 转向 转发 随笔
-                </a>
+                
+                <a href="/2012/04/08/JavaWeb---转向-转发-随笔/" class="post-title-link" itemprop="http://gavinliu.cn/page/13/index.html">Java.Web - 转向 转发 随笔</a>
               
             
           </h2>
@@ -549,6 +631,22 @@
               <time title="创建时间：2012-04-08 10:22:08" itemprop="dateCreated datePublished" datetime="2012-04-08T10:22:08+08:00">2012-04-08</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
             
           </span>
 
@@ -640,6 +738,9 @@
     
 
     
+       
+    
+    
 
     
 
@@ -697,9 +798,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2012/04/01/JavaWeb---Servlet-随笔/" itemprop="url">
-                  Java.Web - Servlet 随笔
-                </a>
+                
+                <a href="/2012/04/01/JavaWeb---Servlet-随笔/" class="post-title-link" itemprop="http://gavinliu.cn/page/13/index.html">Java.Web - Servlet 随笔</a>
               
             
           </h2>
@@ -727,6 +827,22 @@
               <time title="创建时间：2012-04-01 10:18:41" itemprop="dateCreated datePublished" datetime="2012-04-01T10:18:41+08:00">2012-04-01</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
             
           </span>
 
@@ -816,6 +932,9 @@
     
 
     
+       
+    
+    
 
     
 
@@ -873,9 +992,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2012/03/25/JavaWeb---分页技术/" itemprop="url">
-                  Java.Web - 分页技术
-                </a>
+                
+                <a href="/2012/03/25/JavaWeb---分页技术/" class="post-title-link" itemprop="http://gavinliu.cn/page/13/index.html">Java.Web - 分页技术</a>
               
             
           </h2>
@@ -903,6 +1021,22 @@
               <time title="创建时间：2012-03-25 17:40:02" itemprop="dateCreated datePublished" datetime="2012-03-25T17:40:02+08:00">2012-03-25</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
             
           </span>
 
@@ -978,11 +1112,13 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pageCont = (rowCont - <span class="number">1</span>)/pageSize + <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2012/03/25/JavaWeb---分页技术/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2012/03/25/JavaWeb---分页技术/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -996,6 +1132,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -1054,9 +1193,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2012/03/25/JavaWeb---Http协议初步接触/" itemprop="url">
-                  Java.Web - Http协议初步接触
-                </a>
+                
+                <a href="/2012/03/25/JavaWeb---Http协议初步接触/" class="post-title-link" itemprop="http://gavinliu.cn/page/13/index.html">Java.Web - Http协议初步接触</a>
               
             
           </h2>
@@ -1084,6 +1222,22 @@
               <time title="创建时间：2012-03-25 10:37:51" itemprop="dateCreated datePublished" datetime="2012-03-25T10:37:51+08:00">2012-03-25</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
             
           </span>
 
@@ -1175,6 +1329,9 @@
     
 
     
+       
+    
+    
 
     
 
@@ -1232,9 +1389,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2012/03/21/JavaWeb---网页中文乱码处理/" itemprop="url">
-                  Java.Web - 网页中文乱码处理
-                </a>
+                
+                <a href="/2012/03/21/JavaWeb---网页中文乱码处理/" class="post-title-link" itemprop="http://gavinliu.cn/page/13/index.html">Java.Web - 网页中文乱码处理</a>
               
             
           </h2>
@@ -1262,6 +1418,22 @@
               <time title="创建时间：2012-03-21 17:16:43" itemprop="dateCreated datePublished" datetime="2012-03-21T17:16:43+08:00">2012-03-21</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
             
           </span>
 
@@ -1349,6 +1521,9 @@
     
 
     
+       
+    
+    
 
     
 
@@ -1406,9 +1581,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2012/03/14/JavaWeb---Response、Request-随笔/" itemprop="url">
-                  Java.Web - Response、Request 随笔
-                </a>
+                
+                <a href="/2012/03/14/JavaWeb---Response、Request-随笔/" class="post-title-link" itemprop="http://gavinliu.cn/page/13/index.html">Java.Web - Response、Request 随笔</a>
               
             
           </h2>
@@ -1436,6 +1610,22 @@
               <time title="创建时间：2012-03-14 17:08:54" itemprop="dateCreated datePublished" datetime="2012-03-14T17:08:54+08:00">2012-03-14</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
             
           </span>
 
@@ -1518,6 +1708,9 @@
     
 
     
+       
+    
+    
 
     
 
@@ -1575,9 +1768,8 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2012/03/01/Android-【手把手教你打太极】/" itemprop="url">
-                  Android:【手把手教你打太极】
-                </a>
+                
+                <a href="/2012/03/01/Android-【手把手教你打太极】/" class="post-title-link" itemprop="http://gavinliu.cn/page/13/index.html">Android:【手把手教你打太极】</a>
               
             
           </h2>
@@ -1605,6 +1797,22 @@
               <time title="创建时间：2012-03-01 21:04:30" itemprop="dateCreated datePublished" datetime="2012-03-01T21:04:30+08:00">2012-03-01</time>
             
 
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2017-01-12 20:03:44" itemprop="dateModified" datetime="2017-01-12T20:03:44+08:00">2017-01-12</time>
+              
             
           </span>
 
@@ -1668,11 +1876,13 @@
           <p>太极拳，是一种武术项目，也是体育运动和健身项目，在中国有着悠久的历史。<br>但事实上太极拳的推广并不是特别广泛，我想在坐的各位老师评委，可能都没接触过太极拳。<br>其平民化。<br>手把手教你打太极是一款教你学习太极拳电子书类应用，软件收录了24式太极拳的招式，图解。让你随时随地都能体验太极拳的魅力。<br>本软件界面优美，适合阅读，是你学习太极拳必备的软件。<br>下载地址：<a href="http://mm.10086.cn/1007/300002692964.html" target="_blank" rel="noopener">http://mm.10086.cn/1007/300002692964.html</a></p>
 <p><img src="/images/2012.02.30 - -软件-Android-【手把手教你打太极】1.jpg" alt="images">
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2012/03/01/Android-【手把手教你打太极】/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2012/03/01/Android-【手把手教你打太极】/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
           <!--/noindex-->
         
       
@@ -1686,6 +1896,9 @@
 
     
 
+    
+       
+    
     
 
     
@@ -2050,19 +2263,30 @@
             <div class="links-of-author motion-element">
               
                 <span class="links-of-author-item">
-                  <a href="https://github.com/gavinliu" target="_blank" title="GitHub" rel="external nofollow"><i class="fa fa-fw fa-github"></i>GitHub</a>
                   
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/gavinliu" title="GitHub &rarr; https://github.com/gavinliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
                 <span class="links-of-author-item">
-                  <a href="http://weibo.com/512315128" target="_blank" title="Weibo" rel="external nofollow"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
                   
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/512315128" title="Weibo &rarr; http://weibo.com/512315128" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
                 </span>
               
             </div>
           
 
-          
           
 
           
@@ -2090,7 +2314,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2012 – <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
     <i class="fa fa-heart"></i>
   </span>
@@ -2102,11 +2326,7 @@
 </div>
 
 
-  
-
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" rel="external nofollow" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
 
 
 
@@ -2114,14 +2334,14 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" rel="external nofollow" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a></div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
 
 
 
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
     <span class="site-uv" title="总访客量">
@@ -2158,7 +2378,10 @@
     
 
     
+	
+    
 
+    
   </div>
 
   
@@ -2194,6 +2417,8 @@
 
 
 
+  
+
 
 
   
@@ -2216,48 +2441,41 @@
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
-
-
-
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
-
-
-
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
   
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
-
 
 
   
 
 
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
 
-	
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
 
 
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
 
 
 
   
 
+  
 
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
 
 
 
@@ -2288,9 +2506,10 @@
         appId: 'oJwGI72q9VyxlMIYcaleJJlv-gzGzoHsz',
         appKey: 'L4kHNED5133sLyhCXxFE7afW',
         placeholder: '留下你的看法',
-        avatar:'retro',
-        guest_info:guest,
+        avatar:'mm',
+        meta:guest,
         pageSize:'10' || 10,
+        visitor: false
     });
   </script>
 
@@ -2309,6 +2528,8 @@
   
 
   
+
+  
   
 
   
@@ -2333,44 +2554,47 @@
   
 
   
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
     
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      },
-      TeX: {equationNumbers: { autoNumber: "AMS" }}
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
     
   
 
-
-  
   
 
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>
