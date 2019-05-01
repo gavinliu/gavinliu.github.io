@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Server - 基于 WebDAV 的服务器文件备份方案]]></title>
+    <url>%2F2019%2F05%2F01%2FServer-%E5%9F%BA%E4%BA%8E-WebDAV-%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD%E6%96%B9%E6%A1%88%2F</url>
+    <content type="text"><![CDATA[本篇介绍一下如何通过 WebDAV 备份服务器文件，可以用来备份服务器数据库、配置文件，日志等等 安装 cadaverubuntu1apt install cadaver centos1yum install cadaver 使用 cadaver这里我们使用坚果云的 WebDAV 服务，以此为例，其他都 WebDAV 服务操作也相同 登录12345cadaver https://dav.jianguoyun.com/dav/Username: ********Password: ********dav:/dav/&gt; ls 这里通过 ls 命令来检查下是不是真的登录上去了，如果和你的文件路径一样没有报错的话就代表成功登录了， 这里如果你想直接登录到某个目录，那么直接在 https://dav.jianguoyun.com/dav/ 后面追加路径就好啦。 上传，下载成功登录后，使用 get put 两个命令即可下载、上传文件 退出使用 bye 命令就可以退出 cadaver 配置 cadaver 非交互式命令对于这种交互式命令其实很不方便，我们可以自己写一个 shell 来实现非交互式命令。 配置密码在账户根目录添加文件 .netrc，如下： .netrc123machine dav.jianguoyun.comlogin ********password ******** 预先写好 cadaver 的指令例如我想上传 MyDB.sql.gz 这个文件，就可以这样写，如下： cadaver.txt12put /home/ubuntu/Backup/MyDB.sql.gzbye 非交互式命令1cadaver https://dav.jianguoyun.com/dav/backup/ &lt; cadaver.txt 数据库备份配置这里以 MySql 为例，如下： 1234567891011121314151617181920# 获取当前时间time=$(date "+%Y%m%d_%H%M%S")# 文件名file=/home/ubuntu/Backup/MyDB_$time.sql.gz# 备份数据库mysqldump -uroot -p123456 MyDB | gzip &gt; $file# cadaver 命令davCMD=put' '$file'\n'bye# cadaver 命令 写入文件echo $davCMD &gt; cadaver.txt# 非交互式命令cadaver https://dav.jianguoyun.com/dav/Backup &lt; cadaver.txt# 删除本地备份文件rm $file]]></content>
+      <categories>
+        <category>Server Notes</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>备份</tag>
+        <tag>数据库</tag>
+        <tag>WebDAV</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Android - Snapmod 带壳截图]]></title>
     <url>%2F2018%2F07%2F16%2FAndroid-Side-Project-Snapmod%2F</url>
-    <content type="text"><![CDATA[好久没有独立开发一款软件了，起因是最近换了 小米 8，一直有带壳截图的习惯，发现市面上的软件都太烂了，于是乎自己撸一个吧，顺便实践一下 Material Design 2 和 Jetpack 简介Snapmod 可以让您轻松的把截图添加到设备外壳中，您可以用它分享您的截图、壁纸或者 App。 功能： 多款最新机型、不同配色，不断更新中； 自动化特效：自动提取主题色、背景高斯模糊； 干净简洁的界面设计，源于 Material Deign 2； 优秀的性能，流畅的体验； 截图 Screenshots Screenshots Screenshots 下载酷安：https://www.coolapk.com/apk/201633Google Play：https://play.google.com/store/apps/details?id=cn.gavinliu.snapmod]]></content>
+    <content type="text"><![CDATA[好久没有独立开发一款软件了，起因是最近换了 小米 8，一直有带壳截图的习惯，发现市面上的软件都太烂了，于是乎自己撸一个吧，顺便实践一下 Material Design 2 和 Jetpack 简介Snapmod 可以让您轻松的把截图添加到设备外壳中，您可以用它分享您的截图、壁纸或者 App。 功能： 多款最新机型、不同配色，不断更新中； 自动化特效：自动提取主题色、背景高斯模糊； 干净简洁的界面设计，源于 Material Design 2； 优秀的性能，流畅的体验； 截图 Screenshots Screenshots Screenshots 下载酷安：https://www.coolapk.com/apk/201633Google Play：https://play.google.com/store/apps/details?id=cn.gavinliu.snapmod]]></content>
       <categories>
         <category>Android Notes</category>
       </categories>
@@ -1291,8 +1305,8 @@
         <category>Java Notes</category>
       </categories>
       <tags>
-        <tag>Java.Web</tag>
         <tag>Java</tag>
+        <tag>Java.Web</tag>
       </tags>
   </entry>
   <entry>
@@ -1303,8 +1317,8 @@
         <category>Java Notes</category>
       </categories>
       <tags>
-        <tag>Java.Web</tag>
         <tag>Java</tag>
+        <tag>Java.Web</tag>
       </tags>
   </entry>
   <entry>
