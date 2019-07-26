@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon-apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/favicon-logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Flutter 365 计划，计划在未来的 365 天，每天都学一点 Flutter 相关的知识，希望未来能成为这个领域的专家。今天的主题是：Dart 代码规范">
+<meta name="keywords" content="Flutter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flutter - 365 Plan (001) : Dart 代码规范">
+<meta property="og:url" content="http://gavinliu.cn/2019/07/26/Flutter-365-Plan-001-Dart-代码规范/index.html">
+<meta property="og:site_name" content="Gavin.Liu">
+<meta property="og:description" content="Flutter 365 计划，计划在未来的 365 天，每天都学一点 Flutter 相关的知识，希望未来能成为这个领域的专家。今天的主题是：Dart 代码规范">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-26T14:26:51.438Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Flutter - 365 Plan (001) : Dart 代码规范">
+<meta name="twitter:description" content="Flutter 365 计划，计划在未来的 365 天，每天都学一点 Flutter 相关的知识，希望未来能成为这个领域的专家。今天的主题是：Dart 代码规范">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Gavin.Liu" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://gavinliu.cn/2019/07/26/Flutter-365-Plan-001-Dart-代码规范/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Flutter - 365 Plan (001) : Dart 代码规范 | Gavin.Liu</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131359476-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-131359476-1');
+</script>
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gavin.Liu</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <h1 class="site-subtitle" itemprop="description">Focus on Mobile Develop</h1>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2019/07/26/Flutter-365-Plan-001-Dart-代码规范/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Flutter - 365 Plan (001) : Dart 代码规范
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-07-26 21:37:42" itemprop="dateCreated datePublished" datetime="2019-07-26T21:37:42+08:00">2019-07-26</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Flutter-Notes/" itemprop="url" rel="index"><span itemprop="name">Flutter Notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/26/Flutter-365-Plan-001-Dart-代码规范/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/07/26/Flutter-365-Plan-001-Dart-代码规范/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><code>Flutter 365 计划</code>，计划在未来的 <code>365</code> 天，每天都学一点 <code>Flutter</code> 相关的知识，希望未来能成为这个领域的专家。<br>今天的主题是：Dart 代码规范</p>
+</blockquote>
+<a id="more"></a>
+<p>Flutter 应用是使用 Dart 语言进行开发，所以不管语言怎么样，首先了解下相关的代码相关的规范是很有必要的。</p>
+<h2 id="代码风格"><a href="#代码风格" class="headerlink" title="代码风格"></a>代码风格</h2><p>其实大体上和前端 JS 的代码规范差不多，如果你是从 Java 转过来的话，还是有不少需要注意的地方。</p>
+<p>在 Dart 语言中，命名方式有三种风格</p>
+<ol>
+<li><code>UpperCamelCase</code> 首字母大写的驼峰命名法</li>
+<li><code>lowerCamelCase</code> 首字母小写的驼峰命名法</li>
+<li><code>lowercase_with_underscores</code> 全部小写，单词间用下划线分割命名法</li>
+</ol>
+<h3 id="UpperCamelCase"><a href="#UpperCamelCase" class="headerlink" title="UpperCamelCase"></a>UpperCamelCase</h3><ol>
+<li><code>Classes</code> 类名</li>
+<li><code>enums</code> 枚举类型</li>
+<li><code>typedefs</code> 类型定义</li>
+<li><code>type parameters</code> 类型参数</li>
+</ol>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SliderMenu</span> </span>&#123; ... &#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HttpRequest</span> </span>&#123; ... &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">bool</span> Predicate&lt;T&gt;(T value);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> Foo([arg]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Foo</span>(anArg)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123; ... &#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Foo</span>()</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> </span>&#123; ... &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="lowerCamelCase"><a href="#lowerCamelCase" class="headerlink" title="lowerCamelCase"></a>lowerCamelCase</h3><ol>
+<li><code>Class members</code> 类成员变量</li>
+<li><code>top-level definitions</code> 顶级定义（变量、函数等）</li>
+<li><code>variables</code> 变量</li>
+<li><code>parameters</code> 参数</li>
+<li><code>named parameters</code> 命名参数</li>
+<li><code>constant variables</code> 常量</li>
+</ol>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> item;</span><br><span class="line"></span><br><span class="line">HttpRequest httpRequest;</span><br><span class="line"></span><br><span class="line">align(clearItems) &#123;</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="lowercase-with-underscores"><a href="#lowercase-with-underscores" class="headerlink" title="lowercase_with_underscores"></a>lowercase_with_underscores</h3><ol>
+<li><code>file_names</code> 文件名</li>
+<li><code>library_names</code> 库名</li>
+<li><code>library_prefixes</code> 库导入的前缀</li>
+</ol>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span> peg_parser.source_scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">'file_system.dart'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'slider_menu.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">'dart:json'</span> <span class="keyword">as</span> json;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'dart:math'</span> <span class="keyword">as</span> math;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:javascript_utils/javascript_utils.dart'</span> <span class="keyword">as</span> js_utils;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:js/js.dart'</span> <span class="keyword">as</span> js;</span><br></pre></td></tr></table></figure>
+<h3 id="单词缩写"><a href="#单词缩写" class="headerlink" title="单词缩写"></a>单词缩写</h3><p>要把 <strong>超过两个字母的缩略词</strong> 和 <strong>首字母缩略词</strong> 当做一般单词来对待，</p>
+<ol>
+<li>比如 <code>HyperText Transfer Protocol</code>(Http)，应该写成 Http 而不是 HTTP</li>
+<li>比如 <code>identification</code>(Id), 应该写成 Id，而不是 ID</li>
+<li>比如 <code>Database</code>(DB)，就应该是 DB，而不是 Db</li>
+</ol>
+<h3 id="代表私有的"><a href="#代表私有的" class="headerlink" title="_ 代表私有的"></a>_ 代表私有的</h3><p>不要对非私有的变量加上 _ 前缀，以免引起混淆。</p>
+<h3 id="不需要前缀字母"><a href="#不需要前缀字母" class="headerlink" title="不需要前缀字母"></a>不需要前缀字母</h3><p>在 Java 社区喜欢用前缀 m 表示私有变量，在 Dart 中不需要这样。</p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>为了保证代码文件前面部分的整洁，Dart 规定了每个部分出现的顺序，每个部分之间通过空行来分割。</p>
+<ul>
+<li>要把 <code>dart:</code> 导入语句放到其他导入语句之前</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'dart:async'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'dart:html'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:bar/bar.dart'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:foo/foo.dart'</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>要把 <code>package:</code> 导入语句放到相对导入语句之前</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:bar/bar.dart'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:foo/foo.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">'a.dart'</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>推荐 把第三方 <code>package:</code> 导入语句放到其他语句之前<br>如果你使用了多个 <code>package:</code> 导入语句来导入自己项目中的文件和第三方的文件，推荐把自己的导入语句和其他的导入语句使用空行分开。</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:bar/bar.dart'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:foo/foo.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:myapp/io.dart'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:myapp/util.dart'</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>要把导出（export）语句放到所有导入语句之后的部分</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'src/error.dart'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'src/string_source.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="string">'src/error.dart'</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h2><ul>
+<li>使用 <a href="https://github.com/dart-lang/dart_style" target="_blank" rel="noopener">dartfmt</a> 来格式化您的代码</li>
+</ul>
+<h2 id="相关文档"><a href="#相关文档" class="headerlink" title="相关文档"></a>相关文档</h2><p><a href="https://dart.dev/guides/language/effective-dart/style" target="_blank" rel="noopener">Effective Dart: Style</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qcode.jpg" alt="Gavin Liu wechat" style="width: 200px; max-width: 100%;"/>
+    <div>欢迎您扫一扫上面的二维码，订阅我的微信公众号！</div>
+</div>
+
+      </div>
+    
+
+    
+       
+    
+    
+
+    
+      <div>
+        
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Gavin Liu</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://gavinliu.cn/2019/07/26/Flutter-365-Plan-001-Dart-代码规范/" title="Flutter - 365 Plan (001) : Dart 代码规范">http://gavinliu.cn/2019/07/26/Flutter-365-Plan-001-Dart-代码规范/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Flutter/" rel="tag"># Flutter</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/01/Server-基于-WebDAV-的服务器文件备份方案/" rel="next" title="Server - 基于 WebDAV 的服务器文件备份方案">
+                <i class="fa fa-chevron-left"></i> Server - 基于 WebDAV 的服务器文件备份方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Gavin Liu" />
+            
+              <p class="site-author-name" itemprop="name">Gavin Liu</p>
+              <p class="site-description motion-element" itemprop="description">刘云龙的程序世界</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">130</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">105</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/gavinliu" title="GitHub &rarr; https://github.com/gavinliu" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="http://weibo.com/512315128" title="Weibo &rarr; http://weibo.com/512315128" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码风格"><span class="nav-number">1.</span> <span class="nav-text">代码风格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UpperCamelCase"><span class="nav-number">1.1.</span> <span class="nav-text">UpperCamelCase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lowerCamelCase"><span class="nav-number">1.2.</span> <span class="nav-text">lowerCamelCase</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lowercase-with-underscores"><span class="nav-number">1.3.</span> <span class="nav-text">lowercase_with_underscores</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单词缩写"><span class="nav-number">1.4.</span> <span class="nav-text">单词缩写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代表私有的"><span class="nav-number">1.5.</span> <span class="nav-text">_ 代表私有的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不需要前缀字母"><span class="nav-number">1.6.</span> <span class="nav-text">不需要前缀字母</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序"><span class="nav-number">2.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#格式化"><span class="nav-number">3.</span> <span class="nav-text">格式化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关文档"><span class="nav-number">4.</span> <span class="nav-text">相关文档</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2012 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gavin Liu</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/reading_progress/reading_progress.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.6.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.6.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'oJwGI72q9VyxlMIYcaleJJlv-gzGzoHsz',
+        appKey: 'L4kHNED5133sLyhCXxFE7afW',
+        placeholder: '留下你的看法',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+</body>
+</html>

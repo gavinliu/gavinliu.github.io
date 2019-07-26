@@ -378,6 +378,182 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/05/01/Andoid---上传文件实现方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2012/05/01/Andoid---上传文件实现方法/" class="post-title-link" itemprop="http://gavinliu.cn/page/13/index.html">Android - 上传文件实现方法</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2012-05-01 10:54:07" itemprop="dateCreated datePublished" datetime="2012-05-01T10:54:07+08:00">2012-05-01</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android-Notes/" itemprop="url" rel="index"><span itemprop="name">Android Notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2012/05/01/Andoid---上传文件实现方法/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2012/05/01/Andoid---上传文件实现方法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>一月份做项目时 Android 客户端需要上传图片，小小的研究了下，不改独享，分享！</p>
+<p>如果要在客户端向服务器上传文件，我们就必须模拟一个POST multipart/form-data类型的请求，Content-Type必须是multipart/form-data<br>这篇详细介绍这个 ENCTYPE=”multipart/form-data” 协议，来解决自己的Java程序向服务器传文件的问题(比如：安卓程序上传图片)</p>
+<p>ENCTYPE=”multipart/form-data” ：通过 http 协议上传文件 rfc1867协议，客户端发送内容构造。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"picture/upload.do"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">ENCTYPE</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"users_id"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"users_name"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"image_path"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>使用上面这个表单，抓包的结果如下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">POST /picture/upload.do HTTP/1.1</span><br><span class="line">Accept: application/x-ms-application, image/jpeg, application/xaml+xml, image/gif, image/pjpeg, application/x-ms-xbap, */*</span><br><span class="line">Referer: http://192.168.1.98:8080/uploadpic.jsp</span><br><span class="line">Accept-Language: zh-CN</span><br><span class="line">User-Agent: Mozilla/4.0</span><br><span class="line">Content-Type: multipart/form-data; boundary=---------------------------7dd36df20300</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Host: 192.168.1.98:8080</span><br><span class="line">Content-Length: 529762</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">Cache-Control: no-cache</span><br><span class="line"></span><br><span class="line">-----------------------------7dd36df20300</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"users_id"</span></span><br><span class="line">&lt;!--空行--&gt;</span><br><span class="line">1</span><br><span class="line">-----------------------------7dd36df20300</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"users_name"</span></span><br><span class="line">&lt;!--空行--&gt;</span><br><span class="line">admin</span><br><span class="line">-----------------------------7dd36df20300</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"image_path"</span>; filename=<span class="string">"S21223-170317.jpg"</span></span><br><span class="line">Content-Type: image/pjpeg</span><br><span class="line">&lt;!--空行--&gt;</span><br><span class="line">&lt;!--文件 byte 数据--&gt;</span><br><span class="line">-----------------------------7dd36df20300--</span><br><span class="line">&lt;!--空行--&gt;</span><br></pre></td></tr></table></figure></p>
+<p>###详细解析：<br>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2012/05/01/Andoid---上传文件实现方法/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/04/22/JavaWeb---JSP文件上传，Servlet接收文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2021,7 +2197,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">129</span>
+                    <span class="site-state-item-count">130</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2072,7 +2248,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">19</span>
+                      
+                    
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -2301,7 +2479,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">104</span>
+                      
+                    
+                    <span class="site-state-item-count">105</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -2612,6 +2792,8 @@
     
       
     
+      
+    
   
 
   
@@ -2635,6 +2817,8 @@
 
   
   
+    
+      
     
       
     
