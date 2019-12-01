@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Flutter - 365 Plan (001) : Dart 代码规范]]></title>
-    <url>%2F2019%2F07%2F26%2FFlutter-365-Plan-001-Dart-%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%2F</url>
-    <content type="text"><![CDATA[Flutter 365 计划，计划在未来的 365 天，每天都学一点 Flutter 相关的知识，希望未来能成为这个领域的专家。今天的主题是：Dart 代码规范 Flutter 应用是使用 Dart 语言进行开发，所以不管语言怎么样，首先了解下相关的代码相关的规范是很有必要的。 代码风格其实大体上和前端 JS 的代码规范差不多，如果你是从 Java 转过来的话，还是有不少需要注意的地方。 在 Dart 语言中，命名方式有三种风格 UpperCamelCase 首字母大写的驼峰命名法 lowerCamelCase 首字母小写的驼峰命名法 lowercase_with_underscores 全部小写，单词间用下划线分割命名法 UpperCamelCase Classes 类名 enums 枚举类型 typedefs 类型定义 type parameters 类型参数 123456789101112131415class SliderMenu &#123; ... &#125;class HttpRequest &#123; ... &#125;typedef bool Predicate&lt;T&gt;(T value);class Foo &#123; const Foo([arg]);&#125;@Foo(anArg)class A &#123; ... &#125;@Foo()class B &#123; ... &#125; lowerCamelCase Class members 类成员变量 top-level definitions 顶级定义（变量、函数等） variables 变量 parameters 参数 named parameters 命名参数 constant variables 常量 1234567var item;HttpRequest httpRequest;align(clearItems) &#123; // ...&#125; lowercase_with_underscores file_names 文件名 library_names 库名 library_prefixes 库导入的前缀 123456789library peg_parser.source_scanner;import 'file_system.dart';import 'slider_menu.dart';import 'dart:json' as json;import 'dart:math' as math;import 'package:javascript_utils/javascript_utils.dart' as js_utils;import 'package:js/js.dart' as js; 单词缩写要把 超过两个字母的缩略词 和 首字母缩略词 当做一般单词来对待， 比如 HyperText Transfer Protocol(Http)，应该写成 Http 而不是 HTTP 比如 identification(Id), 应该写成 Id，而不是 ID 比如 Database(DB)，就应该是 DB，而不是 Db _ 代表私有的不要对非私有的变量加上 _ 前缀，以免引起混淆。 不需要前缀字母在 Java 社区喜欢用前缀 m 表示私有变量，在 Dart 中不需要这样。 排序为了保证代码文件前面部分的整洁，Dart 规定了每个部分出现的顺序，每个部分之间通过空行来分割。 要把 dart: 导入语句放到其他导入语句之前 12345import 'dart:async';import 'dart:html';import 'package:bar/bar.dart';import 'package:foo/foo.dart'; 要把 package: 导入语句放到相对导入语句之前 1234import 'package:bar/bar.dart';import 'package:foo/foo.dart';import 'a.dart'; 推荐 把第三方 package: 导入语句放到其他语句之前如果你使用了多个 package: 导入语句来导入自己项目中的文件和第三方的文件，推荐把自己的导入语句和其他的导入语句使用空行分开。 12345import 'package:bar/bar.dart';import 'package:foo/foo.dart';import 'package:myapp/io.dart';import 'package:myapp/util.dart'; 要把导出（export）语句放到所有导入语句之后的部分 1234import 'src/error.dart';import 'src/string_source.dart';export 'src/error.dart'; 格式化 使用 dartfmt 来格式化您的代码 相关文档Effective Dart: Style]]></content>
+    <title><![CDATA[Flutter - 365 Plan (004) : Dart 异步编程]]></title>
+    <url>%2F2019%2F08%2F03%2FFlutter-365-Plan-004-Dart-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[Flutter 365 计划，计划在未来的 365 天，每天都学一点 Flutter 相关的知识，希望未来能成为这个领域的专家。 今天的主题是：Dart 异步编程 在 Dart 的 Library 中有很多返回 Future 或 Steam 对象的函数，他们都是异步函数。 在 Dart 中，使用 async 和 await 关键字来实现异步编程，它可以让你用同步的方式来写异步代码。 FeatureFuture 对象表示在未来的某个时刻的一个 value 或 error，所以 Future 可以定义一个 value 和 error 的回调。 创建 Future一个普通的同步方法，如下： 1String getVersion() =&gt; '1.0.0'; 将它声明成异步方法，则是这样的： 1Future&lt;String&gt; getVersion() async =&gt; '1.0.0'; 通过使用 async 关键字标记一个函数，这个函数就变成了异步函数，它的返回值就变成了 Future&lt;T&gt;。在函数内你可以直接返回 T，Dart 会自动转换成 Future&lt;T&gt;。 当然你也可以，自己创建一个 Future 对象返回，这时函数的 async 标记就不是必须了： 1Future&lt;String&gt; getVersion() =&gt; Future.sync(() =&gt; "1.0.0"); 1Future&lt;String&gt; getVersion() =&gt; Future.delayed(Duration(seconds: 1), () =&gt; "1.0.0"); 处理 Future12Future&lt;String&gt; version = getVersion();version.then((version) =&gt; &#123;print(version)&#125;, onError: (e) =&gt; &#123;print(e)&#125;); 1version.then((version) =&gt; &#123;print(version)&#125;).catchError((e) =&gt; &#123;print(e)&#125;); await 关键字表示等待一个异步函数的返回值，是阻塞式的。所以必须在这个方法上也标记上 async，这就是所谓的用同步的方式写异步代码。 123checkVersion() async &#123; String version = await getVersion();&#125; Stream Stream 表示一个异步的数据序列（数据流） Stream 可以来自用户事件，文件等等 使用 await for 或 listen() 来操作 Stream Stream 提供了一个处理错误的方式 有两种 Stream 定义订阅和广播 创建 Stream使用 async* 标记一个函数，yield 返回 Stream 数据流 12345Stream&lt;int&gt; countStream(int to) async* &#123; for (int i = 1; i &lt;= to; i++) &#123; yield i; &#125;&#125; 处理 Stream使用 awit for 来接收数据流 123await for (var value in stream) &#123; sum += value;&#125; 使用 try catch 来处理错误 123456789101112131415161718192021Future&lt;int&gt; sumStream(Stream&lt;int&gt; stream) async &#123; var sum = 0; try &#123; await for (var value in stream) &#123; sum += value; &#125; &#125; catch (e) &#123; return -1; &#125; return sum;&#125;Stream&lt;int&gt; countStream(int to) async* &#123; for (int i = 1; i &lt;= to; i++) &#123; if (i == 4) &#123; throw new Exception('Intentional exception'); &#125; else &#123; yield i; &#125; &#125;&#125; Steam 还有很多其他操作符，这部分和 RxJava 和 Java 8 的 Stream API 很像，包括 RxDart 的实现也是用了大量的 Stream，详情后续在介绍 相关文档 Asynchronous programming: futures, async, await Asynchronous programming: streams]]></content>
       <categories>
         <category>Flutter Notes</category>
       </categories>
       <tags>
         <tag>Flutter</tag>
+        <tag>Dart</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Flutter - 365 Plan (003) : Dart 核心库]]></title>
+    <url>%2F2019%2F07%2F29%2FFlutter-365-Plan-003-Dart-%E6%A0%B8%E5%BF%83%E5%BA%93%2F</url>
+    <content type="text"><![CDATA[Flutter 365 计划，计划在未来的 365 天，每天都学一点 Flutter 相关的知识，希望未来能成为这个领域的专家。 今天的主题是：Dart 核心库 Dart 运行平台首先需要了解下 Dart 的运行平台，在不同的运行平台核心库的支持程度不一样的 在 Native 的开发环境下使用的是 JIT 的形式，正式环境是 AOT 在 Web 的开发环境是用的 dartdevc，正式环境是 dart2js JIT (Just-in-time) 即时编译 ; AOT (Ahead Of Time) 事前编译 核心库Dart Core: 名称 功能 平台 dart:async 异步编程支持库，包括 Future 和 Stream 等类 All dart:collection 在 dart:core 基础上添加集合相关的工具类 All dart:convert 不同数据互相转换的编码器和解码器，包括了 UTF-8 JSON 等 All dart:core 每个 Dart 程序的内置库，包含了基础类型、集合等基础功能 All dart:developer 开发者工具库，调试器 和 校验器 JIT, Web (experimental, dartdevc only) dart:math 数学、常数、随机数等 All dart:typed_data 固定长度的数据类型列表，比如无符号的 8 字节整数 Int8List All Dart VM: 名称 功能 平台 dart:io File，Socket 和其他 IO 支持 JIT, AOT dart:isolate 内存隔离的并发编程：与线程类似但不共享内存，仅通过消息进行通信 JIT, AOT dart:mirrors 反射支持，体验版，暂不支持 Flutter JIT (experimental, not Flutter) Dart Web: 名称 功能 平台 dart:html File，Socket 和其他 IO 支持 Web dart:indexed_db 浏览器 indexed_db 相关 Web dart:js dart 和 js 交互 Web dart:js_util js 工具库 Web dart:svg SVG 图片 Web dart:web_audio 浏览器 高保真音频 Web dart:web_gl 浏览器 3D 编程 Web dart:web_sql 浏览器 Storage data SQL API Web (obsolete)]]></content>
+      <categories>
+        <category>Flutter Notes</category>
+      </categories>
+      <tags>
+        <tag>Flutter</tag>
+        <tag>Dart</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Flutter - 365 Plan (002) : Dart 基础语法]]></title>
+    <url>%2F2019%2F07%2F27%2FFlutter-365-Plan-002-Dart-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[Flutter 365 计划，计划在未来的 365 天，每天都学一点 Flutter 相关的知识，希望未来能成为这个领域的专家。 今天的主题是：Dart 基础语法 本文主要是对 Dart 官网的 Language tour 的学习笔记，完整内容详细阅读官方文档 https://dart.dev/guides/language/language-tour 重要的概念 所有能够使用变量引用的东西都是对象，每个对象都是一个类的实例。甚至数字、函数、null 都是对象，都继承至 Object 尽管 Dart 是强类型的，但类型注释可以不声明，因为 Dart 有类型检查，但是为了代码的静态分析，你应该用完整的类型注释声明变量。 Dart 支持泛型，List&lt;int&gt; 表示一个整数列表，List&lt;dynamic&gt; 表示任意类型列表 不同于 Java，Dart 没有 public, protected, and private 关键字，如果要表示私有的，以 _ 开头命名。 变量 使用 var 或 变量类型 来声明变量： 12var age = 14;int num = 2; 因为 Dart 能够用变量引用的东西都是对象，所以 int 的默认值同样是 null 使用 final 或 const 来声明常量： const 表示编译时就能确定的常量；final 表示运行时确定的常量 类型Dart 的内置类型如下： numbers int 64bits double 64bits strings String UTF-16 字符串 booleans bool 布尔值 lists List 和数组一样 sets Set 唯一的无序集合 maps Map 键值对 runes Runes 另一种字符串，UTF-32，emoji symbols Symbol 是一种编译时的常量，不会被混淆，通常和混淆 dart:mirrors 一起用 函数函数声明和大多数程序都一样 123bool isNoble(int atomicNumber) &#123; return true;&#125; 对于返回值是 void 的函数，void 可以省略。 可选参数参数命名用下面这种方式命名的参数，调用时可以不填，填的话调用时必须指定参数名 12345678910void hello(&#123;int y, bool x&#125;) &#123; print(x); print(y);&#125;//hello();hello(x: true, y: 1);hello(y: 1, x: true); 当然你依然可以指定命名参数为必填，通过 package:meta/meta.dart 中的 @required 来修饰必填参数 123import 'package:meta/meta.dart';void hello2(&#123;int y, @required bool x&#125;) &#123;&#125; 可选参数1234567String say(String from, String msg, [String device]) &#123; var result = '$from says $msg'; if (device != null) &#123; result = '$result with a $device'; &#125; return result;&#125; 参数默认值1void enableFlags(&#123;bool bold = false, bool hidden = false&#125;) &#123;...&#125; 1String say(String from, String msg,[String device = 'carrier pigeon', String mood]) &#123;...&#125; 闭包操作符和大多数编程语言一样，下面举一些不一样的： 类型检查操作符 as 类型转换 is is! 类型判断 条件运算符a ?? b 如果 a == null 则返回 b 流程控制和大多数编程语言一样 if and else for loops while and do-while loops break and continue switch and case assert 断言]]></content>
+      <categories>
+        <category>Flutter Notes</category>
+      </categories>
+      <tags>
+        <tag>Flutter</tag>
+        <tag>Dart</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Flutter - 365 Plan (001) : Dart 代码规范]]></title>
+    <url>%2F2019%2F07%2F26%2FFlutter-365-Plan-001-Dart-%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83%2F</url>
+    <content type="text"><![CDATA[Flutter 365 计划，计划在未来的 365 天，每天都学一点 Flutter 相关的知识，希望未来能成为这个领域的专家。 今天的主题是：Dart 代码规范 Flutter 应用是使用 Dart 语言进行开发，所以不管语言怎么样，首先了解下相关的代码相关的规范是很有必要的。 代码风格其实大体上和前端 JS 的代码规范差不多，如果你是从 Java 转过来的话，还是有不少需要注意的地方。 在 Dart 语言中，命名方式有三种风格 UpperCamelCase 首字母大写的驼峰命名法 lowerCamelCase 首字母小写的驼峰命名法 lowercase_with_underscores 全部小写，单词间用下划线分割命名法 UpperCamelCase Classes 类名 enums 枚举类型 typedefs 类型定义 type parameters 类型参数 123456789101112131415class SliderMenu &#123; ... &#125;class HttpRequest &#123; ... &#125;typedef bool Predicate&lt;T&gt;(T value);class Foo &#123; const Foo([arg]);&#125;@Foo(anArg)class A &#123; ... &#125;@Foo()class B &#123; ... &#125; lowerCamelCase Class members 类成员变量 top-level definitions 顶级定义（变量、函数等） variables 变量 parameters 参数 named parameters 命名参数 constant variables 常量 1234567var item;HttpRequest httpRequest;align(clearItems) &#123; // ...&#125; lowercase_with_underscores file_names 文件名 library_names 库名 library_prefixes 库导入的前缀 123456789library peg_parser.source_scanner;import 'file_system.dart';import 'slider_menu.dart';import 'dart:json' as json;import 'dart:math' as math;import 'package:javascript_utils/javascript_utils.dart' as js_utils;import 'package:js/js.dart' as js; 单词缩写要把 超过两个字母的缩略词 和 首字母缩略词 当做一般单词来对待， 比如 HyperText Transfer Protocol(Http)，应该写成 Http 而不是 HTTP 比如 identification(Id), 应该写成 Id，而不是 ID 比如 Database(DB)，就应该是 DB，而不是 Db _ 代表私有的不要对非私有的变量加上 _ 前缀，以免引起混淆。 不需要前缀字母在 Java 社区喜欢用前缀 m 表示私有变量，在 Dart 中不需要这样。 排序为了保证代码文件前面部分的整洁，Dart 规定了每个部分出现的顺序，每个部分之间通过空行来分割。 要把 dart: 导入语句放到其他导入语句之前 12345import 'dart:async';import 'dart:html';import 'package:bar/bar.dart';import 'package:foo/foo.dart'; 要把 package: 导入语句放到相对导入语句之前 1234import 'package:bar/bar.dart';import 'package:foo/foo.dart';import 'a.dart'; 推荐 把第三方 package: 导入语句放到其他语句之前如果你使用了多个 package: 导入语句来导入自己项目中的文件和第三方的文件，推荐把自己的导入语句和其他的导入语句使用空行分开。 12345import 'package:bar/bar.dart';import 'package:foo/foo.dart';import 'package:myapp/io.dart';import 'package:myapp/util.dart'; 要把导出（export）语句放到所有导入语句之后的部分 1234import 'src/error.dart';import 'src/string_source.dart';export 'src/error.dart'; 格式化 使用 dartfmt 来格式化您的代码 相关文档Effective Dart: Style]]></content>
+      <categories>
+        <category>Flutter Notes</category>
+      </categories>
+      <tags>
+        <tag>Flutter</tag>
+        <tag>Dart</tag>
       </tags>
   </entry>
   <entry>
@@ -1316,8 +1353,8 @@
         <category>Java Notes</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>Java.Web</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -1328,8 +1365,8 @@
         <category>Java Notes</category>
       </categories>
       <tags>
-        <tag>Java</tag>
         <tag>Java.Web</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>

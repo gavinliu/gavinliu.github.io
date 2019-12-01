@@ -378,6 +378,521 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2013/08/02/Myeclipse-支持Retina显示屏/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/08/02/Myeclipse-支持Retina显示屏/" class="post-title-link" itemprop="http://gavinliu.cn/page/12/index.html">Myeclipse - 支持Retina显示屏</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2013-08-02 17:04:20" itemprop="dateCreated datePublished" datetime="2013-08-02T17:04:20+08:00">2013-08-02</time>
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2013/08/02/Myeclipse-支持Retina显示屏/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2013/08/02/Myeclipse-支持Retina显示屏/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>英文原文：<a href="http://zxzjim.wordpress.com/2012/11/13/how-to-crack-myeclipse-10-6-in-macosx/" target="_blank" rel="noopener">http://zxzjim.wordpress.com/2012/11/13/how-to-crack-myeclipse-10-6-in-macosx/</a></p>
+<p>结合我修改的方式，稍加修改。</p>
+<ol>
+<li>找到文件：/Applications/MyEclipse/MyEclipse 10.app/Contents/Profile/myeclipse.app/Contents/Info.plist</li>
+<li>打开该文件，添加一个boolean属性：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>NSHighResolutionCapable<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下面是重点，网上找的很多教程是修改好，重启myeclipse就可以了，我试了下 不行，或许是人品问题，然后换了下面这个方法，成功了。</p>
+<ol start="3">
+<li>找个文件：/Applications/MyEclipse/MyEclipse 10.app/Contents/Profile/myeclipse.app</li>
+<li>复制 粘贴 得到 myeclipse.app 副本</li>
+<li>删除 myeclipse.app</li>
+<li>重命名 myeclipse.app 副本 -&gt; myeclipse.app<br>OK！现在打开 myeclipse.app 即可享受到 Retina 编程~~</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2013/07/03/Android-JNI-NDKHelloWorld/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/07/03/Android-JNI-NDKHelloWorld/" class="post-title-link" itemprop="http://gavinliu.cn/page/12/index.html">Android - JNI.NDKHelloWorld</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2013-07-03 14:22:38" itemprop="dateCreated datePublished" datetime="2013-07-03T14:22:38+08:00">2013-07-03</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Android-Notes/" itemprop="url" rel="index"><span itemprop="name">Android Notes</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2013/07/03/Android-JNI-NDKHelloWorld/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2013/07/03/Android-JNI-NDKHelloWorld/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://blog.csdn.net/lyl_studio/article/details/9238175" target="_blank" rel="noopener">JNI.NDKHelloWorld</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2013/06/20/Android-【Telescop】-社交日历/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gavin Liu">
+      <meta itemprop="description" content="刘云龙的程序世界">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gavin.Liu">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2013/06/20/Android-【Telescop】-社交日历/" class="post-title-link" itemprop="http://gavinliu.cn/page/12/index.html">Android:【Telescop】(社交日历)</a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2013-06-20 21:48:27" itemprop="dateCreated datePublished" datetime="2013-06-20T21:48:27+08:00">2013-06-20</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/个人作品/" itemprop="url" rel="index"><span itemprop="name">个人作品</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2013/06/20/Android-【Telescop】-社交日历/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2013/06/20/Android-【Telescop】-社交日历/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这款软件是我们基于日历做的一个社交软件，为什么基于日历？</p>
+<p>因为我们的生活本来就是基于日历的，我们每天会固定，按部就班的一些事情，学生每天上课，白领每天上班，电视台会定点节目等等，而这些事情其实反射到日历上，就是一个事件，一个Event。</p>
+<p>OK，在Telescop上最小的元素就是Event(事件)，这些事件的来源有三个途径：</p>
+<p>1.自己添加，2.好友添加，3.公共频道</p>
+<p>ps：自己添加，管理自己的生活，可以选择公开，让好友也能看到。<br>ps：公告频道，我们认证的一些公共资源(比如学校发布活动，课程表，美剧更新，电影上映等等)</p>
+<p>看到这里，可能很多人有所疑问，我还是没弄懂这个软件是干什么的，OK，我来给你举几个例子！</p>
+<p>场景一：<br><strong>Q</strong>：现在学校里面的组织发布活动，通常都是在食堂门口张贴海报什么的，你又没有经常看到一个感兴趣的活动想要参加时，却发现过期了？想了解更多关于活动的信息，想看看别人对这个活动的看法？</p>
+<blockquote>
+<p>有了Telescop，学校的组织发布活动就可以通过我们的公共频道来进行发布，而你只需要关注这个频道，就可以获得最新的活动，还可以在上面进行讨论，点评等等…再也不会错过精彩的活动了。</p>
+</blockquote>
+<p>场景二：<br><strong>Q</strong>：你想去游泳，想邀请朋友一起来，不知道朋友有没有时间，你可能需要QQ，电话联系一下，有没有很麻烦？</p>
+<blockquote>
+<p>有了Telescop，你可以提前一周发布一个Event，你的朋友们都能看到，因为你也能看到朋友们的Event，所以你也可以安排一个合适的时间去游泳。你朋友们看你打算去游泳，他想和你一起去，他就可以点击 参加 按钮，这时候他就会拥有这个Event 到时间会提醒他，这时候你能知道，谁谁谁也会参加，你们也可以在上面讨论，更加方便有效的组织互动。如果软件和游泳馆合作，你们还能直接买票。</p>
+</blockquote>
+<p>上面简单举了两个例子，其实应用范围还很广，公共频道里面可以有更多丰富的内容 电视台的节目，NBA的比赛等等等等</p>
+<p>————↓↓创意的重点↓↓————<br><strong>现在你有没有发现 我的社交软件里面的元素是【面向未来】的？！是的，我们不关心过去，我们只在乎未来！</strong><br><strong>现有的社交平台QQ空间，人人网，微博等等 都是在说我【过去】做了什么，我【现在】在做什么，而我们是在说我【未来】会做什么，有着【跨时代】意义！</strong><br>————↑↑↑↑↑↑↑↑↑↑↑↑↑↑————</p>
+<p>Telescop α-beta版<br><img src="/images/2013.06.20 - Android-【Telescop】-社交日历1.jpg" alt="images">
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2013/06/20/Android-【Telescop】-社交日历/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2013/05/22/Android-【美中宜和】-医院外包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1562,537 +2077,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/05/30/Java-Web-Session-随笔/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="刘云龙的程序世界">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin.Liu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2012/05/30/Java-Web-Session-随笔/" class="post-title-link" itemprop="http://gavinliu.cn/page/12/index.html">Java.Web - Session 随笔</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2012-05-30 20:41:50" itemprop="dateCreated datePublished" datetime="2012-05-30T20:41:50+08:00">2012-05-30</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java-Web-Notes/" itemprop="url" rel="index"><span itemprop="name">Java.Web Notes</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2012/05/30/Java-Web-Session-随笔/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2012/05/30/Java-Web-Session-随笔/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ul>
-<li><h2 id="什么Session"><a href="#什么Session" class="headerlink" title="什么Session?"></a>什么Session?</h2>指用户用一个浏览器，访问某个网站只要不关闭浏览器，不管用户点击多少个超链接，直到用户关闭浏览器，整个这个过程我们称为一次会话。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建session</span></span><br><span class="line">HttpSession session = request.getSession();</span><br><span class="line"><span class="comment">// 设置session属性，属性重名，value会被替换</span></span><br><span class="line">session.setAttribute(<span class="string">"name"</span>, <span class="string">"gavin"</span>);</span><br><span class="line">session.setAttribute(<span class="string">"pwd"</span>, <span class="string">"123456"</span>);</span><br><span class="line"><span class="comment">// 获取session属性的值，返回的是一个object对象</span></span><br><span class="line">session.getAttribute(<span class="string">"name"</span>);</span><br><span class="line"><span class="comment">// 删除session属性</span></span><br><span class="line">session.removeAttribute(<span class="string">"name"</span>);</span><br></pre></td></tr></table></figure>
-<p>Session的生命周期，可以去conf/web.xml配置，也可在项目下的web.xml配置，代码里面也可以设置。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置一个秒数，这个秒数表示客户端在不发出请求时，session被Servlet引擎维持的最长时间。</span></span><br><span class="line">session.setMaxInactiveInterval(<span class="number">100</span>);</span><br><span class="line"><span class="comment">// 让session中的所有属性解除绑定</span></span><br><span class="line">session.invalidate()</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><h2 id="服务器为每个浏览器提供单个Session服务的原理："><a href="#服务器为每个浏览器提供单个Session服务的原理：" class="headerlink" title="服务器为每个浏览器提供单个Session服务的原理："></a>服务器为每个浏览器提供单个Session服务的原理：</h2><p>1.第一次访问web应用时，会创建一个Session服务，然后给浏览器返回一个cookie里面包含了Session的ID<br>2.第二次访问web应用时，cookie里的id会随请求行发给服务器，服务器就能找到ID 对于的Session</p>
-</li>
-<li><h2 id="Session-案例：1-验证用户合法性；2-输入验证码的验证；3-简单的购物车"><a href="#Session-案例：1-验证用户合法性；2-输入验证码的验证；3-简单的购物车" class="headerlink" title="Session 案例：1. 验证用户合法性；2. 输入验证码的验证；3. 简单的购物车"></a>Session 案例：1. 验证用户合法性；2. 输入验证码的验证；3. 简单的购物车</h2>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2012/05/30/Java-Web-Session-随笔/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="刘云龙的程序世界">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin.Liu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/" class="post-title-link" itemprop="http://gavinliu.cn/page/12/index.html">Java.WebService - Webservice初体验之调用学院客户端开放接口</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2012-05-21 20:32:02" itemprop="dateCreated datePublished" datetime="2012-05-21T20:32:02+08:00">2012-05-21</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java-Web-Notes/" itemprop="url" rel="index"><span itemprop="name">Java.Web Notes</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这是学院客户端的开放API <a href="http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx" target="_blank" rel="noopener">http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx</a><br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口1.png" alt="开放API"><br>调用webservice首先要使用wsimport从服务器生成Java接口，wsimport，应该就是webService import 的简写<br>wsimport这个东西其实就是JDK的bin里面，你配置好java环境变量就能使用，OK，现在开始、</p>
-<p>第一步：使用wsimport获取Java接口<br>1.在D盘新建一个文件夹，命名为 api<br>2.在命令行运行wsimport -d D://api -keep -verbose <a href="http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx?WSDL" target="_blank" rel="noopener">http://aaa.nsu.edu.cn/NSUAAAWS/OpenAAA.asmx?WSDL</a><br>然后在api目录下，会生成如下文件<br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口2.png" alt="开放API"><br>第二步：把获取到的java代码导入eclipse工程<br><img src="/images/2012.05.21 - Java-WebService-Webservice初体验之调用学院客户端开放接口3.png" alt="开放API"><br>OpenAAASoap就是提供接口的API<br>OpenAAA是一个继承至Service 的一个服务类，这个类有个 getOpenAAASoap()方法，可以获取OpenAAASoap实例<br>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2012/05/21/Java-WebService-Webservice初体验之调用学院客户端开放接口/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://gavinliu.cn/2012/05/15/Java-Web-Http协议初步接触/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gavin Liu">
-      <meta itemprop="description" content="刘云龙的程序世界">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gavin.Liu">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2012/05/15/Java-Web-Http协议初步接触/" class="post-title-link" itemprop="http://gavinliu.cn/page/12/index.html">Java.Web - Http协议初步接触</a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2012-05-15 20:18:45" itemprop="dateCreated datePublished" datetime="2012-05-15T20:18:45+08:00">2012-05-15</time>
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Java-Web-Notes/" itemprop="url" rel="index"><span itemprop="name">Java.Web Notes</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2012/05/15/Java-Web-Http协议初步接触/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2012/05/15/Java-Web-Http协议初步接触/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="【HTTP请求消息头】"><a href="#【HTTP请求消息头】" class="headerlink" title="【HTTP请求消息头】"></a>【HTTP请求消息头】</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(Request-Line)     GET /manager/html HTTP/1.1    请求行，使用的HTTP规范...</span><br><span class="line">下面是消息头</span><br><span class="line">Accept      */*</span><br><span class="line">Accept-Encoding     gzip, deflate      可以接收gzip文件，或者默认</span><br><span class="line">Accept-Language     zh-CN        支持中文</span><br><span class="line">Connection     Keep-Alive      保存常连接</span><br><span class="line">Host     127.0.0.1:8080</span><br><span class="line">Referer     http://127.0.0.1:8080/     告诉服务器我来自哪里？可以防盗链</span><br><span class="line">User-Agent     Mozilla/4.0     浏览器内核</span><br><span class="line">(空行)</span><br><span class="line">内容</span><br></pre></td></tr></table></figure>
-<p>1.Servlet 中获取头信息 –&gt; String host = request.getHeader(“HOST”);<br>2.可以通过获取 Referer 信息，来判断用户是从那个页面跳转过来的，来防止盗链<br>3.直接 在浏览器输入 跳转过来，Referer 的值为null
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2012/05/15/Java-Web-Http协议初步接触/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-         
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/11/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/13/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2139,7 +2128,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">130</span>
+                    <span class="site-state-item-count">133</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2423,7 +2412,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">105</span>
+                      
+                    
+                    <span class="site-state-item-count">106</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
