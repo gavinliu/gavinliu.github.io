@@ -18,6 +18,8 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
+    <script data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js"></script>
+
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     
@@ -34,9 +36,95 @@
 
     <script>LA.init({id:"3FVRnNbwv2ZoRqcz",ck:"3FVRnNbwv2ZoRqcz"})</script>
 
-<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":true,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":false,"is_page":false,"page":false};</script>
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":false,"is_page":false,"page":false};</script>
     <meta name="generator" content="Hexo 6.3.0"></head>
     <body id="body">
+        
+            <div id="loading-box" onclick="preloader.endLoading();" class style="zoom: 1;">
+    <div class="loading-bg">
+        <img class="loading-img nolazyload" alt="loading image"
+            src="/img/favicon.png">
+        </div>
+</div>
+<script>
+    const preloader = {
+        endLoading: () => {
+            document.getElementById('loading-box').classList.add("loaded")
+        },
+        initLoading: () => {
+            document.getElementById('loading-box').classList.remove("loaded")
+        },
+        removePaceDone: () => {
+            document.getElementById('body').classList = 'pace-done'
+        }
+    }
+    window.addEventListener('load',()=> { preloader.endLoading() })
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+</script>
+<style>
+    #loading-box {
+        -webkit-user-select: none;
+    }
+
+    #loading-box .loading-bg {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: var(--heo-background);
+        z-index: 1999;
+        opacity: 1;
+        transition: 0.2s;
+        pointer-events: all;
+        animation: showLoading 0.3s 0s backwards;
+    }
+
+    #loading-box.loaded .loading-bg {
+        pointer-events: none;
+        transition: 0.2s;
+        animation: hideLoading 0.3s 0s forwards;
+    }
+
+    #loading-box .loading-img {
+        width: 100px;
+        margin: auto;
+        animation-duration: 0.2s;
+        animation-name: loadingAction;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes loadingAction {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes hideLoading {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes showLoading {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>
         
         <div id="console" style="zoom: 1;" class="">
     <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
@@ -75,7 +163,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -183,11 +271,11 @@
                         <sup>4</sup>
                     </a>
                 
-                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" style="font-size: 1em; color: #d3d3d3">面试经验
+                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" style="font-size: 1em; color: #d3d3d3">面试经验
                         <sup>1</sup>
                     </a>
                 
@@ -195,12 +283,12 @@
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/Gradle/" style="font-size: 1em; color: #d3d3d3">Gradle
-                        <sup>2</sup>
-                    </a>
-                
                     <a href="/tags/Chrome/" style="font-size: 1em; color: #d3d3d3">Chrome
                         <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/Gradle/" style="font-size: 1em; color: #d3d3d3">Gradle
+                        <sup>2</sup>
                     </a>
                 
                     <a href="/tags/%E5%BF%85%E7%9C%8B%E7%B2%BE%E9%80%89/" style="font-size: 1em; color: #d3d3d3">必看精选
@@ -227,15 +315,15 @@
                         <sup>3</sup>
                     </a>
                 
+                    <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1em; color: #d3d3d3">加密算法
+                        <sup>1</sup>
+                    </a>
+                
                     <a href="/tags/git/" style="font-size: 1em; color: #d3d3d3">git
                         <sup>1</sup>
                     </a>
                 
                     <a href="/tags/repo/" style="font-size: 1em; color: #d3d3d3">repo
-                        <sup>1</sup>
-                    </a>
-                
-                    <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1em; color: #d3d3d3">加密算法
                         <sup>1</sup>
                     </a>
                 
@@ -283,7 +371,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -448,15 +536,15 @@
                     <span class="tagsPageCount">4</span>
                 </a>
             
-                <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" class="">
-                    <span class="tags-punctuation">#</span> 
-                    面试经验
-                    <span class="tagsPageCount">1</span>
-                </a>
-            
                 <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" class="">
                     <span class="tags-punctuation">#</span> 
                     比特币
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    面试经验
                     <span class="tagsPageCount">1</span>
                 </a>
             
@@ -466,16 +554,16 @@
                     <span class="tagsPageCount">1</span>
                 </a>
             
-                <a href="/tags/Gradle/" class="">
-                    <span class="tags-punctuation">#</span> 
-                    Gradle
-                    <span class="tagsPageCount">2</span>
-                </a>
-            
                 <a href="/tags/Chrome/" class="">
                     <span class="tags-punctuation">#</span> 
                     Chrome
                     <span class="tagsPageCount">1</span>
+                </a>
+            
+                <a href="/tags/Gradle/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    Gradle
+                    <span class="tagsPageCount">2</span>
                 </a>
             
                 <a href="/tags/%E5%BF%85%E7%9C%8B%E7%B2%BE%E9%80%89/" class="">
@@ -514,6 +602,12 @@
                     <span class="tagsPageCount">3</span>
                 </a>
             
+                <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" class="">
+                    <span class="tags-punctuation">#</span> 
+                    加密算法
+                    <span class="tagsPageCount">1</span>
+                </a>
+            
                 <a href="/tags/git/" class="">
                     <span class="tags-punctuation">#</span> 
                     git
@@ -523,12 +617,6 @@
                 <a href="/tags/repo/" class="">
                     <span class="tags-punctuation">#</span> 
                     repo
-                    <span class="tagsPageCount">1</span>
-                </a>
-            
-                <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" class="">
-                    <span class="tags-punctuation">#</span> 
-                    加密算法
                     <span class="tagsPageCount">1</span>
                 </a>
             
@@ -572,7 +660,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2017/04/25/836a86b1de27.html" title="Android | JNI 移植 bspatch 实现增量更新功能">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | JNI 移植 bspatch 实现增量更新功能">
         </a>
         <div class="article-sort-item-info">
@@ -599,7 +687,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2017/04/15/6bf6da4ab19d.html" title="Android | 写给 Android 应用开发者的 JNI 快速入门指北">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | 写给 Android 应用开发者的 JNI 快速入门指北">
         </a>
         <div class="article-sort-item-info">
@@ -626,7 +714,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2017/04/12/32470d2a9ff6.html" title="Android | 写给 Android 应用开发者的 C 语言快速入门指北">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | 写给 Android 应用开发者的 C 语言快速入门指北">
         </a>
         <div class="article-sort-item-info">
@@ -653,7 +741,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2017/03/21/858c9e16dba3.html" title="Android | FFmpeg 命令行运行方式 2">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | FFmpeg 命令行运行方式 2">
         </a>
         <div class="article-sort-item-info">
@@ -685,7 +773,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2017/03/21/0263ebfd730f.html" title="Android | FFmpeg 命令行运行方式 1">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | FFmpeg 命令行运行方式 1">
         </a>
         <div class="article-sort-item-info">
@@ -717,7 +805,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2017/03/20/f905f5341c53.html" title="Android | 一种相似图片搜索算法的实现">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | 一种相似图片搜索算法的实现">
         </a>
         <div class="article-sort-item-info">
@@ -744,7 +832,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2017/03/14/9e11a689b858.html" title="Android | FFmpeg 编译成单 so 库">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | FFmpeg 编译成单 so 库">
         </a>
         <div class="article-sort-item-info">
@@ -776,7 +864,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2017/03/05/8a2b6d7863c0.html" title="Android | FFmpeg &amp; Mac &amp; AndroidStudio &amp; CMake 环境搭建">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | FFmpeg &amp; Mac &amp; AndroidStudio &amp; CMake 环境搭建">
         </a>
         <div class="article-sort-item-info">
@@ -808,7 +896,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2017/02/08/89f2672cbdce.html" title="Android | 解决 Gradle 循环依赖问题">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | 解决 Gradle 循环依赖问题">
         </a>
         <div class="article-sort-item-info">
@@ -835,7 +923,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2017/02/07/52df05f7cbd6.html" title="Android | 兼容&amp;异常问题分类">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | 兼容&amp;异常问题分类">
         </a>
         <div class="article-sort-item-info">
@@ -864,7 +952,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/12/22/14c0e972def5.html" title="编程技巧 | 一种抽奖算法的实现">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/hello.jpg"
+            <img src="/img/hello.jpg"
                 alt="编程技巧 | 一种抽奖算法的实现">
         </a>
         <div class="article-sort-item-info">
@@ -891,7 +979,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/12/15/def8be86f6e9.html" title="机器学习 | 一元简单线性回归与梯度下降">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/hello.jpg"
+            <img src="/img/hello.jpg"
                 alt="机器学习 | 一元简单线性回归与梯度下降">
         </a>
         <div class="article-sort-item-info">
@@ -918,7 +1006,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/12/14/47db15e11452.html" title="Cocos2d | H5 版本解决跨域问题的 3 种办法">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/hello.jpg"
+            <img src="/img/hello.jpg"
                 alt="Cocos2d | H5 版本解决跨域问题的 3 种办法">
         </a>
         <div class="article-sort-item-info">
@@ -945,7 +1033,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/12/11/4c9ef6b9b622.html" title="机器学习 | 数学理论：迭代法统一论">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/hello.jpg"
+            <img src="/img/hello.jpg"
                 alt="机器学习 | 数学理论：迭代法统一论">
         </a>
         <div class="article-sort-item-info">
@@ -972,7 +1060,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/11/05/7fb56844dffe.html" title="Android | 移植 StackBlur for Glide &amp; AS 2.2 CMakeLists 的使用">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | 移植 StackBlur for Glide &amp; AS 2.2 CMakeLists 的使用">
         </a>
         <div class="article-sort-item-info">
@@ -999,7 +1087,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/10/30/0d55a723f38c.html" title="Android | ShapedImageView 之 边框 &amp; 自定义 Path 实现">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | ShapedImageView 之 边框 &amp; 自定义 Path 实现">
         </a>
         <div class="article-sort-item-info">
@@ -1026,7 +1114,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/10/19/870eb686b0ea.html" title="Android | 应用内实现锤子科技的一小步：Simple One step">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | 应用内实现锤子科技的一小步：Simple One step">
         </a>
         <div class="article-sort-item-info">
@@ -1053,7 +1141,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/09/28/c465425129f3.html" title="Android | 自定义 View 冷知识之动态替换 layout.xml 中的 View">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | 自定义 View 冷知识之动态替换 layout.xml 中的 View">
         </a>
         <div class="article-sort-item-info">
@@ -1080,7 +1168,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/09/25/9459617196d9.html" title="Android | 自定义 View 冷知识之读取系统属性">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
+            <img src="/img/cover/android_cover.png"
                 alt="Android | 自定义 View 冷知识之读取系统属性">
         </a>
         <div class="article-sort-item-info">
@@ -1107,7 +1195,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/09/04/ae6460eb651c.html" title="iOS | 安装 GBA4iOS 的 2 种方法">
-            <img src= "/img/acrylic.png" data-lazy-src="/img/hello.jpg"
+            <img src="/img/hello.jpg"
                 alt="iOS | 安装 GBA4iOS 的 2 种方法">
         </a>
         <div class="article-sort-item-info">
@@ -1419,7 +1507,7 @@
                 <footer id="footer">
                     <div id="footer_deal">
     
-    <img class="footer_mini_logo" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png"
+    <img class="footer_mini_logo" src="/img/favicon.png"
         title="返回顶部" onclick="acrylic.toTop()">
     
 </div>    
@@ -1455,10 +1543,6 @@
     
 
 <script src="/lib/pjax.min.js"></script>
-
-
-    
-<script src="/lib/lazyload.min.js"></script>
 
 
 

@@ -18,6 +18,8 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
+    <script data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js"></script>
+
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     
@@ -34,9 +36,95 @@
 
     <script>LA.init({id:"3FVRnNbwv2ZoRqcz",ck:"3FVRnNbwv2ZoRqcz"})</script>
 
-<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":true,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
     <meta name="generator" content="Hexo 6.3.0"></head>
     <body id="body">
+        
+            <div id="loading-box" onclick="preloader.endLoading();" class style="zoom: 1;">
+    <div class="loading-bg">
+        <img class="loading-img nolazyload" alt="loading image"
+            src="/img/favicon.png">
+        </div>
+</div>
+<script>
+    const preloader = {
+        endLoading: () => {
+            document.getElementById('loading-box').classList.add("loaded")
+        },
+        initLoading: () => {
+            document.getElementById('loading-box').classList.remove("loaded")
+        },
+        removePaceDone: () => {
+            document.getElementById('body').classList = 'pace-done'
+        }
+    }
+    window.addEventListener('load',()=> { preloader.endLoading() })
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+</script>
+<style>
+    #loading-box {
+        -webkit-user-select: none;
+    }
+
+    #loading-box .loading-bg {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: var(--heo-background);
+        z-index: 1999;
+        opacity: 1;
+        transition: 0.2s;
+        pointer-events: all;
+        animation: showLoading 0.3s 0s backwards;
+    }
+
+    #loading-box.loaded .loading-bg {
+        pointer-events: none;
+        transition: 0.2s;
+        animation: hideLoading 0.3s 0s forwards;
+    }
+
+    #loading-box .loading-img {
+        width: 100px;
+        margin: auto;
+        animation-duration: 0.2s;
+        animation-name: loadingAction;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes loadingAction {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes hideLoading {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes showLoading {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>
         
         <div id="console" style="zoom: 1;" class="">
     <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
@@ -75,7 +163,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -183,11 +271,11 @@
                         <sup>4</sup>
                     </a>
                 
-                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" style="font-size: 1em; color: #d3d3d3">面试经验
+                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" style="font-size: 1em; color: #d3d3d3">面试经验
                         <sup>1</sup>
                     </a>
                 
@@ -195,12 +283,12 @@
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/Gradle/" style="font-size: 1em; color: #d3d3d3">Gradle
-                        <sup>2</sup>
-                    </a>
-                
                     <a href="/tags/Chrome/" style="font-size: 1em; color: #d3d3d3">Chrome
                         <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/Gradle/" style="font-size: 1em; color: #d3d3d3">Gradle
+                        <sup>2</sup>
                     </a>
                 
                     <a href="/tags/%E5%BF%85%E7%9C%8B%E7%B2%BE%E9%80%89/" style="font-size: 1em; color: #d3d3d3">必看精选
@@ -227,15 +315,15 @@
                         <sup>3</sup>
                     </a>
                 
+                    <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1em; color: #d3d3d3">加密算法
+                        <sup>1</sup>
+                    </a>
+                
                     <a href="/tags/git/" style="font-size: 1em; color: #d3d3d3">git
                         <sup>1</sup>
                     </a>
                 
                     <a href="/tags/repo/" style="font-size: 1em; color: #d3d3d3">repo
-                        <sup>1</sup>
-                    </a>
-                
-                    <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1em; color: #d3d3d3">加密算法
                         <sup>1</sup>
                     </a>
                 
@@ -283,7 +371,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -493,7 +581,7 @@
 <p>我们使用 jsoup 开发包进行 html 的解析，完整代码如下</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.gavin.video.down;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Matcher;</span><br><span class="line"><span class="keyword">import</span> java.util.regex.Pattern;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.jsoup.Jsoup;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Document;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.nodes.Element;</span><br><span class="line"><span class="keyword">import</span> org.jsoup.select.Elements;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DownYouku</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">ss</span> <span class="operator">=</span> <span class="string">&quot;http://www.youku.com/v_olist/c_96_a__s__g__r__lg__im__st__mt__tg__d_1_et_0_ag_0_fv_0_fl__fc__fe__o_7_p_1.html&quot;</span>;</span><br><span class="line">		<span class="keyword">new</span> <span class="title class_">DownYouku</span>().downMovie(ss);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">downMovie</span><span class="params">(String str)</span> &#123;</span><br><span class="line">		<span class="type">String</span> <span class="variable">homeurl</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">page</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">suf</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">		<span class="comment">// 正则表达式处理 解析地址</span></span><br><span class="line">		<span class="type">Pattern</span> <span class="variable">p_url</span> <span class="operator">=</span> Pattern.compile(<span class="string">&quot;(.*)(\\d)(\\.html)&quot;</span>);</span><br><span class="line">		<span class="type">Matcher</span> <span class="variable">m_url</span> <span class="operator">=</span> p_url.matcher(str);</span><br><span class="line">		<span class="keyword">if</span> (m_url.find()) &#123;</span><br><span class="line">			homeurl = m_url.group(<span class="number">1</span>);</span><br><span class="line">			page = m_url.group(<span class="number">2</span>);</span><br><span class="line">			suf = m_url.group(<span class="number">3</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 循环抓取</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> Integer.parseInt(page); i &lt;= <span class="number">30</span>; i++) &#123;</span><br><span class="line">			<span class="type">String</span> <span class="variable">path</span> <span class="operator">=</span> homeurl + i + suf;</span><br><span class="line">			<span class="type">Document</span> <span class="variable">doc1</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				doc1 = Jsoup.connect(path).get();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (IOException e2) &#123;</span><br><span class="line">				System.out.println(<span class="string">&quot;&gt;&gt;&gt;&gt;&gt;&gt;IO 错误 1&quot;</span>);</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="type">Element</span> <span class="variable">listofficial</span> <span class="operator">=</span> doc1.getElementById(<span class="string">&quot;listofficial&quot;</span>);</span><br><span class="line">			<span class="type">Elements</span> <span class="variable">p_pvs</span> <span class="operator">=</span> listofficial.getElementsByTag(<span class="string">&quot;ul&quot;</span>);</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; <span class="number">40</span>; j++) &#123;</span><br><span class="line">				<span class="type">Element</span> <span class="variable">p_pv</span> <span class="operator">=</span> p_pvs.get(j);</span><br><span class="line">				<span class="type">String</span> <span class="variable">a</span> <span class="operator">=</span> p_pv.getElementsByTag(<span class="string">&quot;a&quot;</span>).attr(<span class="string">&quot;href&quot;</span>);</span><br><span class="line">				<span class="type">String</span> <span class="variable">title</span> <span class="operator">=</span> p_pv.getElementsByTag(<span class="string">&quot;a&quot;</span>).attr(<span class="string">&quot;title&quot;</span>);</span><br><span class="line">				<span class="type">Document</span> <span class="variable">doc2</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					doc2 = Jsoup.connect(a).get();</span><br><span class="line">				&#125; <span class="keyword">catch</span> (IOException e1) &#123;</span><br><span class="line">					System.out.println(<span class="string">&quot;&gt;&gt;&gt;&gt;&gt;&gt;IO 错误 2&quot;</span>);</span><br><span class="line">					<span class="keyword">continue</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="type">Element</span> <span class="variable">showInfo</span> <span class="operator">=</span> doc2.getElementById(<span class="string">&quot;showInfo&quot;</span>);</span><br><span class="line">				<span class="type">Element</span> <span class="variable">baseinfo</span> <span class="operator">=</span> showInfo.getElementsByClass(<span class="string">&quot;baseinfo&quot;</span>).get(<span class="number">0</span>);</span><br><span class="line">				<span class="type">Elements</span> <span class="variable">link</span> <span class="operator">=</span> baseinfo.getElementsByClass(<span class="string">&quot;link&quot;</span>);</span><br><span class="line">				<span class="type">Element</span> <span class="variable">url_a</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">				<span class="keyword">if</span> (link.size() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">					url_a = link.get(<span class="number">0</span>).getElementsByTag(<span class="string">&quot;a&quot;</span>).get(<span class="number">0</span>);</span><br><span class="line">				&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">					System.out.println(title + <span class="string">&quot; : &quot;</span> + <span class="string">&quot;无视频链接&quot;</span>);</span><br><span class="line">					<span class="keyword">continue</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> url_a.attr(<span class="string">&quot;href&quot;</span>);</span><br><span class="line">				System.out.print(url + <span class="string">&quot;\t\t&quot;</span>);</span><br><span class="line">				System.out.println(title);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>抓取结果：<br><img src= "/img/acrylic.png" data-lazy-src="/img/post/2013.04.08/1.png"></p>
+<p>抓取结果：<br><img src="/img/post/2013.04.08/1.png"></p>
 <p>内容就提取了这么两项，其他的内容 照着优酷的 html dom 很容易就提取出来了。</p>
 <p>ok！现在我们有了，视频的播放地址，下篇博文讲讲怎么通过这个地址，来解析出视频的真实地址，然后在移动设备上播放。</p>
 
@@ -754,7 +842,7 @@
                 <footer id="footer">
                     <div id="footer_deal">
     
-    <img class="footer_mini_logo" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png"
+    <img class="footer_mini_logo" src="/img/favicon.png"
         title="返回顶部" onclick="acrylic.toTop()">
     
 </div>    
@@ -790,10 +878,6 @@
     
 
 <script src="/lib/pjax.min.js"></script>
-
-
-    
-<script src="/lib/lazyload.min.js"></script>
 
 
 

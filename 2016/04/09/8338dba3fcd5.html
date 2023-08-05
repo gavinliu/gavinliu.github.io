@@ -20,6 +20,8 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
+    <script data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js"></script>
+
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     
@@ -36,9 +38,95 @@
 
     <script>LA.init({id:"3FVRnNbwv2ZoRqcz",ck:"3FVRnNbwv2ZoRqcz"})</script>
 
-<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":true,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
     <meta name="generator" content="Hexo 6.3.0"></head>
     <body id="body">
+        
+            <div id="loading-box" onclick="preloader.endLoading();" class style="zoom: 1;">
+    <div class="loading-bg">
+        <img class="loading-img nolazyload" alt="loading image"
+            src="/img/favicon.png">
+        </div>
+</div>
+<script>
+    const preloader = {
+        endLoading: () => {
+            document.getElementById('loading-box').classList.add("loaded")
+        },
+        initLoading: () => {
+            document.getElementById('loading-box').classList.remove("loaded")
+        },
+        removePaceDone: () => {
+            document.getElementById('body').classList = 'pace-done'
+        }
+    }
+    window.addEventListener('load',()=> { preloader.endLoading() })
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+</script>
+<style>
+    #loading-box {
+        -webkit-user-select: none;
+    }
+
+    #loading-box .loading-bg {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: var(--heo-background);
+        z-index: 1999;
+        opacity: 1;
+        transition: 0.2s;
+        pointer-events: all;
+        animation: showLoading 0.3s 0s backwards;
+    }
+
+    #loading-box.loaded .loading-bg {
+        pointer-events: none;
+        transition: 0.2s;
+        animation: hideLoading 0.3s 0s forwards;
+    }
+
+    #loading-box .loading-img {
+        width: 100px;
+        margin: auto;
+        animation-duration: 0.2s;
+        animation-name: loadingAction;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes loadingAction {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes hideLoading {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes showLoading {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>
         
         <div id="console" style="zoom: 1;" class="">
     <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
@@ -77,7 +165,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -185,11 +273,11 @@
                         <sup>4</sup>
                     </a>
                 
-                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" style="font-size: 1em; color: #d3d3d3">面试经验
+                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" style="font-size: 1em; color: #d3d3d3">面试经验
                         <sup>1</sup>
                     </a>
                 
@@ -197,12 +285,12 @@
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/Gradle/" style="font-size: 1em; color: #d3d3d3">Gradle
-                        <sup>2</sup>
-                    </a>
-                
                     <a href="/tags/Chrome/" style="font-size: 1em; color: #d3d3d3">Chrome
                         <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/Gradle/" style="font-size: 1em; color: #d3d3d3">Gradle
+                        <sup>2</sup>
                     </a>
                 
                     <a href="/tags/%E5%BF%85%E7%9C%8B%E7%B2%BE%E9%80%89/" style="font-size: 1em; color: #d3d3d3">必看精选
@@ -229,15 +317,15 @@
                         <sup>3</sup>
                     </a>
                 
+                    <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1em; color: #d3d3d3">加密算法
+                        <sup>1</sup>
+                    </a>
+                
                     <a href="/tags/git/" style="font-size: 1em; color: #d3d3d3">git
                         <sup>1</sup>
                     </a>
                 
                     <a href="/tags/repo/" style="font-size: 1em; color: #d3d3d3">repo
-                        <sup>1</sup>
-                    </a>
-                
-                    <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1em; color: #d3d3d3">加密算法
                         <sup>1</sup>
                     </a>
                 
@@ -285,7 +373,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -495,7 +583,7 @@
 <span id="more"></span>
 
 <h2 id="大致流程"><a href="#大致流程" class="headerlink" title="大致流程"></a>大致流程</h2><p>如下图所示，红色的部分为自己需要实现的类，方框内即 Android 5.0 的媒体控制大致流程。</p>
-<p><img src= "/img/acrylic.png" data-lazy-src="/img/post/2016.04.09/1.png"></p>
+<p><img src="/img/post/2016.04.09/1.png"></p>
 <p>抛开每个类要如何实例化不谈，单从用户播放流程来说：</p>
 <ol>
 <li>通过<code>Activity</code>有个<code>getMediaController()</code>方法可以拿到<code>MediaController</code>对象</li>
@@ -509,7 +597,7 @@
 <p>类的实例化和关联：<br>创建<code>MediaController</code>，指定一个<code>MediaSession.Token</code>，这样就和该<code>MediaSession</code>绑定好啦。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">MediaSession</span> <span class="variable">mediaSession</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MediaSession</span>(context, <span class="string">&quot;MyMediaSession&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">MediaController</span> <span class="variable">mediaController</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">mediaController</span>(context, mediaSession.getSessionToken());</span><br></pre></td></tr></table></figure>
 
-<h2 id="关键类"><a href="#关键类" class="headerlink" title="关键类"></a>关键类</h2><p><img src= "/img/acrylic.png" data-lazy-src="/img/post/2016.04.09/2.png"></p>
+<h2 id="关键类"><a href="#关键类" class="headerlink" title="关键类"></a>关键类</h2><p><img src="/img/post/2016.04.09/2.png"></p>
 <h2 id="关于音乐播放器"><a href="#关于音乐播放器" class="headerlink" title="关于音乐播放器"></a>关于音乐播放器</h2><p>在没自己去写音乐播放器的时候，觉得音乐播放器很简单，无非就是用<code>MediaPlayer</code>播放一个文件而已嘛，深入后发现要写好一个播放器其实也没那么简单的，Android 5.0 更新的 API 让音乐播放流程和代码架构更加清晰，推荐大家都基于 MediaSession 开发。</p>
 
         </article>
@@ -769,7 +857,7 @@
                 <footer id="footer">
                     <div id="footer_deal">
     
-    <img class="footer_mini_logo" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png"
+    <img class="footer_mini_logo" src="/img/favicon.png"
         title="返回顶部" onclick="acrylic.toTop()">
     
 </div>    
@@ -805,10 +893,6 @@
     
 
 <script src="/lib/pjax.min.js"></script>
-
-
-    
-<script src="/lib/lazyload.min.js"></script>
 
 
 

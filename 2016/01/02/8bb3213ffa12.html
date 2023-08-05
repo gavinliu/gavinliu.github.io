@@ -21,6 +21,8 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
+    <script data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js"></script>
+
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     
@@ -37,9 +39,95 @@
 
     <script>LA.init({id:"3FVRnNbwv2ZoRqcz",ck:"3FVRnNbwv2ZoRqcz"})</script>
 
-<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":true,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
     <meta name="generator" content="Hexo 6.3.0"></head>
     <body id="body">
+        
+            <div id="loading-box" onclick="preloader.endLoading();" class style="zoom: 1;">
+    <div class="loading-bg">
+        <img class="loading-img nolazyload" alt="loading image"
+            src="/img/favicon.png">
+        </div>
+</div>
+<script>
+    const preloader = {
+        endLoading: () => {
+            document.getElementById('loading-box').classList.add("loaded")
+        },
+        initLoading: () => {
+            document.getElementById('loading-box').classList.remove("loaded")
+        },
+        removePaceDone: () => {
+            document.getElementById('body').classList = 'pace-done'
+        }
+    }
+    window.addEventListener('load',()=> { preloader.endLoading() })
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+</script>
+<style>
+    #loading-box {
+        -webkit-user-select: none;
+    }
+
+    #loading-box .loading-bg {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: var(--heo-background);
+        z-index: 1999;
+        opacity: 1;
+        transition: 0.2s;
+        pointer-events: all;
+        animation: showLoading 0.3s 0s backwards;
+    }
+
+    #loading-box.loaded .loading-bg {
+        pointer-events: none;
+        transition: 0.2s;
+        animation: hideLoading 0.3s 0s forwards;
+    }
+
+    #loading-box .loading-img {
+        width: 100px;
+        margin: auto;
+        animation-duration: 0.2s;
+        animation-name: loadingAction;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes loadingAction {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes hideLoading {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes showLoading {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>
         
         <div id="console" style="zoom: 1;" class="">
     <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
@@ -78,7 +166,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -186,11 +274,11 @@
                         <sup>4</sup>
                     </a>
                 
-                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" style="font-size: 1em; color: #d3d3d3">面试经验
+                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" style="font-size: 1em; color: #d3d3d3">面试经验
                         <sup>1</sup>
                     </a>
                 
@@ -198,12 +286,12 @@
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/Gradle/" style="font-size: 1em; color: #d3d3d3">Gradle
-                        <sup>2</sup>
-                    </a>
-                
                     <a href="/tags/Chrome/" style="font-size: 1em; color: #d3d3d3">Chrome
                         <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/Gradle/" style="font-size: 1em; color: #d3d3d3">Gradle
+                        <sup>2</sup>
                     </a>
                 
                     <a href="/tags/%E5%BF%85%E7%9C%8B%E7%B2%BE%E9%80%89/" style="font-size: 1em; color: #d3d3d3">必看精选
@@ -230,15 +318,15 @@
                         <sup>3</sup>
                     </a>
                 
+                    <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1em; color: #d3d3d3">加密算法
+                        <sup>1</sup>
+                    </a>
+                
                     <a href="/tags/git/" style="font-size: 1em; color: #d3d3d3">git
                         <sup>1</sup>
                     </a>
                 
                     <a href="/tags/repo/" style="font-size: 1em; color: #d3d3d3">repo
-                        <sup>1</sup>
-                    </a>
-                
-                    <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1em; color: #d3d3d3">加密算法
                         <sup>1</sup>
                     </a>
                 
@@ -286,7 +374,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -502,8 +590,8 @@
 <figure class="highlight java"><figcaption><span>UiAutomatorTest.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(AndroidJUnit4.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UiAutomatorTest</span> &#123;</span><br><span class="line"></span><br><span class="line">    Context mContext;</span><br><span class="line">    UiDevice mDevice;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setUp</span><span class="params">()</span> &#123;</span><br><span class="line">        mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());</span><br><span class="line">        mContext = InstrumentationRegistry.getContext();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testSetting</span><span class="params">()</span> <span class="keyword">throws</span> UiObjectNotFoundException &#123;</span><br><span class="line">        <span class="comment">// Home键</span></span><br><span class="line">        mDevice.pressHome();</span><br><span class="line">        <span class="comment">// 找到设置并点击</span></span><br><span class="line">        mDevice.findObject(<span class="keyword">new</span> <span class="title class_">UiSelector</span>().text(<span class="string">&quot;设置&quot;</span>)).click();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="运行测试类"><a href="#运行测试类" class="headerlink" title="运行测试类"></a>运行测试类</h3><p>右键，选择 <code>run &#39;UiAutomatorTest&#39;</code></p>
-<p><img src= "/img/acrylic.png" data-lazy-src="/img/post/2016.01.02/1.png" alt="run"></p>
-<h3 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h3><p><img src= "/img/acrylic.png" data-lazy-src="/img/post/2016.01.02/2.gif" alt="run"></p>
+<p><img src="/img/post/2016.01.02/1.png" alt="run"></p>
+<h3 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h3><p><img src="/img/post/2016.01.02/2.gif" alt="run"></p>
 <h3 id="命令行运行"><a href="#命令行运行" class="headerlink" title="命令行运行"></a>命令行运行</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查找</span></span><br><span class="line">$ adb shell pm list instrumentation</span><br><span class="line">instrumentation:cn.gavinliu.uiautomator.test/android.support.test.runner.AndroidJUnitRunner (target=cn.gavinliu.uiautomator)</span><br><span class="line"><span class="comment"># 运行</span></span><br><span class="line">$ adb shell am instrument -w cn.gavinliu.uiautomator.test/android.support.test.runner.AndroidJUnitRunner</span><br></pre></td></tr></table></figure>
 
 <h2 id="UiAutomator-主要-API"><a href="#UiAutomator-主要-API" class="headerlink" title="UiAutomator 主要 API"></a>UiAutomator 主要 API</h2><h3 id="Instrumentation"><a href="#Instrumentation" class="headerlink" title="Instrumentation"></a>Instrumentation</h3><p><code>Instrumentation</code>也是一个测试框架，可以操作很多系统 API，<code>UiAutomator2.x</code>引入了它，大大增强了 UiAutomator 的功能。</p>
@@ -765,7 +853,7 @@
                 <footer id="footer">
                     <div id="footer_deal">
     
-    <img class="footer_mini_logo" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png"
+    <img class="footer_mini_logo" src="/img/favicon.png"
         title="返回顶部" onclick="acrylic.toTop()">
     
 </div>    
@@ -801,10 +889,6 @@
     
 
 <script src="/lib/pjax.min.js"></script>
-
-
-    
-<script src="/lib/lazyload.min.js"></script>
 
 
 

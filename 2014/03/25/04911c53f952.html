@@ -32,6 +32,8 @@
 <link rel="stylesheet" href="/css/custom.css">
 
 
+    <script data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/pace/1.2.4/pace.min.js"></script>
+
 
 <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     
@@ -48,9 +50,95 @@
 
     <script>LA.init({id:"3FVRnNbwv2ZoRqcz",ck:"3FVRnNbwv2ZoRqcz"})</script>
 
-<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":true,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
     <meta name="generator" content="Hexo 6.3.0"></head>
     <body id="body">
+        
+            <div id="loading-box" onclick="preloader.endLoading();" class style="zoom: 1;">
+    <div class="loading-bg">
+        <img class="loading-img nolazyload" alt="loading image"
+            src="/img/favicon.png">
+        </div>
+</div>
+<script>
+    const preloader = {
+        endLoading: () => {
+            document.getElementById('loading-box').classList.add("loaded")
+        },
+        initLoading: () => {
+            document.getElementById('loading-box').classList.remove("loaded")
+        },
+        removePaceDone: () => {
+            document.getElementById('body').classList = 'pace-done'
+        }
+    }
+    window.addEventListener('load',()=> { preloader.endLoading() })
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+</script>
+<style>
+    #loading-box {
+        -webkit-user-select: none;
+    }
+
+    #loading-box .loading-bg {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: var(--heo-background);
+        z-index: 1999;
+        opacity: 1;
+        transition: 0.2s;
+        pointer-events: all;
+        animation: showLoading 0.3s 0s backwards;
+    }
+
+    #loading-box.loaded .loading-bg {
+        pointer-events: none;
+        transition: 0.2s;
+        animation: hideLoading 0.3s 0s forwards;
+    }
+
+    #loading-box .loading-img {
+        width: 100px;
+        margin: auto;
+        animation-duration: 0.2s;
+        animation-name: loadingAction;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes loadingAction {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes hideLoading {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes showLoading {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>
         
         <div id="console" style="zoom: 1;" class="">
     <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
@@ -89,7 +177,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -197,11 +285,11 @@
                         <sup>4</sup>
                     </a>
                 
-                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" style="font-size: 1em; color: #d3d3d3">面试经验
+                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" style="font-size: 1em; color: #d3d3d3">面试经验
                         <sup>1</sup>
                     </a>
                 
@@ -209,12 +297,12 @@
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/Gradle/" style="font-size: 1em; color: #d3d3d3">Gradle
-                        <sup>2</sup>
-                    </a>
-                
                     <a href="/tags/Chrome/" style="font-size: 1em; color: #d3d3d3">Chrome
                         <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/Gradle/" style="font-size: 1em; color: #d3d3d3">Gradle
+                        <sup>2</sup>
                     </a>
                 
                     <a href="/tags/%E5%BF%85%E7%9C%8B%E7%B2%BE%E9%80%89/" style="font-size: 1em; color: #d3d3d3">必看精选
@@ -241,15 +329,15 @@
                         <sup>3</sup>
                     </a>
                 
+                    <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1em; color: #d3d3d3">加密算法
+                        <sup>1</sup>
+                    </a>
+                
                     <a href="/tags/git/" style="font-size: 1em; color: #d3d3d3">git
                         <sup>1</sup>
                     </a>
                 
                     <a href="/tags/repo/" style="font-size: 1em; color: #d3d3d3">repo
-                        <sup>1</sup>
-                    </a>
-                
-                    <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1em; color: #d3d3d3">加密算法
                         <sup>1</sup>
                     </a>
                 
@@ -297,7 +385,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -514,7 +602,7 @@
 </ul>
 </li>
 </ol>
-<p><img src= "/img/acrylic.png" data-lazy-src="/img/post/2014.03.25/1.gif" alt="Drag"></p>
+<p><img src="/img/post/2014.03.25/1.gif" alt="Drag"></p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><span id="more"></span>
 
 <figure class="highlight java"><figcaption><span>MainActivity.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.gavinliu.drag;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> android.app.Activity;</span><br><span class="line"><span class="keyword">import</span> android.content.ClipData;</span><br><span class="line"><span class="keyword">import</span> android.graphics.Color;</span><br><span class="line"><span class="keyword">import</span> android.os.Bundle;</span><br><span class="line"><span class="keyword">import</span> android.util.Log;</span><br><span class="line"><span class="keyword">import</span> android.view.DragEvent;</span><br><span class="line"><span class="keyword">import</span> android.view.View;</span><br><span class="line"><span class="keyword">import</span> android.view.View.DragShadowBuilder;</span><br><span class="line"><span class="keyword">import</span> android.view.View.OnDragListener;</span><br><span class="line"><span class="keyword">import</span> android.view.View.OnLongClickListener;</span><br><span class="line"><span class="keyword">import</span> android.widget.ImageView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MainActivity</span> <span class="keyword">extends</span> <span class="title class_">Activity</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span> <span class="variable">TAG</span> <span class="operator">=</span> <span class="string">&quot;DragDemo&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ImageView image;</span><br><span class="line">    <span class="keyword">private</span> ImageView image2;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onCreate</span><span class="params">(Bundle savedInstanceState)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line"></span><br><span class="line">        image = (ImageView) findViewById(R.id.image);</span><br><span class="line">        image2 = (ImageView) findViewById(R.id.image2);</span><br><span class="line"></span><br><span class="line">        image.setOnLongClickListener(<span class="keyword">new</span> <span class="title class_">OnLongClickListener</span>() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">onLongClick</span><span class="params">(View v)</span> &#123;</span><br><span class="line">                <span class="comment">// 创建DragShadowBuilder，我把控件本身传进去</span></span><br><span class="line">                <span class="type">DragShadowBuilder</span> <span class="variable">builder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">DragShadowBuilder</span>(v);</span><br><span class="line">                <span class="comment">// 剪切板数据，可以在DragEvent.ACTION_DROP方法的时候获取。</span></span><br><span class="line">                <span class="type">ClipData</span> <span class="variable">data</span> <span class="operator">=</span> ClipData.newPlainText(<span class="string">&quot;dot&quot;</span>, <span class="string">&quot;Dot : &quot;</span> + v.toString());</span><br><span class="line">                <span class="comment">// 开始拖拽</span></span><br><span class="line">                v.startDrag(data, builder, v, <span class="number">0</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        image.setOnDragListener(<span class="keyword">new</span> <span class="title class_">OnDragListener</span>() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">onDrag</span><span class="params">(View v, DragEvent event)</span> &#123;</span><br><span class="line">                <span class="keyword">final</span> <span class="type">int</span> <span class="variable">action</span> <span class="operator">=</span> event.getAction();</span><br><span class="line">                <span class="keyword">switch</span> (action) &#123;</span><br><span class="line">                <span class="comment">// 开始拖拽</span></span><br><span class="line">                <span class="keyword">case</span> DragEvent.ACTION_DRAG_STARTED:</span><br><span class="line">                    image.setVisibility(View.INVISIBLE);</span><br><span class="line">                    Log.d(TAG, <span class="string">&quot;image1 ACTION_DRAG_STARTED&quot;</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="comment">// 结束拖拽</span></span><br><span class="line">                <span class="keyword">case</span> DragEvent.ACTION_DRAG_ENDED:</span><br><span class="line">                    image.setVisibility(View.VISIBLE);</span><br><span class="line">                    Log.d(TAG, <span class="string">&quot;image1 ACTION_DRAG_ENDED&quot;</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="comment">// 拖拽进某个控件后，退出</span></span><br><span class="line">                <span class="keyword">case</span> DragEvent.ACTION_DRAG_EXITED:</span><br><span class="line">                    Log.d(TAG, <span class="string">&quot;image1 ACTION_DRAG_EXITED&quot;</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="comment">// 拖拽进某个控件后，保持</span></span><br><span class="line">                <span class="keyword">case</span> DragEvent.ACTION_DRAG_LOCATION:</span><br><span class="line">                    Log.d(TAG, <span class="string">&quot;image1 ACTION_DRAG_LOCATION&quot;</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="comment">// 推拽进入某个控件</span></span><br><span class="line">                <span class="keyword">case</span> DragEvent.ACTION_DRAG_ENTERED:</span><br><span class="line">                    Log.d(TAG, <span class="string">&quot;image1 ACTION_DRAG_ENTERED&quot;</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="comment">// 推拽进入某个控件，后在该控件内，释放。即把推拽控件放入另一个控件</span></span><br><span class="line">                <span class="keyword">case</span> DragEvent.ACTION_DROP:</span><br><span class="line">                    Log.d(TAG, <span class="string">&quot;image1 ACTION_DROP&quot;</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        image2.setOnDragListener(<span class="keyword">new</span> <span class="title class_">OnDragListener</span>() &#123;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">onDrag</span><span class="params">(View v, DragEvent event)</span> &#123;</span><br><span class="line">                <span class="keyword">final</span> <span class="type">int</span> <span class="variable">action</span> <span class="operator">=</span> event.getAction();</span><br><span class="line">                <span class="keyword">switch</span> (action) &#123;</span><br><span class="line">                <span class="keyword">case</span> DragEvent.ACTION_DRAG_STARTED:</span><br><span class="line">                    Log.d(TAG, <span class="string">&quot;image2 ACTION_DRAG_STARTED&quot;</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> DragEvent.ACTION_DRAG_ENDED:</span><br><span class="line">                    image2.setBackgroundColor(Color.TRANSPARENT);</span><br><span class="line">                    Log.d(TAG, <span class="string">&quot;image2 ACTION_DRAG_ENDED&quot;</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> DragEvent.ACTION_DRAG_EXITED:</span><br><span class="line">                    image2.setBackgroundColor(Color.TRANSPARENT);</span><br><span class="line">                    Log.d(TAG, <span class="string">&quot;image2 ACTION_DRAG_EXITED&quot;</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> DragEvent.ACTION_DRAG_ENTERED:</span><br><span class="line">                    image2.setBackgroundColor(Color.BLUE);</span><br><span class="line">                    Log.d(TAG, <span class="string">&quot;image2 ACTION_DRAG_ENTERED&quot;</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> DragEvent.ACTION_DRAG_LOCATION:</span><br><span class="line">                    Log.d(TAG, <span class="string">&quot;image2 ACTION_DRAG_LOCATION&quot;</span>);</span><br><span class="line">                <span class="keyword">case</span> DragEvent.ACTION_DROP:</span><br><span class="line">                    Log.d(TAG, <span class="string">&quot;image2 ACTION_DROP&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -780,7 +868,7 @@
                 <footer id="footer">
                     <div id="footer_deal">
     
-    <img class="footer_mini_logo" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png"
+    <img class="footer_mini_logo" src="/img/favicon.png"
         title="返回顶部" onclick="acrylic.toTop()">
     
 </div>    
@@ -816,10 +904,6 @@
     
 
 <script src="/lib/pjax.min.js"></script>
-
-
-    
-<script src="/lib/lazyload.min.js"></script>
 
 
 
