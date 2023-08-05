@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Android | Animation 三角函数之美 | Gavin Liu - 代码人生与科技生活</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/favicon.png">
+<link rel="apple-touch-icon" href="/img/favicon.png">
+<meta name="apple-mobile-web-app-title" content="Gavin Liu - 代码人生与科技生活">
+<link rel="bookmark" href="/img/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/favicon.png">
+<meta name="description" content="&lt;h2 id=&#34;概述&#34;&gt;&lt;a href=&#34;#概述&#34; class=&#34;headerlink&#34; title=&#34;概述&#34;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;初中数学中的三角函数 sin，cos…是超越函数一类函数，属于初等函数，通常用平面直角坐标系来定义三角函数，如下图。&lt;br&gt;&lt;img src=&#34;/img/post/2015.03.26/3.png&#34; alt=&#34;sin(x)&#34;&gt;&lt;/p&gt;
+&lt;p&gt;在中学中我们通常把 sin(x)的 x 赋值为角度，比如 sin(30°)&amp;#x3D;1&amp;#x2F;2，而在计算机语言中 x 通常是弧度，sin(π&amp;#x2F;6)&amp;#x3D;1&amp;#x2F;2。&lt;br&gt;完整的正弦函数是这样的 &lt;code&gt;y = a * sin(wx + b) + h&lt;/code&gt; : a 影响振幅，w 影响周期，h 影响 y 位置，b 为初相。&lt;/p&gt;">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+
+    <script>LA.init({id:"3FVRnNbwv2ZoRqcz",ck:"3FVRnNbwv2ZoRqcz"})</script>
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+            <div id="loading-box" onclick="preloader.endLoading();" class style="zoom: 1;">
+    <div class="loading-bg">
+        <img class="loading-img nolazyload" alt="loading image"
+            src="/img/favicon.png">
+        </div>
+</div>
+<script>
+    const preloader = {
+        endLoading: () => {
+            document.getElementById('loading-box').classList.add("loaded")
+        },
+        initLoading: () => {
+            document.getElementById('loading-box').classList.remove("loaded")
+        },
+        removePaceDone: () => {
+            document.getElementById('body').classList = 'pace-done'
+        }
+    }
+    window.addEventListener('load',()=> { preloader.endLoading() })
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+</script>
+<style>
+    #loading-box {
+        -webkit-user-select: none;
+    }
+
+    #loading-box .loading-bg {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: var(--heo-background);
+        z-index: 1999;
+        opacity: 1;
+        transition: 0.2s;
+        pointer-events: all;
+        animation: showLoading 0.3s 0s backwards;
+    }
+
+    #loading-box.loaded .loading-bg {
+        pointer-events: none;
+        transition: 0.2s;
+        animation: hideLoading 0.3s 0s forwards;
+    }
+
+    #loading-box .loading-img {
+        width: 100px;
+        margin: auto;
+        animation-duration: 0.2s;
+        animation-name: loadingAction;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes loadingAction {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes hideLoading {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes showLoading {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    
+    
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+        
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fa-solid fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fa-solid fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fa-solid fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 我的</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/equipment/">
+                                <i class="fa-solid fa-laptop"></i>
+                                <span> 我的装备</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/about/">
+                                <i class="fa-solid fa-user"></i>
+                                <span> 关于我</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/Java-Web/" style="font-size: 1em; color: #d3d3d3">Java.Web
+                        <sup>10</sup>
+                    </a>
+                
+                    <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/" style="font-size: 1em; color: #d3d3d3">代码人生
+                        <sup>77</sup>
+                    </a>
+                
+                    <a href="/tags/Android/" style="font-size: 1em; color: #d3d3d3">Android
+                        <sup>43</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/Mac/" style="font-size: 1em; color: #d3d3d3">Mac
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 1em; color: #d3d3d3">环境搭建
+                        <sup>13</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" style="font-size: 1em; color: #d3d3d3">年终总结
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" style="font-size: 1em; color: #d3d3d3">面试经验
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/Chrome/" style="font-size: 1em; color: #d3d3d3">Chrome
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" style="font-size: 1em; color: #d3d3d3">人人都是产品经理
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/Gradle/" style="font-size: 1em; color: #d3d3d3">Gradle
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%BF%85%E7%9C%8B%E7%B2%BE%E9%80%89/" style="font-size: 1em; color: #d3d3d3">必看精选
+                        <sup>7</sup>
+                    </a>
+                
+                    <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" style="font-size: 1em; color: #d3d3d3">编程技巧
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">路由器
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E7%A7%91%E6%8A%80%E7%94%9F%E6%B4%BB/" style="font-size: 1em; color: #d3d3d3">科技生活
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Python/" style="font-size: 1em; color: #d3d3d3">Python
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1em; color: #d3d3d3">机器学习
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/git/" style="font-size: 1em; color: #d3d3d3">git
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/repo/" style="font-size: 1em; color: #d3d3d3">repo
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1em; color: #d3d3d3">加密算法
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">服务器
+                        <sup>5</sup>
+                    </a>
+                
+                    <a href="/tags/iOS/" style="font-size: 1em; color: #d3d3d3">iOS
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%B8%B8%E6%88%8F%E6%A8%A1%E6%8B%9F%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">游戏模拟器
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/Cocos2d/" style="font-size: 1em; color: #d3d3d3">Cocos2d
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/FFmpeg/" style="font-size: 1em; color: #d3d3d3">FFmpeg
+                        <sup>4</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+                        <i class="fa-solid fa-ghost" style="font-size: 25px;"></i>
+                      
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">Android | Animation 三角函数之美</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fa-solid fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fa-solid fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fa-solid fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 我的</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/equipment/">
+                                <i class="fa-solid fa-laptop"></i>
+                                <span> 我的装备</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/about/">
+                                <i class="fa-solid fa-user"></i>
+                                <span> 关于我</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/cover/android_cover.png" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/">研发小记</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">代码人生</span>
+                        </a>
+                    
+                        <a class="post-meta__tags" href="/tags/Android/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">Android</span>
+                        </a>
+                    
+                        <a class="post-meta__tags" href="/tags/%E5%BF%85%E7%9C%8B%E7%B2%BE%E9%80%89/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">必看精选</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">Android | Animation 三角函数之美</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2015-03-26T10:25:49+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为珠海">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>珠海</span>
+                </span>
+            
+            
+                
+                    <span class="post-meta-wordcount">
+                        <i class="fas fa-file-word fa-fw post-meta-icon" title="文章字数"></i>
+                        <span class="word-count">1.1k</span>
+                    </span>
+                
+                
+                    <span class="post-meta-time">
+                        <i class="fas fa-clock post-meta-icon" title="阅读耗时"></i>
+                        <span>5 min</span>
+                    </span>
+                
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>初中数学中的三角函数 sin，cos…是超越函数一类函数，属于初等函数，通常用平面直角坐标系来定义三角函数，如下图。<br><img src="/img/post/2015.03.26/3.png" alt="sin(x)"></p>
+<p>在中学中我们通常把 sin(x)的 x 赋值为角度，比如 sin(30°)&#x3D;1&#x2F;2，而在计算机语言中 x 通常是弧度，sin(π&#x2F;6)&#x3D;1&#x2F;2。<br>完整的正弦函数是这样的 <code>y = a * sin(wx + b) + h</code> : a 影响振幅，w 影响周期，h 影响 y 位置，b 为初相。</p>
+<span id="more"></span>
+
+<h2 id="三角函数在-GUI-中的运用"><a href="#三角函数在-GUI-中的运用" class="headerlink" title="三角函数在 GUI 中的运用"></a>三角函数在 GUI 中的运用</h2><p><img src="/img/post/2015.03.26/1.gif" alt="Flyme 流量管理"><br><img src="/img/post/2015.03.26/2.gif" alt="Flyme 音乐频谱"></p>
+<h3 id="Android-波浪控件原理"><a href="#Android-波浪控件原理" class="headerlink" title="Android 波浪控件原理"></a>Android 波浪控件原理</h3><p>如上图流量管理中的水流效果，音乐频谱的波浪效果都是使用三角函数来实现：</p>
+<blockquote>
+<p>流量管理 在屏幕上绘制出 sin(2π)曲线，然后通过移动 x 位置即可，类似卷轴游戏一样循环移动即可。<br>音乐频谱 其实和流量管理是一样的，分别代表高中低频的三条波浪，通过动态改变的 a 的值来改变振幅，根据频率强弱变换移动速度。</p>
+</blockquote>
+<h3 id="Android-波浪控件实现"><a href="#Android-波浪控件实现" class="headerlink" title="Android 波浪控件实现"></a>Android 波浪控件实现</h3><h4 id="计算坐标点"><a href="#计算坐标点" class="headerlink" title="计算坐标点"></a>计算坐标点</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="comment">// y = a * sin(2π) + b</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; mViewWidth; i++) &#123;</span><br><span class="line">    <span class="comment">// i/w, 把sin(2π)拉升到整个View宽度</span></span><br><span class="line">    mPointY[i] = (<span class="type">float</span>) (<span class="number">30</span> * Math.sin(<span class="number">2</span> * Math.PI * i / mViewWidth));</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="绘制曲线"><a href="#绘制曲线" class="headerlink" title="绘制曲线"></a>绘制曲线</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; mViewWidth; i++) &#123;</span><br><span class="line">    canvas.drawLine(i, mViewWidth - mDynamicPointY[i] - <span class="number">400</span>, i, mViewHeight, mPaint);</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h4 id="卷轴移动"><a href="#卷轴移动" class="headerlink" title="卷轴移动"></a>卷轴移动</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">mXOffset += X_SPEED;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (mXOffset &gt; mViewWidth) &#123;</span><br><span class="line">    mXOffset = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"><span class="comment">// 超出屏幕的挪到前面</span></span><br><span class="line"><span class="type">int</span> <span class="variable">yInterval</span> <span class="operator">=</span> mPointY.length - mXOffset;</span><br><span class="line">System.arraycopy(mPointY, <span class="number">0</span>, mDynamicPointY, mXOffset, yInterval);</span><br><span class="line">System.arraycopy(mPointY, yInterval, mDynamicPointY, <span class="number">0</span>, mXOffset);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h4 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h4><figure class="highlight java"><figcaption><span>优化刷新率</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">onDraw</span><span class="params">(Canvas canvas)</span> &#123;</span><br><span class="line">    <span class="built_in">super</span>.onDraw(canvas);</span><br><span class="line">    <span class="type">long</span> <span class="variable">startTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="type">long</span> <span class="variable">endTime</span> <span class="operator">=</span> System.currentTimeMillis();</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> <span class="variable">delay</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> ((endTime - startTime) &lt; <span class="number">30</span>) &#123;</span><br><span class="line">        delay = (<span class="type">int</span>) (<span class="number">30</span> - (endTime - startTime));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    postInvalidateDelayed(delay);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/img/post/2015.03.26/4.gif" alt="BeautifulOfSin"><br>完整代码：<a target="_blank" rel="noopener" href="https://github.com/gavinliu/BeautifulOfSin">https://github.com/gavinliu/BeautifulOfSin</a></p>
+<h2 id="三角函数在动画中的运用"><a href="#三角函数在动画中的运用" class="headerlink" title="三角函数在动画中的运用"></a>三角函数在动画中的运用</h2><h3 id="插值器算法"><a href="#插值器算法" class="headerlink" title="插值器算法"></a>插值器算法</h3><p>sin(x)随着角度的增大（或减小）而增大（或减小）<br>cos(x)随着角度的增大（或减小）而减小（或增大）<br>sin，cos 也是围绕 y 轴不断循环的</p>
+<p>所以可以很方便的用来算加速减速，循环，下面举个 Android Property Animation 中的 TimeInterploator 例子</p>
+<figure class="highlight java"><figcaption><span>android.view.animation.AccelerateDecelerateInterpolator</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">    <span class="keyword">public</span> <span class="type">float</span> <span class="title function_">getInterpolation</span><span class="params">(<span class="type">float</span> input)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="type">float</span>)(Math.cos((input + <span class="number">1</span>) * Math.PI) / <span class="number">2.0f</span>) + <span class="number">0.5f</span>;</span><br><span class="line">    &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><figcaption><span>android.view.animation.CycleInterpolator</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">    <span class="keyword">public</span> <span class="type">float</span> <span class="title function_">getInterpolation</span><span class="params">(<span class="type">float</span> input)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="type">float</span>)(Math.sin(<span class="number">2</span> * mCycles * Math.PI * input));</span><br><span class="line">    &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="三角函数"><a href="#三角函数" class="headerlink" title="三角函数"></a>三角函数</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line">sin(a+b)=sinacosb+cosasinb</span><br><span class="line"></span><br><span class="line">sin(a-b)=sinacosb-sinbcosa</span><br><span class="line"></span><br><span class="line">cos(a+b)=cosacosb-sinasinb</span><br><span class="line"></span><br><span class="line">cos(a-b)=cosacosb+sinasinb</span><br><span class="line"></span><br><span class="line">tan(a+b)=(tana+tanb)/(1-tanatanb)</span><br><span class="line"></span><br><span class="line">tan(a-b)=(tana-tanb)/(1+tanatanb)</span><br><span class="line"></span><br><span class="line">cot(a+b)=(cotacotb-1)/(cotb+cota)</span><br><span class="line"></span><br><span class="line">cot(a-b)=(cotacotb+1)/(cotb-cota)</span><br><span class="line"></span><br><span class="line">倍角公式</span><br><span class="line"></span><br><span class="line">tan2a=2tana/[1-(tana)^2]</span><br><span class="line"></span><br><span class="line">cos2a=(cosa)^2-(sina)^2=2(cosa)^2 -1=1-2(sina)^2</span><br><span class="line"></span><br><span class="line">sin2a=2sina*cosa</span><br><span class="line"></span><br><span class="line">半角公式</span><br><span class="line"></span><br><span class="line">sin(a/2)=√((1-cosa)/2) sin(a/2)=-√((1-cosa)/2)</span><br><span class="line"></span><br><span class="line">cos(a/2)=√((1+cosa)/2) cos(a/2)=-√((1+cosa)/2)</span><br><span class="line"></span><br><span class="line">tan(a/2)=√((1-cosa)/((1+cosa)) tan(a/2)=-√((1-cosa)/((1+cosa))</span><br><span class="line"></span><br><span class="line">cot(a/2)=√((1+cosa)/((1-cosa)) cot(a/2)=-√((1+cosa)/((1-cosa))</span><br><span class="line"></span><br><span class="line">tan(a/2)=(1-cosa)/sina=sina/(1+cosa)</span><br><span class="line"></span><br><span class="line">和差化积</span><br><span class="line"></span><br><span class="line">2sinacosb=sin(a+b)+sin(a-b)</span><br><span class="line"></span><br><span class="line">2cosasinb=sin(a+b)-sin(a-b) )</span><br><span class="line"></span><br><span class="line">2cosacosb=cos(a+b)-sin(a-b)</span><br><span class="line"></span><br><span class="line">-2sinasinb=cos(a+b)-cos(a-b)</span><br><span class="line"></span><br><span class="line">sina+sinb=2sin((a+b)/2)cos((a-b)/2</span><br><span class="line"></span><br><span class="line">cosa+cosb=2cos((a+b)/2)sin((a-b)/2)</span><br><span class="line"></span><br><span class="line">tana+tanb=sin(a+b)/cosacosb</span><br><span class="line"></span><br><span class="line">积化和差公式</span><br><span class="line"></span><br><span class="line">sin(a)sin(b)=-1/2*[cos(a+b)-cos(a-b)]</span><br><span class="line"></span><br><span class="line">cos(a)cos(b)=1/2*[cos(a+b)+cos(a-b)]</span><br><span class="line"></span><br><span class="line">sin(a)cos(b)=1/2*[sin(a+b)+sin(a-b)]</span><br><span class="line"></span><br><span class="line">诱导公式</span><br><span class="line"></span><br><span class="line">sin(-a)=-sin(a)</span><br><span class="line"></span><br><span class="line">cos(-a)=cos(a)</span><br><span class="line"></span><br><span class="line">sin(pi/2-a)=cos(a)</span><br><span class="line"></span><br><span class="line">cos(pi/2-a)=sin(a)</span><br><span class="line"></span><br><span class="line">sin(pi/2+a)=cos(a)</span><br><span class="line"></span><br><span class="line">cos(pi/2+a)=-sin(a)</span><br><span class="line"></span><br><span class="line">sin(pi-a)=sin(a)</span><br><span class="line"></span><br><span class="line">cos(pi-a)=-cos(a)</span><br><span class="line"></span><br><span class="line">sin(pi+a)=-sin(a)</span><br><span class="line"></span><br><span class="line">cos(pi+a)=-cos(a)</span><br><span class="line"></span><br><span class="line">tga=tana=sina/cosa</span><br><span class="line"></span><br><span class="line">万能公式</span><br><span class="line"></span><br><span class="line">sin(a)= (2tan(a/2))/(1+tan^2(a/2))</span><br><span class="line"></span><br><span class="line">cos(a)= (1-tan^2(a/2))/(1+tan^2(a/2))</span><br><span class="line"></span><br><span class="line">tan(a)= (2tan(a/2))/(1-tan^2(a/2))</span><br><span class="line"></span><br><span class="line">其它公式</span><br><span class="line"></span><br><span class="line">a*sin(a)+b*cos(a)=sqrt(a^2+b^2)sin(a+c) [其中，tan(c)=b/a]</span><br><span class="line"></span><br><span class="line">a*sin(a)-b*cos(a)=sqrt(a^2+b^2)cos(a-c) [其中，tan(c)=a/b]</span><br><span class="line"></span><br><span class="line">1+sin(a)=(sin(a/2)+cos(a/2))^2</span><br><span class="line"></span><br><span class="line">1-sin(a)=(sin(a/2)-cos(a/2))^2</span><br><span class="line"></span><br><span class="line">其他非重点三角函数</span><br><span class="line"></span><br><span class="line">csc(a)=1/sin(a)</span><br><span class="line"></span><br><span class="line">sec(a)=1/cos(a)</span><br><span class="line"></span><br><span class="line">双曲函数</span><br><span class="line"></span><br><span class="line">sinh(a)=(e^a-e^(-a))/2</span><br><span class="line"></span><br><span class="line">cosh(a)=(e^a+e^(-a))/2</span><br><span class="line"></span><br><span class="line">tgh(a)=sinh(a)/cosh(a)</span><br></pre></td></tr></table></figure>
+
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>有没有觉得水波纹的效果的实现其实很简单呢，说明数学真的很重要，尤其是线性代数，遗忘得差不多了，回头好好补补课。</p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="https://gavinliu.cn/2015/03/26/5efaf89e32aa.html">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "https://gavinliu.cn/2015/03/26/5efaf89e32aa.html");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=Android | Animation 三角函数之美&amp;url=https://gavinliu.cn/2015/03/26/5efaf89e32aa.html&amp;pic=/img/cover/android_cover.png"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                代码人生
+                                <span class="tagsPageCount">77</span>
+                            </a>
+                        
+                            <a href="/tags/Android/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                Android
+                                <span class="tagsPageCount">43</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%BF%85%E7%9C%8B%E7%B2%BE%E9%80%89/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                必看精选
+                                <span class="tagsPageCount">7</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>Android | Animation 三角函数之美</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2015/03/26/5efaf89e32aa.html">https://gavinliu.cn/2015/03/26/5efaf89e32aa.html</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">Gavin Liu - 代码人生与科技生活</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2015/03/30/2f877cdf6676.html">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">Android | Animation 贝塞尔曲线之美</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2015/03/07/4906b0552218.html">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">Android | Animation LayoutTransition</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                Gavin Liu
+            </div>
+            <div class="author-info__description">这有关于<b>开发</b>、<b>技术</b>相关的问题和看法，还有关于<b>数码产品</b>相关的教程和测评。<br/><br/>相信你可以在这里找到对你有用的知识和教程。</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/about">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">更多信息</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/gavinliu" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" href="mailto:gavin6liu@gmail.com" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%9C%A8-GUI-%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8"><span class="toc-text">三角函数在 GUI 中的运用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Android-%E6%B3%A2%E6%B5%AA%E6%8E%A7%E4%BB%B6%E5%8E%9F%E7%90%86"><span class="toc-text">Android 波浪控件原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android-%E6%B3%A2%E6%B5%AA%E6%8E%A7%E4%BB%B6%E5%AE%9E%E7%8E%B0"><span class="toc-text">Android 波浪控件实现</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%9D%90%E6%A0%87%E7%82%B9"><span class="toc-text">计算坐标点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%98%E5%88%B6%E6%9B%B2%E7%BA%BF"><span class="toc-text">绘制曲线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%B7%E8%BD%B4%E7%A7%BB%E5%8A%A8"><span class="toc-text">卷轴移动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="toc-text">性能优化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%9C%A8%E5%8A%A8%E7%94%BB%E4%B8%AD%E7%9A%84%E8%BF%90%E7%94%A8"><span class="toc-text">三角函数在动画中的运用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%80%BC%E5%99%A8%E7%AE%97%E6%B3%95"><span class="toc-text">插值器算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0"><span class="toc-text">三角函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-text">结语</span></a></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2019/05/01/a6daec704f6d.html" title="服务器 | 基于 WebDAV 的服务器文件备份方案">
+                    <img
+                        alt="服务器 | 基于 WebDAV 的服务器文件备份方案"
+                        src="/img/cover/server_cover_cadaver.png">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2019/05/01/a6daec704f6d.html">
+                            运维手册
+                        </a>
+                    
+                    <a class="title" href="/2019/05/01/a6daec704f6d.html" title="服务器 | 基于 WebDAV 的服务器文件备份方案">
+                        服务器 | 基于 WebDAV 的服务器文件备份方案
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2018/07/16/90a0e986eb9b.html" title="Snapmod - 更好用的带壳截图软件">
+                    <img
+                        alt="Snapmod - 更好用的带壳截图软件"
+                        src="/img/cover/project_cover_snapmod.png">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2018/07/16/90a0e986eb9b.html">
+                            我的项目
+                        </a>
+                    
+                    <a class="title" href="/2018/07/16/90a0e986eb9b.html" title="Snapmod - 更好用的带壳截图软件">
+                        Snapmod - 更好用的带壳截图软件
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2018/05/29/655adaca8a17.html" title="服务器 | UFW - Linux 上最简单的防火墙配置工具">
+                    <img
+                        alt="服务器 | UFW - Linux 上最简单的防火墙配置工具"
+                        src="/img/cover/server_cover_ufw.png">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2018/05/29/655adaca8a17.html">
+                            运维手册
+                        </a>
+                    
+                    <a class="title" href="/2018/05/29/655adaca8a17.html" title="服务器 | UFW - Linux 上最简单的防火墙配置工具">
+                        服务器 | UFW - Linux 上最简单的防火墙配置工具
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2017/04/25/836a86b1de27.html" title="Android | JNI 移植 bspatch 实现增量更新功能">
+                    <img
+                        alt="Android | JNI 移植 bspatch 实现增量更新功能"
+                        src="/img/cover/android_cover.png">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2017/04/25/836a86b1de27.html">
+                            研发小记
+                        </a>
+                    
+                    <a class="title" href="/2017/04/25/836a86b1de27.html" title="Android | JNI 移植 bspatch 实现增量更新功能">
+                        Android | JNI 移植 bspatch 实现增量更新功能
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2017/04/15/6bf6da4ab19d.html" title="Android | 写给 Android 应用开发者的 JNI 快速入门指北">
+                    <img
+                        alt="Android | 写给 Android 应用开发者的 JNI 快速入门指北"
+                        src="/img/cover/android_cover.png">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2017/04/15/6bf6da4ab19d.html">
+                            研发小记
+                        </a>
+                    
+                    <a class="title" href="/2017/04/15/6bf6da4ab19d.html" title="Android | 写给 Android 应用开发者的 JNI 快速入门指北">
+                        Android | 写给 Android 应用开发者的 JNI 快速入门指北
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+    <img class="footer_mini_logo" src="/img/favicon.png"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2012 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">Gavin Liu</a>
+                    <a class="footer-section-link" href="" rel="external nofollow" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="rss.xml">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fas fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+     
+</div>
+
+
+    
+<script src="/js/extend/covercolor/local.js"></script>
+
+        
+
+
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="1708664797" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2019/05/01/a6daec704f6d.html","2018/07/16/90a0e986eb9b.html","2018/05/29/655adaca8a17.html","2017/04/25/836a86b1de27.html","2017/04/15/6bf6da4ab19d.html","2017/04/12/32470d2a9ff6.html","2017/03/21/858c9e16dba3.html","2017/03/21/0263ebfd730f.html","2017/03/20/f905f5341c53.html","2017/03/17/f7841c87816f.html","2017/03/14/9e11a689b858.html","2017/03/05/8a2b6d7863c0.html","2017/02/08/89f2672cbdce.html","2017/02/07/52df05f7cbd6.html","2016/12/31/eaf647ecb383.html","2016/12/22/14c0e972def5.html","2016/12/15/def8be86f6e9.html","2016/12/14/47db15e11452.html","2016/12/11/4c9ef6b9b622.html","2016/11/05/7fb56844dffe.html","2016/10/30/0d55a723f38c.html","2016/10/19/870eb686b0ea.html","2016/09/28/c465425129f3.html","2016/09/25/9459617196d9.html","2016/09/04/ae6460eb651c.html","2016/07/15/d62cdf6f2068.html","2016/07/14/978e75667622.html","2016/07/08/e186098ac628.html","2016/07/04/3785d0dba89a.html","2016/04/15/ec06c4eece1a.html","2016/04/12/38aaad10e75c.html","2016/04/09/8338dba3fcd5.html","2016/03/29/9aba342467c9.html","2016/03/20/42fa10667f54.html","2016/02/29/e374f5bb0f34.html","2016/02/28/d66db5b99176.html","2016/02/23/dbc5190ab81e.html","2016/01/19/10b3a9130b3f.html","2016/01/17/b37186518705.html","2016/01/16/dbe1e4b3f4fc.html","2016/01/02/8bb3213ffa12.html","2015/12/31/aad1c775f7ca.html","2015/12/30/63c25c52d2b1.html","2015/12/23/aec2c24b1953.html","2015/12/17/e24121b74cd9.html","2015/12/14/477d4bb0a694.html","2015/10/09/351545bf1916.html","2015/10/09/82aa8fa67de7.html","2015/10/09/c3c0ee3f8d12.html","2015/08/12/0308602e4f68.html","2015/06/24/ffdf7f19b75e.html","2015/06/18/edda4a874b0b.html","2015/06/10/999886b502b9.html","2015/05/12/458eb7fc4602.html","2015/05/03/ff6670efb726.html","2015/04/12/0c6ac2f2ef9f.html","2015/04/01/e31569ffeb1b.html","2015/03/30/2f877cdf6676.html","2015/03/26/5efaf89e32aa.html","2015/03/07/4906b0552218.html","2015/03/01/7d082560f25d.html","2015/02/02/c151322fa18c.html","2015/01/22/7f48f1d9bd43.html","2015/01/16/c28101e99a4e.html","2015/01/07/384ed70f16c9.html","2014/12/31/b1e74be290c2.html","2014/11/26/9aaec6d22b5d.html","2014/07/22/2794f5c0c61c.html","2014/07/06/ad0ce234d5ee.html","2014/07/05/10e1b6be1fce.html","2014/04/25/539f1eca9c58.html","2014/03/25/04911c53f952.html","2014/03/18/7c92bfc4dfe5.html","2014/03/08/58ccb164a289.html","2014/01/06/1b05681ece49.html","2013/12/31/179fb728fa1b.html","2013/08/04/e21104d2a424.html","2013/08/03/651f9d2aca99.html","2013/08/02/9e20e90088b7.html","2013/06/20/87f523a6acce.html","2013/04/27/d464d60aa42e.html","2013/04/22/e7dfd60c9bcb.html","2013/04/08/32c795a83e60.html","2012/11/20/ede6d28c47ef.html","2012/07/02/e9789fc706bf.html","2012/06/08/50d7c9cd329e.html","2012/05/30/5c3b3ee09661.html","2012/05/01/3d30a616288f.html","2012/04/22/64adf0d899af.html","2012/04/15/f93a82002f48.html","2012/04/08/93f7cab79f12.html","2012/04/01/f8453d92dd67.html","2012/03/25/3a60f76fa224.html","2012/03/24/f7da4b7883ef.html","2012/03/21/f36562344c3d.html","2012/03/14/2860dbc70957.html"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>

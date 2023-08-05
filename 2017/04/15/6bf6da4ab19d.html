@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Android | 写给 Android 应用开发者的 JNI 快速入门指北 | Gavin Liu - 代码人生与科技生活</title>
+<noscript>开启Javascript是必要的</noscript>
+<link rel="icon" type="image/x-icon" href="/img/favicon.png">
+<link rel="apple-touch-icon" href="/img/favicon.png">
+<meta name="apple-mobile-web-app-title" content="Gavin Liu - 代码人生与科技生活">
+<link rel="bookmark" href="/img/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/img/favicon.png">
+<meta name="description" content="&lt;blockquote&gt;
+&lt;p&gt;Java Native Interface(Java 本地接口) 简称 JNI，是一种编程框架，使得 JVM 中的 Java 程序 可以调用本地应用&amp;#x2F;或库，也可以被其他程序调用。其过程可以不负责任的理解成 Java 的反射，因为代码逻辑和反射调用很像。&lt;/p&gt;
+&lt;/blockquote&gt;">
+<meta name="theme-color" content="#1C1C1F">
+<link rel="stylesheet" href="/css/var.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    
+
+<link rel="stylesheet" href="/lib/snackbar.min.css">
+
+
+<script src="/lib/qrcode.min.js"></script>
+
+
+
+
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+
+    <script>LA.init({id:"3FVRnNbwv2ZoRqcz",ck:"3FVRnNbwv2ZoRqcz"})</script>
+
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+    <meta name="generator" content="Hexo 6.3.0"></head>
+    <body id="body">
+        
+            <div id="loading-box" onclick="preloader.endLoading();" class style="zoom: 1;">
+    <div class="loading-bg">
+        <img class="loading-img nolazyload" alt="loading image"
+            src="/img/favicon.png">
+        </div>
+</div>
+<script>
+    const preloader = {
+        endLoading: () => {
+            document.getElementById('loading-box').classList.add("loaded")
+        },
+        initLoading: () => {
+            document.getElementById('loading-box').classList.remove("loaded")
+        },
+        removePaceDone: () => {
+            document.getElementById('body').classList = 'pace-done'
+        }
+    }
+    window.addEventListener('load',()=> { preloader.endLoading() })
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+</script>
+<style>
+    #loading-box {
+        -webkit-user-select: none;
+    }
+
+    #loading-box .loading-bg {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: var(--heo-background);
+        z-index: 1999;
+        opacity: 1;
+        transition: 0.2s;
+        pointer-events: all;
+        animation: showLoading 0.3s 0s backwards;
+    }
+
+    #loading-box.loaded .loading-bg {
+        pointer-events: none;
+        transition: 0.2s;
+        animation: hideLoading 0.3s 0s forwards;
+    }
+
+    #loading-box .loading-img {
+        width: 100px;
+        margin: auto;
+        animation-duration: 0.2s;
+        animation-name: loadingAction;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+
+    @keyframes loadingAction {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0.6;
+        }
+    }
+
+    @keyframes hideLoading {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    @keyframes showLoading {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+        
+        <div id="console" style="zoom: 1;" class="">
+    <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
+        <i class="fas fa-circle-xmark"></i>
+    </div>
+    
+    
+    <div class="button-group">
+        <div class="console-btn-item"> <a class="darkmode_switchbutton" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow" data-pjax-state=""><i class="fas fa-moon"
+                    style="font-size: 1rem;"></i></a></div>
+        
+    </div>
+    <div class="console-mask" onclick="acrylic.hideConsole()" href="javascript:void(0);" rel="external nofollow"></div>
+</div>
+        <div id="sidebar" style="zoom: 1;">
+    <div id="menu-mask" style="display: none;"></div>
+    <div id="sidebar-menus" class>
+        <span class="sidebar-menu-item-title">功能</span>
+        <div class="sidebar-menu-item">
+            <a class="darkmode_switchbutton menu-child" onclick="acrylic.switchDarkMode()" title="显示模式切换"
+                href="javascript:void(0);" rel="external nofollow">
+                <i class="fas fa-moon" style="font-size: 1rem;"></i>
+                <span>显示模式</span>
+            </a>
+        </div>
+        
+            <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+        
+        <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fa-solid fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fa-solid fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fa-solid fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 我的</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/equipment/">
+                                <i class="fa-solid fa-laptop"></i>
+                                <span> 我的装备</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/about/">
+                                <i class="fa-solid fa-user"></i>
+                                <span> 关于我</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+</div>
+        <span class="sidebar-menu-item-title">标签</span>
+        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
+            <div class="item-headline">
+                <i class="fas fa-tags"></i>
+                <span>标签</span>
+            </div>
+            <div class="card-tag-cloud">
+                
+                    <a href="/tags/Java-Web/" style="font-size: 1em; color: #d3d3d3">Java.Web
+                        <sup>10</sup>
+                    </a>
+                
+                    <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/" style="font-size: 1em; color: #d3d3d3">代码人生
+                        <sup>77</sup>
+                    </a>
+                
+                    <a href="/tags/Android/" style="font-size: 1em; color: #d3d3d3">Android
+                        <sup>43</sup>
+                    </a>
+                
+                    <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/Mac/" style="font-size: 1em; color: #d3d3d3">Mac
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 1em; color: #d3d3d3">环境搭建
+                        <sup>13</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" style="font-size: 1em; color: #d3d3d3">年终总结
+                        <sup>4</sup>
+                    </a>
+                
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" style="font-size: 1em; color: #d3d3d3">面试经验
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/Chrome/" style="font-size: 1em; color: #d3d3d3">Chrome
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E4%BA%BA%E4%BA%BA%E9%83%BD%E6%98%AF%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" style="font-size: 1em; color: #d3d3d3">人人都是产品经理
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/Gradle/" style="font-size: 1em; color: #d3d3d3">Gradle
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%BF%85%E7%9C%8B%E7%B2%BE%E9%80%89/" style="font-size: 1em; color: #d3d3d3">必看精选
+                        <sup>7</sup>
+                    </a>
+                
+                    <a href="/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/" style="font-size: 1em; color: #d3d3d3">编程技巧
+                        <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">路由器
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E7%A7%91%E6%8A%80%E7%94%9F%E6%B4%BB/" style="font-size: 1em; color: #d3d3d3">科技生活
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/Python/" style="font-size: 1em; color: #d3d3d3">Python
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1em; color: #d3d3d3">机器学习
+                        <sup>3</sup>
+                    </a>
+                
+                    <a href="/tags/git/" style="font-size: 1em; color: #d3d3d3">git
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/repo/" style="font-size: 1em; color: #d3d3d3">repo
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1em; color: #d3d3d3">加密算法
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">服务器
+                        <sup>5</sup>
+                    </a>
+                
+                    <a href="/tags/iOS/" style="font-size: 1em; color: #d3d3d3">iOS
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%B8%B8%E6%88%8F%E6%A8%A1%E6%8B%9F%E5%99%A8/" style="font-size: 1em; color: #d3d3d3">游戏模拟器
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/Cocos2d/" style="font-size: 1em; color: #d3d3d3">Cocos2d
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/FFmpeg/" style="font-size: 1em; color: #d3d3d3">FFmpeg
+                        <sup>4</sup>
+                    </a>
+                
+            </div>
+        </div>
+    </div>
+</div>    
+        
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
+    <nav id="nav" class="show">
+    <div id="nav-group">
+        <div id="blog_name">
+            
+                <div class="back-home-button" tabindex="-1">
+                    <i class="back-home-button-icon fas fa-grip-vertical"></i>
+                    <div class="back-menu-list-groups">
+    
+      
+      <div class="back-menu-list-group">
+        <div class="back-menu-list-title">
+          我的
+        </div>
+        <div class="back-menu-list">
+          
+            
+            <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
+              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
+              <span class="back-menu-item-text">
+                博客
+              </span>
+            </a>
+          
+        </div>
+      </div>
+    
+  </div>
+  
+                </div>
+            
+            <a id="site-name" href="/" title="返回博客主页">
+                    
+                        <i class="fa-solid fa-ghost" style="font-size: 25px;"></i>
+                      
+            </a>
+        </div>
+        <div id="page-name-mask">
+            <div id="page-name">
+                <a id="page-name-text" onclick="acrylic.toTop()">Android | 写给 Android 应用开发者的 JNI 快速入门指北</a>
+            </div>
+        </div>
+        <div id="menus">
+            <div class="menus_items">
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 文库</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/archives/">
+                                <i class="fa-solid fa-box-archive"></i>
+                                <span> 文章列表</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/categories/">
+                                <i class="fa-solid fa-cube"></i>
+                                <span> 全部分类</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/tags/">
+                                <i class="fa-solid fa-tags"></i>
+                                <span> 全部标签</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+        <div class="menus_item">
+            
+                <a class="site-page" href="javascript:void(0);" rel="external nofollow">
+                    <span> 我的</span>
+                </a>
+                <ul class="menus_item_child">
+                    
+                        <li>
+                            <a class="site-page child" href="/equipment/">
+                                <i class="fa-solid fa-laptop"></i>
+                                <span> 我的装备</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a class="site-page child" href="/about/">
+                                <i class="fa-solid fa-user"></i>
+                                <span> 关于我</span>
+                            </a>
+                        </li>
+                    
+                </ul>
+             
+        </div>
+    
+</div>
+        </div>
+        <!-- <div id="nav-left">
+            <div id="fps-group">
+                <div id="fps">145</div><span class="fpsText">FPS</span>
+            </div>
+        </div> -->
+        <div id="nav-right">
+            
+
+    <div class="nav-button" id="randomPost_button">
+        <a class="site-page" onclick="toRandomPost()"
+            title="随机前往一个文章">
+            <i class="fas fa-shuffle" style="font-size: 1rem;"></i>
+        </a>
+    </div>
+
+
+
+<div class="nav-button" id="nav-totop" onclick="acrylic.toTop()">
+    <a class="totopbtn">
+        <i class="fas fa-arrow-up"></i>
+        <span id="percent">0</span>
+    </a>
+</div>
+<div id="toggle-menu">
+    <a class="site-page">
+        <i class="fas fa-bars fa-fw" style="font-size: 1rem;"></i>
+    </a>
+</div>
+        </div>
+    </div>
+</nav>
+    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/cover/android_cover.png" alt="cover">
+</div>
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/">研发小记</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">代码人生</span>
+                        </a>
+                    
+                        <a class="post-meta__tags" href="/tags/Android/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">Android</span>
+                        </a>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="post-title">Android | 写给 Android 应用开发者的 JNI 快速入门指北</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2017-04-15T17:54:21+08:00"></time>
+            </span>
+            
+            
+                <span class="post-meta-position" title="作者IP归属地为珠海">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>珠海</span>
+                </span>
+            
+            
+                
+                    <span class="post-meta-wordcount">
+                        <i class="fas fa-file-word fa-fw post-meta-icon" title="文章字数"></i>
+                        <span class="word-count">1.4k</span>
+                    </span>
+                
+                
+                    <span class="post-meta-time">
+                        <i class="fas fa-clock post-meta-icon" title="阅读耗时"></i>
+                        <span>7 min</span>
+                    </span>
+                
+            
+            
+                
+        </div>
+    </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
+
+        
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <blockquote>
+<p>Java Native Interface(Java 本地接口) 简称 JNI，是一种编程框架，使得 JVM 中的 Java 程序 可以调用本地应用&#x2F;或库，也可以被其他程序调用。其过程可以不负责任的理解成 Java 的反射，因为代码逻辑和反射调用很像。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>本文所有涉及的所有源码：<a target="_blank" rel="noopener" href="https://github.com/gavinliu/Study-JNI">https://github.com/gavinliu/Study-JNI</a></p>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>编译环境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>macOS</td>
+<td>gcc</td>
+</tr>
+</tbody></table>
+<h2 id="HelloStringFromC"><a href="#HelloStringFromC" class="headerlink" title="HelloStringFromC"></a>HelloStringFromC</h2><h3 id="在-java-中编写-native-方法"><a href="#在-java-中编写-native-方法" class="headerlink" title="在 java 中编写 native 方法"></a>在 java 中编写 native 方法</h3><figure class="highlight java"><figcaption><span>HelloStringFromC.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloStringFromC</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title function_">helloStringFromC</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成-jni-头文件"><a href="#生成-jni-头文件" class="headerlink" title="生成 jni 头文件"></a>生成 jni 头文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac -jni HelloStringFromC</span><br></pre></td></tr></table></figure>
+
+<p>将会生成 <code>HelloStringFromC.h</code></p>
+<figure class="highlight c"><figcaption><span>HelloStringFromC.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* DO NOT EDIT THIS FILE - it is machine generated */</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;jni.h&gt;</span></span></span><br><span class="line"><span class="comment">/* Header for class HelloStringFromC */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> _Included_HelloStringFromC</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _Included_HelloStringFromC</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> __cplusplus</span></span><br><span class="line"><span class="keyword">extern</span> <span class="string">&quot;C&quot;</span> &#123;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Class:     HelloStringFromC</span></span><br><span class="line"><span class="comment"> * Method:    helloStringFromC</span></span><br><span class="line"><span class="comment"> * Signature: ()Ljava/lang/String;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">JNIEXPORT jstring JNICALL <span class="title function_">Java_HelloStringFromC_helloStringFromC</span></span><br><span class="line">  <span class="params">(JNIEnv *, jclass)</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> __cplusplus</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="编写-native-代码"><a href="#编写-native-代码" class="headerlink" title="编写 native 代码"></a>编写 native 代码</h3><figure class="highlight c"><figcaption><span>HelloStringFromC.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;HelloStringFromC.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">JNIEXPORT jstring JNICALL <span class="title function_">Java_HelloStringFromC_helloStringFromC</span><span class="params">(JNIEnv* env, jclass cls)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (*env)-&gt;NewStringUTF(env, <span class="string">&quot;Hello&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="编译-so-库"><a href="#编译-so-库" class="headerlink" title="编译 so 库"></a>编译 so 库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc HelloStringFromC.c -fPIC -shared -o libhelloString.so</span><br></pre></td></tr></table></figure>
+
+<h3 id="java-调用"><a href="#java-调用" class="headerlink" title="java 调用"></a>java 调用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloStringFromC</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title function_">helloStringFromC</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(helloStringFromC());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.load(<span class="string">&quot;/Users/gavin/Workspace/Study-JNI/01.HelloStringFromC/libhelloString.so&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; Hello</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><table>
+<thead>
+<tr>
+<th>Java 数据类型</th>
+<th>JNI 数据类型</th>
+<th>C 数据类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>blean</td>
+<td>jboolean</td>
+<td>unsigned char</td>
+</tr>
+<tr>
+<td>byte</td>
+<td>jbyte</td>
+<td>signed char</td>
+</tr>
+<tr>
+<td>char</td>
+<td>jchar</td>
+<td>unsigned short</td>
+</tr>
+<tr>
+<td>short</td>
+<td>jshort</td>
+<td>short</td>
+</tr>
+<tr>
+<td>int</td>
+<td>jint</td>
+<td>int</td>
+</tr>
+<tr>
+<td>long</td>
+<td>jlong</td>
+<td>long long</td>
+</tr>
+<tr>
+<td>float</td>
+<td>jfloat</td>
+<td>float</td>
+</tr>
+<tr>
+<td>double</td>
+<td>jdouble</td>
+<td>double</td>
+</tr>
+</tbody></table>
+<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><table>
+<thead>
+<tr>
+<th>Java 数据类型</th>
+<th>JNI 数据类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Object</td>
+<td>jobject</td>
+</tr>
+<tr>
+<td>Class</td>
+<td>jclass</td>
+</tr>
+<tr>
+<td>String</td>
+<td>jstring</td>
+</tr>
+<tr>
+<td>array[]</td>
+<td>jarray</td>
+</tr>
+</tbody></table>
+<h3 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h3><table>
+<thead>
+<tr>
+<th>Java 数据类型</th>
+<th>JNI 数据类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>boolean[]</td>
+<td>jbooleanArray</td>
+</tr>
+<tr>
+<td>byte[]</td>
+<td>jbyteArray</td>
+</tr>
+<tr>
+<td>char[]</td>
+<td>jcharArray</td>
+</tr>
+<tr>
+<td>short[]</td>
+<td>jshortArray</td>
+</tr>
+<tr>
+<td>int[]</td>
+<td>jintArray</td>
+</tr>
+<tr>
+<td>long[]</td>
+<td>jlongArray</td>
+</tr>
+<tr>
+<td>float[]</td>
+<td>jfloatArray</td>
+</tr>
+<tr>
+<td>double</td>
+<td>jdoubleArray</td>
+</tr>
+<tr>
+<td>objcet</td>
+<td>jobjectArray</td>
+</tr>
+</tbody></table>
+<h3 id="JNIEnv"><a href="#JNIEnv" class="headerlink" title="JNIEnv"></a>JNIEnv</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">JNINativeInterface_</span>;</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">JNINativeInterface_</span> *<span class="title">JNIEnv</span>;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>JNIEnv</code> 其实是 <code>JNINativeInterface_</code> 的指针别名，这个结构是 C 和 Java 交互的关键类，提供了 C 数据类型和 JNI 数据类型的互相转换和 C 调用 Java 的相关方法等。</p>
+<h2 id="Java-调-C"><a href="#Java-调-C" class="headerlink" title="Java 调 C"></a>Java 调 C</h2><p>Java 调 C 的套路：</p>
+<ol>
+<li>在 Java 源码中编写 native 方法</li>
+<li>使用 <code>javah</code> 生成 jni 头文件</li>
+<li>实现 <code>jni</code> 方法</li>
+<li>编译生成 so 动态链接库</li>
+<li>在 Java 中使用动态链接库</li>
+</ol>
+<h3 id="静态调用"><a href="#静态调用" class="headerlink" title="静态调用"></a>静态调用</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public <span class="type">static</span> native String <span class="title function_">getFullName</span><span class="params">(String firstName)</span>;</span><br><span class="line"><span class="comment">// ==&gt;</span></span><br><span class="line">JNIEXPORT jstring JNICALL <span class="title function_">Java_CallC_getFullName</span></span><br><span class="line">  <span class="params">(JNIEnv *, jclass, jstring)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>静态调用生成的 JNI 方法，第二个参数为 jclass，代表 Java 中 CallC.class 这个对象。</p>
+<h3 id="对象调用"><a href="#对象调用" class="headerlink" title="对象调用"></a>对象调用</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">public native String <span class="title function_">getFirstName</span><span class="params">(String[] fullName)</span>;</span><br><span class="line"><span class="comment">// ==&gt;</span></span><br><span class="line">JNIEXPORT jstring JNICALL <span class="title function_">Java_CallC_getFirstName</span></span><br><span class="line">  <span class="params">(JNIEnv *, jobject, jobjectArray)</span>;</span><br></pre></td></tr></table></figure>
+
+<p>对象调用生成的 JNI 方法，第二个参数为 jobject，代表 Java 中 CallC 这个对象。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ol>
+<li>Java 调 C 传入一个字符串，返回拼接后的新字符串</li>
+<li>Java 调 C 传入一个字符串数组，返回数组第一个元素</li>
+</ol>
+<figure class="highlight c"><figcaption><span>CallC.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;CallC.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">JNIEXPORT jstring JNICALL <span class="title function_">Java_CallC_getFullName</span></span><br><span class="line"><span class="params">(JNIEnv* env, jclass jcl, jstring firstName)</span> &#123;</span><br><span class="line">    <span class="comment">// jstring -&gt; char*</span></span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* fn = (*env)-&gt;GetStringUTFChars(env, firstName, JNI_FALSE);</span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* ln = <span class="string">&quot; Liu&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">char</span> src[<span class="number">50</span>], dest[<span class="number">50</span>];</span><br><span class="line">    <span class="built_in">strcpy</span>(src,  ln);</span><br><span class="line">    <span class="built_in">strcpy</span>(dest, fn);</span><br><span class="line">    <span class="comment">// C的拼接字符串</span></span><br><span class="line">    <span class="built_in">strcat</span>(dest, src);</span><br><span class="line">    <span class="keyword">return</span> (*env)-&gt;NewStringUTF(env, dest);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JNIEXPORT jstring JNICALL <span class="title function_">Java_CallC_getFirstName</span></span><br><span class="line"><span class="params">(JNIEnv* env, jobject jobj, jobjectArray fullName)</span> &#123;</span><br><span class="line">    <span class="comment">// 从 对象数组中获取元素</span></span><br><span class="line">    jstring elm = (jstring) (*env)-&gt;GetObjectArrayElement(env, fullName, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> elm;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><figcaption><span>CallC.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CallC</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">native</span> String <span class="title function_">getFullName</span><span class="params">(String firstName)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">native</span> String <span class="title function_">getFirstName</span><span class="params">(String[] fullName)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(getFullName(<span class="string">&quot;Gavin&quot;</span>));</span><br><span class="line"></span><br><span class="line">        String[] fullName = &#123;<span class="string">&quot;Gavin&quot;</span>, <span class="string">&quot;Liu&quot;</span>&#125;;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="keyword">new</span> <span class="title class_">CallC</span>().getFirstName(fullName));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.load(<span class="string">&quot;/Users/gavin/Workspace/Study-JNI/02.Java2C/libcallC.so&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; Gavin Liu</span><br><span class="line">&gt; Gavin</span><br></pre></td></tr></table></figure>
+
+<h2 id="C-调-Java"><a href="#C-调-Java" class="headerlink" title="C 调 Java"></a>C 调 Java</h2><p>C 调 Java 的套路：</p>
+<ol>
+<li>获取 FieldID 或者 MethedID</li>
+<li>通过 ID 可以 GET|SET Field，和调用 Methed</li>
+</ol>
+<p>其中第一步需要用到 Field 和 Methed 签名，可以用 <code>javap</code> 命令获取：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">javap -s -p CallJava</span><br><span class="line"></span><br><span class="line">Compiled from &quot;CallJava.java&quot;</span><br><span class="line">public class CallJava &#123;</span><br><span class="line">  public java.lang.String firstName;</span><br><span class="line">    descriptor: Ljava/lang/String;</span><br><span class="line">  public CallJava();</span><br><span class="line">    descriptor: ()V</span><br><span class="line"></span><br><span class="line">  public native java.lang.String changeName();</span><br><span class="line">    descriptor: ()Ljava/lang/String;</span><br><span class="line"></span><br><span class="line">  public native java.lang.String sayHiFromC();</span><br><span class="line">    descriptor: ()Ljava/lang/String;</span><br><span class="line"></span><br><span class="line">  public static void main(java.lang.String[]);</span><br><span class="line">    descriptor: ([Ljava/lang/String;)V</span><br><span class="line"></span><br><span class="line">  public void sayHiFromJava();</span><br><span class="line">    descriptor: ()V</span><br><span class="line"></span><br><span class="line">  static &#123;&#125;;</span><br><span class="line">    descriptor: ()V</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><ol>
+<li>C 改变 Java 中的成员变量</li>
+<li>C 调用 Java 方法</li>
+</ol>
+<figure class="highlight c"><figcaption><span>CallJava.c</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;CallJava.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">JNIEXPORT jstring JNICALL <span class="title function_">Java_CallJava_changeName</span></span><br><span class="line"> <span class="params">(JNIEnv * env, jobject obj)</span> &#123;</span><br><span class="line">     <span class="comment">// 获取 jclass</span></span><br><span class="line">     jclass cls = (*env)-&gt;GetObjectClass(env, obj);</span><br><span class="line">     <span class="comment">// 获取 fieldID</span></span><br><span class="line">     jfieldID firstNameID = (*env)-&gt;GetFieldID(env, cls, <span class="string">&quot;firstName&quot;</span>, <span class="string">&quot;Ljava/lang/String;&quot;</span>);</span><br><span class="line">     <span class="comment">// 获取 属性</span></span><br><span class="line">     jstring firstName = (*env)-&gt;GetObjectField(env, obj, firstNameID);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 拼接新字符串</span></span><br><span class="line">     <span class="type">const</span> <span class="type">char</span>* str = (*env)-&gt;GetStringUTFChars(env, firstName, JNI_FALSE);</span><br><span class="line">     <span class="type">char</span> src[<span class="number">50</span>] = <span class="string">&quot;super &quot;</span>;</span><br><span class="line">     <span class="built_in">strcat</span>(src, str);</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 设置 属性</span></span><br><span class="line">     jstring newName = (*env)-&gt;NewStringUTF(env, src);</span><br><span class="line">     (*env)-&gt;SetObjectField(env, obj, firstNameID, newName);</span><br><span class="line"></span><br><span class="line">     <span class="keyword">return</span> newName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JNIEXPORT <span class="type">void</span> JNICALL <span class="title function_">Java_CallJava_sayHiFromC</span></span><br><span class="line"><span class="params">(JNIEnv * env, jobject obj)</span> &#123;</span><br><span class="line">    <span class="comment">// 获取 jclass</span></span><br><span class="line">    jclass cls = (*env)-&gt;GetObjectClass(env, obj);</span><br><span class="line">    <span class="comment">// 获取 methodID</span></span><br><span class="line">    jmethodID methodID = (*env)-&gt;GetMethodID(env, cls, <span class="string">&quot;sayHiFromJava&quot;</span>, <span class="string">&quot;()V&quot;</span>);</span><br><span class="line">    <span class="comment">// 调用方法</span></span><br><span class="line">    (*env)-&gt;CallVoidMethod(env, obj, methodID);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>, <span class="string">&quot;sayHiFromC&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><figcaption><span>CallJava.java</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CallJava</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.load(<span class="string">&quot;/Users/gavin/Workspace/Study-JNI/03.C2Java/libcallJava.so&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">native</span> String <span class="title function_">changeName</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title function_">sayHiFromC</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">String</span> <span class="variable">firstName</span> <span class="operator">=</span> <span class="string">&quot;Gavin&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">CallJava</span> <span class="variable">c</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CallJava</span>();</span><br><span class="line">        System.out.println(<span class="string">&quot;c.firstName \t&quot;</span> + c.firstName);</span><br><span class="line">        System.out.println(<span class="string">&quot;c.changeName() \t&quot;</span> + c.changeName());</span><br><span class="line">        System.out.println(<span class="string">&quot;c.firstName \t&quot;</span> + c.firstName);</span><br><span class="line"></span><br><span class="line">        c.sayHiFromC();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sayHiFromJava</span><span class="params">()</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;sayHiFromJava&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">c.firstName 	Gavin</span><br><span class="line">c.changeName() 	super Gavin</span><br><span class="line">c.firstName 	super Gavin</span><br><span class="line">sayHiFromJava</span><br><span class="line">sayHiFromC</span><br></pre></td></tr></table></figure>
+
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p><code>JNIEnv</code> 中还有很多方法，就不作一一介绍，掌握了其套路，代码就很容易写了，比如说调用方法是<code>CallVoidMethod</code>，调用静态方法就是<code>CallStaticVoidMethod</code>。</p>
+<h2 id="C-amp-C-的一些不同"><a href="#C-amp-C-的一些不同" class="headerlink" title="C &amp; C++ 的一些不同"></a>C &amp; C++ 的一些不同</h2><h3 id="JNIEnv-对象不一样"><a href="#JNIEnv-对象不一样" class="headerlink" title="JNIEnv 对象不一样"></a>JNIEnv 对象不一样</h3><p>在 C 中：<code>JNIEnv*</code> 是一个二级指针，所以是使用 <code>(*env)-&gt;</code><br>在 C++中：<code>JNIEnv*</code> 是一个一级指针，则是使用 <code>env-&gt;</code></p>
+<h3 id="引用类型不一样"><a href="#引用类型不一样" class="headerlink" title="引用类型不一样"></a>引用类型不一样</h3><p>在 C 中：是使用结构体实现<br>在 C++中：是使用对象实现</p>
+<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><p><a target="_blank" rel="noopener" href="http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html">http://docs.oracle.com/javase/7/docs/technotes/guides/jni/spec/jniTOC.html</a></p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="https://gavinliu.cn/2017/04/15/6bf6da4ab19d.html">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "https://gavinliu.cn/2017/04/15/6bf6da4ab19d.html");
+        </script>
+    </div>
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=Android | 写给 Android 应用开发者的 JNI 快速入门指北&amp;url=https://gavinliu.cn/2017/04/15/6bf6da4ab19d.html&amp;pic=/img/cover/android_cover.png"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                代码人生
+                                <span class="tagsPageCount">77</span>
+                            </a>
+                        
+                            <a href="/tags/Android/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                Android
+                                <span class="tagsPageCount">43</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>Android | 写给 Android 应用开发者的 JNI 快速入门指北</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2017/04/15/6bf6da4ab19d.html">https://gavinliu.cn/2017/04/15/6bf6da4ab19d.html</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">Gavin Liu - 代码人生与科技生活</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        <div class="prev-post pull-left">
+            <a href="/2017/04/25/836a86b1de27.html">
+                <div class="pagination-info">
+                    <div class="label">上一篇</div>
+                    <div class="prev_info">Android | JNI 移植 bspatch 实现增量更新功能</div>
+                </div>
+            </a>
+        </div>
+        <div class="next-post pull-right">
+            <a href="/2017/04/12/32470d2a9ff6.html">
+                <div class="pagination-info">
+                    <div class="label">下一篇</div>
+                    <div class="next_info">Android | 写给 Android 应用开发者的 C 语言快速入门指北</div>
+                </div>
+            </a>
+        </div>
+    
+</nav>
+            
+    </div>
+    <div class="aside-content" id="aside-content">
+    
+    
+        
+        <div class="card-widget card-info">
+    <div class="card-content">
+        <div class="card-info-avatar is-center">
+            <div class="author-info__sayhi" id="author-info__sayhi">
+            </div>
+            <div class="author-info__name">
+                Gavin Liu
+            </div>
+            <div class="author-info__description">这有关于<b>开发</b>、<b>技术</b>相关的问题和看法，还有关于<b>数码产品</b>相关的教程和测评。<br/><br/>相信你可以在这里找到对你有用的知识和教程。</div>
+        </div>
+    </div>
+    <div class="banner-button-group">
+        <a class="banner-button" href="/about">
+            <i class="fas fa-circle-chevron-right"></i>
+            <span class="banner-button-text">更多信息</span>
+        </a>
+    </div>
+    <div class="card-info-social-icons is-center">
+        
+            <a class="social-icon" target="_blank" rel="noopener" href="https://github.com/gavinliu" title="Github">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        
+            <a class="social-icon" href="mailto:gavin6liu@gmail.com" title="Mail">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        
+    </div>
+</div>
+     
+    
+    <div class="sticky_layout">
+        
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BA%90%E7%A0%81"><span class="toc-text">源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HelloStringFromC"><span class="toc-text">HelloStringFromC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8-java-%E4%B8%AD%E7%BC%96%E5%86%99-native-%E6%96%B9%E6%B3%95"><span class="toc-text">在 java 中编写 native 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90-jni-%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="toc-text">生成 jni 头文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99-native-%E4%BB%A3%E7%A0%81"><span class="toc-text">编写 native 代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91-so-%E5%BA%93"><span class="toc-text">编译 so 库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java-%E8%B0%83%E7%94%A8"><span class="toc-text">java 调用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">基本数据类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-text">引用类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B"><span class="toc-text">数组类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JNIEnv"><span class="toc-text">JNIEnv</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java-%E8%B0%83-C"><span class="toc-text">Java 调 C</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B0%83%E7%94%A8"><span class="toc-text">静态调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E8%B0%83%E7%94%A8"><span class="toc-text">对象调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-%E8%B0%83-Java"><span class="toc-text">C 调 Java</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-1"><span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-amp-C-%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%8D%E5%90%8C"><span class="toc-text">C &amp; C++ 的一些不同</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JNIEnv-%E5%AF%B9%E8%B1%A1%E4%B8%8D%E4%B8%80%E6%A0%B7"><span class="toc-text">JNIEnv 对象不一样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%E4%B8%8D%E4%B8%80%E6%A0%B7"><span class="toc-text">引用类型不一样</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="toc-text">官方文档</span></a></li></ol>
+    </div>
+</div>
+            
+        
+            
+        <div class="card-widget card-recent-post">
+    <div class="item-headline">
+        <i class="fas fa-list-ol"></i>
+        <span>最近发布</span>
+    </div>
+    <div class="aside-list">
+        
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2019/05/01/a6daec704f6d.html" title="服务器 | 基于 WebDAV 的服务器文件备份方案">
+                    <img
+                        alt="服务器 | 基于 WebDAV 的服务器文件备份方案"
+                        src="/img/cover/server_cover_cadaver.png">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2019/05/01/a6daec704f6d.html">
+                            运维手册
+                        </a>
+                    
+                    <a class="title" href="/2019/05/01/a6daec704f6d.html" title="服务器 | 基于 WebDAV 的服务器文件备份方案">
+                        服务器 | 基于 WebDAV 的服务器文件备份方案
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2018/07/16/90a0e986eb9b.html" title="Snapmod - 更好用的带壳截图软件">
+                    <img
+                        alt="Snapmod - 更好用的带壳截图软件"
+                        src="/img/cover/project_cover_snapmod.png">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2018/07/16/90a0e986eb9b.html">
+                            我的项目
+                        </a>
+                    
+                    <a class="title" href="/2018/07/16/90a0e986eb9b.html" title="Snapmod - 更好用的带壳截图软件">
+                        Snapmod - 更好用的带壳截图软件
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2018/05/29/655adaca8a17.html" title="服务器 | UFW - Linux 上最简单的防火墙配置工具">
+                    <img
+                        alt="服务器 | UFW - Linux 上最简单的防火墙配置工具"
+                        src="/img/cover/server_cover_ufw.png">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2018/05/29/655adaca8a17.html">
+                            运维手册
+                        </a>
+                    
+                    <a class="title" href="/2018/05/29/655adaca8a17.html" title="服务器 | UFW - Linux 上最简单的防火墙配置工具">
+                        服务器 | UFW - Linux 上最简单的防火墙配置工具
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2017/04/25/836a86b1de27.html" title="Android | JNI 移植 bspatch 实现增量更新功能">
+                    <img
+                        alt="Android | JNI 移植 bspatch 实现增量更新功能"
+                        src="/img/cover/android_cover.png">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2017/04/25/836a86b1de27.html">
+                            研发小记
+                        </a>
+                    
+                    <a class="title" href="/2017/04/25/836a86b1de27.html" title="Android | JNI 移植 bspatch 实现增量更新功能">
+                        Android | JNI 移植 bspatch 实现增量更新功能
+                    </a>
+                </div>
+            </div>
+                
+        
+            <div class="aside-list-item">
+                <a class="thumbnail" href="/2017/04/15/6bf6da4ab19d.html" title="Android | 写给 Android 应用开发者的 JNI 快速入门指北">
+                    <img
+                        alt="Android | 写给 Android 应用开发者的 JNI 快速入门指北"
+                        src="/img/cover/android_cover.png">
+                </a>
+                <div class="content">
+                    
+                        <a class="article-recent_post_categories" href="/2017/04/15/6bf6da4ab19d.html">
+                            研发小记
+                        </a>
+                    
+                    <a class="title" href="/2017/04/15/6bf6da4ab19d.html" title="Android | 写给 Android 应用开发者的 JNI 快速入门指北">
+                        Android | 写给 Android 应用开发者的 JNI 快速入门指北
+                    </a>
+                </div>
+            </div>
+            
+    </div>
+</div>
+     
+        
+    </div>
+</div> 
+</main>
+                <footer id="footer">
+                    <div id="footer_deal">
+    
+    <img class="footer_mini_logo" src="/img/favicon.png"
+        title="返回顶部" onclick="acrylic.toTop()">
+    
+</div>    
+<div id="heo-footer">
+    
+    
+</div>
+<div id="footer-section">
+    <div class="footer-section-links">
+        <div class="footer-section-left">
+            <div id="footer-section-tips">
+                <div class="copyright">©2012 - 2023 By 
+                    <a class="footer-section-link" href="/" rel="external nofollow">Gavin Liu</a>
+                    <a class="footer-section-link" href="" rel="external nofollow" target="_blank"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-section-right">
+            <a class="footer-section-link" href="rss.xml">订阅</a>
+            
+            <a class="footer-section-link cc" target="_blank" href="https://creativecommons.org/licenses/by/4.0/" title="cc协议">
+                <i class="fas fa-closed-captioning"></i>
+            </a>
+        </div>
+    </div>
+</div>
+                </footer>
+            </div>
+         
+        <div>
+    <script type="text/javascript" src="/js/utils.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+
+<script src="/lib/pjax.min.js"></script>
+
+
+
+<script src="/lib/snackbar.min.js"></script>
+
+
+    
+<script src="/lib/view-image.min.js"></script>
+
+
+
+    
+<link rel="stylesheet" href="/lib/swiper.min.css">
+
+    
+<script src="/lib/swiper.min.js"></script>
+
+
+<div id="js-pjax">
+    
+     
+</div>
+
+
+    
+<script src="/js/extend/covercolor/local.js"></script>
+
+        
+
+
+
+    <script>
+  let pjaxSelectors = [
+    'title',
+    '#body-wrap',
+    '#site-config',
+    'meta[name="description"]',
+    '#js-pjax'
+  ]
+  
+  const pjax = new Pjax({
+    elements: 'a:not([target="_blank"])',
+    selectors: pjaxSelectors,
+    cacheBust: false,
+    analytics: false,
+    scrollRestoration: false
+  })
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+      const newScript = document.createElement('script')
+      const content = item.text || item.textContent || item.innerHTML || ""
+      Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+      newScript.appendChild(document.createTextNode(content))
+      item.parentNode.replaceChild(newScript, item)
+  })
+
+  document.addEventListener('pjax:error', (e) => {
+    if (e.request.status === 404) {
+      pjax.loadUrl('/404.html')
+    }
+  })
+</script>
+    
+</div>
+        
+     
+        <div class="needEndHide" id="nav-music" onclick="acrylic.musicToggle()">
+    <div id="nav-music-hoverTips">音乐已暂停</div>
+    <meting-js id="1708664797" server="tencent" type="playlist" mutex="true"
+        preload="none" data-lrctype="0" order="random" theme="var(--heo-main)"></meting-js>
+</div>
+    
+    </body>
+</html>
+<script>const posts=["2019/05/01/a6daec704f6d.html","2018/07/16/90a0e986eb9b.html","2018/05/29/655adaca8a17.html","2017/04/25/836a86b1de27.html","2017/04/15/6bf6da4ab19d.html","2017/04/12/32470d2a9ff6.html","2017/03/21/858c9e16dba3.html","2017/03/21/0263ebfd730f.html","2017/03/20/f905f5341c53.html","2017/03/17/f7841c87816f.html","2017/03/14/9e11a689b858.html","2017/03/05/8a2b6d7863c0.html","2017/02/08/89f2672cbdce.html","2017/02/07/52df05f7cbd6.html","2016/12/31/eaf647ecb383.html","2016/12/22/14c0e972def5.html","2016/12/15/def8be86f6e9.html","2016/12/14/47db15e11452.html","2016/12/11/4c9ef6b9b622.html","2016/11/05/7fb56844dffe.html","2016/10/30/0d55a723f38c.html","2016/10/19/870eb686b0ea.html","2016/09/28/c465425129f3.html","2016/09/25/9459617196d9.html","2016/09/04/ae6460eb651c.html","2016/07/15/d62cdf6f2068.html","2016/07/14/978e75667622.html","2016/07/08/e186098ac628.html","2016/07/04/3785d0dba89a.html","2016/04/15/ec06c4eece1a.html","2016/04/12/38aaad10e75c.html","2016/04/09/8338dba3fcd5.html","2016/03/29/9aba342467c9.html","2016/03/20/42fa10667f54.html","2016/02/29/e374f5bb0f34.html","2016/02/28/d66db5b99176.html","2016/02/23/dbc5190ab81e.html","2016/01/19/10b3a9130b3f.html","2016/01/17/b37186518705.html","2016/01/16/dbe1e4b3f4fc.html","2016/01/02/8bb3213ffa12.html","2015/12/31/aad1c775f7ca.html","2015/12/30/63c25c52d2b1.html","2015/12/23/aec2c24b1953.html","2015/12/17/e24121b74cd9.html","2015/12/14/477d4bb0a694.html","2015/10/09/351545bf1916.html","2015/10/09/82aa8fa67de7.html","2015/10/09/c3c0ee3f8d12.html","2015/08/12/0308602e4f68.html","2015/06/24/ffdf7f19b75e.html","2015/06/18/edda4a874b0b.html","2015/06/10/999886b502b9.html","2015/05/12/458eb7fc4602.html","2015/05/03/ff6670efb726.html","2015/04/12/0c6ac2f2ef9f.html","2015/04/01/e31569ffeb1b.html","2015/03/30/2f877cdf6676.html","2015/03/26/5efaf89e32aa.html","2015/03/07/4906b0552218.html","2015/03/01/7d082560f25d.html","2015/02/02/c151322fa18c.html","2015/01/22/7f48f1d9bd43.html","2015/01/16/c28101e99a4e.html","2015/01/07/384ed70f16c9.html","2014/12/31/b1e74be290c2.html","2014/11/26/9aaec6d22b5d.html","2014/07/22/2794f5c0c61c.html","2014/07/06/ad0ce234d5ee.html","2014/07/05/10e1b6be1fce.html","2014/04/25/539f1eca9c58.html","2014/03/25/04911c53f952.html","2014/03/18/7c92bfc4dfe5.html","2014/03/08/58ccb164a289.html","2014/01/06/1b05681ece49.html","2013/12/31/179fb728fa1b.html","2013/08/04/e21104d2a424.html","2013/08/03/651f9d2aca99.html","2013/08/02/9e20e90088b7.html","2013/06/20/87f523a6acce.html","2013/04/27/d464d60aa42e.html","2013/04/22/e7dfd60c9bcb.html","2013/04/08/32c795a83e60.html","2012/11/20/ede6d28c47ef.html","2012/07/02/e9789fc706bf.html","2012/06/08/50d7c9cd329e.html","2012/05/30/5c3b3ee09661.html","2012/05/01/3d30a616288f.html","2012/04/22/64adf0d899af.html","2012/04/15/f93a82002f48.html","2012/04/08/93f7cab79f12.html","2012/04/01/f8453d92dd67.html","2012/03/25/3a60f76fa224.html","2012/03/24/f7da4b7883ef.html","2012/03/21/f36562344c3d.html","2012/03/14/2860dbc70957.html"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
