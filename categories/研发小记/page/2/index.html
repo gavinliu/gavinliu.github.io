@@ -34,95 +34,9 @@
 
     <script>LA.init({id:"3FVRnNbwv2ZoRqcz",ck:"3FVRnNbwv2ZoRqcz"})</script>
 
-<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":false,"is_page":false,"page":false};</script>
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":true,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":false,"is_page":false,"page":false};</script>
     <meta name="generator" content="Hexo 6.3.0"></head>
     <body id="body">
-        
-            <div id="loading-box" onclick="preloader.endLoading();" class style="zoom: 1;">
-    <div class="loading-bg">
-        <img class="loading-img nolazyload" alt="loading image"
-            src="/img/favicon.png">
-        </div>
-</div>
-<script>
-    const preloader = {
-        endLoading: () => {
-            document.getElementById('loading-box').classList.add("loaded")
-        },
-        initLoading: () => {
-            document.getElementById('loading-box').classList.remove("loaded")
-        },
-        removePaceDone: () => {
-            document.getElementById('body').classList = 'pace-done'
-        }
-    }
-    window.addEventListener('load',()=> { preloader.endLoading() })
-    document.addEventListener('pjax:send', () => { preloader.initLoading() })
-    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-</script>
-<style>
-    #loading-box {
-        -webkit-user-select: none;
-    }
-
-    #loading-box .loading-bg {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        background: var(--heo-background);
-        z-index: 1999;
-        opacity: 1;
-        transition: 0.2s;
-        pointer-events: all;
-        animation: showLoading 0.3s 0s backwards;
-    }
-
-    #loading-box.loaded .loading-bg {
-        pointer-events: none;
-        transition: 0.2s;
-        animation: hideLoading 0.3s 0s forwards;
-    }
-
-    #loading-box .loading-img {
-        width: 100px;
-        margin: auto;
-        animation-duration: 0.2s;
-        animation-name: loadingAction;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-    }
-
-    @keyframes loadingAction {
-        from {
-            opacity: 1;
-        }
-
-        to {
-            opacity: 0.6;
-        }
-    }
-
-    @keyframes hideLoading {
-        from {
-            opacity: 1;
-        }
-
-        to {
-            opacity: 0;
-        }
-    }
-
-    @keyframes showLoading {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            opacity: 1;
-        }
-    }
-</style>
         
         <div id="console" style="zoom: 1;" class="">
     <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
@@ -161,7 +75,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -265,10 +179,6 @@
                         <sup>13</sup>
                     </a>
                 
-                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
-                        <sup>1</sup>
-                    </a>
-                
                     <a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" style="font-size: 1em; color: #d3d3d3">年终总结
                         <sup>4</sup>
                     </a>
@@ -277,7 +187,7 @@
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/Chrome/" style="font-size: 1em; color: #d3d3d3">Chrome
+                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
                         <sup>1</sup>
                     </a>
                 
@@ -287,6 +197,10 @@
                 
                     <a href="/tags/Gradle/" style="font-size: 1em; color: #d3d3d3">Gradle
                         <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/Chrome/" style="font-size: 1em; color: #d3d3d3">Chrome
+                        <sup>1</sup>
                     </a>
                 
                     <a href="/tags/%E5%BF%85%E7%9C%8B%E7%B2%BE%E9%80%89/" style="font-size: 1em; color: #d3d3d3">必看精选
@@ -369,7 +283,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -534,7 +448,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/07/08/e186098ac628.html" title="Android | 编写优质程序从内存管理开始">
-            <img src="/img/cover/android_cover.png"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
                 alt="Android | 编写优质程序从内存管理开始">
         </a>
         <div class="article-sort-item-info">
@@ -561,7 +475,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/07/04/3785d0dba89a.html" title="数据安全和加密那点事">
-            <img src="/img/hello.jpg"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/hello.jpg"
                 alt="数据安全和加密那点事">
         </a>
         <div class="article-sort-item-info">
@@ -588,7 +502,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/04/15/ec06c4eece1a.html" title="Git | 使用 Repo 管理你的 Git 项目">
-            <img src="/img/hello.jpg"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/hello.jpg"
                 alt="Git | 使用 Repo 管理你的 Git 项目">
         </a>
         <div class="article-sort-item-info">
@@ -620,7 +534,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/04/12/38aaad10e75c.html" title="Android | 实现图片圆角显示的几种方式">
-            <img src="/img/cover/android_cover.png"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
                 alt="Android | 实现图片圆角显示的几种方式">
         </a>
         <div class="article-sort-item-info">
@@ -652,7 +566,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/04/09/8338dba3fcd5.html" title="Android | 基于 MediaSession 的音乐播放流程">
-            <img src="/img/cover/android_cover.png"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
                 alt="Android | 基于 MediaSession 的音乐播放流程">
         </a>
         <div class="article-sort-item-info">
@@ -679,7 +593,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/03/29/9aba342467c9.html" title="Android | 在平坦的道路上曲折前行-插件式开发">
-            <img src="/img/cover/android_cover.png"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
                 alt="Android | 在平坦的道路上曲折前行-插件式开发">
         </a>
         <div class="article-sort-item-info">
@@ -706,7 +620,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/03/20/42fa10667f54.html" title="机器学习 | 1. 索引">
-            <img src="/img/hello.jpg"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/hello.jpg"
                 alt="机器学习 | 1. 索引">
         </a>
         <div class="article-sort-item-info">
@@ -733,7 +647,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/02/29/e374f5bb0f34.html" title="Android | 实用代码片段(3)">
-            <img src="/img/cover/android_cover.png"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
                 alt="Android | 实用代码片段(3)">
         </a>
         <div class="article-sort-item-info">
@@ -760,7 +674,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/02/28/d66db5b99176.html" title="Android | 开源项目:OpenGpad(电脑键盘当手游手柄)">
-            <img src="/img/cover/android_cover.png"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
                 alt="Android | 开源项目:OpenGpad(电脑键盘当手游手柄)">
         </a>
         <div class="article-sort-item-info">
@@ -787,7 +701,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/02/23/dbc5190ab81e.html" title="Android | 测试框架之 UI Testing - 实现多点触控事件">
-            <img src="/img/cover/android_cover.png"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
                 alt="Android | 测试框架之 UI Testing - 实现多点触控事件">
         </a>
         <div class="article-sort-item-info">
@@ -814,7 +728,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/01/19/10b3a9130b3f.html" title="Android | adb forward 实现 PC 和 App 的 Socket 通讯">
-            <img src="/img/cover/android_cover.png"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
                 alt="Android | adb forward 实现 PC 和 App 的 Socket 通讯">
         </a>
         <div class="article-sort-item-info">
@@ -841,7 +755,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/01/17/b37186518705.html" title="环境搭建 | Mac 的 PyCharm &amp; PyQt5 环境搭建">
-            <img src="/img/hello.jpg"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/hello.jpg"
                 alt="环境搭建 | Mac 的 PyCharm &amp; PyQt5 环境搭建">
         </a>
         <div class="article-sort-item-info">
@@ -873,7 +787,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/01/16/dbe1e4b3f4fc.html" title="环境搭建 | Mac 的 PyQt5 环境搭建">
-            <img src="/img/hello.jpg"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/hello.jpg"
                 alt="环境搭建 | Mac 的 PyQt5 环境搭建">
         </a>
         <div class="article-sort-item-info">
@@ -905,7 +819,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2016/01/02/8bb3213ffa12.html" title="Android | 测试框架之 UI Testing - UiAutomator">
-            <img src="/img/cover/android_cover.png"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
                 alt="Android | 测试框架之 UI Testing - UiAutomator">
         </a>
         <div class="article-sort-item-info">
@@ -934,7 +848,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2015/12/30/63c25c52d2b1.html" title="Android | 测试框架之 UI Testing - Espresso">
-            <img src="/img/cover/android_cover.png"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
                 alt="Android | 测试框架之 UI Testing - Espresso">
         </a>
         <div class="article-sort-item-info">
@@ -961,7 +875,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2015/12/23/aec2c24b1953.html" title="Android | 测试框架概述">
-            <img src="/img/cover/android_cover.png"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
                 alt="Android | 测试框架概述">
         </a>
         <div class="article-sort-item-info">
@@ -988,7 +902,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2015/12/17/e24121b74cd9.html" title="环境搭建 | Python 环境搭建">
-            <img src="/img/hello.jpg"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/hello.jpg"
                 alt="环境搭建 | Python 环境搭建">
         </a>
         <div class="article-sort-item-info">
@@ -1020,7 +934,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2015/12/14/477d4bb0a694.html" title="Java | 使用 Future 模式进行多线程编程">
-            <img src="/img/hello.jpg"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/hello.jpg"
                 alt="Java | 使用 Future 模式进行多线程编程">
         </a>
         <div class="article-sort-item-info">
@@ -1047,7 +961,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2015/08/12/0308602e4f68.html" title="Android | 多屏适配实践">
-            <img src="/img/cover/android_cover.png"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
                 alt="Android | 多屏适配实践">
         </a>
         <div class="article-sort-item-info">
@@ -1074,7 +988,7 @@
     
     <div class="article-sort-item">
         <a class="article-sort-item-img" href="/2015/06/24/ffdf7f19b75e.html" title="Android | 开源库 Android-AbsListView-Drag-And-Drop">
-            <img src="/img/cover/android_cover.png"
+            <img src= "/img/acrylic.png" data-lazy-src="/img/cover/android_cover.png"
                 alt="Android | 开源库 Android-AbsListView-Drag-And-Drop">
         </a>
         <div class="article-sort-item-info">
@@ -1381,7 +1295,7 @@
                 <footer id="footer">
                     <div id="footer_deal">
     
-    <img class="footer_mini_logo" src="/img/favicon.png"
+    <img class="footer_mini_logo" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png"
         title="返回顶部" onclick="acrylic.toTop()">
     
 </div>    
@@ -1417,6 +1331,10 @@
     
 
 <script src="/lib/pjax.min.js"></script>
+
+
+    
+<script src="/lib/lazyload.min.js"></script>
 
 
 

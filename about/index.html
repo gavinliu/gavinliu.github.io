@@ -34,95 +34,9 @@
 
     <script>LA.init({id:"3FVRnNbwv2ZoRqcz",ck:"3FVRnNbwv2ZoRqcz"})</script>
 
-<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":false,"is_page":true,"page":"about","toc":false,"comment":false};</script>
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":true,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":false,"is_page":true,"page":"about","toc":false,"comment":false};</script>
     <meta name="generator" content="Hexo 6.3.0"></head>
     <body id="body">
-        
-            <div id="loading-box" onclick="preloader.endLoading();" class style="zoom: 1;">
-    <div class="loading-bg">
-        <img class="loading-img nolazyload" alt="loading image"
-            src="/img/favicon.png">
-        </div>
-</div>
-<script>
-    const preloader = {
-        endLoading: () => {
-            document.getElementById('loading-box').classList.add("loaded")
-        },
-        initLoading: () => {
-            document.getElementById('loading-box').classList.remove("loaded")
-        },
-        removePaceDone: () => {
-            document.getElementById('body').classList = 'pace-done'
-        }
-    }
-    window.addEventListener('load',()=> { preloader.endLoading() })
-    document.addEventListener('pjax:send', () => { preloader.initLoading() })
-    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-</script>
-<style>
-    #loading-box {
-        -webkit-user-select: none;
-    }
-
-    #loading-box .loading-bg {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        background: var(--heo-background);
-        z-index: 1999;
-        opacity: 1;
-        transition: 0.2s;
-        pointer-events: all;
-        animation: showLoading 0.3s 0s backwards;
-    }
-
-    #loading-box.loaded .loading-bg {
-        pointer-events: none;
-        transition: 0.2s;
-        animation: hideLoading 0.3s 0s forwards;
-    }
-
-    #loading-box .loading-img {
-        width: 100px;
-        margin: auto;
-        animation-duration: 0.2s;
-        animation-name: loadingAction;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-    }
-
-    @keyframes loadingAction {
-        from {
-            opacity: 1;
-        }
-
-        to {
-            opacity: 0.6;
-        }
-    }
-
-    @keyframes hideLoading {
-        from {
-            opacity: 1;
-        }
-
-        to {
-            opacity: 0;
-        }
-    }
-
-    @keyframes showLoading {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            opacity: 1;
-        }
-    }
-</style>
         
         <div id="console" style="zoom: 1;" class="">
     <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
@@ -161,7 +75,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -265,10 +179,6 @@
                         <sup>13</sup>
                     </a>
                 
-                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
-                        <sup>1</sup>
-                    </a>
-                
                     <a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" style="font-size: 1em; color: #d3d3d3">年终总结
                         <sup>4</sup>
                     </a>
@@ -277,7 +187,7 @@
                         <sup>1</sup>
                     </a>
                 
-                    <a href="/tags/Chrome/" style="font-size: 1em; color: #d3d3d3">Chrome
+                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
                         <sup>1</sup>
                     </a>
                 
@@ -287,6 +197,10 @@
                 
                     <a href="/tags/Gradle/" style="font-size: 1em; color: #d3d3d3">Gradle
                         <sup>2</sup>
+                    </a>
+                
+                    <a href="/tags/Chrome/" style="font-size: 1em; color: #d3d3d3">Chrome
+                        <sup>1</sup>
                     </a>
                 
                     <a href="/tags/%E5%BF%85%E7%9C%8B%E7%B2%BE%E9%80%89/" style="font-size: 1em; color: #d3d3d3">必看精选
@@ -369,7 +283,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -545,13 +459,13 @@
                                     <div class="tags-group-icon-pair">
                                 
                                 <div class="tags-group-icon" style="background:#ffffff">
-                                    <img src="/img/icon/Android.png" title="Android">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Android.png" title="Android">
                                 </div>
                                 
                             
                                 
                                 <div class="tags-group-icon" style="background:#ffffff">
-                                    <img src="/img/icon/Apple.svg" title="iOS">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Apple.svg" title="iOS">
                                 </div>
                                 
                             
@@ -562,13 +476,13 @@
                                     <div class="tags-group-icon-pair">
                                 
                                 <div class="tags-group-icon" style="background:#ffffff">
-                                    <img src="/img/icon/Java.png" title="Java">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Java.png" title="Java">
                                 </div>
                                 
                             
                                 
                                 <div class="tags-group-icon" style="background:#27282c">
-                                    <img src="/img/icon/Kotlin.png" title="Kotlin">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Kotlin.png" title="Kotlin">
                                 </div>
                                 
                             
@@ -579,13 +493,13 @@
                                     <div class="tags-group-icon-pair">
                                 
                                 <div class="tags-group-icon" style="background:#ffffff">
-                                    <img src="/img/icon/Python.png" title="Python">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Python.png" title="Python">
                                 </div>
                                 
                             
                                 
                                 <div class="tags-group-icon" style="background:#eb6840">
-                                    <img src="/img/icon/Swift.png" title="Swift">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Swift.png" title="Swift">
                                 </div>
                                 
                             
@@ -596,13 +510,13 @@
                                     <div class="tags-group-icon-pair">
                                 
                                 <div class="tags-group-icon" style="background:#e9572b">
-                                    <img src="/img/icon/HTML.png" title="HTML">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/HTML.png" title="HTML">
                                 </div>
                                 
                             
                                 
                                 <div class="tags-group-icon" style="background:#2c51db">
-                                    <img src="/img/icon/CSS3.png" title="CSS">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/CSS3.png" title="CSS">
                                 </div>
                                 
                             
@@ -613,13 +527,13 @@
                                     <div class="tags-group-icon-pair">
                                 
                                 <div class="tags-group-icon" style="background:#f7cb4f">
-                                    <img src="/img/icon/JS.png" title="JS">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/JS.png" title="JS">
                                 </div>
                                 
                             
                                 
                                 <div class="tags-group-icon" style="background:#57b6e6">
-                                    <img src="/img/icon/docker.png" title="Docker">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/docker.png" title="Docker">
                                 </div>
                                 
                             
@@ -630,13 +544,13 @@
                                     <div class="tags-group-icon-pair">
                                 
                                 <div class="tags-group-icon" style="background:#df5b40">
-                                    <img src="/img/icon/git.png" title="Git">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/git.png" title="Git">
                                 </div>
                                 
                             
                                 
                                 <div class="tags-group-icon" style="background:#ffffff">
-                                    <img src="/img/icon/Sketch.png" title="Sketch">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Sketch.png" title="Sketch">
                                 </div>
                                 
                             
@@ -647,13 +561,13 @@
                                     <div class="tags-group-icon-pair">
                                 
                                 <div class="tags-group-icon" style="background:#989bf8">
-                                    <img src="/img/icon/ae.png" title="AE">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/ae.png" title="AE">
                                 </div>
                                 
                             
                                 
                                 <div class="tags-group-icon" style="background:#4082c3">
-                                    <img src="/img/icon/ps.png" title="Photoshop">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/ps.png" title="Photoshop">
                                 </div>
                                 
                                     </div>
@@ -666,13 +580,13 @@
                                     <div class="tags-group-icon-pair">
                                 
                                 <div class="tags-group-icon" style="background:#ffffff">
-                                    <img src="/img/icon/Android.png" title="Android">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Android.png" title="Android">
                                 </div>
                                 
                             
                                 
                                 <div class="tags-group-icon" style="background:#ffffff">
-                                    <img src="/img/icon/Apple.svg" title="iOS">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Apple.svg" title="iOS">
                                 </div>
                                 
                             
@@ -683,13 +597,13 @@
                                     <div class="tags-group-icon-pair">
                                 
                                 <div class="tags-group-icon" style="background:#ffffff">
-                                    <img src="/img/icon/Java.png" title="Java">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Java.png" title="Java">
                                 </div>
                                 
                             
                                 
                                 <div class="tags-group-icon" style="background:#27282c">
-                                    <img src="/img/icon/Kotlin.png" title="Kotlin">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Kotlin.png" title="Kotlin">
                                 </div>
                                 
                             
@@ -700,13 +614,13 @@
                                     <div class="tags-group-icon-pair">
                                 
                                 <div class="tags-group-icon" style="background:#ffffff">
-                                    <img src="/img/icon/Python.png" title="Python">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Python.png" title="Python">
                                 </div>
                                 
                             
                                 
                                 <div class="tags-group-icon" style="background:#eb6840">
-                                    <img src="/img/icon/Swift.png" title="Swift">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Swift.png" title="Swift">
                                 </div>
                                 
                             
@@ -717,13 +631,13 @@
                                     <div class="tags-group-icon-pair">
                                 
                                 <div class="tags-group-icon" style="background:#e9572b">
-                                    <img src="/img/icon/HTML.png" title="HTML">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/HTML.png" title="HTML">
                                 </div>
                                 
                             
                                 
                                 <div class="tags-group-icon" style="background:#2c51db">
-                                    <img src="/img/icon/CSS3.png" title="CSS">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/CSS3.png" title="CSS">
                                 </div>
                                 
                             
@@ -734,13 +648,13 @@
                                     <div class="tags-group-icon-pair">
                                 
                                 <div class="tags-group-icon" style="background:#f7cb4f">
-                                    <img src="/img/icon/JS.png" title="JS">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/JS.png" title="JS">
                                 </div>
                                 
                             
                                 
                                 <div class="tags-group-icon" style="background:#57b6e6">
-                                    <img src="/img/icon/docker.png" title="Docker">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/docker.png" title="Docker">
                                 </div>
                                 
                             
@@ -751,13 +665,13 @@
                                     <div class="tags-group-icon-pair">
                                 
                                 <div class="tags-group-icon" style="background:#df5b40">
-                                    <img src="/img/icon/git.png" title="Git">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/git.png" title="Git">
                                 </div>
                                 
                             
                                 
                                 <div class="tags-group-icon" style="background:#ffffff">
-                                    <img src="/img/icon/Sketch.png" title="Sketch">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Sketch.png" title="Sketch">
                                 </div>
                                 
                             
@@ -768,13 +682,13 @@
                                     <div class="tags-group-icon-pair">
                                 
                                 <div class="tags-group-icon" style="background:#989bf8">
-                                    <img src="/img/icon/ae.png" title="AE">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/ae.png" title="AE">
                                 </div>
                                 
                             
                                 
                                 <div class="tags-group-icon" style="background:#4082c3">
-                                    <img src="/img/icon/ps.png" title="Photoshop">
+                                    <img src= "/img/acrylic.png" data-lazy-src="/img/icon/ps.png" title="Photoshop">
                                 </div>
                                 
                                     </div>
@@ -789,98 +703,98 @@
             
             <div class="skill-info">
                 <div class="skill-icon" style="background:#ffffff">
-                <img src="/img/icon/Android.png" title="Android">
+                <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Android.png" title="Android">
                 </div>
                 <div class="skill-name"> <span>Android</span></div>
             </div>
             
             <div class="skill-info">
                 <div class="skill-icon" style="background:#ffffff">
-                <img src="/img/icon/Apple.svg" title="iOS">
+                <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Apple.svg" title="iOS">
                 </div>
                 <div class="skill-name"> <span>iOS</span></div>
             </div>
             
             <div class="skill-info">
                 <div class="skill-icon" style="background:#ffffff">
-                <img src="/img/icon/Java.png" title="Java">
+                <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Java.png" title="Java">
                 </div>
                 <div class="skill-name"> <span>Java</span></div>
             </div>
             
             <div class="skill-info">
                 <div class="skill-icon" style="background:#27282c">
-                <img src="/img/icon/Kotlin.png" title="Kotlin">
+                <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Kotlin.png" title="Kotlin">
                 </div>
                 <div class="skill-name"> <span>Kotlin</span></div>
             </div>
             
             <div class="skill-info">
                 <div class="skill-icon" style="background:#ffffff">
-                <img src="/img/icon/Python.png" title="Python">
+                <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Python.png" title="Python">
                 </div>
                 <div class="skill-name"> <span>Python</span></div>
             </div>
             
             <div class="skill-info">
                 <div class="skill-icon" style="background:#eb6840">
-                <img src="/img/icon/Swift.png" title="Swift">
+                <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Swift.png" title="Swift">
                 </div>
                 <div class="skill-name"> <span>Swift</span></div>
             </div>
             
             <div class="skill-info">
                 <div class="skill-icon" style="background:#e9572b">
-                <img src="/img/icon/HTML.png" title="HTML">
+                <img src= "/img/acrylic.png" data-lazy-src="/img/icon/HTML.png" title="HTML">
                 </div>
                 <div class="skill-name"> <span>HTML</span></div>
             </div>
             
             <div class="skill-info">
                 <div class="skill-icon" style="background:#2c51db">
-                <img src="/img/icon/CSS3.png" title="CSS">
+                <img src= "/img/acrylic.png" data-lazy-src="/img/icon/CSS3.png" title="CSS">
                 </div>
                 <div class="skill-name"> <span>CSS</span></div>
             </div>
             
             <div class="skill-info">
                 <div class="skill-icon" style="background:#f7cb4f">
-                <img src="/img/icon/JS.png" title="JS">
+                <img src= "/img/acrylic.png" data-lazy-src="/img/icon/JS.png" title="JS">
                 </div>
                 <div class="skill-name"> <span>JS</span></div>
             </div>
             
             <div class="skill-info">
                 <div class="skill-icon" style="background:#57b6e6">
-                <img src="/img/icon/docker.png" title="Docker">
+                <img src= "/img/acrylic.png" data-lazy-src="/img/icon/docker.png" title="Docker">
                 </div>
                 <div class="skill-name"> <span>Docker</span></div>
             </div>
             
             <div class="skill-info">
                 <div class="skill-icon" style="background:#df5b40">
-                <img src="/img/icon/git.png" title="Git">
+                <img src= "/img/acrylic.png" data-lazy-src="/img/icon/git.png" title="Git">
                 </div>
                 <div class="skill-name"> <span>Git</span></div>
             </div>
             
             <div class="skill-info">
                 <div class="skill-icon" style="background:#ffffff">
-                <img src="/img/icon/Sketch.png" title="Sketch">
+                <img src= "/img/acrylic.png" data-lazy-src="/img/icon/Sketch.png" title="Sketch">
                 </div>
                 <div class="skill-name"> <span>Sketch</span></div>
             </div>
             
             <div class="skill-info">
                 <div class="skill-icon" style="background:#989bf8">
-                <img src="/img/icon/ae.png" title="AE">
+                <img src= "/img/acrylic.png" data-lazy-src="/img/icon/ae.png" title="AE">
                 </div>
                 <div class="skill-name"> <span>AE</span></div>
             </div>
             
             <div class="skill-info">
                 <div class="skill-icon" style="background:#4082c3">
-                <img src="/img/icon/ps.png" title="Photoshop">
+                <img src= "/img/acrylic.png" data-lazy-src="/img/icon/ps.png" title="Photoshop">
                 </div>
                 <div class="skill-name"> <span>Photoshop</span></div>
             </div>
@@ -913,7 +827,7 @@
             </div>
             
         </div>
-        <img class="author-content-img" src="/img/careers.png" alt="生涯">
+        <img class="author-content-img" src= "/img/acrylic.png" data-lazy-src="/img/careers.png" alt="生涯">
         </div>
     </div>
 </div> 
@@ -975,7 +889,7 @@
                 <footer id="footer">
                     <div id="footer_deal">
     
-    <img class="footer_mini_logo" src="/img/favicon.png"
+    <img class="footer_mini_logo" src= "/img/acrylic.png" data-lazy-src="/img/favicon.png"
         title="返回顶部" onclick="acrylic.toTop()">
     
 </div>    
@@ -1011,6 +925,10 @@
     
 
 <script src="/lib/pjax.min.js"></script>
+
+
+    
+<script src="/lib/lazyload.min.js"></script>
 
 
 
