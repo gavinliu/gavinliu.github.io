@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Gavin Liu - 代码人生与科技生活</title>
+  <icon>https://gavinliu.cn/img/favicon.png</icon>
+  
+  <link href="https://gavinliu.cn/atom.xml" rel="self"/>
+  
+  <link href="https://gavinliu.cn/"/>
+  <updated>2023-07-13T15:03:30.470Z</updated>
+  <id>https://gavinliu.cn/</id>
+  
+  <author>
+    <name>Gavin Liu</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>服务器 | 基于 WebDAV 的服务器文件备份方案</title>
+    <link href="https://gavinliu.cn/2019/05/01/a6daec704f6d.html"/>
+    <id>https://gavinliu.cn/2019/05/01/a6daec704f6d.html</id>
+    <published>2019-05-01T11:09:24.000Z</published>
+    <updated>2023-07-13T15:03:30.470Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本篇介绍一下如何通过 WebDAV 备份服务器文件，可以用来备份服务器数据库、配置文件，日志等等&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="运维手册" scheme="https://gavinliu.cn/categories/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/"/>
+    
+    
+    <category term="环境搭建" scheme="https://gavinliu.cn/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="服务器" scheme="https://gavinliu.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Snapmod - 更好用的带壳截图软件</title>
+    <link href="https://gavinliu.cn/2018/07/16/90a0e986eb9b.html"/>
+    <id>https://gavinliu.cn/2018/07/16/90a0e986eb9b.html</id>
+    <published>2018-07-16T14:06:36.000Z</published>
+    <updated>2023-07-13T15:46:36.493Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;好久没有独立开发一款软件了，起因是最近换了 &lt;code&gt;小米 8&lt;/code&gt;，一直有带壳截图的习惯，发现市面上的软件都太烂了，于是乎自己撸一个吧，顺便实践一下 &lt;code&gt;Material Design 2&lt;/code&gt; 和 &lt;code&gt;Jetpack&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="我的项目" scheme="https://gavinliu.cn/categories/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+    <category term="必看精选" scheme="https://gavinliu.cn/tags/%E5%BF%85%E7%9C%8B%E7%B2%BE%E9%80%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务器 | UFW - Linux 上最简单的防火墙配置工具</title>
+    <link href="https://gavinliu.cn/2018/05/29/655adaca8a17.html"/>
+    <id>https://gavinliu.cn/2018/05/29/655adaca8a17.html</id>
+    <published>2018-05-29T03:05:58.000Z</published>
+    <updated>2023-07-13T15:05:07.088Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;为了服务器的安全一般都会在 Linux 上配置防火墙，对于一般开发者而言来说想要搞懂 iptable 这些东西，要花不少时间。UFW 就是一款 Linux 管理防火墙规则的工具，通过简单的几行命令使防火墙配置变得非常简单。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="运维手册" scheme="https://gavinliu.cn/categories/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/"/>
+    
+    
+    <category term="环境搭建" scheme="https://gavinliu.cn/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="服务器" scheme="https://gavinliu.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android | JNI 移植 bspatch 实现增量更新功能</title>
+    <link href="https://gavinliu.cn/2017/04/25/836a86b1de27.html"/>
+    <id>https://gavinliu.cn/2017/04/25/836a86b1de27.html</id>
+    <published>2017-04-25T14:51:38.000Z</published>
+    <updated>2023-08-07T15:32:50.154Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;增量更新技术源于 &lt;code&gt;Android 4.1&lt;/code&gt; Google Play 引入的一项技术，以实现 apk 升级节约 2&amp;#x2F;3 的流量。Google 把这个功能叫做 &lt;code&gt;Smart App Updates&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="Android" scheme="https://gavinliu.cn/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android | 写给 Android 应用开发者的 JNI 快速入门指北</title>
+    <link href="https://gavinliu.cn/2017/04/15/6bf6da4ab19d.html"/>
+    <id>https://gavinliu.cn/2017/04/15/6bf6da4ab19d.html</id>
+    <published>2017-04-15T09:54:21.000Z</published>
+    <updated>2023-08-07T16:20:21.309Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Java Native Interface(Java 本地接口) 简称 JNI，是一种编程框架，使得 JVM 中的 Java 程序 可以调用本地应用&amp;#x2F;或库，也可以被其他程序调用。其过程可以不负责任的理解成 Java 的反射，因为代码逻辑和反射调用很像。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="Android" scheme="https://gavinliu.cn/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android | 写给 Android 应用开发者的 C 语言快速入门指北</title>
+    <link href="https://gavinliu.cn/2017/04/12/32470d2a9ff6.html"/>
+    <id>https://gavinliu.cn/2017/04/12/32470d2a9ff6.html</id>
+    <published>2017-04-12T09:43:46.000Z</published>
+    <updated>2023-08-07T16:20:16.816Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;据非官方不负责任的统计，有百分之八十的 Android 应用开发者，不会或者很少有机会写 C&amp;#x2F;C++。&lt;br&gt;如果你是一个有追求的程序员，还是把 C 语言捡起来吧。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="Android" scheme="https://gavinliu.cn/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android | FFmpeg 命令行运行方式 2</title>
+    <link href="https://gavinliu.cn/2017/03/21/858c9e16dba3.html"/>
+    <id>https://gavinliu.cn/2017/03/21/858c9e16dba3.html</id>
+    <published>2017-03-21T03:02:53.000Z</published>
+    <updated>2023-08-07T16:29:12.065Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Android 上使用命令运行 有直接导入 ffmpeg.c 源码 和 直接编译 ffmpeg 二进制执行文件，两种方式。&lt;br&gt;这篇介绍 直接编译 ffmpeg 二进制执行文件&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="Android" scheme="https://gavinliu.cn/tags/Android/"/>
+    
+    <category term="FFmpeg" scheme="https://gavinliu.cn/tags/FFmpeg/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android | FFmpeg 命令行运行方式 1</title>
+    <link href="https://gavinliu.cn/2017/03/21/0263ebfd730f.html"/>
+    <id>https://gavinliu.cn/2017/03/21/0263ebfd730f.html</id>
+    <published>2017-03-21T03:02:50.000Z</published>
+    <updated>2023-08-07T16:29:16.459Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Android 上使用命令运行 有直接导入 ffmpeg.c 源码 和 直接编译 ffmpeg 二进制执行文件，两种方式。&lt;br&gt;这篇介绍 导入 ffmpeg.c 源码的方式&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="Android" scheme="https://gavinliu.cn/tags/Android/"/>
+    
+    <category term="FFmpeg" scheme="https://gavinliu.cn/tags/FFmpeg/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android | 一种相似图片搜索算法的实现</title>
+    <link href="https://gavinliu.cn/2017/03/20/f905f5341c53.html"/>
+    <id>https://gavinliu.cn/2017/03/20/f905f5341c53.html</id>
+    <published>2017-03-19T16:43:01.000Z</published>
+    <updated>2023-07-10T15:27:21.926Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本文介绍一种相似图片搜索算法：感知哈希算法。这种算法是对每一张图片生成一个指纹，然后对比指纹，越接近就表示越相似。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="Android" scheme="https://gavinliu.cn/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>服务器 | Supervisor 使用小结</title>
+    <link href="https://gavinliu.cn/2017/03/17/f7841c87816f.html"/>
+    <id>https://gavinliu.cn/2017/03/17/f7841c87816f.html</id>
+    <published>2017-03-17T12:02:59.000Z</published>
+    <updated>2023-08-07T16:14:09.431Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Supervisor 是一个服务器软件启动管理工具，使用它可以方便的启动关闭服务器端的程序，并监控进程状态。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="运维手册" scheme="https://gavinliu.cn/categories/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/"/>
+    
+    
+    <category term="环境搭建" scheme="https://gavinliu.cn/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+    <category term="服务器" scheme="https://gavinliu.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android | FFmpeg 编译成单 so 库</title>
+    <link href="https://gavinliu.cn/2017/03/14/9e11a689b858.html"/>
+    <id>https://gavinliu.cn/2017/03/14/9e11a689b858.html</id>
+    <published>2017-03-14T08:22:44.000Z</published>
+    <updated>2023-08-07T16:29:19.770Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;/2017/03/05/8a2b6d7863c0.html&quot;&gt;上篇&lt;/a&gt;讲了如何编译 FFmpeg for android，但是里面包含了多个 so 库，很多时候我们希望只有一个 so 库，这篇介绍如何打包成一个库。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="Android" scheme="https://gavinliu.cn/tags/Android/"/>
+    
+    <category term="FFmpeg" scheme="https://gavinliu.cn/tags/FFmpeg/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android | FFmpeg &amp; Mac &amp; AndroidStudio &amp; CMake 环境搭建</title>
+    <link href="https://gavinliu.cn/2017/03/05/8a2b6d7863c0.html"/>
+    <id>https://gavinliu.cn/2017/03/05/8a2b6d7863c0.html</id>
+    <published>2017-03-05T05:02:57.000Z</published>
+    <updated>2023-08-07T16:29:23.269Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;AndroidStudio 2.2 开始支持 &lt;code&gt;CMake&lt;/code&gt; 编译，网上的文章清一色都是 &lt;code&gt;ndk-build&lt;/code&gt;，记录一下我用 CMake 搭建环境的过程。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="Android" scheme="https://gavinliu.cn/tags/Android/"/>
+    
+    <category term="FFmpeg" scheme="https://gavinliu.cn/tags/FFmpeg/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android | 解决 Gradle 循环依赖问题</title>
+    <link href="https://gavinliu.cn/2017/02/08/89f2672cbdce.html"/>
+    <id>https://gavinliu.cn/2017/02/08/89f2672cbdce.html</id>
+    <published>2017-02-08T08:06:16.000Z</published>
+    <updated>2023-07-10T15:30:38.057Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;随着项目越来越大，使用的第三方库也越来越多，难免有时候会库之间的依赖冲突问题，如何解决呢？&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="Android" scheme="https://gavinliu.cn/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android | 兼容&amp;异常问题分类</title>
+    <link href="https://gavinliu.cn/2017/02/07/52df05f7cbd6.html"/>
+    <id>https://gavinliu.cn/2017/02/07/52df05f7cbd6.html</id>
+    <published>2017-02-07T03:23:09.000Z</published>
+    <updated>2023-07-10T15:30:34.779Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Android 上经常会出现崩溃，停止响应的异常问题，这篇文章对这些问题进行一个分类，并给出对应的 logcat 关键词，方便以后排除问题。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="Android" scheme="https://gavinliu.cn/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2016 The end</title>
+    <link href="https://gavinliu.cn/2016/12/31/eaf647ecb383.html"/>
+    <id>https://gavinliu.cn/2016/12/31/eaf647ecb383.html</id>
+    <published>2016-12-31T09:14:03.000Z</published>
+    <updated>2023-08-07T16:55:12.860Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;轻轻的打一个哈欠&lt;br&gt;慵懒的一阵风&lt;br&gt;就将所有的聒噪埋进了过去&lt;br&gt;还没等我缓过神来&lt;br&gt;脚步却又踏进了另一个春天&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="亿点点思考" scheme="https://gavinliu.cn/categories/%E4%BA%BF%E7%82%B9%E7%82%B9%E6%80%9D%E8%80%83/"/>
+    
+    
+    <category term="年终总结" scheme="https://gavinliu.cn/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>编程技巧 | 一种抽奖算法的实现</title>
+    <link href="https://gavinliu.cn/2016/12/22/14c0e972def5.html"/>
+    <id>https://gavinliu.cn/2016/12/22/14c0e972def5.html</id>
+    <published>2016-12-22T07:20:07.000Z</published>
+    <updated>2023-06-20T15:47:53.786Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;年末项目组需要做一个抽奖活动，奖品池有很多奖品，运营可以配置每个奖品的爆率，这篇文章给出一个简单的实现。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="编程技巧" scheme="https://gavinliu.cn/tags/%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习 | 一元简单线性回归与梯度下降</title>
+    <link href="https://gavinliu.cn/2016/12/15/def8be86f6e9.html"/>
+    <id>https://gavinliu.cn/2016/12/15/def8be86f6e9.html</id>
+    <published>2016-12-15T07:22:30.000Z</published>
+    <updated>2023-06-20T15:47:00.288Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;回归问题主要是用来预测，比如说你有一组【面积-房价】的数据，这些数据是离散的，通过线性回归，可以找到一个函数尽可能的表述你的数据，从而来预测房价。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="机器学习" scheme="https://gavinliu.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cocos2d | H5 版本解决跨域问题的 3 种办法</title>
+    <link href="https://gavinliu.cn/2016/12/14/47db15e11452.html"/>
+    <id>https://gavinliu.cn/2016/12/14/47db15e11452.html</id>
+    <published>2016-12-14T09:07:11.000Z</published>
+    <updated>2023-06-20T15:44:51.594Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;年末项目组要搞个周年庆活动，需要上一个 html5 的小游戏，由于我有写过 Cocos2d-x，就打算用 js 版本做个网页小游戏，遇到了经典的 ajax 跨域的问题。还试出来一些奇淫绝技。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="Cocos2d" scheme="https://gavinliu.cn/tags/Cocos2d/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>机器学习 | 数学理论：迭代法统一论</title>
+    <link href="https://gavinliu.cn/2016/12/11/4c9ef6b9b622.html"/>
+    <id>https://gavinliu.cn/2016/12/11/4c9ef6b9b622.html</id>
+    <published>2016-12-11T04:49:53.000Z</published>
+    <updated>2023-06-20T15:42:34.943Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;迭代法，其实是计算机软件中很常用的方法，机器学习中的工程运用也用到了&lt;code&gt;迭代法&lt;/code&gt;，这篇学习笔记 主要是理清 &lt;code&gt;梯度下降法&lt;/code&gt; 的背后的数学基本原理。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="机器学习" scheme="https://gavinliu.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android | 移植 StackBlur for Glide &amp; AS 2.2 CMakeLists 的使用</title>
+    <link href="https://gavinliu.cn/2016/11/05/7fb56844dffe.html"/>
+    <id>https://gavinliu.cn/2016/11/05/7fb56844dffe.html</id>
+    <published>2016-11-05T07:27:41.000Z</published>
+    <updated>2023-07-10T15:33:42.565Z</updated>
+    
+    
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;StackBlur 是一个快速高斯模糊算法，原作者是由 &lt;a href=&quot;http://www.quasimondo.com/StackBlurForCanvas/StackBlurDemo.html&quot;&gt;Mario Klingemann&lt;/a&gt; 开发的 Javascript 版本。&lt;a href=&quot;http://vitiy.info/stackblur-algorithm-multi-threaded-blur-for-cpp/&quot;&gt;Victor Laskin&lt;/a&gt; 实现了一个 C++多线程版本，Android 上我们基于 &lt;code&gt;Victor Laskin&lt;/code&gt; 的版本进行 JNI 移植。&lt;br&gt;这个算法应用非常广泛 iOS 上 Camera+ 也是用的这套算法，还有 CUDA 版本等…&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
+    
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
+    
+    <category term="Android" scheme="https://gavinliu.cn/tags/Android/"/>
+    
+  </entry>
+  
+</feed>
