@@ -42,92 +42,6 @@
     <meta name="generator" content="Hexo 6.3.0"></head>
     <body id="body">
         
-            <div id="loading-box" onclick="preloader.endLoading();" class style="zoom: 1;">
-    <div class="loading-bg">
-        <img class="loading-img nolazyload" alt="loading image"
-            src="/img/favicon.png">
-        </div>
-</div>
-<script>
-    const preloader = {
-        endLoading: () => {
-            document.getElementById('loading-box').classList.add("loaded")
-        },
-        initLoading: () => {
-            document.getElementById('loading-box').classList.remove("loaded")
-        },
-        removePaceDone: () => {
-            document.getElementById('body').classList = 'pace-done'
-        }
-    }
-    window.addEventListener('load',()=> { preloader.endLoading() })
-    document.addEventListener('pjax:send', () => { preloader.initLoading() })
-    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
-</script>
-<style>
-    #loading-box {
-        -webkit-user-select: none;
-    }
-
-    #loading-box .loading-bg {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        background: var(--heo-background);
-        z-index: 1999;
-        opacity: 1;
-        transition: 0.2s;
-        pointer-events: all;
-        animation: showLoading 0.3s 0s backwards;
-    }
-
-    #loading-box.loaded .loading-bg {
-        pointer-events: none;
-        transition: 0.2s;
-        animation: hideLoading 0.3s 0s forwards;
-    }
-
-    #loading-box .loading-img {
-        width: 100px;
-        margin: auto;
-        animation-duration: 0.2s;
-        animation-name: loadingAction;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-    }
-
-    @keyframes loadingAction {
-        from {
-            opacity: 1;
-        }
-
-        to {
-            opacity: 0.6;
-        }
-    }
-
-    @keyframes hideLoading {
-        from {
-            opacity: 1;
-        }
-
-        to {
-            opacity: 0;
-        }
-    }
-
-    @keyframes showLoading {
-        from {
-            opacity: 0;
-        }
-
-        to {
-            opacity: 1;
-        }
-    }
-</style>
-        
         <div id="console" style="zoom: 1;" class="">
     <div class="close-btn" onclick="acrylic.hideConsole()" href="javascript:void(0);">
         <i class="fas fa-circle-xmark"></i>
@@ -317,15 +231,15 @@
                         <sup>3</sup>
                     </a>
                 
-                    <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1em; color: #d3d3d3">加密算法
-                        <sup>1</sup>
-                    </a>
-                
                     <a href="/tags/git/" style="font-size: 1em; color: #d3d3d3">git
                         <sup>1</sup>
                     </a>
                 
                     <a href="/tags/repo/" style="font-size: 1em; color: #d3d3d3">repo
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1em; color: #d3d3d3">加密算法
                         <sup>1</sup>
                     </a>
                 
@@ -815,7 +729,7 @@
                 <a class="thumbnail" href="/2017/04/25/836a86b1de27.html" title="Android | JNI 移植 bspatch 实现增量更新功能">
                     <img
                         alt="Android | JNI 移植 bspatch 实现增量更新功能"
-                        src="/img/cover/android_cover.png">
+                        src="/img/cover/android_cover_diff_update.png">
                 </a>
                 <div class="content">
                     
@@ -834,7 +748,7 @@
                 <a class="thumbnail" href="/2017/04/15/6bf6da4ab19d.html" title="Android | 写给 Android 应用开发者的 JNI 快速入门指北">
                     <img
                         alt="Android | 写给 Android 应用开发者的 JNI 快速入门指北"
-                        src="/img/cover/android_cover.png">
+                        src="/img/cover/androic_cover_guide_n.png">
                 </a>
                 <div class="content">
                     
