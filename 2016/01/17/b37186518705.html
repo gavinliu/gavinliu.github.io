@@ -35,13 +35,17 @@
 <script src="/lib/qrcode.min.js"></script>
 
 
+    
+<script src="https://cdn.staticfile.org/twikoo/1.6.10/twikoo.all.min.js"></script>
+
+
 
 
     <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
 
     <script>LA.init({id:"3FVRnNbwv2ZoRqcz",ck:"3FVRnNbwv2ZoRqcz"})</script>
 
-<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":false,"error":"/img/acrylic.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":false,"twikooUrl":null}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":false};</script>
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":true,"error":"/img/cover/default.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":true,"twikooUrl":"https://gavinliu-twikoo.zeabur.app"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":true};</script>
     <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Gavin Liu - 代码人生与科技生活" type="application/atom+xml">
 </head>
     <body id="body">
@@ -83,7 +87,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src= "/img/cover/default.png" data-lazy-src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -168,11 +172,15 @@
                     </a>
                 
                     <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/" style="font-size: 1em; color: #d3d3d3">代码人生
-                        <sup>77</sup>
+                        <sup>82</sup>
                     </a>
                 
                     <a href="/tags/Android/" style="font-size: 1em; color: #d3d3d3">Android
                         <sup>43</sup>
+                    </a>
+                
+                    <a href="/tags/App/" style="font-size: 1em; color: #d3d3d3">App
+                        <sup>5</sup>
                     </a>
                 
                     <a href="/tags/Java/" style="font-size: 1em; color: #d3d3d3">Java
@@ -180,15 +188,11 @@
                     </a>
                 
                     <a href="/tags/Mac/" style="font-size: 1em; color: #d3d3d3">Mac
-                        <sup>3</sup>
+                        <sup>4</sup>
                     </a>
                 
                     <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" style="font-size: 1em; color: #d3d3d3">环境搭建
                         <sup>13</sup>
-                    </a>
-                
-                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
-                        <sup>1</sup>
                     </a>
                 
                     <a href="/tags/%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" style="font-size: 1em; color: #d3d3d3">年终总结
@@ -196,6 +200,10 @@
                     </a>
                 
                     <a href="/tags/%E9%9D%A2%E8%AF%95%E7%BB%8F%E9%AA%8C/" style="font-size: 1em; color: #d3d3d3">面试经验
+                        <sup>1</sup>
+                    </a>
+                
+                    <a href="/tags/%E6%AF%94%E7%89%B9%E5%B8%81/" style="font-size: 1em; color: #d3d3d3">比特币
                         <sup>1</sup>
                     </a>
                 
@@ -291,7 +299,7 @@
           
             
             <a class="back-menu-item" href="/" rel="external nofollow" title="博客">
-              <img class="back-menu-item-icon" src="/img/favicon.png" loading="lazy">
+              <img class="back-menu-item-icon" src= "/img/cover/default.png" data-lazy-src="/img/favicon.png" loading="lazy">
               <span class="back-menu-item-text">
                 博客
               </span>
@@ -513,10 +521,10 @@
 <ol>
 <li>打开 PyCharm 的设置</li>
 <li>找到 Tools -&gt; External Tools</li>
-<li>点击 + -&gt; Create Tool<br><img src="/img/post/2016.01.17/1.png"></li>
+<li>点击 + -&gt; Create Tool<br><img src= "/img/cover/default.png" data-lazy-src="/img/post/2016.01.17/1.png"></li>
 <li>配置如下图</li>
 </ol>
-<p><img src="/img/post/2016.01.17/2.png"></p>
+<p><img src= "/img/cover/default.png" data-lazy-src="/img/post/2016.01.17/2.png"></p>
 <h3 id="配置-PyUIC"><a href="#配置-PyUIC" class="headerlink" title="配置 PyUIC"></a>配置 PyUIC</h3><p>这个工具可以把 Qt Designer 的 UI 文件，转换成 Py 文件，这是个命令行工具。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.</span><br></pre></td></tr></table></figure>
 
@@ -527,18 +535,18 @@
 <li>Parameters：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.</span><br></pre></td></tr></table></figure></li>
 <li>配置如下图</li>
 </ol>
-<p><img src="/img/post/2016.01.17/3.png"></p>
+<p><img src= "/img/cover/default.png" data-lazy-src="/img/post/2016.01.17/3.png"></p>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>右键菜单中选择 External Tools 即可</p>
-<p><img src="/img/post/2016.01.17/4.png"></p>
+<p><img src= "/img/cover/default.png" data-lazy-src="/img/post/2016.01.17/4.png"></p>
 <h2 id="使用-QtDesigner-做一个窗体程序"><a href="#使用-QtDesigner-做一个窗体程序" class="headerlink" title="使用 QtDesigner 做一个窗体程序"></a>使用 QtDesigner 做一个窗体程序</h2><h3 id="打开-QtDesigner"><a href="#打开-QtDesigner" class="headerlink" title="打开 QtDesigner"></a>打开 QtDesigner</h3><p>设计一个最简单的窗体，放置一个 Lable 控件</p>
-<p><img src="/img/post/2016.01.17/5.png"></p>
-<h3 id="转换成-Py"><a href="#转换成-Py" class="headerlink" title="转换成 Py"></a>转换成 Py</h3><p><img src="/img/post/2016.01.17/6.png"><br><img src="/img/post/2016.01.17/7.png"></p>
+<p><img src= "/img/cover/default.png" data-lazy-src="/img/post/2016.01.17/5.png"></p>
+<h3 id="转换成-Py"><a href="#转换成-Py" class="headerlink" title="转换成 Py"></a>转换成 Py</h3><p><img src= "/img/cover/default.png" data-lazy-src="/img/post/2016.01.17/6.png"><br><img src= "/img/cover/default.png" data-lazy-src="/img/post/2016.01.17/7.png"></p>
 <p>HelloWorld.ui -&gt; HelloWorld.py</p>
 <figure class="highlight python"><figcaption><span>HelloWorld.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Form implementation generated from reading ui file &#x27;HelloWorld.ui&#x27;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># Created by: PyQt5 UI code generator 5.5.1</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># WARNING! All changes made in this file will be lost!</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PyQt5 <span class="keyword">import</span> QtCore, QtGui, QtWidgets</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Ui_MainWindow</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">setupUi</span>(<span class="params">self, MainWindow</span>):</span><br><span class="line">        MainWindow.setObjectName(<span class="string">&quot;MainWindow&quot;</span>)</span><br><span class="line">        MainWindow.resize(<span class="number">640</span>, <span class="number">480</span>)</span><br><span class="line">        self.centralwidget = QtWidgets.QWidget(MainWindow)</span><br><span class="line">        self.centralwidget.setObjectName(<span class="string">&quot;centralwidget&quot;</span>)</span><br><span class="line">        self.label = QtWidgets.QLabel(self.centralwidget)</span><br><span class="line">        self.label.setGeometry(QtCore.QRect(<span class="number">260</span>, <span class="number">180</span>, <span class="number">81</span>, <span class="number">21</span>))</span><br><span class="line">        self.label.setObjectName(<span class="string">&quot;label&quot;</span>)</span><br><span class="line">        MainWindow.setCentralWidget(self.centralwidget)</span><br><span class="line">        self.menubar = QtWidgets.QMenuBar(MainWindow)</span><br><span class="line">        self.menubar.setGeometry(QtCore.QRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">640</span>, <span class="number">22</span>))</span><br><span class="line">        self.menubar.setObjectName(<span class="string">&quot;menubar&quot;</span>)</span><br><span class="line">        MainWindow.setMenuBar(self.menubar)</span><br><span class="line"></span><br><span class="line">        self.retranslateUi(MainWindow)</span><br><span class="line">        QtCore.QMetaObject.connectSlotsByName(MainWindow)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">retranslateUi</span>(<span class="params">self, MainWindow</span>):</span><br><span class="line">        _translate = QtCore.QCoreApplication.translate</span><br><span class="line">        MainWindow.setWindowTitle(_translate(<span class="string">&quot;MainWindow&quot;</span>, <span class="string">&quot;MainWindow&quot;</span>))</span><br><span class="line">        self.label.setText(_translate(<span class="string">&quot;MainWindow&quot;</span>, <span class="string">&quot;Hello, World&quot;</span>))</span><br></pre></td></tr></table></figure>
 
 <h3 id="编写-main-py"><a href="#编写-main-py" class="headerlink" title="编写 main.py"></a>编写 main.py</h3><figure class="highlight python"><figcaption><span>main.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> HelloWorld</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QApplication, QMainWindow</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app = QApplication(sys.argv)</span><br><span class="line">    MainWindow = QMainWindow()</span><br><span class="line"></span><br><span class="line">    ui = HelloWorld.Ui_MainWindow()</span><br><span class="line">    ui.setupUi(MainWindow)</span><br><span class="line"></span><br><span class="line">    MainWindow.show()</span><br><span class="line">    sys.exit(app.exec_())</span><br></pre></td></tr></table></figure>
 
-<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p><img src="/img/post/2016.01.17/8.png"></p>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><p><img src= "/img/cover/default.png" data-lazy-src="/img/post/2016.01.17/8.png"></p>
 
         </article>
         <div class="post-tools" id="post-tools">
@@ -580,7 +588,7 @@
                             <a href="/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/" class="post-meta__tags">
                                 <span class="tags-punctuation">#</span>
                                 代码人生
-                                <span class="tagsPageCount">77</span>
+                                <span class="tagsPageCount">82</span>
                             </a>
                         
                             <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="post-meta__tags">
@@ -640,6 +648,33 @@
         </div>
     
 </nav>
+        
+            <div id="post-comment">
+    <div class="comment-head">
+        <div class="comment-headline">
+            <i class="fas fa-message fa-fw"></i>
+            <span> 评论</span>
+        </div>
+    </div>
+    <div class="comment-wrap">
+        <div id="comment"></div>
+        <script>
+    async function initComment(){
+        var initOptions = Object.assign(
+            {"envId":"https://gavinliu-twikoo.zeabur.app","path":"window.location.pathname"},
+            {
+                el: '#comment',
+                onCommentLoaded: function() {
+                    GLOBALCONFIG.lightbox && acrylic.lightbox('#article-container img, #twikoo .tk-content img:not(.tk-owo-emotion)') 
+                }
+            }
+        )
+        await twikoo.init(initOptions)
+             
+    }
+</script>
+    </div>
+</div>
             
     </div>
     <div class="aside-content" id="aside-content">
@@ -803,7 +838,7 @@
                 <footer id="footer">
                     <div id="footer_deal">
     
-    <img class="footer_mini_logo" src="/img/favicon.png"
+    <img class="footer_mini_logo" src= "/img/cover/default.png" data-lazy-src="/img/favicon.png"
         title="返回顶部" onclick="acrylic.toTop()">
     
 </div>    
@@ -841,6 +876,10 @@
 <script src="/lib/pjax.min.js"></script>
 
 
+    
+<script src="/lib/lazyload.min.js"></script>
+
+
 
 <script src="/lib/snackbar.min.js"></script>
 
@@ -867,6 +906,10 @@
 <script src="/js/extend/covercolor/local.js"></script>
 
         
+
+
+    
+<script src="/js/extend/console/comment.js"></script>
 
 
 

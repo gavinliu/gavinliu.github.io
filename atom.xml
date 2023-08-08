@@ -6,7 +6,7 @@
   <link href="https://gavinliu.cn/atom.xml" rel="self"/>
   
   <link href="https://gavinliu.cn/"/>
-  <updated>2023-07-13T15:03:30.470Z</updated>
+  <updated>2023-08-08T17:09:29.073Z</updated>
   <id>https://gavinliu.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://gavinliu.cn/2019/05/01/a6daec704f6d.html"/>
     <id>https://gavinliu.cn/2019/05/01/a6daec704f6d.html</id>
     <published>2019-05-01T11:09:24.000Z</published>
-    <updated>2023-07-13T15:03:30.470Z</updated>
+    <updated>2023-08-08T17:09:29.073Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -32,6 +32,8 @@
     
     <category term="运维手册" scheme="https://gavinliu.cn/categories/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/"/>
     
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
     
     <category term="环境搭建" scheme="https://gavinliu.cn/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     
@@ -44,7 +46,7 @@
     <link href="https://gavinliu.cn/2018/07/16/90a0e986eb9b.html"/>
     <id>https://gavinliu.cn/2018/07/16/90a0e986eb9b.html</id>
     <published>2018-07-16T14:06:36.000Z</published>
-    <updated>2023-07-13T15:46:36.493Z</updated>
+    <updated>2023-08-08T16:34:32.026Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -56,6 +58,8 @@
     <category term="我的项目" scheme="https://gavinliu.cn/categories/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/"/>
     
     
+    <category term="App" scheme="https://gavinliu.cn/tags/App/"/>
+    
     <category term="必看精选" scheme="https://gavinliu.cn/tags/%E5%BF%85%E7%9C%8B%E7%B2%BE%E9%80%89/"/>
     
   </entry>
@@ -65,7 +69,7 @@
     <link href="https://gavinliu.cn/2018/05/29/655adaca8a17.html"/>
     <id>https://gavinliu.cn/2018/05/29/655adaca8a17.html</id>
     <published>2018-05-29T03:05:58.000Z</published>
-    <updated>2023-07-13T15:05:07.088Z</updated>
+    <updated>2023-08-08T16:34:32.025Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -76,6 +80,8 @@
     
     <category term="运维手册" scheme="https://gavinliu.cn/categories/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/"/>
     
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
     
     <category term="环境搭建" scheme="https://gavinliu.cn/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     
@@ -230,7 +236,7 @@
     <link href="https://gavinliu.cn/2017/03/17/f7841c87816f.html"/>
     <id>https://gavinliu.cn/2017/03/17/f7841c87816f.html</id>
     <published>2017-03-17T12:02:59.000Z</published>
-    <updated>2023-08-07T16:14:09.431Z</updated>
+    <updated>2023-08-08T16:34:32.024Z</updated>
     
     
     <summary type="html">&lt;blockquote&gt;
@@ -241,6 +247,8 @@
     
     <category term="运维手册" scheme="https://gavinliu.cn/categories/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/"/>
     
+    
+    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
     
     <category term="环境搭建" scheme="https://gavinliu.cn/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
     
