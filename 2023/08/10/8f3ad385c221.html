@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>分类 数码玩物 | Gavin Liu - 代码人生与科技生活</title>
+<title>Stable Diffusion 基础 2 | 模型快速上手 | Gavin Liu - 代码人生与科技生活</title>
 <noscript>开启Javascript是必要的</noscript>
 <link rel="icon" type="image/x-icon" href="/img/favicon.png">
 <link rel="apple-touch-icon" href="/img/favicon.png">
@@ -40,7 +40,7 @@
 
     <script>LA.init({id:"3FVRnNbwv2ZoRqcz",ck:"3FVRnNbwv2ZoRqcz"})</script>
 
-<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":true,"error":"/img/cover/default.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":true,"twikooUrl":"https://gavinliu-twikoo.zeabur.app"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":false,"is_page":false,"page":false};</script>
+<script>var GLOBALCONFIG = {"root":"/","runtime":"2012-02-28 00:00:00","lazyload":{"enable":true,"error":"/img/cover/default.png"},"hightlight":{"enable":true,"limit":200},"lightbox":true,"randomlinks":false,"lang":{"theme":{"dark":"已切换至深色模式","light":"已切换至浅色模式"},"copy":{"success":"复制成功","error":"复制失败"},"backtop":"返回顶部","time":{"recent":"最近","yesterday":"昨天","berforeyesterday":"前天","daybefore":"天前","runtime":"天"},"sayhello":{"morning":"早上好","noon":"中午好","afternoon":"下午好","night":"晚上好","goodnight":"晚安","iam":"!  我是"},"search":{"empty":"搜索结果为空","hit":"已为您找到 ${query} 条结果","placeholder":"输入关键词快速查找"}},"covercolor":true,"comment":{"enable":true,"twikooUrl":"https://gavinliu-twikoo.zeabur.app"}};</script><script id="site-config">var PAGECONFIG = {"is_home":false,"is_post":true,"is_page":false,"page":false,"toc":true,"comment":true};</script>
     <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Gavin Liu - 代码人生与科技生活" type="application/atom+xml">
 </head>
     <body id="body">
@@ -283,8 +283,8 @@
     </div>
 </div>    
         
-            <div class="page" id="body-wrap">
-                <header class="not-top-img" id="page-header">
+            <div class="post" id="body-wrap">
+                <header class="post-bg" id="page-header">
     <nav id="nav" class="show">
     <div id="nav-group">
         <div id="blog_name">
@@ -323,7 +323,7 @@
         </div>
         <div id="page-name-mask">
             <div id="page-name">
-                <a id="page-name-text" onclick="acrylic.toTop()">Gavin Liu - 代码人生与科技生活</a>
+                <a id="page-name-text" onclick="acrylic.toTop()">Stable Diffusion 基础 2 | 模型快速上手</a>
             </div>
         </div>
         <div id="menus">
@@ -419,143 +419,357 @@
         </div>
     </div>
 </nav>
-        
-</header>
-                <main class="layout" id="content-inner">
-    <div id="category">
-        <div class="category-in-bar">
-            <div class="category-in-bar-tips">分类</div>
-            <div id="category-bar">
-                <div class="category-bar-items" id="category-bar-items">
-                    <div class="category-bar-items" id="category-bar-items">
-    <div class="category-bar-item " id="category-bar-home">
-        <a href="/">首页</a>
-    </div>
     
-        <div class="category-bar-item ">
-            <a href="/categories/AIGC/">AIGC</a>
-        </div>
-    
-        <div class="category-bar-item ">
-            <a href="/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/">研发小记</a>
-        </div>
-    
-        <div class="category-bar-item ">
-            <a href="/categories/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/">我的项目</a>
-        </div>
-    
-        <div class="category-bar-item ">
-            <a href="/categories/%E4%BA%BF%E7%82%B9%E7%82%B9%E6%80%9D%E8%80%83/">亿点点思考</a>
-        </div>
-    
-        <div class="category-bar-item select">
-            <a href="/categories/%E6%95%B0%E7%A0%81%E7%8E%A9%E7%89%A9/">数码玩物</a>
-        </div>
-    
-        <div class="category-bar-item ">
-            <a href="/categories/%E8%BF%90%E7%BB%B4%E6%89%8B%E5%86%8C/">运维手册</a>
-        </div>
-    
+        <div class="coverdiv" id="coverdiv">
+    <img id="post-cover" class="nolazyload" src="/img/cover/sd_basic_cover_02.png" alt="cover">
 </div>
-<a class="category-bar-more" href="/categories/">更多</a>
-
+<div id="post-info">
+    <div id="post-firstinfo">
+        <div class="meta-firstline">
+            <a class="post-meta-original" title="该文章为原创文章，注意版权协议">
+                原创
+            </a>
+            
+            <span class="post-meta-categories">
+                
+                    <a class="post-meta-categories" href="/categories/AIGC/">AIGC</a>
+                
+            </span>
+            
+            <div class="tag_share">
+                <div class="post-meta__tag-list">
+                    
+                        <a class="post-meta__tags" href="/tags/Stable-Diffusion/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">Stable Diffusion</span>
+                        </a>
+                    
+                        <a class="post-meta__tags" href="/tags/Stable-Diffusion-%E5%9F%BA%E7%A1%80/">
+                            <span class="tags-punctuation">#</span>
+                            <span class="tags-name">Stable Diffusion 基础</span>
+                        </a>
+                    
                 </div>
             </div>
         </div>
-        <div class="article-sort-title">数码玩物</div>
-        <div class="article-sort">
+    </div>
+    <h1 class="post-title">Stable Diffusion 基础 2 | 模型快速上手</h1>
+    <div id="post-meta">
+        <div class="meta-secondline">
+            <span class="post-meta-date" title="发布于">
+                <i class="post-meta-icon fa-fw fas fa-calendar"></i>
+                <time datetime="2023-08-10T12:21:54+08:00"></time>
+            </span>
             
-
-    
-        <div class="article-sort-item year">2015</div>
-    
-    <div class="article-sort-item">
-        <a class="article-sort-item-img" href="/2015/10/09/351545bf1916.html" title="Newifi Mini(Y1) 动手玩(3) - DDNS动态域名解析">
-            <img src= "/img/cover/default.png" data-lazy-src="/img/cover/device_cover_newifi.png"
-                alt="Newifi Mini(Y1) 动手玩(3) - DDNS动态域名解析">
-        </a>
-        <div class="article-sort-item-info">
-            <a class="article-sort-item-title" href="/2015/10/09/351545bf1916.html" title="Newifi Mini(Y1) 动手玩(3) - DDNS动态域名解析"
-                onclick="window.event.cancelBubble=true;">
-                Newifi Mini(Y1) 动手玩(3) - DDNS动态域名解析
-            </a>
-            <div class="article-sort-item-tags">
+            
+                <span class="post-meta-position" title="作者IP归属地为成都">
+                    <i class="fas fa-location-dot post-meta-icon"></i>
+                    <span>成都</span>
+                </span>
+            
+            
                 
-                    <a class="article-meta__tags" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        路由器
-                    </a>
+                    <span class="post-meta-wordcount">
+                        <i class="fas fa-file-word fa-fw post-meta-icon" title="文章字数"></i>
+                        <span class="word-count">980</span>
+                    </span>
                 
-                    <a class="article-meta__tags" href="/tags/%E7%A7%91%E6%8A%80%E7%94%9F%E6%B4%BB/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        科技生活
-                    </a>
                 
-            </div>
+                    <span class="post-meta-time">
+                        <i class="fas fa-clock post-meta-icon" title="阅读耗时"></i>
+                        <span>3 min</span>
+                    </span>
+                
+            
+            
+                
         </div>
     </div>
+</div>
+<section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg"
+    xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+        <path id="gentle-wave"
+            d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+    </defs>
+    <g class="parallax">
+        <use href="#gentle-wave" x="48" y="0"></use>
+        <use href="#gentle-wave" x="48" y="3"></use>
+        <use href="#gentle-wave" x="48" y="5"></use>
+        <use href="#gentle-wave" x="48" y="7"></use>
+    </g>
+</svg>
+</section>
 
-    
-    <div class="article-sort-item">
-        <a class="article-sort-item-img" href="/2015/10/09/82aa8fa67de7.html" title="Newifi Mini(Y1) 动手玩(2) - opkg">
-            <img src= "/img/cover/default.png" data-lazy-src="/img/cover/device_cover_newifi.png"
-                alt="Newifi Mini(Y1) 动手玩(2) - opkg">
-        </a>
-        <div class="article-sort-item-info">
-            <a class="article-sort-item-title" href="/2015/10/09/82aa8fa67de7.html" title="Newifi Mini(Y1) 动手玩(2) - opkg"
-                onclick="window.event.cancelBubble=true;">
-                Newifi Mini(Y1) 动手玩(2) - opkg
-            </a>
-            <div class="article-sort-item-tags">
-                
-                    <a class="article-meta__tags" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        路由器
-                    </a>
-                
-                    <a class="article-meta__tags" href="/tags/%E7%A7%91%E6%8A%80%E7%94%9F%E6%B4%BB/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        科技生活
-                    </a>
-                
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="article-sort-item">
-        <a class="article-sort-item-img" href="/2015/10/09/c3c0ee3f8d12.html" title="Newifi Mini(Y1) 动手玩(1) - 刷机">
-            <img src= "/img/cover/default.png" data-lazy-src="/img/cover/device_cover_newifi.png"
-                alt="Newifi Mini(Y1) 动手玩(1) - 刷机">
-        </a>
-        <div class="article-sort-item-info">
-            <a class="article-sort-item-title" href="/2015/10/09/c3c0ee3f8d12.html" title="Newifi Mini(Y1) 动手玩(1) - 刷机"
-                onclick="window.event.cancelBubble=true;">
-                Newifi Mini(Y1) 动手玩(1) - 刷机
-            </a>
-            <div class="article-sort-item-tags">
-                
-                    <a class="article-meta__tags" href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        路由器
-                    </a>
-                
-                    <a class="article-meta__tags" href="/tags/%E7%A7%91%E6%8A%80%E7%94%9F%E6%B4%BB/" onclick="window.event.cancelBubble=true;">
-                        <span class="tags-punctuation">#</span>
-                        科技生活
-                    </a>
-                
-            </div>
-        </div>
-    </div>
-
-        </div>
-        <nav id="pagination">
-    <div class="pagination">
         
-        <span class="page-number current">1</span>
+</header>
+                <main class="layout" id="content-inner">
+    <div id="post">
+        <article class="post-content" id="article-container">
+            <h2 id="模型是什么？"><a href="#模型是什么？" class="headerlink" title="模型是什么？"></a>模型是什么？</h2><p>这里的模型并不是现实生活中的模型、手办，而是一种机器学习模型。通过机器学习训练后，会把模型中的参数存成一个文件，这个文件就是我们通常意义上的模型文件。</p>
+<p>Stable Diffusion 基础模型常见的有三个版本：</p>
+<ul>
+<li>Stable Diffusion 1.5</li>
+<li>Stable Diffusion 2.1</li>
+<li>Stable Diffusion XL</li>
+</ul>
+<p>其中目前生态最好的是 <code>1.5</code> 版本，网上有各种基于这个版本的衍生模型。</p>
+<p>通常我们并不会使用原版模型，而是使用训练&#x2F;微调后的模型，目前训练模型方案有非常多种：</p>
+<table>
+<thead>
+<tr>
+<th align="left">训练方式</th>
+<th align="left">存放路径</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>DreamBooth</strong></td>
+<td align="left">models&#x2F;Stable-diffusion</td>
+<td align="left">这个目录下的模型又被称为基础模型或者 ckpt 模型，这种训练方式可以让模型学习到一个特定的角色</td>
+</tr>
+<tr>
+<td align="left"><strong>LoRa</strong></td>
+<td align="left">models&#x2F;Lora</td>
+<td align="left">这个目录下的模型又被称为 LoRa 模型，这是一种轻量级模型，可以让模型学习到一种风格，需要配合基础模型使用</td>
+</tr>
+<tr>
+<td align="left">Textual Inversion</td>
+<td align="left">embeddings</td>
+<td align="left">这个目录下的模型又被称为 embedding 模型，比较轻量，可以固化模型效果，配合提示词来使用</td>
+</tr>
+<tr>
+<td align="left">Hypernetwork</td>
+<td align="left">models&#x2F;hypernetworks</td>
+<td align="left">可以训练出无法用语言精确表述的细节，也更适用于画风的训练</td>
+</tr>
+</tbody></table>
+<p>目前 TI 和 Hypernetwork 基本上快被淘汰了，这里先重点关注前两种模型</p>
+<h2 id="如何获取模型？"><a href="#如何获取模型？" class="headerlink" title="如何获取模型？"></a>如何获取模型？</h2><table>
+<thead>
+<tr>
+<th align="left">网站</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://huggingface.co/models?other=stable-diffusion">Huggingface</a></td>
+<td align="left">全球最大的 AI 交流社区</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://civitai.com/">Civitai</a></td>
+<td align="left">全球最大的 Stable Diffusion 模型分享站</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.liblibai.com/">哩布哩布 AI</a></td>
+<td align="left">中文社区最大的 Stable Diffusion 模型分享站</td>
+</tr>
+</tbody></table>
+<h3 id="模型格式"><a href="#模型格式" class="headerlink" title="模型格式"></a>模型格式</h3><table>
+<thead>
+<tr>
+<th align="left">格式</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">.ckpt &#x2F; .pt</td>
+<td align="left">Pytorch 框架模型文件，包含大量 Python 代码的压缩文件，可能存在安全风险，不建议从未知或不信任的来源加载</td>
+</tr>
+<tr>
+<td align="left">.safetensors</td>
+<td align="left">Huggingface 推出的模型文件，只包含生成所需的数据，没有任何代码，更安全和快速</td>
+</tr>
+</tbody></table>
+<p>大致会遇到这几个格式的文件，两者的区别如上。模型格式和模型类型没有关联关系，只需要关心模型类型即可，然后优先使用 safetensors 格式的模型</p>
+<h2 id="如何使用模型？"><a href="#如何使用模型？" class="headerlink" title="如何使用模型？"></a>如何使用模型？</h2><h3 id="基础模型"><a href="#基础模型" class="headerlink" title="基础模型"></a>基础模型</h3><h4 id="一个长发女啦啦队长"><a href="#一个长发女啦啦队长" class="headerlink" title="一个长发女啦啦队长"></a>一个长发女啦啦队长</h4><ol>
+<li><p>下载模型</p>
+<ul>
+<li>通过模型网站，找到你喜欢的 <code>CHECKPOINT</code> 模型下载，这里以 <a target="_blank" rel="noopener" href="https://civitai.com/models/9409/or-anything-v5ink">Anything</a> 为例</li>
+</ul>
+</li>
+<li><p>放置模型</p>
+<ul>
+<li>将模型文件，拷贝到 <code>models/Stable-diffusion</code> 文件夹下</li>
+</ul>
+</li>
+<li><p>刷新 WebUI，并在选中 Anything 模型，等待程序加载</p>
+<ul>
+<li><img src= "/img/cover/default.png" data-lazy-src="/img/post/2023.08.10/1.png"></li>
+</ul>
+</li>
+<li><p>尝试生成</p>
+<ul>
+<li>提示词<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">masterpiece, best quality, highly detailed, 1girl, cheerleader, long hair, colorful hair</span><br></pre></td></tr></table></figure></li>
+<li>反向提示词<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(worst quality, low quality:1.4)</span><br></pre></td></tr></table></figure></li>
+<li>分辨率<ul>
+<li>768x512</li>
+</ul>
+</li>
+<li><img src= "/img/cover/default.png" data-lazy-src="/img/post/2023.08.10/2.png"></li>
+</ul>
+</li>
+<li><p>图片成功生成，但美中不足的是，场景感不够，环境希望是在体育馆</p>
+</li>
+</ol>
+<h3 id="LoRa-模型"><a href="#LoRa-模型" class="headerlink" title="LoRa 模型"></a>LoRa 模型</h3><h4 id="一个在体育馆内的长发女啦啦队长"><a href="#一个在体育馆内的长发女啦啦队长" class="headerlink" title="一个在体育馆内的长发女啦啦队长"></a>一个在体育馆内的长发女啦啦队长</h4><ol>
+<li><p>下载模型</p>
+<ul>
+<li>通过模型网站，找到你喜欢的 <code>LoRa</code> 模型下载，这里以 <a target="_blank" rel="noopener" href="https://civitai.com/models/113069/school-gym">SchoolGym</a> 为例</li>
+<li>SchoolGym 是一个描述 学校体育馆 场景的模型</li>
+</ul>
+</li>
+<li><p>放置模型</p>
+<ul>
+<li>将模型文件，拷贝到 <code>models/Lora</code> 文件夹下</li>
+</ul>
+</li>
+<li><p>刷新 WebUI</p>
+</li>
+<li><p>尝试生成</p>
+<ul>
+<li>LoRa 提示词规则<ul>
+<li><code>&lt;lora:$LoRA文件名:$权重&gt;</code><ul>
+<li>权重是一个 0-1 的数值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LoRa 模型触发词<ul>
+<li>通常模型页面会注明，这里 SchoolGym 的触发词是：school gym</li>
+</ul>
+</li>
+<li>我期望这个模型的权重占比 80%<ul>
+<li>最终 LoRa 提示词是：<code>&lt;lora:school_gym_v0.1:0.8&gt; school gym</code></li>
+</ul>
+</li>
+<li>修改之前的提示词：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;lora:school_gym_v0.1:0.8&gt; school gym, masterpiece, best quality, highly detailed, 1girl, cheerleader, long hair, colorful hair</span><br></pre></td></tr></table></figure></li>
+<li><img src= "/img/cover/default.png" data-lazy-src="/img/post/2023.08.10/3.png"></li>
+</ul>
+</li>
+<li><p>可以看到背景已经变成学校体育馆，模型成功生效</p>
+</li>
+</ol>
+<hr>
+<p>好了，玩到这里，你应该知道了玩好模型提示词是关键，手握心爱的模型，提示词只会拷贝？不知道应该怎么写？接下来将着重介绍提示词如何填写</p>
+
+        </article>
+        <div class="post-tools" id="post-tools">
+            <div class="post-tools-left">
+                
+                <div class="share-link mobile">
+    <div class="share-qrcode">
+        <div class="share-button" title="使用手机访问这篇文章">
+            <i class="fas fa-qrcode"></i>
+        </div>
+        <div class="share-main">
+            <div class="share-main-all">
+                <div id="qrcode" title="https://gavinliu.cn/2023/08/10/8f3ad385c221.html">
+                </div>
+                <div class="reward-dec">使用手机访问这篇文章</div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            new QRCode(document.getElementById("qrcode"), "https://gavinliu.cn/2023/08/10/8f3ad385c221.html");
+        </script>
     </div>
-</nav>    
+</div>
+                <div class="share-link weibo"><a class="share-button" target="_blank"
+    href="https://service.weibo.com/share/share.php?title=Stable Diffusion 基础 2 | 模型快速上手&amp;url=https://gavinliu.cn/2023/08/10/8f3ad385c221.html&amp;pic=/img/cover/sd_basic_cover_02.png"
+    title="分享到微博" rel="noopener external nofollow noreferrer noopener">
+    <i class="fab fa-weibo" style="font-size:22px"></i>
+</a>
+</div>
+<div class="share-link copyurl">
+<div class="share-button" id="post-share-url" title="复制链接" onclick="acrylic.copyPageUrl()">
+    <i class="fas fa-link"></i>
+</div>
+</div>
+            </div>
+            <div class="post-tools-right">
+                <div class="tag_share">
+                    <div class="post-meta__tag-list">
+                        
+                            <a href="/tags/Stable-Diffusion/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                Stable Diffusion
+                                <span class="tagsPageCount">2</span>
+                            </a>
+                        
+                            <a href="/tags/Stable-Diffusion-%E5%9F%BA%E7%A1%80/" class="post-meta__tags">
+                                <span class="tags-punctuation">#</span>
+                                Stable Diffusion 基础
+                                <span class="tagsPageCount">2</span>
+                            </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="post-copyright">
+    <div class="post-copyright__author">
+        <a class="post-copyright__original" title="该文章为原创文章，注意版权协议">原创</a>
+        <a class="post-copyright-title" href="#">
+            <span>Stable Diffusion 基础 2 | 模型快速上手</span>
+        </a>
+    </div>
+    <div class="post-copyright__type">
+        <span class="post-copyright-info" id="post-copyright-url">
+            <a href="/2023/08/10/8f3ad385c221.html">https://gavinliu.cn/2023/08/10/8f3ad385c221.html</a>
+        </span>
+        <button class="post-copyright-copybtn" onclick="acrylic.copyPageUrl()">
+            <i class="fas fa-paste copy-btn"></i>
+        </button>
+    </div>
+    <div class="post-copyright__notice"><span class="post-copyright-info">本文是原创文章，采用 <a
+                href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a> 协议，完整转载请注明来自 <a
+                href="/">Gavin Liu - 代码人生与科技生活</a>
+            </span>
+        </div>
+</div>
+        <nav class="pagination-post" id="pagination">
+    
+        
+            <div class="next-post pull-full">
+                <a href="/2023/08/08/77bbe03b56d3.html">
+                    <div class="pagination-info">
+                        <div class="label">下一篇</div>
+                        <div class="next_info">Stable Diffusion 基础 1 | N 种安装上手方式</div>
+                    </div>
+                </a>
+            </div>
+                
+        
+    
+</nav>
+        
+            <div id="post-comment">
+    <div class="comment-head">
+        <div class="comment-headline">
+            <i class="fas fa-message fa-fw"></i>
+            <span> 评论</span>
+        </div>
+    </div>
+    <div class="comment-wrap">
+        <div id="comment"></div>
+        <script>
+    async function initComment(){
+        var initOptions = Object.assign(
+            {"envId":"https://gavinliu-twikoo.zeabur.app","path":"window.location.pathname"},
+            {
+                el: '#comment',
+                onCommentLoaded: function() {
+                    GLOBALCONFIG.lightbox && acrylic.lightbox('#article-container img, #twikoo .tk-content img:not(.tk-owo-emotion)') 
+                }
+            }
+        )
+        await twikoo.init(initOptions)
+             
+    }
+</script>
+    </div>
+</div>
+            
     </div>
     <div class="aside-content" id="aside-content">
     
@@ -592,29 +806,17 @@
 </div>
      
     
+    <div class="sticky_layout">
         
-        <div class="card-widget heo-right-widget" id="card-wechat" style="background: #57bd6a ;">
-    <div id="flip-wrapper">
-        <div id="flip-content">
-            <div class="face">
-                <div class="left">
-                    <span class="title">公众号</span>
-                    <span class="desc">快人一步获取最新文章 <i class="fa-solid fa-play"></i></span>
-                </div>
-            </div>
-            <div class="back face">
-                <div class="left">
-                    <span class="title">扫一扫</span>
-                    <span class="desc">不错过精彩文章 <i class="fa-solid fa-play"></i></span>
-                </div>
-                <img class="nolazyload" src="/img/wechat_qr.jpg">
-            </div>
-        </div>
+            <div class="card-widget" id="card-toc">
+    <div class="item-headline">
+        <i class="fas fa-bars"></i>
+        <span>文章目录</span>
+    </div>
+    <div class="toc-content" id="toc-content">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">模型是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-text">如何获取模型？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%A0%BC%E5%BC%8F"><span class="toc-text">模型格式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-text">如何使用模型？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B"><span class="toc-text">基础模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E9%95%BF%E5%8F%91%E5%A5%B3%E5%95%A6%E5%95%A6%E9%98%9F%E9%95%BF"><span class="toc-text">一个长发女啦啦队长</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LoRa-%E6%A8%A1%E5%9E%8B"><span class="toc-text">LoRa 模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%9C%A8%E4%BD%93%E8%82%B2%E9%A6%86%E5%86%85%E7%9A%84%E9%95%BF%E5%8F%91%E5%A5%B3%E5%95%A6%E5%95%A6%E9%98%9F%E9%95%BF"><span class="toc-text">一个在体育馆内的长发女啦啦队长</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
-     
-    
-    <div class="sticky_layout">
             
         
             
@@ -724,118 +926,9 @@
 </div>
      
         
-            
-        <div class="card-widget card-tags card-archives card-webinfo card-allinfo">
-    <ul class="card-archive-list">
-    
-     
-        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2012/')" data-pjax-state=""><span
-            class="card-archive-list-date">2012</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">13</span><span
-                    class="card-archive-list-count-unit">篇</span></div>
-            </a>
-        </li>
-     
-        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2013/')" data-pjax-state=""><span
-            class="card-archive-list-date">2013</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">8</span><span
-                    class="card-archive-list-count-unit">篇</span></div>
-            </a>
-        </li>
-     
-        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2014/')" data-pjax-state=""><span
-            class="card-archive-list-date">2014</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">10</span><span
-                    class="card-archive-list-count-unit">篇</span></div>
-            </a>
-        </li>
-     
-        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2015/')" data-pjax-state=""><span
-            class="card-archive-list-date">2015</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">24</span><span
-                    class="card-archive-list-count-unit">篇</span></div>
-            </a>
-        </li>
-     
-        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2016/')" data-pjax-state=""><span
-            class="card-archive-list-date">2016</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">27</span><span
-                    class="card-archive-list-count-unit">篇</span></div>
-            </a>
-        </li>
-     
-        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2017/')" data-pjax-state=""><span
-            class="card-archive-list-date">2017</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">11</span><span
-                    class="card-archive-list-count-unit">篇</span></div>
-            </a>
-        </li>
-     
-        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2018/')" data-pjax-state=""><span
-            class="card-archive-list-date">2018</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span
-                    class="card-archive-list-count-unit">篇</span></div>
-            </a>
-        </li>
-     
-        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2019/')" data-pjax-state=""><span
-            class="card-archive-list-date">2019</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span
-                    class="card-archive-list-count-unit">篇</span></div>
-            </a>
-        </li>
-     
-        <li class="card-archive-list-item"><a class="card-archive-list-link" onclick="pjax.loadUrl('/archives/2023/')" data-pjax-state=""><span
-            class="card-archive-list-date">2023</span>
-            <div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span
-                    class="card-archive-list-count-unit">篇</span></div>
-            </a>
-        </li>
-        
-</ul>
-
-    <hr>
-    <div class="webinfo">
-    
-        <div class="webinfo-item">
-            <div class="webinfo-item-title">
-                <i class="item-icon fas fa-file-alt"></i>
-                <div class="item-name">文章总数 :</div>
-            </div>
-            <div class="item-count">98</div>
-        </div>
-    
-    
-        
-        
-    
-    
-        <div class="webinfo-item">
-            <div class="webinfo-item-title">
-                <i class="item-icon fas fa-stopwatch"></i>
-                <div class="item-name">建站天数 :</div>
-            </div>
-            <div class="item-count" id="runtimeshow">
-            </div>
-        </div>
-    
-    
-    
-        <div class="webinfo-item">
-            <div class="webinfo-item-title">
-                <i class="item-icon fas fa-font"></i>
-                <div class="item-name">全站字数 :</div>
-            </div>
-            <div class="item-count">55.9k</div>
-        </div>
-    
-</div>
-</div>
-     
-        
     </div>
 </div> 
-</main> 
+</main>
                 <footer id="footer">
                     <div id="footer_deal">
     
