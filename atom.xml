@@ -6,7 +6,7 @@
   <link href="https://gavinliu.cn/atom.xml" rel="self"/>
   
   <link href="https://gavinliu.cn/"/>
-  <updated>2023-08-20T07:42:42.487Z</updated>
+  <updated>2023-08-25T15:59:29.914Z</updated>
   <id>https://gavinliu.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://gavinliu.cn/2023/08/10/8f3ad385c221.html"/>
     <id>https://gavinliu.cn/2023/08/10/8f3ad385c221.html</id>
     <published>2023-08-10T04:21:54.000Z</published>
-    <updated>2023-08-20T07:42:42.487Z</updated>
+    <updated>2023-08-25T15:59:29.914Z</updated>
     
     
       
@@ -221,12 +221,16 @@
     <link href="https://gavinliu.cn/2018/07/16/90a0e986eb9b.html"/>
     <id>https://gavinliu.cn/2018/07/16/90a0e986eb9b.html</id>
     <published>2018-07-16T14:06:36.000Z</published>
-    <updated>2023-08-08T16:34:32.026Z</updated>
+    <updated>2023-08-25T15:59:29.913Z</updated>
     
     
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;好久没有独立开发一款软件了，起因是最近换了 &lt;code&gt;小米 8&lt;/code&gt;，一直有带壳截图的习惯，发现市面上的软件都太烂了，于是乎自己撸一个吧，顺便实践一下 &lt;code&gt;Material Design 2&lt;/code&gt; 和 &lt;code&gt;Jetpack&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;Snapmod 可以让您轻松的把截图添加到设备外壳中，您可以用它分享您的截图、壁纸或者</summary>
+        
+      
     
     
     

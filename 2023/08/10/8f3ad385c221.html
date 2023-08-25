@@ -543,7 +543,7 @@
                 
                     <span class="post-meta-wordcount">
                         <i class="fas fa-file-word fa-fw post-meta-icon" title="文章字数"></i>
-                        <span class="word-count">980</span>
+                        <span class="word-count">1.1k</span>
                     </span>
                 
                 
@@ -645,7 +645,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">.ckpt &#x2F; .pt</td>
+<td align="left">.ckpt</td>
 <td align="left">Pytorch 框架模型文件，包含大量 Python 代码的压缩文件，可能存在安全风险，不建议从未知或不信任的来源加载</td>
 </tr>
 <tr>
@@ -653,52 +653,52 @@
 <td align="left">Huggingface 推出的模型文件，只包含生成所需的数据，没有任何代码，更安全和快速</td>
 </tr>
 </tbody></table>
-<p>大致会遇到这几个格式的文件，两者的区别如上。模型格式和模型类型没有关联关系，只需要关心模型类型即可，然后优先使用 safetensors 格式的模型</p>
-<h2 id="如何使用模型？"><a href="#如何使用模型？" class="headerlink" title="如何使用模型？"></a>如何使用模型？</h2><h3 id="基础模型"><a href="#基础模型" class="headerlink" title="基础模型"></a>基础模型</h3><h4 id="一个长发女啦啦队长"><a href="#一个长发女啦啦队长" class="headerlink" title="一个长发女啦啦队长"></a>一个长发女啦啦队长</h4><ol>
-<li><p>下载模型</p>
+<p>大致会遇到这几个格式的文件，两者的区别如上。</p>
+<p>但模型格式和模型类型没有关联关系，只需要关心模型类型即可，然后优先使用 safetensors 格式的模型</p>
+<h2 id="如何使用模型？"><a href="#如何使用模型？" class="headerlink" title="如何使用模型？"></a>如何使用模型？</h2><h3 id="基础模型"><a href="#基础模型" class="headerlink" title="基础模型"></a>基础模型</h3><p>这里以需要绘制一个 <strong><code>一个长发女啦啦队长</code></strong> 为例，大致会分为以下几个步骤进行分解</p>
+<ol>
+<li><p>下载模型，确定人物风格</p>
 <ul>
-<li>通过模型网站，找到你喜欢的 <code>CHECKPOINT</code> 模型下载，这里以 <a target="_blank" rel="noopener" href="https://civitai.com/models/9409/or-anything-v5ink">Anything</a> 为例</li>
+<li>通过模型网站，找到你喜欢的 <code>ckpt</code> 模型下载，这里以 <a target="_blank" rel="noopener" href="https://civitai.com/models/9409/or-anything-v5ink">Anything</a> 为例</li>
 </ul>
 </li>
-<li><p>放置模型</p>
+<li><p>放置模型，刷新 WebUI，并选中 Anything 模型，等待程序加载完成</p>
 <ul>
 <li>将模型文件，拷贝到 <code>models/Stable-diffusion</code> 文件夹下</li>
-</ul>
-</li>
-<li><p>刷新 WebUI，并在选中 Anything 模型，等待程序加载</p>
-<ul>
 <li><img src= "/img/cover/default.png" data-lazy-src="/img/post/2023.08.10/1.png"></li>
 </ul>
 </li>
-<li><p>尝试生成</p>
+<li><p>提示词编写</p>
 <ul>
-<li>提示词<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">masterpiece, best quality, highly detailed, 1girl, cheerleader, long hair, colorful hair</span><br></pre></td></tr></table></figure></li>
+<li>正向提示词<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">masterpiece, best quality, highly detailed, 1girl, cheerleader, long hair, colorful hair</span><br></pre></td></tr></table></figure></li>
 <li>反向提示词<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(worst quality, low quality:1.4)</span><br></pre></td></tr></table></figure></li>
-<li>分辨率<ul>
+<li>设置分辨率<ul>
 <li>768x512</li>
 </ul>
 </li>
-<li><img src= "/img/cover/default.png" data-lazy-src="/img/post/2023.08.10/2.png"></li>
 </ul>
 </li>
-<li><p>图片成功生成，但美中不足的是，场景感不够，环境希望是在体育馆</p>
+<li><p>点击生成，图片成功生成。</p>
+<ul>
+<li><img src= "/img/cover/default.png" data-lazy-src="/img/post/2023.08.10/2.png"></li>
+<li>但还是存在一些问题，比如场景感不够、不够活泼等。接下演示通过 LoRa 模型来优化场景感问题</li>
+</ul>
 </li>
 </ol>
-<h3 id="LoRa-模型"><a href="#LoRa-模型" class="headerlink" title="LoRa 模型"></a>LoRa 模型</h3><h4 id="一个在体育馆内的长发女啦啦队长"><a href="#一个在体育馆内的长发女啦啦队长" class="headerlink" title="一个在体育馆内的长发女啦啦队长"></a>一个在体育馆内的长发女啦啦队长</h4><ol>
-<li><p>下载模型</p>
+<h3 id="LoRa-模型"><a href="#LoRa-模型" class="headerlink" title="LoRa 模型"></a>LoRa 模型</h3><p>这里以需要绘制一个 <strong><code>一个在体育馆内的长发女啦啦队长</code></strong> 为例，大致会分为以下几个步骤进行分解</p>
+<ol>
+<li><p>下载模型，确定场景风格</p>
 <ul>
 <li>通过模型网站，找到你喜欢的 <code>LoRa</code> 模型下载，这里以 <a target="_blank" rel="noopener" href="https://civitai.com/models/113069/school-gym">SchoolGym</a> 为例</li>
 <li>SchoolGym 是一个描述 学校体育馆 场景的模型</li>
 </ul>
 </li>
-<li><p>放置模型</p>
+<li><p>放置模型，刷新 WebUI</p>
 <ul>
 <li>将模型文件，拷贝到 <code>models/Lora</code> 文件夹下</li>
 </ul>
 </li>
-<li><p>刷新 WebUI</p>
-</li>
-<li><p>尝试生成</p>
+<li><p>编写提示词</p>
 <ul>
 <li>LoRa 提示词规则<ul>
 <li><code>&lt;lora:$LoRA文件名:$权重&gt;</code><ul>
@@ -715,15 +715,18 @@
 <li>最终 LoRa 提示词是：<code>&lt;lora:school_gym_v0.1:0.8&gt; school gym</code></li>
 </ul>
 </li>
-<li>修改之前的提示词：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;lora:school_gym_v0.1:0.8&gt; school gym, masterpiece, best quality, highly detailed, 1girl, cheerleader, long hair, colorful hair</span><br></pre></td></tr></table></figure></li>
-<li><img src= "/img/cover/default.png" data-lazy-src="/img/post/2023.08.10/3.png"></li>
+<li>把 LoRa 提示词放在之前的提示词前面：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;lora:school_gym_v0.1:0.8&gt; school gym, masterpiece, best quality, highly detailed, 1girl, cheerleader, long hair, colorful hair</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>可以看到背景已经变成学校体育馆，模型成功生效</p>
+<li><p>点击生成</p>
+<ul>
+<li><img src= "/img/cover/default.png" data-lazy-src="/img/post/2023.08.10/3.png"></li>
+<li>可以看到背景已经变成学校体育馆，模型成功生效</li>
+</ul>
 </li>
 </ol>
 <hr>
-<p>好了，玩到这里，你应该知道了玩好模型提示词是关键，手握心爱的模型，提示词只会拷贝？不知道应该怎么写？接下来将着重介绍提示词如何填写</p>
+<p>好了，玩到这里，你应该知道了玩好模型提示词是关键，手握喜欢的模型但提示词只会拷贝？不知道应该怎么写？接下来将着重介绍提示词如何填写</p>
 
         </article>
         <div class="post-tools" id="post-tools">
@@ -886,7 +889,7 @@
         <span>文章目录</span>
     </div>
     <div class="toc-content" id="toc-content">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">模型是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-text">如何获取模型？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%A0%BC%E5%BC%8F"><span class="toc-text">模型格式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-text">如何使用模型？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B"><span class="toc-text">基础模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E9%95%BF%E5%8F%91%E5%A5%B3%E5%95%A6%E5%95%A6%E9%98%9F%E9%95%BF"><span class="toc-text">一个长发女啦啦队长</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LoRa-%E6%A8%A1%E5%9E%8B"><span class="toc-text">LoRa 模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%9C%A8%E4%BD%93%E8%82%B2%E9%A6%86%E5%86%85%E7%9A%84%E9%95%BF%E5%8F%91%E5%A5%B3%E5%95%A6%E5%95%A6%E9%98%9F%E9%95%BF"><span class="toc-text">一个在体育馆内的长发女啦啦队长</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">模型是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%8F%96%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-text">如何获取模型？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%A0%BC%E5%BC%8F"><span class="toc-text">模型格式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-text">如何使用模型？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E6%A8%A1%E5%9E%8B"><span class="toc-text">基础模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LoRa-%E6%A8%A1%E5%9E%8B"><span class="toc-text">LoRa 模型</span></a></li></ol></li></ol>
     </div>
 </div>
             
