@@ -6,7 +6,7 @@
   <link href="https://gavinliu.cn/atom.xml" rel="self"/>
   
   <link href="https://gavinliu.cn/"/>
-  <updated>2023-08-25T15:59:29.914Z</updated>
+  <updated>2023-09-02T17:28:05.246Z</updated>
   <id>https://gavinliu.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Stable Diffusion 基础 3 | 提示词快速上手</title>
+    <link href="https://gavinliu.cn/2023/08/17/2d8abc8a9f7e.html"/>
+    <id>https://gavinliu.cn/2023/08/17/2d8abc8a9f7e.html</id>
+    <published>2023-08-17T07:21:54.000Z</published>
+    <updated>2023-09-02T17:28:05.246Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;什么是提示词&quot;&gt;&lt;a href=&quot;#什么是提示词&quot; class=&quot;headerlink&quot; title=&quot;什么是提示词&quot;&gt;&lt;/a&gt;什么是提示词&lt;/h2&gt;&lt;p&gt;讲提示词前，需要给大家先讲一个概念</summary>
+        
+      
+    
+    
+    
+    <category term="AIGC" scheme="https://gavinliu.cn/categories/AIGC/"/>
+    
+    
+    <category term="Stable Diffusion" scheme="https://gavinliu.cn/tags/Stable-Diffusion/"/>
+    
+    <category term="Stable Diffusion 基础" scheme="https://gavinliu.cn/tags/Stable-Diffusion-%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
   
   <entry>
     <title>Stable Diffusion 基础 2 | 模型快速上手</title>
@@ -495,29 +522,6 @@
     
     <summary type="html">&lt;blockquote&gt;
 &lt;p&gt;随着项目越来越大，使用的第三方库也越来越多，难免有时候会库之间的依赖冲突问题，如何解决呢？&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="研发小记" scheme="https://gavinliu.cn/categories/%E7%A0%94%E5%8F%91%E5%B0%8F%E8%AE%B0/"/>
-    
-    
-    <category term="代码人生" scheme="https://gavinliu.cn/tags/%E4%BB%A3%E7%A0%81%E4%BA%BA%E7%94%9F/"/>
-    
-    <category term="Android" scheme="https://gavinliu.cn/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android | 兼容&amp;异常问题分类</title>
-    <link href="https://gavinliu.cn/2017/02/07/52df05f7cbd6.html"/>
-    <id>https://gavinliu.cn/2017/02/07/52df05f7cbd6.html</id>
-    <published>2017-02-07T03:23:09.000Z</published>
-    <updated>2023-07-10T15:30:34.779Z</updated>
-    
-    
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;Android 上经常会出现崩溃，停止响应的异常问题，这篇文章对这些问题进行一个分类，并给出对应的 logcat 关键词，方便以后排除问题。&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
     
