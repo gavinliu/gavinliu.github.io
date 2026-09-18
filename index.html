@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f5f3" />
+    <meta name="description" content="Gavin 的个人空间。用代码构建想法，用好奇心探索生活。个人介绍与社交链接。" />
+    <title>Gavin Liu — 个人空间</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-rounded.png" />
+    <link rel="stylesheet" href="/src/style.css" />
+    <script>
+      try {
+        const saved = localStorage.getItem('gavin-theme');
+        document.documentElement.dataset.theme = saved === 'dark' || saved === 'light'
+          ? saved
+          : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到个人介绍</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="identity" href="./" aria-label="Gavin Liu 主页">
+          <img class="identity-logo" src="/logo.jpeg" alt="" width="44" height="44" />
+          <span class="identity-text"><strong data-profile="fullName">Gavin Liu</strong><span>PERSONAL SPACE / LIU</span></span>
+        </a>
+        <div class="header-actions">
+          <span class="time-label"><span class="status-dot"></span>UTC+8 <time id="local-time">--:--:--</time></span>
+          <button class="icon-button theme-toggle" type="button" aria-label="切换至深色模式" aria-pressed="false"></button>
+        </div>
+      </header>
+
+      <main id="main" tabindex="-1">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="introduction">
+            <div class="eyebrow"><span class="section-number">01 /</span> A LITTLE ABOUT ME</div>
+            <h1 id="hero-title"><span class="greeting">你好，我是</span><span data-profile="fullName">Gavin Liu</span><span class="title-period">.</span></h1>
+            <div class="roles" id="roles"></div>
+            <h2 data-profile="headline">用代码构建想法，用好奇心探索生活。</h2>
+            <p class="bio" data-profile="bio">喜欢简洁的设计、有温度的技术，以及日常里不经意的灵感。这里是我的互联网小角落，很高兴与你相遇。</p>
+            <div class="intro-actions">
+              <button class="hello-button" id="say-hello" type="button"><span>打个招呼</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" /></svg></button>
+              <span class="welcome-note">从一句 Hello，开始新的可能。</span>
+            </div>
+            <div class="interests" id="interests" aria-label="个人兴趣"></div>
+          </div>
+
+          <figure class="brand-panel">
+            <div class="brand-heading"><span><span class="brand-dot" aria-hidden="true"></span> MY PERSONAL SIGNATURE</span><span>© LIU</span></div>
+            <div class="brand-stage">
+              <img src="/logo.jpeg" alt="Liu 个人 LOGO：朱红色方形背景、白色 Liu 字样与右下方的深红色长投影。" width="360" height="360" fetchpriority="high" />
+              <svg class="registration-mark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20" /></svg>
+              <span class="shadow-label" aria-hidden="true">45° / A DIFFERENT PERSPECTIVE</span>
+            </div>
+            <figcaption class="brand-caption"><div><strong>鲜明一点，做自己。</strong><span>ONE NAME. MANY POSSIBILITIES.</span></div><span class="brand-palette" aria-hidden="true"><i></i><i></i><i></i></span></figcaption>
+          </figure>
+        </section>
+
+        <section class="connections" aria-labelledby="connections-title">
+          <div class="section-heading"><h2 id="connections-title"><span class="section-number">02 /</span> 保持连接<span class="section-english">FIND ME ELSEWHERE</span></h2><span class="section-note">不同的平台，同一个我。<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5 5 19M5 5v14h14" /></svg></span></div>
+          <div class="social-grid" id="social-links"></div>
+        </section>
+      </main>
+
+      <footer class="site-footer"><span>© <span id="year">2026</span> <span data-profile="fullName">Gavin Liu</span></span><span class="footer-signature"><span class="footer-mark" aria-hidden="true"></span> STAY CURIOUS. STAY TRUE.</span></footer>
+    </div>
+
+    <dialog id="contact-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+      <div class="dialog-top"><span class="eyebrow"><span class="section-number">↗</span> LET’S CONNECT</span><button class="icon-button close-dialog" type="button" aria-label="关闭对话框"></button></div>
+      <div class="dialog-symbol" aria-hidden="true"></div>
+      <h2 id="dialog-title">很高兴认识你。</h2>
+      <p id="dialog-description"></p>
+      <div class="contact-detail" hidden><span id="contact-value"></span><button class="icon-button copy-contact" type="button" aria-label="复制联系方式"></button></div>
+      <a class="hello-button send-email" hidden><span>写一封邮件</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14" /></svg></a>
+      <button class="dialog-dismiss" type="button">下次再聊 <span aria-hidden="true">↗</span></button>
+      <p class="copy-status" role="status" aria-live="polite"></p>
+    </dialog>
+    <noscript><p class="noscript-notice">开启 JavaScript 即可查看社交入口与联系方式。</p></noscript>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
